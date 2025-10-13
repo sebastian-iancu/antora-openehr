@@ -1,0 +1,130 @@
+site:
+  title: openEHR Specifications
+  url: https://specifications.openehr.org
+  start_page: BASE::index.adoc
+  keys:
+    google_analytics: ''  # Add your GA key here if needed
+
+content:
+  sources:
+    # BASE Component - Foundation specifications
+    - url: https://github.com/openEHR/specifications-BASE
+      branches: 
+        - master
+        - 'release/1.0.2'
+        - 'release/1.0.3'
+        - 'release/1.1.0'
+      start_path: .
+    
+    # RM Component - Reference Model
+    - url: https://github.com/openEHR/specifications-RM
+      branches:
+        - master
+        - 'release/1.0.2'
+        - 'release/1.0.3'
+        - 'release/1.0.4'
+        - 'release/1.1.0'
+      start_path: .
+    
+    # AM Component - Archetype Model
+    - url: https://github.com/openEHR/specifications-AM
+      branches:
+        - master
+        - 'release/1.4.0'
+        - 'release/2.0.6'
+        - 'release/2.1.0'
+        - 'release/2.2.0'
+        - 'release/2.3.0'
+      start_path: .
+    
+    # LANG Component - Languages (AQL, EL, ODIN, etc.)
+    - url: https://github.com/openEHR/specifications-LANG
+      branches:
+        - master
+        - 'release/*'
+      start_path: .
+    
+    # SM Component - Service Model
+    - url: https://github.com/openEHR/specifications-SM
+      branches:
+        - master
+        - 'release/*'
+      start_path: .
+    
+    # QUERY Component - Query specifications
+    - url: https://github.com/openEHR/specifications-QUERY
+      branches:
+        - master
+        - 'release/*'
+      start_path: .
+    
+    # PROC Component - Process/Task Planning
+    - url: https://github.com/openEHR/specifications-PROC
+      branches:
+        - master
+        - 'release/*'
+      start_path: .
+    
+    # CDS Component - Clinical Decision Support
+    - url: https://github.com/openEHR/specifications-CDS
+      branches:
+        - master
+        - 'release/*'
+      start_path: .
+    
+    # CNF Component - Conformance
+    - url: https://github.com/openEHR/specifications-CNF
+      branches:
+        - master
+        - 'release/*'
+      start_path: .
+    
+    # ITS Component - Implementation Technology Specifications
+    - url: https://github.com/openEHR/specifications-ITS
+      branches:
+        - master
+        - 'release/*'
+      start_path: .
+
+ui:
+  bundle:
+    url: https://gitlab.com/antora/antora-ui-default/-/jobs/artifacts/HEAD/raw/build/ui-bundle.zip?job=bundle-stable
+    snapshot: true
+  supplemental_files: ./supplemental-ui
+  output_dir: _
+
+asciidoc:
+  attributes:
+    # Global attributes (migrated from AA_GLOBAL)
+    page-pagination: true
+    experimental: ''
+    idprefix: ''
+    idseparator: '-'
+    sectanchors: ''
+    sectlinks: ''
+    linkattrs: ''
+    source-highlighter: rouge
+    rouge-style: github
+    
+    # openEHR specific attributes
+    openehr-version: '1.0.4'
+    spec-base-url: 'https://specifications.openehr.org'
+    
+  extensions:
+    - asciidoctor-kroki
+    - '@asciidoctor/core'
+
+runtime:
+  fetch: true
+  cache_dir: ./.cache/antora
+  
+output:
+  dir: ./build/site
+  clean: true
+
+# URLs and redirects configuration
+urls:
+  html_extension_style: indexify
+  latest_version_segment_strategy: redirect:to
+  latest_version_segment: latest
+  redirect_facility: nginx

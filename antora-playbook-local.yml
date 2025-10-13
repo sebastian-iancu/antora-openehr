@@ -1,0 +1,85 @@
+site:
+  title: openEHR Specifications (Local Build)
+  url: http://localhost:8080
+  start_page: BASE::index.adoc
+
+content:
+  sources:
+    # Local sources for development
+    # Clone repositories into ../repos/ directory relative to this playbook
+    
+    - url: repos/specifications-BASE
+      branches: HEAD
+      start_path: .
+    
+    - url: repos/specifications-RM
+      branches: HEAD
+      start_path: .
+    
+#    - url: ../repos/specifications-AM
+#      branches: HEAD
+#      start_path: .
+#
+#    - url: ../repos/specifications-LANG
+#      branches: HEAD
+#      start_path: .
+#
+#    - url: ../repos/specifications-SM
+#      branches: HEAD
+#      start_path: .
+#
+#    - url: ../repos/specifications-QUERY
+#      branches: HEAD
+#      start_path: .
+#
+#    - url: ../repos/specifications-PROC
+#      branches: HEAD
+#      start_path: .
+#
+#    - url: ../repos/specifications-CDS
+#      branches: HEAD
+#      start_path: .
+#
+#    - url: ../repos/specifications-CNF
+#      branches: HEAD
+#      start_path: .
+#
+#    - url: ../repos/specifications-ITS
+#      branches: HEAD
+#      start_path: .
+
+ui:
+  bundle:
+    url: https://gitlab.com/antora/antora-ui-default/-/jobs/artifacts/HEAD/raw/build/ui-bundle.zip?job=bundle-stable
+    snapshot: true
+  supplemental_files: ./supplemental-ui
+  output_dir: _
+
+asciidoc:
+  attributes:
+    page-pagination: true
+    experimental: ''
+    idprefix: ''
+    idseparator: '-'
+    sectanchors: ''
+    sectlinks: ''
+    linkattrs: ''
+    source-highlighter: rouge
+    rouge-style: github
+    openehr-version: '1.0.4'
+    spec-base-url: 'http://localhost:8080'
+  extensions:
+    - asciidoctor-kroki
+
+runtime:
+  fetch: true
+  cache_dir: ./.cache/antora
+  
+output:
+  dir: ./build/site
+  clean: true
+
+urls:
+  html_extension_style: indexify
+  latest_version_segment_strategy: redirect:to
+  latest_version_segment: latest

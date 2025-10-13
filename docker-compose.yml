@@ -1,0 +1,34 @@
+version: '3.8'
+
+services:
+  antora:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: openehr-antora:latest
+    container_name: openehr-antora-builder
+    volumes:
+      - .:/workspace
+      - ./build:/build
+      # Cache npm and git to speed up builds
+      - npm-cache:/root/.npm
+      - git-cache:/root/.cache/git
+    working_dir: /workspace
+    environment:
+      - NODE_ENV=development
+    command: tail -f /dev/null  # Keep container running for interactive use
+
+  # Optional: HTTP server to preview the built site
+  preview:
+    image: nginx:alpine
+    container_name: openehr-antora-preview
+    ports:
+      - "8081:80"
+    volumes:
+      - ./build/site:/usr/share/nginx/html:ro
+    depends_on:
+      - antora
+
+volumes:
+  npm-cache:
+  git-cache:

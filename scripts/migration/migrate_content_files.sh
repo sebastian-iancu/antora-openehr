@@ -139,6 +139,29 @@ apply_manifest_vars() {
 # -------------------------------------------------------------------
 # Module processor
 # -------------------------------------------------------------------
+# -------------------------------------------------------------------
+# Replace {diagram} with images/diagrams
+# -------------------------------------------------------------------
+
+replace_diagram_attr() {
+  local module="$1"
+  local pages_dir="modules/$module/pages"
+
+  [ -d "$pages_dir" ] || return 0
+
+  echo "  • Replacing {diagrams_uri}/ → images/diagrams in $pages_dir"
+
+  for f in "$pages_dir"/*.adoc; do
+    [ -f "$f" ] || continue
+    if is_dry_run; then
+      echo "    [DRY-RUN] Would replace {diagram} in $f"
+    else
+      sed -i "s|{diagrams_uri}|diagrams|g" "$f"
+    fi
+  done
+}
+
+
 
 process_module() {
   local module="$1"
@@ -161,6 +184,7 @@ process_module() {
 
   # 2. Replace {spec_title}, {copyright_year}, etc from manifest_vars
   apply_manifest_vars "$module"
+  replace_diagram_attr "$module"
 
   # 3. Assets
   copy_images "$module"

@@ -6,6 +6,7 @@ set -e
 
 REPO_PATH="$1"
 DRY_RUN="${2:-false}"
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 
 if [ -z "$REPO_PATH" ]; then
     echo "Error: Repository path not provided"
@@ -163,7 +164,9 @@ for module in $MODULES; do
     if [ -f "docs/$module/master.adoc" ]; then
         echo "  • master.adoc → pages/index.adoc"
         if [ "$DRY_RUN" != "dry-run" ]; then
-            cp "docs/$module/master.adoc" "modules/$module/pages/index.adoc"
+            TARGET_FILE="modules/$module/pages/index.adoc"
+            cp "docs/$module/master.adoc" "$TARGET_FILE"
+            "$SCRIPT_DIR/alter_master_adoc.sh" "$TARGET_FILE"
         fi
     fi
     
@@ -237,34 +240,8 @@ echo ""
 echo "Step 6: Creating navigation files..."
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 
-# Create ROOT navigation
-if [ "$DRY_RUN" != "dry-run" ]; then
-    cat > "modules/ROOT/nav.adoc" << EOF
-* xref:index.adoc[Overview]
-EOF
-    echo "✓ Created ROOT/nav.adoc"
-else
-    echo "[DRY-RUN] Would create modules/ROOT/nav.adoc"
-fi
-
-# Create navigation for each module
-for module in $MODULES; do
-    if [ "$module" = "UML" ] || [ "$module" = "uml" ]; then
-        continue
-    fi
-    
-    MODULE_TITLE=$(echo "$module" | sed 's/_/ /g' | sed 's/\b\(.\)/\u\1/g')
-    
-    if [ "$DRY_RUN" != "dry-run" ]; then
-        cat > "modules/$module/nav.adoc" << EOF
-.${MODULE_TITLE}
-* xref:index.adoc[${MODULE_TITLE}]
-EOF
-        echo "✓ Created $module/nav.adoc"
-    else
-        echo "[DRY-RUN] Would create modules/$module/nav.adoc"
-    fi
-done
+# Delegate nav.adoc creation to separate script
+"$SCRIPT_DIR/create_nav_files.sh" "$DRY_RUN" $MODULES
 
 echo ""
 echo "Step 7: Creating ROOT index page..."

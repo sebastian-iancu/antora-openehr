@@ -94,7 +94,7 @@ migrate-repo: ## Migrate a single repository to Antora structure (usage: make mi
 		exit 1; \
 	fi
 	@echo "$(GREEN)Migrating $(REPO) to Antora structure...$(NC)"
-	@./scripts/migrate-repo.sh $(REPOS_DIR)/$(REPO)
+	@./scripts/migration/migrate-repo.sh $(REPOS_DIR)/$(REPO)
 
 migrate-all: clone-repos ## Migrate all repositories to Antora structure
 	@echo "$(GREEN)Migrating all repositories to Antora structure...$(NC)"
@@ -157,6 +157,7 @@ clean-all: clean ## Clean everything including cloned repos
 
 ##@ Preview
 
+
 preview: ## Start local HTTP server to preview built site
 	@if [ ! -d "$(BUILD_DIR)/site" ]; then \
 		echo "$(RED)Error: Build directory not found. Run 'make build' or 'make build-local' first.$(NC)"; \
@@ -169,6 +170,16 @@ preview: ## Start local HTTP server to preview built site
 preview-docker: docker-up build-docker ## Build and preview using Docker
 	@echo "$(GREEN)Site is available at http://localhost:8080$(NC)"
 	@echo "$(YELLOW)Preview server is running in Docker. Use 'make docker-down' to stop.$(NC)"
+
+
+migrate-spec: ## Run full migration, build, and preview workflow
+	@echo "$(GREEN)Running full migration workflow...$(NC)"
+	@make migrate-all
+	@echo "$(GREEN)Migration completed. Building site...$(NC)"
+	@make build-local
+	@echo "$(GREEN)Build completed. Starting preview server...$(NC)"
+	@make preview
+
 
 ##@ Development Workflow
 
@@ -202,3 +213,4 @@ check-deps: ## Check if required dependencies are installed
 	@command -v git >/dev/null 2>&1 || { echo "$(RED)git is not installed$(NC)"; exit 1; }
 	@command -v docker >/dev/null 2>&1 || { echo "$(YELLOW)Docker is not installed (optional)$(NC)"; }
 	@echo "$(GREEN)All required dependencies are installed$(NC)"
+

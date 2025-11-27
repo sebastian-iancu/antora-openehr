@@ -151,57 +151,7 @@ fi
 echo ""
 echo "Step 4: Migrating content files..."
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-
-# Process each module's content
-for module in $MODULES; do
-    if [ "$module" = "UML" ] || [ "$module" = "uml" ]; then
-        continue
-    fi
-    
-    echo "→ Processing content in: $module"
-    
-    # Find master.adoc (main page file)
-    if [ -f "docs/$module/master.adoc" ]; then
-        echo "  • master.adoc → pages/index.adoc"
-        if [ "$DRY_RUN" != "dry-run" ]; then
-            TARGET_FILE="modules/$module/pages/index.adoc"
-            cp "docs/$module/master.adoc" "$TARGET_FILE"
-            "$SCRIPT_DIR/alter_master_adoc.sh" "$TARGET_FILE"
-        fi
-    fi
-    
-    # Move all master##-*.adoc files to pages with renamed names
-    if [ "$DRY_RUN" != "dry-run" ]; then
-        find "docs/$module" -name "master[0-9][0-9]-*.adoc" 2>/dev/null | while read -r file; do
-            basename_file=$(basename "$file")
-            # Extract the part after "master##-"
-            new_name=$(echo "$basename_file" | sed 's/master[0-9][0-9]-//')
-            echo "  • $basename_file → pages/$new_name"
-            cp "$file" "modules/$module/pages/$new_name"
-        done
-    else
-        echo "  [DRY-RUN] Would move master##-*.adoc files to pages/"
-    fi
-    
-    # Move images if they exist
-    if [ -d "docs/$module/images" ]; then
-        echo "  • Copying images/"
-        if [ "$DRY_RUN" != "dry-run" ]; then
-            cp -r "docs/$module/images/"* "modules/$module/images/" 2>/dev/null || true
-        fi
-    fi
-    
-    # Move diagrams if they exist
-    if [ -d "docs/$module/diagrams" ]; then
-        echo "  • Copying diagrams/ to images/"
-        execute mkdir -p "modules/$module/images/diagrams"
-        if [ "$DRY_RUN" != "dry-run" ]; then
-            cp -r "docs/$module/diagrams/"* "modules/$module/images/diagrams/" 2>/dev/null || true
-        fi
-    fi
-    
-    echo "✓ Processed: $module"
-done
+"$SCRIPT_DIR/migrate_content_files.sh" "$DRY_RUN" $MODULES
 
 echo ""
 echo "Step 5: Creating antora.yml component descriptor..."

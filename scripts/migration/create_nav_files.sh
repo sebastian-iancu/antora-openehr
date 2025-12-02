@@ -20,15 +20,40 @@ to_title_case() {
     | sed 's/\b\(.\)/\u\1/g'
 }
 
-# Get the first level-0 Asciidoc header (= ...) from a page
-# If none found, print empty string
+# Get the first = header from a page
 get_title_from_page() {
   local page_file="$1"
-
   [ -f "$page_file" ] || { echo ""; return; }
 
-  # First line starting with "= " -> strip leading "= " and return
-  awk '/^= / { sub(/^= /,""); print; exit }' "$page_file"
+  awk '/^[[:space:]]*= / { sub(/^[[:space:]]*= /,""); print; exit }' "$page_file"
+}
+
+# -------------------------------------------------------------------
+# NEW: Extract :spec_title: from manifest_vars.adoc
+# -------------------------------------------------------------------
+
+get_spec_title_from_manifest() {
+  local module="$1"
+  local manifest=""
+
+  # Prefer per-module manifest_vars
+  if [ -f "docs/$module/manifest_vars.adoc" ]; then
+    manifest="docs/$module/manifest_vars.adoc"
+  elif [ -f "docs/manifest_vars.adoc" ]; then
+    manifest="docs/manifest_vars.adoc"
+  else
+    echo ""
+    return
+  fi
+
+  # Find line beginning with :spec_title:
+  local line
+  line="$(grep '^:spec_title:' "$manifest" | head -n1 || true)"
+
+  [ -z "$line" ] && { echo ""; return; }
+
+  # Remove prefix ":spec_title: "
+  echo "${line#*:spec_title: }"
 }
 
 # -------------------------------------------------------------------
@@ -54,69 +79,37 @@ EOF
 # Module nav generation
 # -------------------------------------------------------------------
 
-# Extract chapter includes from docs/<module>/master.adoc (AFTER :sectnums:)
-# and turn them into nav entries.
-#
-# Input:
-#   $1 = module name
-#
-# Output:
-#   writes lines like:
-#     ** xref:overview.adoc[Integrating openEHR with other Systems]
-#   and, if an amendment_record include exists anywhere in master.adoc:
-#     ** xref:amendment_record.adoc[Amendment Record]  (as last entry)
-#
 generate_nav_entries_from_master() {
   local module="$1"
   local master_file="docs/$module/master.adoc"
 
   [ -f "$master_file" ] || return 0
 
-  # 1) Normal chapter entries from lines after :sectnums:
   awk 'found {print} /:sectnums:/{found=1}' "$master_file" \
     | grep '^include::' 2>/dev/null \
     | sed -E 's/^include::([^[]+)\[.*/\1/' \
     | while read -r target; do
-        # Skip blank
         [ -z "$target" ] && continue
 
-        # Skip anything with a path or attribute in it
         case "$target" in
-          *"/"*|*"{"* )
-            continue
-            ;;
+          *"/"*|*"{"* ) continue ;;
         esac
 
-        # Skip manifest_vars.adoc explicitly (no nav entry for that)
         case "$target" in
-          manifest_vars.adoc)
-            continue
-            ;;
+          manifest_vars.adoc) continue ;;
         esac
 
-        # Skip amendment_record here; we'll add it explicitly at the end
         case "$target" in
-          master00-amendment_record.adoc|amendment_record.adoc)
-            continue
-            ;;
+          master00-amendment_record.adoc|amendment_record.adoc) continue ;;
         esac
 
-        # target examples:
-        #   "master01-overview.adoc"
-        #   "amendment_record.adoc"
         local base="${target%.adoc}"
-
-        # Strip masterNN- prefix to match your migration filenames:
-        # master01-overview -> overview
         base="$(echo "$base" | sed 's/^master[0-9][0-9]-//')"
 
         local page_file="modules/$module/pages/${base}.adoc"
         local title
 
-        # Prefer the first main header (= ...) from the actual page
         title="$(get_title_from_page "$page_file")"
-
-        # Fallback: derive something readable from the filename
         if [ -z "$title" ]; then
           title="$(to_title_case "$base")"
         fi
@@ -124,7 +117,6 @@ generate_nav_entries_from_master() {
         echo "** xref:${base}.adoc[${title}]"
       done
 
-  # 2) Amendment record as last entry, if included anywhere in master.adoc
   if grep -q 'include::.*amendment_record\.adoc' "$master_file"; then
     echo "** xref:amendment_record.adoc[Amendment Record]"
   fi
@@ -133,7 +125,6 @@ generate_nav_entries_from_master() {
 create_module_nav() {
   local module="$1"
 
-  # Skip UML modules
   case "$module" in
     UML|uml)
       echo "  Skipping nav for UML module: $module"
@@ -143,7 +134,7 @@ create_module_nav() {
 
   if is_dry_run; then
     echo "[DRY-RUN] Would create modules/$module/nav.adoc"
-    echo "[DRY-RUN] Would inspect docs/$module/master.adoc and modules/$module/pages/*.adoc for titles"
+    echo "[DRY-RUN] Would extract module title from manifest_vars or index.adoc"
     return
   fi
 
@@ -152,23 +143,30 @@ create_module_nav() {
 
   mkdir -p "modules/$module"
 
-  # Top-level title: take from the first header in index.adoc if possible
+  # ------------------------------------------------------------------
+  # TITLE RESOLUTION PRIORITY:
+  # 1) :spec_title: from manifest_vars.adoc
+  # 2) First "= Heading" in index.adoc
+  # 3) Prettified module name
+  # ------------------------------------------------------------------
   local module_title
-  module_title="$(get_title_from_page "$index_file")"
+
+  module_title="$(get_spec_title_from_manifest "$module")"
+
   if [ -z "$module_title" ]; then
-    # fallback to module name if index.adoc has no "= ..." header
+    module_title="$(get_title_from_page "$index_file")"
+  fi
+
+  if [ -z "$module_title" ]; then
     module_title="$(to_title_case "$module")"
   fi
 
   {
-    # Top-level entry for the module index page
     echo "* xref:index.adoc[${module_title}]"
-
-    # Child entries derived from master.adoc (after :sectnums: + amendment last)
     generate_nav_entries_from_master "$module"
   } > "$nav_file"
 
-  echo "✓ Created modules/$module/nav.adoc (from master + page headers)"
+  echo "✓ Created modules/$module/nav.adoc"
 }
 
 # -------------------------------------------------------------------
@@ -176,7 +174,6 @@ create_module_nav() {
 # -------------------------------------------------------------------
 
 echo "→ Generating navigation files..."
-
 create_root_nav
 
 for module in $MODULES; do

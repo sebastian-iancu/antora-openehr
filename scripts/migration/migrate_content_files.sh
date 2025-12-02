@@ -88,53 +88,58 @@ copy_diagrams() {
 # Apply manifest vars by replacing {var} with literal values
 # -------------------------------------------------------------------
 
+
 apply_manifest_vars() {
   local module="$1"
   local pages_dir="modules/$module/pages"
+  local partials_dir="modules/$module/partials"
 
   # Pick per-module manifest_vars.adoc if present, else global
-  local manifest=""
+  local manifest_src=""
   if [ -f "docs/$module/manifest_vars.adoc" ]; then
-    manifest="docs/$module/manifest_vars.adoc"
+    manifest_src="docs/$module/manifest_vars.adoc"
   elif [ -f "docs/manifest_vars.adoc" ]; then
-    manifest="docs/manifest_vars.adoc"
+    manifest_src="docs/manifest_vars.adoc"
   else
+    # nothing to do
     return 0
   fi
 
   [ -d "$pages_dir" ] || return 0
 
-  echo "  • Applying manifest_vars substitutions in $pages_dir/ using $manifest"
+  echo "  • Installing manifest_vars partial and include in $pages_dir/"
 
-  shopt -s nullglob
+  # 1) copy manifest_vars into module partials
+  if is_dry_run; then
+    echo "    [DRY-RUN] Would create $partials_dir and copy $manifest_src → $partials_dir/manifest_vars.adoc"
+  else
+    mkdir -p "$partials_dir"
+    cp "$manifest_src" "$partials_dir/manifest_vars.adoc"
+  fi
 
-  # Each line is like:
-  # :spec_title: Architecture Overview
-  while IFS= read -r line; do
-    # Only lines that look like :name: value
-    [[ "$line" =~ ^:([^:]+):[[:space:]]*(.*)$ ]] || continue
+  # 2) prepend include::partial$manifest_vars.adoc[] to each page if not already there
+  for f in "$pages_dir"/*.adoc; do
+    [ -f "$f" ] || continue
 
-    local name="${BASH_REMATCH[1]}"   # spec_title
-    local value="${BASH_REMATCH[2]}"  # Architecture Overview
+    # already contains the include? skip
+    if grep -q 'include::partial\$manifest_vars.adoc\[\]' "$f"; then
+      continue
+    fi
 
-    # Escape chars that sed might choke on
-    local safe_value="$value"
-    safe_value="${safe_value//&/\\&}"
-    safe_value="${safe_value//|/\\|}"
-
-    for f in "$pages_dir"/*.adoc; do
-      [ -f "$f" ] || continue
-      if is_dry_run; then
-        echo "    [DRY-RUN] Would replace {$name} → $value in $f"
-      else
-        # Replace exact {spec_title}, {copyright_year}, etc.
-        sed -i "s|{$name}|$safe_value|g" "$f"
-      fi
-    done
-  done < "$manifest"
-
-  shopt -u nullglob
+    if is_dry_run; then
+      echo "    [DRY-RUN] Would prepend include::partial\$manifest_vars.adoc[] to $f"
+    else
+      local tmp="${f}.tmp"
+      {
+        echo "include::partial\$manifest_vars.adoc[]"
+        echo
+        cat "$f"
+      } > "$tmp"
+      mv "$tmp" "$f"
+    fi
+  done
 }
+
 
 # -------------------------------------------------------------------
 # Module processor

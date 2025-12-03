@@ -200,7 +200,7 @@ Before making changes, test the migration:
 
 ```bash
 cd repos/specifications-BASE
-../../scripts/migrate-repo.sh . dry-run
+../../scripts/main-migrate-repo.sh . dry-run
 ```
 
 Review the output to understand what changes will be made.

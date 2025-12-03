@@ -94,7 +94,7 @@ migrate-repo: ## Migrate a single repository to Antora structure (usage: make mi
 		exit 1; \
 	fi
 	@echo "$(GREEN)Migrating $(REPO) to Antora structure...$(NC)"
-	@./scripts/migration/migrate-repo.sh $(REPOS_DIR)/$(REPO)
+	@./scripts/migration/main-migrate-repo.sh $(REPOS_DIR)/$(REPO)
 
 migrate-all: clone-repos ## Migrate all repositories to Antora structure
 	@echo "$(GREEN)Migrating all repositories to Antora structure...$(NC)"

@@ -4,39 +4,45 @@ set -euo pipefail
 # Usage: 8-apply-manifest-vars.sh <module1> <module2> ...
 MODULES="$@"
 
-apply_manifest_vars() {
-  local module="$1"
-  local pages_dir="modules/$module/pages"
-  local partials_dir="modules/$module/partials"
-  local root_partials_dir="modules/ROOT/partials"
-  # adjust if needed; from repo root this would usually be "resources/global_vars.adoc"
-  local global_vars_src="resources/global_vars.adoc"
+# -------------------------------------------------------------------
+# Helpers
+# -------------------------------------------------------------------
 
-  # Pick per-module manifest_vars.adoc if present, else global
+get_manifest_src_for_module() {
+  local module="$1"
   local manifest_src=""
+
   if [ -f "docs/$module/manifest_vars.adoc" ]; then
     manifest_src="docs/$module/manifest_vars.adoc"
   elif [ -f "docs/manifest_vars.adoc" ]; then
     manifest_src="docs/manifest_vars.adoc"
   else
-    # nothing to do
+    manifest_src=""
+  fi
+
+  echo "$manifest_src"
+}
+
+ensure_root_global_vars() {
+  local root_partials_dir="modules/ROOT/partials"
+  local global_vars_src="../../resources/global_vars.adoc"
+
+  if [ ! -f "$global_vars_src" ]; then
     return 0
   fi
 
-  [ -d "$pages_dir" ] || return 0
+  echo "    • Ensuring global_vars.adoc is installed in modules/ROOT/partials"
+  mkdir -p "$root_partials_dir"
+  cp "$global_vars_src" "$root_partials_dir/global_vars.adoc"
+}
 
-  echo "  • Installing manifest_vars partial and include in $pages_dir/"
-
-  # Ensure global_vars.adoc is in ROOT partials
-  if [ -f "$global_vars_src" ]; then
-    echo "    • Ensuring global_vars.adoc is installed in modules/ROOT/partials"
-    mkdir -p "$root_partials_dir"
-    cp "$global_vars_src" "$root_partials_dir/global_vars.adoc"
-  fi
-
-  # Create module partials and install manifest_vars.adoc (including global_vars)
-  mkdir -p "$partials_dir"
+install_manifest_partial() {
+  local module="$1"
+  local manifest_src="$2"
+  local partials_dir="modules/$module/partials"
   local manifest_dest="$partials_dir/manifest_vars.adoc"
+
+  mkdir -p "$partials_dir"
 
   if grep -q 'include::ROOT:partial\$global_vars.adoc\[\]' "$manifest_src"; then
     # Source already includes the ROOT global include; just copy it
@@ -51,6 +57,13 @@ apply_manifest_vars() {
     } > "$tmp_manifest"
     mv "$tmp_manifest" "$manifest_dest"
   fi
+}
+
+prepend_manifest_include_to_pages() {
+  local module="$1"
+  local pages_dir="modules/$module/pages"
+
+  [ -d "$pages_dir" ] || return 0
 
   # Prepend include::partial$manifest_vars.adoc[] to each page if not already there
   for f in "$pages_dir"/*.adoc; do
@@ -69,6 +82,35 @@ apply_manifest_vars() {
     mv "$tmp" "$f"
   done
 }
+
+# -------------------------------------------------------------------
+# Orchestrator for a single module
+# -------------------------------------------------------------------
+
+apply_manifest_vars() {
+  local module="$1"
+  local pages_dir="modules/$module/pages"
+
+  [ -d "$pages_dir" ] || return 0
+
+  local manifest_src
+  manifest_src="$(get_manifest_src_for_module "$module")"
+
+  if [ -z "$manifest_src" ]; then
+    # nothing to do for this module
+    return 0
+  fi
+
+  echo "  • Installing manifest_vars partial and include in $pages_dir/"
+
+  ensure_root_global_vars
+  install_manifest_partial "$module" "$manifest_src"
+  prepend_manifest_include_to_pages "$module"
+}
+
+# -------------------------------------------------------------------
+# Main
+# -------------------------------------------------------------------
 
 echo "Step 8: Applying manifest vars..."
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"

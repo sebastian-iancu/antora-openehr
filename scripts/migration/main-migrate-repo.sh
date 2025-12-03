@@ -71,3 +71,7 @@ MODULES="$("$SCRIPT_DIR/1-analyze-structure.sh")"
 
 # Step 8: Create ROOT index page
 "$SCRIPT_DIR/8-apply-manifest-vars.sh" $MODULES
+
+# Step 9: Rewrite UML class includes to ROOT partials
+"$SCRIPT_DIR/9-rewrite-uml-class-includes.sh" $MODULES
+

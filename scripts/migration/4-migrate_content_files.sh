@@ -56,7 +56,6 @@ copy_diagrams() {
   fi
 }
 
-
 # -------------------------------------------------------------------
 # Replace {diagrams_uri} with diagrams
 # -------------------------------------------------------------------
@@ -72,27 +71,6 @@ replace_diagram_attr() {
   for f in "$pages_dir"/*.adoc; do
     [ -f "$f" ] || continue
     sed -i "s|{diagrams_uri}|diagrams|g" "$f"
-  done
-}
-
-# -------------------------------------------------------------------
-# Rewrite UML class includes using {uml_export_dir}
-# -------------------------------------------------------------------
-
-replace_uml_class_includes() {
-  local module="$1"
-  local pages_dir="modules/$module/pages"
-
-  [ -d "$pages_dir" ] || return 0
-
-  echo "  • Rewriting UML class includes to ROOT UML partials in $pages_dir"
-
-  for f in "$pages_dir"/*.adoc; do
-    [ -f "$f" ] || continue
-
-    # include::{uml_export_dir}/classes/X.adoc[]
-    #   → include::ROOT:partial$uml/X.adoc[]
-    sed -i 's|include::[{]uml_export_dir[}]/classes/\([^[]]*\)\[\]|include::ROOT:partial$uml/\1[]|g' "$f"
   done
 }
 
@@ -119,13 +97,10 @@ process_module() {
   copy_master "$module"
   copy_master_numbered "$module"
 
-  # 2. Apply manifest vars and replace diagram attr
+  # 2. Replace diagram attr
   replace_diagram_attr "$module"
 
-  # 3. Rewrite UML class includes to ROOT partials
-  replace_uml_class_includes "$module"
-
-  # 4. Assets
+  # 3. Assets
   copy_images "$module"
   copy_diagrams "$module"
 

@@ -22,9 +22,9 @@ if [ -d "docs/UML" ] || [ -d "docs/uml" ]; then
     # Move UML diagrams to ROOT images
     if [ -d "$UML_DIR/diagrams" ]; then
         echo "→ Moving UML diagrams to ROOT/images/uml/diagrams/"
-        mkdir -p modules/ROOT/images/uml/diagrams
+        mkdir -p modules/ROOT/images/uml
         find "$UML_DIR/diagrams" \( -name "*.svg" -o -name "*.png" -o -name "*.jpg" \) \
-            -exec cp {} modules/ROOT/images/uml/diagrams/ \;
+            -exec cp {} modules/ROOT/images/uml/ \;
         echo "✓ Moved UML diagrams"
     fi
 else

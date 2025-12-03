@@ -93,7 +93,11 @@ generate_nav_entries_from_master() {
         esac
 
         local base="${target%.adoc}"
-        base="$(echo "$base" | sed 's/^master[0-9][0-9]-//')"
+
+        # REMOVE ALL MASTER PREFIX PATTERNS
+        # masterNN-something -> something
+        # masterAppA-glossary -> glossary
+        base="$(echo "$base" | sed -E 's/^master[0-9][0-9]-//; s/^masterAppA-//')"
 
         local page_file="modules/$module/pages/${base}.adoc"
         local title
@@ -110,6 +114,7 @@ generate_nav_entries_from_master() {
     echo "** xref:amendment_record.adoc[Amendment Record]"
   fi
 }
+
 
 create_module_nav() {
   local module="$1"

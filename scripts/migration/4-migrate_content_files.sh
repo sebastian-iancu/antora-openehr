@@ -1,9 +1,6 @@
 #!/bin/bash
 set -euo pipefail
 
-# This script expects:
-#   $1..$N   : module names
-
 MODULES="$@"
 
 # -------------------------------------------------------------------
@@ -18,7 +15,6 @@ copy_master() {
   if [ -f "$src" ]; then
     echo "  • master.adoc → pages/index.adoc"
     cp "$src" "$dst"
-    # Remove ALL include:: lines from index.adoc
     sed -i '/^include::/d' "$dst"
   fi
 }
@@ -26,15 +22,55 @@ copy_master() {
 copy_master_numbered() {
   local module="$1"
 
-  find "docs/$module" -name "master[0-9][0-9]-*.adoc" 2>/dev/null | while read -r src; do
-    local base new
+  # Copy all masterNN-* and masterAppA-* files, stripping the prefix
+  find "docs/$module" \( -name "master[0-9][0-9]-*.adoc" -o -name "masterAppA-*.adoc" \) 2>/dev/null \
+    | while read -r src; do
+        local base new
 
-    base="$(basename "$src")"                          # e.g. master01-overview.adoc
-    new="$(echo "$base" | sed 's/master[0-9][0-9]-//')"  # e.g. overview.adoc
+        base="$(basename "$src")"
+        # Strip prefixes:
+        #   masterNN-something.adoc   -> something.adoc
+        #   masterAppA-something.adoc -> something.adoc
+        new="$(echo "$base" | sed -E 's/^master[0-9][0-9]-//; s/^masterAppA-//')"
 
-    echo "  • $base → pages/$new"
-    cp "$src" "modules/$module/pages/$new"
-  done
+        echo "  • $base → pages/$new"
+        cp "$src" "modules/$module/pages/$new"
+      done
+}
+
+copy_included_non_master() {
+  local module="$1"
+  local master_file="docs/$module/master.adoc"
+
+  [ -f "$master_file" ] || return 0
+
+  awk 'found {print} /:sectnums:/{found=1}' "$master_file" \
+    | grep '^include::' 2>/dev/null \
+    | sed -E 's/^include::([^[]+)\[.*/\1/' \
+    | while read -r target; do
+        [ -z "$target" ] && continue
+
+        # skip paths and attribute-based includes
+        case "$target" in
+          *"/"*|*"{"* ) continue ;;
+        esac
+
+        # skip things handled elsewhere (master files)
+        case "$target" in
+          manifest_vars.adoc) continue ;;
+          master[0-9][0-9]-*.adoc) continue ;;
+          masterAppA-*.adoc) continue ;;
+          master00-amendment_record.adoc|amendment_record.adoc) continue ;;
+        esac
+
+        local src="docs/$module/$target"
+        local dst="modules/$module/pages/$target"
+
+        if [ -f "$src" ]; then
+          echo "  • $target → pages/$target"
+          cp "$src" "$dst"
+        fi
+      done
 }
 
 copy_images() {
@@ -90,17 +126,14 @@ process_module() {
 
   echo "→ Processing module: $module"
 
-  # Ensure directories
   mkdir -p "modules/$module/pages" "modules/$module/images"
 
-  # 1. Copy master + numbered masters
   copy_master "$module"
   copy_master_numbered "$module"
+  copy_included_non_master "$module"
 
-  # 2. Replace diagram attr
   replace_diagram_attr "$module"
 
-  # 3. Assets
   copy_images "$module"
   copy_diagrams "$module"
 

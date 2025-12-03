@@ -15,7 +15,8 @@ copy_master() {
   if [ -f "$src" ]; then
     echo "  • master.adoc → pages/index.adoc"
     cp "$src" "$dst"
-    sed -i '/^include::/d' "$dst"
+    # Remove ALL include:: lines and the openehr logo image line
+    sed -i '/^include::/d;/^image::{openehr_logo}/d' "$dst"
   fi
 }
 

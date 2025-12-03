@@ -58,6 +58,8 @@ cd openehr-antora
 # Install dependencies
 npm install
 
+npm install medium-zoom
+
 # Or use Docker
 make docker-build
 ```

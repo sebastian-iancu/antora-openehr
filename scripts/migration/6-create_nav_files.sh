@@ -1,209 +1,164 @@
 #!/bin/bash
-set -euo pipefail
-
-# This script expects:
-#   $1..$N   : module names
+set -e
 
 MODULES="$@"
 
 # -------------------------------------------------------------------
-# Copy actions
+# Helpers
 # -------------------------------------------------------------------
 
-copy_master() {
-  local module="$1"
-  local src="docs/$module/master.adoc"
-  local dst="modules/$module/pages/index.adoc"
-
-  if [ -f "$src" ]; then
-    echo "  • master.adoc → pages/index.adoc"
-    cp "$src" "$dst"
-    # Remove ALL include:: lines from index.adoc
-    sed -i '/^include::/d' "$dst"
-  fi
+# Turn "foo_bar" into "Foo Bar"
+to_title_case() {
+  echo "$1" \
+    | sed 's/_/ /g' \
+    | sed 's/\b\(.\)/\u\1/g'
 }
 
-copy_master_numbered() {
-  local module="$1"
+# Get the first = header from a page
+get_title_from_page() {
+  local page_file="$1"
+  [ -f "$page_file" ] || { echo ""; return; }
 
-  find "docs/$module" -name "master[0-9][0-9]-*.adoc" 2>/dev/null | while read -r src; do
-    local base new
-
-    base="$(basename "$src")"                          # e.g. master01-overview.adoc
-    new="$(echo "$base" | sed 's/master[0-9][0-9]-//')"  # e.g. overview.adoc
-
-    echo "  • $base → pages/$new"
-    cp "$src" "modules/$module/pages/$new"
-  done
-}
-
-copy_images() {
-  local module="$1"
-
-  if [ -d "docs/$module/images" ]; then
-    echo "  • Copying images/"
-    cp -r "docs/$module/images/"* "modules/$module/images/" 2>/dev/null || true
-  fi
-}
-
-copy_diagrams() {
-  local module="$1"
-
-  if [ -d "docs/$module/diagrams" ]; then
-    echo "  • Copying diagrams/ to images/"
-    mkdir -p "modules/$module/images/diagrams"
-    cp -r "docs/$module/diagrams/"* "modules/$module/images/diagrams/" 2>/dev/null || true
-  fi
+  awk '/^[[:space:]]*= / { sub(/^[[:space:]]*= /,""); print; exit }' "$page_file"
 }
 
 # -------------------------------------------------------------------
-# Apply manifest vars
+# Extract :spec_title: from manifest_vars.adoc
 # -------------------------------------------------------------------
 
-apply_manifest_vars() {
+get_spec_title_from_manifest() {
   local module="$1"
-  local pages_dir="modules/$module/pages"
-  local partials_dir="modules/$module/partials"
-  local root_partials_dir="modules/ROOT/partials"
-  local global_vars_src="../../resources/global_vars.adoc"
+  local manifest=""
 
-  # Pick per-module manifest_vars.adoc if present, else global
-  local manifest_src=""
+  # Prefer per-module manifest_vars
   if [ -f "docs/$module/manifest_vars.adoc" ]; then
-    manifest_src="docs/$module/manifest_vars.adoc"
+    manifest="docs/$module/manifest_vars.adoc"
   elif [ -f "docs/manifest_vars.adoc" ]; then
-    manifest_src="docs/manifest_vars.adoc"
+    manifest="docs/manifest_vars.adoc"
   else
-    # nothing to do
-    return 0
+    echo ""
+    return
   fi
 
-  [ -d "$pages_dir" ] || return 0
+  # Find line beginning with :spec_title:
+  local line
+  line="$(grep '^:spec_title:' "$manifest" | head -n1 || true)"
 
-  echo "  • Installing manifest_vars partial and include in $pages_dir/"
+  [ -z "$line" ] && { echo ""; return; }
 
-  # Ensure global_vars.adoc is in ROOT partials
-  if [ -f "$global_vars_src" ]; then
-    echo "    • Ensuring global_vars.adoc is installed in modules/ROOT/partials"
-    mkdir -p "$root_partials_dir"
-    cp "$global_vars_src" "$root_partials_dir/global_vars.adoc"
-  fi
-
-  # Create module partials and install manifest_vars.adoc (including global_vars)
-  mkdir -p "$partials_dir"
-  local manifest_dest="$partials_dir/manifest_vars.adoc"
-
-  if grep -q 'include::ROOT:partial\$global_vars.adoc\[\]' "$manifest_src"; then
-    # Source already includes the ROOT global include; just copy it
-    cp "$manifest_src" "$manifest_dest"
-  else
-    # Prepend include of ROOT global_vars.adoc
-    local tmp_manifest="${manifest_dest}.tmp"
-    {
-      echo "include::ROOT:partial\$global_vars.adoc[]"
-      echo
-      cat "$manifest_src"
-    } > "$tmp_manifest"
-    mv "$tmp_manifest" "$manifest_dest"
-  fi
-
-  # Prepend include::partial$manifest_vars.adoc[] to each page if not already there
-  for f in "$pages_dir"/*.adoc; do
-    [ -f "$f" ] || continue
-
-    if grep -q 'include::partial\$manifest_vars.adoc\[\]' "$f"; then
-      continue
-    fi
-
-    local tmp="${f}.tmp"
-    {
-      echo "include::partial\$manifest_vars.adoc[]"
-      echo
-      cat "$f"
-    } > "$tmp"
-    mv "$tmp" "$f"
-  done
+  # Remove prefix ":spec_title: "
+  echo "${line#*:spec_title: }"
 }
 
 # -------------------------------------------------------------------
-# Replace {diagrams_uri} with diagrams
+# ROOT nav
 # -------------------------------------------------------------------
 
-replace_diagram_attr() {
+create_root_nav() {
+  mkdir -p "modules/ROOT"
+
+  cat > "modules/ROOT/nav.adoc" << EOF
+* xref:index.adoc[Overview]
+EOF
+
+  echo "✓ Created modules/ROOT/nav.adoc"
+}
+
+# -------------------------------------------------------------------
+# Module nav generation
+# -------------------------------------------------------------------
+
+generate_nav_entries_from_master() {
   local module="$1"
-  local pages_dir="modules/$module/pages"
+  local master_file="docs/$module/master.adoc"
 
-  [ -d "$pages_dir" ] || return 0
+  [ -f "$master_file" ] || return 0
 
-  echo "  • Replacing {diagrams_uri} → diagrams in $pages_dir"
+  awk 'found {print} /:sectnums:/{found=1}' "$master_file" \
+    | grep '^include::' 2>/dev/null \
+    | sed -E 's/^include::([^[]+)\[.*/\1/' \
+    | while read -r target; do
+        [ -z "$target" ] && continue
 
-  for f in "$pages_dir"/*.adoc; do
-    [ -f "$f" ] || continue
-    sed -i "s|{diagrams_uri}|diagrams|g" "$f"
-  done
+        case "$target" in
+          *"/"*|*"{"* ) continue ;;
+        esac
+
+        case "$target" in
+          manifest_vars.adoc) continue ;;
+        esac
+
+        case "$target" in
+          master00-amendment_record.adoc|amendment_record.adoc) continue ;;
+        esac
+
+        local base="${target%.adoc}"
+        base="$(echo "$base" | sed 's/^master[0-9][0-9]-//')"
+
+        local page_file="modules/$module/pages/${base}.adoc"
+        local title
+
+        title="$(get_title_from_page "$page_file")"
+        if [ -z "$title" ]; then
+          title="$(to_title_case "$base")"
+        fi
+
+        echo "** xref:${base}.adoc[${title}]"
+      done
+
+  if grep -q 'include::.*amendment_record\.adoc' "$master_file"; then
+    echo "** xref:amendment_record.adoc[Amendment Record]"
+  fi
 }
 
-# -------------------------------------------------------------------
-# Replace UML class includes using {uml_export_dir}
-# -------------------------------------------------------------------
-
-replace_uml_class_includes() {
-  local module="$1"
-  local pages_dir="modules/$module/pages"
-
-  [ -d "$pages_dir" ] || return 0
-
-  echo "  • Rewriting UML class includes to ROOT partials in $pages_dir"
-
-  for f in "$pages_dir"/*.adoc; do
-    [ -f "$f" ] || continue
-
-    # include::{uml_export_dir}/classes/X.adoc[] → include::ROOT:partial$uml/X.adoc[]
-  sed -i 's|include::\\{uml_export_dir\\}/classes/\([^[]]*\)\[\]|include::ROOT:partial$uml/\1[]|g' "$f"
-  done
-}
-
-# -------------------------------------------------------------------
-# Module processor
-# -------------------------------------------------------------------
-
-process_module() {
+create_module_nav() {
   local module="$1"
 
   case "$module" in
     UML|uml)
-      echo "→ Skipping UML module: $module"
+      echo "  Skipping nav for UML module: $module"
       return
       ;;
   esac
 
-  echo "→ Processing module: $module"
+  local nav_file="modules/$module/nav.adoc"
+  local index_file="modules/$module/pages/index.adoc"
 
-  # Ensure directories
-  mkdir -p "modules/$module/pages" "modules/$module/images"
+  mkdir -p "modules/$module"
 
-  # 1. Copy master + numbered masters
-  copy_master "$module"
-  copy_master_numbered "$module"
+  # ------------------------------------------------------------------
+  # TITLE RESOLUTION PRIORITY:
+  # 1) :spec_title: from manifest_vars.adoc
+  # 2) First "= Heading" in index.adoc
+  # 3) Prettified module name
+  # ------------------------------------------------------------------
+  local module_title
 
-  # 2. Apply manifest vars and replace diagram attr
-  apply_manifest_vars "$module"
-  replace_diagram_attr "$module"
+  module_title="$(get_spec_title_from_manifest "$module")"
 
-  # 3. Rewrite UML class includes to use ROOT UML partials
-  replace_uml_class_includes "$module"
+  if [ -z "$module_title" ]; then
+    module_title="$(get_title_from_page "$index_file")"
+  fi
 
-  # 4. Assets
-  copy_images "$module"
-  copy_diagrams "$module"
+  if [ -z "$module_title" ]; then
+    module_title="$(to_title_case "$module")"
+  fi
 
-  echo "✓ Processed: $module"
+  {
+    echo "* xref:index.adoc[${module_title}]"
+    generate_nav_entries_from_master "$module"
+  } > "$nav_file"
+
+  echo "✓ Created modules/$module/nav.adoc"
 }
 
 # -------------------------------------------------------------------
 # Main
 # -------------------------------------------------------------------
 
+echo "→ Generating navigation files..."
+create_root_nav
+
 for module in $MODULES; do
-  process_module "$module"
+  create_module_nav "$module"
 done

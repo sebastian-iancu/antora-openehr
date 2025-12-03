@@ -69,5 +69,5 @@ MODULES="$("$SCRIPT_DIR/1-analyze-structure.sh")"
 # Step 7: Create ROOT index page
 "$SCRIPT_DIR/7-create-root-index.sh" "$COMPONENT_NAME" $MODULES
 
-# Step 8: Print manual steps and summary
-"$SCRIPT_DIR/8-print-next-steps.sh" "$REPO_NAME" "$COMPONENT_NAME" "$BACKUP_BRANCH" $MODULES
+# Step 8: Create ROOT index page
+"$SCRIPT_DIR/8-apply-manifest-vars.sh" $MODULES

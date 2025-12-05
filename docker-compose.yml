@@ -8,7 +8,6 @@ services:
       dockerfile: Dockerfile
     volumes:
       - .:/workspace
-      - ./build:/build
       # Cache npm and git to speed up builds
       - npm-cache:/home/node/.npm
       - git-cache:/home/node/.cache/git
@@ -20,16 +19,6 @@ services:
       - NODE_ENV=development
     command: tail -f /dev/null  # Keep container running for interactive use
 
-  # Optional: HTTP server to preview the built site
-  preview:
-    image: nginx:alpine
-    container_name: antora-openehr-preview
-    ports:
-      - "8081:80"
-    volumes:
-      - ./build/site:/usr/share/nginx/html:ro
-    depends_on:
-      - antora
 
 volumes:
   npm-cache:

@@ -7,6 +7,7 @@ LABEL description="Antora build environment for openEHR specifications"
 RUN apt-get update && apt-get install -y \
     git \
     make \
+    bash \
     ruby \
     ruby-dev \
     build-essential \
@@ -20,18 +21,14 @@ RUN gem install \
     asciidoctor-kroki \
     rouge
 
-# Install Antora and related Node packages
-RUN npm install -g \
-    @antora/cli@3.1 \
-    @antora/site-generator@3.1 \
-    @antora/lunr-extension \
-    asciidoctor-kroki
-
 # Create working directories
-RUN mkdir -p /workspace /build
-
-# Set working directory
 WORKDIR /workspace
+RUN mkdir 0755 -p /workspace/node_modules /build /home/node/.npm \
+   && chown -R node:node /workspace /build /home/node/.npm
+ENV PATH="/workspace/node_modules/.bin:$PATH"
+
+# Install Antora and related Node packages
+USER node
 
 # Copy package.json if exists (for additional Node dependencies)
 # This will be created in the migration repository
@@ -39,4 +36,4 @@ WORKDIR /workspace
 # Default command
 CMD ["/bin/bash"]
 
-# For building: docker run --rm -v $(pwd):/workspace openehr-antora make build
+# For building: docker run --rm -v $(pwd):/workspace antora-openehr make build

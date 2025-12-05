@@ -1,5 +1,5 @@
-.PHONY: help build build-local clean preview docker-build docker-up docker-down \
-        clone-repos create-branches migrate-repo validate-structure install-deps
+.PHONY: help build build-local clean preview \
+        install create-branches migrate-repo validate-structure clone-repos
 
 # Default target
 .DEFAULT_GOAL := help
@@ -27,25 +27,19 @@ help: ## Display this help message
 	@echo ""
 	@awk 'BEGIN {FS = ":.*##"; printf "\nUsage:\n  make $(CYAN)<target>$(NC)\n"} /^[a-zA-Z_0-9-]+:.*?##/ { printf "  $(CYAN)%-20s$(NC) %s\n", $$1, $$2 } /^##@/ { printf "\n$(YELLOW)%s$(NC)\n", substr($$0, 5) } ' $(MAKEFILE_LIST)
 
-##@ Docker Operations
 
-docker-build: ## Build the Docker image
-	@echo "$(GREEN)Building Docker image...$(NC)"
-	docker-compose build
+##@ Development Workflow
 
-docker-up: ## Start Docker containers
-	@echo "$(GREEN)Starting Docker containers...$(NC)"
-	docker-compose up -d
-
-docker-down: ## Stop Docker containers
-	@echo "$(YELLOW)Stopping Docker containers...$(NC)"
-	docker-compose down
-
-docker-shell: docker-up ## Open a shell in the Antora container
-	@echo "$(GREEN)Opening shell in Antora container...$(NC)"
-	docker-compose exec antora /bin/bash
-
-##@ Repository Management
+install: ## Install Node.js dependencies
+	@echo "$(GREEN)Installing Node.js dependencies...$(NC)"
+	npm install
+	make clone-repos
+	@echo "$(GREEN)Development environment setup complete!$(NC)"
+	@echo "$(CYAN)Next steps:$(NC)"
+	@echo "  1. Run 'make create-all-branches' to create release branches from tags"
+	@echo "  2. Run 'make migrate-all' to migrate repositories to Antora structure"
+	@echo "  3. Run 'make build-local' to build the site"
+	@echo "  4. Run 'make preview' to preview the site"
 
 clone-repos: ## Clone all openEHR specification repositories
 	@echo "$(GREEN)Cloning openEHR specification repositories...$(NC)"
@@ -59,6 +53,22 @@ clone-repos: ## Clone all openEHR specification repositories
 		fi \
 	done
 	@echo "$(GREEN)Done cloning repositories.$(NC)"
+
+list-repos: ## List all specification repositories
+	@echo "$(CYAN)OpenEHR Specification Repositories:$(NC)"
+	@for repo in $(SPECS_REPOS); do \
+		echo "  - $$repo"; \
+	done
+
+check-deps: ## Check if required dependencies are installed
+	@echo "$(CYAN)Checking dependencies...$(NC)"
+	@command -v node >/dev/null 2>&1 || { echo "$(RED)Node.js is not installed$(NC)"; exit 1; }
+	@command -v npm >/dev/null 2>&1 || { echo "$(RED)npm is not installed$(NC)"; exit 1; }
+	@command -v git >/dev/null 2>&1 || { echo "$(RED)git is not installed$(NC)"; exit 1; }
+	@echo "$(GREEN)All required dependencies are installed$(NC)"
+
+
+##@ Repository Management
 
 update-repos: ## Update all cloned repositories
 	@echo "$(GREEN)Updating all repositories...$(NC)"
@@ -78,7 +88,7 @@ create-branches: ## Create release branches from git tags (usage: make create-br
 	@echo "$(GREEN)Creating release branches from tags in $(REPO)...$(NC)"
 	@./scripts/create-release-branches.sh $(REPOS_DIR)/$(REPO)
 
-create-all-branches: clone-repos ## Create release branches for all repositories
+create-all-branches: ## Create release branches for all repositories
 	@echo "$(GREEN)Creating release branches for all repositories...$(NC)"
 	@for repo in $(SPECS_REPOS); do \
 		echo "$(CYAN)Processing $$repo...$(NC)"; \
@@ -96,7 +106,7 @@ migrate-repo: ## Migrate a single repository to Antora structure (usage: make mi
 	@echo "$(GREEN)Migrating $(REPO) to Antora structure...$(NC)"
 	@./scripts/migration/main-migrate-repo.sh $(REPOS_DIR)/$(REPO)
 
-migrate-all: clone-repos ## Migrate all repositories to Antora structure
+migrate-all: ## Migrate all repositories to Antora structure
 	@echo "$(GREEN)Migrating all repositories to Antora structure...$(NC)"
 	@for repo in $(SPECS_REPOS); do \
 		echo "$(CYAN)Migrating $$repo...$(NC)"; \
@@ -119,11 +129,8 @@ validate-all: ## Validate Antora structure in all repositories
 		make validate-structure REPO=$$repo; \
 	done
 
-##@ Build Operations
 
-install-deps: ## Install Node.js dependencies
-	@echo "$(GREEN)Installing Node.js dependencies...$(NC)"
-	npm install
+##@ Build Operations
 
 build: ## Build the full site using production playbook
 	@echo "$(GREEN)Building openEHR specifications site...$(NC)"
@@ -133,16 +140,11 @@ build: ## Build the full site using production playbook
 build-local: ## Build site using local repositories
 	@echo "$(GREEN)Building site from local repositories...$(NC)"
 	@if [ ! -d "$(REPOS_DIR)" ]; then \
-		echo "$(RED)Error: $(REPOS_DIR) directory not found. Run 'make clone-repos' first.$(NC)"; \
+		echo "$(RED)Error: $(REPOS_DIR) directory not found. Run 'make install' first.$(NC)"; \
 		exit 1; \
 	fi
 	npx antora antora-playbook-local.yml
 	@echo "$(GREEN)Build complete! Site generated in $(BUILD_DIR)/site$(NC)"
-
-build-docker: docker-up ## Build site using Docker
-	@echo "$(GREEN)Building site using Docker...$(NC)"
-	docker-compose exec antora npx antora antora-playbook.yml
-	@echo "$(GREEN)Build complete!$(NC)"
 
 clean: ## Clean build artifacts and cache
 	@echo "$(YELLOW)Cleaning build artifacts...$(NC)"
@@ -155,8 +157,8 @@ clean-all: clean ## Clean everything including cloned repos
 	rm -rf $(REPOS_DIR)
 	@echo "$(GREEN)Clean complete.$(NC)"
 
-##@ Preview
 
+##@ Preview
 
 preview: ## Start local HTTP server to preview built site
 	@if [ ! -d "$(BUILD_DIR)/site" ]; then \
@@ -167,50 +169,10 @@ preview: ## Start local HTTP server to preview built site
 	@echo "$(YELLOW)Press Ctrl+C to stop$(NC)"
 	@cd $(BUILD_DIR)/site && python3 -m http.server 8080
 
-preview-docker: docker-up build-docker ## Build and preview using Docker
-	@echo "$(GREEN)Site is available at http://localhost:8080$(NC)"
-	@echo "$(YELLOW)Preview server is running in Docker. Use 'make docker-down' to stop.$(NC)"
-
-
-migrate-spec: ## Run full migration, build, and preview workflow
-	@echo "$(GREEN)Running full migration workflow...$(NC)"
-	@make migrate-all
-	@echo "$(GREEN)Migration completed. Building site...$(NC)"
-	@make build-local
-	@echo "$(GREEN)Build completed. Starting preview server...$(NC)"
-	@make preview
-
-
-##@ Development Workflow
-
-dev-setup: docker-build clone-repos ## Initial setup for development
-	@echo "$(GREEN)Development environment setup complete!$(NC)"
-	@echo "$(CYAN)Next steps:$(NC)"
-	@echo "  1. Run 'make create-all-branches' to create release branches from tags"
-	@echo "  2. Run 'make migrate-all' to migrate repositories to Antora structure"
-	@echo "  3. Run 'make build-local' to build the site"
-	@echo "  4. Run 'make preview' to preview the site"
-
-dev-rebuild: clean build-local preview ## Clean, rebuild, and preview (for development)
 
 ##@ CI/CD
 
-ci-build: install-deps build ## CI build target
+ci-build: install build ## CI build target
 	@echo "$(GREEN)CI build complete$(NC)"
 
-##@ Information
-
-list-repos: ## List all specification repositories
-	@echo "$(CYAN)OpenEHR Specification Repositories:$(NC)"
-	@for repo in $(SPECS_REPOS); do \
-		echo "  - $$repo"; \
-	done
-
-check-deps: ## Check if required dependencies are installed
-	@echo "$(CYAN)Checking dependencies...$(NC)"
-	@command -v node >/dev/null 2>&1 || { echo "$(RED)Node.js is not installed$(NC)"; exit 1; }
-	@command -v npm >/dev/null 2>&1 || { echo "$(RED)npm is not installed$(NC)"; exit 1; }
-	@command -v git >/dev/null 2>&1 || { echo "$(RED)git is not installed$(NC)"; exit 1; }
-	@command -v docker >/dev/null 2>&1 || { echo "$(YELLOW)Docker is not installed (optional)$(NC)"; }
-	@echo "$(GREEN)All required dependencies are installed$(NC)"
 

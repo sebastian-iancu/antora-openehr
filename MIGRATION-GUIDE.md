@@ -3,13 +3,11 @@
 ## Table of Contents
 
 1. [Overview](#overview)
-2. [Prerequisites](#prerequisites)
-3. [Directory Structure](#directory-structure)
-4. [Migration Process](#migration-process)
-5. [Manual Adjustments](#manual-adjustments)
-6. [Building and Testing](#building-and-testing)
-7. [Troubleshooting](#troubleshooting)
-8. [Appendices](#appendices)
+2. [Directory Structure](#directory-structure)
+3. [Migration Process](#migration-process)
+4. [Manual Adjustments](#manual-adjustments)
+5. [Troubleshooting](#troubleshooting)
+6. [Appendices](#appendices)
 
 ---
 
@@ -35,48 +33,7 @@ Antora is a multi-repository documentation site generator for AsciiDoc. It's des
 
 ---
 
-## Prerequisites
-
-### Required Software
-
-- **Git** (2.0 or higher)
-- **Node.js** (16.0 or higher) and npm
-- **Make** (for using Makefile commands)
-- **Bash** (for running migration scripts)
-
-### Optional Software
-
-- **Docker** and **Docker Compose** (for containerized builds)
-- **Python 3** (for local preview server)
-
-### Installation
-
-#### Option 1: Native Installation
-
-```bash
-# Install Node.js and npm (example for Ubuntu/Debian)
-curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
-sudo apt-get install -y nodejs
-
-# Install Make
-sudo apt-get install make
-
-# Verify installations
-node --version
-npm --version
-make --version
-```
-
-#### Option 2: Docker Installation
-
-```bash
-# Install Docker and Docker Compose
-# Follow instructions at: https://docs.docker.com/get-docker/
-
-# Verify installation
-docker --version
-docker-compose --version
-```
+> Setup and build instructions `START-HERE.md`.
 
 ---
 
@@ -140,105 +97,15 @@ specifications-BASE/
 
 ## Migration Process
 
-### Step 1: Set Up Build Repository
+The following steps describe the migration flow. For exact commands, see `START-HERE.md` and `QUICK-REFERENCE.md`.
 
-Clone or create the `openehr-antora` build repository:
-
-```bash
-git clone <url-to-openehr-antora-repo>
-cd openehr-antora
-```
-
-### Step 2: Install Dependencies
-
-#### Using Native Installation
-
-```bash
-npm install
-```
-
-#### Using Docker
-
-```bash
-make docker-build
-```
-
-### Step 3: Clone Specification Repositories
-
-```bash
-# Clone all specification repositories
-make clone-repos
-
-# This creates a repos/ directory with all components:
-# repos/
-#   ├── specifications-BASE/
-#   ├── specifications-RM/
-#   ├── specifications-AM/
-#   └── ...
-```
-
-### Step 4: Create Release Branches
-
-Convert existing git tags to release branches:
-
-```bash
-# For a single repository
-make create-branches REPO=specifications-BASE
-
-# For all repositories
-make create-all-branches
-```
-
-This creates branches like:
-- `release/1.0.2` from tag `Release-1.0.2`
-- `release/1.0.3` from tag `Release-1.0.3`
-- etc.
-
-### Step 5: Test Migration (Dry Run)
-
-Before making changes, test the migration:
-
-```bash
-cd repos/specifications-BASE
-../../scripts/main-migrate-repo.sh . dry-run
-```
-
-Review the output to understand what changes will be made.
-
-### Step 6: Migrate Repository Structure
-
-```bash
-# Migrate a single repository
-make migrate-repo REPO=specifications-BASE
-
-# Or migrate all repositories
-make migrate-all
-```
-
-### Step 7: Validate Structure
-
-```bash
-# Validate a single repository
-make validate-structure REPO=specifications-BASE
-
-# Or validate all repositories
-make validate-all
-```
-
-### Step 8: Manual Adjustments
-
-**IMPORTANT:** The migration script handles directory restructuring, but you must manually update AsciiDoc content. See the [Manual Adjustments](#manual-adjustments) section below.
-
-### Step 9: Build and Test
-
-```bash
-# Build from local repositories
-make build-local
-
-# Preview the site
-make preview
-# Opens http://localhost:8080
-```
+1. Prepare the build repository (this project) and ensure dependencies are installed.
+2. Clone the specification repositories into the local `repos/` directory.
+3. Convert existing tags into release branches (e.g., `Release-1.0.3` → `release/1.0.3`).
+4. Run the migration for each repository to move files into Antora’s `modules/` layout and generate `antora.yml` and `nav.adoc` files.
+5. Validate the migrated structure for Antora compliance.
+6. Perform manual adjustments (includes, images, xrefs, navigation) as detailed below.
+7. Build and preview the site to verify results.
 
 ---
 
@@ -357,43 +224,7 @@ Each module needs a `nav.adoc` file. The migration script creates a basic one, b
 
 ## Building and Testing
 
-### Local Development Build
-
-```bash
-# Build from local repositories
-make build-local
-
-# Preview
-make preview
-```
-
-Visit http://localhost:8080 to see your site.
-
-### Production Build
-
-```bash
-# Build from remote GitHub repositories
-make build
-```
-
-This fetches from GitHub and builds all specified versions.
-
-### Docker Build
-
-```bash
-# Build using Docker
-make docker-up
-make build-docker
-make preview-docker
-```
-
-### Continuous Integration
-
-For CI/CD pipelines:
-
-```bash
-make ci-build
-```
+Build, preview, and CI instructions are documented in `START-HERE.md` (native and Docker paths) and summarized in `QUICK-REFERENCE.md`.
 
 ---
 
@@ -442,12 +273,7 @@ make migrate-repo REPO=specifications-BASE
 
 ### Issue: "Cannot find module 'asciidoctor-kroki'"
 
-**Cause:** npm dependencies not installed.
-
-**Solution:**
-```bash
-npm install
-```
+See dependency setup in `START-HERE.md`.
 
 ---
 
@@ -497,44 +323,7 @@ Antora uses a consistent format for referencing resources:
 
 ### Appendix D: Makefile Targets Reference
 
-```bash
-# Repository Management
-make clone-repos          # Clone all spec repositories
-make update-repos         # Update all repositories
-make create-branches      # Create release branches (single repo)
-make create-all-branches  # Create release branches (all repos)
-
-# Migration
-make migrate-repo REPO=<name>    # Migrate single repository
-make migrate-all                  # Migrate all repositories
-make validate-structure REPO=<name>  # Validate single repository
-make validate-all                 # Validate all repositories
-
-# Building
-make build                # Production build (from GitHub)
-make build-local          # Local build (from repos/ directory)
-make build-docker         # Build using Docker
-make clean                # Clean build artifacts
-
-# Preview
-make preview              # Start local preview server
-make preview-docker       # Preview in Docker
-
-# Development
-make dev-setup            # Complete development setup
-make dev-rebuild          # Clean, rebuild, and preview
-
-# Docker
-make docker-build         # Build Docker image
-make docker-up            # Start containers
-make docker-down          # Stop containers
-make docker-shell         # Open shell in container
-
-# Information
-make help                 # Show all targets
-make list-repos           # List specification repositories
-make check-deps           # Check required dependencies
-```
+For a complete list of operational commands, see `QUICK-REFERENCE.md` and `START-HERE.md`.
 
 ### Appendix E: Migration Checklist
 
@@ -585,11 +374,10 @@ Replace: image::ROOT:uml/diagrams/\1[\2]
 
 - **Documentation:** https://docs.antora.org
 - **openEHR Discourse:** https://discourse.openehr.org
-- **GitHub Issues:** Create an issue in the openehr-antora repository
+- **GitHub Issues:** Create an issue in the antora-openehr repository
 
 ---
 
 ## License
 
 This migration guide is part of the openEHR specifications project.
-License: CC-BY-ND-3.0

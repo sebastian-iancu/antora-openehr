@@ -1,5 +1,5 @@
 {
-  "name": "openehr-antora-build",
+  "name": "antora-openehr-builder",
   "version": "1.0.0",
   "description": "Build system for openEHR specifications using Antora",
   "private": true,
@@ -7,7 +7,7 @@
     "build": "antora antora-playbook.yml",
     "build-local": "antora antora-playbook-local.yml",
     "serve": "npx http-server build/site -p 8080 -c-1",
-    "clean": "rm -rf build .cache"
+    "clean": "rm -rf build/* .cache/*"
   },
   "keywords": [
     "openehr",
@@ -17,15 +17,13 @@
   ],
   "author": "openEHR Foundation",
   "license": "CC-BY-ND-3.0",
-  "devDependencies": {
-    "@antora/cli": "^3.1.7",
-    "@antora/lunr-extension": "^1.0.0-alpha.8",
-    "@antora/site-generator": "^3.1.7",
-    "http-server": "^14.1.1"
-  },
   "dependencies": {
+    "@antora/cli": "3.1",
+    "@antora/lunr-extension": "^1.0.0-alpha.12",
+    "@antora/site-generator": "3.1",
     "asciidoctor": "^3.0.4",
     "asciidoctor-kroki": "^0.18.1",
+    "http-server": "^14.1.1",
     "medium-zoom": "^1.1.0"
   },
   "engines": {

@@ -2,15 +2,20 @@
 
 ## Common Commands
 
-### Initial Setup
+Note: Environment setup (Node/Docker) is documented in [START-HERE.md](). This card lists day-to-day commands only.
+
+### Repository Prep
 
 ```bash
-# Clone and set up
-git clone <repo-url>
-cd openehr-antora
-npm install
-make clone-repos
+# From project root
+make install
 make create-all-branches
+```
+
+### Available commands
+
+```bash
+make help
 ```
 
 ### Migrate Single Repository
@@ -18,7 +23,7 @@ make create-all-branches
 ```bash
 # Test migration first (dry run)
 cd repos/specifications-BASE
-../../scripts/main-migrate-repo.sh . dry-run
+../../scripts/migration/main-migrate-repo.sh . dry-run
 
 # Perform actual migration
 make migrate-repo REPO=specifications-BASE
@@ -38,23 +43,20 @@ make preview
 # Visit http://localhost:8080
 ```
 
-### Using Docker
+### Using Docker as a provider for node/npm
 
 ```bash
 # Build Docker image
-make docker-build
+docker compose build
 
 # Start containers
-make docker-up
+docker compose up -d
 
-# Build in Docker
-make build-docker
-
-# Preview
-make preview-docker
+# Start a shell into the running container
+docker compose exec antora bash
 
 # Stop containers
-make docker-down
+docker compose down
 ```
 
 ## Antora Reference Formats
@@ -165,10 +167,10 @@ component-repo/
 - Antora Docs: https://docs.antora.org
 - AsciiDoc Syntax: https://docs.asciidoctor.org
 - openEHR Specs: https://specifications.openehr.org
-- Migration Guide: MIGRATION-GUIDE.md
+- Start here (setup): [START-HERE.md]()
+- Migration Guide: [MIGRATION-GUIDE.md]()
 
 ## Support
 
-- GitHub Issues: <repo-url>/issues
-- openEHR Discourse: https://discourse.openehr.org
-- Documentation: See README.md and MIGRATION-GUIDE.md
+- GitHub Issues: https://github.com/sebastian-iancu/antora-openehr/issues
+- Documentation: See [README.md]() and [MIGRATION-GUIDE.md]()

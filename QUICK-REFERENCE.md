@@ -18,7 +18,7 @@ make create-all-branches
 ```bash
 # Test migration first (dry run)
 cd repos/specifications-BASE
-../../scripts/migrate-repo.sh . dry-run
+../../scripts/main-migrate-repo.sh . dry-run
 
 # Perform actual migration
 make migrate-repo REPO=specifications-BASE

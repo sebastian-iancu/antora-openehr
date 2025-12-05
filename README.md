@@ -48,14 +48,17 @@ Antora enables us to:
 - Docker (optional, for containerized builds)
 
 ### Installation
-
+Recursive cloning might require [SSH authentication to github](https://docs.github.com/en/authentication/connecting-to-github-with-ssh)
 ```bash
 # Clone this repository
-git clone <repository-url>
+clone repo `git clone --recursive`
+
 cd openehr-antora
 
 # Install dependencies
 npm install
+
+npm install medium-zoom
 
 # Or use Docker
 make docker-build

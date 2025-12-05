@@ -119,13 +119,6 @@ generate_nav_entries_from_master() {
 create_module_nav() {
   local module="$1"
 
-  case "$module" in
-    UML|uml)
-      echo "  Skipping nav for UML module: $module"
-      return
-      ;;
-  esac
-
   local nav_file="modules/$module/nav.adoc"
   local index_file="modules/$module/pages/index.adoc"
 

@@ -118,13 +118,6 @@ replace_diagram_attr() {
 process_module() {
   local module="$1"
 
-  case "$module" in
-    UML|uml)
-      echo "→ Skipping UML module: $module"
-      return
-      ;;
-  esac
-
   echo "→ Processing module: $module"
 
   mkdir -p "modules/$module/pages" "modules/$module/images"

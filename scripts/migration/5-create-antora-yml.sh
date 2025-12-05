@@ -24,9 +24,7 @@ EOF
 
 # Add navigation entries for each module
 for module in $MODULES; do
-    if [ "$module" != "UML" ] && [ "$module" != "uml" ]; then
-        echo "  - modules/$module/nav.adoc" >> "$ANTORA_YML"
-    fi
+  echo "  - modules/$module/nav.adoc" >> "$ANTORA_YML"
 done
 
 echo "✓ Created antora.yml"

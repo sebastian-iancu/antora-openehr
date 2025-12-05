@@ -13,7 +13,7 @@ fi
 echo "Step 1: Analyzing current structure..." >&2
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" >&2
 
-MODULES=$(find docs/* -maxdepth 0 -type d 2>/dev/null | sed 's|docs/||' || true)
+MODULES=$(find docs/* -maxdepth 0 -type d 2>/dev/null | grep -Ev 'docs/(UML|uml)$' | sed 's|docs/||' || true)
 
 if [ -z "$MODULES" ]; then
     echo "Warning: No subdirectories found in docs/" >&2

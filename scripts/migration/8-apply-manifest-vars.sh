@@ -116,12 +116,6 @@ echo "Step 8: Applying manifest vars..."
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 
 for module in $MODULES; do
-  case "$module" in
-    UML|uml)
-      echo "→ Skipping UML module for manifest vars: $module"
-      continue
-      ;;
-  esac
   apply_manifest_vars "$module"
 done
 

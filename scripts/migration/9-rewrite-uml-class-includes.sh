@@ -33,12 +33,6 @@ echo "Step 9: Rewriting UML class includes & diagram references..."
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 
 for module in $MODULES; do
-  case "$module" in
-    UML|uml)
-      echo "  Skipping UML module for UML include rewrite: $module"
-      continue
-      ;;
-  esac
   rewrite_uml_class_includes_for_module "$module"
 done
 

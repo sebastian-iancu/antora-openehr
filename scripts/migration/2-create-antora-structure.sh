@@ -24,12 +24,6 @@ echo "✓ Created ROOT module structure"
 
 # Process each module (subdirectory in docs/)
 for module in $MODULES; do
-    # Skip UML directory - it will be handled specially
-    if [ "$module" = "UML" ] || [ "$module" = "uml" ]; then
-        echo "  Skipping $module (will be processed separately)"
-        continue
-    fi
-
     echo "→ Processing module: $module"
 
     mkdir -p "modules/$module/pages"

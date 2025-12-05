@@ -23,10 +23,8 @@ EOF
 
 # Add links to each module
 for module in $MODULES; do
-    if [ "$module" != "UML" ] && [ "$module" != "uml" ]; then
-        MODULE_TITLE=$(echo "$module" | sed 's/_/ /g' | sed 's/\b\(.\)/\u\1/g')
-        echo "* xref:$module:index.adoc[$MODULE_TITLE]" >> "modules/ROOT/pages/index.adoc"
-    fi
+  MODULE_TITLE=$(echo "$module" | sed 's/_/ /g' | sed 's/\b\(.\)/\u\1/g')
+  echo "* xref:$module:index.adoc[$MODULE_TITLE]" >> "modules/ROOT/pages/index.adoc"
 done
 
 echo "✓ Created ROOT index page"

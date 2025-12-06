@@ -23,7 +23,7 @@ RUN gem install \
 
 # Create working directories
 WORKDIR /workspace
-RUN mkdir 0755 -p /workspace/node_modules /workspace/build/site /home/node/.npm \
+RUN mkdir 0755 -p /workspace/node_modules /workspace/build /home/node/.npm \
    && chown -R node:node /workspace /home/node/.npm
 ENV PATH="/workspace/node_modules/.bin:$PATH"
 

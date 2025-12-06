@@ -17,10 +17,12 @@ content:
     - url: repos/specifications-BASE
       branches: HEAD
       start_path: .
+      version: development
     
     - url: repos/specifications-RM
       branches: HEAD
       start_path: .
+      version: development
 
 ui:
   bundle:
@@ -51,10 +53,11 @@ runtime:
   cache_dir: ./.cache/antora
   
 output:
-  dir: ./build/site
+  dir: ./build
   clean: true
 
 urls:
   html_extension_style: indexify
   latest_version_segment_strategy: redirect:to
   latest_version_segment: latest
+  latest_prerelease_version_segment: development

@@ -22,8 +22,6 @@ COMPONENT_TITLE="${COMPONENT_MAP[$COMPONENT_NAME]:-$COMPONENT_NAME}"
 
 cat > "$ANTORA_YML" << EOF
 name: $COMPONENT_NAME
-version: ~
-display_version: Development
 title: $COMPONENT_TITLE
 start_page: ROOT:index.adoc
 nav:

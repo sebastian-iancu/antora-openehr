@@ -21,7 +21,9 @@ content:
         - 'release/1.0.2'
         - 'release/1.0.3'
         - 'release/1.1.0'
-      start_path: .
+      version:
+        release/(?<version>+({0..9}).+({0..9}).+({0..9})): Release-$<version>
+        master: development
     
     # RM Component - Reference Model
     - url: https://github.com/openEHR/specifications-RM
@@ -31,7 +33,9 @@ content:
         - 'release/1.0.3'
         - 'release/1.0.4'
         - 'release/1.1.0'
-      start_path: .
+      version:
+        release/(?<version>+({0..9}).+({0..9}).+({0..9})): Release-$<version>
+        master: development
     
     # AM Component - Archetype Model
     - url: https://github.com/openEHR/specifications-AM
@@ -42,56 +46,72 @@ content:
         - 'release/2.1.0'
         - 'release/2.2.0'
         - 'release/2.3.0'
-      start_path: .
+      version:
+        release/(?<version>+({0..9}).+({0..9}).+({0..9})): Release-$<version>
+        master: development
     
     # LANG Component - Languages (AQL, EL, ODIN, etc.)
     - url: https://github.com/openEHR/specifications-LANG
       branches:
         - master
         - 'release/*'
-      start_path: .
+      version:
+        release/(?<version>+({0..9}).+({0..9}).+({0..9})): Release-$<version>
+        master: development
     
     # SM Component - Service Model
     - url: https://github.com/openEHR/specifications-SM
       branches:
         - master
         - 'release/*'
-      start_path: .
+      version:
+        release/(?<version>+({0..9}).+({0..9}).+({0..9})): Release-$<version>
+        master: development
     
     # QUERY Component - Query specifications
     - url: https://github.com/openEHR/specifications-QUERY
       branches:
         - master
         - 'release/*'
-      start_path: .
+      version:
+        release/(?<version>+({0..9}).+({0..9}).+({0..9})): Release-$<version>
+        master: development
     
     # PROC Component - Process/Task Planning
     - url: https://github.com/openEHR/specifications-PROC
       branches:
         - master
         - 'release/*'
-      start_path: .
+      version:
+        release/(?<version>+({0..9}).+({0..9}).+({0..9})): Release-$<version>
+        master: development
     
     # CDS Component - Clinical Decision Support
     - url: https://github.com/openEHR/specifications-CDS
       branches:
         - master
         - 'release/*'
-      start_path: .
+      version:
+        release/(?<version>+({0..9}).+({0..9}).+({0..9})): Release-$<version>
+        master: development
     
     # CNF Component - Conformance
     - url: https://github.com/openEHR/specifications-CNF
       branches:
         - master
         - 'release/*'
-      start_path: .
+      version:
+        release/(?<version>+({0..9}).+({0..9}).+({0..9})): Release-$<version>
+        master: development
     
     # ITS Component - Implementation Technology Specifications
     - url: https://github.com/openEHR/specifications-ITS
       branches:
         - master
         - 'release/*'
-      start_path: .
+      version:
+        release/(?<version>+({0..9}).+({0..9}).+({0..9})): Release-$<version>
+        master: development
 
 ui:
   bundle:
@@ -123,7 +143,7 @@ runtime:
   cache_dir: ./.cache/antora
   
 output:
-  dir: ./build/site
+  dir: ./build
   clean: true
 
 # URLs and redirects configuration
@@ -132,3 +152,4 @@ urls:
   latest_version_segment_strategy: redirect:to
   latest_version_segment: latest
   redirect_facility: nginx
+  latest_prerelease_version_segment: development

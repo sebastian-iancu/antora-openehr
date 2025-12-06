@@ -1,3 +1,10 @@
+antora:
+  extensions:
+    - require: '@antora/lunr-extension'
+      index_latest_only: true #index only latest version !
+    - require: './extensions/load-global-vars.js'
+      var_files: ['./resources/global-vars.yml']
+
 site:
   title: openEHR Specifications
   url: https://specifications.openehr.org
@@ -105,11 +112,8 @@ asciidoc:
     linkattrs: ''
     source-highlighter: rouge
     rouge-style: github
-    
     # openEHR specific attributes
-    openehr-version: '1.0.4'
     spec-base-url: 'https://specifications.openehr.org'
-    
   extensions:
     - asciidoctor-kroki
     - '@asciidoctor/core'

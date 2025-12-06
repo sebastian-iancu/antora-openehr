@@ -1,0 +1,592 @@
+# YAML variant of resources/global_vars.adoc
+# Note: Keys mirror AsciiDoc attributes. Values may reference other attributes
+# using {attr} syntax, which Asciidoctor will resolve at use time.
+
+affiliates: "Australia, Brazil, Japan, China, New Zealand, Norway, Slovenia"
+cc_licence_text: "Creative Commons Attribution-NoDerivs 3.0 Unported."
+cc_licence_url: "https://creativecommons.org/licenses/by-nd/3.0/"
+
+apache_licence_text: "Apache 2.0 Licence."
+apache_licence_url: "http://apache.org/licenses/LICENSE-2.0.html"
+
+# sites
+openehr_domain: "www.openehr.org"
+openehr_website_url: "https://www.openehr.org"
+openehr_forums_site: "https://discourse.openehr.org"
+openehr_specs: "https://specifications.openehr.org"
+openehr_git: "https://github.com/openEHR"
+openehr_git_raw: "https://raw.githubusercontent.com/openEHR"
+
+openehr_specification_program: "{openehr_website_url}/programs/specification"
+openehr_software_program: "{openehr_website_url}/programs/software"
+openehr_industry_partners: "{openehr_website_url}/community/industry_partners/"
+openehr_logo: "{openehr_specs}/images/openEHR_logo_RGB.svg"
+cc_licence_img: "{openehr_specs}/images/cc-by-nd-88x31.png"
+apache_licence_img: "http://apache.org/img/ASF20thAnniversary.jpg"
+
+# URL for specifications site to find a class
+classes_url_root: "/classes"
+
+# UML relative directory for .adoc includes
+uml_export_dir: "../UML"
+
+# UML directory for live links to graphic files
+uml_diagrams_uri: "UML/diagrams"
+uml_aom14_diagrams_uri: "UML/AOM1.4/diagrams"
+
+# diagrams & images URIs in docs/common
+common_diagrams_uri: "common/diagrams"
+common_images_uri: "common/images"
+overview_diagrams_uri: "overview/diagrams"
+overview_images_uri: "overview/images"
+
+# discussion forums
+openehr_mailing_lists: "{openehr_forums_site}"
+openehr_technical_mailing_list: "{openehr_forums_site}/c/specifications"
+openehr_clinical_mailing_list: "{openehr_forums_site}/c/clinical"
+openehr_process_forum: "{openehr_forums_site}/c/specifications/task-planning-gdl"
+openehr_lang_forum: "{openehr_forums_site}/c/specifications/bmm-el"
+openehr_rm_forum: "{openehr_forums_site}/c/specifications/rm"
+openehr_adl_forum: "{openehr_forums_site}/c/specifications/adl"
+openehr_aql_forum: "{openehr_forums_site}/c/specifications/aql"
+openehr_cnf_forum: "{openehr_forums_site}/c/implem/conformance"
+openehr_term_forum: "{openehr_forums_site}/c/specifications/terminology"
+
+#
+# openEHR Wiki URLs
+#
+openehr_wiki_root: "{openehr_specs}/wiki"
+openehr_wiki: "{openehr_wiki_root}/spacedirectory/view.action"
+openehr_wiki_adl_space: "{openehr_wiki_root}/spaces/ADL"
+
+#
+# ========= Jira =========
+# links defined here are reprocessed in Nginx/Apache
+#
+openehr_jira_home: "{openehr_specs}/jira"
+openehr_prs: "{openehr_jira_home}/projects/SPECPR"
+adl_workbench_prs: "{openehr_jira_home}/AWBPR"
+adl_workbench_dev: "{openehr_jira_home}/AWB"
+
+# URI for any issue, mapped to /jira/browse/<issue> in Apache rewrites
+# Second var is legacy name
+spec_tickets: "{openehr_specs}/tickets"
+openehr_jira: "{openehr_specs}/tickets"
+
+# special Jira URIs
+openehr_terminology_request: "{openehr_specs}/components/TERM/request"
+
+release: "latest"
+term_release: "latest"
+lang_release: "latest"
+base_release: "latest"
+rm_release: "latest"
+am_release: "latest"
+sm_release: "latest"
+cds_release: "latest"
+cnf_release: "latest"
+intg_release: "latest"
+query_release: "latest"
+proc_release: "latest"
+its_release: "development"
+its_rest_release: "development"
+its_json_release: "development"
+its_bmm_release: "development"
+its_xml_release: "development"
+
+#
+# openEHR specification resources; note variable substitutions in some of these for release id
+#
+
+# --------------- 1.0.2 legacy links ----------------
+openehr_release_102: "{openehr_specs}/releases/RM/Release-1.0.2"
+openehr_release_102_pdf: "{openehr_specs}/releases/1.0.2/architecture"
+openehr_18308: "{openehr_release_102_pdf}/requirements/iso18308_conformance.pdf"
+openehr_rm_102_common: "{openehr_release_102_pdf}/rm/common_im.pdf"
+openehr_rm_102_data_types: "{openehr_release_102_pdf}/rm/data_types_im.pdf"
+openehr_rm_102_support: "{openehr_release_102_pdf}/rm/support_im.pdf"
+
+openehr_am_adl14_pdf: "{openehr_release_102_pdf}/am/adl.pdf"
+openehr_am_aom14_pdf: "{openehr_release_102_pdf}/am/aom.pdf"
+
+openehr_am_def_pri: "{openehr_release_102_pdf}/am/archetype_principles.pdf"
+openehr_am_arch_sys: "{openehr_release_102_pdf}/am/archetype_system.pdf"
+openehr_am_oap: "{openehr_release_102_pdf}/am/openehr_archetype_profile.pdf"
+
+# --------------- AM ----------------
+openehr_am_releases: "{openehr_specs}/releases/AM/{am_release}"
+openehr_am_uml_diagrams: "{openehr_am_releases}/UML/diagrams"
+openehr_am14_uml_diagrams: "{openehr_am_releases}/UML/AOM1.4/diagrams"
+openehr_am: "{openehr_am_releases}/index"
+
+openehr_am_overview: "{openehr_am_releases}/Overview.html"
+openehr_am_adl14: "{openehr_am_releases}/ADL1.4.html"
+openehr_am_aom14: "{openehr_am_releases}/AOM1.4.html"
+openehr_am_adl2: "{openehr_am_releases}/ADL2.html"
+openehr_am_aom2: "{openehr_am_releases}/AOM2.html"
+openehr_am_opt2: "{openehr_am_releases}/OPT2.html"
+openehr_am_id: "{openehr_am_releases}/Identification.html"
+
+# for link in preface part of docs
+openehr_am_latest: "{openehr_specs}/releases/AM/latest"
+openehr_am_latest_overview: "{openehr_am_latest}/Overview.html"
+openehr_am_latest_adl14: "{openehr_am_latest}/ADL1.4.html"
+openehr_am_latest_aom14: "{openehr_am_latest}/AOM1.4.html"
+openehr_am_latest_adl2: "{openehr_am_latest}/ADL2.html"
+openehr_am_latest_aom2: "{openehr_am_latest}/AOM2.html"
+openehr_am_latest_opt2: "{openehr_am_latest}/OPT2.html"
+openehr_am_latest_id: "{openehr_am_latest}/Identification.html"
+#
+openehr_am_development: "{openehr_specs}/releases/AM/development"
+openehr_am_development_overview: "{openehr_am_development}/Overview.html"
+openehr_am_development_adl14: "{openehr_am_development}/ADL1.4.html"
+openehr_am_development_aom14: "{openehr_am_development}/AOM1.4.html"
+openehr_am_development_adl2: "{openehr_am_development}/ADL2.html"
+openehr_am_development_aom2: "{openehr_am_development}/AOM2.html"
+openehr_am_development_opt2: "{openehr_am_development}/OPT2.html"
+openehr_am_development_id: "{openehr_am_development}/Identification.html"
+
+# --------------- BASE ----------------
+openehr_base_releases: "{openehr_specs}/releases/BASE/{base_release}"
+
+openehr_base_types: "{openehr_base_releases}/base_types.html"
+openehr_foundation_types: "{openehr_base_releases}/foundation_types.html"
+openehr_foundation_time_types: "{openehr_foundation_types}#_time_types"
+openehr_resource: "{openehr_base_releases}/resource.html"
+openehr_overview: "{openehr_base_releases}/architecture_overview.html"
+openehr_path_syntax: "{openehr_overview}#_paths_and_locators"
+openehr_path_syntax_predicates: "{openehr_overview}#_predicate_expressions"
+
+openehr_base_uml_diagrams: "{openehr_base_releases}/UML/diagrams"
+openehr_base_release_102: "{openehr_specs}/releases/BASE/Release-1.0.2"
+openehr_base_release_130: "{openehr_specs}/releases/BASE/Release-1.3.0"
+
+# for link in preface part of docs
+openehr_base_latest: "{openehr_specs}/releases/BASE/latest"
+openehr_base_latest_base_types: "{openehr_base_latest}/base_types.html"
+openehr_base_latest_foundation_types: "{openehr_base_latest}/foundation_types.html"
+openehr_base_latest_resource: "{openehr_base_latest}/resource.html"
+openehr_base_latest_overview: "{openehr_base_latest}/architecture_overview.html"
+openehr_base_development: "{openehr_specs}/releases/BASE/development"
+openehr_base_development_architecture_overview: "{openehr_base_development}/architecture_overview.html"
+openehr_base_development_base_types: "{openehr_base_development}/base_types.html"
+openehr_base_development_foundation_types: "{openehr_base_development}/foundation_types.html"
+openehr_base_development_resource: "{openehr_base_development}/resource.html"
+
+# For legacy referencing from AM Release-2.1.0, AM Release-2.2.1
+openehr_base_release_104: "{openehr_specs}/releases/BASE/Release-1.0.4"
+openehr_expression: "{openehr_base_release_104}/expression.html"
+
+# --------------- CDS ----------------
+openehr_cds_releases: "{openehr_specs}/releases/CDS/{cds_release}"
+
+openehr_cds_gdl: "{openehr_cds_releases}/GDL.html"
+openehr_cds_gdl2: "{openehr_cds_releases}/GDL2.html"
+
+# for link in preface part of docs
+openehr_cds_latest: "{openehr_specs}/releases/CDS/latest"
+openehr_cds_latest_gdl: "{openehr_cds_latest}/GDL.html"
+openehr_cds_latest_gdl2: "{openehr_cds_latest}/GDL2.html"
+openehr_cds_development: "{openehr_specs}/releases/CDS/development"
+openehr_cds_development_gdl2: "{openehr_cds_development}/GDL2.html"
+
+# --------------- LANG ----------------
+openehr_lang_releases: "{openehr_specs}/releases/LANG/{lang_release}"
+
+openehr_odin: "{openehr_lang_releases}/odin.html"
+openehr_bmm: "{openehr_lang_releases}/bmm.html"
+openehr_bmm_persistence: "{openehr_lang_releases}/bmm_persistence.html"
+openehr_basic_expression_language: "{openehr_lang_releases}/BEL.html"
+openehr_expression_language: "{openehr_lang_releases}/EL.html"
+
+# for link in preface part of docs
+openehr_lang_latest: "{openehr_specs}/releases/LANG/latest"
+openehr_lang_latest_odin: "{openehr_lang_latest}/odin.html"
+openehr_lang_latest_bmm: "{openehr_lang_latest}/bmm.html"
+openehr_lang_latest_bmm_persistence: "{openehr_lang_latest}/bmm_persistence.html"
+openehr_lang_latest_basic_expression_language: "{openehr_lang_latest}/BEL.html"
+openehr_lang_latest_expression_language: "{openehr_lang_latest}/EL.html"
+openehr_lang_latest_decision_language: "{openehr_lang_latest}/decision_language.html"
+
+# --------------- SM ----------------
+openehr_sm_releases: "{openehr_specs}/releases/SM/{sm_release}"
+openehr_sm_uml_diagrams: "{openehr_sm_releases}/UML/diagrams"
+
+openehr_sm_openehr_platform: "{openehr_sm_releases}/openehr_platform.html"
+openehr_simplified_im_b: "{openehr_sm_releases}/simplified_im_b.html"
+openehr_serial_data_formats: "{openehr_sm_releases}/serial_data_formats.html"
+
+# for link in preface part of docs
+openehr_sm_latest: "{openehr_specs}/releases/SM/latest"
+openehr_sm_latest_openehr_platform: "{openehr_sm_latest}/openehr_platform.html"
+openehr_sm_development: "{openehr_specs}/releases/SM/development"
+openehr_sm_development_openehr_platform: "{openehr_sm_development}/openehr_platform.html"
+openehr_sm_development_simplified_im_b: "{openehr_sm_releases}/simplified_im_b.html"
+openehr_sm_development_serial_data_formats: "{openehr_sm_releases}/serial_data_formats.html"
+
+# --------------- QUERY ----------------
+openehr_query_releases: "{openehr_specs}/releases/QUERY/{query_release}"
+openehr_query_aql: "{openehr_query_releases}/AQL.html"
+openehr_query_aql_examples: "{openehr_query_releases}/AQL_examples.html"
+
+# for link in preface part of docs
+openehr_query_latest: "{openehr_specs}/releases/QUERY/latest"
+openehr_query_latest_aql: "{openehr_query_latest}/AQL.html"
+openehr_query_latest_aql_examples: "{openehr_query_latest}/AQL_examples.html"
+
+# --------------- PROC ----------------
+openehr_proc_releases: "{openehr_specs}/releases/PROC/{proc_release}"
+
+openehr_proc_overview: "{openehr_proc_releases}/overview.html"
+openehr_task_planning: "{openehr_proc_releases}/task_planning.html"
+openehr_tp_vml: "{openehr_proc_releases}/tp_vml.html"
+openehr_process_examples: "{openehr_proc_releases}/process_examples.html"
+openehr_decision_language: "{openehr_proc_releases}/decision_language.html"
+
+# for link in preface part of docs
+openehr_proc_latest: "{openehr_specs}/releases/PROC/latest"
+openehr_proc_latest_task_planning: "{openehr_proc_latest}/task_planning.html"
+openehr_proc_latest_tp_vml: "{openehr_proc_latest}/tp_vml.html"
+openehr_proc_latest_process_examples: "{openehr_proc_latest}/process_examples.html"
+openehr_proc_latest_decision_language: "{openehr_proc_latest}/decision_language.html"
+openehr_proc_latest_overview: "{openehr_proc_latest}/overview.html"
+
+# --------------- RM ----------------
+openehr_rm_releases: "{openehr_specs}/releases/RM/{rm_release}"
+openehr_rm: "{openehr_rm_releases}/index"
+openehr_rm_uml_diagrams: "{openehr_rm_releases}/UML/diagrams"
+
+openehr_rm_data_types: "{openehr_rm_releases}/data_types.html"
+openehr_rm_data_structures: "{openehr_rm_releases}/data_structures.html"
+openehr_rm_common: "{openehr_rm_releases}/common.html"
+openehr_rm_demographic: "{openehr_rm_releases}/demographic.html"
+openehr_rm_ehr: "{openehr_rm_releases}/ehr.html"
+openehr_rm_ehr_diagrams: "{openehr_rm_releases}/ehr/diagrams"
+openehr_rm_ehr_extract: "{openehr_rm_releases}/ehr_extract.html"
+openehr_rm_integration: "{openehr_rm_releases}/integration.html"
+openehr_rm_support: "{openehr_rm_releases}/support.html"
+openehr_rm_entity: "{openehr_rm_releases}/entity.html"
+
+openehr_rm_103_support: "{openehr_specs}/releases/RM/Release-1.0.3/support.html"
+openehr_rm_103_common: "{openehr_specs}/releases/RM/Release-1.0.3/common.html"
+openehr_rm_103_data_types: "{openehr_specs}/releases/RM/Release-1.0.3/data_types.html"
+
+# for link in preface part of docs
+openehr_rm_latest: "{openehr_specs}/releases/RM/latest"
+openehr_rm_latest_data_types: "{openehr_rm_latest}/data_types.html"
+openehr_rm_latest_data_structures: "{openehr_rm_latest}/data_structures.html"
+openehr_rm_latest_common: "{openehr_rm_latest}/common.html"
+openehr_rm_latest_demographic: "{openehr_rm_latest}/demographic.html"
+openehr_rm_latest_ehr: "{openehr_rm_latest}/ehr.html"
+openehr_rm_latest_ehr_extract: "{openehr_rm_latest}/ehr_extract.html"
+openehr_rm_latest_integration: "{openehr_rm_latest}/integration.html"
+openehr_rm_latest_support: "{openehr_rm_latest}/support.html"
+openehr_rm_latest_entity: "{openehr_rm_latest}/entity.html"
+
+# --------------- CNF ----------------
+openehr_cnf_releases: "{openehr_specs}/releases/CNF/{cnf_release}"
+openehr_cnf_component: "{openehr_cnf_releases}/index"
+
+openehr_cnf_guide: "{openehr_cnf_releases}/guide.html"
+openehr_cnf_platform_test_schedule: "{openehr_cnf_releases}/platform_test_schedule.html"
+openehr_cnf_certificate: "{openehr_cnf_releases}/certificate.html"
+openehr_cnf_profiles: "{openehr_cnf_releases}/profiles.html"
+
+openehr_cnf_platform_tests: "{openehr_cnf_releases}/tests/platform"
+openehr_cnf_platform_tests_robot: "{openehr_cnf_releases}/tests/platform/robot"
+
+# for link in preface part of docs
+openehr_cnf_latest: "{openehr_specs}/releases/CNF/latest"
+openehr_cnf_latest_guide: "{openehr_cnf_latest}/guide.html"
+openehr_cnf_latest_platform_test_schedule: "{openehr_cnf_latest}/platform_test_schedule.html"
+openehr_cnf_latest_certificate: "{openehr_cnf_latest}/certificate.html"
+openehr_cnf_latest_profiles: "{openehr_cnf_latest}/profiles.html"
+openehr_cnf_development: "{openehr_specs}/releases/CNF/development"
+openehr_cnf_development_guide: "{openehr_cnf_development}/guide.html"
+openehr_cnf_development_platform_test_schedule: "{openehr_cnf_development}/platform_test_schedule.html"
+openehr_cnf_development_certificate: "{openehr_cnf_development}/certificate.html"
+openehr_cnf_development_profiles: "{openehr_cnf_development}/profiles.html"
+
+# --------------- TERM ----------------
+openehr_term_releases: "{openehr_specs}/releases/TERM/{term_release}"
+openehr_term_component: "{openehr_term_releases}/index"
+
+openehr_term_terminology: "{openehr_term_releases}/SupportTerminology.html"
+
+# for link in preface part of docs
+openehr_term_latest: "{openehr_specs}/releases/TERM/latest"
+openehr_term_latest_terminology: "{openehr_term_latest}/SupportTerminology.html"
+openehr_term_development: "{openehr_specs}/releases/TERM/development"
+openehr_term_development_terminology: "{openehr_term_development}/SupportTerminology.html"
+
+# Git links
+openehr_terminology_resources: "{openehr_git}/specifications-TERM"
+openehr_terminology_xml: "{openehr_terminology_resources}/blob/master/computable/XML/en/openehr_terminology.xml"
+
+# --------------- ITS ----------------
+openehr_its_releases: "{openehr_specs}/releases/ITS/{its_release}"
+openehr_its_component: "{openehr_its_releases}/index"
+# for now, ITS-REST has its own docs index, but the other 3 do not
+openehr_its_rest_releases: "{openehr_specs}/releases/ITS-REST/{its_rest_release}"
+openehr_its_xml_releases: "{openehr_specs}/releases/ITS-XML/{its_xml_release}"
+openehr_its_json_releases: "{openehr_specs}/releases/ITS-JSON/{its_json_release}"
+openehr_its_bmm_releases: "{openehr_specs}/releases/ITS-BMM/{its_bmm_release}"
+
+# REST APIs
+openehr_ehr_rest_api: "{openehr_its_rest_releases}/ehr.html"
+openehr_query_rest_api: "{openehr_its_rest_releases}/query.html"
+openehr_cds_rest_api: "{openehr_its_rest_releases}/query.html"
+openehr_definitions_rest_api: "{openehr_its_rest_releases}/definitions.html"
+openehr_demographic_rest_api: "{openehr_its_rest_releases}/demographic.html"
+
+# legacy openehr_simplified_data_template => openehr_simplified_formats
+openehr_simplified_formats: "{openehr_its_rest_releases}/simplified_formats.html"
+openehr_simplified_data_template: "{openehr_its_rest_releases}"
+openehr_smart_app_launch: "{openehr_its_rest_releases}/smart_app_launch.html"
+
+# XML schemas
+openehr_its_am_xsd: "{openehr_its_xml_releases}/components/AM"
+openehr_its_rm_xsd: "{openehr_its_xml_releases}/components/RM"
+openehr_its_query_xsd: "{openehr_its_xml_releases}/components/QUERY"
+openehr_its_base_xsd: "{openehr_its_xml_releases}/components/BASE"
+openehr_its_oet_xsd: "{openehr_its_xml_releases}/components/OET"
+
+
+# Github
+openehr_its: "{openehr_git}/specifications-ITS"
+openehr_its_bmm: "{openehr_git}/specifications-ITS-BMM"
+openehr_its_json: "{openehr_git}/specifications-ITS-JSON"
+openehr_its_xml: "{openehr_git}/specifications-ITS-XML"
+openehr_its_rm_xsds: "{openehr_its}/tree/master/components/RM"
+openehr_its_rest: "{openehr_git}/specifications-ITS-REST"
+openehr_rest_apis: "{openehr_git}/specifications-ITS-REST"
+openehr_adl_antlr: "{openehr_git}/adl-antlr"
+openehr_adl_antlr_include: "{openehr_git_raw}/adl-antlr/master/src/main/antlr"
+openehr_adl_210_antlr_include: "{openehr_git_raw}/adl-antlr/ADL_2.1.0/src/main/antlr"
+openehr_adl_220_antlr_include: "{openehr_git_raw}/adl-antlr/ADL_2.2.0/src/main/antlr"
+openehr_openehr_antlr_include: "{openehr_git_raw}/openEHR-antlr4/master/combined/src/main/antlr"
+openehr_openehr_antlr: "{openehr_git}/openEHR-antlr4/tree/master/combined/src/main/antlr"
+
+#
+# ============== openEHR online resources ==============
+#
+
+# web pages
+openehr_sec: "{openehr_website_url}/programs/specification/editorialcommittee"
+openehr_gehr: "{openehr_website_url}/resources/related_projects#gehr"
+openehr_technical_list: "{openehr_forums_site}/c/specifications"
+openehr_clinical_list: "{openehr_forums_site}/c/clinical"
+openehr_CKM: "{openehr_website_url}/ckm"
+modelling_tools: "{openehr_website_url}/downloads/modellingtools"
+template_Designer: "{openehr_website_url}/downloads/modellingtools"
+
+# tools
+openehr_awb: "{openehr_website_url}/downloads/ADLworkbench"
+openehr_awb_github: "{openehr_git}/adl-tools"
+openehr_adl_archetypes_github: "{openehr_git}/adl-archetypes"
+openehr_archie_github: "{openehr_git}/archie"
+openehr_awb_profiles: "{openehr_git}/adl-tools/tree/master/apps/resources/aom_profiles"
+openehr_java_libs: "{openehr_git}/java-libs"
+openehr_oet_parser: "{openehr_java_libs}/tree/master/oet-parser"
+openehr_reference_models_github: "{openehr_git}/reference-models"
+
+eomf_bmm: "https://github.com/wolandscat/EOMF/tree/master/library/bmm"
+
+# GDL
+gdl_lang_site: "https://gdl-lang.org"
+gdl2_migration_tutorial: "{gdl_lang_site}/the-project/guides-tutorials/gdl2-guideline-migration-tutorial"
+gdl_github: "https://github.com/gdl-lang"
+gdl_models_github: "{gdl_github}/common-clinical-models/blob/master/README.md"
+gdl_wiki: "{gdl_github}/common-clinical-models/wiki"
+
+# IANA
+iana: "https://www.iana.org"
+iana_character_sets: "{iana}/assignments/character-sets"
+iana_media_types: "{iana}/assignments/media-types"
+iana_language_subtag_registry: "{iana}/assignments/language-subtag-registry"
+
+#
+# =============== major online reference sites ===============
+#
+wikipedia: "https://en.wikipedia.org/wiki"
+
+#
+# =============== e-Health online resources ===============
+#
+bfo: "https://basic-formal-ontology.org"
+ro: "https://obofoundry.org/ontology/ro.html"
+fma: "http://sig.biostr.washington.edu/projects/fm/"
+iao:  "https://bioportal.bioontology.org/ontologies/IAO"
+snomed: "http://www.snomed.org"
+ihtsdo: "{snomed}"
+snomed_ct: "{snomed}"
+snomed_uris: "https://confluence.ihtsdotools.org/display/DOCURI/URI+Standard"
+linkehr: "http://linkehr.com"
+loinc: "http://loinc.org"
+obo: "http://www.obofoundry.org/"
+ogms: "https://code.google.com/p/ogms/"
+protege: "http://protege.stanford.edu/"
+who_icd: "http://www.who.int/classifications/icd/en/"
+who_icpc: "http://www.who.int/classifications/icd/adaptations/icpc2/en/"
+ucum: "http://unitsofmeasure.org/ucum.html"
+nlm_umls_list: "https://www.nlm.nih.gov/research/umls/sourcereleasedocs/index.html"
+loc_lang_codes: "http://www.loc.gov/standards/iso639-2/langhome.html"
+proforma_language: "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC212780/"
+guidelines_intl_network: "https://g-i-n.net/"
+cds_hooks: "https://cds-hooks.org"
+
+#
+# =============== clinical online resources ===============
+#
+e_p_a: "http://e-p-a.org"
+e_p_a_care_pathways: "{e_p_a}/care-pathways/"
+cemb_oxford: "https://www.cebm.ox.ac.uk/resources/ebm-tools/glossary"
+nice_uk: "https://www.nice.org.uk"
+nice_uk_pathways: "https://pathways.nice.org.uk/pathways"
+nice_uk_stable_angina: "https://www.nice.org.uk/guidance/CG126"
+cancer_council_australia: "https://www.cancer.org.au"
+cancer_council_australia_breast: "{cancer_council_australia}/assets/pdf/breast-cancer-optimal-cancer-care-pathway"
+ihc_stroke_pathway: "https://intermountainhealthcare.org/ckr-ext/Dcmnt?ncid=520500199"
+acep_covid_19_severity_tool_pdf: "https://www.acep.org/globalassets/sites/acep/media/covid-19-main/acep_evidencecare_covid19severitytool.pdf"
+acep_covid_19_severity_tool_app: "https://covid19.evidence.care/dashboard/covid/pathway/198712647/-980102880"
+rn_central_care_plan: "http://www.rncentral.com/nursing-library/careplans/"
+chad2ds2vasc_score: "{wikipedia}/CHA2DS2-VASc_score"
+wikipedia_tnm: "{wikipedia}/TNM_staging_system"
+
+#
+# IEEE
+#
+ieee_828: "https://standards.ieee.org/standard/828-2005.html"
+
+#
+# HL7
+#
+hl7: "https://www.hl7.org"
+hl7_fhir: "{hl7}/fhir"
+hl7_fhir_binding_strengths: "{hl7_fhir}/terminologies.html#strength"
+hl7_compression_algorithms: "{hl7_fhir}/v3/CompressionAlgorithm/cs.html"
+hl7_integrity_check_algorithms: "{hl7_fhir}/v3/IntegrityCheckAlgorithm/cs.html"
+hl7_observation_statuses: "{hl7_fhir}/valueset-observation-interpretation.html"
+hl7_participation_signature: "{hl7_fhir}/v3/ParticipationSignature/cs.html"
+hl7_participation_mode: "{hl7_fhir}/v3/ParticipationMode/cs.html"
+hl7_cda: "{hl7}/implement/standards/product_brief.cfm?product_id=7"
+hl7v3: "{hl7}/implement/standards/product_brief.cfm?product_id=186"
+hl7v3_data_types: "{hl7}/implement/standards/product_brief.cfm?product_id=264"
+hl7v3_rim: "{hl7}/implement/standards/rim.cfm"
+hl7v3_arden: "{hl7}/special/Committees/arden/index.cfm"
+hl7v3_gello: "{hl7}/implement/standards/product_brief.cfm?product_id=5"
+hl7_cql: "https://cql.hl7.org"
+hl7_cimi: "https://cimi.hl7.org/index.html"
+
+#
+# W3C
+#
+w3c_xml_schema: "https://www.w3.org/XML/Schema"
+w3c_xpath: "https://www.w3.org/TR/xpath-31/"
+xquery: "https://www.w3.org/XML/Query/"
+w3c_owl: "https://www.w3.org/TR/2003/CR-owl-ref-20030818/"
+w3c_uri_addressing: "http://www.w3.org/Addressing"
+w3c_sparql: "https://www.w3.org/TR/sparql11-query/"
+
+#
+# OMG
+#
+omg: "https://www.omg.org"
+omg_bpmn: "http://www.bpmn.org/"
+omg_idl: "{omg}/spec/IDL/"
+omg_cmmn: "{omg}/spec/CMMN/1.0/"
+omg_dmn: "{omg}/spec/DMN/"
+omg_uml: "{omg}/spec/UML/"
+omg_ocl: "{omg}/spec/OCL/"
+omg_pids: "{omg}/spec/PIDS/"
+omg_lqs: "{omg}/spec/LQS/"
+omg_coas: "{omg}/spec/COAS/"
+omg_corbamed: "{omg}/spec/COAS/"
+bpm_plus: "http://bpm-plus.org/"
+
+# Unicode
+unicode_countries_list: "http://www.unicode.org/unicode/onlinedat/countries.html"
+
+#
+# IETF
+#
+ietf: "https://www.ietf.org"
+ietf_html: "https://tools.ietf.org/html"
+rfc2396: "{ietf_html}/rfc2396"
+rfc4880: "{ietf_html}/rfc4880"
+rfc3986: "{ietf_html}/rfc3986"
+rfc4122: "{ietf_html}/rfc4122"
+rfc2781: "{ietf_html}/rfc2781"
+rfc5646: "{ietf_html}/rfc5646"
+
+#
+# Wikipedia
+#
+wikipedia_open_world_assumption: "{wikipedia}/Open-world_assumption"
+wikipedia_currying: "{wikipedia}/Currying"
+wikipedia_sql: "{wikipedia}/SQL"
+wikipedia_oql: "{wikipedia}/Object_Query_Language"
+wikipedia_lambda_calculus: "{wikipedia}/Lambda_calculus"
+wikipedia_cov_contra: "{wikipedia}/Covariance_and_contravariance_(computer_science)"
+wikipedia_seven_plus_or_minus_two: "{wikipedia}/The_Magical_Number_Seven,_Plus_or_Minus_Two"
+soap_protocol: "{wikipedia}/SOAP"
+rest_ws: "{wikipedia}/Representational_state_transfer"
+cqs: "{wikipedia}/Command%E2%80%93query_separation"
+
+#
+# ISO
+#
+iso: "https://www.iso.org"
+iso_8601_official: "{iso}/iso-8601-date-and-time-format.html"
+iso_639_1_codes: "{wikipedia}/List_of_ISO_639-1_codes"
+iso_3166_1_codes_alpha_2_codes: "{wikipedia}/ISO_3166-1_alpha-2#Current_codes"
+iso_8601: "{wikipedia}/ISO_8601"
+iso_rm_odp: "{wikipedia}/RM-ODP"
+iso_2788: "{iso}/standard/7776.html"
+iso_5964: "{iso}/standard/12159.html"
+
+iso_13606: "{iso}/standard/40784.html"
+iso_13606-1: "{iso}/standard/40784.html"
+iso_13606-2: "{iso}/standard/62305.html"
+iso_13606-3: "{iso}/standard/50120.html"
+iso_13606-4: "{iso}/standard/50121.html"
+
+iso_18308: "{iso}/standard/52823.html"
+iso_20514: "{iso}/standard/39525.html"
+iso_13940: "{iso}/standard/58102.html"
+iso_22600: "{iso}/standard/62653.html"
+
+#
+# ECMA
+#
+eiffel_ecma_367: "http://www.ecma-international.org/publications/standards/Ecma-367.htm"
+
+#
+# Apache
+#
+apache_kafka: "https://kafka.apache.org"
+apache_avro: "https://avro.apache.org"
+apache_thrift: "https://thrift.apache.org"
+
+#
+# general IT
+#
+medscape_cannulation: "http://emedicine.medscape.com/article/1998177-overview"
+yawl: "http://yawlfoundation.org/"
+semver: "http://semver.org"
+asciidoctor_home: "http://asciidoctor.org"
+
+ampq: "https://www.amqp.org/"
+google_protobuf: "https://github.com/google/protobuf/wiki"
+zeroc_ice: "https://zeroc.com/products/ice#what-is-ice"
+typescript: "https://www.typescriptlang.org"
+commonmark_spec: "https://spec.commonmark.org/"
+perl_regex: "https://perldoc.perl.org/perlre.html"
+winmerge: "http://winmerge.org/"
+json: "http://json.org"
+graphql: "http://graphql.org"
+kotlin: "https://kotlinlang.org"
+cucumber_test: "https://cucumber.io"
+robot_test: "https://robotframework.org"
+spock_test: "https://spockframework.org"
+

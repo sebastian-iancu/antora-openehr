@@ -23,18 +23,15 @@ get_title_from_page() {
 }
 
 # -------------------------------------------------------------------
-# Extract :spec_title: from manifest_vars.adoc
+# Extract :spec_title: from modules/$module/partials/module_vars.adoc
 # -------------------------------------------------------------------
 
-get_spec_title_from_manifest() {
+get_spec_title_from_module_vars() {
   local module="$1"
-  local manifest=""
+  local file=""
 
-  # Prefer per-module manifest_vars
-  if [ -f "docs/$module/manifest_vars.adoc" ]; then
-    manifest="docs/$module/manifest_vars.adoc"
-  elif [ -f "docs/manifest_vars.adoc" ]; then
-    manifest="docs/manifest_vars.adoc"
+  if [ -f "modules/$module/partials/module_vars.adoc" ]; then
+    file="modules/$module/partials/module_vars.adoc"
   else
     echo ""
     return
@@ -42,7 +39,7 @@ get_spec_title_from_manifest() {
 
   # Find line beginning with :spec_title:
   local line
-  line="$(grep '^:spec_title:' "$manifest" | head -n1 || true)"
+  line="$(grep '^:spec_title:' "$file" | head -n1 || true)"
 
   [ -z "$line" ] && { echo ""; return; }
 
@@ -126,13 +123,13 @@ create_module_nav() {
 
   # ------------------------------------------------------------------
   # TITLE RESOLUTION PRIORITY:
-  # 1) :spec_title: from manifest_vars.adoc
+  # 1) :spec_title: from module_vars.adoc
   # 2) First "= Heading" in index.adoc
   # 3) Prettified module name
   # ------------------------------------------------------------------
   local module_title
 
-  module_title="$(get_spec_title_from_manifest "$module")"
+  module_title="$(get_spec_title_from_module_vars "$module")"
 
   if [ -z "$module_title" ]; then
     module_title="$(get_title_from_page "$index_file")"

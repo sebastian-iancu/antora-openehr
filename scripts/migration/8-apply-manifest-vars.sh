@@ -23,59 +23,59 @@ get_manifest_src_for_module() {
   echo "$manifest_src"
 }
 
-ensure_root_global_vars() {
+install_component_vars() {
   local root_partials_dir="modules/ROOT/partials"
-  local global_vars_src="../../resources/global_vars.adoc"
+  local component_vars_src="../../resources/component_vars.adoc"
 
-  if [ ! -f "$global_vars_src" ]; then
+  if [ ! -f "$component_vars_src" ]; then
     return 0
   fi
 
-  echo "    • Ensuring global_vars.adoc is installed in modules/ROOT/partials"
+  echo "    • Ensuring component_vars.adoc is installed in modules/ROOT/partials"
   mkdir -p "$root_partials_dir"
-  cp "$global_vars_src" "$root_partials_dir/global_vars.adoc"
+  cp "$component_vars_src" "$root_partials_dir/component_vars.adoc"
 }
 
-install_manifest_partial() {
+install_module_vars() {
   local module="$1"
-  local manifest_src="$2"
+  local file_src="$2"
   local partials_dir="modules/$module/partials"
-  local manifest_dest="$partials_dir/manifest_vars.adoc"
+  local file_dest="$partials_dir/module_vars.adoc"
 
   mkdir -p "$partials_dir"
 
-  if grep -q 'include::ROOT:partial\$global_vars.adoc\[\]' "$manifest_src"; then
+  if grep -q 'include::ROOT:partial\$component_vars.adoc\[\]' "$file_src"; then
     # Source already includes the ROOT global include; just copy it
-    cp "$manifest_src" "$manifest_dest"
+    cp "$file_src" "$file_dest"
   else
-    # Prepend include of ROOT global_vars.adoc
-    local tmp_manifest="${manifest_dest}.tmp"
+    # Prepend include of ROOT component_vars.adoc
+    local tmp_file="${file_dest}.tmp"
     {
-      echo "include::ROOT:partial\$global_vars.adoc[]"
+      echo "include::ROOT:partial\$component_vars.adoc[]"
       echo
-      cat "$manifest_src"
-    } > "$tmp_manifest"
-    mv "$tmp_manifest" "$manifest_dest"
+      cat "$file_src"
+    } > "$tmp_file"
+    mv "$tmp_file" "$file_dest"
   fi
 }
 
-prepend_manifest_include_to_pages() {
+include_module_vars_to_pages() {
   local module="$1"
   local pages_dir="modules/$module/pages"
 
   [ -d "$pages_dir" ] || return 0
 
-  # Prepend include::partial$manifest_vars.adoc[] to each page if not already there
+  # Prepend include::partial$module_vars.adoc[] to each page if not already there
   for f in "$pages_dir"/*.adoc; do
     [ -f "$f" ] || continue
 
-    if grep -q 'include::partial\$manifest_vars.adoc\[\]' "$f"; then
+    if grep -q 'include::partial\$module_vars.adoc\[\]' "$f"; then
       continue
     fi
 
     local tmp="${f}.tmp"
     {
-      echo "include::partial\$manifest_vars.adoc[]"
+      echo "include::partial\$module_vars.adoc[]"
       echo
       cat "$f"
     } > "$tmp"
@@ -101,18 +101,18 @@ apply_manifest_vars() {
     return 0
   fi
 
-  echo "  • Installing manifest_vars partial and include in $pages_dir/"
+  echo "  • Installing module_vars partial and include in $pages_dir/"
 
-  ensure_root_global_vars
-  install_manifest_partial "$module" "$manifest_src"
-  prepend_manifest_include_to_pages "$module"
+  install_component_vars
+  install_module_vars "$module" "$manifest_src"
+  include_module_vars_to_pages "$module"
 }
 
 # -------------------------------------------------------------------
 # Main
 # -------------------------------------------------------------------
 
-echo "Step 8: Applying manifest vars..."
+echo "Step 8: Applying manifest vars ..."
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 
 for module in $MODULES; do

@@ -17,7 +17,31 @@ get_manifest_src_for_module() {
   elif [ -f "docs/manifest_vars.adoc" ]; then
     manifest_src="docs/manifest_vars.adoc"
   else
-    manifest_src=""
+    # Create manifest_vars.adoc if it doesn't exist
+    mkdir -p "docs/$module"
+    manifest_src="docs/$module/manifest_vars.adoc"
+
+    # Extract variables from master.adoc
+    if [ -f "docs/$module/master.adoc" ]; then
+      # Get title from first heading
+      spec_title=$(grep -m 1 "^=" "docs/$module/master.adoc" | sed 's/^= //')
+      # Extract other variables
+      copyright_year=$(grep -m 1 ":copyright_year:" "docs/$module/master.adoc" | cut -d' ' -f2-)
+      spec_status=$(grep -m 1 ":spec_status:" "docs/$module/master.adoc" | cut -d' ' -f2-)
+      keywords=$(grep -m 1 ":keywords:" "docs/$module/master.adoc" | cut -d' ' -f2-)
+      description=$(grep -m 1 ":description:" "docs/$module/master.adoc" | cut -d' ' -f2-)
+
+      # Write manifest file
+      {
+        echo ":spec_title: $spec_title"
+        echo ":copyright_year: $copyright_year"
+        echo ":spec_status: $spec_status"
+        echo ":keywords: $keywords"
+        echo ":description: $description"
+      } > "$manifest_src"
+    else
+      manifest_src=""
+    fi
   fi
 
   echo "$manifest_src"
@@ -95,6 +119,7 @@ apply_manifest_vars() {
 
   local manifest_src
   manifest_src="$(get_manifest_src_for_module "$module")"
+  echo "  • $manifest_src in $pages_dir/"
 
   if [ -z "$manifest_src" ]; then
     # nothing to do for this module

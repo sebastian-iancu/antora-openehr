@@ -41,25 +41,25 @@ if [ -f "antora.yml" ]; then
         echo "  ✓ 'name' attribute present"
     else
         echo "  ✗ 'name' attribute missing"
-        ((ERRORS++))
+        ERRORS=$((ERRORS + 1))
     fi
     
     if grep -q "^version:" antora.yml; then
         echo "  ✓ 'version' attribute present"
     else
-        echo "  ✗ 'version' attribute missing"
-        ((ERRORS++))
+        echo "  ⚠ 'version' attribute missing"
+        WARNINGS=$((WARNINGS + 1))
     fi
     
     if grep -q "^start_page:" antora.yml; then
         echo "  ✓ 'start_page' attribute present"
     else
         echo "  ✗ 'start_page' attribute missing"
-        ((WARNINGS++))
+        WARNINGS=$((WARNINGS + 1))
     fi
 else
     echo "✗ antora.yml not found"
-    ((ERRORS++))
+    ERRORS=$((ERRORS + 1))
 fi
 echo ""
 
@@ -77,11 +77,11 @@ if [ -d "modules" ]; then
         echo "  ✓ ROOT module exists"
     else
         echo "  ✗ ROOT module missing"
-        ((ERRORS++))
+        ERRORS=$((ERRORS + 1))
     fi
 else
     echo "✗ modules/ directory not found"
-    ((ERRORS++))
+    ERRORS=$((ERRORS + 1))
 fi
 echo ""
 
@@ -104,19 +104,37 @@ if [ -d "modules" ]; then
                 echo "      ✓ index.adoc exists"
             else
                 echo "      ⚠ index.adoc missing (recommended)"
-                ((WARNINGS++))
+                WARNINGS=$((WARNINGS + 1))
             fi
         else
             echo "    ✗ pages/ directory missing"
-            ((ERRORS++))
+            ERRORS=$((ERRORS + 1))
         fi
         
         # Check for partials directory
         if [ -d "$MODULE_DIR/partials" ]; then
             PARTIAL_COUNT=$(find "$MODULE_DIR/partials" -name "*.adoc" 2>/dev/null | wc -l)
             echo "    ✓ partials/ directory ($PARTIAL_COUNT files)"
+
+            # Check for vars in partials
+            if [ "$MODULE" = "ROOT" ]; then
+                if [ -f "$MODULE_DIR/partials/component_vars.adoc" ]; then
+                    echo "      ✓ partials/component_vars.adoc exists"
+                else
+                    echo "      ⚠ partials/component_vars.adoc missing (required)"
+                    ERRORS=$((ERRORS + 1))
+                fi
+            else
+                if [ -f "$MODULE_DIR/partials/module_vars.adoc" ]; then
+                    echo "      ✓ partials/module_vars.adoc exists"
+                else
+                    echo "      ⚠ partials/module_vars.adoc missing (required)"
+                    ERRORS=$((ERRORS + 1))
+                fi
+            fi
         else
-            echo "    ℹ partials/ directory not present (optional)"
+            echo "    ✗ partials/ directory not present (required)"
+            ERRORS=$((ERRORS + 1))
         fi
         
         # Check for images directory
@@ -132,7 +150,7 @@ if [ -d "modules" ]; then
             echo "    ✓ nav.adoc exists"
         else
             echo "    ⚠ nav.adoc missing (recommended)"
-            ((WARNINGS++))
+            WARNINGS=$((WARNINGS + 1))
         fi
     done
 fi
@@ -143,7 +161,7 @@ echo "→ Checking for old structure remnants..."
 if [ -d "docs" ]; then
     echo "⚠ docs/ directory still exists"
     echo "  Consider archiving or removing after migration is complete"
-    ((WARNINGS++))
+    WARNINGS=$((WARNINGS + 1))
 else
     echo "✓ No old docs/ directory found"
 fi
@@ -157,12 +175,12 @@ INCLUDE_ISSUES=0
 if [ -d "modules" ]; then
     # Check for includes without partial$
     while IFS= read -r line; do
-        if echo "$line" | grep -q "include::" && ! echo "$line" | grep -q "partial\$" && ! echo "$line" | grep -q "example\$"; then
+        if echo "$line" | grep -q "include::" && ! echo "$line" | grep -q "partial\\$" && ! echo "$line" | grep -q "example\\$"; then
             if [ $INCLUDE_ISSUES -eq 0 ]; then
                 echo "⚠ Found potential include directive issues:"
             fi
             echo "  $line"
-            ((INCLUDE_ISSUES++))
+            INCLUDE_ISSUES=$((INCLUDE_ISSUES + 1))
         fi
     done < <(find modules/*/pages -name "*.adoc" -exec grep -H "include::" {} \; 2>/dev/null)
     
@@ -170,7 +188,7 @@ if [ -d "modules" ]; then
         echo ""
         echo "  Found $INCLUDE_ISSUES potential include issues"
         echo "  Include directives should use: include::partial\$filename.adoc[]"
-        ((WARNINGS++))
+        WARNINGS=$((WARNINGS + 1))
     else
         echo "✓ No obvious include directive issues found"
     fi

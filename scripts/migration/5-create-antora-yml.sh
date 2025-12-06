@@ -12,11 +12,19 @@ echo "━━━━━━━━━━━━━━━━━━━━━━━━�
 
 ANTORA_YML="antora.yml"
 
+# Define component name to title mapping
+declare -A COMPONENT_MAP
+COMPONENT_MAP["RM"]="Reference Model"
+COMPONENT_MAP["BASE"]="Base Model"
+COMPONENT_MAP["AM"]="Archetype Model"
+# Set component title based on mapping
+COMPONENT_TITLE="${COMPONENT_MAP[$COMPONENT_NAME]:-$COMPONENT_NAME}"
+
 cat > "$ANTORA_YML" << EOF
 name: $COMPONENT_NAME
-title: $COMPONENT_NAME Component
 version: ~
 display_version: Development
+title: $COMPONENT_TITLE
 start_page: ROOT:index.adoc
 nav:
   - modules/ROOT/nav.adoc

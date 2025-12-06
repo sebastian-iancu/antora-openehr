@@ -201,11 +201,16 @@ Some document attributes from AA_GLOBAL need to be referenced differently.
 
 **Before:**
 ```asciidoc
-:openehr-version: 1.0.4
+:openehr_rm_releases: {openehr_specs}/releases/RM/{rm_release}
 ```
 
 **After:**
-These are now defined globally in `antora-playbook.yml` and automatically available.
+These are now defined globally in `antora-playbook.yml`, or loaded via `resources/global-vars.yml`:
+```yaml
+openehr_rm_releases: "{openehr_specs}/releases/RM/{rm_release}"
+```
+However, you can still use the old syntax for in pages to refer to such variable.
+
 
 ### 6. Create Navigation Files
 

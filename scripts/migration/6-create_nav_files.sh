@@ -74,7 +74,7 @@ generate_nav_entries_from_master() {
 
   [ -f "$master_file" ] || return 0
 
-  awk 'found {print} /:sectnums:/{found=1}' "$master_file" \
+  awk 'found {print} /:sectnums|sectanchors:/{found=1}' "$master_file" \
     | grep '^include::' 2>/dev/null \
     | sed -E 's/^include::([^[]+)\[.*/\1/' \
     | while read -r target; do
@@ -89,7 +89,7 @@ generate_nav_entries_from_master() {
         esac
 
         case "$target" in
-          master00-amendment_record.adoc|amendment_record.adoc) continue ;;
+          *-amendment_record.adoc|amendment_record.adoc) continue ;;
         esac
 
         local base="${target%.adoc}"

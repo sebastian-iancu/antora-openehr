@@ -45,7 +45,7 @@ copy_included_non_master() {
 
   [ -f "$master_file" ] || return 0
 
-  awk 'found {print} /:sectnums:/{found=1}' "$master_file" \
+  awk 'found {print} /:sectnums|sectanchors:/{found=1}' "$master_file" \
     | grep '^include::' 2>/dev/null \
     | sed -E 's/^include::([^[]+)\[.*/\1/' \
     | while read -r target; do
@@ -61,7 +61,7 @@ copy_included_non_master() {
           manifest_vars.adoc) continue ;;
           master[0-9][0-9]-*.adoc) continue ;;
           masterAppA-*.adoc) continue ;;
-          master00-amendment_record.adoc|amendment_record.adoc) continue ;;
+          *-amendment_record.adoc|amendment_record.adoc) continue ;;
         esac
 
         local src="docs/$module/$target"
@@ -137,6 +137,9 @@ process_module() {
 # -------------------------------------------------------------------
 # Main
 # -------------------------------------------------------------------
+
+echo "Step 4: Migrate content files..."
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 
 for module in $MODULES; do
   process_module "$module"

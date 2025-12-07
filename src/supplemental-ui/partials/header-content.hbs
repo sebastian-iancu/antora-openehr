@@ -1,77 +1,7 @@
-<link rel="icon" type="image/png" href="{{uiRootPath}}/favicon.png">
-
-<style>
-/* ====== Top openEHR banner ====== */
-.openehr-header {
-  display: flex;
-  align-items: center;
-  padding: 0.5rem 1rem;
-  background-color: #00758f;
-  color: white;
-}
-
-.openehr-title {
-  font-size: 1.2rem;
-  font-weight: bold;
-}
-
-.site-title {
-  color: white;
-}
-
-/* ====== Main navbar styled with same colors ====== */
-.header,
-.navbar {
-  background-color: #00758f !important;
-  color: white !important;
-}
-
-.navbar-item,
-.navbar-link {
-  color: white !important;
-}
-
-.navbar-item:hover,
-.navbar-link:hover {
-  background-color: #005f73 !important;
-  color: white !important;
-}
-
-/* burger icon */
-.navbar-burger span {
-  background-color: white !important;
-}
-
-/* dropdown background */
-.navbar-dropdown {
-  background-color: #00758f !important;
-}
-
-/* force dropdown text to white */
-.navbar-dropdown .navbar-item {
-  color: white !important;
-}
-
-/* dropdown hover */
-.navbar-dropdown .navbar-item:hover {
-  background-color: #005f73 !important;
-}
-
-/* search bar */
-#search-input {
-  border-radius: 4px;
-  border: none;
-  padding: 0.3rem 0.5rem;
-}
-</style>
-
-{{!-- =======================
-     MAIN NAVIGATION BAR
-========================== --}}
 <header class="header">
   <nav class="navbar">
     <div class="navbar-brand">
-      <a class="navbar-item" href="index.html">{{site.title}}</a>
+      <a class="navbar-item" href="{{{or site.url siteRootPath}}}">{{site.title}}</a>
 
       {{#if env.SITE_SEARCH_PROVIDER}}
       <div class="navbar-item search hide-for-print">
@@ -112,8 +42,17 @@
         <div class="navbar-item has-dropdown is-hoverable">
           <a class="navbar-link">Community</a>
           <div class="navbar-dropdown is-right">
+            <a class="navbar-item" href="https://openehr.atlassian.net/secure/Dashboard.jspa?selectPageId=10190" target="_blank">
+              Issue trackers
+            </a>
             <a class="navbar-item" href="https://discourse.openehr.org/" target="_blank">
-              Chat
+              Discourse Forum
+            </a>
+            <a class="navbar-item" href="https://specifications.openehr.org/wiki/display/spec/Specifications+Home" target="_blank">
+              Wiki
+            </a>
+            <a class="navbar-item" href="https://github.com/openEHR" target="_blank">
+              GitHub
             </a>
           </div>
         </div>

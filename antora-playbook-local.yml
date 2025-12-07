@@ -4,7 +4,7 @@ antora:
       index_latest_only: true
       index_by_heading: true
       snippet_length: 80
-    - require: './extensions/load-global-vars.js'
+    - require: './src/extensions/load-global-vars.js'
       var_files: ['./resources/global-vars.yml']
 
 site:
@@ -28,9 +28,9 @@ content:
 
 ui:
   bundle:
-    url: https://gitlab.com/antora/antora-ui-default/-/jobs/artifacts/HEAD/raw/build/ui-bundle.zip?job=bundle-stable
+    url: ./src/ui-bundle.zip
     snapshot: true
-  supplemental_files: ./supplemental-ui
+  supplemental_files: ./src/supplemental-ui
   output_dir: _
 
 asciidoc:

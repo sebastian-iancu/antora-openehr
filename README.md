@@ -21,7 +21,8 @@ Why Antora:
 ## What’s in this repo
 
 - `antora-playbook*.yml` — Antora configuration for production and local builds
-- `supplemental-ui/` — UI extensions (CSS, partials, shared images)
+- `src/supplemental-ui/` — UI assets (CSS, partials, shared images)
+- `src/extensions/` — Antora extensions (e.g., `load-global-vars.js`)
 - `scripts/` — migration and validation helpers
 - `examples/` — before/after structure samples
 - `repos/` — the place where specification repos are cloned for local builds
@@ -53,11 +54,14 @@ antora-openehr-migration/
 │       ├── create-release-branches.sh
 │       └── validate-structure.sh
 │
-├── 🎨 Customization
-│   └── supplemental-ui/
-│       ├── css/
-│       ├── img/
-│       └── partials/
+├── 🧩 Source
+│   └── src/
+│       ├── extensions/
+│       │   └── load-global-vars.js
+│       └── supplemental-ui/
+│           ├── css/
+│           ├── img/
+│           └── partials/
 │
 ├── 📚 Documentation
 │   ├── README.md

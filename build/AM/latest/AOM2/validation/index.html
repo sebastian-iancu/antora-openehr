@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+    <title>Validation and Transformation Semantics :: openEHR Specifications (Local Build)</title>
+    <link rel="canonical" href="https://sebastian-iancu.github.io/antora-openehr/AM/latest/AOM2/validation/">
+    <link rel="prev" href="../terminology_package/">
+    <link rel="next" href="../serialisation_model/">
+    <meta name="description" content="openEHR Archetype Object Model 2 (AOM2) (ISO 13606-2:2019)">
+    <meta name="keywords" content="EHR, ADL, AOM, health records, archetypes, constraint language, ISO 13606, openehr">
+    <meta name="generator" content="Antora 3.1.14">
+    <link rel="stylesheet" href="../../../../_/css/site.css">
+    <link rel="stylesheet" href="../../../../_/css/antora-openehr.css">
+    <link rel="stylesheet" href="../../../../_/css/openehr.css">
+<link rel="icon" href="../../../../_/img/favicon.ico" type="image/x-icon">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://sebastian-iancu.github.io/antora-openehr">openEHR Specifications (Local Build)</a>
+
+      <div class="navbar-item search hide-for-print">
+        <div id="search-field" class="field has-filter">
+          <input id="search-input" type="text" placeholder="Search the docs">
+          <label class="filter checkbox">
+            <input type="checkbox" data-facet-filter="component:AM"> Archetype Model only
+          </label>
+        </div>
+      </div>
+
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">Specifications</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://specifications.openehr.org/" target="_blank">
+              openEHR specification
+            </a>
+            <a class="navbar-item" href="https://specifications.openehr.org/releases/UML/development/index.html" target="_blank">
+              openEHR portal
+            </a>
+            <a class="navbar-item" href="https://ckm.openehr.org/ckm/" target="_blank">
+              openEHR CKM
+            </a>
+          </div>
+        </div>
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">Community</a>
+          <div class="navbar-dropdown is-right">
+            <a class="navbar-item" href="https://openehr.atlassian.net/secure/Dashboard.jspa?selectPageId=10190" target="_blank">
+              Issue trackers
+            </a>
+            <a class="navbar-item" href="https://discourse.openehr.org/" target="_blank">
+              Discourse Forum
+            </a>
+            <a class="navbar-item" href="https://specifications.openehr.org/wiki/display/spec/Specifications+Home" target="_blank">
+              Wiki
+            </a>
+            <a class="navbar-item" href="https://github.com/openEHR" target="_blank">
+              GitHub
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="AM" data-version="Release-2.3.0">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="../../">Archetype Model</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../">Overview</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../ADL1.4/">{spec_title}</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL1.4/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../ADL2/">{spec_title}</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/overview/">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/file_encoding/">File Encoding and Character Quoting</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/master04.1-cadl_overview/">cADL - Constraint ADL</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/master04.2-cadl_basics/">Master04.2-Cadl Basics</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/master04.3-cadl_complex_types/">Master04.3-Cadl Complex Types</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/master04.4-cadl_second_order/">Master04.4-Cadl Second Order</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/master04.5-cadl_primitive_types/">Master04.5-Cadl Primitive Types</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/master04.6-cadl_validity_rules/">Master04.6-Cadl Validity Rules</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/paths/">ADL Paths</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/default_values/">Default Values</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/master07.01-adl_introduction/">ADL - Archetype Definition Language</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/master07.02-adl_conventions/">Master07.02-Adl Conventions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/master07.03-adl_artefacts/">Master07.03-Adl Artefacts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/master07.04-adl_basics/">Master07.04-Adl Basics</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/master07.05-adl_identification/">Master07.05-Adl Identification</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/master07.06-adl_specialise/">Master07.06-Adl Specialise</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/master07.07-adl_language/">Master07.07-Adl Language</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/master07.08-adl_description/">Master07.08-Adl Description</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/master07.09-adl_deprecated/">Master07.09-Adl Deprecated</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/master07.10-adl_definition/">Master07.10-Adl Definition</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/master07.11-adl_rules/">Master07.11-Adl Rules</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/master07.12-adl_rm_overlay/">Master07.12-Adl Rm Overlay</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/master07.13-adl_terminology/">Master07.13-Adl Terminology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/master07.14-adl_annotations/">Master07.14-Adl Annotations</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/terminology_integration/">Terminology Integration</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/master09.01-spec_overview/">Specialisation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/master09.02-spec_concepts/">Master09.02-Spec Concepts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/master09.03-spec_examples/">Master09.03-Spec Examples</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/master09.04-spec_attrib_redef/">Master09.04-Spec Attrib Redef</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/master09.05-spec_object_redef/">Master09.05-Spec Object Redef</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/master09.06-spec_rules/">Master09.06-Spec Rules</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/master09.07-spec_languages/">Master09.07-Spec Languages</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/master09.08-spec_description/">Master09.08-Spec Description</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/master09.09-spec_terminology/">Master09.09-Spec Terminology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/master09.10-spec_bindings/">Master09.10-Spec Bindings</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/templates/">Templates</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/other_formalisms/">Relationship of ADL to Other Formalisms</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/masterAppB-syntax_spec/">Syntax Specification</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../AOM1.4/">{spec_title}</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM1.4/preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM1.4/model_overview/">The Archetype Object Model</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM1.4/archetype_package/">The Archetype Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM1.4/constraint_model_package/">Constraint Model Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM1.4/assertion_package/">The Assertion Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM1.4/primitive_package/">Primitive Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM1.4/ontology_package/">Terminology Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM1.4/domain_extension/">Domain-specific Extension Example</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM1.4/masterAppB-diverse_reference_models/">Using Archetypes with Diverse Reference Models</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM1.4/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../">{spec_title}</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../model_overview/">Model Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../archetype_package/">The Archetype Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../master04.1-constraint_model-overview/">Constraint Model Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../master04.2-constraint_model-semantics/">Master04.2-Constraint Model-Semantics</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../master04.3-constraint_model-second_order/">Master04.3-Constraint Model-Second Order</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../master04.4-constraint_model-AOM_type_subs/">Master04.4-Constraint Model-AOM Type Subs</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../master04.5-constraint_model-class_definitions/">Master04.5-Constraint Model-Class Definitions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../rules_package/">The Rules Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../rm_overlay/">The RM Overlay Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../terminology_package/">Terminology Package</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="./">Validation and Transformation Semantics</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../serialisation_model/">Serialisation Model</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../templates/">Templates</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../rm_adaptation/">Reference Model Adaptation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../Identification/">{spec_title}</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../Identification/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="#index.adoc">Language Design</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../OPT2/">{spec_title}</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../OPT2/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../Overview/">{spec_title}</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../Overview/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Archetype Model</span>
+    <span class="version">Release-2.3.0</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <div class="title"><a href="../../">Archetype Model</a></div>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../../">Release-2.3.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../Release-2.2.0/">Release-2.2.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../BASE/latest/">Base Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../BASE/latest/">Release-1.2.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../BASE/Release-1.1.0/">Release-1.1.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../BASE/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../RM/latest/">Reference Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../RM/latest/">Release-1.1.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../RM/Release-1.0.4/">Release-1.0.4</a>
+        </li>
+        <li class="version">
+          <a href="../../../../RM/development/">development</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../../BASE/latest/" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../../">Archetype Model</a></li>
+    <li><a href="../">{spec_title}</a></li>
+    <li><a href="./">Validation and Transformation Semantics</a></li>
+  </ul>
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">Release-2.3.0</button>
+  <div class="version-menu">
+    <a class="version is-current" href="./">Release-2.3.0</a>
+    <a class="version" href="../../../Release-2.2.0/AOM2/validation/">Release-2.2.0</a>
+    <a class="version" href="../../../development/AOM2/validation/">development</a>
+  </div>
+</div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Validation and Transformation Semantics</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>This section provides a guide for validation, flattening and diffing, based on the ADL workbench reference compiler. The sequence of processing a given archetype A in the Workbench is as follows:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>evaluate specialisation lineage of A</p>
+<div class="ulist">
+<ul>
+<li>
+<p>process each parent in order from the top</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>evaluate supplier archetypes of A (those related by <code>use_archetype</code> statements)</p>
+<div class="ulist">
+<ul>
+<li>
+<p>process suppliers, recursively</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>parse A</p>
+</li>
+<li>
+<p>AOM phase 1 validation - standalone validation</p>
+</li>
+<li>
+<p>if passed, and A is specialised:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>AOM phase 2 validation - validate against flat parent</p>
+</li>
+<li>
+<p>flatten A against flat parent</p>
+</li>
+<li>
+<p>AOM phase 3 validation - validation performed on flat form of A.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_validation"><a class="anchor" href="#_validation"></a><a class="link" href="#_validation">Validation</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Validation is best implemented in a multi-pass fashion, with more basic kinds of errors being checked first. The ADL Workbench implements three validation phases as described below.</p>
+</div>
+<div class="sect2">
+<h3 id="_phase_1_basic_integrity"><a class="anchor" href="#_phase_1_basic_integrity"></a><a class="link" href="#_phase_1_basic_integrity">Phase 1 - Basic Integrity</a></h3>
+<div class="paragraph">
+<p>The following validation can be performed on an archetype mostly without reference to its parent, if it is specialised.</p>
+</div>
+<div class="sect3">
+<h4 id="_basic_checks"><a class="anchor" href="#_basic_checks"></a><a class="link" href="#_basic_checks">Basic checks</a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p>check match of root RM type with RM type mentioned in identifier (VARDT);</p>
+</li>
+<li>
+<p>valid root id code for specialisation level (VARCN);</p>
+</li>
+<li>
+<p>any missing mandatory parts, e.g. <code>terminology</code> section (STCNT);</p>
+</li>
+<li>
+<p>check that specialisation depth is one greater than specialisation depth of parent (VACSD);</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_authored_archetype_meta_data_checks"><a class="anchor" href="#_authored_archetype_meta_data_checks"></a><a class="link" href="#_authored_archetype_meta_data_checks">AUTHORED_ARCHETYPE meta-data checks</a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p>check original language in main part of archetype is available in <code>terminology</code> section (VOLT);</p>
+</li>
+<li>
+<p>check <code>adl_version</code> and <code>rm_release</code> version id formats (VARAV, VARRV);</p>
+</li>
+<li>
+<p>check that languages defined in translations section are in the archetype terminology (VOTM);</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_definition_structure_validation"><a class="anchor" href="#_definition_structure_validation"></a><a class="link" href="#_definition_structure_validation">Definition Structure Validation</a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p>check that differential paths only found in specialised archetypes (VDIFV);</p>
+</li>
+<li>
+<p>check that differential paths in specialised archetypes exist in flat parent (VDIFP);</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_basic_terminology_validation"><a class="anchor" href="#_basic_terminology_validation"></a><a class="link" href="#_basic_terminology_validation">Basic Terminology Validation</a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p>validate terminology code formats and specialisation depths (VATCV, VTSD);</p>
+</li>
+<li>
+<p>validate terminology languages - check all at-codes and ac-codes found in all languages (VTLC);</p>
+</li>
+<li>
+<p>validate terminology bindings - check that all terms and paths mentioned in bindings exist in terminology and definition (VTTBK, VTCBK, VETDF);</p>
+</li>
+<li>
+<p>validate terminology value-sets - check that every code in terminology value set definitions is in the terminology, with no duplications (VTVSID, VTVSMD, VTVSUQ);</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_various_structure_validation"><a class="anchor" href="#_various_structure_validation"></a><a class="link" href="#_various_structure_validation">Various Structure Validation</a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p>check slot definition validity (VDSEV);</p>
+</li>
+<li>
+<p>check <code>C_ARCHETYPE_ROOT</code> validity (VARXRA, VARXTV);</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_code_validation"><a class="anchor" href="#_code_validation"></a><a class="link" href="#_code_validation">Code Validation</a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p>check that all codes mentioned in <code>definition</code> are defined in terminology (VTSD, VATID);</p>
+</li>
+<li>
+<p>validate <code>C_TERMINOLOGY_CODE</code> objects (VATCD, VATDF, VACDF, VATDA);</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_validate_annotations"><a class="anchor" href="#_validate_annotations"></a><a class="link" href="#_validate_annotations">Validate Annotations</a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p>for each language, ensure that annotations paths are valida (VRANP);</p>
+</li>
+<li>
+<p>ensure that annotations are proper translations of each other.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_phase_2_validation_of_specialised_archetype_against_flat_parent"><a class="anchor" href="#_phase_2_validation_of_specialised_archetype_against_flat_parent"></a><a class="link" href="#_phase_2_validation_of_specialised_archetype_against_flat_parent">Phase 2 - Validation of Specialised Archetype Against Flat Parent</a></h3>
+<div class="sect3">
+<h4 id="_validate_against_reference_model"><a class="anchor" href="#_validate_against_reference_model"></a><a class="link" href="#_validate_against_reference_model">Validate Against Reference Model</a></h4>
+<div class="paragraph">
+<p>The following checks require a computational representation of the reference model to be available.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>check that type and attribute names exist in RM (VCORM, VCARM);</p>
+</li>
+<li>
+<p>check that enumeration type constraints use valid literal values (VCORMENV, VCORMENU, VCORMEN);</p>
+</li>
+<li>
+<p>validate any allowed type substitutions (VCORMT);</p>
+</li>
+<li>
+<p>check that <code>existence</code> in <code>C_ATTRIBUTE</code> is valid with respect to RM (VCAEX);</p>
+</li>
+<li>
+<p>check that <code>cardinality</code> in <code>C_ATTRIBUTE</code> is valid with respect to RM (VCACA);</p>
+</li>
+<li>
+<p>check mismatch of -arity of <code>C_ATTRIBUTE</code> in archetype and RM (VCAM).</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_validate_specialised_definition"><a class="anchor" href="#_validate_specialised_definition"></a><a class="link" href="#_validate_specialised_definition">Validate Specialised Definition</a></h4>
+<div class="paragraph">
+<p>The following checks are made on a specialised <code>definition</code> with respect to its flat parent.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>check that node differential path can and does exist in parent (VSONPT, VSONIN);</p>
+</li>
+<li>
+<p>check that <code>SIBLING_ORDER</code> is valid in flat parent (VSSM);</p>
+</li>
+<li>
+<p>on <code>C_ATTRIBUTE</code> nodes</p>
+<div class="ulist">
+<ul>
+<li>
+<p>check conformance of <code>existence</code> to flat parent (VSANCE);</p>
+</li>
+<li>
+<p>check conformance of <code>cardinality</code> to flat parent (VSANCC);</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>on <code>C_ARCHETYPE_ROOT</code>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>check that <code>archetype_ref</code> archetype ID matches parent slot constraint (VARXS);</p>
+</li>
+<li>
+<p>check that <code>archetype_ref</code> archetype ID exists in current library of archetypes (VARXR);</p>
+</li>
+<li>
+<p>filler id specialisation depth is wrong (VARXID);</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>ensure <code>ARCHETYPE_SLOT</code> in child redefines only <code>ARCHETYPE_SLOT</code> in parent (VDSSID);</p>
+</li>
+<li>
+<p>for node <code>C_COMPLEX_OBJECT_PROXY</code> in parent, check that proxy path exists (VSUNT);</p>
+</li>
+<li>
+<p>otherwise, AOM types of child and parent node must be identical (VSONT).</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>For passing nodes, check:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>evaluate <code>c_conforms_to()</code> function:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>RM type non-conformance (VSONCT);</p>
+</li>
+<li>
+<p>occurrences non-conformance (VSONCO);</p>
+</li>
+<li>
+<p>node id non-conformance value mismatch (VSONI);</p>
+</li>
+<li>
+<p>invalid leaf object value redefinition (VPOV, VUNK);</p>
+</li>
+<li>
+<p>tuple validation against parent node (VTPNC, VTPIN).</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_validate_rules"><a class="anchor" href="#_validate_rules"></a><a class="link" href="#_validate_rules">Validate Rules</a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p>ensure RM types and paths mentioned in rules are valid against flat parent archetype and RM (VRRLPRM, VRRLPAR).</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_phase_3_validation_of_flat_form"><a class="anchor" href="#_phase_3_validation_of_flat_form"></a><a class="link" href="#_phase_3_validation_of_flat_form">Phase 3 - Validation of Flat Form</a></h3>
+<div class="paragraph">
+<p>These validations are carried out after successful generation of the flat form of the current archetype.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>ensure <code>C_COMPLEX_OBJECT_PROXY</code> paths actually exist in current flat form (VUNP);</p>
+</li>
+<li>
+<p>ensure object node <code>occurrences</code> valid with respect to enclosing <code>cardinality</code> (VACMCO).</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_flattening"><a class="anchor" href="#_flattening"></a><a class="link" href="#_flattening">Flattening</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Flattening is conceptually a simple operation - the overlaying of a differential child archetype onto a flat parent . Concretely, it is a somewhat sophisticated operation, since it has to take into account a number of specifics allowed by ADL and the AOM, including:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>differential paths, including ones that contain overridden id-codes;</p>
+</li>
+<li>
+<p>nodes in the child can override nodes of different AOM types in the parent in specific circumstances;</p>
+</li>
+<li>
+<p>sibling ordering markers;</p>
+</li>
+<li>
+<p>overlays with cloning: where more than one child specialisation node exists for a single parent complex structure, the parent structure will be cloned before each overlay;</p>
+</li>
+<li>
+<p>deletions (<code>existence matches {0}</code>, <code>occurrences matches {0}</code>).</p>
+</li>
+<li>
+<p>proxy reference targets are expanded inline if the child archetype overrides them.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The algorithm used in the ADL Workbench provide a reasonable template for achieving proper flattening of AOM archetypes and templates.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_diffing"><a class="anchor" href="#_diffing"></a><a class="link" href="#_diffing">Diffing</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Diffing is the reverse of flattening, and is primarily used to support editing operations. The basis of visual editing of an archetype is the flat form of the parent, with the user permitted to make modifications that are conformant with the flat parent. The Diffing operation is used to extract the resulting differential form archetype from the final state of visual editing.</p>
+</div>
+<div class="paragraph">
+<p>The algorithm used in the ADL Workbench provides a reasonable template for achieving diffing of AOM archetypes.</p>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="../terminology_package/">Terminology Package</a></span>
+  <span class="next"><a href="../serialisation_model/">Serialisation Model</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>
+    Copyright: © 2003+
+    <a href="https://www.openehr.org"
+        alt="is an independent, non-profit foundation, facilitating the sharing of health
+           records by consumers and clinicians via open specifications, clinical models
+           and open platform implementations.">The openEHR Foundation</a>
+  </p>
+
+  <p>
+    License:
+    <img src="/_/img/cc-by-nd-88x31.png"
+        alt="Creative Commons Attribution-NoDerivs 3.0 Unported."
+        style="vertical-align:middle;margin:0 0.25rem 0 0;">
+    <a href="https://creativecommons.org/licenses/by-nd/3.0/">
+      Creative Commons Attribution-NoDerivs 3.0 Unported.
+    </a>
+  </p>
+
+  <p>
+    <strong>Links: <strong>
+    <a href="https://www.openehr.org/terms-of-use" class="mr-1">Terms of use</a> |
+    <a href="https://www.openehr.org/privacy-policy" class="mx-1">Privacy policy</a> |
+    <a href="https://www.openehr.org/privacy-policy" class="mx-1">Logos &amp; Trademarks</a> |
+    <a href="https://www.openehr.org/contact-us" class="mx-1">Contact</a>
+  </p>
+</footer>
+
+<script id="site-script" src="../../../../_/js/site.js" data-ui-root-path="../../../../_"></script>
+<script async src="../../../../_/js/vendor/highlight.js"></script>
+<script src="../../../../_/js/vendor/lunr.js"></script>
+<script src="../../../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../../../.." data-snippet-length="80" data-stylesheet="../../../../_/css/search.css"></script>
+<script async src="../../../../search-index.js"></script>
+<script src="../../../../_/js/medium-zoom.min.js"></script>
+<script src="../../../../_/js/zoom.js"></script>
+  </body>
+</html>

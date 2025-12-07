@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+    <title>Design Overview :: openEHR Specifications (Local Build)</title>
+    <link rel="canonical" href="https://sebastian-iancu.github.io/antora-openehr/RM/latest/ehr_extract/design_overview/">
+    <link rel="prev" href="../requirements/">
+    <link rel="next" href="../common_package/">
+    <meta name="description" content="openEHR EHR Extract Information Model specification">
+    <meta name="keywords" content="EHR, Extract, openehr">
+    <meta name="generator" content="Antora 3.1.14">
+    <link rel="stylesheet" href="../../../../_/css/site.css">
+    <link rel="stylesheet" href="../../../../_/css/antora-openehr.css">
+    <link rel="stylesheet" href="../../../../_/css/openehr.css">
+<link rel="icon" href="../../../../_/img/favicon.ico" type="image/x-icon">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://sebastian-iancu.github.io/antora-openehr">openEHR Specifications (Local Build)</a>
+
+      <div class="navbar-item search hide-for-print">
+        <div id="search-field" class="field has-filter">
+          <input id="search-input" type="text" placeholder="Search the docs">
+          <label class="filter checkbox">
+            <input type="checkbox" data-facet-filter="component:RM"> Reference Model only
+          </label>
+        </div>
+      </div>
+
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">Specifications</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://specifications.openehr.org/" target="_blank">
+              openEHR specification
+            </a>
+            <a class="navbar-item" href="https://specifications.openehr.org/releases/UML/development/index.html" target="_blank">
+              openEHR portal
+            </a>
+            <a class="navbar-item" href="https://ckm.openehr.org/ckm/" target="_blank">
+              openEHR CKM
+            </a>
+          </div>
+        </div>
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">Community</a>
+          <div class="navbar-dropdown is-right">
+            <a class="navbar-item" href="https://openehr.atlassian.net/secure/Dashboard.jspa?selectPageId=10190" target="_blank">
+              Issue trackers
+            </a>
+            <a class="navbar-item" href="https://discourse.openehr.org/" target="_blank">
+              Discourse Forum
+            </a>
+            <a class="navbar-item" href="https://specifications.openehr.org/wiki/display/spec/Specifications+Home" target="_blank">
+              Wiki
+            </a>
+            <a class="navbar-item" href="https://github.com/openEHR" target="_blank">
+              GitHub
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="RM" data-version="Release-1.0.4">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="../../">Reference Model</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../">Overview</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../common/">Common Information Model</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../common/preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../common/overview/">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../common/archetyped_package/">Archetyped Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../common/generic_package/">Generic Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../common/directory_package/">Directory Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../common/change_control_package/">Change Control Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../common/resource_package/">Resource Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../common/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../data_structures/">Data Structures Information Model</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_structures/preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_structures/background/">Background</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_structures/overview/">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_structures/item_structure_package/">Item Structure Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_structures/representation_package/">Representation Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_structures/history_package/">History Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_structures/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../data_types/">Data Types Information Model</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_types/preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_types/background/">Background</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_types/introduction/">Introduction</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_types/basic_package/">Basic Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_types/text_package/">Text Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_types/quantity_package/">Quantity Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_types/date_time_package/">Date Time Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_types/time_specification_package/">Time_specification Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_types/encapsulated_package/">Encapsulated Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_types/uri_package/">Uri Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_types/implem_strategies/">Implementation Strategies</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_types/comparison_HL7/">Comparison with HL7v3 Types</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_types/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../demographic/">Demographic Information Model</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../demographic/preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../demographic/demographic_package/">Demographic package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../demographic/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../ehr/">EHR Information Model</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr/preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr/background/">Background</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr/ehr_information_model/">The EHR Information Model</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr/ehr_package/">EHR Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr/composition_package/">Composition Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr/content_package/">Content Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr/navigation_package/">Navigation Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr/entry_package/">Entry Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr/glossary/">Glossary</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../">EHR Extract Information Model</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../requirements/">Requirements</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="./">Design Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../common_package/">Extract.common Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../openehr_extract_package/">The openehr_extract Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../generic_extract_package/">Generic_extract Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../synchronisation_package/">Synchronisation Extracts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../message_package/">The Message package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../semantics/">Semantics of openEHR and ISO 13606 extracts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../integration/">Integration Information Model</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../integration/preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../integration/integration_package/">Integration Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../integration/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../support/">Support Information Model</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../support/preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../support/support_package/">Support Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../support/assumed_types/">Assumed Types</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../support/identification_package/">Identification Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../support/terminology_package/">Terminology Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../support/measurement_package/">Measurement Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../support/definition_package/">Definition Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../support/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Reference Model</span>
+    <span class="version">Release-1.0.4</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <div class="title"><a href="../../../../AM/latest/">Archetype Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../AM/latest/">Release-2.3.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../AM/Release-2.2.0/">Release-2.2.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../AM/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../BASE/latest/">Base Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../BASE/latest/">Release-1.2.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../BASE/Release-1.1.0/">Release-1.1.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../BASE/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <div class="title"><a href="../../../latest/">Reference Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../latest/">Release-1.1.0</a>
+        </li>
+        <li class="version is-current">
+          <a href="../../">Release-1.0.4</a>
+        </li>
+        <li class="version">
+          <a href="../../../development/">development</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../../BASE/latest/" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../../">Reference Model</a></li>
+    <li><a href="../">EHR Extract Information Model</a></li>
+    <li><a href="./">Design Overview</a></li>
+  </ul>
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">Release-1.0.4</button>
+  <div class="version-menu">
+    <a class="version" href="../../../latest/ehr_extract/design_overview/">Release-1.1.0</a>
+    <a class="version is-current" href="./">Release-1.0.4</a>
+    <a class="version" href="../../../development/ehr_extract/design_overview/">development</a>
+  </div>
+</div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Design Overview</h1>
+<div class="sect1">
+<h2 id="_abstract_communication_model"><a class="anchor" href="#_abstract_communication_model"></a><a class="link" href="#_abstract_communication_model">Abstract Communication Model</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The openEHR Extract model uses two design ideas. Firstly, the notion of a Request and an Extract
+(the reply) are distinguished. Extracts may include a copy of the Request to which the Extract is a
+reply, indicating what is actually in the Extract, which may differ from what was requested. Secondly,
+the common semantics of Requests and Extracts are modelled in a generic way, with a number of specialised
+Request and Extract types being based on the common classes. Different concrete types of
+Extract are thus used to satisfy particular groups of requirements, rather than trying to make one kind
+of Extract perform all possible tasks. The figure below illustrates key Extract communication scenarios,
+along with the various concrete Extract types defined by the model.</p>
+</div>
+<div id="use_cases" class="imageblock text-center text-center">
+<div class="content">
+<img src="../_images/diagrams/use_cases.png" alt="use cases" width="80%">
+</div>
+<div class="title">Figure 1. Use cases for openEHR Extracts</div>
+</div>
+<div class="paragraph">
+<p>The EHR Extract is just one concrete type of Extract. The other types include:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><em>Generic Extract</em>: an Extract type designed for use with non-openEHR systems communicating to openEHR systems, and users of the ISO 13606 Extract specification. The Generic Extract assumes the absolute minimum about what is in a system, while remaining within the openEHR type system;</p>
+</li>
+<li>
+<p><em>Synchronisation Extract</em>: an Extract used for updating mirrored EHRs across systems; uses Contributions as the grouping concept.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Other types of Extract may be defined in the future.</p>
+</div>
+<div class="paragraph">
+<p>The pattern of requests and replies may be controlled in time. The simplest situation is single request,
+single reply. Other variants include:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>send request, persist in server, and use 'action' requests to obtain an Extract, which may
+have differing content each time;</p>
+</li>
+<li>
+<p>send request indicating a repeat period, at which server automatically sends replies;</p>
+</li>
+<li>
+<p>send request indicating a trigger event on which server should send replies.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_content_model_representation"><a class="anchor" href="#_content_model_representation"></a><a class="link" href="#_content_model_representation">Content Model &amp; Representation</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The general situation of any environment from which content needs to be extracted and sent to
+another system is that three categories of data may be needed: the 'key' clinical and administrative
+information, typically EHR content (e.g. patient blood pressure history); demographic information
+(indicating who the patient and professionals are that are mentioned in the clinical information; and
+relevant meta-data. These types of information almost always reside in different parts of the source
+system environment, but need to be combined within the Extract. The model defined in this specification
+allows for content to be flexibly aggregated in an Extract. The model therefore consists of a
+generic Extract containment structure into which specific archetyped content can be plugged, with the
+whole structure being templated. Each such template corresponds to one extract type, i.e. one message
+type. This is visualised in the figure below.</p>
+</div>
+<div id="extract_archetyping" class="imageblock text-center text-center">
+<div class="content">
+<img src="../_images/diagrams/extract_archetyping.png" alt="extract archetyping" width="60%">
+</div>
+<div class="title">Figure 2. Archetyping of Extracts</div>
+</div>
+<div class="paragraph">
+<p>The templates can be used to generate content in at least two ways. The default approach is to use the
+template for a given extract type, say 'referral', to create standard openEHR content according to the
+published openEHR EHR Extract schema (which largely re-uses the main openEHR EHR and demographic
+schemas). In this approach, every Extract message conforms to the standard schema - an
+XML Extract document is 'standard generic openEHR XML' in this case.</p>
+</div>
+<div class="paragraph">
+<p>An alternative approach converts each template into its own schema, to which all instances of that
+template conform. Different templates, e.g. discharge summaries and referrals define distinct schemas.
+In this method, the XML of any message is specific to its own schema. If changes are required in
+the message content, the schema usually has to be re-generated. The two methods are illustrated in
+the following figure.</p>
+</div>
+<div id="representation_options" class="imageblock text-center text-center">
+<div class="content">
+<img src="../_images/diagrams/representation_options.png" alt="representation options" width="70%">
+</div>
+<div class="title">Figure 3. Representation options</div>
+</div>
+<div class="paragraph">
+<p>Which method is used depends on the requirements of the environment and other factors, such as the
+stability of the template structures. The sections of this document describing specific kinds of extract
+show details of the concrete data representations involved.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_package_structure"><a class="anchor" href="#_package_structure"></a><a class="link" href="#_package_structure">Package Structure</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The <code>rm.extract</code> package defines the semantics of Extracts from openEHR data sources, including
+EHRs. The UML diagram below illustrates the package structure of the <code>rm.extract</code> package.</p>
+</div>
+<div id="rm_ehr_extract_packages" class="imageblock text-center text-center">
+<div class="content">
+<img src="../../_images/uml/RM-ehr_extract-packages.svg" alt="RM ehr extract packages">
+</div>
+<div class="title">Figure 4. rm.ehr_extract package</div>
+</div>
+<div class="paragraph">
+<p>The sub-packages are as follows:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>common</code>: semantics common to all Extracts;</p>
+</li>
+<li>
+<p><code>ehr_extract</code>: semantics for the EHR Extract type;</p>
+</li>
+<li>
+<p><code>generic_extract</code>: defines semantics of the Generic Extract type;</p>
+</li>
+<li>
+<p><code>synchronisation_extract</code>: defines semantics of the Synchronisation Extract type;</p>
+</li>
+<li>
+<p><code>message</code>: simple model of a message containing an Extract.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="../requirements/">Requirements</a></span>
+  <span class="next"><a href="../common_package/">Extract.common Package</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>
+    Copyright: © 2003+
+    <a href="https://www.openehr.org"
+        alt="is an independent, non-profit foundation, facilitating the sharing of health
+           records by consumers and clinicians via open specifications, clinical models
+           and open platform implementations.">The openEHR Foundation</a>
+  </p>
+
+  <p>
+    License:
+    <img src="/_/img/cc-by-nd-88x31.png"
+        alt="Creative Commons Attribution-NoDerivs 3.0 Unported."
+        style="vertical-align:middle;margin:0 0.25rem 0 0;">
+    <a href="https://creativecommons.org/licenses/by-nd/3.0/">
+      Creative Commons Attribution-NoDerivs 3.0 Unported.
+    </a>
+  </p>
+
+  <p>
+    <strong>Links: <strong>
+    <a href="https://www.openehr.org/terms-of-use" class="mr-1">Terms of use</a> |
+    <a href="https://www.openehr.org/privacy-policy" class="mx-1">Privacy policy</a> |
+    <a href="https://www.openehr.org/privacy-policy" class="mx-1">Logos &amp; Trademarks</a> |
+    <a href="https://www.openehr.org/contact-us" class="mx-1">Contact</a>
+  </p>
+</footer>
+
+<script id="site-script" src="../../../../_/js/site.js" data-ui-root-path="../../../../_"></script>
+<script async src="../../../../_/js/vendor/highlight.js"></script>
+<script src="../../../../_/js/vendor/lunr.js"></script>
+<script src="../../../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../../../.." data-snippet-length="80" data-stylesheet="../../../../_/css/search.css"></script>
+<script async src="../../../../search-index.js"></script>
+<script src="../../../../_/js/medium-zoom.min.js"></script>
+<script src="../../../../_/js/zoom.js"></script>
+  </body>
+</html>

@@ -1,0 +1,155 @@
+/* 
+ * Custom openEHR Styles
+ * Place migrated CSS from AA_GLOBAL here
+ * This file is loaded after the default Antora UI styles
+ */
+
+/* ============================================
+   openEHR Branding and Colors
+   ============================================ */
+
+:root {
+  --openehr-primary: #00758f;
+  --openehr-secondary: #f26531;
+  --openehr-dark: #003d4f;
+  --openehr-light: #e6f4f7;
+}
+
+/* Custom header styling */
+.navbar {
+  background-color: var(--openehr-primary);
+}
+
+/* Version badge styling */
+.page-versions .version.is-current {
+  background-color: var(--openehr-secondary);
+}
+
+/* Link colors */
+.doc a {
+  color: var(--openehr-primary);
+}
+
+.doc a:hover {
+  color: var(--openehr-dark);
+}
+
+/* ============================================
+   UML Diagram Styling
+   ============================================ */
+
+.imageblock.diagram img {
+  max-width: 100%;
+  height: auto;
+  border: 1px solid #ddd;
+  padding: 10px;
+  background: white;
+}
+
+/* ============================================
+   Table Styling (for specifications)
+   ============================================ */
+
+.doc table.tableblock {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.doc table.tableblock th {
+  background-color: var(--openehr-light);
+  border: 1px solid var(--openehr-primary);
+  padding: 8px;
+}
+
+.doc table.tableblock td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+/* ============================================
+   Code Block Styling
+   ============================================ */
+
+.doc pre.highlight {
+  border-left: 3px solid var(--openehr-secondary);
+}
+
+/* ============================================
+   Admonition Blocks (NOTE, TIP, WARNING, etc.)
+   ============================================ */
+
+.doc .admonitionblock td.icon .title {
+  font-weight: bold;
+}
+
+.doc .admonitionblock.note {
+  border-left: 3px solid var(--openehr-primary);
+}
+
+/* ============================================
+   Component-specific Styling
+   ============================================ */
+
+/* Component badge in navigation */
+.nav-panel-explore .component {
+  border-left: 3px solid var(--openehr-primary);
+  padding-left: 10px;
+}
+
+/* Version selector styling */
+.page-versions {
+  border: 1px solid var(--openehr-primary);
+}
+
+/* ============================================
+   Print Styles
+   ============================================ */
+
+@media print {
+  .navbar,
+  .nav-container,
+  .toolbar,
+  .page-versions {
+    display: none;
+  }
+  
+  .doc {
+    max-width: 100%;
+  }
+}
+
+/* ============================================
+   Responsive Design
+   ============================================ */
+
+@media screen and (max-width: 768px) {
+  .imageblock.diagram img {
+    max-width: 100%;
+    overflow-x: auto;
+  }
+}
+
+/* ============================================
+   Additional Custom Classes
+   Add component-specific styles below
+   ============================================ */
+
+/* Class diagram links */
+.classref {
+  font-family: monospace;
+  font-weight: bold;
+  color: var(--openehr-dark);
+}
+
+/* Attribute/property names in specifications */
+.attribute {
+  font-family: monospace;
+  color: var(--openehr-primary);
+}
+
+/* Data type references */
+.datatype {
+  font-family: monospace;
+  font-style: italic;
+  color: #666;
+}

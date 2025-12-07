@@ -1,0 +1,995 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+    <title>Quantity Package :: openEHR Specifications (Local Build)</title>
+    <link rel="canonical" href="https://sebastian-iancu.github.io/antora-openehr/RM/latest/data_types/quantity_package/">
+    <link rel="prev" href="../text_package/">
+    <link rel="next" href="../date_time_package/">
+    <meta name="description" content="openEHR Data Types Information Model specification">
+    <meta name="keywords" content="EHR, clinical, data types, openehr">
+    <meta name="generator" content="Antora 3.1.14">
+    <link rel="stylesheet" href="../../../../_/css/site.css">
+    <link rel="stylesheet" href="../../../../_/css/antora-openehr.css">
+    <link rel="stylesheet" href="../../../../_/css/openehr.css">
+<link rel="icon" href="../../../../_/img/favicon.ico" type="image/x-icon">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://sebastian-iancu.github.io/antora-openehr">openEHR Specifications (Local Build)</a>
+
+      <div class="navbar-item search hide-for-print">
+        <div id="search-field" class="field has-filter">
+          <input id="search-input" type="text" placeholder="Search the docs">
+          <label class="filter checkbox">
+            <input type="checkbox" data-facet-filter="component:RM"> Reference Model only
+          </label>
+        </div>
+      </div>
+
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">Specifications</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://specifications.openehr.org/" target="_blank">
+              openEHR specification
+            </a>
+            <a class="navbar-item" href="https://specifications.openehr.org/releases/UML/development/index.html" target="_blank">
+              openEHR portal
+            </a>
+            <a class="navbar-item" href="https://ckm.openehr.org/ckm/" target="_blank">
+              openEHR CKM
+            </a>
+          </div>
+        </div>
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">Community</a>
+          <div class="navbar-dropdown is-right">
+            <a class="navbar-item" href="https://openehr.atlassian.net/secure/Dashboard.jspa?selectPageId=10190" target="_blank">
+              Issue trackers
+            </a>
+            <a class="navbar-item" href="https://discourse.openehr.org/" target="_blank">
+              Discourse Forum
+            </a>
+            <a class="navbar-item" href="https://specifications.openehr.org/wiki/display/spec/Specifications+Home" target="_blank">
+              Wiki
+            </a>
+            <a class="navbar-item" href="https://github.com/openEHR" target="_blank">
+              GitHub
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="RM" data-version="development">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="../../">Reference Model</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../">Overview</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../common/">{spec_title}</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../common/preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../common/overview/">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../common/archetyped_package/">Archetyped Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../common/generic_package/">Generic Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../common/directory_package/">Directory Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../common/change_control_package/">Change Control Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../common/tags/">Tags Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../common/resource_package/">Resource Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../common/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../data_structures/">{spec_title}</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_structures/preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_structures/background/">Background</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_structures/overview/">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_structures/item_structure_package/">Item Structure Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_structures/representation_package/">Representation Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_structures/history_package/">History Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_structures/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../">{spec_title}</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../background/">Background</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../introduction/">Introduction</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../basic_package/">Basic Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../text_package/">Text Package</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="./">Quantity Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../date_time_package/">Date Time Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../time_specification_package/">Time_specification Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../encapsulated_package/">Encapsulated Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../uri_package/">Uri Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../implem_strategies/">Implementation Strategies</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../comparison_HL7/">Comparison with HL7v3 Types</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../demographic/">{spec_title}</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../demographic/preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../demographic/demographic_package/">Demographic package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../demographic/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../ehr/">{spec_title}</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr/preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr/background/">Background</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr/ehr_information_model/">The EHR Information Model</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr/ehr_package/">EHR Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr/composition_package/">Composition Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr/content_package/">Content Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr/navigation_package/">Navigation Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr/entry_package/">Entry Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr/glossary/">Glossary</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../ehr_extract/">{spec_title}</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr_extract/preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr_extract/requirements/">Requirements</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr_extract/design_overview/">Design Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr_extract/common_package/">Extract.common Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr_extract/openehr_extract_package/">The openehr_extract Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr_extract/generic_extract_package/">Generic_extract Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr_extract/synchronisation_package/">Synchronisation Extracts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr_extract/message_package/">The Message package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr_extract/semantics/">Semantics of openEHR and ISO 13606 extracts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr_extract/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../entity/">{spec_title}</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entity/preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entity/overview/">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entity/entity/">Upper Entity Model</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entity/physical_entity/">Physical Entity Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entity/social_entity/">Social Entity Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entity/social_entity-party/">Party Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entity/social_entity-asset/">Asset Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entity/resource/">Resource Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entity/registry/">Registry Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entity/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../integration/">{spec_title}</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../integration/preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../integration/integration_package/">Integration Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../integration/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../support/">{spec_title}</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../support/preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../support/support_package/">Support Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../support/assumed_types/">Assumed Types</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../support/identification_package/">Identification Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../support/terminology_package/">Terminology Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../support/measurement_package/">Measurement Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../support/definition_package/">Definition Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../support/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Reference Model</span>
+    <span class="version">development</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <div class="title"><a href="../../../../AM/latest/">Archetype Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../AM/latest/">Release-2.3.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../AM/Release-2.2.0/">Release-2.2.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../AM/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../BASE/latest/">Base Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../BASE/latest/">Release-1.2.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../BASE/Release-1.1.0/">Release-1.1.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../BASE/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <div class="title"><a href="../../../latest/">Reference Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../latest/">Release-1.1.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../Release-1.0.4/">Release-1.0.4</a>
+        </li>
+        <li class="version is-current">
+          <a href="../../">development</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../../BASE/latest/" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../../">Reference Model</a></li>
+    <li><a href="../">{spec_title}</a></li>
+    <li><a href="./">Quantity Package</a></li>
+  </ul>
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">development</button>
+  <div class="version-menu">
+    <a class="version" href="../../../latest/data_types/quantity_package/">Release-1.1.0</a>
+    <a class="version" href="../../../Release-1.0.4/data_types/quantity_package/">Release-1.0.4</a>
+    <a class="version is-current" href="./">development</a>
+  </div>
+</div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Quantity Package</h1>
+<div class="sect1">
+<h2 id="_overview"><a class="anchor" href="#_overview"></a><a class="link" href="#_overview">Overview</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The <code>data_types.quantity</code> package is illustrated below. Dates and Times are found in the next section.</p>
+</div>
+<div id="rm_data_types_quantity" class="imageblock text-center text-center">
+<div class="content">
+<img src="../../_images/uml/RM-data_types.quantity.svg" alt="RM data types.quantity">
+</div>
+<div class="title">Figure 1. rm.data_types.quantity package</div>
+</div>
+<div class="sect2">
+<h3 id="_requirements"><a class="anchor" href="#_requirements"></a><a class="link" href="#_requirements">Requirements</a></h3>
+<div class="sect3">
+<h4 id="_scores_and_scales"><a class="anchor" href="#_scores_and_scales"></a><a class="link" href="#_scores_and_scales">Scores and Scales</a></h4>
+<div class="paragraph">
+<p>Medicine is a domain in which symbols representing relative magnitudes are commonly used, without exact values being used. The main purpose is usually to classify patients into groups for which different decisions might be made. Such classifications are typically known as <em>scores</em> or <em>scales</em>. For example the characterisation of pain as 'mild', 'medium', 'severe', or the reflex response to tendon percussion as "-", "+/-", "+", "++", "+++", "++++". Many scores such as the Apgar Score, Glasgow Coma Scale (GCS), and Barthel Index are globally known and used.</p>
+</div>
+<div class="paragraph">
+<p>In some cases, there may be no way (or need) to precisely quantify such values because they reflect a subjective experience of the patient or informal judgment by the clinician. However, they are understood as being ordered, e.g. pass: [<code>++</code>] is arithmetically greater than `+`.</p>
+</div>
+<div class="paragraph">
+<p>Similarly, even though the symbolic values for haemolysed blood in a urinalysis have approximate
+ranges stated for them, as shown below, these 'values' are not usable in the same way as true quantities.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>"neg"</code>, <code>"trace"</code> (10 cells/&#956;l)</p>
+</li>
+<li>
+<p><code>"small"</code> (&lt;25 cells/&#956;l)</p>
+</li>
+<li>
+<p><code>"moderate"</code> (&lt;80 cells/&#956;l)</p>
+</li>
+<li>
+<p><code>"large"</code> (&gt;200 cells/&#956;l)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>A second requirement for score and scale values is that in many cases there is a need to associate numeric values values with the symbols, in order to facilitate ordered comparison, and also to enable longitudinal comparison across results of the same kind (e.g. pain, protein). The majority of scores and scales are limited to Integer values, but some use Real numbers interspersed with Integers e.g. the <a href="https://www.researchgate.net/publication/228089364_Proposing_a_standardized_method_for_evaluating_patient_report_of_the_intensity_of_dyspnea_during_exercise_testing_in_COPD">Borg CR 10 scale</a> for perceived exertion. In both cases, values may be negative, zero or positive.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+an argument sometimes put forward for recording all ordinals in a more precise way is that comparisons might want to be made between the values quoted by two laboratories for the same symbol (e.g. 'moderate'). There are a number of counter-arguments. Firstly, such comparisons are a poor attempt at normalisation, an activity which is the business of pathologists, not EHR users. Secondly, the symbolic values are often arrived at by the tester making a judgement of colour on a strip, which while an adequate (and cost-effective) approach for classifying, is not a valid means of quantifying a value. Lastly, in most cases, if a quantified point value or range is desired, or available, then it will be used - meaning that the appropriate quantitative data type can be used, rather than an the ordinal type.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_countable_things"><a class="anchor" href="#_countable_things"></a><a class="link" href="#_countable_things">Countable Things</a></h4>
+<div class="paragraph">
+<p>A common kind of data value in medicine is the dimensionless countable quantity, e.g.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>number of doses: 2;</p>
+</li>
+<li>
+<p>number of previous pregnancies: 1;</p>
+</li>
+<li>
+<p>number of tablets: 3.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Values of this type are always integral. Countable values need to be convertible to real numbers for statistical purposes, for example for a study of average number of pregnancies per couple.</p>
+</div>
+<div class="paragraph">
+<p>Some countable entities such as tablets are divisible into major fractions, typically halves and occasionally quarters.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_dimensioned_quantities"><a class="anchor" href="#_dimensioned_quantities"></a><a class="link" href="#_dimensioned_quantities">Dimensioned Quantities</a></h4>
+<div class="paragraph">
+<p>The most common kind of quantity is a measured, dimensioned quantity. Anything which is measurable
+(rather than countable) involves a number of data aspects, namely:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>a magnitude whose value is a real number;</p>
+</li>
+<li>
+<p>the physical property being measured, with the appropriate units;</p>
+</li>
+<li>
+<p>a concept of precision, i.e. to what number of decimal places the value is recorded;</p>
+</li>
+<li>
+<p>a concept of accuracy, i.e. the known or assumed error in the measurement due to instrumentation or human judgement.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Examples of dimensioned quantities include:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>systolic BP: 110 mmHg</p>
+</li>
+<li>
+<p>height: 178 cm</p>
+</li>
+<li>
+<p>rate of asthma attacks: 7 /week</p>
+</li>
+<li>
+<p>weight loss: 2.5 kg</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_ratios_and_proportions"><a class="anchor" href="#_ratios_and_proportions"></a><a class="link" href="#_ratios_and_proportions">Ratios and Proportions</a></h4>
+<div class="paragraph">
+<p>A common quantitative type in science and medicine is the proportion, or ratio, which is used in situations like the following:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>1:128 (a titer);</p>
+</li>
+<li>
+<p>Na:K concentration ratio (unitary denominator);</p>
+</li>
+<li>
+<p>albumin:creatinine ratio;</p>
+</li>
+<li>
+<p>% e.g. red cell distribution width (RDW) which is the width of a distribution of RBC widths.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>In general ratios have real number values, even if many examples appear to be integer ratios. Proportions with unitary denominator and % (denominator = 100) are common.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_formulations"><a class="anchor" href="#_formulations"></a><a class="link" href="#_formulations">Formulations</a></h4>
+<div class="paragraph">
+<p>A concept superficially similar to proportions and ratios is formulations of materials, such as a solid in a liquid e.g.:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>250 mg / 500 ml (solute/solvent)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Although a single solute/single solvent formulation appears to have the same form as a ratio, the general form is for any number of substances to be mixed together, usually according to a particular procedure. Formulations are therefore not candidates for direct modelling as fine-grained quantities, but instead are constructed by archetyping a higher-level structure, each leaf element of which contains the required kind of Quantity.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_quantity_ranges"><a class="anchor" href="#_quantity_ranges"></a><a class="link" href="#_quantity_ranges">Quantity Ranges</a></h4>
+<div class="paragraph">
+<p>Quantity ranges are ubiquitous in science and medicine, and may be defined for any kind of measured
+phenomenon. Examples include:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>healthy weight range, e.g. 48kg - 60kg</p>
+</li>
+<li>
+<p>normal range for urinalysis in pregnancy - protein, e.g. "nil" - "trace"</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_reference_ranges"><a class="anchor" href="#_reference_ranges"></a><a class="link" href="#_reference_ranges">Reference Ranges</a></h4>
+<div class="paragraph">
+<p>A reference range is a quantity range attached to a measured value, and is common for laboratory
+result values. The typical form of a reference range found in a pathology result indicates what is considered
+the 'normal' range for a measured value. Examples of reference ranges:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>normal range for serum Na is 135 - 145 mmol/L.</p>
+</li>
+<li>
+<p>desirable total cholesterol: &lt; 5.5 mmol/L (strictly this probably should be 2.0 - 5.5 mmol/L, but is not usually quoted this way as low cholesterol is not considered a problem.)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Ranges can also be quoted for drug administrations, in which case they are usually thought of as the 'therapeutic' range. For example, the anticonvulsant drug Carbamazepine has a therapeutic range of 20 - 40 &#956;Mol/L. In some cases, there are multiple ranges associated with a drug, for example, Salicylate has a therapeutic range of 1.0 - 2.5 mmol/L and a toxic range &gt; 3.6 mmol/L</p>
+</div>
+<div class="paragraph">
+<p>Various examples occur in which multiple ranges may be stated, including the following.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The administration recomendations for drugs which depend on the particular patient state. For example, the therapeutic range of Cyclosporin (an immunosuppresant) is a function of time post-transplant for the affected organ, e.g. kidney: &lt; 6 months: 250 - 350 &#956;g/L, &gt; 6 months: 100 - 200 &#956;g/L.</p>
+</li>
+<li>
+<p>Normal ranges for blood IgG, IgA, IgM which vary significantly with the age in months from birth.</p>
+</li>
+<li>
+<p>Progesterone and pituitary hormones have ranges which are different for different phases of the menstrual cycle and for menopause. This may result in 4 or 5 ranges given for one result. Only one will apply to any particular patient - but the exact phase of the cycle may be unknown - so the ranges may need to be associated with the value with no 'normal' range.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Where there are multiple ranges, the important question is: <em>which range information is relevant to the actual data being recorded for the patient?</em> In theory, only the range corresponding to the particular patient situation should be used, i.e. the range which applies after taking into account sex, age, smoking status, "professional athlete", organ transplanted, etc. In most cases, this is a single "normal" range, or a pair of ranges, typically "therapeutic" and "critical". However, practical factors complicate things. Firstly, data is sometimes supplied from pathology labs along with some or all of the applicable reference ranges, even though only some could possibly apply. This is particularly the case if the laboratory has no other data on the patient, and cannot evaluate which range applies. The requirement for faithfulness of recording might be extended to reference data supplied by laboratories, regardless of how irrelevant or arbitrarily chosen the reference data is, meaning that such data has to be stored in the record anyway. Secondly, there may be circumstances in which physicians want a number of reference ranges, even while knowing that only one range is applicable to the datum. Ranges above and below the relevant one might be useful to a physician wishing to determine how far out of range the datum is.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_normal_range_and_status_in_laboratory_data"><a class="anchor" href="#_normal_range_and_status_in_laboratory_data"></a><a class="link" href="#_normal_range_and_status_in_laboratory_data">Normal Range and Status in Laboratory data</a></h4>
+<div class="paragraph">
+<p>It is quite common for laboratories to include a normal range with each measured value, and/or a normal 'status', which indicates where the value lies with respect to the normal range. The latter will commonly take the form of markers like "HHH" (critically high), HH (abnormally high), H (borderline high), L, LL, LLL in HL7v2 messaging, although other schemes are undoubtedly used.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_design"><a class="anchor" href="#_design"></a><a class="link" href="#_design">Design</a></h3>
+<div class="sect3">
+<h4 id="_basic_semantics"><a class="anchor" href="#_basic_semantics"></a><a class="link" href="#_basic_semantics">Basic Semantics</a></h4>
+<div class="paragraph">
+<p>In order to make sense of the requirements in a systematic way, a proper typology for quantities is needed. The most basic characteristic of all values typically called 'quantities' is that they are ordered, meaning that the operator "&lt;" (less-than) is defined between any two values in the domain. An ancestor class for all quantities called <code>DV_ORDERED</code> is accordingly defined. This type is subtyped into ordinals, scales and true quantities, represented by the classes <code>DV_ORDINAL</code>, <code>DV_SCALE</code> and <code>DV_QUANTIFIED</code> respectively.</p>
+</div>
+<div class="paragraph">
+<p><code>DV_ORDINAL</code> and <code>DV_SCALE</code> are used for scores and scales as described in the requirements above. <code>DV_ORDINAL</code> represents data values whose values are Integers, and which have symbolic or text names instead, such as "+", "++", "+++", or <code>"mild"</code>, <code>"medium"</code>, <code>"severe"</code>. Each symbol can be assigned any Integer value, providing a basis for computable comparison. Typical uses for <code>DV_ORDINAL</code> include representing values from the Apgar and Glasgow Coma Scales, e.g. <code>0｜heart rate absent｜</code>, <code>4｜withdraws from pain｜</code>. <code>DV_SCALE</code> is similar to <code>DV_ORDINAL</code>, and was introduced to support scales / scores containing Real values as well as Integers.</p>
+</div>
+<div class="paragraph">
+<p>In contrast to <code>DV_ORDINAL</code> and <code>DV_SCALE</code>, instances of <code>DV_QUANTIFIED</code> and all its subtypes have precise numeric magnitudes. Accordingly, <code>DV_QUANTIFIED</code> introduces the properties <code><em>magnitude</em></code> and <code><em>magnitude_status</em></code>. The <code><em>magnitude</em></code> attribute is guaranteed to be available on any <code>DV_QUANTIFIED</code>, carrying the effective value, regardless of the particular subtype. The optional <code><em>magnitude_status</em></code> attribute can be used to provide a non-quantified indication of accuracy, and takes the following values:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>"="</code> : magnitude is a point value</p>
+</li>
+<li>
+<p><code>"&lt;"</code> : value is &lt; magnitude</p>
+</li>
+<li>
+<p><code>"&gt;"</code> : value is &gt; magnitude</p>
+</li>
+<li>
+<p><code>"&lt;="</code> : value is &lt;= magnitude</p>
+</li>
+<li>
+<p><code>"&gt;="</code> : value is &gt;= magnitude</p>
+</li>
+<li>
+<p><code>"~"</code> : value is approximately magnitude</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>If not present, the meaning is <code>"="</code>.</p>
+</div>
+<div class="paragraph">
+<p>Logically, an accuracy attribute should also be included in <code>DV_QUANTIFIED</code>, but as its modelling is different in the subtypes in a way that does not easily lend itself to a common ancestor, it is only included in the subtypes.</p>
+</div>
+<div class="paragraph">
+<p>The <code>DV_QUANTIFIED</code> class has two subtypes: <code>DV_AMOUNT</code> and <code>DV_ABSOLUTE_QUANTITY</code>. The former corresponds to relative 'amounts' of something, either a physical property (such as mass) or items (e.g. cigarettes). Mathematically, the <code>+</code> and <code>-</code> operators (as well as <code>*</code> and <code>/</code>) are defined in the same way as for the real numbers (or any other mathematical 'field'), with the semantics that adding two relative quantities measuring the same thing (i.e. with the same units) produces another relative quantity of the same kind; while the semantics of subtraction are that one relative quantity subtracted from another generates a third.</p>
+</div>
+<div class="paragraph">
+<p>The second subtype of <code>DV_QUANTIFIED</code>, <code>DV_ABSOLUTE_QUANTITY</code>, models quantities whose values are absolute along a line having a defined origin. The main example of absolute quantities are the temporal concepts date, time and date/time. These are distinguished from relative quantities in that the normal addition and subtraction operations don&#8217;t apply. Instead, the semantics of such operators are based on the idea of the difference between absolute values being a relative amount. For example, two dates can be subtracted, but the result is a duration, not another date. For this reason, the operations <code><em>add</em></code>, <code><em>subtract</em></code> and <code><em>diff</em></code> are defined rather than <code>+</code> or <code>-</code>. Date/time types, as well as the relative concept duration, are defined in <a href="#_date_time_package">[_date_time_package]</a>.</p>
+</div>
+<div class="paragraph">
+<p>Subtypes of <code>DV_AMOUNT</code> are <code>DV_PROPORTION</code>, <code>DV_QUANTITY</code>, <code>DV_COUNT</code>, and <code>DV_DURATION</code> (see date_time package). The type <code>DV_COUNT</code> has an integer magnitude and is used to record naturally countable things such as number of previous pregnancies, number of steps taken by a recovering stroke victim and so on. There are no units or precision in a <code>DV_COUNT</code>. Countable quantities can be used to create instances of <code>DV_QUANTITY</code>, such as during a statistical study which average tobacco
+consumption over a time period. Such a computation might cause the creation of <code>DV_QUANTITY</code> objects representing values like {magnitude = 5.85, units = '/ week'}</p>
+</div>
+<div class="paragraph">
+<p><code>DV_QUANTITY</code> is used to represent amounts of measurable things, and has a real number magnitude, precision, units and accuracy. The <code><em>units</em></code> attribute contains the scientific unit in a parsable form defined by default by the <a href="http://unitsofmeasure.org/ucum.html" target="_blank" rel="noopener">Unified Code for Units of Measure (UCUM)</a> (case-sensitive form), or by another system or terminology specified in the <code><em>units_system</em></code> attribute. In some cases, such as metric units, the UCUM code and the display form are the same, e.g. 'kg'. However this is not the general case, and many common units have different display and code forms, e.g. degrees Celcius:  '°C' and 'Cel'. In general the unit display name should be looked up if it is not known in context that the code is directly displayable. The <code><em>units_display_name</em></code> attribute may be used if the displayable form of the units is required in the data, and/or terminology lookup is not available or desirable. Unit names may be language dependent, particularly older units.</p>
+</div>
+<div class="paragraph">
+<p>A valid units string always implies a measured <em>property</em>, such as force or pressure. If unit strings are compared in the application environment to determine if they measure the same property (e.g. <code>"bar"</code> and <code>"kPa"</code> are both units of 'pressure'), which enables the <code><em>is_strictly_comparable_to()</em></code> function defined on <code>DV_ORDERED</code> to be properly specified on <code>DV_QUANTITY</code>.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+while these semantics will allow comparison of e.g. two pressures recorded in <code>mbar and mmHg, or even two accelerations whose units are `"m.s^-2"</code> and <code>"m/s^2"</code>, they provide no guarantee that this is a sensible thing to do in terms of domain semantics: comparing a blood pressure to an atmospheric pressure for example may or may not make any sense. It is not within the scope of the quantity package to express such semantics - this is up to application software which uses Quantities found in specific places in the data.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_accuracy_and_uncertainty"><a class="anchor" href="#_accuracy_and_uncertainty"></a><a class="link" href="#_accuracy_and_uncertainty">Accuracy and Uncertainty</a></h4>
+<div class="paragraph">
+<p>Theoretically it might be argued that accuracy should not be included in a model for quantified values, because it is an artifact of a measuring process and/or device, not of a quantity itself. For example, a weight of "82 kg &#177;5%" can be represented in two parts. The "82 kg" is represented as a <code>DV_QUANTITY</code>, while the "&#177;5%" could be included in the protocol description of the weighing instrument, since this is where the error comes from. For practical purposes however, (in)accuracy in a measured quantity corresponds to a range of possible values. In realistic computing in health, it is quite likely that the accuracy will be required in computations on quantities, especially for statistical population queries in which measurement error must be disambiguated from true correlation.</p>
+</div>
+<div class="paragraph">
+<p>Accuracy is therefore introduced as the abstract feature accuracy of the <code>DV_QUANTIFIED</code> class. It is defined concretely in the two descendants, <code>DV_AMOUNT</code>, where it is of type Real, and <code>DV_ABSOLUTE_QUANTITY</code>, where it is of a differential type defined by subtypes. A value of 0 in either case indicates 100% accuracy, i.e. no error in measurement. Where accuracy is not recorded in a quantity, it is represented by a special value. In <code>DV_AMOUNT</code>, a value of -1 for the accuracy attribute
+is used for this purpose, and the constant unknown_accuracy_value = -1 is provided within the class to give a symbolic name for the special value. In the <code>DV_ABSOLUTE_QUANTITY</code> class, <code><em>accuracy_unknown</em></code> is represented by a Void (i.e. null) value for the accuracy attribute. An abstract Boolean feature <code><em>accuracy_unknown</em></code> is defined in the parent class <code>DV_QUANTIFIED</code> to provide a logical test of accuracy being absent, and is implemented in the respective  descendants by concrete functions that check for the special values.</p>
+</div>
+<div class="paragraph">
+<p>In addition, the class <code>DV_AMOUNT</code>, provides a feature <code><em>accuracy_is_percent</em>: Boolean</code> to indicate if accuracy value is to be understood as a percentage, or an absolute value.</p>
+</div>
+<div class="paragraph">
+<p>When two compatible quantities are added or subtracted using the + or - operators (<code>DV_AMOUNT</code> descendants) or add and substract (<code>DV_ABSOLUTE_QUANTITY</code> class), accuracy behaves in the following way:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>if accuracies are present in both quantities, they are added in the result, for both addition and subtraction operations;</p>
+</li>
+<li>
+<p>if either or both quantities has an unknown accuracy, the accuracy of the result is also unknown;</p>
+</li>
+<li>
+<p>if two <code>DV_AMOUNT</code> descendants are added or subtracted, and only one has <code><em>accuracy_is_percent</em></code> = True, accuracy is expressed in the result in the form used in the larger of the two quantities.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The related notion of 'uncertainty' is understood as a subjective judgement made by the clinician, indicating that he/she is not certain of a particular statement. It is not the same as accuracy: uncertainty may apply to non-quantified values, such as subjective statements, and it is not an aspect of objective measurement processes, but of human confidence. Where the uncertainty is due to subjective memory e.g. "I think my grandfather was 56 when he died", the uncertainty is simply recorded as another value, along with the main data item being recorded. Uncertainty is therefore not directly modelled in the openEHR data types, but appears instead in particular archetypes.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_quantity_ranges_2"><a class="anchor" href="#_quantity_ranges_2"></a><a class="link" href="#_quantity_ranges_2">Quantity Ranges</a></h4>
+<div class="paragraph">
+<p>Ranges are modelled by the generic type <code>DV_INTERVAL&lt;T:DV_ORDERED&gt;</code> which enables a range of any of the other quantity types (except ratio) to be constructed. This allows any subtype of <code>DV_ORDERED</code> to occur as a range as well.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_proportions"><a class="anchor" href="#_proportions"></a><a class="link" href="#_proportions">Proportions</a></h4>
+<div class="paragraph">
+<p>The <code>DV_PROPORTION</code> type is provided for representing true ratios, i.e. relative values, and consists of numerator and denominator Real values, and a magnitude function which is computed as the result of the numerator/denominator division. The type attribute is used to indicate the logical type of the proportion. Supported types include:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><em>percent</em>: denominator is 100; usual presentation is "numerator %"</p>
+</li>
+<li>
+<p><em>unitary</em>: denominator is 1; usual presentation is "numerator"</p>
+</li>
+<li>
+<p><em>fraction</em>: numerator and denominator are both integer values; usual presentation is n/d, e.g. such as ½ or ¾, 1/2, 3/4 etc;</p>
+</li>
+<li>
+<p><em>integer_fraction</em>: numerator and denominator are both integer values; usual presentation is n/d; if numerator &gt; denominator, display as "a b/c", i.e. the integer part followed by the remaining fraction part, e.g. 1½; this is the most likely form for expressing a number of tablets;</p>
+</li>
+<li>
+<p><em>ratio</em>: numerator and denominator can take any value; usual presentation is "numerator: denominator"</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Lastly, the <code><em>is_integral</em></code> function indicates that the numerator and denominator are both integer values; this is used for fractions (the fraction and integer_fraction types above) and other commonly occurring ratios where both parts are always integer values.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_normal_and_reference_ranges"><a class="anchor" href="#_normal_and_reference_ranges"></a><a class="link" href="#_normal_and_reference_ranges">Normal and Reference Ranges</a></h4>
+<div class="paragraph">
+<p>Normal range for any of the quantity types (i.e. any instance of a subtype of <code>DV_ORDERED</code>) can be included via the attribute <code>DV_ORDERED</code>.<code><em>normal_range</em></code>, of type <code>REFERENCE_RANGE</code>. Other reference ranges (e.g. sub-critical, critical etc) can be included via the attribute <code>DV_ORDERED</code>.<code><em>other_reference_ranges</em></code>. The separation of normal and other reference range attributes is used because the former constitute the vast majority of ranges quoted for quantitative data.</p>
+</div>
+<div class="paragraph">
+<p>Normal status can be included via the attribute <code>DV_ORDERED</code>.<code><em>normal_status</em></code>, which takes the form of a <code>DV_ORDINAL</code>, whose symbol attribute is coded according to the openEHR terminology group "normal status", and takes values "HHH" (critically high), "HH" (abnormally high), "H" (borderline high)", "N" (normal), "L" &#8230;&#8203; "LLL".</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_recording_time"><a class="anchor" href="#_recording_time"></a><a class="link" href="#_recording_time">Recording Time</a></h4>
+<div class="paragraph">
+<p>Time can be recorded in two ways. Absolute times in the social time domain, such as dates and time of day are recorded using the types in the date_time package. Fine-grained 'time', which is a duration rather than a time, is recorded using a <code>DV_QUANTITY</code> with units = 's' or another temporal unit ('h', 'ms', 'ns' etc).</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_class_descriptions"><a class="anchor" href="#_class_descriptions"></a><a class="link" href="#_class_descriptions">Class Descriptions</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Unresolved directive in quantity_package.adoc - include::ROOT:partial$uml/{pkg}dv_ordered.adoc[]</p>
+</div>
+<div class="paragraph">
+<p>Unresolved directive in quantity_package.adoc - include::ROOT:partial$uml/{pkg}dv_interval.adoc[]</p>
+</div>
+<div class="paragraph">
+<p>Unresolved directive in quantity_package.adoc - include::ROOT:partial$uml/{pkg}reference_range.adoc[]</p>
+</div>
+<div class="paragraph">
+<p>Unresolved directive in quantity_package.adoc - include::ROOT:partial$uml/{pkg}dv_ordinal.adoc[]</p>
+</div>
+<div class="paragraph">
+<p>Unresolved directive in quantity_package.adoc - include::ROOT:partial$uml/{pkg}dv_scale.adoc[]</p>
+</div>
+<div class="paragraph">
+<p>Unresolved directive in quantity_package.adoc - include::ROOT:partial$uml/{pkg}dv_quantified.adoc[]</p>
+</div>
+<div class="paragraph">
+<p>Unresolved directive in quantity_package.adoc - include::ROOT:partial$uml/{pkg}dv_amount.adoc[]</p>
+</div>
+<div class="paragraph">
+<p>Unresolved directive in quantity_package.adoc - include::ROOT:partial$uml/{pkg}dv_quantity.adoc[]</p>
+</div>
+<div class="paragraph">
+<p>Unresolved directive in quantity_package.adoc - include::ROOT:partial$uml/{pkg}dv_count.adoc[]</p>
+</div>
+<div class="paragraph">
+<p>Unresolved directive in quantity_package.adoc - include::ROOT:partial$uml/{pkg}dv_proportion.adoc[]</p>
+</div>
+<div class="paragraph">
+<p>Unresolved directive in quantity_package.adoc - include::ROOT:partial$uml/{pkg}proportion_kind.adoc[]</p>
+</div>
+<div class="paragraph">
+<p>Unresolved directive in quantity_package.adoc - include::ROOT:partial$uml/{pkg}dv_absolute_quantity.adoc[]</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_syntaxes"><a class="anchor" href="#_syntaxes"></a><a class="link" href="#_syntaxes">Syntaxes</a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_units_syntax"><a class="anchor" href="#_units_syntax"></a><a class="link" href="#_units_syntax">Units Syntax</a></h3>
+<div class="paragraph">
+<p>The BNF syntax specification of the units string, adapted from <a href="http://unitsofmeasure.org/ucum.html" target="_blank" rel="noopener">UCUM</a> (case-sensitive form) is as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-ebnf" data-lang="ebnf">units = '/' exp_units | units '.' exp_units | units '/' exp_units | exp_units ;
+exp_units = unit_group exponent | unit_group ;
+unit_group = PREFIX annot_unit | annot_unit | '(' exp_units ')' | factor ;
+annot_unit = unit_name [ '{' ANNOTATION '}' ] | '{' ANNOTATION '}' ;
+factor = Integer ;
+exponent = [ SIGN ] Integer ;
+
+PREFIX = 'Y' |'Z' | 'E' | 'P' | 'T' | 'G' | 'M' | 'k' | 'h' | 'da' | 'd' | 'c' | 'm' | 'μ' | 'n' | 'p' | 'f' | 'a' | 'z' | 'y' ;
+UNIT_NAME = ? [a-zA-Z_%]+ ?;   (* replace regex with values from unit tables *)
+ANNOTATION = ? [a-zA-Z'.]+ ?;  (* replace regex with values from unit tables *)
+SUFFIX = ? [a-zA-Z0-9'_]+ ?;   (* replace regex with values from unit tables *)
+SIGN = '+' | '-' ;
+Integer = ? [0-9]+ ?;          (* regex *)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This proposal is comprehensive, covering all useful unit systems, including SI, various imperial, customary mesaures, and some obscure measures, as well as clinically specific additions. Metric prefixes, meaning-changing textual suffixes (e.g. "[Hg]" in "mm[Hg]") and non-meaning-changing annotations (e.g. "kg {total}") are recognised. With this syntax, units can be simply expressed in strings such as:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>"kg/m^2", "m.s^-1", "km/h", "mm[Hg]"</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>and so on.</p>
+</div>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="../text_package/">Text Package</a></span>
+  <span class="next"><a href="../date_time_package/">Date Time Package</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>
+    Copyright: © 2003+
+    <a href="https://www.openehr.org"
+        alt="is an independent, non-profit foundation, facilitating the sharing of health
+           records by consumers and clinicians via open specifications, clinical models
+           and open platform implementations.">The openEHR Foundation</a>
+  </p>
+
+  <p>
+    License:
+    <img src="/_/img/cc-by-nd-88x31.png"
+        alt="Creative Commons Attribution-NoDerivs 3.0 Unported."
+        style="vertical-align:middle;margin:0 0.25rem 0 0;">
+    <a href="https://creativecommons.org/licenses/by-nd/3.0/">
+      Creative Commons Attribution-NoDerivs 3.0 Unported.
+    </a>
+  </p>
+
+  <p>
+    <strong>Links: <strong>
+    <a href="https://www.openehr.org/terms-of-use" class="mr-1">Terms of use</a> |
+    <a href="https://www.openehr.org/privacy-policy" class="mx-1">Privacy policy</a> |
+    <a href="https://www.openehr.org/privacy-policy" class="mx-1">Logos &amp; Trademarks</a> |
+    <a href="https://www.openehr.org/contact-us" class="mx-1">Contact</a>
+  </p>
+</footer>
+
+<script id="site-script" src="../../../../_/js/site.js" data-ui-root-path="../../../../_"></script>
+<script async src="../../../../_/js/vendor/highlight.js"></script>
+<script src="../../../../_/js/vendor/lunr.js"></script>
+<script src="../../../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../../../.." data-snippet-length="80" data-stylesheet="../../../../_/css/search.css"></script>
+<script async src="../../../../search-index.js"></script>
+<script src="../../../../_/js/medium-zoom.min.js"></script>
+<script src="../../../../_/js/zoom.js"></script>
+  </body>
+</html>

@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+    <title>Aims of the openEHR Architecture :: openEHR Specifications (Local Build)</title>
+    <link rel="canonical" href="https://sebastian-iancu.github.io/antora-openehr/BASE/latest/architecture_overview/aims/">
+    <link rel="prev" href="../overview/">
+    <link rel="next" href="../design_principles/">
+    <meta name="description" content="openEHR Architecture Overview">
+    <meta name="keywords" content="EHR, openehr, architecture">
+    <meta name="generator" content="Antora 3.1.14">
+    <link rel="stylesheet" href="../../../../_/css/site.css">
+    <link rel="stylesheet" href="../../../../_/css/antora-openehr.css">
+    <link rel="stylesheet" href="../../../../_/css/openehr.css">
+<link rel="icon" href="../../../../_/img/favicon.ico" type="image/x-icon">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://sebastian-iancu.github.io/antora-openehr">openEHR Specifications (Local Build)</a>
+
+      <div class="navbar-item search hide-for-print">
+        <div id="search-field" class="field has-filter">
+          <input id="search-input" type="text" placeholder="Search the docs">
+          <label class="filter checkbox">
+            <input type="checkbox" data-facet-filter="component:BASE"> Base Model only
+          </label>
+        </div>
+      </div>
+
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">Specifications</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://specifications.openehr.org/" target="_blank">
+              openEHR specification
+            </a>
+            <a class="navbar-item" href="https://specifications.openehr.org/releases/UML/development/index.html" target="_blank">
+              openEHR portal
+            </a>
+            <a class="navbar-item" href="https://ckm.openehr.org/ckm/" target="_blank">
+              openEHR CKM
+            </a>
+          </div>
+        </div>
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">Community</a>
+          <div class="navbar-dropdown is-right">
+            <a class="navbar-item" href="https://openehr.atlassian.net/secure/Dashboard.jspa?selectPageId=10190" target="_blank">
+              Issue trackers
+            </a>
+            <a class="navbar-item" href="https://discourse.openehr.org/" target="_blank">
+              Discourse Forum
+            </a>
+            <a class="navbar-item" href="https://specifications.openehr.org/wiki/display/spec/Specifications+Home" target="_blank">
+              Wiki
+            </a>
+            <a class="navbar-item" href="https://github.com/openEHR" target="_blank">
+              GitHub
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="BASE" data-version="Release-1.2.0">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="../../">Base Model</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../">Overview</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../">{spec_title}</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../overview/">Overview</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="./">Aims of the openEHR Architecture</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../design_principles/">Design Principles</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../package_structure/">openEHR Specification Structure</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../design_of_the_ehr/">Design of the openEHR EHR</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../security/">Security and Confidentiality</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../versioning/">Versioning</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../identification/">Identification</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../archetypes/">Archetypes and Templates</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../paths/">Paths and Locators</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../terminology/">Terminology in openEHR</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../deployment/">Deployment</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../integration/">Integrating openEHR with other Systems</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../standards/">Relationship to Standards</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../implementation/">Implementation Technology Specifications</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../base_types/">{spec_title}</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../base_types/preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../base_types/overview/">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../base_types/definitions_package/">Definitions Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../base_types/builtins_package/">Builtins Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../base_types/identification_package/">Identification Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../base_types/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../foundation_types/">{spec_title}</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../foundation_types/preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../foundation_types/overview/">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../foundation_types/primitive_types/">Primitive Types</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../foundation_types/structure_types/">Structure Types</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../foundation_types/interval/">Interval</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../foundation_types/time_types/">Time Types</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../foundation_types/terminology/">Terminology Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../foundation_types/functional/">Functional Meta-types</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../foundation_types/type_cross_ref/">Type Cross-Reference</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../foundation_types/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../resource/">{spec_title}</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../resource/preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../resource/resource_package/">Resource Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../resource/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Base Model</span>
+    <span class="version">Release-1.2.0</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <div class="title"><a href="../../../../AM/latest/">Archetype Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../AM/latest/">Release-2.3.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../AM/Release-2.2.0/">Release-2.2.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../AM/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <div class="title"><a href="../../">Base Model</a></div>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../../">Release-1.2.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../Release-1.1.0/">Release-1.1.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../RM/latest/">Reference Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../RM/latest/">Release-1.1.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../RM/Release-1.0.4/">Release-1.0.4</a>
+        </li>
+        <li class="version">
+          <a href="../../../../RM/development/">development</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../../">Base Model</a></li>
+    <li><a href="../">{spec_title}</a></li>
+    <li><a href="./">Aims of the openEHR Architecture</a></li>
+  </ul>
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">Release-1.2.0</button>
+  <div class="version-menu">
+    <a class="version is-current" href="./">Release-1.2.0</a>
+    <a class="version" href="../../../Release-1.1.0/architecture_overview/aims/">Release-1.1.0</a>
+    <a class="version" href="../../../development/architecture_overview/aims/">development</a>
+  </div>
+</div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Aims of the openEHR Architecture</h1>
+<div class="sect1">
+<h2 id="_overview"><a class="anchor" href="#_overview"></a><a class="link" href="#_overview">Overview</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The openEHR architecture embodies over 20 years of research from numerous projects and standards from
+around the world. It has been designed based on requirements captured over many years, including those developed in the <a href="https://www.openehr.org/resources/related_projects#gehr" target="_blank" rel="noopener">EU FP3 Good European Health Record (GEHR) project (1992-1995)</a>.</p>
+</div>
+<div class="paragraph">
+<p>Because the architecture is highly generic, and particularly due to being archetype-driven, it satisfies
+many requirements outside the original concept of the 'clinical EHR'. For example, the same reference
+architecture can be used for veterinary health or even care of public infrastructure or listed
+buildings. This is due to the fact that the reference model embodies only concepts relating to 'service
+and administrative events relating to a subject of care'; it is in archetypes and templates that specifics
+of the kinds of care events and subjects of care are defined. In another dimension, although one of the
+requirements for the openEHR EHR was a 'patient-centric, longitudinal, shared care EHR', it is not
+limited to this, and can be used in purely episodic, specialist situations, e.g. as a radiology department
+record system. Requirements for various flavours of 'health care record' can be categorised according
+to the two dimensions, scope, and kind of subject, as shown below.</p>
+</div>
+<div id="scope_of_openehr" class="imageblock text-center text-center">
+<div class="content">
+<img src="../_images/diagrams/scope_of_openehr.png" alt="scope of openehr" width="65%">
+</div>
+<div class="title">Figure 1. Structure of Requirements met by openEHR</div>
+</div>
+<div class="paragraph">
+<p>In this figure, each bubble represents a set of requirements, being a superset of all requirements of
+bubbles contained within it. Requirements for a generic record of care for any kind of subject in a
+local deployment are represented by the top left bubble. The subsequent addition of requirements corresponding
+to living subjects and then human subjects is represented by the bubbles down the left side
+of the diagram. The requirements represented by the largest bubble on the left hand side correspond to
+'local health records for human care', such as radiology records, hospital EPRs and so on. Additional
+sets of requirements represented by wider bubbles going across the diagram correspond to extending
+the scope of the content of the care record first to a whole subject (resulting in a patient-centric, longitudinal
+health record) and then to populations or cohorts of subjects, as done in population health and
+research. From the (human) healthcare point of view, the important requirements groups extend all
+the way to the bottom row of the diagram.</p>
+</div>
+<div class="paragraph">
+<p>Going down the diagram, requirements corresponding to increasing specificity of subject of care
+(from 'any' to 'human') are mostly implemented in openEHR by the use of archetypes. Going across
+the diagram, the requirements corresponding to increasing scope of record content (from episodic to
+population) are mainly expressed in different deployments, generally going from standalone to a
+shared interoperable form. One of the key aspirations for EHRs today is the 'integrated care record'
+sought by many health authorities today (see <a href="https://www.iso.org/standard/39525.html">ISO 20514</a> for definition of ICEHR), which provides an informational framework for integrated
+shared care.</p>
+</div>
+<div class="paragraph">
+<p>As a result of the approach taken by openEHR, components and applications built to satisfy the
+requirements of an integrated shared care record can also be deployed as (for example) an episodic
+radiology record system.</p>
+</div>
+<div class="paragraph">
+<p>Some of the key requirements developed during the evolution of GEHR to openEHR are listed in the
+following sections, corresponding to some of the major requirements groups of <a href="#scope_of_openehr">Structure of Requirements met by openEHR</a>.</p>
+</div>
+<div class="sect2">
+<h3 id="_generic_care_record_requirements"><a class="anchor" href="#_generic_care_record_requirements"></a><a class="link" href="#_generic_care_record_requirements">Generic Care Record Requirements</a></h3>
+<div class="paragraph">
+<p>The openEHR requirements include the following, corresponding to a basic, generic record of care:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>prioritisation of the patient / carer interaction (over e.g. research use of the record);</p>
+</li>
+<li>
+<p>suitable for all care settings (primary, acute etc.);</p>
+</li>
+<li>
+<p>medico-legal faithfulness, traceability, audit-trailing;</p>
+</li>
+<li>
+<p>technology &amp; data format independence;</p>
+</li>
+<li>
+<p>highly maintainable and flexible software;</p>
+</li>
+<li>
+<p>support for clinical data structures: lists, tables, time-series, including point and interval events.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_health_care_record_epr"><a class="anchor" href="#_health_care_record_epr"></a><a class="link" href="#_health_care_record_epr">Health Care Record (EPR)</a></h3>
+<div class="paragraph">
+<p>The following requirements addressed in openEHR correspond to a local health record, or EPR:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>support for all aspects of pathology data, including normal ranges, alternative systems of units etc.;</p>
+</li>
+<li>
+<p>supports all natural languages, as well as translations between languages in the record;</p>
+</li>
+<li>
+<p>integrates with any/multiple terminologies.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_shared_care_ehr"><a class="anchor" href="#_shared_care_ehr"></a><a class="link" href="#_shared_care_ehr">Shared Care EHR</a></h3>
+<div class="paragraph">
+<p>The following requirements addressed in openEHR correspond to an integrated shared care EHR:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>support for patient privacy, including anonymous EHRs;</p>
+</li>
+<li>
+<p>facilitate sharing of EHRs via interoperability at data and knowledge levels;</p>
+</li>
+<li>
+<p>compatibility with <a href="https://www.iso.org/standard/40784.html">ISO 13606</a>, Corbamed, and messaging systems;</p>
+</li>
+<li>
+<p>support semi-automated and automated distributed workflows.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_clinical_aims"><a class="anchor" href="#_clinical_aims"></a><a class="link" href="#_clinical_aims">Clinical Aims</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>From a more specifically clinical care perspective (rather than a record-keeping perspective), the following requirements have been identified during the development of openEHR:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The need for a patient-centric, lifelong electronic health record that entails a holistic view of patient needs as opposed to niche problem-solving and decision-support techniques for limited diagnostic purposes;</p>
+</li>
+<li>
+<p>Integration of different views of the patient (GP, emergency and acute care, pathology, radiology, computerised patient-order entry, etc.) with the vast body of available knowledge resources (terminologies, clinical guidelines and computerised libraries);</p>
+</li>
+<li>
+<p>Clinical decision-support to improve patient safety and reduced costs through repeated medical investigations;</p>
+</li>
+<li>
+<p>Access to standards-based computing applications.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The Integrated Care EHR holds great promise: to generalise and make widely available the benefits
+of computerisation that have been demonstrated individually and in isolated settings. These can be
+summarised as:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Reducing adverse events arising from medication errors such as interactions, duplications or inappropriate treatments and the flow-on costs associated with these;</p>
+</li>
+<li>
+<p>Improving the timely access to critical information and reduced clinician time searching for information;</p>
+</li>
+<li>
+<p>Reducing the incidence of patients being overlooked in the healthcare system due to information not being communicated;</p>
+</li>
+<li>
+<p>Reducing the duplication of investigations and other tests and procedures due to results not being available in the local computing environment;</p>
+</li>
+<li>
+<p>Improved prevention and early detection, based on predictive risk factor analysis, which is possible with quality EHR data;</p>
+</li>
+<li>
+<p>Improved decision making through decision support tools with access to the patient’s whole EHR;</p>
+</li>
+<li>
+<p>Improving access to and computation of evidence based guidelines;</p>
+</li>
+<li>
+<p>Increasing targeted health initiatives known to be effective, based on patient criteria; and</p>
+</li>
+<li>
+<p>Reduced hospitalisations and readmissions.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>One comprehensive statement of EHR requirements covering many of the above is the <a href="https://www.iso.org/standard/52823.html">ISO 18308, ISO Technical Report 18308</a> for which an <a href="https://specifications.openehr.org/releases/1.0.2/architecture/requirements/iso18308_conformance.pdf" target="_blank" rel="noopener">openEHR profile has been created</a>. The requirements summarised above are described in more detail in the <a href="https://specifications.openehr.org/releases/RM/latest/ehr.html" target="_blank" rel="noopener">openEHR EHR Information Model specification</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_deployment_environments"><a class="anchor" href="#_deployment_environments"></a><a class="link" href="#_deployment_environments">Deployment Environments</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Ultimately any software and information architecture only provides utility when deployed. The architecture of openEHR is designed to support the construction of a number of types of system. One of the most important, the integrated shared care health record is illustrated in the figure below.</p>
+</div>
+<div id="shared_ehr" class="imageblock text-center text-center">
+<div class="content">
+<img src="../_images/diagrams/shared_ehr.svg" alt="shared ehr" width="70%">
+</div>
+<div class="title">Figure 2. Community Shared-care Context</div>
+</div>
+<div class="paragraph">
+<p>In this form, the openEHR services are added to the existing IT infrastructure to provide a shared, secure health record for patients that are seen by any number of health providers in their community context. openEHR-enabled systems can also be used to provide EMR/EPR functionality at provider locations. Overall, a number of important categories of system can be implemented using openEHR including the following:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>shared-care community or regional health service EHRs;</p>
+</li>
+<li>
+<p>summary EHRs at a national, state, province or similar level;</p>
+</li>
+<li>
+<p>small desktop GP systems;</p>
+</li>
+<li>
+<p>hospital EMRs;</p>
+</li>
+<li>
+<p>consolidated and summary EHRs in federation environments;</p>
+</li>
+<li>
+<p>legacy data purification and validation gateways;</p>
+</li>
+<li>
+<p>web-based secure EHR systems for mobile patients.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Systems containing health records in anonymised or pseudonymised form can also be implemented, since the openEHR architecture defines an EHR in which  demographic links (e.g. to national registry, or via national healthcare number) are optional. Where such links are used in the institutional EMR or shared EHR context, they can easily be removed in an anonymisation process.</p>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="../overview/">Overview</a></span>
+  <span class="next"><a href="../design_principles/">Design Principles</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>
+    Copyright: © 2003+
+    <a href="https://www.openehr.org"
+        alt="is an independent, non-profit foundation, facilitating the sharing of health
+           records by consumers and clinicians via open specifications, clinical models
+           and open platform implementations.">The openEHR Foundation</a>
+  </p>
+
+  <p>
+    License:
+    <img src="/_/img/cc-by-nd-88x31.png"
+        alt="Creative Commons Attribution-NoDerivs 3.0 Unported."
+        style="vertical-align:middle;margin:0 0.25rem 0 0;">
+    <a href="https://creativecommons.org/licenses/by-nd/3.0/">
+      Creative Commons Attribution-NoDerivs 3.0 Unported.
+    </a>
+  </p>
+
+  <p>
+    <strong>Links: <strong>
+    <a href="https://www.openehr.org/terms-of-use" class="mr-1">Terms of use</a> |
+    <a href="https://www.openehr.org/privacy-policy" class="mx-1">Privacy policy</a> |
+    <a href="https://www.openehr.org/privacy-policy" class="mx-1">Logos &amp; Trademarks</a> |
+    <a href="https://www.openehr.org/contact-us" class="mx-1">Contact</a>
+  </p>
+</footer>
+
+<script id="site-script" src="../../../../_/js/site.js" data-ui-root-path="../../../../_"></script>
+<script async src="../../../../_/js/vendor/highlight.js"></script>
+<script src="../../../../_/js/vendor/lunr.js"></script>
+<script src="../../../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../../../.." data-snippet-length="80" data-stylesheet="../../../../_/css/search.css"></script>
+<script async src="../../../../search-index.js"></script>
+<script src="../../../../_/js/medium-zoom.min.js"></script>
+<script src="../../../../_/js/zoom.js"></script>
+  </body>
+</html>

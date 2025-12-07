@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+    <title>Design of the openEHR EHR :: openEHR Specifications (Local Build)</title>
+    <link rel="canonical" href="https://sebastian-iancu.github.io/antora-openehr/BASE/latest/architecture_overview/design_of_the_ehr/">
+    <link rel="prev" href="../package_structure/">
+    <link rel="next" href="../security/">
+    <meta name="description" content="openEHR Architecture Overview">
+    <meta name="keywords" content="EHR, openehr, architecture">
+    <meta name="generator" content="Antora 3.1.14">
+    <link rel="stylesheet" href="../../../../_/css/site.css">
+    <link rel="stylesheet" href="../../../../_/css/antora-openehr.css">
+    <link rel="stylesheet" href="../../../../_/css/openehr.css">
+<link rel="icon" href="../../../../_/img/favicon.ico" type="image/x-icon">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://sebastian-iancu.github.io/antora-openehr">openEHR Specifications (Local Build)</a>
+
+      <div class="navbar-item search hide-for-print">
+        <div id="search-field" class="field has-filter">
+          <input id="search-input" type="text" placeholder="Search the docs">
+          <label class="filter checkbox">
+            <input type="checkbox" data-facet-filter="component:BASE"> Base Model only
+          </label>
+        </div>
+      </div>
+
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">Specifications</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://specifications.openehr.org/" target="_blank">
+              openEHR specification
+            </a>
+            <a class="navbar-item" href="https://specifications.openehr.org/releases/UML/development/index.html" target="_blank">
+              openEHR portal
+            </a>
+            <a class="navbar-item" href="https://ckm.openehr.org/ckm/" target="_blank">
+              openEHR CKM
+            </a>
+          </div>
+        </div>
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">Community</a>
+          <div class="navbar-dropdown is-right">
+            <a class="navbar-item" href="https://openehr.atlassian.net/secure/Dashboard.jspa?selectPageId=10190" target="_blank">
+              Issue trackers
+            </a>
+            <a class="navbar-item" href="https://discourse.openehr.org/" target="_blank">
+              Discourse Forum
+            </a>
+            <a class="navbar-item" href="https://specifications.openehr.org/wiki/display/spec/Specifications+Home" target="_blank">
+              Wiki
+            </a>
+            <a class="navbar-item" href="https://github.com/openEHR" target="_blank">
+              GitHub
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="BASE" data-version="Release-1.1.0">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="../../">Base Model</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../">Overview</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../">openEHR Architecture Overview</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../overview/">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../aims/">Aims of the openEHR Architecture</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../design_principles/">Design Principles</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../package_structure/">openEHR Specification Structure</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="./">Design of the openEHR EHR</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../security/">Security and Confidentiality</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../versioning/">Versioning</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../identification/">Identification</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../archetypes/">Archetypes and Templates</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../paths/">Paths and Locators</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../terminology/">Terminology in openEHR</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../deployment/">Deployment</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../integration/">Integrating openEHR with other Systems</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../standards/">Relationship to Standards</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../implementation/">Implementation Technology Specifications</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../base_types/">openEHR Base Types specification</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../base_types/preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../base_types/overview/">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../base_types/definitions_package/">Definitions Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../base_types/identification_package/">Identification Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../base_types/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../foundation_types/">openEHR Foundation Types specification</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../foundation_types/preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../foundation_types/overview/">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../foundation_types/primitive_types/">Primitive Types</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../foundation_types/structure_types/">Structure Types</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../foundation_types/interval/">Interval</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../foundation_types/time_types/">Time Types</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../foundation_types/terminology/">Terminology Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../foundation_types/functional/">Functional Meta-types</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../foundation_types/type_cross_ref/">Type Cross-Reference</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../foundation_types/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../resource/">Resource Model Specification</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../resource/preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../resource/resource_package/">Resource Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../resource/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Base Model</span>
+    <span class="version">Release-1.1.0</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <div class="title"><a href="../../../../AM/latest/">Archetype Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../AM/latest/">Release-2.3.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../AM/Release-2.2.0/">Release-2.2.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../AM/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <div class="title"><a href="../../../latest/">Base Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../latest/">Release-1.2.0</a>
+        </li>
+        <li class="version is-current">
+          <a href="../../">Release-1.1.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../RM/latest/">Reference Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../RM/latest/">Release-1.1.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../RM/Release-1.0.4/">Release-1.0.4</a>
+        </li>
+        <li class="version">
+          <a href="../../../../RM/development/">development</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../latest/" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../../">Base Model</a></li>
+    <li><a href="../">openEHR Architecture Overview</a></li>
+    <li><a href="./">Design of the openEHR EHR</a></li>
+  </ul>
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">Release-1.1.0</button>
+  <div class="version-menu">
+    <a class="version" href="../../../latest/architecture_overview/design_of_the_ehr/">Release-1.2.0</a>
+    <a class="version is-current" href="./">Release-1.1.0</a>
+    <a class="version" href="../../../development/architecture_overview/design_of_the_ehr/">development</a>
+  </div>
+</div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Design of the openEHR EHR</h1>
+<div class="sect1">
+<h2 id="_the_ehr_system"><a class="anchor" href="#_the_ehr_system"></a><a class="link" href="#_the_ehr_system">The EHR System</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The notion of a logical EHR <em>system</em> is central to the openEHR architecture. In openEHR, a system is understood as a distinct logical repository  corresponding to an organisational entity that is <em>legally responsible</em> for the management and governance of the healthcare data contained within. This may be a regional health service that serves multiple provider enterprises or a single provider enterprise such as a larger hospital. The 'system' is therefore in general distinct from specific applications and also from provider organisations, even if in some cases it happens to be owned by a single provider. It is also distinct from any underlying virtualisation infrastructure or cloud computing facility, which may house multiple logical EHR systems in a multi-tenant fashion. This is clear by comparing the contractual responsibilities of the infrastructure provider, which are for <em>generic IT service management</em>, to a procurer (e.g. a healthcare data management entity). It is the latter that undertakes legal responsibility for the content, on behalf of one or more healthcare provider organisations.</p>
+</div>
+<div class="paragraph">
+<p>The technical criterion for identifying an EHR system is that it is the entity that assigns version identifiers within a repository.</p>
+</div>
+<div class="sect2">
+<h3 id="_system_identity"><a class="anchor" href="#_system_identity"></a><a class="link" href="#_system_identity">System Identity</a></h3>
+<div class="paragraph">
+<p>Within the openEHR architecture, a <code><em>system_id</em></code> attribute is recorded both within each patient EHR (<a href="https://specifications.openehr.org/releases/RM/latest/ehr.html#_ehr_class" target="_blank" rel="noopener"><code>EHR</code> class</a>), and also within the audit created with each commit of data to an EHR (<a href="https://specifications.openehr.org/releases/RM/latest/common.html#_audit_details_class" target="_blank" rel="noopener"><code>AUDIT_DETAILS</code> class</a>). It is also used in feeder system audits that record the origin of imported data (<a href="https://specifications.openehr.org/releases/RM/latest/common.html#_feeder_audit_details_class" target="_blank" rel="noopener"><code>FEEDER_AUDIT_DETAILS</code> class</a>). This identifier identifies the logical EHR system as described above, and may be of any form. Common forms include the reverse domain name and plain and structured string identifiers.</p>
+</div>
+<div class="paragraph">
+<p>The system identifier is <em>not assumed to be directly processable</em>, but may instead be used as a key, for example in a service maintaining location information.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_information_architecture"><a class="anchor" href="#_information_architecture"></a><a class="link" href="#_information_architecture">Information Architecture</a></h3>
+<div class="paragraph">
+<p>In informational terms, a minimal EHR system based on openEHR consists of an EHR repository, an archetype repository, terminology (if available), and demographic/identity information, as shown below.</p>
+</div>
+<div id="minimal_openehr_system" class="imageblock text-center text-center">
+<div class="content">
+<img src="../_images/diagrams/minimal_openehr_system.png" alt="minimal openehr system" width="70%">
+</div>
+<div class="title">Figure 1. Minimal openEHR EHR System</div>
+</div>
+<div class="paragraph">
+<p>The latter may be in the form of an existing PMI (patient master index) or other directory, or it may be
+in the form of an openEHR demographic repository. An openEHR demographic repository can act as
+a front end to an existing PMI or in its own right. Either way it performs two functions: standardisation
+of demographic information structures and versioning. An openEHR EHR contains references to
+entities in whichever demographic repository has been configured for use in the environment; the
+EHR can be configured to include either no demographic or some identifying data. One of the basic
+principles of openEHR is the complete separation of EHR and demographic information, such that an
+EHR taken in isolation contains little or no clue as to the identity of the patient it belongs to. The
+security benefits are described below. In more complete EHR systems, numerous other services (particularly
+security-related) would normally be deployed, as shown in <a href="#health_services_environment">[health_services_environment]</a>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_top_level_information_structures"><a class="anchor" href="#_top_level_information_structures"></a><a class="link" href="#_top_level_information_structures">Top-level Information Structures</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>As has been shown, the openEHR information models define information at varying levels of granularity.
+Fine-grained structures defined in the Support and Data types are used in the Data Structures
+and Common models; these are used in turn in the EHR, EHR Extract, Demographic and other 'top-level'
+models. These latter models define the 'top-level structures' of openEHR, i.e. content structures
+that can sensibly stand alone, and may be considered the equivalent of separate documents in a
+document-oriented system. In openEHR information systems, it is generally the top-level structures
+that are of direct interest to users. The major top-level structures include the following:</p>
+</div>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+Composition
+</td>
+<td class="hdlist2">
+<p>the committal unit of the EHR (see type <code>COMPOSITION</code> in EHR IM);</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+EHR Access
+</td>
+<td class="hdlist2">
+<p>the EHR-wide access control object (see type <code>EHR_ACCESS</code> in EHR IM);</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+EHR Status
+</td>
+<td class="hdlist2">
+<p>the status summary of the EHR (see type <code>EHR_STATUS</code> in EHR IM);</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+Folder hierarchy
+</td>
+<td class="hdlist2">
+<p>act as directory structures in EHR, Demographic services (see type FOLDER in Common IM);</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+Party
+</td>
+<td class="hdlist2">
+<p>various subtypes including <code>ACTOR</code>, <code>ROLE</code>, etc. representing a demographic entity with identity and contact details (see type <code>PARTY</code> and subtypes in Demographic IM);</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+EHR Extract
+</td>
+<td class="hdlist2">
+<p>the transmission unit between EHR systems, containing a serialisation of EHR, demographic and other content (see type <code>EHR_EXTRACT</code> in EHR Extract IM).</p>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>All persistent openEHR EHR, demographic and related content is found within top-level information structures. Most of these are visible in the following figures.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_the_ehr"><a class="anchor" href="#_the_ehr"></a><a class="link" href="#_the_ehr">The EHR</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The openEHR EHR is structured according to a relatively simple model. A central EHR object identified
+by an EHR id specifies references to a number of types of structured, versioned information, plus
+a list of Contribution objects that act as audits for changes made to the EHR. The high-level structure
+of the openEHR EHR is shown below.</p>
+</div>
+<div id="high_level_ehr_structure" class="imageblock text-center text-center">
+<div class="content">
+<img src="../_images/diagrams/high_level_ehr_structure.png" alt="high level ehr structure" width="70%">
+</div>
+<div class="title">Figure 2. High-level Structure of the openEHR EHR</div>
+</div>
+<div class="paragraph">
+<p>In this figure, the parts of the EHR are as follows:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><em>EHR</em>: the root object, identified by a globally unique EHR identifier;</p>
+</li>
+<li>
+<p><em>EHR_access (versioned)</em>: an object containing access control settings for the record;</p>
+</li>
+<li>
+<p><em>EHR_status (versioned)</em>: an object containing various status and control information, optionally including the identifier of the subject (i.e. patient) currently associated with the record;</p>
+</li>
+<li>
+<p><em>Directory (versioned)</em>: an optional hierarchical structure of Folders that can be used to logically organise Compositions;</p>
+</li>
+<li>
+<p><em>Compositions (versioned)</em>: the containers of all clinical and administrative content of the record;</p>
+</li>
+<li>
+<p><em>Contributions</em>: the change-set records for every change made to the health record; each Contribution references a set of one or more Versions of any of the versioned items in the record that were committed or attested together by a user to an EHR system.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The internal structure of the Composition along with the Directory object correspond closely to the
+levels in internationally agreed models of health information such as the CEN EN13606 and HL7
+CDA standards.</p>
+</div>
+<div class="paragraph">
+<p>The logical structure of a typical Composition is shown in more detail in the next figure. This shows various hierarchical levels from Composition to the data types are shown in a typical arrangement.
+The 21 data types provide for all types of data needed for clinical and administrative recording.</p>
+</div>
+<div id="composition_structure" class="imageblock text-center text-center">
+<div class="content">
+<img src="../_images/diagrams/composition_structure.png" alt="composition structure" width="80%">
+</div>
+<div class="title">Figure 3. Elements of an openEHR Composition</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_entries_and_clinical_statements"><a class="anchor" href="#_entries_and_clinical_statements"></a><a class="link" href="#_entries_and_clinical_statements">Entries and Clinical Statements</a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_entry_subtypes"><a class="anchor" href="#_entry_subtypes"></a><a class="link" href="#_entry_subtypes">Entry Subtypes</a></h3>
+<div class="paragraph">
+<p>All clinical information created in the openEHR EHR is ultimately expressed in 'Entries'. An Entry
+is logically a single 'clinical statement', and may be a single short narrative phrase, but may also contain
+a significant amount of data, e.g. an entire microbiology result, a psychiatric examination note, a
+complex medication order. In terms of actual content, the Entry classes are the most important in the
+openEHR EHR Information Model, since they define the semantics of all the 'hard' information in
+the record. They are intended to be archetyped, and in fact, archetypes for Entries and sub-parts of
+Entries make up the vast majority of archetypes defined for the EHR.</p>
+</div>
+<div class="paragraph">
+<p>The openEHR <code>ENTRY</code> classes are shown below. There are five concrete subtypes: <code>ADMIN_ENTRY</code>, <code>OBSERVATION</code>, <code>EVALUATION</code>, <code>INSTRUCTION</code> and <code>ACTION</code>, of which the latter four are kinds of <code>CARE_ENTRY</code>.</p>
+</div>
+<div id="entry_model_simple" class="imageblock text-center text-center">
+<div class="content">
+<img src="https://specifications.openehr.org/releases/RM/latest/UML/diagrams/RM-composition.entry-simple.svg" alt="RM composition.entry simple" width="60%">
+</div>
+<div class="title">Figure 4. The openEHR Entry model (in EHR IM)</div>
+</div>
+<div class="paragraph">
+<p>The choice of these types is based on the clinical problem-solving process shown below.</p>
+</div>
+<div id="clinical_investigator_process" class="imageblock text-center text-center">
+<div class="content">
+<img src="https://specifications.openehr.org/releases/RM/latest/docs/ehr/diagrams/clinical_investigator_recording_process.svg" alt="clinical investigator recording process" width="65%">
+</div>
+<div class="title">Figure 5. Relationship of information types to the investigation process</div>
+</div>
+<div class="paragraph">
+<p>This figure shows the cycle of information creation due to an iterative, problem solving process typical
+not just of clinical medicine but of science in general. The 'system' as a whole is made up of two
+parts: the 'patient system' and the 'clinical investigator system'. The latter consists of health carers,
+and may include the patient (at points in time when the patient performs observational or therapeutic
+activities), and is responsible for understanding the state of the patient system and delivering care to
+it. A problem is solved by making observations, forming opinions (hypotheses), and prescribing
+actions (instructions) for next steps, which may be further investigation, or may be interventions
+designed to resolve the problem, and finally, executing the instructions (actions).</p>
+</div>
+<div class="paragraph">
+<p>This process model is a synthesis of Lawrence Weed&#8217;s 'problem-oriented' method of EHR recording, and later related efforts, including the model of Rector, Nowlan &amp; Kay <a href="#Rector_1994">[Rector_1994]</a>, and the 'hypothetico-deductive' model of reasoning (see e.g. <a href="#Elstein_1987">[Elstein_1987]</a>). However hypothesis-making and testing is not the only successful process used by clinical professionals - evidence shows that many (particularly those older and more experienced) rely on pattern recognition and direct retrieval of plans used previously with similar patients or prototype models. The investigator process model used in openEHR is compatible with both cognitive approaches, since it does not say how opinions are formed, nor imply any specific number or size of iterations to bring the process to a conclusion, nor even require all steps to be present while iterating (e.g. GPs often prescribe without making a firm diagnosis). Consequently, the openEHR Entry model does not impose a process model, it only provides the possible types of information that might occur.</p>
+</div>
+<div class="sect3">
+<h4 id="_ontology_of_entry_types"><a class="anchor" href="#_ontology_of_entry_types"></a><a class="link" href="#_ontology_of_entry_types">Ontology of Entry Types</a></h4>
+<div class="paragraph">
+<p>In the clinical world practitioners do not think in terms of only five kinds of data corresponding to the subtypes of Entry described above. There are many subtypes of each of these types, of which some are shown in the figure below.</p>
+</div>
+<div id="CIR_ontology" class="imageblock text-center text-center">
+<div class="content">
+<img src="../_images/diagrams/CIR_ontology.png" alt="CIR ontology" width="80%">
+</div>
+<div class="title">Figure 6. Ontology of Recorded Information</div>
+</div>
+<div class="paragraph">
+<p>The key top-level categories are 'care information' and 'administrative information'. The former encompasses all statements that might be recorded at any point during the care process, and consists of the major sub-categories on which the Entry model is based, namely 'observation', 'opinion', 'instruction', and 'action' (a kind of observation) which themselves correspond to the past, present and future in time. The administrative information category covers information which is not generated by the care process proper, but relates to organising it, such as appointments and admissions. This information is not about care, but about the logistics of care delivery. Regardless of the diversity, each of the leaf-level categories shown in this figure is ultimately a sub-category of one of the types from the process model, and hence, of the subtypes of the openEHR Entry model.</p>
+</div>
+<div class="paragraph">
+<p>Correct representation of the categories from the ontology is enabled by using archetypes designed to express the information of interest (say a risk assessment) in terms of a particular Entry subtype (in this case, Evaluation). In a system where Entries are thus modelled, there will be no danger of incorrectly identifying the various kinds of Entries, as long as the Entry subtype, time, and certainty/negation are taken into account. Note that even if the ontology shown in <a href="#CIR_ontology">Ontology of Recorded Information</a> figure is not correct (undoubtedly it isn&#8217;t), archetypes will be constructed to account for each improved idea of what such categories should really be.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_clinical_statement_status_and_negation"><a class="anchor" href="#_clinical_statement_status_and_negation"></a><a class="link" href="#_clinical_statement_status_and_negation">Clinical Statement Status and Negation</a></h4>
+<div class="paragraph">
+<p>A well-known problem in clinical information recording is the assignment of 'status' to recorded
+items. Kinds of status include variants like "actual value of P" (P stands for some phenomenon),
+"family history of P", "risk of P", "fear of P", as well as negation of any of these, i.e. "not/no P", "no
+history of P" etc. A proper analysis of these so called statuses shows that they are not "statuses" at all,
+but different categories of information as per the ontology of <a href="#CIR_ontology">Ontology of Recorded Information</a>. In general, negations are
+handled by using "exclusion" archetypes for the appropriate Entry type. For example, "no allergies"
+can be modelled using an Evaluation archetype that describes which allergies are excluded for this
+patient. Another set of statement types that can be confused in systems that do not properly model
+information categories concern interventions, e.g. "hip replacement (5 years ago)", "hip replacement
+(recommended)", "hip replacement (ordered for next tuesday 10 am)".</p>
+</div>
+<div class="paragraph">
+<p>All of these statement types map directly to one of the openEHR Entry types in an unambiguous fashion,
+ensuring that querying of the EHR does not match incorrect data, such as a statement about fear
+or risk, when the query was for an observation of the phenomenon in question.</p>
+</div>
+<div class="paragraph">
+<p>Further details on the openEHR model clinical information are given in the EHR IM document, Entry
+Section.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_managing_interventions"><a class="anchor" href="#_managing_interventions"></a><a class="link" href="#_managing_interventions">Managing Interventions</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>A key part of the investigation process shown in <a href="#clinical_investigator_process">Relationship of information types to the investigation process</a>, and indeed healthcare in general, is
+intervention. Specifying and managing interventions (whether the simplest prescriptions or complex
+surgery and therapy) is a hard problem for information systems because it is in 'future time' (meaning
+that intervention activities have to be expressed using branching/looping time specifications, not
+the simple linear time of observations), unexpected events can change things (e.g. patient reaction to
+drugs), and the status of a given intervention can be hard to track, particularly in distributed systems.
+However, from the health professional&#8217;s point of view, almost nothing is more basic than wanting to
+find out: what medications is this patient on, since when, and what is the progress?
+The openEHR approach to these challenges is to use the Entry type <code>INSTRUCTION</code>, its subpart
+<code>ACTIVITY</code> to specify interventions in the future, and the Entry subtype <code>ACTION</code> to record what has
+actually happened. A number of important features are provided in this model, including:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>a single, flexible way of modelling all interventions, whether they be single drug medication orders or complex hospital-based therapies;</p>
+</li>
+<li>
+<p>a way of knowing the state of any intervention, in terms of the states in a standard state machine, shown below; this allows a patient&#8217;s EHR to be queried in a standard way so as to return "all active medications", "all suspended interventions" etc.;</p>
+</li>
+<li>
+<p>a way of mapping particular care process flow steps to the standard state machine states, enabling health professionals to define and view interventions in terms they understand;</p>
+</li>
+<li>
+<p>support for automated workflow, without requiring it.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Coupled with the comprehensive versioning capabilities of openEHR, the Instruction/Action design
+allows clinical users of the record to define and manage interventions for the patient in a distributed
+environment.</p>
+</div>
+<div id="instruction_state_machine" class="imageblock text-center text-center">
+<div class="content">
+<img src="https://specifications.openehr.org/releases/RM/latest/UML/diagrams/RM-InstructionStateMachine.svg" alt="RM InstructionStateMachine">
+</div>
+<div class="title">Figure 7. openEHR standard Instruction State Machine</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_time_in_the_ehr"><a class="anchor" href="#_time_in_the_ehr"></a><a class="link" href="#_time_in_the_ehr">Time in the EHR</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Time is well-known as a challenging modelling problem in health information. In openEHR, times
+that are a by-product of the investigation process (e.g. time of sampling or collection; time of measurement,
+time of a healthcare business event, time of data committal) described above are concretely
+modelled, while other times specific to particular content (e.g. date of onset, date of resolution) are
+modelled using archetyping of generic data attributes. The following figure shows a typical relationship
+of times with respect to the observation process, and the corresponding attributes within the
+openEHR reference model. Note that under different scenarios, such as GP consultation, radiology
+reporting and others, the temporal relationships may be quite different than those shown in the figure.
+Time is described in detail in the <a href="https://specifications.openehr.org/releases/RM/latest/ehr.html#_time_in_the_ehr">EHR Information Model</a>.</p>
+</div>
+<div id="time_in_the_ehr" class="imageblock text-center text-center">
+<div class="content">
+<img src="../_images/diagrams/time_in_the_ehr.png" alt="time in the ehr" width="70%">
+</div>
+<div class="title">Figure 8. Time in the EHR</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_language"><a class="anchor" href="#_language"></a><a class="link" href="#_language">Language</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>In some situations, there may be more than one language used in the EHR. This may be due to
+patients being treated across borders (common among the Scandinavian countries, between Brazil
+and northern neighbours), or due to patients being treated while travelling, or due to multiple languages
+simply being used in the home environment.</p>
+</div>
+<div class="paragraph">
+<p>Language is handled as follows in the openEHR EHR. The default language for the whole EHR is
+determined from the operating system locale. It may be included in the EHR_status object if desired.
+Language is then mandatorily indicated in two places in the EHR data, namely in Compositions and
+Entries (i.e. Observations, etc), in a language attribute. This allows both Compositions of different
+languages in the EHR, and Entries of different languages in the same Composition. Additionally,
+within Entries, text and coded text items may optionally have language recorded if it is different from
+the language of the enclosing Entry, or where these types are used within other non-Entry structures
+that don&#8217;t indicate language.</p>
+</div>
+<div class="paragraph">
+<p>The use of these features is mostly likely to occur due to translation, although in some cases a truly
+multi-lingual environment might exist within the clinical encounter context. In the former case, some
+parts of an EHR, e.g. particular Compositions will be translated before or after a clinical encounter to
+as to make the information available in the primary language of the EHR. The act of translation (like
+any other interaction with the EHR) will cause changes to the record, in the form of new Versions.
+New translations can conveniently be recorded as branch versions, attached to the version of which
+they are a translation. This is not mandatory, but provides a convenient way to store translations so
+that they don&#8217;t appear to replace the original content.</p>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="../package_structure/">openEHR Specification Structure</a></span>
+  <span class="next"><a href="../security/">Security and Confidentiality</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>
+    Copyright: © 2003+
+    <a href="https://www.openehr.org"
+        alt="is an independent, non-profit foundation, facilitating the sharing of health
+           records by consumers and clinicians via open specifications, clinical models
+           and open platform implementations.">The openEHR Foundation</a>
+  </p>
+
+  <p>
+    License:
+    <img src="/_/img/cc-by-nd-88x31.png"
+        alt="Creative Commons Attribution-NoDerivs 3.0 Unported."
+        style="vertical-align:middle;margin:0 0.25rem 0 0;">
+    <a href="https://creativecommons.org/licenses/by-nd/3.0/">
+      Creative Commons Attribution-NoDerivs 3.0 Unported.
+    </a>
+  </p>
+
+  <p>
+    <strong>Links: <strong>
+    <a href="https://www.openehr.org/terms-of-use" class="mr-1">Terms of use</a> |
+    <a href="https://www.openehr.org/privacy-policy" class="mx-1">Privacy policy</a> |
+    <a href="https://www.openehr.org/privacy-policy" class="mx-1">Logos &amp; Trademarks</a> |
+    <a href="https://www.openehr.org/contact-us" class="mx-1">Contact</a>
+  </p>
+</footer>
+
+<script id="site-script" src="../../../../_/js/site.js" data-ui-root-path="../../../../_"></script>
+<script async src="../../../../_/js/vendor/highlight.js"></script>
+<script src="../../../../_/js/vendor/lunr.js"></script>
+<script src="../../../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../../../.." data-snippet-length="80" data-stylesheet="../../../../_/css/search.css"></script>
+<script async src="../../../../search-index.js"></script>
+<script src="../../../../_/js/medium-zoom.min.js"></script>
+<script src="../../../../_/js/zoom.js"></script>
+  </body>
+</html>

@@ -1,0 +1,1173 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+    <title>Date Time Package :: openEHR Specifications (Local Build)</title>
+    <link rel="canonical" href="https://sebastian-iancu.github.io/antora-openehr/RM/latest/data_types/date_time_package/">
+    <link rel="prev" href="../quantity_package/">
+    <link rel="next" href="../time_specification_package/">
+    <meta name="description" content="openEHR Data Types Information Model specification">
+    <meta name="keywords" content="EHR, clinical, data types, openehr">
+    <meta name="generator" content="Antora 3.1.14">
+    <link rel="stylesheet" href="../../../../_/css/site.css">
+    <link rel="stylesheet" href="../../../../_/css/antora-openehr.css">
+    <link rel="stylesheet" href="../../../../_/css/openehr.css">
+<link rel="icon" href="../../../../_/img/favicon.ico" type="image/x-icon">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://sebastian-iancu.github.io/antora-openehr">openEHR Specifications (Local Build)</a>
+
+      <div class="navbar-item search hide-for-print">
+        <div id="search-field" class="field has-filter">
+          <input id="search-input" type="text" placeholder="Search the docs">
+          <label class="filter checkbox">
+            <input type="checkbox" data-facet-filter="component:RM"> Reference Model only
+          </label>
+        </div>
+      </div>
+
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">Specifications</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://specifications.openehr.org/" target="_blank">
+              openEHR specification
+            </a>
+            <a class="navbar-item" href="https://specifications.openehr.org/releases/UML/development/index.html" target="_blank">
+              openEHR portal
+            </a>
+            <a class="navbar-item" href="https://ckm.openehr.org/ckm/" target="_blank">
+              openEHR CKM
+            </a>
+          </div>
+        </div>
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">Community</a>
+          <div class="navbar-dropdown is-right">
+            <a class="navbar-item" href="https://openehr.atlassian.net/secure/Dashboard.jspa?selectPageId=10190" target="_blank">
+              Issue trackers
+            </a>
+            <a class="navbar-item" href="https://discourse.openehr.org/" target="_blank">
+              Discourse Forum
+            </a>
+            <a class="navbar-item" href="https://specifications.openehr.org/wiki/display/spec/Specifications+Home" target="_blank">
+              Wiki
+            </a>
+            <a class="navbar-item" href="https://github.com/openEHR" target="_blank">
+              GitHub
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="RM" data-version="Release-1.0.4">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="../../">Reference Model</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../">Overview</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../common/">Common Information Model</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../common/preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../common/overview/">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../common/archetyped_package/">Archetyped Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../common/generic_package/">Generic Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../common/directory_package/">Directory Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../common/change_control_package/">Change Control Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../common/resource_package/">Resource Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../common/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../data_structures/">Data Structures Information Model</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_structures/preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_structures/background/">Background</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_structures/overview/">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_structures/item_structure_package/">Item Structure Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_structures/representation_package/">Representation Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_structures/history_package/">History Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_structures/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../">Data Types Information Model</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../background/">Background</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../introduction/">Introduction</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../basic_package/">Basic Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../text_package/">Text Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../quantity_package/">Quantity Package</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="./">Date Time Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../time_specification_package/">Time_specification Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../encapsulated_package/">Encapsulated Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../uri_package/">Uri Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../implem_strategies/">Implementation Strategies</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../comparison_HL7/">Comparison with HL7v3 Types</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../demographic/">Demographic Information Model</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../demographic/preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../demographic/demographic_package/">Demographic package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../demographic/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../ehr/">EHR Information Model</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr/preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr/background/">Background</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr/ehr_information_model/">The EHR Information Model</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr/ehr_package/">EHR Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr/composition_package/">Composition Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr/content_package/">Content Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr/navigation_package/">Navigation Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr/entry_package/">Entry Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr/glossary/">Glossary</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../ehr_extract/">EHR Extract Information Model</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr_extract/preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr_extract/requirements/">Requirements</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr_extract/design_overview/">Design Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr_extract/common_package/">Extract.common Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr_extract/openehr_extract_package/">The openehr_extract Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr_extract/generic_extract_package/">Generic_extract Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr_extract/synchronisation_package/">Synchronisation Extracts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr_extract/message_package/">The Message package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr_extract/semantics/">Semantics of openEHR and ISO 13606 extracts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr_extract/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../integration/">Integration Information Model</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../integration/preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../integration/integration_package/">Integration Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../integration/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../support/">Support Information Model</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../support/preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../support/support_package/">Support Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../support/assumed_types/">Assumed Types</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../support/identification_package/">Identification Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../support/terminology_package/">Terminology Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../support/measurement_package/">Measurement Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../support/definition_package/">Definition Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../support/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Reference Model</span>
+    <span class="version">Release-1.0.4</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <div class="title"><a href="../../../../AM/latest/">Archetype Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../AM/latest/">Release-2.3.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../AM/Release-2.2.0/">Release-2.2.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../AM/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../BASE/latest/">Base Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../BASE/latest/">Release-1.2.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../BASE/Release-1.1.0/">Release-1.1.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../BASE/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <div class="title"><a href="../../../latest/">Reference Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../latest/">Release-1.1.0</a>
+        </li>
+        <li class="version is-current">
+          <a href="../../">Release-1.0.4</a>
+        </li>
+        <li class="version">
+          <a href="../../../development/">development</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../../BASE/latest/" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../../">Reference Model</a></li>
+    <li><a href="../">Data Types Information Model</a></li>
+    <li><a href="./">Date Time Package</a></li>
+  </ul>
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">Release-1.0.4</button>
+  <div class="version-menu">
+    <a class="version" href="../../../latest/data_types/date_time_package/">Release-1.1.0</a>
+    <a class="version is-current" href="./">Release-1.0.4</a>
+    <a class="version" href="../../../development/data_types/date_time_package/">development</a>
+  </div>
+</div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Date Time Package</h1>
+<div class="sect1">
+<h2 id="_overview"><a class="anchor" href="#_overview"></a><a class="link" href="#_overview">Overview</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The <code>data_types.quantity.date_time</code> package includes three absolute date/time concepts:
+<code>DV_DATE</code>, <code>DV_TIME</code>, <code>DV_DATE_TIME</code>, and a relative concept: <code>DV_DURATION</code>. The representations of
+all of these are ISO8601:2004-compatible date/time strings. They also include the ISO8601 semantics
+for partial dates and times. The <code>quantity.date_time</code> package is illustrated below.</p>
+</div>
+<div id="rm_data_types_quantity_date_time" class="imageblock text-center text-center">
+<div class="content">
+<img src="../../_images/uml/RM-data_types.quantity.date_time.svg" alt="RM data types.quantity.date time">
+</div>
+<div class="title">Figure 1. rm.data_types.quantity.date_time package</div>
+</div>
+<div class="sect2">
+<h3 id="_requirements"><a class="anchor" href="#_requirements"></a><a class="link" href="#_requirements">Requirements</a></h3>
+<div class="sect3">
+<h4 id="_standard_datetimes"><a class="anchor" href="#_standard_datetimes"></a><a class="link" href="#_standard_datetimes">Standard Date/Times</a></h4>
+<div class="paragraph">
+<p>The basic requirement is for types which represent the following concepts:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><em>Date</em>: a type which records year, month and day in month. Examples include date of birth, date of onset of a problem</p>
+</li>
+<li>
+<p><em>Time</em>: a type which records hour, minute, second, and timezone. Examples include time of meal, time of day when a problem recurs. Timezone is required in a shared EHR repository so that times of clinical events which occurred in different timezones are comparable; this includes specialised pathology tests which might be done in another country.</p>
+</li>
+<li>
+<p><em>Date_time</em>: a type which records year, month, day, hour, minute, second, and timezone. Examples include date &amp; time of death, timestamp of any observation. Timezone required for the same reason as in Time.</p>
+</li>
+<li>
+<p><em>Duration</em>: a type which records duration of an event or (in)activity, as days, hours, minutes, and seconds.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_partial_datetimes"><a class="anchor" href="#_partial_datetimes"></a><a class="link" href="#_partial_datetimes">Partial Date/Times</a></h4>
+<div class="paragraph">
+<p>Partial or uncertain date/times have to be supported in clinical medicine. It is common for patients to
+be unsure about dates and durations. Requirements for partial date/times include the following.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>For dates, one of the following rules applies to any instance:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>only the year is known</p>
+</li>
+<li>
+<p>only the year and month are known</p>
+</li>
+<li>
+<p>If not even the year is known, then the date is obviously extremely approximate and it would
+probably be unsafe to represent it computationally. However, if computatable representation
+was needed in this case, a date interval can be used. A pedantic example which breaks these
+rules is someone who claims to be born on "a Monday at the start of May in 1934" (i.e. day
+but not date unknown). Either the clinician determines what date the first Monday in May
+1934 actually was and record that (assuming the patient&#8217;s way of accurately remembering
+just happens to be via day rather than date), or else records a partial date of the form "May
+1934" (in ISO 8601 form, "1934-05") if they determine that the patient really is unsure.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Sometimes incomplete times are recorded, which follow the same rule that either the hours
+or both the hours and minutes are present. Examples:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>recordings by instruments which only generate hh:mm values (i.e. no seconds);</p>
+</li>
+<li>
+<p>recordings by patients who report approximate times of events;</p>
+</li>
+<li>
+<p>recordings by clinicians who use approximate times in administrations, e.g. "take insulin at 8am" really means something like 8am +/- 30 mins.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Imprecise durations such as "2 - 3 hrs" need to be recordable in a computable form.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>To satisfy the faithfulness requirement for health record recording it should always be possible to
+record the narrative form of the datum provided by the patient as well as the formal form.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_design"><a class="anchor" href="#_design"></a><a class="link" href="#_design">Design</a></h3>
+<div class="sect3">
+<h4 id="_general_approach"><a class="anchor" href="#_general_approach"></a><a class="link" href="#_general_approach">General Approach</a></h4>
+<div class="paragraph">
+<p>Date/time values are somewhat special in the realm of data types in that they are expressed in their
+"customary" form, in which the standard structure of <code>{value, unit}</code> and metric relationships between
+orders of magnitude do not hold. The customary form is what we are used to using in the social time
+domain, such as births, deaths, ages, and times and durations of events which we remember. In all
+these cases it is expressed using the familiar year/month/date/hour/minute/second system, in which
+the relationships between each successive unit of time is non-metric. The customary form can be converted
+to a magnitude since an origin point, and many date/time libraries do this in order to implement
+various operations, particularly comparison.</p>
+</div>
+<div class="paragraph">
+<p>The date/time types fall into two categories: <em>absolute</em> and <em>relative</em>. The absolute category comprises
+the Date, Date/time and Time concepts, each of which measure time from a known origin. Date and
+Date/time measure calendrical time from the date <code>0001-01-01</code>, while Time measures clock time from
+midnight. Both Date/time and Time can include timezone information, ensuring that their instances
+are correctly situated on the same timeline. All absolute time types inherit from the <code>DV_TEMPORAL</code>
+type, which provides the appropriate signature for the <code><em>diff()</em></code> function.</p>
+</div>
+<div class="paragraph">
+<p>The relative category contains only the Duration concept, which expresses elapsed time between two
+time points. The <code>DV_DURATION</code> class is used for expressing durations of clinical phenomena and differences
+between absolute times.</p>
+</div>
+<div class="paragraph">
+<p>All four concepts are defined in the ISO 8601:2004 standard, which is accordingly used as the definitional
+basis of the openEHR date/time types.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_partial_datetimes_2"><a class="anchor" href="#_partial_datetimes_2"></a><a class="link" href="#_partial_datetimes_2">Partial Date/Times</a></h4>
+<div class="paragraph">
+<p>The types defined in this specification support the notion of partially specified dates and times. The
+modelling approach used here takes into account the known needs for representing partial date/time
+data, while balancing that with the need to avoid incomprehensibly complex types whose generality
+would only apply to a tiny percent of difficult cases. Thus, the basis for modelling incomplete
+date/times is as follows.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The modelling problem relates only to date/time quantities that need to be computable. For extremely imprecise date/times, if the clinician feels the need, she can record it as narrative text.</p>
+</li>
+<li>
+<p>For imprecise durations, an interval should be used, i.e. <code>DV_INTERVAL&lt;DV_DURATION&gt;</code>. In this way durations like "2 - 3 hrs" can be represented, and still be computable.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Based on the above considerations, the requirements for partial types are satisfied by the semantics of
+ISO8601:2004 for "reduced accuracy" date/times, in which parts of a date, time or date/time can be
+missing from the right hand end of the string. This models the reasonable situation where e.g. day
+may be unknown in a date, but a date cannot have month unknown and day known.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_calendars"><a class="anchor" href="#_calendars"></a><a class="link" href="#_calendars">Calendars</a></h4>
+<div class="paragraph">
+<p>A comment on calendars is in order. In this specification, all date/time types currently modelled are
+Gregorian calendar based. This is the same assumption made by by ISO 8601, and most technical
+computing systems today in many parts of the world. At first glance this may seem like a culturally
+insensitive approach, but in fact it makes sense in computational terms, for both users of the Gregorian and other calendars, e.g. Julian, Islamic, Baha&#8217;i, etc. Arguments against trying to use the
+date/time classes defined here to represent date/times from any calendar include the following:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Almost all dates on computer systems, including in regions such as the Indian sub-continent,
+Turkey and the middle east, where alternate calendars are in use, are in the Gregorian system.
+This is likely to be the case for some time, and may always be the case, regardless of
+the continued use of other calendars for religious or other purposes (outside of health);</p>
+</li>
+<li>
+<p>If a calendar indicator were used in date quantities, all software, to be correct, would have to
+check the value to verify that it is in the expected calendar system, and to do something special
+if it is not - an added cost which is a possible source of bugs and which would rarely be
+used. The reality is that most software produced in the western world, India etc (possibly
+excepting open source software) would automatically assume the Gregorian calendar, and
+would be in error if ever it did receive EHR data containing dates from alternate calendars.</p>
+</li>
+<li>
+<p>If/when other calendars are used in EHR or related systems, the users of those calendars will
+be aware of it, and include the appropriate conversion logic between Gregorian dates and
+their own, limiting the extra software work and quality issues to those users who actually
+need alternate calendars. If EHRs from such places are sent to a health care facility where
+Gregorian is the default, nothing special is needed to ensure that those records will contain
+dates comprehensible to the receiver.</p>
+</li>
+<li>
+<p>The detailed model of date/times in some other calendars is not the same as in the Gregorian
+calendar, so they would require different classes anyway - the classes defined here would
+not necessarily function correctly simply by adding a calendar field.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>For users requiring non-Gregorian dates in EHR and other health systems there are two approaches.
+One is to treat non-Gregorian dates as a localisation issue, to be handled inside the application and
+GUI evnvironment. The other is to actually add further sibling packages to the openEHR date/time
+package, for each new calendar or calendar group required. Conversion algorithms would most likely
+be needed in and out of the Gregorian types to enable interoperability of information drawn from different
+applications or sources. This approach may require a substantial modelling effort.</p>
+</div>
+<div class="paragraph">
+<p>Algorithms for conversion between the Egyptian, Armenian, Khwarizmian, Persian, Ethiopian, Coptic,
+Republican, Macedonian, Syrian, Julian Roman, Gregorian, Islamic A, Islamic B, Baha&#8217;i and
+Saka calendars are described by  <a href="#Richards_1998">Richards</a> and are based on the work of D. A. Hatcher (1986).</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_representation"><a class="anchor" href="#_representation"></a><a class="link" href="#_representation">Representation</a></h4>
+<div class="paragraph">
+<p>All of the date/time classes described here are defined so as to have an attribute called value of type
+String, in the form of an ISO 8601:2004 string. ISO 8601 is convenient for this purpose, as it is a simple
+syntax, and covers not only all four variants of fully-specified date/time described here, but also
+the partial varieties. Using a single string attribute significantly simplifies persistence as well as mapping
+to XML-based formalisms, which use a mostly ISO 8601 compliant date/time representation.
+The ISO 8601 semantics assumed by EHR are defined in classes found in the classes
+<code>Iso8601_date</code>, <code>Iso8601_time</code>, <code>Iso8601_date_time</code>, <code>Iso8601_duration</code>, from the
+<a href="https://specifications.openehr.org/releases/BASE/latest/foundation_types.html#_time_types"><code>base.foundation_types.time</code> package</a>. These classes are inherited into the corresponding classes
+defined below.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+it is strongly recommended that where possible, the <em>extended</em> form of the ISO 8601 date/time syntax is used, i.e. the use of dashes in dates (e.g. <code>2018-03-14</code> rather than <code>20180314</code>) and colons for times (i.e. <code>14:24:00</code> instead of <code>142400</code>). This greatly aids human readability, and reduces the need for special date/time display rendering.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_class_descriptions"><a class="anchor" href="#_class_descriptions"></a><a class="link" href="#_class_descriptions">Class Descriptions</a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_dv_temporal_class"><a class="anchor" href="#_dv_temporal_class"></a><a class="link" href="#_dv_temporal_class">DV_TEMPORAL Class</a></h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong><em>DV_TEMPORAL (abstract)</em></strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Specialised temporal variant of <code>DV_ABSOLUTE_QUANTITY</code> whose diff type is <code>DV_DURATION</code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code>DV_ABSOLUTE_QUANTITY</code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1<br>
+(redefined)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>accuracy</strong>: <code>DV_DURATION</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Time accuracy, expressed as a duration.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Functions</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock">(effected)</p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>diff</strong> (<br>
+other: <code>DV_TEMPORAL[1]</code><br>
+): <code>DV_DURATION</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Difference of two quantities.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_dv_date_class"><a class="anchor" href="#_dv_date_class"></a><a class="link" href="#_dv_date_class">DV_DATE Class</a></h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>DV_DATE</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Represents an absolute point in time, as measured on the Gregorian calendar, and specified only to the day. Semantics defined by ISO 8601. Used for recording dates in real world time. The partial form is used for approximate birth dates, dates of death, etc.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code>DV_TEMPORAL</code>, <code>Iso8601_date</code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(redefined)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>value</strong>: <code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>ISO8601 date string.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Functions</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock">(effected)</p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>magnitude</strong> (): <code>Integer</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Numeric value of the date as days since the calendar origin date <code>0001-01-01</code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock">(effected)</p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_strictly_comparable_to</strong> (<br>
+other: <code>DV_ORDERED[1]</code><br>
+): <code>Boolean</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Test if two instances are strictly comparable.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock">(effected)</p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>infix &lt;</strong> (<br>
+other_quantity: <code>DV_ORDERED[1]</code><br>
+): <code>Boolean</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Tests if this date is earlier than the cited date.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock">(effected)</p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>add</strong> (<br>
+a_diff: <code>DV_AMOUNT[1]</code><br>
+): <code>DV_ABSOLUTE_QUANTITY</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Add a time period to this date.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock">(effected)</p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>subtract</strong> (<br>
+a_diif: <code>DV_AMOUNT[1]</code><br>
+): <code>DV_ABSOLUTE_QUANTITY</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Subtract a time period from this date.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock">(effected)</p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>diff</strong> (<br>
+other: <code>DV_DATE[1]</code><br>
+): <code>DV_DURATION</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Difference of two quantities.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Invariants</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><strong><em>Value_valid</em></strong>: <code>valid_iso8601_date(value)</code></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_dv_time_class"><a class="anchor" href="#_dv_time_class"></a><a class="link" href="#_dv_time_class">DV_TIME Class</a></h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>DV_TIME</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Represents an absolute point in time from an origin usually interpreted as meaning the start of the current day, specified to a fraction of a second. Semantics defined by ISO 8601.</p>
+</div>
+<div class="paragraph">
+<p>Used for recording real world times, rather than scientifically measured fine amounts of time. The partial form is used for approximate times of events and substance administrations.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code>DV_TEMPORAL</code>, <code>Iso8601_time</code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(redefined)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>value</strong>: <code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>ISO8601 time string</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Functions</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock">(effected)</p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>magnitude</strong> (): <code>Real</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Numeric value of the time as seconds since the start of day, i.e. <code>00:00:00</code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock">(effected)</p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_strictly_comparable_to</strong> (<br>
+other: <code>DV_ORDERED[1]</code><br>
+): <code>Boolean</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Test if two instances are strictly comparable.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock">(effected)</p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>add</strong> (<br>
+a_diff: <code>DV_AMOUNT[1]</code><br>
+): <code>DV_ABSOLUTE_QUANTITY</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Add a time period to this time.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock">(effected)</p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>subtract</strong> (<br>
+a_diif: <code>DV_AMOUNT[1]</code><br>
+): <code>DV_ABSOLUTE_QUANTITY</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Subtract a duration from this time.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>operator=</strong> (<br>
+source: <code>DV_TIME[1]</code><br>
+): <code>DV_TIME</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock">(effected)</p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>diff</strong> (<br>
+other: <code>DV_TIME[1]</code><br>
+): <code>DV_DURATION</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Difference of two quantities.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Invariants</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><strong><em>Value_valid</em></strong>: <code>valid_iso8601_time (value)</code></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_dv_date_time_class"><a class="anchor" href="#_dv_date_time_class"></a><a class="link" href="#_dv_date_time_class">DV_DATE_TIME Class</a></h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>DV_DATE_TIME</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Represents an absolute point in time, specified to the second. Semantics defined by ISO 8601.</p>
+</div>
+<div class="paragraph">
+<p>Used for recording a precise point in real world time, and for approximate time stamps, e.g. the origin of a <code>HISTORY</code> in an <code>OBSERVATION</code> which is only partially known.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code>DV_TEMPORAL</code>, <code>Iso8601_date_time</code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(redefined)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>value</strong>: <code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>ISO8601 date/time string.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Functions</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock">(effected)</p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>magnitude</strong> (): <code>double</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Numeric value of the date/time as seconds since the calendar origin date/time <code>0001-01-01T00:00:00Z</code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock">(effected)</p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_strictly_comparable_to</strong> (<br>
+other: <code>DV_ORDERED[1]</code><br>
+): <code>Boolean</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Test if two instances are strictly comparable.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock">(effected)</p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>add</strong> (<br>
+a_diff: <code>DV_AMOUNT[1]</code><br>
+): <code>DV_ABSOLUTE_QUANTITY</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Add a time period to this date_time.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock">(effected)</p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>subtract</strong> (<br>
+a_diif: <code>DV_AMOUNT[1]</code><br>
+): <code>DV_ABSOLUTE_QUANTITY</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Subtract a time period from this date_time.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock">(effected)</p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>diff</strong> (<br>
+other: <code>DV_ABSOLUTE_QUANTITY[1]</code><br>
+): <code>DV_AMOUNT</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Difference of two quantities.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>operator=</strong> (<br>
+source: <code>DV_DATE_TIME[1]</code><br>
+): <code>DV_DATE_TIME</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock">(redefined)</p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>as_string</strong> (): <code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Invariants</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><strong><em>Value_valid</em></strong>: <code>valid_iso8601_date_time (value)</code></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_dv_duration_class"><a class="anchor" href="#_dv_duration_class"></a><a class="link" href="#_dv_duration_class">DV_DURATION Class</a></h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>DV_DURATION</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Represents a period of time with respect to a notional point in time, which is not specified. A sign may be used to indicate the duration is  backwards  in time rather than forwards.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+a deviation from ISO8601 is supported, allowing the  W' designator to be mixed with other designators. See assumed types section in the Support IM.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Used for recording the duration of something in the real world, particularly when there is a need a) to represent the duration in customary format, i.e. days, hours, minutes etc, and b) if it will be used in computational operations with date/time quantities, i.e. additions, subtractions etc.</p>
+</div>
+<div class="paragraph">
+<p>Misuse: Durations cannot be used to represent points in time, or intervals of time.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code>DV_AMOUNT</code>, <code>Iso8601_duration</code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(redefined)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>value</strong>: <code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>ISO8601 duration string.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Functions</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock">(effected)</p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_strictly_comparable_to</strong> (<br>
+other: <code>DV_ORDERED[1]</code><br>
+): <code>Boolean</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Invariants</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><strong><em>Value_valid</em></strong>: <code>valid_iso8601_duration (value)</code></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="../quantity_package/">Quantity Package</a></span>
+  <span class="next"><a href="../time_specification_package/">Time_specification Package</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>
+    Copyright: © 2003+
+    <a href="https://www.openehr.org"
+        alt="is an independent, non-profit foundation, facilitating the sharing of health
+           records by consumers and clinicians via open specifications, clinical models
+           and open platform implementations.">The openEHR Foundation</a>
+  </p>
+
+  <p>
+    License:
+    <img src="/_/img/cc-by-nd-88x31.png"
+        alt="Creative Commons Attribution-NoDerivs 3.0 Unported."
+        style="vertical-align:middle;margin:0 0.25rem 0 0;">
+    <a href="https://creativecommons.org/licenses/by-nd/3.0/">
+      Creative Commons Attribution-NoDerivs 3.0 Unported.
+    </a>
+  </p>
+
+  <p>
+    <strong>Links: <strong>
+    <a href="https://www.openehr.org/terms-of-use" class="mr-1">Terms of use</a> |
+    <a href="https://www.openehr.org/privacy-policy" class="mx-1">Privacy policy</a> |
+    <a href="https://www.openehr.org/privacy-policy" class="mx-1">Logos &amp; Trademarks</a> |
+    <a href="https://www.openehr.org/contact-us" class="mx-1">Contact</a>
+  </p>
+</footer>
+
+<script id="site-script" src="../../../../_/js/site.js" data-ui-root-path="../../../../_"></script>
+<script async src="../../../../_/js/vendor/highlight.js"></script>
+<script src="../../../../_/js/vendor/lunr.js"></script>
+<script src="../../../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../../../.." data-snippet-length="80" data-stylesheet="../../../../_/css/search.css"></script>
+<script async src="../../../../search-index.js"></script>
+<script src="../../../../_/js/medium-zoom.min.js"></script>
+<script src="../../../../_/js/zoom.js"></script>
+  </body>
+</html>

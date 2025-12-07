@@ -1,0 +1,2148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+    <title>dADL - Data ADL :: openEHR Specifications (Local Build)</title>
+    <link rel="canonical" href="https://sebastian-iancu.github.io/antora-openehr/AM/latest/ADL1.4/dadl/">
+    <meta name="description" content="openEHR Archetype Definition Language 1.4 (ADL1.4) (ISO 13606-2:2008)">
+    <meta name="keywords" content="EHR, ADL, AOM, health records, archetypes, constraint language, ISO 13606, openehr">
+    <meta name="generator" content="Antora 3.1.14">
+    <link rel="stylesheet" href="../../../../_/css/site.css">
+    <link rel="stylesheet" href="../../../../_/css/antora-openehr.css">
+    <link rel="stylesheet" href="../../../../_/css/openehr.css">
+<link rel="icon" href="../../../../_/img/favicon.ico" type="image/x-icon">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://sebastian-iancu.github.io/antora-openehr">openEHR Specifications (Local Build)</a>
+
+      <div class="navbar-item search hide-for-print">
+        <div id="search-field" class="field has-filter">
+          <input id="search-input" type="text" placeholder="Search the docs">
+          <label class="filter checkbox">
+            <input type="checkbox" data-facet-filter="component:AM"> Archetype Model only
+          </label>
+        </div>
+      </div>
+
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">Specifications</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://specifications.openehr.org/" target="_blank">
+              openEHR specification
+            </a>
+            <a class="navbar-item" href="https://specifications.openehr.org/releases/UML/development/index.html" target="_blank">
+              openEHR portal
+            </a>
+            <a class="navbar-item" href="https://ckm.openehr.org/ckm/" target="_blank">
+              openEHR CKM
+            </a>
+          </div>
+        </div>
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">Community</a>
+          <div class="navbar-dropdown is-right">
+            <a class="navbar-item" href="https://openehr.atlassian.net/secure/Dashboard.jspa?selectPageId=10190" target="_blank">
+              Issue trackers
+            </a>
+            <a class="navbar-item" href="https://discourse.openehr.org/" target="_blank">
+              Discourse Forum
+            </a>
+            <a class="navbar-item" href="https://specifications.openehr.org/wiki/display/spec/Specifications+Home" target="_blank">
+              Wiki
+            </a>
+            <a class="navbar-item" href="https://github.com/openEHR" target="_blank">
+              GitHub
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="AM" data-version="Release-2.3.0">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="../../">Archetype Model</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../">Overview</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../">{spec_title}</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../ADL2/">{spec_title}</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/overview/">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/file_encoding/">File Encoding and Character Quoting</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/master04.1-cadl_overview/">cADL - Constraint ADL</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/master04.2-cadl_basics/">Master04.2-Cadl Basics</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/master04.3-cadl_complex_types/">Master04.3-Cadl Complex Types</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/master04.4-cadl_second_order/">Master04.4-Cadl Second Order</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/master04.5-cadl_primitive_types/">Master04.5-Cadl Primitive Types</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/master04.6-cadl_validity_rules/">Master04.6-Cadl Validity Rules</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/paths/">ADL Paths</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/default_values/">Default Values</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/master07.01-adl_introduction/">ADL - Archetype Definition Language</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/master07.02-adl_conventions/">Master07.02-Adl Conventions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/master07.03-adl_artefacts/">Master07.03-Adl Artefacts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/master07.04-adl_basics/">Master07.04-Adl Basics</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/master07.05-adl_identification/">Master07.05-Adl Identification</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/master07.06-adl_specialise/">Master07.06-Adl Specialise</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/master07.07-adl_language/">Master07.07-Adl Language</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/master07.08-adl_description/">Master07.08-Adl Description</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/master07.09-adl_deprecated/">Master07.09-Adl Deprecated</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/master07.10-adl_definition/">Master07.10-Adl Definition</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/master07.11-adl_rules/">Master07.11-Adl Rules</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/master07.12-adl_rm_overlay/">Master07.12-Adl Rm Overlay</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/master07.13-adl_terminology/">Master07.13-Adl Terminology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/master07.14-adl_annotations/">Master07.14-Adl Annotations</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/terminology_integration/">Terminology Integration</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/master09.01-spec_overview/">Specialisation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/master09.02-spec_concepts/">Master09.02-Spec Concepts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/master09.03-spec_examples/">Master09.03-Spec Examples</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/master09.04-spec_attrib_redef/">Master09.04-Spec Attrib Redef</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/master09.05-spec_object_redef/">Master09.05-Spec Object Redef</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/master09.06-spec_rules/">Master09.06-Spec Rules</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/master09.07-spec_languages/">Master09.07-Spec Languages</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/master09.08-spec_description/">Master09.08-Spec Description</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/master09.09-spec_terminology/">Master09.09-Spec Terminology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/master09.10-spec_bindings/">Master09.10-Spec Bindings</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/templates/">Templates</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/other_formalisms/">Relationship of ADL to Other Formalisms</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/masterAppB-syntax_spec/">Syntax Specification</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../AOM1.4/">{spec_title}</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM1.4/preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM1.4/model_overview/">The Archetype Object Model</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM1.4/archetype_package/">The Archetype Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM1.4/constraint_model_package/">Constraint Model Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM1.4/assertion_package/">The Assertion Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM1.4/primitive_package/">Primitive Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM1.4/ontology_package/">Terminology Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM1.4/domain_extension/">Domain-specific Extension Example</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM1.4/masterAppB-diverse_reference_models/">Using Archetypes with Diverse Reference Models</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM1.4/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../AOM2/">{spec_title}</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM2/preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM2/model_overview/">Model Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM2/archetype_package/">The Archetype Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM2/master04.1-constraint_model-overview/">Constraint Model Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM2/master04.2-constraint_model-semantics/">Master04.2-Constraint Model-Semantics</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM2/master04.3-constraint_model-second_order/">Master04.3-Constraint Model-Second Order</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM2/master04.4-constraint_model-AOM_type_subs/">Master04.4-Constraint Model-AOM Type Subs</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM2/master04.5-constraint_model-class_definitions/">Master04.5-Constraint Model-Class Definitions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM2/rules_package/">The Rules Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM2/rm_overlay/">The RM Overlay Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM2/terminology_package/">Terminology Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM2/validation/">Validation and Transformation Semantics</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM2/serialisation_model/">Serialisation Model</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM2/templates/">Templates</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM2/rm_adaptation/">Reference Model Adaptation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM2/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../Identification/">{spec_title}</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../Identification/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="#index.adoc">Language Design</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../OPT2/">{spec_title}</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../OPT2/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../Overview/">{spec_title}</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../Overview/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Archetype Model</span>
+    <span class="version">Release-2.3.0</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <div class="title"><a href="../../">Archetype Model</a></div>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../../">Release-2.3.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../Release-2.2.0/">Release-2.2.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../BASE/latest/">Base Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../BASE/latest/">Release-1.2.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../BASE/Release-1.1.0/">Release-1.1.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../BASE/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../RM/latest/">Reference Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../RM/latest/">Release-1.1.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../RM/Release-1.0.4/">Release-1.0.4</a>
+        </li>
+        <li class="version">
+          <a href="../../../../RM/development/">development</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../../BASE/latest/" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../../">Archetype Model</a></li>
+    <li><a href="./">dADL - Data ADL</a></li>
+  </ul>
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">Release-2.3.0</button>
+  <div class="version-menu">
+    <a class="version is-current" href="./">Release-2.3.0</a>
+    <a class="version" href="../../../Release-2.2.0/ADL1.4/dadl/">Release-2.2.0</a>
+    <a class="version" href="../../../development/ADL1.4/dadl/">development</a>
+  </div>
+</div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">dADL - Data ADL</h1>
+<div class="sect1">
+<h2 id="_overview"><a class="anchor" href="#_overview"></a><a class="link" href="#_overview">Overview</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The dADL syntax provides a formal means of expressing instance data based on an underlying object-oriented or relational information model, which is readable both by humans and machines. The general appearance is exemplified by the following:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-odin" data-lang="odin">person = (List&lt;PERSON&gt;) &lt;
+    [01234] = &lt;
+        name = &lt; -- person's name
+            forenames = &lt;"Sherlock"&gt;
+            family_name = &lt;"Holmes"&gt;
+            salutation = &lt;"Mr"&gt;
+        &gt;
+        address = &lt; -- person's address
+            habitation_number = &lt;"221B"&gt;
+            street_name = &lt;"Baker St"&gt;
+            city = &lt;"London"&gt;
+            country = &lt;"England"&gt;
+        &gt;
+    &gt;
+    [01235] = &lt; -- etc &gt;
+&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In the above the attribute names <code>person</code> , <code>name</code> , <code>address</code> etc, and the type <code>List&lt;PERSON&gt;</code> are all assumed to come from an information model. The <code>[01234]</code> and <code>[01235]</code> tags identify container items.</p>
+</div>
+<div class="paragraph">
+<p>The basic design principle of dADL is to be able to represent data in a way that is both machine-processable and human readable, while making the fewest assumptions possible about the information model to which the data conforms. To this end, type names are optional; often, only attribute names and values are explicitly shown. No syntactical assumptions are made about whether the underlying model is relational, object-oriented or what it actually looks like. More than one information model can be compatible with the same dADL-expressed data. The UML semantics of composition/aggregation and association are expressible, as are shared objects. Literal leaf values are only of 'standard' widely recognised types, i.e. Integer, Real, Boolean, String, Character and a range of Date/time types. In standard dADL, all complex types are expressed structurally.</p>
+</div>
+<div class="paragraph">
+<p>A common question about dADL is why it is needed, when there is already XML? To start with, this question highlights the widespread misconception about XML, namely that because it can be read by a text editor, it is intended for humans. In fact, XML is designed for machine processing, and is textual to guarantee its interoperability. Realistic examples of XML (e.g. XML-schema instance, OWL-RDF ontologies) are generally unreadable for humans. dADL is on the other hand designed as a human-writable and readable formalism that is also machine processable; it may be thought of as an <em>abstract syntax for object-oriented data</em>. dADL also differs from XML by:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>providing a more comprehensive set of leaf data types, including intervals of numerics and date/time types, and lists of all primitive types;</p>
+</li>
+<li>
+<p>adhering to object-oriented semantics, particularly for container types, which XML schema languages generally do not;</p>
+</li>
+<li>
+<p>not using the confusing XML notion of ‘attributes’ and ‘elements’ to represent what are essentially object properties;</p>
+</li>
+<li>
+<p>requiring half the space of the equivalent XML.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Of course, this does not prevent XML exchange syntaxes being used for dADL, and indeed the conversion to XML instance is rather straightforward. Details on the XML expression of dADL and use of Xpath expressions is described in <a href="#_expression_of_dadl_in_xml">Expression of dADL in XML</a>.</p>
+</div>
+<div class="paragraph">
+<p>The dADL syntax as described above has a number of useful characteristics that enable the extensive use of paths to navigate it, and express references. These include:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>each <code>&lt;&gt;</code> block corresponds to an object (i.e. an instance of some type in an information model);</p>
+</li>
+<li>
+<p>the name before an '=' is always an attribute name or else a container element key, which attaches to the attribute of the enclosing block;</p>
+</li>
+<li>
+<p>paths can be formed by navigating down a tree branch and concatenating attribute name, container keys (where they are encountered) and '/' characters;</p>
+</li>
+<li>
+<p>every node is reachable by a path;</p>
+</li>
+<li>
+<p>shared objects can be referred to by path references.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_basics"><a class="anchor" href="#_basics"></a><a class="link" href="#_basics">Basics</a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_scope_of_a_dadl_document"><a class="anchor" href="#_scope_of_a_dadl_document"></a><a class="link" href="#_scope_of_a_dadl_document">Scope of a dADL Document</a></h3>
+<div class="paragraph">
+<p>A dADL document may contain one or more objects from the same object model.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_keywords"><a class="anchor" href="#_keywords"></a><a class="link" href="#_keywords">Keywords</a></h3>
+<div class="paragraph">
+<p>dADL has no keywords of its own: all identifiers are assumed to come from an information model.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_reserved_characters"><a class="anchor" href="#_reserved_characters"></a><a class="link" href="#_reserved_characters">Reserved Characters</a></h3>
+<div class="paragraph">
+<p>In dADL, a small number of characters are reserved and have the following meanings:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>&lt;</code>: open an object block;</p>
+</li>
+<li>
+<p><code>&gt;</code>: close an object block;</p>
+</li>
+<li>
+<p><code>=</code>: indicate attribute value = object block;</p>
+</li>
+<li>
+<p><code>(</code>, <code>)</code>: type name or plug-in syntax type delimiters;</p>
+</li>
+<li>
+<p><code>&lt;#</code>: open an object block expressed in a plug-in syntax;</p>
+</li>
+<li>
+<p><code>#&gt;</code>: close an object block expressed in a plug-in syntax.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Within &lt;&gt; delimiters, various characters are used as follows to indicate primitive values:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>"</code>: double quote characters are used to delimit string values;</p>
+</li>
+<li>
+<p><code>'</code>: single quote characters are used to delimit single character values;</p>
+</li>
+<li>
+<p><code>|</code>: bar characters are used to delimit intervals;</p>
+</li>
+<li>
+<p><code>[]</code>: brackets are used to delimit coded terms.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_comments"><a class="anchor" href="#_comments"></a><a class="link" href="#_comments">Comments</a></h3>
+<div class="paragraph">
+<p>In a dADL text, comments satisfy the following rule.</p>
+</div>
+<div class="paragraph principle">
+<p><strong>Comments</strong> are indicated by the characters "--". Multi-line comments are achieved using the "--" leader on each line where the comment continues.</p>
+</div>
+<div class="paragraph">
+<p>In this document, dADL comments are shown in brown.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_information_model_identifiers"><a class="anchor" href="#_information_model_identifiers"></a><a class="link" href="#_information_model_identifiers">Information Model Identifiers</a></h3>
+<div class="paragraph">
+<p>Two types of identifiers from information models are used in dADL: type names and attribute names.</p>
+</div>
+<div class="paragraph principle">
+<p>A <strong>type name</strong> is any identifier with an initial upper case letter, followed by any combination of letters, digits and underscores. A <strong>generic type name</strong> (including nested forms) additionally may include commas and angle brackets, and must be syntactically correct as per the UML. An <strong>attribute name</strong> is any identifier with an initial lower case letter, followed by any combination of letters, digits and underscores. Any convention that obeys this rule is allowed.</p>
+</div>
+<div class="paragraph">
+<p>At least two well-known conventions that are ubiquitous in information models obey the above rule. One of these is the following convention:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>type names are in all uppercase, e.g. <code>PERSON</code> , except for 'built-in' types, such as primitive types (` Integer` , <code>String</code> , <code>Boolean</code> , <code>Real</code> , <code>Double</code> ) and assumed container types (<code>List&lt;T&gt;</code> , <code>Set&lt;T&gt;</code> , <code>Hash&lt;T, U&gt;</code> ), which are in mixed case, in order to provide easy differentiation of built-in types from constructed types defined in the reference model. Built-in types are the same types assumed by UML, OCL, IDL and other similar object-oriented formalisms.</p>
+</li>
+<li>
+<p>attribute names are shown in all lowercase, e.g. <code>home_address</code> .</p>
+</li>
+<li>
+<p>in both type names and attribute names, underscores are used to represent word breaks. This convention is used to maximise the readability of this document.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The other common style is the programmer&#8217;s mixed-case or "camel case" convention exemplified by <code>Person</code> and <code>homeAddress</code> , as long as they obey the rule above. The convention chosen for any particular dADL document should be based on the convention used in the underlying information model. Identifiers are shown in green in this document.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_semi_colons"><a class="anchor" href="#_semi_colons"></a><a class="link" href="#_semi_colons">Semi-colons</a></h3>
+<div class="paragraph">
+<p>Semi-colons can be used to separate dADL blocks, for example when it is preferable to include multiple attribute/value pairs on one line. Semi-colons make no semantic difference at all, and are included only as a matter of taste. The following examples are equivalent:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-odin" data-lang="odin">term = &lt;text = &lt;"plan"&gt;; description = &lt;"The clinician's advice"&gt;&gt;
+term = &lt;text = &lt;"plan"&gt; description = &lt;"The clinician's advice"&gt;&gt;
+
+term = &lt;
+    text = &lt;"plan"&gt;
+    description = &lt;"The clinician's advice"&gt;
+&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph principle">
+<p>Semi-colons are completely optional in dADL.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_paths"><a class="anchor" href="#_paths"></a><a class="link" href="#_paths">Paths</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Because dADL data is hierarchical, and all nodes are uniquely identified, a reliable path can be determined for every node in a dADL text. The syntax of paths in dADL is the standard ADL path syntax, described in detail in <a href="#_adl_paths">[_adl_paths]</a>. Paths are directly convertible to XPath expressions for use in XML-encoded data.</p>
+</div>
+<div class="paragraph">
+<p>A typical ADL path used to refer to a node in a dADL text is as follows.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>/term_definitions["en"]/items["at0001"]/text</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In the following sections, paths are shown for all the dADL data examples.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_structure"><a class="anchor" href="#_structure"></a><a class="link" href="#_structure">Structure</a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_general_form"><a class="anchor" href="#_general_form"></a><a class="link" href="#_general_form">General Form</a></h3>
+<div class="paragraph">
+<p>A dADL document expresses serialised instances of one or more complex objects. Each such instance is a hierarchy of attribute names and object values. In its simplest form, a dADL text consists of repetitions of the following pattern:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>attribute_name '=' '&lt;' value '&gt;' ;</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Each attribute name is the name of an attribute in an implied or actual object or relational model. Each "value" is either a literal value of a primitive type (see <a href="#_primitive_types">Primitive Types</a>) or a further nesting of attribute names and values, terminating in leaf nodes of primitive type values. Where sibling attribute nodes occur, the attribute identifiers must be unique, just as in a standard object or relational model.</p>
+</div>
+<div class="paragraph principle">
+<p>Sibling attribute names must be unique.</p>
+</div>
+<div class="paragraph">
+<p>The following shows a typical structure.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-odin" data-lang="odin">attr_1 = &lt;
+    attr_2 = &lt;
+        attr_3 = &lt;leaf_value&gt;
+        attr_4 = &lt;leaf_value&gt;
+    &gt;
+    attr_5 = &lt;
+        attr_3 = &lt;
+            attr_6 = &lt;leaf_value&gt;
+        &gt;
+        attr_7 = &lt;leaf_value&gt;
+    &gt;
+&gt;
+attr_8 = &lt;...&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In the above structure, each "&lt;&gt;" encloses an instance of some type. The hierarchical structure corresponds to the part-of relationship between objects, otherwise known as <em>composition</em> and <em>aggregation</em> relationships in object-oriented formalisms such as UML (the difference between the two is usually described as being "sub-objects related by aggregation can have independent lifetimes, whereas sub-objects related by composition have co-terminal lifetimes and are always destroyed with the parent"; dADL does not differentiate between the two, since it is the business of a model, not the data, to express such semantics). Associations between instances in dADL are also representable by references, and are described in <a href="#_associations_and_shared_objects">Associations and Shared Objects</a>.</p>
+</div>
+<div class="sect3">
+<h4 id="_outer_delimiters"><a class="anchor" href="#_outer_delimiters"></a><a class="link" href="#_outer_delimiters">Outer Delimiters</a></h4>
+<div class="paragraph">
+<p>To be completely regular, an outer level of delimiters should be used, because the totality of a dADL text is an object, not a collection of disembodied attribute/object pairs. However, the outermost delimiters can be left out in order to improve readability, and without complicating the parsing process. The completely regular form would appear as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>&lt;
+    attr_1 = &lt;
+    &gt;
+    attr_8 = &lt;&gt;
+&gt;</pre>
+</div>
+</div>
+<div class="paragraph principle">
+<p>Outer '&lt;&gt;' delimiters in a dADL text are optional.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_paths_2"><a class="anchor" href="#_paths_2"></a><a class="link" href="#_paths_2">Paths</a></h4>
+<div class="paragraph">
+<p>The complete set of paths for the above example is as follows.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-odin" data-lang="odin">    /attr_1
+    /attr_1/attr_2
+    /attr_1/attr_2/attr_3           -- path to a leaf value
+    /attr_1/attr_2/attr_4           -- path to a leaf value
+    /attr_1/attr_5
+    /attr_1/attr_5/attr_3
+    /attr_1/attr_5/attr_3/attr_6    -- path to a leaf value
+    /attr_1/attr_5/attr_7           -- path to a leaf value
+    /attr_8</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The path syntax used with dADL maps trivially to W3C Xpath and Xquery paths, and is described in <a href="#_paths">Paths</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_empty_sections"><a class="anchor" href="#_empty_sections"></a><a class="link" href="#_empty_sections">Empty Sections</a></h3>
+<div class="paragraph">
+<p>Empty sections are allowed at both internal and leaf node levels, enabling the author to express the fact that there is in some particular instance, no data for an attribute, while still showing that the attribute itself is expected to exist in the underlying information model. An empty section looks as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-odin" data-lang="odin">    address = &lt;...&gt;    -- person's address</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Nested empty sections can be used.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+within this document, empty sections are shown in many places to represent fully populated data, which would of course require much more space.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph principle">
+<p>Empty sections can appear anywhere.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_container_objects"><a class="anchor" href="#_container_objects"></a><a class="link" href="#_container_objects">Container Objects</a></h3>
+<div class="paragraph">
+<p>The syntax described so far allows an instance of an arbitrarily large object to be expressed, but does not support attributes of container types such as lists, sets and hash tables, i.e. items whose type in an underlying reference model is something like <code>attr:List&lt;Type&gt;</code> , <code>attr:Set&lt;Type&gt;</code> or <code>attr: Hash&lt;ValueType, KeyType&gt;</code> . There are two ways instance data of such container objects can be expressed in dADL. The first applies to leaf values and is to use a list style literal value for , where the "list nature" of the data is expressed within the manifest value itself, as in the following examples.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-odin" data-lang="odin">fruits = &lt;"pear", "cumquat", "peach"&gt;
+some_primes = &lt;1, 2, 3, 5&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>See <a href="#_lists_of_built_in_types">Lists of Built-in Types</a> for the complete description of list leaf types. This approach is fine for leaf data.  However for containers holding non-primitive values, including more container objects, a different syntax is needed. Consider by way of example that an instance of the container <code>List&lt;Person&gt;</code> could in theory be expressed as follows.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-odin" data-lang="odin">-- WARNING: THIS IS NOT VALID dADL
+
+people = &lt;
+    &lt;name = &lt;...&gt; date_of_birth = &lt;...&gt; sex = &lt;...&gt; interests = &lt;...&gt; &gt;
+    &lt;name = &lt;...&gt; date_of_birth = &lt;...&gt; sex = &lt;...&gt; interests = &lt;...&gt; &gt;
+    -- etc
+&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Here, 'anonymous' blocks of data are repeated inside the outer block. However, this makes the data hard to read, and does not provide an easy way of constructing paths to the contained items. A better syntax becomes more obvious when we consider that members of container objects in their computable form are nearly always accessed by a method such as <code>member(i)</code> , <code>item[i]</code> or just plain <code>[i]</code> , in the case of array access in the C-based languages.</p>
+</div>
+<div class="paragraph">
+<p>dADL opts for the array-style syntax, known in dADL as container member <em>keys</em>. No attribute name is explicitly given; any primitive comparable value is allowed as the key, rather than just integers used in C-style array access. Further, if integers are used, it is not assumed that they dictate ordinal indexing, i.e. it is possible to use a series of keys <code>[2]</code> , <code>[4]</code> , <code>[8]</code> etc. The following example shows one version of the above container in valid dADL:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-odin" data-lang="odin">people = &lt;
+    [1] = &lt;name = &lt;...&gt; birth_date = &lt;...&gt; interests = &lt;...&gt; &gt;
+    [2] = &lt;name = &lt;...&gt; birth_date = &lt;...&gt; interests = &lt;...&gt; &gt;
+    [3] = &lt;name = &lt;...&gt; birth_date = &lt;...&gt; interests = &lt;...&gt; &gt;
+&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Strings and dates may also be used. Keys are coloured blue in the this specification in order to distinguish the run-time status of key values from the design-time status of class and attribute names. The following example shows the use of string values as keys for the contained items.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-odin" data-lang="odin">people = &lt;
+    ["akmal:1975-04-22"] = &lt;name = &lt;...&gt; birth_date = &lt;...&gt; interests = &lt;...&gt; &gt;
+    ["akmal:1962-02-11"] = &lt;name = &lt;...&gt; birth_date = &lt;...&gt; interests = &lt;...&gt; &gt;
+    ["gianni:1978-11-30"] = &lt;name = &lt;...&gt; birth_date = &lt;...&gt; interests = &lt;...&gt; &gt;
+&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The syntax for primitive values used as keys follows exactly the same syntax described below for data of primitive types. It is convenient in some cases to construct key values from one or more of the values of the contained items, in the same way as relational database keys are constructed from sufficient field values to guarantee uniqueness. However, they need not be - they may be independent of the contained data, as in the case of hash tables, where the keys are part of the hash table structure, or equally, they may simply be integer index values, as in the 'locations' attribute in the 'school_schedule' structure shown below.</p>
+</div>
+<div class="paragraph">
+<p>Container structures can appear anywhere in an overall instance structure, allowing complex data such as the following to be expressed in a readable way.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-odin" data-lang="odin">school_schedule = &lt;
+    lesson_times = &lt;08:30:00, 09:30:00, 10:30:00, ...&gt;
+
+    locations = &lt;
+        [1] = &lt;"under the big plane tree"&gt;
+        [2] = &lt;"under the north arch"&gt;
+        [3] = &lt;"in a garden"&gt;
+    &gt;
+
+    subjects = &lt;
+        ["philosophy:plato"] = &lt; -- note construction of key
+            name = &lt;"philosophy"&gt;
+            teacher = &lt;"plato"&gt;
+            topics = &lt;"meta-physics", "natural science"&gt;
+            weighting = &lt;76%&gt;
+        &gt;
+        ["philosophy:kant"] = &lt;
+            name = &lt;"philosophy"&gt;
+            teacher = &lt;"kant"&gt;
+            topics = &lt;"meaning and reason", "meta-physics", "ethics"&gt;
+            weighting = &lt;80%&gt;
+        &gt;
+        ["art"] = &lt;
+            name = &lt;"art"&gt;
+            teacher = &lt;"goya"&gt;
+            topics = &lt;"technique", "portraiture", "satire"&gt;
+            weighting = &lt;78%&gt;
+        &gt;
+    &gt;
+&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph principle">
+<p><strong>Container instances</strong> are expressed using repetitions of a block introduced by a key, in the form of a primitive value in brackets i.e. '[]'.</p>
+</div>
+<div class="paragraph">
+<p>The example above conforms directly to the object-oriented type specification (given in a pascal-like syntax):</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-idl" data-lang="idl">class SCHEDULE
+    lesson_times: List&lt;Time&gt;
+    locations: List&lt;String&gt;
+    subjects: List&lt;SUBJECT&gt; -- or it could be Hash&lt;SUBJECT&gt;
+end
+
+class SUBJECT
+    name: String
+    teacher: String
+    topics: List&lt;String&gt;
+    weighting: Real
+end</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Other class specifications corresponding to the same data are possible, but will all be isomorphic to the above.</p>
+</div>
+<div class="paragraph">
+<p>How key values relate to a particular object structure depends on the object model being used during the dADL parsing process. It is possible to write a parser which makes reasonable inferences from an information model whose instances are represented as dADL text; it is also possible to include explicit typing information in the dADL itself (see <a href="#_adding_type_information">Adding Type Information</a> below).</p>
+</div>
+<div class="sect3">
+<h4 id="_paths_3"><a class="anchor" href="#_paths_3"></a><a class="link" href="#_paths_3">Paths</a></h4>
+<div class="paragraph">
+<p>Paths through container objects are formed in the same way as paths in other structured data, with the addition of the key, to ensure uniqueness. The key is included syntactically enclosed in brackets, in a similar way to Xpath predicates. Paths through containers in the above example include the following:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-odin" data-lang="odin">/school_schedule/locations[1]                   -- path to "under the big..."
+/school_schedule/subjects["philosophy:kant"]    -- path to "kant"</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_nested_container_objects"><a class="anchor" href="#_nested_container_objects"></a><a class="link" href="#_nested_container_objects">Nested Container Objects</a></h3>
+<div class="paragraph">
+<p>In some cases the data of interest are instances of nested container types, such as <code>List&lt;List&lt;Message&gt;&gt;</code> (a list of Message lists) or <code>Hash&lt;List&lt;Integer&gt;, String&gt;</code> (a hash of integer lists keyed by strings). The dADL syntax for such structures follows directly from the syntax for a single container object. The following example shows an instance of the type <code>List&lt;List&lt;String&gt;&gt;</code> expressed in dADL syntax.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-odin" data-lang="odin">list_of_string_lists = &lt;
+    [1] = &lt;
+        [1] = &lt;"first string in first list"&gt;
+        [2] = &lt;"second string in first list"&gt;
+    &gt;
+    [2] = &lt;
+        [1] = &lt;"first string in second list"&gt;
+        [2] = &lt;"second string in second list"&gt;
+        [3] = &lt;"third string in second list"&gt;
+    &gt;
+    [3] = &lt;
+        [1] = &lt;"only string in third list"&gt;
+    &gt;
+&gt;</code></pre>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_paths_4"><a class="anchor" href="#_paths_4"></a><a class="link" href="#_paths_4">Paths</a></h4>
+<div class="paragraph">
+<p>The paths of the above example are as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-odin" data-lang="odin">/list_of_string_lists[1]/[1]
+/list_of_string_lists[1]/[2]
+/list_of_string_lists[2]/[1]
+etc</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_adding_type_information"><a class="anchor" href="#_adding_type_information"></a><a class="link" href="#_adding_type_information">Adding Type Information</a></h3>
+<div class="paragraph">
+<p>In many cases, dADL data is of a simple structure, very regular, and highly repetitive, such as the expression of simple demographic data. In such cases, it is preferable to express as little as possible about the implied reference model of the data (i.e. the object or relational model to which it conforms), since various software components want to use the data, and use it in different ways. However, there are also cases where the data is highly complex, and more model information is needed to help software parse it,. Examples include large design databases such as for aircraft, and health records. Typing information is added to instance data using a syntactical addition inspired by the <code>(type)</code> casting operator of the C language, whose meaning is approximately: force the type of the result of the following expression to be <code>type</code>. In dADL typing is therefore done by including the type name in parentheses after the '=' sign, as in the following example.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-odin" data-lang="odin">destinations = &lt;
+    ["seville"] = (TOURIST_DESTINATION) &lt;
+        profile = (DESTINATION_PROFILE) &lt;...&gt;
+        hotels = &lt;
+            ["gran sevilla"] = (HISTORIC_HOTEL) &lt;...&gt;
+            ["sofitel"] = (LUXURY_HOTEL) &lt;...&gt;
+            ["hotel real"] = (PENSION) &lt;...&gt;
+        &gt;
+        attractions = &lt;
+            ["la corrida"] = (SPORT_VENUE) &lt;...&gt;
+            ["Alcázar"] = (HISTORIC_SITE) &lt;...&gt;
+        &gt;
+    &gt;
+&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Note that in the above, no type identifiers are included after the "hotels" and "attractions" attributes, and it is up to the processing software to infer the correct types (usually easy - it will be pre-determined by an information model). However, the complete typing information can be included, as follows.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-odin" data-lang="odin">hotels = (List&lt;HOTEL&gt;) &lt;
+    ["gran sevilla"] = (HISTORIC_HOTEL) &lt;&gt;
+&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This illustrates the use of generic, i.e. template types, expressed in the standard UML syntax, using angle brackets. Any number of template arguments and any level of nesting is allowed, as in the UML. At first view, there may appear to be a risk of confusion between template type '&lt;&gt;' delimiters and the standard dADL block delimiters. However the parsing rules are easy to state; essentially the difference is that a dADL data block is always preceded by an '=' symbol.</p>
+</div>
+<div class="paragraph">
+<p>Type identifiers can also include namespace information, which is necessary when same-named types appear in different packages of a model. Namespaces are included by prepending package names, separated by the '.' character, in the same way as in most programming languages, as in the qualified type names <code>org.openehr.rm.ehr.content.ENTRY</code> and <code>Core.Abstractions.Relationships.Relationship</code>.</p>
+</div>
+<div class="paragraph principle">
+<p><strong>Type Information</strong> can be included optionally on any node immediately before the opening '&lt;' of any block, in the form of a UML-style type identifier in parentheses. Dot-separated namespace identifiers and template parameters may be used.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_associations_and_shared_objects"><a class="anchor" href="#_associations_and_shared_objects"></a><a class="link" href="#_associations_and_shared_objects">Associations and Shared Objects</a></h3>
+<div class="paragraph">
+<p>All of the facilities described so far allow any object-oriented data to be faithfully expressed in a formal, systematic way which is both machine- and human-readable, and allow any node in the data to be addressed using an Xpath-style path. The availability of reliable paths allows not only the representation of single 'business objects', which are the equivalent of UML <em>aggregation</em> (and <em>composition</em>) hierarchies, but also the representation of associations between objects, and by extension, shared objects.</p>
+</div>
+<div class="paragraph">
+<p>Consider that in the example above, 'hotel' objects may be shared objects, referred to by association. This can be expressed as follows.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-odin" data-lang="odin">destinations = &lt;
+    ["seville"] = &lt;
+        hotels = &lt;
+            ["gran sevilla"] = &lt;/hotels["gran sevilla"]&gt;
+            ["sofitel"] = &lt;/hotels["sofitel"]&gt;
+            ["hotel real"] = &lt;/hotels["hotel real"]&gt;
+        &gt;
+    &gt;
+&gt;
+bookings = &lt;
+    ["seville:0134"] = &lt;
+        customer_id = &lt;"0134"&gt;
+        period = &lt;...&gt;
+        hotel = &lt;/hotels["sofitel"]&gt;
+    &gt;
+&gt;
+hotels = &lt;
+    ["gran sevilla"] = (HISTORIC_HOTEL) &lt;&gt;
+    ["sofitel"] = (LUXURY_HOTEL) &lt;&gt;
+    ["hotel real"] = (PENSION) &lt;&gt;
+&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Associations are expressed via the use of fully qualified paths as the data for an attribute. In this example, there are references from a list of destinations, and from a booking list, to the same hotel object. If type information is included, it should go in the declarations of the relevant objects; type declarations can also be used before path references, which might be useful if the association type is an ancestor type (i.e. more general type) of the type of the actual object being referred to.</p>
+</div>
+<div class="paragraph">
+<p>Data in other dADL documents can be referred to using the URI syntax to locate the document, with the internal path included as described above.</p>
+</div>
+<div class="paragraph principle">
+<p><strong>Shared objects</strong> are referenced using paths. Objects in other dADL documents can be referred to using normal URIs whose path section conforms to dADL path syntax.</p>
+</div>
+<div class="sect3">
+<h4 id="_paths_5"><a class="anchor" href="#_paths_5"></a><a class="link" href="#_paths_5">Paths</a></h4>
+<div class="paragraph">
+<p>The path set from the above example is as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-odin" data-lang="odin">/destinations["seville"]/hotels["gran sevilla"]
+/destinations["seville"]/hotels["sofitel"]
+/destinations["seville"]/hotels["hotel real"]
+/bookings["seville:0134"]/customer_id
+/bookings["seville:0134"]/period
+/bookings["seville:0134"]/hotel
+/hotels["sofitel"]
+/hotels["hotel real"]
+/hotels["gran sevilla"]</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_leaf_data_built_in_types"><a class="anchor" href="#_leaf_data_built_in_types"></a><a class="link" href="#_leaf_data_built_in_types">Leaf Data - Built-in Types</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>All dADL data eventually devolve to instances of the primitive types <code>String</code>, <code>Integer</code>, <code>Real</code>, <code>Double</code>, <code>String</code>, <code>Character</code>, various date/time types, lists or intervals of these types, and a few special types. dADL does not use type or attribute names for instances of primitive types, only manifest values, making it possible to assume as little as possible about type names and structures of the primitive types. In all the following examples, the manifest data values are assumed to appear immediately inside a leaf pair of angle brackets, i.e.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>some_attribute = &lt;manifest value here&gt;</pre>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_primitive_types"><a class="anchor" href="#_primitive_types"></a><a class="link" href="#_primitive_types">Primitive Types</a></h3>
+<div class="sect3">
+<h4 id="_character_data"><a class="anchor" href="#_character_data"></a><a class="link" href="#_character_data">Character Data</a></h4>
+<div class="paragraph">
+<p>Characters are shown in a number of ways. In the literal form, a character is shown in single quotes,
+as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>'a'</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Characters outside the low ASCII (0-127) range must be UTF-8 encoded, with a small number of backslash-quoted ASCII characters allowed, as described in <a href="#File Encoding and Character Quoting">[File Encoding and Character Quoting]</a>.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_string_data"><a class="anchor" href="#_string_data"></a><a class="link" href="#_string_data">String Data</a></h4>
+<div class="paragraph">
+<p>All strings are enclosed in double quotes, as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>"this is a string"</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Quotes are encoded using ISO/IEC 10646 codes, e.g. :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>"this is a much longer string, what one might call a &amp;quot;phrase&amp;quot;."</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Line extension of strings is done simply by including returns in the string. The exact contents of the string are computed as being the characters between the double quote characters, with the removal of white space leaders up to the left-most character of the first line of the string. This has the effect of allowing the inclusion of multi-line strings in dADL texts, in their most natural human-readable form, e.g.:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-odin" data-lang="odin">text = &lt;"And now the STORM-BLAST came, and he
+        Was tyrannous and strong :
+        He struck with his o'ertaking wings,
+        And chased us south along."&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>String data can be used to contain almost any other kind of data, which is intended to be parsed as some other formalism. Characters outside the low ASCII (0-127) range must be UTF-8 encoded, with a small number of backslash-quoted ASCII characters allowed, as described in <a href="#_file_encoding_and_character_quoting">[_file_encoding_and_character_quoting]</a>.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_integer_data"><a class="anchor" href="#_integer_data"></a><a class="link" href="#_integer_data">Integer Data</a></h4>
+<div class="paragraph">
+<p>Integers are represented simply as numbers, e.g.:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>25
+300000
+29e6</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Commas or periods for breaking long numbers are not allowed, since they confuse the use of commas used to denote list items (see <a href="#_lists_of_built_in_types">Lists of Built-in Types</a> below).</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_real_data"><a class="anchor" href="#_real_data"></a><a class="link" href="#_real_data">Real Data</a></h4>
+<div class="paragraph">
+<p>Real numbers are assumed whenever a decimal is detected in a number, e.g.:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>25.0
+3.1415926
+6.023e23</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Commas or periods for breaking long numbers are not allowed. Only periods may be used to separate the decimal part of a number; unfortunately, the European use of the comma for this purpose conflicts with the use of the comma to distinguish list items (see <a href="#_lists_of_built_in_types">Lists of Built-in Types</a> below).</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_boolean_data"><a class="anchor" href="#_boolean_data"></a><a class="link" href="#_boolean_data">Boolean Data</a></h4>
+<div class="paragraph">
+<p>Boolean values can be indicated by the following values (case-insensitive):</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>True
+False</pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_dates_and_times"><a class="anchor" href="#_dates_and_times"></a><a class="link" href="#_dates_and_times">Dates and Times</a></h4>
+<div class="sect4">
+<h5 id="_complete_datetimes"><a class="anchor" href="#_complete_datetimes"></a><a class="link" href="#_complete_datetimes">Complete Date/Times</a></h5>
+<div class="paragraph">
+<p>In dADL, full and partial dates, times and durations can be expressed. All full dates, times and durations are expressed using a subset of <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a>. The Support IM provides a full explanation of the ISO 8601 semantics supported in openEHR.</p>
+</div>
+<div class="paragraph">
+<p>In dADL, the use of ISO 8601 allows extended form only (i.e. ':' and '-' must be used). The ISO 8601 method of representing partial dates consisting of a single year number, and partial times consisting of hours only are not supported, since they are ambiguous. See below for partial forms. Patterns for complete dates and times in dADL include the following:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>yyyy-MM-dd                      -- a date
+hh:mm:ss[,sss][Z|+/-hhmm]       -- a time with optional seconds
+yyyy-MM-ddThh:mm:ss[,sss][Z]    -- a date/time</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>where:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>yyyy = four-digit year
+MM = month in year
+dd = day in month
+hh = hour in 24 hour clock
+mm = minutes
+ss,sss = seconds, incuding fractional part
+Z = the timezone in the form of a '+' or '-' followed by 4 digits indicating the hour offset, e.g. +0930, or else the literal 'Z' indicating +0000 (the Greenwich meridian).</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Durations are expressed using a string which starts with 'P', and is followed by a list of periods, each appended by a single letter designator: 'Y' for years, "M' for months, 'W' for weeks, 'D' for days, 'H' for hours, 'M' for minutes, and 'S' for seconds. The literal 'T' separates the YMWD part from the HMS part, ensuring that months and minutes can be distinguished. Examples of date/time data include:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>1919-01-23                  -- birthdate of Django Reinhardt
+16:35:04,5                  -- rise of Venus in Sydney on 24 Jul 2003
+2001-05-12T07:35:20+1000    -- timestamp on an email received from Australia
+P22D4TH15M0S                -- period of 22 days, 4 hours, 15 minutes</pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_partial_datetimes"><a class="anchor" href="#_partial_datetimes"></a><a class="link" href="#_partial_datetimes">Partial Date/Times</a></h5>
+<div class="paragraph">
+<p>Two ways of expressing partial (i.e. incomplete) date/times are supported in dADL. The ISO 8601 incomplete formats are supported in extended form only (i.e. with '-' and ':' separators) for all patterns that are unambiguous on their own. Dates consisting of only the year, and times consisting of only the hour are not supported, since both of these syntactically look like integers. The supported ISO 8601 patterns are as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>yyyy-MM             -- a date with no days
+hh:mm               -- a time with no seconds
+yyyy-MM-ddThh:mm    -- a date/time with no seconds
+yyyy-MM-ddThh       -- a date/time, no minutes or seconds</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>To deal with the limitations of ISO 8601 partial patterns in a context-free parsing environment, a second form of pattern is supported in dADL, based on ISO 8601. In this form, '?' characters are substituted for missing digits. Valid partial dates follow the patterns:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>yyyy-MM-??  -- date with unknown day in month
+yyyy-??-??  -- date with unknown month and day</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Valid partial times follow the patterns:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>hh:mm:?? -- time with unknown seconds
+hh:??:?? -- time with unknown minutes and seconds</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Valid date/times follow the patterns:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>yyyy-MM-ddThh:mm:?? -- date/time with unknown seconds
+yyyy-MM-ddThh:??:?? -- date/time with unknown minutes and seconds
+yyyy-MM-ddT??:??:?? -- date/time with unknown time
+yyyy-MM-??T??:??:?? -- date/time with unknown day and time
+yyyy-??-??T??:??:?? -- date/time with unknown month, day and time</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_intervals_of_ordered_primitive_types"><a class="anchor" href="#_intervals_of_ordered_primitive_types"></a><a class="link" href="#_intervals_of_ordered_primitive_types">Intervals of Ordered Primitive Types</a></h3>
+<div class="paragraph">
+<p>Intervals of any ordered primitive type, i.e., <code>Integer</code>, <code>Real</code>, <code>Date</code>, <code>Time</code>, <code>Date_time</code> and <code>Duration</code>, can be stated using the following uniform syntax, where <code>N</code>, <code>M</code> are instances of any of the ordered types:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>|N..M|      -- the two-sided range N &gt;= x &lt;= M
+|N&gt;..M|     -- the two-sided range N &gt; x &lt;= M
+|N..&lt;M|     -- the two-sided range N &gt;= x &lt;M
+|N&gt;..&lt;M|    -- the two-sided range N &gt; x &lt;M
+|&lt;N|        -- the one-sided range x &lt; N
+|&gt;N|        -- the one-sided range x &gt; N
+|&gt;=N|       -- the one-sided range x &gt;= N
+|&lt;=N|       -- the one-sided range x &lt;= N
+|N +/-M|    -- interval of N ± M</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The allowable values for <code>N</code> and <code>M</code> include any value in the range of the relevant type, as well as:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>infinity
+-infinity
+* equivalent to infinity</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples of this syntax include:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>|0..5|          -- integer interval
+|0.0..1000.0|   -- real interval
+|0.0..&lt;1000.0|  -- real interval 0.0 &gt;= x &lt; 1000.0
+|08:02..09:10|  -- interval of time
+|&gt;= 1939-02-01| -- open-ended interval of dates
+|5.0 +/-0.5|    -- 4.5 - 5.5
+|&gt;=0|           -- &gt;= 0
+|0..infinity|   -- 0 - infinity (i.e. &gt;= 0)</pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_other_built_in_types"><a class="anchor" href="#_other_built_in_types"></a><a class="link" href="#_other_built_in_types">Other Built-in Types</a></h3>
+<div class="sect3">
+<h4 id="_uris"><a class="anchor" href="#_uris"></a><a class="link" href="#_uris">URIs</a></h4>
+<div class="paragraph">
+<p>URI can be expressed as dADL data in the usual way found on the web, and follow the standard syntax from <code><a href="http://www.ietf.org/rfc/rfc3986.txt" class="bare">http://www.ietf.org/rfc/rfc3986.txt</a></code>. Examples of URIs in dADL:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>http://archetypes.are.us/home.html
+ftp://get.this.file.com#section_5
+http://www.mozilla.org/products/firefox/upgrade/?application=thunderbird</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Encoding of special characters in URIs follows the <a href="https://tools.ietf.org/html/rfc3986" target="_blank" rel="noopener">IETF RFC 3986</a>, as described under <a href="#File Encoding and Character Quoting">[File Encoding and Character Quoting]</a>.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_coded_terms"><a class="anchor" href="#_coded_terms"></a><a class="link" href="#_coded_terms">Coded Terms</a></h4>
+<div class="paragraph">
+<p>Coded terms are ubiquitous in medical and clinical information, and are likely to become so in most other industries, as ontologically-based information systems and the 'semantic web' emerge. The logical structure of a coded term is simple: it consists of an identifier of a terminology, and an identifier of a code within that terminology. The dADL string representation is as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>[terminology_id::code]</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Typical examples from clinical data:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>[icd10AM::F60.1] -- from ICD10AM
+[snomed-ct::2004950] -- from snomed-ct
+[snomed-ct(3.1)::2004950] -- from snomed-ct v 3.1</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_lists_of_built_in_types"><a class="anchor" href="#_lists_of_built_in_types"></a><a class="link" href="#_lists_of_built_in_types">Lists of Built-in Types</a></h3>
+<div class="paragraph">
+<p>Data of any primitive type can occur singly or in lists, which are shown as comma-separated lists of item, all of the same type, such as in the following examples:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>"cyan", "magenta", "yellow", "black" -- printer's colours
+1, 1, 2, 3, 5 -- first 5 fibonacci numbers
+08:02, 08:35, 09:10 -- set of train times</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>No assumption is made in the syntax about whether a list represents a set, a list or some other kind of sequence - such semantics must be taken from an underlying information model.</p>
+</div>
+<div class="paragraph">
+<p>Lists which happen to have only one datum are indicated by using a comma followed by a list continuation marker of three dots, i.e. "&#8230;&#8203;", e.g.:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>"en", ... -- languages
+"icd10", ... -- terminologies
+[at0200], ...</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>White space may be freely used or avoided in lists, i.e. the following two lists are identical:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>1,1,2,3
+1, 1, 2,3</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_plug_in_syntaxes"><a class="anchor" href="#_plug_in_syntaxes"></a><a class="link" href="#_plug_in_syntaxes">Plug-in Syntaxes</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Using the dADL syntax, any object structure can be serialised. In some cases, the requirement is to express some part of the structure in an abstract syntax, rather than in the more literal serialised object form of dADL. dADL provides for this possibility by allowing the value of any object (i.e. what appears between any matching pair of <code>&lt;&gt;</code> delimiters) to be expressed in some other syntax, known as a "plug-in" syntax. Plug-in syntaxes are indicated in dADL in a similar way as typed objects, i.e. by the use of the syntax type in parentheses preceding the <code>&lt;&gt;</code> block. For a plug-in section, the &lt;&gt; delimiters are modified to <code>&lt;# #&gt;</code>, to allow for easier parser design, and easier recognition of such blocks by human readers. The general form is as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>attr_name = (syntax) &lt;#
+    ...
+#&gt;</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The following example illustrates a cADL plug-in section in an archetype, which it itself a dADL document:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>definition = (cadl) &lt;#
+    ENTRY[at0000] ∈ { -- blood pressure measurement
+        name ∈ { -- any synonym of BP
+            CODED_TEXT ∈ {
+                code ∈ {
+                    CODE_PHRASE ∈ {[ac0001]}
+                }
+            }
+        }
+    }
+#&gt;</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Clearly, many plug-in syntaxes might one day be used within dADL data; there is no guarantee that every dADL parser will support them. The general approach to parsing should be to use plug-in parsers, i.e. to obtain a parser for a plug-in syntax that can be built into the existing parser framework.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_expression_of_dadl_in_xml"><a class="anchor" href="#_expression_of_dadl_in_xml"></a><a class="link" href="#_expression_of_dadl_in_xml">Expression of dADL in XML</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The dADL syntax maps quite easily to XML instance. It is important to realise that people using XML often develop different mappings for object-oriented data, due to the fact that XML does not have systematic object-oriented semantics. This is particularly the case where containers such as lists and sets such as <code>employees: List&lt;Person&gt;</code> are mapped to XML; many implementors have to invent additional tags such as 'employee' to make the mapping appear visually correct. The particular mapping chosen here is designed to be a faithful reflection of the semantics of the object-oriented data, and does not try take into account visual aesthetics of the XML. The result is that Xpath expressions are the same for dADL and XML, and also correspond to what one would expect based on an underlying object model. The main elements of the mapping are as follows.</p>
+</div>
+<div class="sect2">
+<h3 id="_single_attributes"><a class="anchor" href="#_single_attributes"></a><a class="link" href="#_single_attributes">Single Attributes</a></h3>
+<div class="paragraph">
+<p>Single attribute nodes map to tagged nodes of the same name.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_container_attributes"><a class="anchor" href="#_container_attributes"></a><a class="link" href="#_container_attributes">Container Attributes</a></h3>
+<div class="paragraph">
+<p>Container attribute nodes map to a series of tagged nodes of the same name, each with the XML attribute <code><em>id</em></code> set to the dADL key. For example, the dADL:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-odin" data-lang="odin">subjects = &lt;
+    ["philosophy:plato"] = &lt;
+        name = &lt;"philosophy"&gt;
+    &gt;
+    ["philosophy:kant"] = &lt;
+        name = &lt;"philosophy"&gt;
+    &gt;
+&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>maps to the XML:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-xml" data-lang="xml">&lt;subjects id="philosophy:plato"&gt;
+    &lt;name&gt;
+        philosophy
+    &lt;/name&gt;
+&lt;/subjects&gt;
+&lt;subjects id="philosophy:kant"&gt;
+    &lt;name&gt;
+        philosophy
+    &lt;/name&gt;
+&lt;/subjects&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This guarantees that the path <code>subjects[@id="philosophy:plato"]/name</code> navigates to the same element in both dADL and the XML.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_nested_container_attributes"><a class="anchor" href="#_nested_container_attributes"></a><a class="link" href="#_nested_container_attributes">Nested Container Attributes</a></h3>
+<div class="paragraph">
+<p>Nested container attribute nodes map to a series of tagged nodes of the same name, each with the XML attribute <code><em>id</em></code> set to the dADL key. For example, consider an object structure defined by the signature <code>countries:Hash&lt;Hash&lt;Hotel,String&gt;,String&gt;</code>. An instance of this in dADL looks as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-odin" data-lang="odin">countries = &lt;
+    ["spain"] = &lt;
+        ["hotels"] = &lt;...&gt;
+        ["attractions"] = &lt;...&gt;
+    &gt;
+    ["egypt"] = &lt;
+        ["hotels"] = &lt;...&gt;
+        ["attractions"] = &lt;...&gt;
+    &gt;
+&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>can be mapped to the XML in which the synthesised element tag "_items" and the attribute "key" are used:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-xml" data-lang="xml">&lt;countries key="spain"&gt;
+    &lt;_items key="hotels"&gt;
+        ...
+    &lt;/_items&gt;
+    &lt;_items key="attractions"&gt;
+        ...
+    &lt;/_items&gt;
+&lt;/countries&gt;
+&lt;countries key="eqypt"&gt;
+    &lt;_items id="hotels"&gt;
+        ...
+    &lt;/_items&gt;
+    &lt;_items key="attractions"&gt;
+        ...
+    &lt;/_items&gt;
+&lt;/countries&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In this case, the dADL path countries["spain"]/["hotels"] will be transformed to the Xpath <code>countries[@key="spain"]/_items[@key="hotels"]</code> in order to navigate to the same element.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_type_names"><a class="anchor" href="#_type_names"></a><a class="link" href="#_type_names">Type Names</a></h3>
+<div class="paragraph">
+<p>Type names map to XML 'type' attributes e.g. the dADL:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-odin" data-lang="odin">destinations = &lt;
+    ["seville"] = (TOURIST_DESTINATION) &lt;
+        profile = (DESTINATION_PROFILE) &lt;&gt;
+        hotels = &lt;
+            ["gran sevilla"] = (HISTORIC_HOTEL) &lt;&gt;
+        &gt;
+    &gt;
+&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>maps to:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-xml" data-lang="xml">&lt;destinations id="seville" adl:type="TOURIST_DESTINATION"&gt;
+    &lt;profile adl:type="DESTINATION_PROFILE"&gt;
+        ...
+    &lt;/profile&gt;
+    &lt;hotels id="gran sevilla" adl:type="HISTORIC_HOTEL"&gt;
+        ...
+    &lt;/hotels&gt;
+&lt;/destinations&gt;</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_syntax_specification"><a class="anchor" href="#_syntax_specification"></a><a class="link" href="#_syntax_specification">Syntax Specification</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The grammar and lexical specification for the standard dADL syntax is shown below. This grammar is implemented using lex (.l file) and yacc (.y file) specifications for in the Eiffel programming environment. The current release of these files is available at <a href="https://github.com/openEHR/adl-tools/tree/Release-1.4/libraries/common_libs/src/structures/syntax/dadl/parser" target="_blank" rel="noopener">Tag <code>Release-1.4</code> of the adl-tools Github repository</a>. The .l and .y files can be converted for use in another yacc/lex-based programming environment. The dADL production rules are also available as an <a href="https://github.com/openEHR/adl-tools/blob/Release-1.4/libraries/common_libs/src/structures/syntax/dadl/parser/dadl2_validator.html" target="_blank" rel="noopener">HTML document</a>.</p>
+</div>
+<div class="sect2">
+<h3 id="_grammar"><a class="anchor" href="#_grammar"></a><a class="link" href="#_grammar">Grammar</a></h3>
+<div class="paragraph">
+<p>The following provides the <a href="https://github.com/openEHR/adl-tools/blob/Release-1.4/libraries/common_libs/src/structures/syntax/dadl/parser/dadl2_validator.y" target="_blank" rel="noopener">dADL parser production rules</a> (yacc specification).</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-antlr-java" data-lang="antlr-java">input:
+    attr_vals
+    | complex_object_block
+    ;
+
+attr_vals:
+    attr_val
+    | attr_vals attr_val
+    | attr_vals ';' attr_val
+    ;
+
+attr_val:
+    attr_id SYM_EQ object_block
+    ;
+
+attr_id:
+    V_ATTRIBUTE_IDENTIFIER
+    ;
+
+object_block:
+    complex_object_block
+    | primitive_object_block
+    | plugin_object_block
+    ;
+
+plugin_object_block:
+    V_PLUGIN_SYNTAX_TYPE V_PLUGIN_BLOCK
+    ;
+
+complex_object_block:
+    single_attr_object_block
+    | multiple_attr_object_block
+    ;
+
+multiple_attr_object_block:
+    untyped_multiple_attr_object_block
+    | type_identifier untyped_multiple_attr_object_block
+    ;
+
+untyped_multiple_attr_object_block:
+    multiple_attr_object_block_head keyed_objects SYM_END_DBLOCK
+    ;
+
+multiple_attr_object_block_head:
+    SYM_START_DBLOCK
+    ;
+keyed_objects:
+    keyed_object
+    | keyed_objects keyed_object
+    ;
+
+keyed_object:
+    object_key SYM_EQ object_block
+    ;
+
+object_key:
+    '[' simple_value ']'
+    ;
+
+single_attr_object_block:
+    untyped_single_attr_object_block
+    | type_identifier untyped_single_attr_object_block
+    ;
+
+untyped_single_attr_object_block:
+    single_attr_object_complex_head SYM_END_DBLOCK
+    | single_attr_object_complex_head attr_vals SYM_END_DBLOCK
+    ;
+
+single_attr_object_complex_head:
+    SYM_START_DBLOCK
+
+primitive_object_block:
+    untyped_primitive_object_block
+    | type_identifier untyped_primitive_object_block
+    ;
+
+untyped_primitive_object_block:
+    SYM_START_DBLOCK primitive_object_value SYM_END_DBLOCK
+    ;
+
+primitive_object_value:
+    simple_value
+    | simple_list_value
+    | simple_interval_value
+    | term_code
+    | term_code_list_value
+    ;
+
+simple_value:
+    string_value
+    | integer_value
+    | real_value
+    | boolean_value
+    | character_value
+    | date_value
+    | time_value
+    | date_time_value
+    | duration_value
+    | uri_value
+    ;
+
+simple_list_value:
+    string_list_value
+    | integer_list_value
+    | real_list_value
+    | boolean_list_value
+    | character_list_value
+    | date_list_value
+    | time_list_value
+    | date_time_list_value
+    | duration_list_value
+    ;
+
+simple_interval_value:
+    integer_interval_value
+    | real_interval_value
+    | date_interval_value
+    | time_interval_value
+    | date_time_interval_value
+    | duration_interval_value
+    ;
+
+type_identifier:
+    '(' V_TYPE_IDENTIFIER ')'
+    | '(' V_GENERIC_TYPE_IDENTIFIER ')'
+    | V_TYPE_IDENTIFIER
+    | V_GENERIC_TYPE_IDENTIFIER
+    ;
+
+string_value:
+    V_STRING
+    ;
+
+string_list_value:
+    V_STRING ',' V_STRING
+    | string_list_value ',' V_STRING
+    | V_STRING ',' SYM_LIST_CONTINUE
+    ;
+
+integer_value:
+    V_INTEGER
+    | '+' V_INTEGER
+    | '-' V_INTEGER
+    ;
+
+integer_list_value:
+    integer_value ',' integer_value
+    | integer_list_value ',' integer_value
+    | integer_value ',' SYM_LIST_CONTINUE
+    ;
+
+integer_interval_value:
+    SYM_INTERVAL_DELIM integer_value SYM_ELLIPSIS integer_value SYM_INTERVAL_DELIM
+    | SYM_INTERVAL_DELIM SYM_GT integer_value SYM_ELLIPSIS integer_value SYM_INTERVAL_DELIM
+    | SYM_INTERVAL_DELIM integer_value SYM_ELLIPSIS SYM_LT integer_value SYM_INTERVAL_DELIM
+    | SYM_INTERVAL_DELIM SYM_GT integer_value SYM_ELLIPSIS SYM_LT integer_value SYM_INTERVAL_DELIM
+    | SYM_INTERVAL_DELIM SYM_LT integer_value SYM_INTERVAL_DELIM
+    | SYM_INTERVAL_DELIM SYM_LE integer_value SYM_INTERVAL_DELIM
+    | SYM_INTERVAL_DELIM SYM_GT integer_value SYM_INTERVAL_DELIM
+    | SYM_INTERVAL_DELIM SYM_GE integer_value SYM_INTERVAL_DELIM
+    | SYM_INTERVAL_DELIM integer_value SYM_INTERVAL_DELIM
+    ;
+
+real_value:
+    V_REAL
+    | '+' V_REAL
+    | '-' V_REAL
+    ;
+
+real_list_value:
+    real_value ',' real_value
+    | real_list_value ',' real_value
+    | real_value ',' SYM_LIST_CONTINUE
+    ;
+
+real_interval_value:
+    SYM_INTERVAL_DELIM real_value SYM_ELLIPSIS real_value SYM_INTERVAL_DELIM
+    | SYM_INTERVAL_DELIM SYM_GT real_value SYM_ELLIPSIS real_value SYM_INTERVAL_DELIM
+    | SYM_INTERVAL_DELIM real_value SYM_ELLIPSIS SYM_LT real_value SYM_INTERVAL_DELIM
+    | SYM_INTERVAL_DELIM SYM_GT real_value SYM_ELLIPSIS SYM_LT real_value SYM_INTERVAL_DELIM
+    | SYM_INTERVAL_DELIM SYM_LT real_value SYM_INTERVAL_DELIM
+    | SYM_INTERVAL_DELIM SYM_LE real_value SYM_INTERVAL_DELIM
+    | SYM_INTERVAL_DELIM SYM_GT real_value SYM_INTERVAL_DELIM
+    | SYM_INTERVAL_DELIM SYM_GE real_value SYM_INTERVAL_DELIM
+    | SYM_INTERVAL_DELIM real_value SYM_INTERVAL_DELIM
+    ;
+
+boolean_value:
+    SYM_TRUE
+    | SYM_FALSE
+    ;
+
+boolean_list_value:
+    boolean_value ',' boolean_value
+    | boolean_list_value ',' boolean_value
+    | boolean_value ',' SYM_LIST_CONTINUE
+    ;
+
+character_value:
+    V_CHARACTER
+    ;
+
+character_list_value:
+    character_value ',' character_value
+    | character_list_value ',' character_value
+    | character_value ',' SYM_LIST_CONTINUE
+    ;
+
+date_value:
+    V_ISO8601_EXTENDED_DATE
+    ;
+
+date_list_value:
+    date_value ',' date_value
+    | date_list_value ',' date_value
+    | date_value ',' SYM_LIST_CONTINUE
+    ;
+
+date_interval_value:
+    SYM_INTERVAL_DELIM date_value SYM_ELLIPSIS date_value SYM_INTERVAL_DELIM
+    | SYM_INTERVAL_DELIM SYM_GT date_value SYM_ELLIPSIS date_value SYM_INTERVAL_DELIM
+    | SYM_INTERVAL_DELIM date_value SYM_ELLIPSIS SYM_LT date_value SYM_INTERVAL_DELIM
+    | SYM_INTERVAL_DELIM SYM_GT date_value SYM_ELLIPSIS SYM_LT date_value SYM_INTERVAL_DELIM
+    | SYM_INTERVAL_DELIM SYM_LT date_value SYM_INTERVAL_DELIM
+    | SYM_INTERVAL_DELIM SYM_LE date_value SYM_INTERVAL_DELIM
+    | SYM_INTERVAL_DELIM SYM_GT date_value SYM_INTERVAL_DELIM
+    | SYM_INTERVAL_DELIM SYM_GE date_value SYM_INTERVAL_DELIM
+    | SYM_INTERVAL_DELIM date_value SYM_INTERVAL_DELIM
+    ;
+
+time_value:
+    V_ISO8601_EXTENDED_TIME
+
+time_list_value:
+    time_value ',' time_value
+    | time_list_value ',' time_value
+    | time_value ',' SYM_LIST_CONTINUE
+    ;
+
+time_interval_value:
+    SYM_INTERVAL_DELIM time_value SYM_ELLIPSIS time_value SYM_INTERVAL_DELIM
+    | SYM_INTERVAL_DELIM SYM_GT time_value SYM_ELLIPSIS time_value SYM_INTERVAL_DELIM
+    | SYM_INTERVAL_DELIM time_value SYM_ELLIPSIS SYM_LT time_value SYM_INTERVAL_DELIM
+    | SYM_INTERVAL_DELIM SYM_GT time_value SYM_ELLIPSIS SYM_LT time_value SYM_INTERVAL_DELIM
+    | SYM_INTERVAL_DELIM SYM_LT time_value SYM_INTERVAL_DELIM
+    | SYM_INTERVAL_DELIM SYM_LE time_value SYM_INTERVAL_DELIM
+    | SYM_INTERVAL_DELIM SYM_GT time_value SYM_INTERVAL_DELIM
+    | SYM_INTERVAL_DELIM SYM_GE time_value SYM_INTERVAL_DELIM
+    | SYM_INTERVAL_DELIM time_value SYM_INTERVAL_DELIM
+    ;
+
+date_time_value:
+    V_ISO8601_EXTENDED_DATE_TIME
+    ;
+
+date_time_list_value:
+    date_time_value ',' date_time_value
+    | date_time_list_value ',' date_time_value
+    | date_time_value ',' SYM_LIST_CONTINUE
+    ;
+
+date_time_interval_value:
+    SYM_INTERVAL_DELIM date_time_value SYM_ELLIPSIS date_time_value SYM_INTERVAL_DELIM
+    | SYM_INTERVAL_DELIM SYM_GT date_time_value SYM_ELLIPSIS date_time_value SYM_INTERVAL_DELIM
+    | SYM_INTERVAL_DELIM date_time_value SYM_ELLIPSIS SYM_LT date_time_value SYM_INTERVAL_DELIM
+    | SYM_INTERVAL_DELIM SYM_GT date_time_value SYM_ELLIPSIS SYM_LT date_time_value SYM_INTERVAL_DELIM
+    | SYM_INTERVAL_DELIM SYM_LT date_time_value SYM_INTERVAL_DELIM
+    | SYM_INTERVAL_DELIM SYM_LE date_time_value SYM_INTERVAL_DELIM
+    | SYM_INTERVAL_DELIM SYM_GT date_time_value SYM_INTERVAL_DELIM
+    | SYM_INTERVAL_DELIM SYM_GE date_time_value SYM_INTERVAL_DELIM
+    | SYM_INTERVAL_DELIM date_time_value SYM_INTERVAL_DELIM
+    ;
+
+duration_value:
+    V_ISO8601_DURATION
+    ;
+
+duration_list_value:
+    duration_value ',' duration_value
+    | duration_list_value ',' duration_value
+    | duration_value ',' SYM_LIST_CONTINUE
+    ;
+
+duration_interval_value:
+    SYM_INTERVAL_DELIM duration_value SYM_ELLIPSIS duration_value SYM_INTERVAL_DELIM
+    | SYM_INTERVAL_DELIM SYM_GT duration_value SYM_ELLIPSIS duration_value SYM_INTERVAL_DELIM
+    | SYM_INTERVAL_DELIM duration_value SYM_ELLIPSIS SYM_LT duration_value SYM_INTERVAL_DELIM
+    | SYM_INTERVAL_DELIM SYM_GT duration_value SYM_ELLIPSIS SYM_LT duration_value SYM_INTERVAL_DELIM
+    | SYM_INTERVAL_DELIM SYM_LT duration_value SYM_INTERVAL_DELIM
+    | SYM_INTERVAL_DELIM SYM_LE duration_value SYM_INTERVAL_DELIM
+    | SYM_INTERVAL_DELIM SYM_GT duration_value SYM_INTERVAL_DELIM
+    | SYM_INTERVAL_DELIM SYM_GE duration_value SYM_INTERVAL_DELIM
+    | SYM_INTERVAL_DELIM duration_value SYM_INTERVAL_DELIM
+    ;
+
+term_code:
+    V_QUALIFIED_TERM_CODE_REF
+
+term_code_list_value:
+    term_code ',' term_code
+    | term_code_list_value ',' term_code
+    | term_code ',' SYM_LIST_CONTINUE
+    ;
+
+uri_value:
+    V_URI
+    ;</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_symbols"><a class="anchor" href="#_symbols"></a><a class="link" href="#_symbols">Symbols</a></h3>
+<div class="paragraph">
+<p>The following provides the <a href="https://github.com/openEHR/adl-tools/blob/Release-1.4/libraries/common_libs/src/structures/syntax/dadl/parser/dadl_scanner.l">dADL lexical analyser production rules</a> (lex specification) used in the <code>Release-1.4</code> parser:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>----------/* definitions */ -----------------------------------------------
+ALPHANUM [a-zA-Z0-9]
+IDCHAR [a-zA-Z0-9_]
+NAMECHAR [a-zA-Z0-9._\-]
+NAMECHAR_SPACE [a-zA-Z0-9._\- ]
+NAMECHAR_PAREN [a-zA-Z0-9._\-()]
+UTF8CHAR (([\xC2-\xDF][\x80-\xBF])|(\xE0[\xA0-\xBF][\x80-\xBF])|([\xE1-\xEF][\x80-\xBF][\x80-\xBF])|(\xF0[\x90-\xBF][\x80-\xBF][\x80-\xBF])|([\xF1-\xF7][\x80-\xBF][\x80-\xBF][\x80-\xBF]))
+
+----------/** Separators **/---------------------------------------------
+[ \t\r]+            -- Ignore separators
+\n+                 -- (increment line count)
+
+----------/** comments **/-----------------------------------------------
+"--".*              -- Ignore comments
+"--".*\n[ \t\r]*    -- (increment line count)
+
+----------/* symbols */ -------------------------------------------------
+"-"                 -- -&gt; Minus_code
+"+"                 -- -&gt; Plus_code
+"*"                 -- -&gt; Star_code
+"/"                 -- -&gt; Slash_code
+"^"                 -- -&gt; Caret_code
+"."                 -- -&gt; Dot_code
+";"                 -- -&gt; Semicolon_code
+","                 -- -&gt; Comma_code
+":"                 -- -&gt; Colon_code
+"!"                 -- -&gt; Exclamation_code
+"("                 -- -&gt; Left_parenthesis_code
+")"                 -- -&gt; Right_parenthesis_code
+"$"                 -- -&gt; Dollar_code
+"??"                -- -&gt; SYM_DT_UNKNOWN
+"?"                 -- -&gt; Question_mark_code
+"|"                 -- -&gt; SYM_INTERVAL_DELIM
+"["                 -- -&gt; Left_bracket_code
+"]"                 -- -&gt; Right_bracket_code
+"="                 -- -&gt; SYM_EQ
+"&gt;="                -- -&gt; SYM_GE
+"&lt;="                -- -&gt; SYM_LE
+"&lt;"                 -- -&gt; SYM_LT or SYM_START_DBLOCK
+"&gt;"                 -- -&gt; SYM_GT or SYM_END_DBLOCK
+
+".."                -- -&gt; SYM_ELLIPSIS
+"..."               -- -&gt; SYM_LIST_CONTINUE
+
+----------/* keywords */ ---------------------------------------------
+[Tt][Rr][Uu][Ee]                    -- -&gt; SYM_TRUE
+[Ff][Aa][Ll][Ss][Ee]                -- -&gt; SYM_FALSE
+[Ii][Nn][Ff][Ii][Nn][Ii][Tt][Yy]    -- -&gt; SYM_INFINITY
+
+----------/* V_URI */ -------------------------------------------------
+[a-z]+:\/\/[^&lt;&gt;|\\{}^~"\[\] ]*
+
+----------/* V_QUALIFIED_TERM_CODE_REF form [ICD10AM(1998)::F23] */ -----
+\[{NAMECHAR_PAREN}+::{NAMECHAR}+\]
+
+----------/* ERR_V_QUALIFIED_TERM_CODE_REF */ -----
+\[{NAMECHAR_PAREN}+::{NAMECHAR_SPACE}+\]
+
+----------/* V_LOCAL_TERM_CODE_REF */ ---------------------------------
+\[{ALPHANUM}{NAMECHAR}*\]
+
+----------/* V_LOCAL_CODE */ ------------------------------------------
+a[ct][0-9.]+
+
+----------/* V_ISO8601_EXTENDED_DATE_TIME YYYY-MM-DDThh:mm:ss[,sss][Z|+/-nnnn] */ ---
+[0-9]{4}-[0-1][0-9]-[0-3][0-9]T[0-2][0-9]:[0-6][0-9]:[0-6][0-9](,[0-9]+)?(Z|[+-][0-9]{4})? |
+[0-9]{4}-[0-1][0-9]-[0-3][0-9]T[0-2][0-9]:[0-6][0-9](Z|[+-][0-9]{4})? |
+[0-9]{4}-[0-1][0-9]-[0-3][0-9]T[0-2][0-9](Z|[+-][0-9]{4})?
+
+----------/* V_ISO8601_EXTENDED_TIME hh:mm:ss[,sss][Z|+/-nnnn] */ --------
+[0-2][0-9]:[0-6][0-9]:[0-6][0-9](,[0-9]+)?(Z|[+-][0-9]{4})? |
+[0-2][0-9]:[0-6][0-9](Z|[+-][0-9]{4})?
+
+----------/* V_ISO8601_EXTENDED_DATE YYYY-MM-DD */ ------------------------
+[0-9]{4}-[0-1][0-9]-[0-3][0-9] |
+[0-9]{4}-[0-1][0-9]
+
+----------/* V_ISO8601_DURATION PnYnMnWnDTnnHnnMnnS */ -------------
+-- here we allow a deviation from the standard to allow weeks to be
+-- mixed in with the rest since this commonly occurs in medicine
+P([0-9]+[yY])?([0-9]+[mM])?([0-9]+[wW])?([0-9]+[dD])?T([0-9]+[hH])?([0-9]+[mM])?([0-9]+[sS])? |
+P([0-9]+[yY])?([0-9]+[mM])?([0-9]+[wW])?([0-9]+[dD])?
+
+----------/* V_TYPE_IDENTIFIER */ ---------------------------------------
+[A-Z]{IDCHAR}*
+
+----------/* V_GENERIC_TYPE_IDENTIFIER */ -------------------------------
+[A-Z]{IDCHAR}*&lt;[a-zA-Z0-9,_&lt;&gt;]+&gt;
+
+----------/* V_ATTRIBUTE_IDENTIFIER */ ----------------------------------
+[a-z]{IDCHAR}*
+
+----------/* CADL Blocks */ -------------------------------------------
+
+\{[^{}]* -- beginning of CADL block
+&lt;IN_CADL_BLOCK&gt;\{[^{}]* -- got an open brace
+&lt;IN_CADL_BLOCK&gt;[^{}]*\} -- got a close brace
+
+----------/* V_INTEGER */ ----------------------------------------------
+[0-9]+ |
+[0-9]+[eE][+-]?[0-9]+
+
+----------/* V_REAL */ -------------------------------------------------
+[0-9]+\.[0-9]+|
+[0-9]+\.[0-9]+[eE][+-]?[0-9]+
+
+----------/* V_STRING */ -----------------------------------------------
+\"[^\\\n"]*\"
+\"[^\\\n"]*{ -- beginning of a multi-line string
+&lt;IN_STR&gt; {
+\\\\ -- match escaped backslash, i.e. \\ -&gt; \
+\\\" -- match escaped double quote, i.e. \" -&gt; "
+{UTF8CHAR}+ -- match UTF8 chars
+[^\\\n"]+ -- match any other characters
+\\\n[ \t\r]* -- match LF in line
+[^\\\n"]*\" -- match final end of string
+.|\n |
+&lt;&lt;EOF&gt;&gt; -- unclosed String -&gt; ERR_STRING
+}
+
+----------/* V_CHARACTER */ --------------------------------------------
+\'[^\\\n']\' -- normal character in 0-127
+\'\\n\ -- \n
+\'\\r\ -- \r
+\'\\t\ -- \t
+\'\\'\ -- \'
+\'\\\\ -- \\
+\'{UTF8CHAR}\' -- UTF8 char
+\'.{1,2} |
+\'\\[0-9]+(\/)? -- invalid character -&gt; ERR_CHARACTER</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_syntax_alternatives"><a class="anchor" href="#_syntax_alternatives"></a><a class="link" href="#_syntax_alternatives">Syntax Alternatives</a></h2>
+<div class="sectionbody">
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+the syntax in this section is not part of dADL
+</td>
+</tr>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_container_attributes_2"><a class="anchor" href="#_container_attributes_2"></a><a class="link" href="#_container_attributes_2">Container Attributes</a></h3>
+<div class="paragraph">
+<p>A reasonable alternative to the syntax described above for nested container objects would have been to use an arbitrary member attribute name, such as "items", or perhaps "_items" (in order to indicate to a parser that the attribute name cannot be assumed to correspond to a real property in an object model), as well as the key for each container member, giving syntax like the following:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>people = &lt;
+    _items[1] = &lt;name = &lt;&gt; birth_date = &lt;&gt; interests = &lt;&gt;&gt;
+    _items[2] = &lt;name = &lt;&gt; birth_date = &lt;&gt; interests = &lt;&gt;&gt;
+    _items[3] = &lt;name = &lt;&gt; birth_date = &lt;&gt; interests = &lt;&gt;&gt;
+&gt;</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Additionally, with this alternative, it becomes more obvious how to include the values of other properties of container types, such as ordering, maximum size and so on, e.g.:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>people = &lt;
+    _items[1] = &lt;name = &lt;&gt; birth_date = &lt;&gt; interests = &lt;&gt;&gt;
+    _items[2] = &lt;name = &lt;&gt; birth_date = &lt;&gt; interests = &lt;&gt;&gt;
+    _items[3] = &lt;name = &lt;&gt; birth_date = &lt;&gt; interests = &lt;&gt;&gt;
+    _is_ordered = &lt;True&gt;
+    _upper = <i class="conum" data-value="200"></i><b>(200)</b>
+&gt;</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Again, since the names of such properties in any given object technology cannot be assumed, the special underscore form of attribute names is used. However, we are now led to somewhat clumsy paths, where "_items" will occur very frequently, due to the ubiquity of containers in real data:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>/people/_items[1]/
+/people/_items[2]/
+/people/_items[3]/
+/people/_is_ordered/
+/people/_upper/</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>A compromise which satisfies the need for correct representation of all attributes of container types and the need for brevity and comprehensibility of paths would be to make optional the "_items", but retain other container pseudo-attributes (likely to be much more rarely used), thus:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>people = &lt;
+    [1] = &lt;name = &lt;&gt; birth_date = &lt;&gt; interests = &lt;&gt;&gt;
+    [2] = &lt;name = &lt;&gt; birth_date = &lt;&gt; interests = &lt;&gt;&gt;
+    [3] = &lt;name = &lt;&gt; birth_date = &lt;&gt; interests = &lt;&gt;&gt;
+    _is_ordered = &lt;True&gt;
+    _upper = <i class="conum" data-value="200"></i><b>(200)</b>
+&gt;</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The above form leads to the following paths:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>/people[1]/
+/people[2]/
+/people[3]/
+/people/_is_ordered/
+/people/_upper/</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The alternative syntax in this sub-section is not currently part of dADL, but could be included in the future, if there was a need to support more precise modelling of container types in dADL. If such support were to be added, it is recommended that the names of the pseudo-attributes ("_item", "_is_ordered" etc) be based on names of appopriate container types from a recognised standard such as OMG UML, OCL or IDL.</p>
+</div>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>
+    Copyright: © 2003+
+    <a href="https://www.openehr.org"
+        alt="is an independent, non-profit foundation, facilitating the sharing of health
+           records by consumers and clinicians via open specifications, clinical models
+           and open platform implementations.">The openEHR Foundation</a>
+  </p>
+
+  <p>
+    License:
+    <img src="/_/img/cc-by-nd-88x31.png"
+        alt="Creative Commons Attribution-NoDerivs 3.0 Unported."
+        style="vertical-align:middle;margin:0 0.25rem 0 0;">
+    <a href="https://creativecommons.org/licenses/by-nd/3.0/">
+      Creative Commons Attribution-NoDerivs 3.0 Unported.
+    </a>
+  </p>
+
+  <p>
+    <strong>Links: <strong>
+    <a href="https://www.openehr.org/terms-of-use" class="mr-1">Terms of use</a> |
+    <a href="https://www.openehr.org/privacy-policy" class="mx-1">Privacy policy</a> |
+    <a href="https://www.openehr.org/privacy-policy" class="mx-1">Logos &amp; Trademarks</a> |
+    <a href="https://www.openehr.org/contact-us" class="mx-1">Contact</a>
+  </p>
+</footer>
+
+<script id="site-script" src="../../../../_/js/site.js" data-ui-root-path="../../../../_"></script>
+<script async src="../../../../_/js/vendor/highlight.js"></script>
+<script src="../../../../_/js/vendor/lunr.js"></script>
+<script src="../../../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../../../.." data-snippet-length="80" data-stylesheet="../../../../_/css/search.css"></script>
+<script async src="../../../../search-index.js"></script>
+<script src="../../../../_/js/medium-zoom.min.js"></script>
+<script src="../../../../_/js/zoom.js"></script>
+  </body>
+</html>

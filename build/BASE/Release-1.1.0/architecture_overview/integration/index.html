@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+    <title>Integrating openEHR with other Systems :: openEHR Specifications (Local Build)</title>
+    <link rel="canonical" href="https://sebastian-iancu.github.io/antora-openehr/BASE/latest/architecture_overview/integration/">
+    <link rel="prev" href="../deployment/">
+    <link rel="next" href="../standards/">
+    <meta name="description" content="openEHR Architecture Overview">
+    <meta name="keywords" content="EHR, openehr, architecture">
+    <meta name="generator" content="Antora 3.1.14">
+    <link rel="stylesheet" href="../../../../_/css/site.css">
+    <link rel="stylesheet" href="../../../../_/css/antora-openehr.css">
+    <link rel="stylesheet" href="../../../../_/css/openehr.css">
+<link rel="icon" href="../../../../_/img/favicon.ico" type="image/x-icon">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://sebastian-iancu.github.io/antora-openehr">openEHR Specifications (Local Build)</a>
+
+      <div class="navbar-item search hide-for-print">
+        <div id="search-field" class="field has-filter">
+          <input id="search-input" type="text" placeholder="Search the docs">
+          <label class="filter checkbox">
+            <input type="checkbox" data-facet-filter="component:BASE"> Base Model only
+          </label>
+        </div>
+      </div>
+
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">Specifications</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://specifications.openehr.org/" target="_blank">
+              openEHR specification
+            </a>
+            <a class="navbar-item" href="https://specifications.openehr.org/releases/UML/development/index.html" target="_blank">
+              openEHR portal
+            </a>
+            <a class="navbar-item" href="https://ckm.openehr.org/ckm/" target="_blank">
+              openEHR CKM
+            </a>
+          </div>
+        </div>
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">Community</a>
+          <div class="navbar-dropdown is-right">
+            <a class="navbar-item" href="https://openehr.atlassian.net/secure/Dashboard.jspa?selectPageId=10190" target="_blank">
+              Issue trackers
+            </a>
+            <a class="navbar-item" href="https://discourse.openehr.org/" target="_blank">
+              Discourse Forum
+            </a>
+            <a class="navbar-item" href="https://specifications.openehr.org/wiki/display/spec/Specifications+Home" target="_blank">
+              Wiki
+            </a>
+            <a class="navbar-item" href="https://github.com/openEHR" target="_blank">
+              GitHub
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="BASE" data-version="Release-1.1.0">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="../../">Base Model</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../">Overview</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../">openEHR Architecture Overview</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../overview/">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../aims/">Aims of the openEHR Architecture</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../design_principles/">Design Principles</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../package_structure/">openEHR Specification Structure</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../design_of_the_ehr/">Design of the openEHR EHR</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../security/">Security and Confidentiality</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../versioning/">Versioning</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../identification/">Identification</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../archetypes/">Archetypes and Templates</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../paths/">Paths and Locators</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../terminology/">Terminology in openEHR</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../deployment/">Deployment</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="./">Integrating openEHR with other Systems</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../standards/">Relationship to Standards</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../implementation/">Implementation Technology Specifications</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../base_types/">openEHR Base Types specification</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../base_types/preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../base_types/overview/">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../base_types/definitions_package/">Definitions Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../base_types/identification_package/">Identification Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../base_types/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../foundation_types/">openEHR Foundation Types specification</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../foundation_types/preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../foundation_types/overview/">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../foundation_types/primitive_types/">Primitive Types</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../foundation_types/structure_types/">Structure Types</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../foundation_types/interval/">Interval</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../foundation_types/time_types/">Time Types</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../foundation_types/terminology/">Terminology Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../foundation_types/functional/">Functional Meta-types</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../foundation_types/type_cross_ref/">Type Cross-Reference</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../foundation_types/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../resource/">Resource Model Specification</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../resource/preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../resource/resource_package/">Resource Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../resource/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Base Model</span>
+    <span class="version">Release-1.1.0</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <div class="title"><a href="../../../../AM/latest/">Archetype Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../AM/latest/">Release-2.3.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../AM/Release-2.2.0/">Release-2.2.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../AM/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <div class="title"><a href="../../../latest/">Base Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../latest/">Release-1.2.0</a>
+        </li>
+        <li class="version is-current">
+          <a href="../../">Release-1.1.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../RM/latest/">Reference Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../RM/latest/">Release-1.1.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../RM/Release-1.0.4/">Release-1.0.4</a>
+        </li>
+        <li class="version">
+          <a href="../../../../RM/development/">development</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../latest/" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../../">Base Model</a></li>
+    <li><a href="../">openEHR Architecture Overview</a></li>
+    <li><a href="./">Integrating openEHR with other Systems</a></li>
+  </ul>
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">Release-1.1.0</button>
+  <div class="version-menu">
+    <a class="version" href="../../../latest/architecture_overview/integration/">Release-1.2.0</a>
+    <a class="version is-current" href="./">Release-1.1.0</a>
+    <a class="version" href="../../../development/architecture_overview/integration/">development</a>
+  </div>
+</div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Integrating openEHR with other Systems</h1>
+<div class="sect1">
+<h2 id="_overview"><a class="anchor" href="#_overview"></a><a class="link" href="#_overview">Overview</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Getting data in and out of the EHR is one of the most basic requirements openEHR aims to satisfy. In
+"greenfield" (new build) situations, and for data being created by GUI applications via the openEHR
+EHR APIs, there is no issue, since native openEHR structures and semantics are being used. In almost
+all other situations, existing data sources and sinks have to be accounted for. In general, external or
+‘legacy’ data (here the term is used for convenience, and does not imply anything about the age or
+quality of the systems in question) have different syntactic and semantic formats than openEHR data,
+and seamless conversion requires addressing both levels.</p>
+</div>
+<div class="paragraph">
+<p>Existing data sources and sinks include relational databases, HL7v2 messages, HL7 CDA documents
+and are likely to include CEN EN13606 data. HL7v2 messages are probably one of the most common
+sources of pathology messages in many countries; EDIFACT messages are another. More recently,
+HL7v2 messages have been designed for referrals and even discharge summaries. Not all legacy systems
+are standardised; most hospital and GP products have their own private models of data and terminology
+usage.</p>
+</div>
+<div class="paragraph">
+<p>The primary need with respect to legacy data is to be able to convert data from multiple mutually
+incompatible sources into a single, standardised patient-centric EHR for each patient, that can then be
+longitudinally viewed and queried. This is what enables GP and specialist notes, diagnoses and plans
+to be integrated with laboratory results from multiple sources, patient notes, administrative data and
+so on, to provide a coherent record of the patient journey.</p>
+</div>
+<div class="paragraph">
+<p>In technical terms, a number of types of incompatibility have to be dealt with. There is no guarantee
+of correspondence of scope of incoming transactions and target openEHR structures - an incoming
+document for example might correspond to a number of clinical archetypes. Structure will not usually
+correspond, with legacy data (particularly messages) usually having flatter structures than those
+defined in target archetypes. Terminology use is extremely variable in existing systems and messages,
+and also has to be dealt with. Data types will also not correspond directly, so that for example, a mapping
+between an incoming string "110/80 mmHg" and the target openEHR form of two
+<code>DV_QUANTITY</code> objects each with their own value and units has to be made.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_integration_archetypes"><a class="anchor" href="#_integration_archetypes"></a><a class="link" href="#_integration_archetypes">Integration Archetypes</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The foundation of a key approach to the integration problem is the use of two kinds of archetypes. So
+far in this document "archetypes" has meant "designed" archetypes, generally clinical, demographic
+or administrative. The common factors for all such archetypes are:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>they are based on the main part of the reference model, particularly the Entry subtypes <code>OBSERVATION</code>, <code>EVALUATION</code>, <code>INSTRUCTION</code> and <code>ACTION</code>;</p>
+</li>
+<li>
+<p>they are consciously designed from scratch by groups of domain specialists, and integrated into the existing library of openEHR archteypes;</p>
+</li>
+<li>
+<p>there is one archetype per identifiable health "concept", such as an observation type, person type etc.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>A second category of archetypes is "integration" archetypes. These are characterised as follows:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>they are based on the same high-level types (<code>COMPOSITION</code>, <code>SECTION</code> etc), but use the Entry subtype <code>GENERIC_ENTRY</code> (see EHR Information Model);</p>
+</li>
+<li>
+<p>they are designed to mimic the structure of legacy or existing data or messages; the design effort therefore is completely different, and is more likely to be done by IT or other technical staff who are familiar with the structures of the incoming data;</p>
+</li>
+<li>
+<p>there is one integration archetype per message type or identifiable source data that makes sense as a transaction to the EHR.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>In the data integration environment, "designed" archetypes always define the target structures, coding
+and other semantics of data, while "integration" archetypes provide the means mapping of external
+data into the openEHR environment.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_data_conversion_architecture"><a class="anchor" href="#_data_conversion_architecture"></a><a class="link" href="#_data_conversion_architecture">Data Conversion Architecture</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The integration archetype-based strategy for importing data into an openEHR system, shown below, consists of two steps.</p>
+</div>
+<div id="data_integration" class="imageblock text-center text-center">
+<div class="content">
+<img src="../_images/diagrams/data_integration.png" alt="data integration" width="80%">
+</div>
+<div class="title">Figure 1. Data Integration using openEHR</div>
+</div>
+<div class="paragraph">
+<p>Firstly, data are converted from their original syntactic format into openEHR <code>COMPOSITION</code> / <code>SECTION</code> / <code>GENERIC_ENTRY</code> structures, shown in the openEHR integration switch. Most of the data will
+appear in the <code>GENERIC_ENTRY</code> part, controlled by an integration archetype designed to mimic the
+incoming structure (such as an HL7v2 lab message) as closely as possible; <code>FEEDER_AUDIT</code> structures
+are used to contain integration meta-data. The result of this step is data that are expressed in the
+openEHR type system (i.e. as instances of the openEHR reference model), and are immediately amenable
+to processing with normal openEHR software.</p>
+</div>
+<div class="paragraph">
+<p>In the second step, semantic transformation is effected, by the use of mappings between integration
+and designed archetypes. Such mappings are created by archetype authors using tools. The mapping
+rules are the key to defining structural transformations, use of terminological codes, and other
+changes. Serious challenges of course remain in the business of integrating heterogeneous systems;
+some of these are dealt with in the Common IM document sections on Feeder systems.</p>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="../deployment/">Deployment</a></span>
+  <span class="next"><a href="../standards/">Relationship to Standards</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>
+    Copyright: © 2003+
+    <a href="https://www.openehr.org"
+        alt="is an independent, non-profit foundation, facilitating the sharing of health
+           records by consumers and clinicians via open specifications, clinical models
+           and open platform implementations.">The openEHR Foundation</a>
+  </p>
+
+  <p>
+    License:
+    <img src="/_/img/cc-by-nd-88x31.png"
+        alt="Creative Commons Attribution-NoDerivs 3.0 Unported."
+        style="vertical-align:middle;margin:0 0.25rem 0 0;">
+    <a href="https://creativecommons.org/licenses/by-nd/3.0/">
+      Creative Commons Attribution-NoDerivs 3.0 Unported.
+    </a>
+  </p>
+
+  <p>
+    <strong>Links: <strong>
+    <a href="https://www.openehr.org/terms-of-use" class="mr-1">Terms of use</a> |
+    <a href="https://www.openehr.org/privacy-policy" class="mx-1">Privacy policy</a> |
+    <a href="https://www.openehr.org/privacy-policy" class="mx-1">Logos &amp; Trademarks</a> |
+    <a href="https://www.openehr.org/contact-us" class="mx-1">Contact</a>
+  </p>
+</footer>
+
+<script id="site-script" src="../../../../_/js/site.js" data-ui-root-path="../../../../_"></script>
+<script async src="../../../../_/js/vendor/highlight.js"></script>
+<script src="../../../../_/js/vendor/lunr.js"></script>
+<script src="../../../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../../../.." data-snippet-length="80" data-stylesheet="../../../../_/css/search.css"></script>
+<script async src="../../../../search-index.js"></script>
+<script src="../../../../_/js/medium-zoom.min.js"></script>
+<script src="../../../../_/js/zoom.js"></script>
+  </body>
+</html>

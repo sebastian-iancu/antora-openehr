@@ -1,0 +1,1101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+    <title>Terminology Integration :: openEHR Specifications (Local Build)</title>
+    <link rel="canonical" href="https://sebastian-iancu.github.io/antora-openehr/AM/latest/ADL2/terminology_integration/">
+    <link rel="prev" href="../master07.14-adl_annotations/">
+    <link rel="next" href="../master09.01-spec_overview/">
+    <meta name="description" content="openEHR Archetype Definition Language 2 (ADL2)">
+    <meta name="keywords" content="EHR, ADL, AOM, health records, archetypes, constraint language, ISO 13606, openehr">
+    <meta name="generator" content="Antora 3.1.14">
+    <link rel="stylesheet" href="../../../../_/css/site.css">
+    <link rel="stylesheet" href="../../../../_/css/antora-openehr.css">
+    <link rel="stylesheet" href="../../../../_/css/openehr.css">
+<link rel="icon" href="../../../../_/img/favicon.ico" type="image/x-icon">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://sebastian-iancu.github.io/antora-openehr">openEHR Specifications (Local Build)</a>
+
+      <div class="navbar-item search hide-for-print">
+        <div id="search-field" class="field has-filter">
+          <input id="search-input" type="text" placeholder="Search the docs">
+          <label class="filter checkbox">
+            <input type="checkbox" data-facet-filter="component:AM"> Archetype Model only
+          </label>
+        </div>
+      </div>
+
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">Specifications</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://specifications.openehr.org/" target="_blank">
+              openEHR specification
+            </a>
+            <a class="navbar-item" href="https://specifications.openehr.org/releases/UML/development/index.html" target="_blank">
+              openEHR portal
+            </a>
+            <a class="navbar-item" href="https://ckm.openehr.org/ckm/" target="_blank">
+              openEHR CKM
+            </a>
+          </div>
+        </div>
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">Community</a>
+          <div class="navbar-dropdown is-right">
+            <a class="navbar-item" href="https://openehr.atlassian.net/secure/Dashboard.jspa?selectPageId=10190" target="_blank">
+              Issue trackers
+            </a>
+            <a class="navbar-item" href="https://discourse.openehr.org/" target="_blank">
+              Discourse Forum
+            </a>
+            <a class="navbar-item" href="https://specifications.openehr.org/wiki/display/spec/Specifications+Home" target="_blank">
+              Wiki
+            </a>
+            <a class="navbar-item" href="https://github.com/openEHR" target="_blank">
+              GitHub
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="AM" data-version="development">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="../../">Archetype Model</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../">Overview</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../ADL1.4/">{spec_title}</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL1.4/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../">{spec_title}</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../overview/">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../file_encoding/">File Encoding and Character Quoting</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../master04.1-cadl_overview/">cADL - Constraint ADL</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../master04.2-cadl_basics/">Master04.2-Cadl Basics</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../master04.3-cadl_complex_types/">Master04.3-Cadl Complex Types</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../master04.4-cadl_second_order/">Master04.4-Cadl Second Order</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../master04.5-cadl_primitive_types/">Master04.5-Cadl Primitive Types</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../master04.6-cadl_validity_rules/">Master04.6-Cadl Validity Rules</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../paths/">ADL Paths</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../default_values/">Default Values</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../master07.01-adl_introduction/">ADL - Archetype Definition Language</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../master07.02-adl_conventions/">Master07.02-Adl Conventions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../master07.03-adl_artefacts/">Master07.03-Adl Artefacts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../master07.04-adl_basics/">Master07.04-Adl Basics</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../master07.05-adl_identification/">Master07.05-Adl Identification</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../master07.06-adl_specialise/">Master07.06-Adl Specialise</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../master07.07-adl_language/">Master07.07-Adl Language</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../master07.08-adl_description/">Master07.08-Adl Description</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../master07.09-adl_deprecated/">Master07.09-Adl Deprecated</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../master07.10-adl_definition/">Master07.10-Adl Definition</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../master07.11-adl_rules/">Master07.11-Adl Rules</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../master07.12-adl_rm_overlay/">Master07.12-Adl Rm Overlay</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../master07.13-adl_terminology/">Master07.13-Adl Terminology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../master07.14-adl_annotations/">Master07.14-Adl Annotations</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="./">Terminology Integration</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../master09.01-spec_overview/">Specialisation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../master09.02-spec_concepts/">Master09.02-Spec Concepts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../master09.03-spec_examples/">Master09.03-Spec Examples</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../master09.04-spec_attrib_redef/">Master09.04-Spec Attrib Redef</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../master09.05-spec_object_redef/">Master09.05-Spec Object Redef</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../master09.06-spec_rules/">Master09.06-Spec Rules</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../master09.07-spec_languages/">Master09.07-Spec Languages</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../master09.08-spec_description/">Master09.08-Spec Description</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../master09.09-spec_terminology/">Master09.09-Spec Terminology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../master09.10-spec_bindings/">Master09.10-Spec Bindings</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../templates/">Templates</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../other_formalisms/">Relationship of ADL to Other Formalisms</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../masterAppB-syntax_spec/">Syntax Specification</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../AOM1.4/">{spec_title}</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM1.4/preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM1.4/model_overview/">The Archetype Object Model</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM1.4/archetype_package/">The Archetype Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM1.4/constraint_model_package/">Constraint Model Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM1.4/assertion_package/">The Assertion Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM1.4/primitive_package/">Primitive Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM1.4/ontology_package/">Terminology Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM1.4/domain_extension/">Domain-specific Extension Example</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM1.4/masterAppB-diverse_reference_models/">Using Archetypes with Diverse Reference Models</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM1.4/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../AOM2/">{spec_title}</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM2/preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM2/model_overview/">Model Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM2/archetype_package/">The Archetype Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM2/master04.1-constraint_model-overview/">Constraint Model Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM2/master04.2-constraint_model-semantics/">Master04.2-Constraint Model-Semantics</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM2/master04.3-constraint_model-second_order/">Master04.3-Constraint Model-Second Order</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM2/master04.4-constraint_model-AOM_type_subs/">Master04.4-Constraint Model-AOM Type Subs</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM2/master04.5-constraint_model-class_definitions/">Master04.5-Constraint Model-Class Definitions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM2/rules_package/">The Rules Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM2/rm_overlay/">The RM Overlay Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM2/terminology_package/">Terminology Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM2/validation/">Validation and Transformation Semantics</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM2/serialisation_model/">Serialisation Model</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM2/templates/">Templates</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM2/rm_adaptation/">Reference Model Adaptation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM2/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../Identification/">{spec_title}</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../Identification/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="#index.adoc">Language Design</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../OPT2/">{spec_title}</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../OPT2/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../Overview/">{spec_title}</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../Overview/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Archetype Model</span>
+    <span class="version">development</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <div class="title"><a href="../../../latest/">Archetype Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../latest/">Release-2.3.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../Release-2.2.0/">Release-2.2.0</a>
+        </li>
+        <li class="version is-current">
+          <a href="../../">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../BASE/latest/">Base Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../BASE/latest/">Release-1.2.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../BASE/Release-1.1.0/">Release-1.1.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../BASE/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../RM/latest/">Reference Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../RM/latest/">Release-1.1.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../RM/Release-1.0.4/">Release-1.0.4</a>
+        </li>
+        <li class="version">
+          <a href="../../../../RM/development/">development</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../../BASE/latest/" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../../">Archetype Model</a></li>
+    <li><a href="../">{spec_title}</a></li>
+    <li><a href="./">Terminology Integration</a></li>
+  </ul>
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">development</button>
+  <div class="version-menu">
+    <a class="version" href="../../../latest/ADL2/terminology_integration/">Release-2.3.0</a>
+    <a class="version" href="../../../Release-2.2.0/ADL2/terminology_integration/">Release-2.2.0</a>
+    <a class="version is-current" href="./">development</a>
+  </div>
+</div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Terminology Integration</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Previous sections have provided the syntax possibilities for expressing terminological constraints, definitions, value sets and bindings in an archetype. This section describes the semantics of constraints on terminological entities, and how these constraints are resolved to concrete sets of terms.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_requirements"><a class="anchor" href="#_requirements"></a><a class="link" href="#_requirements">Requirements</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The semantic needs of archetypes with respect to terminology are as follows:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>to identify, i.e. 'name', nodes;</p>
+</li>
+<li>
+<p>to define possible values for nodes whose value is coded;</p>
+</li>
+<li>
+<p>to define the relationship of coded elements in an archetype to external terminologies.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Achieving these in a mechanical sense is easy enough, however there are various sources of complexity that complicate things. The first most basic point is the one which motivated the separation of internal and external codes in the original design of ADL: no terminology can be relied on to provide all or even most coded entities within a given archetype. The main reason is not so much that terminologies are limited (major terminologies such as <a href="http://www.snomed.org" target="_blank" rel="noopener">SNOMED CT</a>, <a href="http://loinc.org" target="_blank" rel="noopener">LOINC</a>, <a href="http://www.who.int/classifications/icd/en/" target="_blank" rel="noopener">ICD11</a> are quite extensive) but that archetypes are used to create pragmatic, often variable, pattern structures for information; and that such patterns can easily be too variable and/or detailed to have anything but patchy coverage by published terminologies and ontologies (e.g. the OBO ontologies such as <a href="https://code.google.com/p/ogms/" target="_blank" rel="noopener">OGMS</a>).</p>
+</div>
+<div class="paragraph">
+<p>Although some terminology aficionados like to think that one day every element of an information model can be identified using codes from an external terminology, the reality is that it is unlikely. Information structures are fractal, because the things they report on (entities and processes) are fractal - someone always wants to record more details that are not defined in any terminology. A deeper reason is that the relationship between information elements and terminology and ontology entities is (or should be) primarily based on the 'is-about' relation, and this is clearly an irreflexive N:1 relationship, not an equivalence.</p>
+</div>
+<div class="paragraph">
+<p>Another aspect of the messy reality of terminologies is the patchy availability and correctness (particularly for specific use contexts) of value sets that can be used as data values for codable data points. The major terminologies in healthcare do provide good quality hierarchies (and thus, in theory, value sets) for many core concepts such as disease, finding, procedure, lab result, medication and so on. These hierarchies (and usually any derived value set) may contain very large numbers of terms (consider the number of drug types, types of infectious disease etc), and terminologies such as <a href="http://www.who.int/classifications/icd/en/" target="_blank" rel="noopener">ICD10AM</a> or <a href="http://www.snomed.org" target="_blank" rel="noopener">SNOMED CT</a>, <a href="http://loinc.org" target="_blank" rel="noopener">LOINC</a>, <a href="http://www.who.int/classifications/icd/adaptations/icpc2/en/" target="_blank" rel="noopener">ICPC</a> and others are the only realistic way to express such large value sets. Unfortunately, there is a very large number of 'small', pragmatic value sets needed in healthcare as well, for things like:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>patient position when measuring blood pressure;</p>
+</li>
+<li>
+<p>types of BP measuring cuff;</p>
+</li>
+<li>
+<p>possible value sets for data points in 'scores' such as Apgar, Barthel, Waterlow etc;</p>
+</li>
+<li>
+<p>numerous small value sets to do with physical examinations, hearing and eye tests;</p>
+</li>
+<li>
+<p>numerous small value sets classifying results statuses, reporting status and so on;</p>
+</li>
+<li>
+<p>most multiple-value fields on forms other than key items such as 'presenting condition'.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>This category corresponds to value sets that are a) small enough to be easily created in an archetype; b) typically not available in external terminologies; c) typically very specific to the archetype topic or use. These value sets are more numerous by orders of magnitude than the 'large' kind, and are only sparsely represented in published terminologies.</p>
+</div>
+<div class="paragraph">
+<p>The next source of complexity is that terminologies may contain errors, some which are only known by some users, or even if recognised by the authors, cannot be easily addressed without major structural changes, and therefore won&#8217;t be corrected quickly. This implies that solution systems have to be able to employ workarounds.</p>
+</div>
+<div class="paragraph">
+<p>A final complication is to do with commercial licensing of terminology. Archetypes cannot (at least currently) be developed on the assumption that all, or even most, users of an archetype have legal and technical access to a given terminology. This means that the archetype formalism and tools need to enable archetypes to work in either situation.</p>
+</div>
+<div class="paragraph">
+<p>In sum, external terminologies address certain types of information very well, and many other elements only weakly or variably. The problem is that a good deal of the domain information modelled by archetypes is outside the areas of strength of external terminologies.</p>
+</div>
+<div class="paragraph">
+<p>Taken together, these issues necessitate a design strategy that doesn&#8217;t rely in the first instance on external terminologies to provide either identifiers (names of things), values (taken individually) or explicit value sets. Instead, archetypes rely on internal coding of all identifiable elements (nodes with at-codes/id-codes), as well as the availability of a mechanism for defining at least the 'small' value sets - the ac- and at-codes.</p>
+</div>
+<div class="paragraph">
+<p>Connection with external terminology is managed using in the <code>term_binding</code> section described earlier, and also via transformation from archetypes and template to the deployable operational template. The sections below describe various use cases for terminology constraint, binding and deployment.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_term_constraint_basics"><a class="anchor" href="#_term_constraint_basics"></a><a class="link" href="#_term_constraint_basics">Term Constraint Basics</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Expressing terminology constraints in cADL was briefly described in <a href="#cADL_Terminology_Constraints">[cADL_Terminology_Constraints]</a>. Constraints in the <code>definition</code> section of an archetype are only a small part of the picture. The targets of the at- and ac- codes are defined in the archetype <code>terminology</code> section, potentially with bindings to external terminology. In order to illustrate the approach clearly, the cADL example from earlier is repeated here, minus the node containing the assumed value, and this time with an extract from the terminology section.</p>
+</div>
+<div id="_tabs_1" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="_tabs_1_at_coded_adl2" class="tab">
+<p>at-coded ADL2</p>
+</li>
+<li id="_tabs_1_id_coded_adl2" class="tab">
+<p>id-coded ADL2</p>
+</li>
+</ul>
+</div>
+<div id="_tabs_1_at_coded_adl2--panel" class="tabpanel" aria-labelledby="_tabs_1_at_coded_adl2">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-adl" data-lang="adl">--
+-- extract of openehr-ehr-EVALUATION.term_constraint_variations.v0.0.1
+--
+definition
+    ...
+        items matches {
+            ELEMENT[at0010] occurrences matches {0..1} matches {
+                name matches {
+                    DV_CODED_TEXT[at9000] matches {
+                        defining_code matches {[at0004]}        -- set name to 'Substance'
+                    }
+                }
+                value matches {
+                    DV_CODED_TEXT[at9001] matches {
+                        defining_code matches {[ac1]}        -- Type of Substance/Agent
+                    }
+                }
+            }
+            ...
+        }
+    ...
+
+terminology
+    term_definitions = &lt;
+        ["en"] = &lt;
+            ["at0010"] = &lt;
+                text = &lt;"Specific Substance/Agent"&gt;
+                description = &lt;"Specific identification of the actual Substance/Agent considered to be responsible for the Adverse Reaction event."&gt;
+            &gt;
+            ["at0004"] = &lt;
+                text = &lt;"Substance"&gt;
+                description = &lt;"Physical substance."&gt;
+            &gt;
+            ["ac1"] = &lt;
+                text = &lt;"Type of substance"&gt;
+                description = &lt;"Type of substance that was the cause of the Adverse Reaction"&gt;
+            &gt;
+            ["at0009"] = &lt;
+                text = &lt;"Pollen"&gt;
+                description = &lt;"Pollen"&gt;
+            &gt;
+            ["at0010"] = &lt;
+                text = &lt;"Insect allergen"&gt;
+                description = &lt;"Insect allergen"&gt;
+            &gt;
+            ["at0011"] = &lt;
+                text = &lt;"Animal protein"&gt;
+                description = &lt;"Animal protein."&gt;
+            &gt;
+            ["at0012"] = &lt;
+                text = &lt;"Plant material"&gt;
+                description = &lt;"Plant material."&gt;
+            &gt;
+            ["at0013"] = &lt;
+                text = &lt;"Dust"&gt;
+                description = &lt;"Dust."&gt;
+            &gt;
+        &gt;
+    &gt;</code></pre>
+</div>
+</div>
+</div>
+<div id="_tabs_1_id_coded_adl2--panel" class="tabpanel" aria-labelledby="_tabs_1_id_coded_adl2">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-adl" data-lang="adl">--
+-- extract of openehr-ehr-EVALUATION.term_constraint_variations.v0.0.1
+--
+definition
+    ...
+        items matches {
+            ELEMENT[id11] occurrences matches {0..1} matches {
+                name matches {
+                    DV_CODED_TEXT[id8] matches {
+                        defining_code matches {[at5]}        -- set name to 'Substance'
+                    }
+                }
+                value matches {
+                    DV_CODED_TEXT[id55] matches {
+                        defining_code matches {[ac1]}        -- Type of Substance/Agent
+                    }
+                }
+            }
+            ...
+        }
+    ...
+
+terminology
+    term_definitions = &lt;
+        ["en"] = &lt;
+            ["id11"] = &lt;
+                text = &lt;"Specific Substance/Agent"&gt;
+                description = &lt;"Specific identification of the actual Substance/Agent considered to be responsible for the Adverse Reaction event."&gt;
+            &gt;
+            ["at5"] = &lt;
+                text = &lt;"Substance"&gt;
+                description = &lt;"Physical substance."&gt;
+            &gt;
+            ["ac1"] = &lt;
+                text = &lt;"Type of substance"&gt;
+                description = &lt;"Type of substance that was the cause of the Adverse Reaction"&gt;
+            &gt;
+            ["at10"] = &lt;
+                text = &lt;"Pollen"&gt;
+                description = &lt;"Pollen"&gt;
+            &gt;
+            ["at11"] = &lt;
+                text = &lt;"Insect allergen"&gt;
+                description = &lt;"Insect allergen"&gt;
+            &gt;
+            ["at12"] = &lt;
+                text = &lt;"Animal protein"&gt;
+                description = &lt;"Animal protein."&gt;
+            &gt;
+            ["at13"] = &lt;
+                text = &lt;"Plant material"&gt;
+                description = &lt;"Plant material."&gt;
+            &gt;
+            ["at14"] = &lt;
+                text = &lt;"Dust"&gt;
+                description = &lt;"Dust."&gt;
+            &gt;
+        &gt;
+    &gt;</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>The at- and ac- codes (and id-codes for id-coded archetypes) in the above are defined in the archetype terminology in the normal way (noting that codes <code>at9000</code> and <code>at9001</code> (<code>id8</code> and <code>id55</code>) do not need local terminology definitions, following the rules described earlier<a href="#_node_identifiers_2">[_node_identifiers_2]</a>), with various possibilities for defining and binding the value set denoted by the code <code>ac1</code>. Below is shown the first alternative: local value-set definition.</p>
+</div>
+<div id="_tabs_2" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="_tabs_2_at_coded_adl2" class="tab">
+<p>at-coded ADL2</p>
+</li>
+<li id="_tabs_2_id_coded_adl2" class="tab">
+<p>id-coded ADL2</p>
+</li>
+</ul>
+</div>
+<div id="_tabs_2_at_coded_adl2--panel" class="tabpanel" aria-labelledby="_tabs_2_at_coded_adl2">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-adl" data-lang="adl">terminology
+    term_definitions = &lt;
+        ...
+    &gt;
+
+    --
+    -- alternative #1: purely local definition
+    --
+    value_sets = &lt;
+        ["ac1"] = &lt;
+            id = &lt;"ac1"&gt;
+            members = &lt;"at0009", "at0010", "at0011", "at0012", "at0013"&gt;
+        &gt;
+    &gt;</code></pre>
+</div>
+</div>
+</div>
+<div id="_tabs_2_id_coded_adl2--panel" class="tabpanel" aria-labelledby="_tabs_2_id_coded_adl2">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-adl" data-lang="adl">terminology
+    term_definitions = &lt;
+        ...
+    &gt;
+
+    --
+    -- alternative #1: purely local definition
+    --
+    value_sets = &lt;
+        ["ac1"] = &lt;
+            id = &lt;"ac1"&gt;
+            members = &lt;"at10", "at11", "at12", "at13", "at14"&gt;
+        &gt;
+    &gt;</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>value_sets</code> sub-section shows the definition of the <code>ac1</code> value set as containing the five codes <code>at0009</code> - <code>at0013</code> (<code>at10</code> - <code>at14</code>) (note: this does not attempt to be clinically complete). A local value set definition is part of the archetype, and has no reliance on external terminology. For many value sets, definition in the archetype is the only option available either due to their arbitrary contents, specificity (to the archetype) or the simple practical fact that no-one has done the work to create them elsewhere.</p>
+</div>
+<div class="paragraph">
+<p>The next variation is that bindings are found for the at-codes from a terminology such as SNOMED CT. This would enable the code chosen at runtime in the system using the archetype to be mapped to a SNOMED CT code.</p>
+</div>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-caution" title="Caution"></i>
+</td>
+<td class="content">
+it is quite common that only <em>some</em> of the local at-codes have equivalents in the external terminology, especially if the archetype has a more fine-grained coding of the concept in question. In general, the availability of any external codes for a given internal code doesn&#8217;t imply that the value set has full coverage by the terminology.
+</td>
+</tr>
+</table>
+</div>
+<div id="_tabs_3" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="_tabs_3_at_coded_adl2" class="tab">
+<p>at-coded ADL2</p>
+</li>
+<li id="_tabs_3_id_coded_adl2" class="tab">
+<p>id-coded ADL2</p>
+</li>
+</ul>
+</div>
+<div id="_tabs_3_at_coded_adl2--panel" class="tabpanel" aria-labelledby="_tabs_3_at_coded_adl2">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-adl" data-lang="adl">terminology
+    term_definitions = &lt;
+         ...
+    &gt;
+
+    --
+    -- alternative #2: add individual bindings to member terms
+    --
+    value_sets = &lt;
+        ["ac1"] = &lt;
+            id = &lt;"ac1"&gt;
+            members = &lt;"at0009", "at0010", "at0011", "at0012", "at0013"&gt;
+        &gt;
+    &gt;
+    term_bindings = &lt;
+        ["snomed_ct"] = &lt;
+            ["at0009"] = &lt;http://snomed.info/id/406464007&gt; -- Pollen allergen (substance)
+            ["at0010"] = &lt;http://snomed.info/id/406470001&gt; -- Insect allergen (substance)
+            ["at0011"] = &lt;http://snomed.info/id/406472009&gt; -- Animal protein and epidermal allergen (substance)
+            ["at0012"] = &lt;http://snomed.info/id/410981007&gt; -- Plant extract and epidermal allergen (substance)
+            ["at0013"] = &lt;http://snomed.info/id/410980008&gt; -- Dust allergen (substance)
+        &gt;
+    &gt;</code></pre>
+</div>
+</div>
+</div>
+<div id="_tabs_3_id_coded_adl2--panel" class="tabpanel" aria-labelledby="_tabs_3_id_coded_adl2">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-adl" data-lang="adl">terminology
+    term_definitions = &lt;
+         ...
+    &gt;
+
+    --
+    -- alternative #2: add individual bindings to member terms
+    --
+    value_sets = &lt;
+        ["ac1"] = &lt;
+            id = &lt;"ac1"&gt;
+            members = &lt;"at10", "at11", "at12", "at13", "at14"&gt;
+        &gt;
+    &gt;
+    term_bindings = &lt;
+        ["snomed_ct"] = &lt;
+            ["at10"] = &lt;http://snomed.info/id/406464007&gt; -- Pollen allergen (substance)
+            ["at11"] = &lt;http://snomed.info/id/406470001&gt; -- Insect allergen (substance)
+            ["at12"] = &lt;http://snomed.info/id/406472009&gt; -- Animal protein and epidermal allergen (substance)
+            ["at13"] = &lt;http://snomed.info/id/410981007&gt; -- Plant extract and epidermal allergen (substance)
+            ["at14"] = &lt;http://snomed.info/id/410980008&gt; -- Dust allergen (substance)
+        &gt;
+    &gt;</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Note that the bindings are only usable if SNOMED CT is available in the execution environment. A very general clinical archetype such as for allergic reaction is likely to be deployed in all kinds of environments, including those with no SNOMED CT, so a local definition has utility in at least some locations.</p>
+</div>
+<div class="paragraph">
+<p>Clearly, some value sets, including the one above for allergen substances, are likely to be more widely applicable than a single archetype, and may require proper analysis and maintenance to be correct (for one thing, we are likely to discover new types of allergen). Additionally, the total value sets for things like allergens, disease types and so on are likely to be <em>structured hierarchies</em>, such as may be found in the SNOMED CT terminology, not simple flat lists.</p>
+</div>
+<div class="paragraph">
+<p>This provides the basis for the next variant. Assuming that an external value set is explicitly created, in this case within SNOMED CT or one of its extensions, the archetype may now include a binding to the value set. Remembering that some archetype users may have no access to the terminology, the local definition may be left intact. The external value set may of course be richer than the internal one, typically containing a deeper hierarchy, but as long as the local definition contains the top-level terms, this approach can be made reasonably reliable if maintained properly (it can be made clinically safe by enabling a plain text option in case the local codes are insufficient in some circumstances).</p>
+</div>
+<div class="paragraph">
+<p>It will be up to applications or infrastructure in the execution environment to determine if the required external terminology is available and should be used; if so, the local value set definition and at-code bindings can be ignored.</p>
+</div>
+<div id="_tabs_4" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="_tabs_4_at_coded_adl2" class="tab">
+<p>at-coded ADL2</p>
+</li>
+<li id="_tabs_4_id_coded_adl2" class="tab">
+<p>id-coded ADL2</p>
+</li>
+</ul>
+</div>
+<div id="_tabs_4_at_coded_adl2--panel" class="tabpanel" aria-labelledby="_tabs_4_at_coded_adl2">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-adl" data-lang="adl">terminology
+    term_definitions = &lt;
+         ...
+    &gt;
+
+    --
+    -- alternative #3: add a binding for the value set itself
+    --
+    value_sets = &lt;
+        ["ac1"] = &lt;
+            id = &lt;"ac1"&gt;
+            members =  &lt;"at0009", "at0010", "at0011", "at0012", "at0013"&gt;
+        &gt;
+    &gt;
+    term_bindings = &lt;
+        ["snomed_ct"] = &lt;
+            ["ac1"] = &lt;http://snomed.info/id/900000000000123456&gt; -- value set binding
+            ["at0009"] = &lt;http://snomed.info/id/406464007&gt; -- Pollen allergen (substance)
+            ["at0010"] = &lt;http://snomed.info/id/406470001&gt; -- Insect allergen (substance)
+            ["at0011"] = &lt;http://snomed.info/id/406472009&gt; -- Animal protein and epidermal allergen (substance)
+            ["at0012"] = &lt;http://snomed.info/id/410981007&gt; -- Plant extract and epidermal allergen (substance)
+            ["at0013"] = &lt;http://snomed.info/id/410980008&gt; -- Dust allergen (substance)
+        &gt;
+    &gt;</code></pre>
+</div>
+</div>
+</div>
+<div id="_tabs_4_id_coded_adl2--panel" class="tabpanel" aria-labelledby="_tabs_4_id_coded_adl2">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-adl" data-lang="adl">terminology
+    term_definitions = &lt;
+         ...
+    &gt;
+
+    --
+    -- alternative #3: add a binding for the value set itself
+    --
+    value_sets = &lt;
+        ["ac1"] = &lt;
+            id = &lt;"ac1"&gt;
+            members = &lt;"at10", "at11", "at12", "at13", "at14"&gt;
+        &gt;
+    &gt;
+    term_bindings = &lt;
+        ["snomed_ct"] = &lt;
+            ["ac1"] = &lt;http://snomed.info/id/900000000000123456&gt; -- value set binding
+            ["at10"] = &lt;http://snomed.info/id/406464007&gt; -- Pollen allergen (substance)
+            ["at11"] = &lt;http://snomed.info/id/406470001&gt; -- Insect allergen (substance)
+            ["at12"] = &lt;http://snomed.info/id/406472009&gt; -- Animal protein and epidermal allergen (substance)
+            ["at13"] = &lt;http://snomed.info/id/410981007&gt; -- Plant extract and epidermal allergen (substance)
+            ["at14"] = &lt;http://snomed.info/id/410980008&gt; -- Dust allergen (substance)
+        &gt;
+    &gt;</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>In the above, the value set binding target is a URI to a value set definition in the target terminology, in this case SNOMED CT. No assumption is made within the archetype about how this is done - it could be a static list, or a so-called 'intensional reference set', meaning a value set whose contents are described by a query that when executed against the terminology, will generate the correct value set.</p>
+</div>
+<div class="paragraph discussion">
+<p>As an example of an intensional ref-set, consider the value set logically defined as "any bacterial infection of the lung". The possible values would be codes from a target terminology, corresponding to numerous strains of pneumococcus, staphylococcus and so on, but not including species that are never found in the lung. The value set may be defined as a ref-set query such as <code>is-a bacteria and has-site lung</code>. All of the syntax and machinery to achieve this is assumed to be outside the archetype. The attraction of binding to an intensional ref-set is that its contents can change over time (e.g. as 'type of hepatitis' has changed over the last 15 years), with no dependence on the archetype. Another is that intensional ref-sets can be used to tailor the value set to a desired level of detail and to remove known errors.</p>
+</div>
+<div class="paragraph">
+<p>The final variation is to assume that the local value set definition is removed, either because it is unreliable or difficult to maintain, or because universal access to the terminology is now available. In this case, the bindings to the individual at-codes are no longer needed. A new archetype designed on this basis would not even need the at-code definitions (a new revision of a legacy archetype would, however). The result would look as follows.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-adl" data-lang="adl">terminology
+    term_definitions = &lt;
+         ...
+    &gt;
+
+    --
+    -- alternative #4: external value set only
+    --
+    term_bindings = &lt;
+        ["snomed_ct"] = &lt;
+            ["ac1"] = &lt;http://snomedct.info/id/900000000000123456&gt; -- value set binding
+        &gt;
+    &gt;</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_from_constraints_to_concrete_codes_in_data"><a class="anchor" href="#_from_constraints_to_concrete_codes_in_data"></a><a class="link" href="#_from_constraints_to_concrete_codes_in_data">From Constraints to Concrete Codes in Data</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>A key question not answered by the above is: what codes ultimately find their way into data created via archetypes used in conjunction with terminology? With the exception of alternative #4 above, there are two ways of recording values of coded terms in data. One is to use the at-codes chosen by the user (or software component) at execution time, and the other is to store the target of the term binding, i.e. a SNOMED CT, LOINC or other external code. Which strategy to use depends on a number of factors, mostly not determinable at archetype development time.</p>
+</div>
+<div class="paragraph">
+<p>There are two dimensions that are relevant to determining a storage approach. One is to distinguish data representation within the internal environment from data formats used for sharing. Within the internal environment, if archetypes are actively used by the system, then local at-codes can be stored, since they can always be converted via the archetypes to whichever bindings are available. The second is the distinction between 'large' and 'small' value sets mentioned earlier. Large value-sets are those which are always modelled by terminology, and even if not available today, terminology will be the only practical approach of implementing them.</p>
+</div>
+<div class="paragraph">
+<p>In this case, the value stored in the data will always be an external terminology code, or else if not available, plain text.</p>
+</div>
+<div class="paragraph">
+<p>The picture for 'small' value sets is less clear. The openEHR.org archetypes for example contain hundreds (possibly thousands) of small value sets within only a few hundred archetypes, all designed by clinical specialists. These value sets could technically have been represented within external terminologies (some undoubtedly will be in the future). There is however a danger in doing this. Value sets within an archetype apply only to that archetype and there is no implication of use outside it. There is no equivalent encapsulation when the same value set is created within say SNOMED CT - specificity usually has to be achieved with either pre- or post-coordination. Nevertheless, creating a 'small' value set inside terminology is perfectly doable and in some cases will be desirable. This means that there are two choices for storing coded values in data: internal at-codes or bound external codes.</p>
+</div>
+<div class="paragraph">
+<p>Various arguments point to the utility of using the former:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>there may be no bindings at all available today, so at-codes must be stored;</p>
+</li>
+<li>
+<p>there may be bindings that only partially cover the at-codes in the model;</p>
+</li>
+<li>
+<p>there may be more than one binding, used for different purposes e.g. hospital versus and general practice;</p>
+</li>
+<li>
+<p>bindings in place today may be found to be incorrect in the future, and may be changed.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>It would appear that the most reliable thing to do is to store the archetype local codes for values for use within the main computing environment.</p>
+</div>
+<div class="paragraph">
+<p>When it comes to sharing data with external data partners, there may be a requirement to use external terminology codes for some data fields, where they are available. An example is laboratory analytes, which may be coded using archetype internal codes, but for which the extensive LOINC terminology, and many extant country-level lab code systems could also be used. One strategy is to use at-codes in the internal environment and to always generate messages on the fly containing the codes required for sharing.</p>
+</div>
+<div class="paragraph">
+<p>The upshot of these considerations is that the choice of which kind of term to use (internal or external) in a given deployment or situation is deferrable to a later stage than archetype authoring. The approach ADL takes is that 'source form' archetypes and templates always use internal coding and optionally binding, and that if external codes are to be directly substituted for the internal codes for some deployment situation for certain fields in an archetype or template, this is specified as an option at the point of operational template generation.</p>
+</div>
+<div class="paragraph">
+<p>As described in <a href="#cADL_Terminology_Constraints">[cADL_Terminology_Constraints]</a>, constraints of the form <code>[acN]</code> and <code>[atN]</code> are replaced by <code>[acN@ttttt]</code> and <code>[atN@ttttt]</code>. A generated operational template that includes the above archetype, with the choice to use the <code>snomed_ct</code> binding&#8217;s external terms made on some nodes, could include the following content.</p>
+</div>
+<div id="_tabs_5" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="_tabs_5_at_coded_adl2" class="tab">
+<p>at-coded ADL2</p>
+</li>
+<li id="_tabs_5_id_coded_adl2" class="tab">
+<p>id-coded ADL2</p>
+</li>
+</ul>
+</div>
+<div id="_tabs_5_at_coded_adl2--panel" class="tabpanel" aria-labelledby="_tabs_5_at_coded_adl2">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cadl" data-lang="cadl">    --
+    -- extract of operational template based on openehr-ehr-EVALUATION.term_constraint_variations.v0.0.1
+    --
+    ELEMENT[at0010] occurrences matches {0..1} matches {
+        name matches {
+            DV_CODED_TEXT[at9000] matches {
+                defining_code matches {[at0004@snomed_ct]}        -- set name to 'Substance'
+            }
+        }
+        value matches {
+            DV_CODED_TEXT[at9001] matches {
+                defining_code matches {[ac1@snomed_ct]}        -- Type of Substance/Agent
+            }
+        }
+    }</code></pre>
+</div>
+</div>
+</div>
+<div id="_tabs_5_id_coded_adl2--panel" class="tabpanel" aria-labelledby="_tabs_5_id_coded_adl2">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cadl" data-lang="cadl">    --
+    -- extract of operational template based on openehr-ehr-EVALUATION.term_constraint_variations.v0.0.1
+    --
+    ELEMENT[id11] occurrences matches {0..1} matches {
+        name matches {
+            DV_CODED_TEXT[id8] matches {
+                defining_code matches {[at5@snomed_ct]}        -- set name to 'Substance'
+            }
+        }
+        value matches {
+            DV_CODED_TEXT[id55] matches {
+                defining_code matches {[ac1@snomed_ct]}        -- Type of Substance/Agent
+            }
+        }
+    }</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="../master07.14-adl_annotations/">Master07.14-Adl Annotations</a></span>
+  <span class="next"><a href="../master09.01-spec_overview/">Specialisation</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>
+    Copyright: © 2003+
+    <a href="https://www.openehr.org"
+        alt="is an independent, non-profit foundation, facilitating the sharing of health
+           records by consumers and clinicians via open specifications, clinical models
+           and open platform implementations.">The openEHR Foundation</a>
+  </p>
+
+  <p>
+    License:
+    <img src="/_/img/cc-by-nd-88x31.png"
+        alt="Creative Commons Attribution-NoDerivs 3.0 Unported."
+        style="vertical-align:middle;margin:0 0.25rem 0 0;">
+    <a href="https://creativecommons.org/licenses/by-nd/3.0/">
+      Creative Commons Attribution-NoDerivs 3.0 Unported.
+    </a>
+  </p>
+
+  <p>
+    <strong>Links: <strong>
+    <a href="https://www.openehr.org/terms-of-use" class="mr-1">Terms of use</a> |
+    <a href="https://www.openehr.org/privacy-policy" class="mx-1">Privacy policy</a> |
+    <a href="https://www.openehr.org/privacy-policy" class="mx-1">Logos &amp; Trademarks</a> |
+    <a href="https://www.openehr.org/contact-us" class="mx-1">Contact</a>
+  </p>
+</footer>
+
+<script id="site-script" src="../../../../_/js/site.js" data-ui-root-path="../../../../_"></script>
+<script async src="../../../../_/js/vendor/highlight.js"></script>
+<script src="../../../../_/js/vendor/lunr.js"></script>
+<script src="../../../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../../../.." data-snippet-length="80" data-stylesheet="../../../../_/css/search.css"></script>
+<script async src="../../../../search-index.js"></script>
+<script src="../../../../_/js/medium-zoom.min.js"></script>
+<script src="../../../../_/js/zoom.js"></script>
+  </body>
+</html>

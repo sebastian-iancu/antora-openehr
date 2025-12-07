@@ -1,0 +1,1518 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+    <title>Entry Package :: openEHR Specifications (Local Build)</title>
+    <link rel="canonical" href="https://sebastian-iancu.github.io/antora-openehr/RM/latest/ehr/entry_package/">
+    <link rel="prev" href="../navigation_package/">
+    <link rel="next" href="../glossary/">
+    <meta name="description" content="openEHR EHR Information Model specification">
+    <meta name="keywords" content="EHR, EMR, reference model, openehr">
+    <meta name="generator" content="Antora 3.1.14">
+    <link rel="stylesheet" href="../../../../_/css/site.css">
+    <link rel="stylesheet" href="../../../../_/css/antora-openehr.css">
+    <link rel="stylesheet" href="../../../../_/css/openehr.css">
+<link rel="icon" href="../../../../_/img/favicon.ico" type="image/x-icon">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://sebastian-iancu.github.io/antora-openehr">openEHR Specifications (Local Build)</a>
+
+      <div class="navbar-item search hide-for-print">
+        <div id="search-field" class="field has-filter">
+          <input id="search-input" type="text" placeholder="Search the docs">
+          <label class="filter checkbox">
+            <input type="checkbox" data-facet-filter="component:RM"> Reference Model only
+          </label>
+        </div>
+      </div>
+
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">Specifications</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://specifications.openehr.org/" target="_blank">
+              openEHR specification
+            </a>
+            <a class="navbar-item" href="https://specifications.openehr.org/releases/UML/development/index.html" target="_blank">
+              openEHR portal
+            </a>
+            <a class="navbar-item" href="https://ckm.openehr.org/ckm/" target="_blank">
+              openEHR CKM
+            </a>
+          </div>
+        </div>
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">Community</a>
+          <div class="navbar-dropdown is-right">
+            <a class="navbar-item" href="https://openehr.atlassian.net/secure/Dashboard.jspa?selectPageId=10190" target="_blank">
+              Issue trackers
+            </a>
+            <a class="navbar-item" href="https://discourse.openehr.org/" target="_blank">
+              Discourse Forum
+            </a>
+            <a class="navbar-item" href="https://specifications.openehr.org/wiki/display/spec/Specifications+Home" target="_blank">
+              Wiki
+            </a>
+            <a class="navbar-item" href="https://github.com/openEHR" target="_blank">
+              GitHub
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="RM" data-version="development">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="../../">Reference Model</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../">Overview</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../common/">{spec_title}</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../common/preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../common/overview/">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../common/archetyped_package/">Archetyped Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../common/generic_package/">Generic Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../common/directory_package/">Directory Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../common/change_control_package/">Change Control Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../common/tags/">Tags Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../common/resource_package/">Resource Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../common/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../data_structures/">{spec_title}</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_structures/preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_structures/background/">Background</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_structures/overview/">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_structures/item_structure_package/">Item Structure Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_structures/representation_package/">Representation Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_structures/history_package/">History Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_structures/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../data_types/">{spec_title}</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_types/preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_types/background/">Background</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_types/introduction/">Introduction</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_types/basic_package/">Basic Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_types/text_package/">Text Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_types/quantity_package/">Quantity Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_types/date_time_package/">Date Time Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_types/time_specification_package/">Time_specification Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_types/encapsulated_package/">Encapsulated Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_types/uri_package/">Uri Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_types/implem_strategies/">Implementation Strategies</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_types/comparison_HL7/">Comparison with HL7v3 Types</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_types/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../demographic/">{spec_title}</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../demographic/preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../demographic/demographic_package/">Demographic package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../demographic/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../">{spec_title}</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../background/">Background</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../ehr_information_model/">The EHR Information Model</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../ehr_package/">EHR Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../composition_package/">Composition Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../content_package/">Content Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../navigation_package/">Navigation Package</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="./">Entry Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../glossary/">Glossary</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../ehr_extract/">{spec_title}</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr_extract/preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr_extract/requirements/">Requirements</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr_extract/design_overview/">Design Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr_extract/common_package/">Extract.common Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr_extract/openehr_extract_package/">The openehr_extract Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr_extract/generic_extract_package/">Generic_extract Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr_extract/synchronisation_package/">Synchronisation Extracts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr_extract/message_package/">The Message package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr_extract/semantics/">Semantics of openEHR and ISO 13606 extracts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr_extract/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../entity/">{spec_title}</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entity/preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entity/overview/">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entity/entity/">Upper Entity Model</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entity/physical_entity/">Physical Entity Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entity/social_entity/">Social Entity Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entity/social_entity-party/">Party Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entity/social_entity-asset/">Asset Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entity/resource/">Resource Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entity/registry/">Registry Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entity/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../integration/">{spec_title}</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../integration/preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../integration/integration_package/">Integration Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../integration/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../support/">{spec_title}</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../support/preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../support/support_package/">Support Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../support/assumed_types/">Assumed Types</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../support/identification_package/">Identification Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../support/terminology_package/">Terminology Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../support/measurement_package/">Measurement Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../support/definition_package/">Definition Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../support/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Reference Model</span>
+    <span class="version">development</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <div class="title"><a href="../../../../AM/latest/">Archetype Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../AM/latest/">Release-2.3.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../AM/Release-2.2.0/">Release-2.2.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../AM/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../BASE/latest/">Base Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../BASE/latest/">Release-1.2.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../BASE/Release-1.1.0/">Release-1.1.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../BASE/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <div class="title"><a href="../../../latest/">Reference Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../latest/">Release-1.1.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../Release-1.0.4/">Release-1.0.4</a>
+        </li>
+        <li class="version is-current">
+          <a href="../../">development</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../../BASE/latest/" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../../">Reference Model</a></li>
+    <li><a href="../">{spec_title}</a></li>
+    <li><a href="./">Entry Package</a></li>
+  </ul>
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">development</button>
+  <div class="version-menu">
+    <a class="version" href="../../../latest/ehr/entry_package/">Release-1.1.0</a>
+    <a class="version" href="../../../Release-1.0.4/ehr/entry_package/">Release-1.0.4</a>
+    <a class="version is-current" href="./">development</a>
+  </div>
+</div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Entry Package</h1>
+<div class="sect1">
+<h2 id="_design_principles"><a class="anchor" href="#_design_principles"></a><a class="link" href="#_design_principles">Design Principles</a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_information_ontology"><a class="anchor" href="#_information_ontology"></a><a class="link" href="#_information_ontology">Information Ontology</a></h3>
+<div class="paragraph">
+<p>All information which is created in the openEHR health record is expressed as an instance of a class in the entry package, containing the <code>ENTRY</code> class and a number of descendants. An <code>ENTRY</code> instance is logically a single 'clinical statement', and may be a single short narrative phrase, but may also contain a significant amount of data, e.g. a microbiology result, a psychiatric examination, a complex prescription. In terms of clinical content, the Entry classes are the most important in the openEHR EHR Information Model, since they define the semantics of all the 'hard' information in the record. They are intended to be archetyped, and in fact, archetypes for Entries make up the vast majority of important clinical archetypes defined.</p>
+</div>
+<div class="paragraph">
+<p>The design of <code>entry</code> package is based on the Clinical Investigator Recording process and ontology, described in citenp:[Beale_Heard2007]. The process is shown in following figure.</p>
+</div>
+<div id="clinical_investigator_recording_process" class="imageblock text-center text-center">
+<div class="content">
+<img src="../_images/diagrams/clinical_investigator_recording_process.svg" alt="clinical investigator recording process" width="80%">
+</div>
+<div class="title">Figure 1. Clinical Investigator Recording Process</div>
+</div>
+<div class="paragraph">
+<p>This figure shows the cycle of information created by an iterative, problem solving process undertaken by a "clinical investigator system", which consists of health carers, and may include the patient (at points in time when the patient performs observational or therapeutic activities). Starting from the patient (right hand side of figure) observations are made, which lead to opinions on the part of the investigator, including assessment of the current situation, goals for a future situation, and plans for achieving the goals. Personal and published evidence and knowledge almost always play an important part in this process. The latter lead to instructions designed to help the patient achieve the goals. A complex or chronic problem may take numerous iterations - possibly a whole lifetime&#8217;s worth - with each step being quite small, and future steps depending heavily on past progress. The role of the investigator (and associated agents) is normally filled by health care professionals, but may also be filled by the patient, or a guardian or associate of the patient. Indeed, this is what happens every time a person goes home from the pharmacy with prescribed medication to take at home.</p>
+</div>
+<div class="paragraph">
+<p>The process illustrated in <a href="#clinical_investigator_recording_process">Clinical Investigator Recording Process</a> is a synthesis of the 'problem-oriented' approach of citenp:[Weed1969] and the "hypothetico-deductive model" of clinical reasoning described by citenp:[Elstein1978]. However, as pointed out in citenp:[Elstein_Schwarz2002], hypothesis-making and testing is not the only successful process used by clinical professionals - evidence shows that many (particularly those older and more experienced) rely on pattern recognition and direct retrieval of plans used previously with similar patients or prototype models. The investigator process is compatible with both cognitive approaches, since it does not say how opinions are formed, nor imply any specific number or size of iterations to bring the process to a conclusion. As such, the openEHR information model does not impose any process model, only the types of information used.</p>
+</div>
+<div class="paragraph">
+<p>On the basis of this process, a Clinical Investigator Recording ontology is developed cite:[Beale_Heard2007], as shown below. From this ontology, the openEHR class model for Entries is derived. The openEHR Entry class names are annotated next to their originating ontological categories.</p>
+</div>
+<div id="CIR_ontology" class="imageblock text-center text-center">
+<div class="content">
+<img src="../_images/diagrams/CIR_ontology.png" alt="CIR ontology" width="80%">
+</div>
+<div class="title">Figure 2. The Clinical Investigator Recording (CIR) ontology</div>
+</div>
+<div class="paragraph">
+<p>The key top-level categories in the ontology are 'care information' and 'administrative information'. The former encompasses all statements that might be recorded at any point during the care process, and consists of the major subcategories 'history', 'opinion' and 'instruction', which themselves correspond to the past, present and future in time (ISO TC215 uses the terms 'retrospective', 'current' and 'prospective'). The administrative information category covers information which is not generated by the care process proper, but relates to organising it, such as appointments and admissions. This information is not about care, but about the logistics of care being delivered. Categories that relate to the patient system as observed and understood are shown as white bubbles, while categories that relate to intervention into the patient system are shown as shaded. The opinion category has features of both passive analysis and active intervention.</p>
+</div>
+<div class="paragraph">
+<p>There are two key justifications for using the ontology in <a href="#CIR_ontology">The Clinical Investigator Recording (CIR) ontology</a> as a basis for class design. Firstly, although for all categories in the ontology there is a meaning for 'contextual' attributes of time, place, identity, reason and so on, each category has a different structure for these attributes. For example, time in the Observation category has a linear historical structure, whereas in Instruction it has a branching, potentially cyclic structure. The separation of types allows these contextual attributes to be modelled according to the type. Secondly, the separation of types provides a systematic solution to the so-called problem of "status" or "meaning modification" of clinical statement values, as described below.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_clinical_statement_status_and_negation"><a class="anchor" href="#_clinical_statement_status_and_negation"></a><a class="link" href="#_clinical_statement_status_and_negation">Clinical Statement Status and Negation</a></h3>
+<div class="paragraph">
+<p>A well-known problem in clinical information recording is the problem of assigning "status", including variants like "actual value of P" (P stands for some phenomenon), "family history of P", "risk of P", "fear of P", as well as negation of any of these, i.e. "not/no P", "no history of P" etc. A proper analysis of these so called statuses [4] shows that they are not "statuses" at all, but different categories of information as per the ontology. The common statement types mentioned here are mapped as follows:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>actual value of P &#8594; Observation (of P);</p>
+</li>
+<li>
+<p>no/not P &#8594; Observation (of excluded P or types of P, e.g. allergies).</p>
+</li>
+<li>
+<p>family history of P &#8594; Evaluation (that patient is at risk of P);</p>
+</li>
+<li>
+<p>no family history of P &#8594; Evaluation (that P is an excluded risk);</p>
+</li>
+<li>
+<p>risk of P &#8594; Evaluation (that patient is at risk of P);</p>
+</li>
+<li>
+<p>no risk of P &#8594; Evaluation (that patient is not at risk of P);</p>
+</li>
+<li>
+<p>fear of P &#8594; Observation (of FEAR, with P mentioned in the description);</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>In general, negations of the kind mentioned above are handled by using "exclusion" archetypes for the appropriate Entry type. For example, "no allergies" can be modelled using an Evaluation archetype that describes which allergies are excluded for this patient.</p>
+</div>
+<div class="paragraph">
+<p>Another set of statement types that can be confused in systems that do not properly model information categories concern interventions, e.g. "hip replacement (5 years ago)", "hip replacement (planned)", "hip replacement (ordered for next tuesday 10 am)". Ambiguity is removed here as well, with the use of the correct information categories, e.g. (I stands for an intervention):</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>I (distant past/unmanaged/passively documented) &#8594; Observation (of I present in patient);</p>
+</li>
+<li>
+<p>I (recent past) &#8594; Action (of I having been done to/for patient);</p>
+</li>
+<li>
+<p>I (proposed) &#8594; Evaluation, subtype Proposal (of I suggested/likely for patient);</p>
+</li>
+<li>
+<p>I (ordered) &#8594; Instruction (of I for patient for some date in the future).</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Related to the problem of clinical status is the need to differentiate between diagnoses that have been made in the present from those that were made in the past, and are reported by the patient. In openEHR, diagnosis and indeed all opinion category types are modelled as Evaluations, regardless of when they were made. Time information for diagnosis and other opinions is simply handled within the archetype for Evaluation, enabling a diagnosis (say of diabetes) that was made 15 years ago to have the same status as one made during the period when the EHR was actually operating, and the patient was under the care of the physician using it. Archetypes for the opinion categories tend to have quite a number of times, including "time first noticed", "time of onset", and so on.</p>
+</div>
+<div class="paragraph">
+<p>Correct use of the categories from the ontology is facilitated by using archetypes designed to map particular kinds of clinical statement to particular <code>ENTRY</code> subtypes. In a system where Entries are thus modelled, there will be no danger of incorrectly identifying the various kinds of Entries, as long as the Entry subtype, time, and certainty/negation are taken into account.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_standard_clinical_types_of_data"><a class="anchor" href="#_standard_clinical_types_of_data"></a><a class="link" href="#_standard_clinical_types_of_data">Standard Clinical Types of Data</a></h3>
+<div class="paragraph">
+<p>Commonly used types of clinical information are directly representable using the openEHR Entry types. As described in <a href="#_compositions">[_compositions]</a>, two kinds of Composition are identified: persistent and event. The persistent kind corresponds to information that characterises the patient in the long term, and is maintained by clinicians - it can be thought of as a proxy "model of the patient". Most of the following are examples of Entry level data belonging inside persistent Compositions:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><em>Basic information</em> (dob, sex, height, weight, pregnant etc): recorded as Observations and/or Admin_entries;</p>
+</li>
+<li>
+<p><em>Problem list</em>: maintained as one or more Evaluations which themselves are generated by clinicians as a result of observations made elsewhere in the record;</p>
+</li>
+<li>
+<p><em>Medications list</em>: derived from Instructions and Actions in the record. The status of Actions allows medications to be displayed as past, current, suspended etc.</p>
+</li>
+<li>
+<p><em>Therapeutic precautions (allergies and alerts)</em>: recorded as Evaluations of various kinds (adverse reactions are essentially a kind of diagnosis);</p>
+</li>
+<li>
+<p><em>Patient preferences</em>: recorded as Evaluations (since they act like contra-indications for certain drugs or treatments);</p>
+</li>
+<li>
+<p><em>Patient consents</em>: recorded as instances of Admin_entry;</p>
+</li>
+<li>
+<p><em>Family history</em>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>actual events / conditions in family members are recorded as Observations (e.g. father died of MI at 62)</p>
+</li>
+<li>
+<p>patient risks are expressed using Evaluations, often including family history reasons.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><em>Social history/situation</em>: current and previous social situation (e.g. in nursing care, details of feeding, sleeping arrangments) are documented as Observations.</p>
+</li>
+<li>
+<p><em>Lifestyle</em>: there are various Observation archetypes for recording aspects of lifestyle, including exercise, smoking/tobacco, alcohol, drug use and so on.</p>
+</li>
+<li>
+<p><em>Vaccination record</em>: vaccinations are a kind of Instruction; vaccinations that have actually been given are available as Actions in the record.</p>
+</li>
+<li>
+<p><em>Care plan</em>: combinations of goals, targets (Evaluations), monitoring, education (Instructions), etc organised in a care plan Section hierarchy.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The remaining vast majority of remaining clinical information is recorded inside event Compositions,
+and includes the following:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><em>laboratory results</em> including imaging: recorded as Observations;</p>
+</li>
+<li>
+<p><em>physical examinations</em>: recorded as Observations appointment, admission and discharge: recorded as Admin_entry</p>
+</li>
+<li>
+<p><em>prescriptions</em>: one or more medication orders (each one is an Instruction) within a prescription Section structure, within a prescription Composition.</p>
+</li>
+<li>
+<p><em>referrals</em>: recorded as Instructions (i.e. a request for care by another provider).</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The above concepts are defined in terms of archetypes of Entry and other reference model types in openEHR; their definition is therefore completely separate from the reference model.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_demographic_data_in_the_ehr"><a class="anchor" href="#_demographic_data_in_the_ehr"></a><a class="link" href="#_demographic_data_in_the_ehr">Demographic Data in the EHR</a></h3>
+<div class="paragraph">
+<p>The general approach of openEHR is to enable the complete separation of demographic (particularly patient-identification information) from health records, both in the interests of privacy (in some cases required by national legislation) and separated data management. The Demographic IM therefore defines demographic information. However, there is nothing to prevent certain demographic information occurring in the EHR, and in some cases this is desirable. The two main cases for this are:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>clinically-relevant patient information, such as age, sex, height, weight, eye-colour, ethnicity or 'race', occupation;</p>
+</li>
+<li>
+<p>identifiers and/or names of health care provider individuals and organisations may be stored directly in the EHR, regardless of whether there is also more detailed information about such entities in the demographic system.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The model of all information intended for a separate openEHR demographic service (itself usually a front-end to an existing hospital master patient index or similar) is defined in the openEHR Demographic Information Model.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_entry_and_its_subtypes"><a class="anchor" href="#_entry_and_its_subtypes"></a><a class="link" href="#_entry_and_its_subtypes">Entry and its Subtypes</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The Entry model is defined by the <code>composition.content.entry package</code>, shown in the UML diagram below. The choice of subtypes of <code>ENTRY</code> is based on the ontology shown in <a href="#CIR_ontology">The Clinical Investigator Recording (CIR) ontology</a> and its associated model. The names do not coincide exactly however, for a number of reasons. Firstly, the category names in the hierarchy were chosen based on a philosophical/scientific model of investigation, and reflecting linguistic norms for the meanings of the terms, whereas the class names used here reflect common health computing and clinical usage of these terms (i.e. names which will make sense to software developers in the health arena). Names in these two cultures do not always coincide. Additionally, for categories such as Opinion and Instruction, the subcategories shown in the ontology (e.g. Assessment, Goal and Plan) are too variable to safely be subtyped in software, and are distinguished only at the archetype level. Only a single class for each of these ontological groups is used in the formal model. The use of different names and a slightly simplified mapping has not however prevented the faithful implementation of the semantics of the model. The model classes are described in the following subsections.</p>
+</div>
+<div id="rm_entry" class="imageblock text-center text-center">
+<div class="content">
+<img src="../../_images/uml/RM-composition.entry.svg" alt="RM composition.entry">
+</div>
+<div class="title">Figure 3. rm.entry package</div>
+</div>
+<div class="sect2">
+<h3 id="_the_entry_class"><a class="anchor" href="#_the_entry_class"></a><a class="link" href="#_the_entry_class">The Entry class</a></h3>
+<div class="paragraph">
+<p>All Entries have a number of attributes in common. The language and encoding attributes indicate how all text data within the Entry are to be interpreted linguistically and at the character set level. Normally, the language will be the same throughout the entire Entry (if not Composition), but in cases where it is not, the optional language attribute of <code>DV_TEXT</code> can be used to override the value in the enclosing <code>ENTRY</code> (or other enclosing structure, if a <code>DV_TEXT</code> is being used in some other context). Character encoding can be overridden in the same fashion by the encoding attribute within <code>DV_TEXT</code>.</p>
+</div>
+<div class="paragraph">
+<p>The other attributes common to all Entry subtypes are as follows:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code><em>subject</em></code>: this attribute records the subject of the Entry as an instance of a subtype of <code>PARTY_PROXY</code>. When this is the record subject, (i.e. the patient), the value is an instance of <code>PARTY_SELF</code>. Otherwise it is typically a family member, sexual partner, or other acquaintance of the record subject. It could also be an organ donor. The latter is expressed in the form of a <code>PARTY_IDENTIFIED</code> or <code>RELATED_PARTY</code> instance, which describes the kind of relationship, and optionally, identifies the demographic entity.</p>
+</li>
+<li>
+<p><code><em>subject_is_self</em></code>: convenience function returning True when the Entry is about the subject of the record.</p>
+</li>
+<li>
+<p><code><em>provider</em></code>: the agent who provided the information. This is usually the patient or the clinician, but may be someone else, or a software application or device. If participation details of the provider (e.g. mode of communication) need to be recorded, the details should be recorded once in the <code>EVENT_CONTEXT</code>.<code><em>participations</em></code>. The provider attribute is optional, since it is often implicit in the information that was recorded.</p>
+</li>
+<li>
+<p><code><em>other_participations</em></code>: other participations which existed for this Entry, e.g. a nurse who administered a drug in an <code>INSTRUCTION</code>; only required in cases where participants other than the subject of the information and the provider of the information need to be recorded.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Note that the term 'provider' as used here should not be confused with the more specific healthcare term used in many english-speaking countries meaning 'health care provider', which is usually understood to be a physician or healthcare delivery enterprise such as a hospital. In the model here, it simply means 'provider of information' in the context of an Entry. The information provider is optional, and in many cases will not be recorded, since it will be obvious from the <code><em>composer</em></code> and <code><em>other_participations</em></code> of the enclosing Composition. In many cases, it is not sensible to record a provider, e.g. in the most mundane case where a GP asks "where does it hurt" and the patient says "here" - in such cases, it can only be considered mutual. It is expected to be used only when the composer of the Composition really needs to specify the origin of specific statements, such as in the following circumstances:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>the information provider is specifically accountable for the Entry data (it is their opinion, their decision, they carried out the test etc) - they might also need to attest it;</p>
+</li>
+<li>
+<p>the information provider is an authoritative source, or has provided information from a unique perspective (e.g. the view of a spouse/ carer on the patient&#8217;s functional health status or mental state);</p>
+</li>
+<li>
+<p>the information provider&#8217;s view might not reflect the consensus (e.g. a patient opinion not held by the composer, a difference between father and mother on a description of a child&#8217;s sleeping pattern);</p>
+</li>
+<li>
+<p>the information provider is not one of the Composition-level participants (e.g. an outside information provider such as someone telephoned during the encounter to provide a lab result, or an automated measurement device, or a decision support software component).</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_care_entry_and_admin_entry"><a class="anchor" href="#_care_entry_and_admin_entry"></a><a class="link" href="#_care_entry_and_admin_entry">Care_entry and Admin_entry</a></h3>
+<div class="paragraph">
+<p>A basic division occurs between clinical and non-clinical information. The <code>CARE_ENTRY</code> class is an abstract precursor of classes that express information of any clinical activity in the care process around the patient, while <code>ADMIN_ENTRY</code> is used to capture administrative information. The division may occasionally seem ambiguous at a theoretical level, but at a practical level, it is almost always clear. Administrative information has the following characteristics:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>it is created by non-clinical staff, or clinical staff acting in an administrative capacity (e.g. a nurse or doctor who has to fill out an admission form in A&amp;E);</p>
+</li>
+<li>
+<p>it expresses details to do with coordinating the clinical process, by recording e.g. admission information (enables clinical staff to know who is in the hospital and where they can be found), appointments (ensuring patient and physician get together at an agreed time and place), discharge/dismissal (allowing clinical staff to know that a patient has been sent home healthy, or transferred to another institution), billing and insurance information (where such information is required in the EHR; it may well be in its own system);</p>
+</li>
+<li>
+<p>removing administative information from the EHR would not compromise its clinical integrity, it would simply mean that carers and patients would no longer know when and where they were supposed to meet, or when the patient has entered or left a health care facility.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Conversely, every instance of a <code>CARE_ENTRY</code> subtype is clinically significant, even if it also carries information which might be of interest to other health management functions billing (e.g. <a href="http://www.who.int/classifications/icd/en/">ICD10</a> coded diagnoses), practice management (e.g. date, time and place in an order for day surgery). The <code>CARE_ENTRY</code> type includes two attributes particular to all clinical entries, namely <code><em>protocol</em></code> and <code><em>guideline_id</em></code>.</p>
+</div>
+<div class="paragraph">
+<p>These attributes allow the 'how' and 'why' aspects of any clinical recording to be expressed. Protocol is often recorded for Observations, e.g. staining method in microscopy, and Instructions, e.g. Bruce protocol for ECG test.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_observation"><a class="anchor" href="#_observation"></a><a class="link" href="#_observation">Observation</a></h3>
+<div class="paragraph">
+<p>Instances of the <code>OBSERVATION</code> class record the observation of any phenomenon or state of interest to do with the patient, including pathology results, blood pressure readings, the family history and social circumstances as told by the patient to the doctor, patient answers to physician questions during a physical examination, and responses to a psychological assessment questionnaire. Observations are distinguished from Actions in that Actions are interventions whereas Observations record only information relating to the situation of the patient, not what is done to him/her.</p>
+</div>
+<div class="paragraph">
+<p>The significant information of an Observation is expressed in terms of 'data', 'state' and 'protocol'. The first of these is recorded in the data attribute, defined as follows:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code><em>data</em></code>: the actual datum being recorded; expressed in the form of a History of Events, each of which can be a complex data structure such as a List, Table, Single (value), or Tree, in its own right. Examples include blood pressure, heartrate, ECG traces.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>State information can be recorded in the state attribute of Observation, or within the state attribute of each Event in the Observation data attribute (see below and also Data Structures IM for more detailed explanations). The state attribute in Observation is defined as follows:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code><em>state</em></code>: any particular information about the state of the subject of the Entry necessary to correctly interpret the data, which is not already known in the health record (i.e. facts such as the patient being female, pregnant, or currently undergoing chemotherapy). For example, exersion level (resting, post-marathon&#8230;&#8203;), position (lying, standing), post- glucose challenge, and so on. The form of the <code><em>state</em></code> attribute is the same as that of the <code><em>data</em></code> attribute: a <code>HISTORY</code> of <code>EVENT</code> of <code>ITEM_STRUCTURE</code>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The inherited protocol attribute is defined as follows:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code><em>protocol</em></code>: details of how the observation was carried out, which might include a particular clinical protocol (e.g. Bruce protocol for treadmill exercise ECG) and/or information about instruments other observational methods. This information can always be safely omitted from the user interface, i.e. has no bearing on the interpretation of the data.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The detailed semantics of Observation data are described in the following subsections.</p>
+</div>
+<div class="sect3">
+<h4 id="_timing_in_observations"><a class="anchor" href="#_timing_in_observations"></a><a class="link" href="#_timing_in_observations">Timing in Observations</a></h4>
+<div class="paragraph">
+<p>Many health information models express observation time as one or more attributes with names like 'observation_time', 'activity_time' and so on. The openEHR model departs from this by modelling historical time inside a History/Event structure defined in the <code>data_structures.history</code> package. In short, this package defines the <code>HISTORY</code> class with an origin attribute, and a series of <code>EVENT</code> instances each containing a time attribute. Instantaneous and interval events are distinguished via the <code>EVENT</code> subtypes <code>POINT_EVENT</code> and <code>INTERVAL_EVENT</code>; interval events have the width attribute is set to the duration of the interval.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_valid_contents_of_a_history"><a class="anchor" href="#_valid_contents_of_a_history"></a><a class="link" href="#_valid_contents_of_a_history">Valid Contents of a History</a></h4>
+<div class="paragraph">
+<p>One of the aims of the model of Observation described here is to represent in the same way single sample and multi-sample time-based data for which measurement protocol is invariant. It is not intended for measurements in "coarse" time taken by different people, different instruments, or with any other difference in data-gathering technique. In these cases, separate, usually single-sample histories are used, usually occurring in distinct container objects (e.g. distinct Compositions, in the EHR).</p>
+</div>
+<div class="paragraph">
+<p>Accordingly, in the general practice setting, the use of <code>HISTORY</code> will correspond to measurement series which occur during the clinical session (i.e. during a patient contact). In a hospital setting, nurses' observations might occur in 4-hourly intervals, and there is no well-defined clinical session - simply a series of <code>ENTRYs</code> during the time of the episode. Two approaches are possible here.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>If each Observation is to be committed to the EHR as soon as it is made, the result will be distinct <code>COMPOSITIONs</code> in time, each with its event_context corresponding to the period of the nurse&#8217;s presence. Each Composition will contain one or more Observations, each containing in their data a History of one sample of the measured vital sign.</p>
+</li>
+<li>
+<p>If Observations are not committed to the EHR immediately, but are stored elsewhere and only committed (say) at the end of each day, then the result will be a single Composition whose event_context corresponds to the total data gathering period, and which contains Observations whose data are multi-event Histories representing the multiple measurements made over the day.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Whether time-based data remain outside the record until a series of desired length is gathered, or entered as it occurs is up to the design of applications and systems; the approach taken should be based on the desired availability of the data in the system in question. If for example, it must be visible in the EHR as soon as the appropriate Compositions are written, then it should be represented as Histories in each relevant Composition; if it need only be available at some much later point in time (e.g. because it is known that no-one but the treating clinician is interested in it), then it can be stored in another system until sufficient items have been gathered for committal to the EHR.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_clinical_semantics_of_event_time"><a class="anchor" href="#_clinical_semantics_of_event_time"></a><a class="link" href="#_clinical_semantics_of_event_time">Clinical Semantics of Event Time</a></h4>
+<div class="paragraph">
+<p>In most cases, the times recorded in a History (<code>HISTORY</code>.<code><em>origin</em></code> and <code>EVENT</code>.<code><em>time</em></code>, <code><em>width</em></code>) can be thought of as "the times when the observed phenomena were true". For example, if a pulse of 88bpm is recorded for 12/feb/2005 12:44:00, this is the time at which the heartrate (for which pulse is a surrogate) existed. In such cases, the sample time, and the measuring time are one and the same.</p>
+</div>
+<div class="paragraph">
+<p>However in cases where the time of sampling is different from that of measurement, the semantics are more subtle. There are two cases. The first is where a sample is taken (e.g. a tissue sample in a needle biopsy), and is tested later on, but from the point of view of the test, the time delay makes no difference. This might be because the sample was immediately preserved (e.g. freezing, placed in a sterile anaerobic transport container), or because even if it decays in some way, it makes no difference to the test (e.g. bacteria may die, but this makes no difference to a PCT analysis, as long as the biological matter is not physically destroyed).</p>
+</div>
+<div class="paragraph">
+<p>The second situation is when the sample does decay in some way, and the delay is relevant. Most such cases are in pathology tests, where presence of live biological organisms (e.g. anaerobic bacteria) is being measured. The sample time (or 'collection' time) must be recorded. Depending on when the test is done, the results may be interpreted differently.</p>
+</div>
+<div class="paragraph">
+<p>The key question is: what is the meaning of the <code>HISTORY</code>.<code><em>origin</em></code> and <code>EVENT</code>.<code><em>time</em></code> attributes in these situations? It is tempting to say that their values are (as in other cases) just the times of the actual act of observation, e.g. microscopy, chromatography etc. However, there are two problems with this. Firstly, and most importantly, all physical samples must be understood as being <em>indirect surrogates for some aspect of the patient state</em> at the time of sampling, which cannot be observed by direct, instantaneous means in the way a pulse can be taken. This means that no matter when the laboratory work is done, the time to which the result applies is the sample time. It is up to the laboratory to take into account time delays and effects of decay of samples in order to provide a test result which correctly indicates the state of the patient at the time of sampling. The common sense of this is clear when one considers the extreme case where the patient is in a coma or dead (possibly for reasons completely unrelated to the problem being tested for) by the time laboratory testing actually occurs; however, the test result indicates the situation at the point in time when the sample was taken, i.e. when the patient was alive. The second reason is that some kinds of testing are themselves lengthy. For example fungal specimens require 4-6 weeks to confirm a negative result; checks will be made on a daily or weekly basis to find positive growth. However, the result data reported by the laboratory (and therefore the structure of the Observation) is not related to the timing of the laboratory testing; it is reported as being the result for the time of collection of the specimen from the patient.</p>
+</div>
+<div class="paragraph">
+<p>The meaning therefore of the <code>HISTORY</code>.<code><em>origin</em></code> and <code>EVENT</code>.<code><em>time</em></code> attributes in openEHR is always the time of sampling. Where delays between sample and measurement times exist and are significant, they are noted in the protocol section of the Observation; such times are modelled in the appropriate archetypes, and taken into account in results.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_two_ways_of_recording_state"><a class="anchor" href="#_two_ways_of_recording_state"></a><a class="link" href="#_two_ways_of_recording_state">Two ways of Recording State</a></h4>
+<div class="paragraph">
+<p>State information is optional, and is not needed if the data are meaningful on their own. If it is recorded, it can either be as a History of its own (i.e. using the <code>OBSERVATION</code>.<code><em>state</em></code> atttribute described above), or else as state values within the <code>EVENT</code> instances in the <code>OBSERVATION</code>.<code><em>data</em></code> History. Both methods are useful in different circumstances. A separate state history is more likely to be used in a correlation study such as a sports medicine study on heartrate with respect to specific types of exercise. In this method, the state information is a History of Events whose times and widths need not match those of the History in the data attribute. The state data under this approach generally express the condition of the subject in absolute terms, i.e. they are standalone statements about the subject&#8217;s state at certain points in time, such as "walking on treadmill 10km/h, 10<sup>o</sup> incline".</p>
+</div>
+<div class="paragraph">
+<p>The other method will be used in most general medicine, e.g. for recording fasting and post glucose challenge states of a patient undergoing a glucose tolerance test. (See the Data Structures Information Model for more details). State values stored within the <code><em>data</em></code> History represent the situation in the subject at the time of the Event within the History and usually in relation to it, for example "post 8 hour fast". Recording the latter example in an independent state History would require an Event of 8 hours' duration called 'fast'. The latter would be technically still correct, but would be very unnatural to most clinicians. The figure below illustrates the two methods of recording state.</p>
+</div>
+<div id="recording_state" class="imageblock text-center text-center">
+<div class="content">
+<img src="../_images/diagrams/recording_state.png" alt="recording state" width="65%">
+</div>
+<div class="title">Figure 4. Alternative ways of recording state</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_evaluation"><a class="anchor" href="#_evaluation"></a><a class="link" href="#_evaluation">Evaluation</a></h3>
+<div class="paragraph">
+<p>According to the ontology described in citenp:[Beale_Heard2007], the Opinion category covers a number of concrete concepts, as follows.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><em>problem/diagnosis</em>: the assignment of a known diagnosis or problem label to a set of observed signs and symptoms in the patient, for the purpose of determining and managing treatment. The physician will usually include a date of initial onset, date clinically recognised, date of last occurrence, date of resolution of last occurrence and possibly other timing information.</p>
+</li>
+<li>
+<p><em>risk assessment</em>: an evaluation of the likelihood and timing of a certain event occurring or condition appearing.</p>
+</li>
+<li>
+<p><em>scenario</em>: an opinion about the outcome if a certain intervention is proceeded with.</p>
+</li>
+<li>
+<p><em>goal</em>: statement of a target, and a time at which it should be reached.</p>
+</li>
+<li>
+<p><em>recommendation</em>: a description in general terms of a suggested care approach for the patient, based on diagnosis; includes various times or time-periods for activities, such as monitoring, taking of medications, and review.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The approach taken to modelling these concepts in openEHR is heavily based upon the development of archetypes for assessments such as "diagnosis" (various kinds), "goal", "adverse reactions", "alert", "exclusion", "clinical synopsis", "risk based on family history" and so on. Experience has shown that the Opinion category is too variable for safely modelling its sub-categories directly in the reference model. Instead, a single class <code>EVALUATION</code> is used for all instances of the Opinion category. (The name Evaluation has been present in openEHR for some years, and is retained for reasons of continuity).</p>
+</div>
+<div class="paragraph">
+<p>The design of the <code>EVALUATION</code> class is very simple. In addition to the attributes inherited from <code>ENTRY</code> and <code>CARE_ENTRY</code>, it has only one attribute, <code><em>data</em></code>: <code>ITEM_STRUCTURE</code>. This structure is intended to be archetyped so as to model all the details of any particular clinical information in the Opinion category. No timing attributes are included, since there is no time associated with creation or capturing of Evaluation information as such, only times included in the information. The only times of generic significance are (potentially) the time of a patient consultation during which the Evaluation was created (recorded in <code>COMPOSITION.<em>event_context</em>.<em>start_time</em></code> and <code><em>end_time</em></code>) and the time of committal to the EHR system (recorded in <code>VERSION.<em>commit_audit</em></code> attribute).</p>
+</div>
+<div class="paragraph">
+<p>The general meaning of the inherited attributes is as for all Entries. In Evaluations, the provider is almost always the physician, while the protocol may be used to indicate how a particular assessment was made. The <code><em>other_participations</em></code> attribute is not as likely to be used for Evaluations representing diagnoses, since a diagnosis is usually the result of thinking on the part of the physician; an exception to this would be a case conference or if an expert system were used. However, Plans for complex patients may well be constructed by multiple physicians.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_instruction_and_action"><a class="anchor" href="#_instruction_and_action"></a><a class="link" href="#_instruction_and_action">Instruction and Action</a></h3>
+<div class="paragraph">
+<p>Instructions in openEHR specify actions to be performed in the future. They differ from information in the Proposal sub-category of Opinion in the ontology (i.e. instances of Evaluation in the class model) in that they are specified in sufficient detail to be directly enacted without further clinical decision-making related to the design of the Instruction, e.g they can be performed by the patient or a nurse. Any decisions that could be made during the performance of an Instruction are either constrained by the Instruction itself (e.g. dose range; suspend if adverse reaction) or else are assumed knowledge of the expected performer. For example, an Evaluation may say that "oral cortico-steroids are indicated at a peak flow of 200 l/m". A corresponding Instruction would indicate the actual drug, route, dose, frequency, and so on. The informed patient might be reasonably expected to be able to vary the dosage on his or her own within a dosage guideline explained by his/her GP.</p>
+</div>
+<div class="paragraph">
+<p>In the ontology shown in <a href="#CIR_ontology">The Clinical Investigator Recording (CIR) ontology</a>, Instructions are further categorised as Investigation and Intervention. However, as for Evaluation, only a single key class, <code>INSTRUCTION</code>, is used to model all types of the Instruction category, with archetypes defining the details of the Instruction. A second Entry subtype, <code>ACTION</code>, is used to model the information recorded due to the execution of an Instruction by some agent.</p>
+</div>
+<div class="paragraph">
+<p>The following subsections describe Instruction and Action in some detail.</p>
+</div>
+<div class="sect3">
+<h4 id="_requirements"><a class="anchor" href="#_requirements"></a><a class="link" href="#_requirements">Requirements</a></h4>
+<div class="paragraph">
+<p>The Instruction and Action classes are designed to satisfy the following requirements:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>All kinds of interventions, from simple medication orders to complex multi-drug courses should be representable using the same model;</p>
+</li>
+<li>
+<p>Instructions should always have a narrative expression, with an optional machine-processible expression in cases where automation will be used;</p>
+</li>
+<li>
+<p>The freedom must exist to model any particular intervention in as much or little detail as required by circumstances;</p>
+</li>
+<li>
+<p>Clinicians must be able to specify Instruction steps in their own terms, i.e. using terms like "prescribe", "dispense", "start administering", etc;</p>
+</li>
+<li>
+<p>Instructions representing diverse clinical workflows must be queryable in a standard way, so that it can be ascertained what Instructions are 'active', 'completed' and so on for a patient;</p>
+</li>
+<li>
+<p>It should be possible to provide a coherent view of the state of execution of an Instruction even if parts of it have been executed in different healthcare provider environments;</p>
+</li>
+<li>
+<p>It must be possible to record ad hoc actions in the record, i.e. acts for which no Instruction was defined (at least in the EHR in question);</p>
+</li>
+<li>
+<p>Instructions must integrate with notification / alert services;</p>
+</li>
+<li>
+<p>An interoperable expression of computable workflow definitions of Instructions will be supported.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_design_principles_2"><a class="anchor" href="#_design_principles_2"></a><a class="link" href="#_design_principles_2">Design Principles</a></h4>
+<div class="paragraph">
+<p>The design approach is based on four principles. The first is that the <em>specification</em> of an Instruction as one or more Activities is distinguished from the information representing actions performed as a result. This makes the model and resulting information instances clear to software designers and data users. It also enables workflow engines to determine which parts of the specification have already been executed, and allows for Actions actually performed to differ from those specified. The separation is realised in terms of the <code>INSTRUCTION</code> and <code>ACTION</code> classes and their helpers. Instances of the former specify an Instruction, while instances of the latter describe steps which have actually been performed.</p>
+</div>
+<div class="paragraph">
+<p>The second principle is the use of a standard instruction state machine (ISM) defining standardised states and transitions for each Activity of an Instruction, no matter what its clinical meaning. The use of standardised states means that the execution state of any given Activity can be characterised in exactly the same way (e.g. 'planned', 'active', etc), and that it is therefore possible to query the EHR and find out all interventions of any kind in a particular state. The ISM is formally modelled in openEHR. The Instruction itself can also be considered to be in a state derived from the states of its Activities. An informal description of this aggregate state machine is given below.</p>
+</div>
+<div class="paragraph">
+<p>The third principle is to provide a way of mapping steps in any care pathway process (i.e. healthcare business process) to states in the Instruction state machine. A care pathway process covers the entirety of steps required to effect an Instruction, for example prescribing, booking, dispensing, referring, suspension etc. Any such step when performed leaves the relevant Instruction in one of the states of the ISM.</p>
+</div>
+<div class="paragraph">
+<p>The fourth principle is to support the expression of the formal workflow definition for an Instruction, where full automation is required. It must be recognised that automation of most therapies and drug admnistration, as well as other interventions like biopsies is minimal today, and is likely to remain so for some time. This is for the simple reason that the cost of automating most tasks is prohibitive compared to human execution, particularly when Instruction activities can often be executed by healthcare professionals already present for other reasons (e.g. ward nurses). It also has to be said that serious research into the use of workflow automation in healthcare is only quite recent, and that so far, there are no standard models for clinical workflow. In the openEHR approach to modelling workflow, such uncertainty is dealt with in two ways. Firstly, formal workflow specification of an Instruction is an optional addition to the base model of Instruction and Action classes, and is not required to obtain a basic level of computability, including use of the ISM. Secondly, the formal expression of workflow is in the form of parsable syntax rather than objects. This is a generally appropriate design choice, since the safest and most convenient persistent form of of a complex formalism is the syntax form rather than the parsed fine-grained object form; this both optimises storage and allows for changes in the syntax over time.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_model_overview"><a class="anchor" href="#_model_overview"></a><a class="link" href="#_model_overview">Model Overview</a></h4>
+<div class="paragraph">
+<p>Instruction definitions are modelled in terms of the <code>INSTRUCTION</code> and <code>ACTIVITY</code> classes, with optional workflow attributes. These two classes carry the basic information relating to an Instruction, with all formal workflow definition expressed in parsable syntax in the <code>INSTRUCTION.<em>wf_definition</em></code> attribute. An <code>INSTRUCTION</code> instance includes the narrative description of the Instruction, and a list of <code>ACTIVITY</code> instances. It also includes all the attributes inherited from the <code>CARE_ENTRY</code> class, including subject, participations and so on.</p>
+</div>
+<div class="paragraph">
+<p>Many Instructions will have only one Activity, usually describing a medication to be administered and its timing. Some will have more than one drug or therapy, such as the typical 3 drug Losec-HP regime for treating ulcers, and multi-drug chemotherapy. The base Instruction model does not explicitly try to indicate the exact order, serial or parallel administration, or other dependencies, since the knowledge of how to administer the drugs is known by the relevant clinicians, and/or contained in published guidelines. However, the timing information in each Activity does indicate times, days and the usual specifications of "with meals" etc. The timing information is also sufficient to specify a three drug chemotherapy regime, by indicating which days each drug is administered on. It is only when the Instruction is to be automated by a workflow engine that the full structure of the Activity graph will be given. Activity instances may be completely absent from an Instruction, in which case only the narrative will be present. This will typically occur with imported legacy data which itself has no structured representation of medications.</p>
+</div>
+<div class="paragraph">
+<p>There are three possible levels of representation of an Instruction, as shown in the figure below. These are the minimal narrative-only level, a level with formal representation of Instruction activities by <code>ACTIVITY</code> instances, and a level where a formal workflow definition can also be used. It is expected that the vast majority of openEHR systems for the forseeable future will support only the minimal and basic levels.</p>
+</div>
+<div id="instruction_representation" class="imageblock text-center text-center">
+<div class="content">
+<img src="../_images/diagrams/instruction_representation.png" alt="instruction representation" width="60%">
+</div>
+<div class="title">Figure 5. Levels of Instruction representation</div>
+</div>
+<div class="paragraph">
+<p>The following figure illustrates the correspondence between Instruction and Activity structures, and Action objects that are created due to executing the instructions. Each Activity has a standard Instruction State Machine logically associated with it, indicated in blue. When any step in an Instruction Activity is executed within an ICT-supported environment, an <code>ACTION</code> instance describing what was done should be created and committed to the EHR. In some cases, ad hoc Actions are created even when there is no Instruction, such as by self-medicating patients and nurses reacting quickly to patient changes. For such Actions, there is always a notional Activity understood by the health professional.</p>
+</div>
+<div id="actions_and_instructions" class="imageblock text-center text-center">
+<div class="content">
+<img src="../_images/diagrams/actions_and_instructions.png" alt="actions and instructions" width="70%">
+</div>
+<div class="title">Figure 6. Correspondence of Actions to Instructions</div>
+</div>
+<div class="paragraph">
+<p>All <code>ACTIONs</code> include the inherited <code>CARE_ENTRY</code> attributes, along with the time of being performed, a description of what was performed, and an <code>ISM_TRANSITION</code> object indicating the state of the Activity (whether explicit in an Instruction or not). The current state of an Activity is thus found not in the <code>ACTIVITY</code> instance but in the most recent <code>ACTION</code> instance for that Activity.</p>
+</div>
+<div class="paragraph">
+<p>If the Action did correspond to an Instruction, it will also include an <code>INSTRUCTION_DETAILS</code> instance, which indicates which Activity of which Instruction was executed, including workflow execution details if relevant.</p>
+</div>
+<div class="paragraph">
+<p>Under this scheme, the state of each intervention happening to the patient can be ascertained by querying, regardless of whether explicit Instructions exist.</p>
+</div>
+<div class="paragraph">
+<p>Note particularly that Actions are often performed in a different provider location, or the home, rather than the provider organisation responsible for the Instruction. Action objects for a given Instruction can thus easily appear in multiple health record systems.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_instruction_activity_timing"><a class="anchor" href="#_instruction_activity_timing"></a><a class="link" href="#_instruction_activity_timing">Instruction Activity Timing</a></h4>
+<div class="paragraph">
+<p>Timing information may be minimal and simplistic, or highly specified. As a consequence, there is no one method of representation that suits all purposes. The simplest expression of timing information is as informal narrative, as found in a prescription for antibiotics, such as "take 3 times a day, for 7 days, with meals". This may be represented using a text value in <code>INSTRUCTION.<em>narrative</em></code>.</p>
+</div>
+<div class="paragraph">
+<p>Formally computable representations can be expressed in two ways. The first is to use the <code>ACTIVITY.<em>timing</em></code> field, of type <code>DV_PARSABLE</code>, which enables the use of syntaxes such as the <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a> 'R' syntax. For example, 5 repetitions of the period '10 days' starting on 01 march 2008 is <code>"R5/2008-03-01T13:00:00Z/P10D"</code>. However timing in clinical situations varies widely, and numerous other ways of expressing times are commonly required, ranging from simple frequencies, to complex patterns of time, association with events such as meals, menstrual period and so on. To accommodate such variant structures, which are generally beyond the capabilities of the ISO 8601 syntax, the <code>ACTIVITY.<em>description</em></code> attribute may be used to contain these timing structures.</p>
+</div>
+<div class="paragraph">
+<p>The three approaches are illustrated below.</p>
+</div>
+<div id="activity_timing" class="imageblock text-center text-center">
+<div class="content">
+<img src="../_images/diagrams/activity_timing.svg" alt="activity timing" width="80%">
+</div>
+<div class="title">Figure 7. Activity Timing</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_the_standard_instruction_state_machine_ism"><a class="anchor" href="#_the_standard_instruction_state_machine_ism"></a><a class="link" href="#_the_standard_instruction_state_machine_ism">The Standard Instruction State Machine (ISM)</a></h4>
+<div class="paragraph">
+<p>When an intervention defined by an Activity is unfolding in a clinical context, EHR users want to know things such as the following:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>what is the current status of an Instruction for the patient?</p>
+</li>
+<li>
+<p>what is the current step in the Activity for the patient?</p>
+</li>
+<li>
+<p>for a given patient, what Activities are planned, active, suspended, completed?</p>
+</li>
+<li>
+<p>for the populations of patients, what is the state of a particular workflow, such as a recall, for each one?</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The approach chosen here to support such functionality is to define a standard instruction state machine whose state transitions can be mapped to the steps of a specific care pathway, enabling it to be used as a descriptive device for indicating the state of any Activity. The status of an Instruction is determined algorithmically from the states of the constituent Activities, as described below. The state machine is illustrated below.</p>
+</div>
+<div id="instruction_state_machine" class="imageblock text-center text-center">
+<div class="content">
+<img src="../../_images/uml/RM-InstructionStateMachine.svg" alt="RM InstructionStateMachine">
+</div>
+<div class="title">Figure 8. openEHR standard Instruction State Machine</div>
+</div>
+<div class="paragraph">
+<p>This state machine is the result of long term experience with clinical workflows and act management systems. The states are as follows (Note: the SCHEDULED state was inspired by citenp:[Van_de_Velde_Degoulet2003], Fig 5.5).</p>
+</div>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+INITIAL
+</td>
+<td class="hdlist2">
+<p>initial state, prior to planning activity (default starting state for computable representation of state machine).</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+PLANNED
+</td>
+<td class="hdlist2">
+<p>the action has been described, but has not as yet been performed.</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+POSTPONED
+</td>
+<td class="hdlist2">
+<p>the action has not been performed and will not without specific conditions being met. Specifically, events and conditions that would normally 'activate' the instruction will be ignored, until a restore event occurs.</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+SCHEDULED
+</td>
+<td class="hdlist2">
+<p>the action will be performed at some designated future time, and has been booked in a scheduling system.</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+CANCELLED
+</td>
+<td class="hdlist2">
+<p>the action was defined, but was cancelled before being performed.</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+ACTIVE
+</td>
+<td class="hdlist2">
+<p>the action is being performed according to its definition. The entire course of medication or therapy corresponds to this state.</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+SUSPENDED
+</td>
+<td class="hdlist2">
+<p>the action was begun, but has been stopped temporarily, and will not be restarted until explicitly resumed.</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+ABORTED
+</td>
+<td class="hdlist2">
+<p>the action began but was permanently terminated before normal completion.</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+COMPLETED
+</td>
+<td class="hdlist2">
+<p>the action began and was completed normally.</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+EXPIRED
+</td>
+<td class="hdlist2">
+<p>the time during which the action could have been relevant has expired; the action may have completed, been cancelled, or never occurred.</p>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>States <code>CANCELLED</code>, <code>ABORTED</code> and <code>COMPLETED</code> are all terminal states. The <code>EXPIRED</code> state is a pseudo-terminal state, from which transitions are allowed to proceed to any of the true terminal states, due to information being received after the fact (such as a patient reporting that they did indeed finish a course of antibiotics). However it is likely in the EHR that Instructions for many simple medications will finish in the <code>EXPIRED</code> state and remain there.</p>
+</div>
+<div class="paragraph">
+<p>The transitions are self-explanatory for the most part, however a few deserve comment. The <code>start</code> and <code>finish</code> events correspond to situations when the administration is not instantaneous, as is the situation with most medications. The <code>do</code> event is equivalent to the <code>finish</code> event occurring immediately after the <code>start</code> event, corresponding to an instantaneous administration, completion of which puts the Activity in the completed state. A single shot vaccination or patient taking a single tablet are typical examples. The states <code>PLANNED</code>, <code>POSTPONED</code>, <code>ACTIVE</code>, <code>SUSPENDED</code>, each have a <code>xxx_step</code> transition which return the state machine to the same state. Workflow steps that cause no transition are mapped to these events and thus leave the Instruction in the same state. An example is a medication review, which will leave the medication in the <code>ACTIVE</code> state, if the physician chooses to continue.</p>
+</div>
+<div class="paragraph">
+<p>In the future, if delegation of an Instruction to another Instruction is required, nesting of a new Instruction state machine within the Active state of a previous one might need to be supported.</p>
+</div>
+<div class="paragraph">
+<p>The state machine states and transition names are defined in the openEHR terminology groups "Instruction states" and "Instruction transitions" respectively.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_instruction_aggregate_state"><a class="anchor" href="#_instruction_aggregate_state"></a><a class="link" href="#_instruction_aggregate_state">Instruction Aggregate State</a></h4>
+<div class="paragraph">
+<p>Each Activity within an Instruction constitutes a clinically identifiable medication or therapy of some kind, while the Instruction usually corresponds to a grouping or combination of therapies designed to treat an overall problem. Accordingly, the Instruction can be seen as having an aggregate state derived from the states of the Activities, as shown in the figure below. The rules for entering each aggregate state are indicated in terms of the states of the constituent Activities.</p>
+</div>
+<div id="aggregate_instruction_state" class="imageblock text-center text-center">
+<div class="content">
+<img src="../_images/diagrams/aggregate_instruction_state.png" alt="aggregate instruction state" width="70%">
+</div>
+<div class="title">Figure 9. Aggregate Instruction state</div>
+</div>
+<div class="paragraph">
+<p>This state machine is not formally modelled or coded in openEHR, although it may be useful to do so within an application.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_careflow_process_to_state_machine_mapping"><a class="anchor" href="#_careflow_process_to_state_machine_mapping"></a><a class="link" href="#_careflow_process_to_state_machine_mapping">Careflow Process to State Machine Mapping</a></h4>
+<div class="paragraph">
+<p>From a health professional&#8217;s point of view, a healthcare workflow, or 'careflow', consists of steps and events designed to meet one or more goals. The steps are highly dependent on the particular kind of workflow, and will usually be named in terms familiar to the relevant kinds of clinical professionals, such as "prescribe", "book", "suspend" and so on (note that some of these names may be the same as ISM transitions, but may or may not indicate the same thing). However, the need of users of health information is to know what state the execution of an Instruction is in, regardless of which particular careflow step might have just been executed. This is achieved by defining the mapping between the steps of a particular careflow to the states of the ISM in an Action archetype. When each Action corresponding to a particular Instruction Activity is performed, it will be known both which careflow step it corresponds to and which ISM state the Activity is now in. The following table provides an example of the mapping for a UK GP medication order workflow.</p>
+</div>
+<table class="tableblock frame-all grid-all" style="width: 50%;">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 66.6667%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">UK GP<br>
+ Workflow Step</th>
+<th class="tableblock halign-left valign-top">State machine transition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Start</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">initiate (initial &#8594; planned)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Prescribe</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">plan_step (planned &#8594; planned)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Dispense</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">start (planned &#8594; active)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Administer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">active_step (active &#8594; active)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Request</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Renewal active_step (active &#8594; active)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Re-issue</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">active_step (active &#8594; active)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Review</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">active_step (active &#8594; active)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Finish</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">finish (active &#8594; completed)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cancel</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">abort (active &#8594; aborted)</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Mappings like this are specified in the <code>ACTION</code> archetypes for the Instruction. When an <code>ACTION</code> instance is committed to the EHR, the <code>ISM_TRANSITION</code> object records the step performed and the ISM state and transition. The careflow step must be one of the steps from the corresponding Instruction.</p>
+</div>
+<div class="paragraph">
+<p>An optional <code><em>reason</em></code> property (of type <code>List&lt;DV_TEXT&gt;</code>) is provided in the <code>ISM_TRANSITION</code> class in order to enable one or more specific reasons for the step having occurred to be recorded.</p>
+</div>
+<div class="paragraph">
+<p>The following section provides details of how archetypes are used to represent such mappings.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_relationship_to_archetypes"><a class="anchor" href="#_relationship_to_archetypes"></a><a class="link" href="#_relationship_to_archetypes">Relationship to Archetypes</a></h4>
+<div class="paragraph">
+<p>Much of the semantics of particular Instructions and Actions derive from archetypes. Currently, archetypes are used to define two groups of Instruction semantics. The first is the descriptions of activities that are defined in Instructions (<code>ACTIVITY</code>.<code><em>description</em></code>) and executed in Actions (<code>ACTION</code>.<code><em>description</em></code>). These descriptions are always of the same form for any given Instruction, and it is highly desirable to have the same archetype component for both. An example is where the description is of a medication, commonly consisting of a tree or list of ten or more elements describing the drug, its name, form, dose, route and so on. The same information structure is needed in the Instruction, where it defines what is to be administered, and in the Action, where it describes what has been administered. In any particular instance, there may be small differences in what was administered (e.g. dose or route are modified) even though the archetype model will be the same for both.</p>
+</div>
+<div class="paragraph">
+<p>In terms of archetypes therefore, definition of say two <code>ACTIVITYs</code> in an <code>INSTRUCTION</code> (see example illustrated below) will actually create separate archetypes of the Activity structures, each of which will be one of the subtypes of <code>ITEM_STRUCTURE</code> (since this is the type of <code>ACTIVITY</code>.<code><em>description</em></code> and <code>ACTION</code>.<code><em>description</em></code>). The archetypes will then be used by both the <code>INSTRUCTION</code> archetype and the <code>ACTION</code> archetype, via the archetype slot mechanism (i.e. the standard way of composing archetypes from other archetypes; see <code>use_archetype</code> statements in the figure below).</p>
+</div>
+<div id="instruction_and_action_archetypes" class="imageblock text-center text-center">
+<div class="content">
+<img src="../_images/diagrams/instruction_and_action_archetypes.png" alt="instruction and action archetypes" width="70%">
+</div>
+<div class="title">Figure 10. Instruction and Action Archetypes</div>
+</div>
+<div class="paragraph">
+<p>The second category of archetypable semantics is the correspondence between steps in a healthcare business process and the standard instruction state machine, as described above. This mapping is an archetype of the <code><em>ism_transition</em></code> attribute of an <code>ACTION</code> attribute, and therefore defines part of the <code>ACTION</code> archetype. <a href="#instruction_and_action_archetypes">Instruction and Action Archetypes</a> shows how logical archetype elements in the archetype editor environment corresponds to the resulting archetypes.</p>
+</div>
+<div class="paragraph">
+<p>Consequently, the set of archetypes defining the clinical semantics of a specific kind of intervention will normally consists of archetypes of <code>INSTRUCTION</code>, <code>ACTION</code> and potentially component archetypes of the <code>ITEM_STRUCTURE</code> classes.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_clinical_workflow_definition"><a class="anchor" href="#_clinical_workflow_definition"></a><a class="link" href="#_clinical_workflow_definition">Clinical Workflow Definition</a></h3>
+<div class="paragraph">
+<p>Clinical workflows exist at multiple hierarchical levels, from the health system level (reduce diabetes costs; manage obesity) to the fine-grained (asthmatic medication prescription for a particular patient). At all levels, there are goals, actors and tasks designed to satisfy the goals. At a coarse-grained business process level, workflows may be enacted by more than one actor, and may encompass the whole cycle of Observation, Diagnosis, Instruction and Action. For example a workflow describing the steps "prescribe", "dispense", "administer", "repeat", "review" and so on, around a medication order might include GP, pharmacist, patient as actors. At the finer level of an actual drug or therapy administration, there is usually a single agent or group that performs a specific task, usually within one provider institution, or at home. The correspondence between workflows at these different levels and particular patients, rather than just categories of patients (e.g. all insulin-dependent diabetics), typically increases at finer levels of granularity. Thus from the point of view of automation, it is likely to be fine-grained workflows that have patient-specific definitions which would reasonably appear in the EHR. Most typical medication administrations are in this category. How automated workflow definitions at higher levels of organisational hierarchy are represented and coordinated with lower-level automated workflows is known to be a difficult problem generally, and given that health computing is generally more complex than most domains, implementation of distributed, coordinated (or "orchestrated" or "choreographed", to use the terms of the workflow community) clinical workflows is likely to be some years off.</p>
+</div>
+<div class="paragraph">
+<p>In this context, the possible scope for formal workflow definition in openEHR appears to be as follows:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>To enable the recording of links between openEHR Entries and workflow executions, e.g. a particular guideline. This allows openEHR data to be integrated with coarse-grained nonpatient specific workflows.</p>
+</li>
+<li>
+<p>To support a standardised, interoperable representation of fine-grained formal workflow definitions for activities like medication administration.</p>
+</li>
+<li>
+<p>To use formal workflow definitions only where automation is actually useful, and is likely to be used. The kind of workflows that are likely to be worth automating are those which run over several days, weeks or longer, i.e. where humans might easily forget to perform a step. In these cases, the output of the workflow system will be reminders for humans to do certain things at certain times, rather than direct machine automation of the task. Execution of such workflow definitions will generate entries in "worklists" for staff or other agents to perform. Examples include asthma drug management for a child and PAP recall management.</p>
+</li>
+<li>
+<p>To ensure that any workflow definition takes account of other existing clinical activities, i.e. does not attempt to define all activities that might possibly be relevant. A simple example is a workflow for asthma medication administration probably does not need to explicitly model the taking of peak flow measurements, since this would normally be occurring anyway.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>There are various technical challenges with proposing a standard workflow formalism for clinical use. Firstly, executable workflow definitions are essentially structured programs, similar to programs in procedural languages, but with the addition of temporal logic operators, including alternative paths, parallel paths, wait operations, and also references to outside data sources and services. Recent work in clinical workflow modelling e.g. citenp:[Müller2003], citenp:[Barretto2005], citenp:[Browne2005] appears to favour a structural (i.e. parse-tree) approach to representation, due to the need to compute potential modifications to an executing workflow, including dropping, replacing and moving nodes. (Whether such "live" modification of executing workflows is realistic from the designer&#8217;s point of view might be questionable, since it means that the design of each workflow has include every possible exceptional case at a detailed level.)</p>
+</div>
+<div class="paragraph">
+<p>Secondly, the need to connect workflows to the outside world, i.e. data sources and services like notification and worklist management is crucial in making workflows and guidelines implementable. This problem is probably the main weakness of all guideline and workflow languages to date, including Arden, GLIF, and the various workflow languages such as those mentioned earlier.</p>
+</div>
+<div class="paragraph">
+<p>The approach taken by the current release of openEHR in representing computable workflow is the following.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Where used at all, formal workflow definitions are expressed in terms of syntax, not structures, since syntax is always a more appropriate representation for persistence (just as object structures, i.e. parse trees are more appropriate for computation).</p>
+</li>
+<li>
+<p>Access to patient data items are expressed within the syntax as symbolic queries.</p>
+</li>
+<li>
+<p>Actions, such as requests to the notification service are represented as symbolic commands.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The entire definition of a workflow is expressed as an optional parsable string, in the <code><em>wf_definition</em> : DV_PARSABLE</code> attribute of the <code>INSTRUCTION</code> class. Any syntax may currently be used. A workflow syntax is under development by the openEHR Foundation, which is designed to incorporate the relevant features of current workflow models and research, while integrating it into the openEHR type system and archetype framework. In particular, early versions of this syntax will show how patient data access and service commands can be expressed.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_class_descriptions"><a class="anchor" href="#_class_descriptions"></a><a class="link" href="#_class_descriptions">Class Descriptions</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Unresolved directive in entry_package.adoc - include::ROOT:partial$uml/{pkg}entry.adoc[]</p>
+</div>
+<div class="paragraph">
+<p>Unresolved directive in entry_package.adoc - include::ROOT:partial$uml/{pkg}admin_entry.adoc[]</p>
+</div>
+<div class="paragraph">
+<p>Unresolved directive in entry_package.adoc - include::ROOT:partial$uml/{pkg}care_entry.adoc[]</p>
+</div>
+<div class="paragraph">
+<p>Unresolved directive in entry_package.adoc - include::ROOT:partial$uml/{pkg}observation.adoc[]</p>
+</div>
+<div class="paragraph">
+<p>Unresolved directive in entry_package.adoc - include::ROOT:partial$uml/{pkg}evaluation.adoc[]</p>
+</div>
+<div class="paragraph">
+<p>Unresolved directive in entry_package.adoc - include::ROOT:partial$uml/{pkg}instruction.adoc[]</p>
+</div>
+<div class="paragraph">
+<p>Unresolved directive in entry_package.adoc - include::ROOT:partial$uml/{pkg}activity.adoc[]</p>
+</div>
+<div class="paragraph">
+<p>Unresolved directive in entry_package.adoc - include::ROOT:partial$uml/{pkg}action.adoc[]</p>
+</div>
+<div class="paragraph">
+<p>Unresolved directive in entry_package.adoc - include::ROOT:partial$uml/{pkg}instruction_details.adoc[]</p>
+</div>
+<div class="paragraph">
+<p>Unresolved directive in entry_package.adoc - include::ROOT:partial$uml/{pkg}ism_transition.adoc[]</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_instance_structures"><a class="anchor" href="#_instance_structures"></a><a class="link" href="#_instance_structures">Instance Structures</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The following subsections illustrate typical Entry instance structures. For guidance on how to best model particular clinical statements, see the archetype part of the <a href="https://www.openehr.org/ckm" target="_blank" rel="noopener">openEHR Clinical Knowledge Manager repository</a>.</p>
+</div>
+<div class="sect2">
+<h3 id="_observation_2"><a class="anchor" href="#_observation_2"></a><a class="link" href="#_observation_2">OBSERVATION</a></h3>
+<div class="sect3">
+<h4 id="_heartrate_measurement_series"><a class="anchor" href="#_heartrate_measurement_series"></a><a class="link" href="#_heartrate_measurement_series">Heartrate Measurement Series</a></h4>
+<div class="paragraph">
+<p>The following figure illustrates three heartrate measurements over 10 minutes.</p>
+</div>
+<div id="periodic_series" class="imageblock text-center text-center">
+<div class="content">
+<img src="../_images/diagrams/periodic_series.png" alt="periodic series" width="80%">
+</div>
+<div class="title">Figure 11. Periodic series instance structure</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_blood_pressure_with_protocol"><a class="anchor" href="#_blood_pressure_with_protocol"></a><a class="link" href="#_blood_pressure_with_protocol">Blood Pressure with Protocol</a></h4>
+<div class="paragraph">
+<p>The following figure illustrates a blood pressure observation with protocol.</p>
+</div>
+<div id="BP_measurement" class="imageblock text-center text-center">
+<div class="content">
+<img src="../_images/diagrams/BP_measurement.png" alt="BP measurement" width="70%">
+</div>
+<div class="title">Figure 12. Blood Pressure Measurement Observation</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_glucose_tolerance_test"><a class="anchor" href="#_glucose_tolerance_test"></a><a class="link" href="#_glucose_tolerance_test">Glucose Tolerance Test</a></h4>
+<div class="paragraph">
+<p>An oral glucose tolerance test takes the following form, although the number and timing of the blood sugar levels may be slightly different in practice:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>challenge: no calories fasting from 12pm to 8am</p>
+</li>
+<li>
+<p>datum: BSL - 8am</p>
+</li>
+<li>
+<p>challenge: 75 g glucose orally - 8:01 am</p>
+</li>
+<li>
+<p>datum: BSL - 9 am</p>
+</li>
+<li>
+<p>datum: BSL - 10 am</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>OGTT is treated as a single clinical concept, and thus requires only one archetype. A typical instance structure is shown in the figure below. In this example, the three blood sugars are represented by <code>EVENTs</code>, with the fasting and glucose challenges being expressed as states on the relevant events.</p>
+</div>
+<div id="OGTT_structure" class="imageblock text-center text-center">
+<div class="content">
+<img src="../_images/diagrams/OGTT_structure.png" alt="OGTT structure" width="80%">
+</div>
+<div class="title">Figure 13. OGTT instance structure</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_evaluation_2"><a class="anchor" href="#_evaluation_2"></a><a class="link" href="#_evaluation_2">EVALUATION</a></h3>
+<div class="sect3">
+<h4 id="_partial_asthma_management_plan"><a class="anchor" href="#_partial_asthma_management_plan"></a><a class="link" href="#_partial_asthma_management_plan">Partial Asthma Management Plan</a></h4>
+<div class="paragraph">
+<p>The following figure illustrates a partial asthma management plan in which monitoring (peak flow) with dependent actions (review and admission to ER) and therapy (bronchodilator) are shown. In a complete plan, symptom monitoring and other medications might be shown. The parts of the plan are linked to the root <code>EVALUATION</code> node via the <code><em>links</em></code>: <code>Set&lt;LINK&gt;</code> attribute inherited from the <code>LOCATABLE</code> class.</p>
+</div>
+<div id="partial_asthma_plan" class="imageblock text-center text-center">
+<div class="content">
+<img src="../_images/diagrams/partial_asthma_plan.png" alt="partial asthma plan" width="80%">
+</div>
+<div class="title">Figure 14. Partial Asthma Management Plan</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_instruction"><a class="anchor" href="#_instruction"></a><a class="link" href="#_instruction">INSTRUCTION</a></h3>
+<div class="sect3">
+<h4 id="_chained_medication_order"><a class="anchor" href="#_chained_medication_order"></a><a class="link" href="#_chained_medication_order">Chained Medication Order</a></h4>
+<div class="paragraph">
+<p>Often, a medication order for one drug consists of segments in which one or more of the administration details of route, form, frequency, dose etc is changed. In hospitals, intravenous antibiotics and pain relief drugs may be followed by a tablet form of the same drug to be taken orally. Other examples are common in general practice, such as the following order:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>trade name = Panafcortelone; generic name = Prednisolone; form = tablets; dose = 25mg; route = oral; freq = bd x 3 days; od x 2 days.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The figure below illustrates the instance structure for this Instruction. Note that the timing attribute of the <code>ACTIVITY</code> instance is shown in human-readable form; in reality it will be a GTS string or similar (see Timing Specification section of openEHR Data Types IM).</p>
+</div>
+<div id="chained_medication_order" class="imageblock text-center text-center">
+<div class="content">
+<img src="../_images/diagrams/chained_medication_order.png" alt="chained medication order" width="80%">
+</div>
+<div class="title">Figure 15. Chained medication order</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_multi_drug_therapy"><a class="anchor" href="#_multi_drug_therapy"></a><a class="link" href="#_multi_drug_therapy">Multi-drug Therapy</a></h4>
+<div class="paragraph">
+<p>A common regime for treating duodenal ulcer and related complaints is using Losec with other drugs, such as in the following combination:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Losec 40 mg od x 4w or until no symptoms</p>
+</li>
+<li>
+<p>amoxicillin 500 mg 3td x 7d</p>
+</li>
+<li>
+<p>metronidizole 400 mg 3td x 7d</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The Instruction for this therapy is illustrated below.</p>
+</div>
+<div id="multi_drug_therapy_instruction" class="imageblock text-center text-center">
+<div class="content">
+<img src="../_images/diagrams/multi_drug_therapy_instruction.png" alt="multi drug therapy instruction" width="80%">
+</div>
+<div class="title">Figure 16. Multi-drug therapy Instruction</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="../navigation_package/">Navigation Package</a></span>
+  <span class="next"><a href="../glossary/">Glossary</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>
+    Copyright: © 2003+
+    <a href="https://www.openehr.org"
+        alt="is an independent, non-profit foundation, facilitating the sharing of health
+           records by consumers and clinicians via open specifications, clinical models
+           and open platform implementations.">The openEHR Foundation</a>
+  </p>
+
+  <p>
+    License:
+    <img src="/_/img/cc-by-nd-88x31.png"
+        alt="Creative Commons Attribution-NoDerivs 3.0 Unported."
+        style="vertical-align:middle;margin:0 0.25rem 0 0;">
+    <a href="https://creativecommons.org/licenses/by-nd/3.0/">
+      Creative Commons Attribution-NoDerivs 3.0 Unported.
+    </a>
+  </p>
+
+  <p>
+    <strong>Links: <strong>
+    <a href="https://www.openehr.org/terms-of-use" class="mr-1">Terms of use</a> |
+    <a href="https://www.openehr.org/privacy-policy" class="mx-1">Privacy policy</a> |
+    <a href="https://www.openehr.org/privacy-policy" class="mx-1">Logos &amp; Trademarks</a> |
+    <a href="https://www.openehr.org/contact-us" class="mx-1">Contact</a>
+  </p>
+</footer>
+
+<script id="site-script" src="../../../../_/js/site.js" data-ui-root-path="../../../../_"></script>
+<script async src="../../../../_/js/vendor/highlight.js"></script>
+<script src="../../../../_/js/vendor/lunr.js"></script>
+<script src="../../../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../../../.." data-snippet-length="80" data-stylesheet="../../../../_/css/search.css"></script>
+<script async src="../../../../search-index.js"></script>
+<script src="../../../../_/js/medium-zoom.min.js"></script>
+<script src="../../../../_/js/zoom.js"></script>
+  </body>
+</html>

@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+    <title>Archetype Definition Language 2 (ADL2) :: openEHR Specifications (Local Build)</title>
+    <link rel="canonical" href="https://sebastian-iancu.github.io/antora-openehr/AM/latest/ADL2/">
+    <link rel="prev" href="../ADL1.4/amendment_record/">
+    <link rel="next" href="preface/">
+    <meta name="description" content="openEHR Archetype Definition Language 2 (ADL2)">
+    <meta name="keywords" content="EHR, ADL, AOM, health records, archetypes, constraint language, ISO 13606, openehr">
+    <meta name="generator" content="Antora 3.1.14">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+    <link rel="stylesheet" href="../../../_/css/antora-openehr.css">
+    <link rel="stylesheet" href="../../../_/css/openehr.css">
+<link rel="icon" href="../../../_/img/favicon.ico" type="image/x-icon">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://sebastian-iancu.github.io/antora-openehr">openEHR Specifications (Local Build)</a>
+
+      <div class="navbar-item search hide-for-print">
+        <div id="search-field" class="field has-filter">
+          <input id="search-input" type="text" placeholder="Search the docs">
+          <label class="filter checkbox">
+            <input type="checkbox" data-facet-filter="component:AM"> Archetype Model only
+          </label>
+        </div>
+      </div>
+
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">Specifications</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://specifications.openehr.org/" target="_blank">
+              openEHR specification
+            </a>
+            <a class="navbar-item" href="https://specifications.openehr.org/releases/UML/development/index.html" target="_blank">
+              openEHR portal
+            </a>
+            <a class="navbar-item" href="https://ckm.openehr.org/ckm/" target="_blank">
+              openEHR CKM
+            </a>
+          </div>
+        </div>
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">Community</a>
+          <div class="navbar-dropdown is-right">
+            <a class="navbar-item" href="https://openehr.atlassian.net/secure/Dashboard.jspa?selectPageId=10190" target="_blank">
+              Issue trackers
+            </a>
+            <a class="navbar-item" href="https://discourse.openehr.org/" target="_blank">
+              Discourse Forum
+            </a>
+            <a class="navbar-item" href="https://specifications.openehr.org/wiki/display/spec/Specifications+Home" target="_blank">
+              Wiki
+            </a>
+            <a class="navbar-item" href="https://github.com/openEHR" target="_blank">
+              GitHub
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="AM" data-version="development">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="../">Archetype Model</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../">Overview</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../ADL1.4/">{spec_title}</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../ADL1.4/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item is-current-page" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="./">{spec_title}</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="overview/">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="file_encoding/">File Encoding and Character Quoting</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="master04.1-cadl_overview/">cADL - Constraint ADL</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="master04.2-cadl_basics/">Master04.2-Cadl Basics</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="master04.3-cadl_complex_types/">Master04.3-Cadl Complex Types</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="master04.4-cadl_second_order/">Master04.4-Cadl Second Order</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="master04.5-cadl_primitive_types/">Master04.5-Cadl Primitive Types</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="master04.6-cadl_validity_rules/">Master04.6-Cadl Validity Rules</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="paths/">ADL Paths</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="default_values/">Default Values</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="master07.01-adl_introduction/">ADL - Archetype Definition Language</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="master07.02-adl_conventions/">Master07.02-Adl Conventions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="master07.03-adl_artefacts/">Master07.03-Adl Artefacts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="master07.04-adl_basics/">Master07.04-Adl Basics</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="master07.05-adl_identification/">Master07.05-Adl Identification</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="master07.06-adl_specialise/">Master07.06-Adl Specialise</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="master07.07-adl_language/">Master07.07-Adl Language</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="master07.08-adl_description/">Master07.08-Adl Description</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="master07.09-adl_deprecated/">Master07.09-Adl Deprecated</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="master07.10-adl_definition/">Master07.10-Adl Definition</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="master07.11-adl_rules/">Master07.11-Adl Rules</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="master07.12-adl_rm_overlay/">Master07.12-Adl Rm Overlay</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="master07.13-adl_terminology/">Master07.13-Adl Terminology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="master07.14-adl_annotations/">Master07.14-Adl Annotations</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="terminology_integration/">Terminology Integration</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="master09.01-spec_overview/">Specialisation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="master09.02-spec_concepts/">Master09.02-Spec Concepts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="master09.03-spec_examples/">Master09.03-Spec Examples</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="master09.04-spec_attrib_redef/">Master09.04-Spec Attrib Redef</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="master09.05-spec_object_redef/">Master09.05-Spec Object Redef</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="master09.06-spec_rules/">Master09.06-Spec Rules</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="master09.07-spec_languages/">Master09.07-Spec Languages</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="master09.08-spec_description/">Master09.08-Spec Description</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="master09.09-spec_terminology/">Master09.09-Spec Terminology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="master09.10-spec_bindings/">Master09.10-Spec Bindings</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="templates/">Templates</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="other_formalisms/">Relationship of ADL to Other Formalisms</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="masterAppB-syntax_spec/">Syntax Specification</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../AOM1.4/">{spec_title}</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../AOM1.4/preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../AOM1.4/model_overview/">The Archetype Object Model</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../AOM1.4/archetype_package/">The Archetype Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../AOM1.4/constraint_model_package/">Constraint Model Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../AOM1.4/assertion_package/">The Assertion Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../AOM1.4/primitive_package/">Primitive Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../AOM1.4/ontology_package/">Terminology Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../AOM1.4/domain_extension/">Domain-specific Extension Example</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../AOM1.4/masterAppB-diverse_reference_models/">Using Archetypes with Diverse Reference Models</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../AOM1.4/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../AOM2/">{spec_title}</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../AOM2/preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../AOM2/model_overview/">Model Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../AOM2/archetype_package/">The Archetype Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../AOM2/master04.1-constraint_model-overview/">Constraint Model Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../AOM2/master04.2-constraint_model-semantics/">Master04.2-Constraint Model-Semantics</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../AOM2/master04.3-constraint_model-second_order/">Master04.3-Constraint Model-Second Order</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../AOM2/master04.4-constraint_model-AOM_type_subs/">Master04.4-Constraint Model-AOM Type Subs</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../AOM2/master04.5-constraint_model-class_definitions/">Master04.5-Constraint Model-Class Definitions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../AOM2/rules_package/">The Rules Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../AOM2/rm_overlay/">The RM Overlay Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../AOM2/terminology_package/">Terminology Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../AOM2/validation/">Validation and Transformation Semantics</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../AOM2/serialisation_model/">Serialisation Model</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../AOM2/templates/">Templates</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../AOM2/rm_adaptation/">Reference Model Adaptation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../AOM2/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../Identification/">{spec_title}</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../Identification/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="#index.adoc">Language Design</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../OPT2/">{spec_title}</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../OPT2/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../Overview/">{spec_title}</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../Overview/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Archetype Model</span>
+    <span class="version">development</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <div class="title"><a href="../../latest/">Archetype Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../latest/">Release-2.3.0</a>
+        </li>
+        <li class="version">
+          <a href="../../Release-2.2.0/">Release-2.2.0</a>
+        </li>
+        <li class="version is-current">
+          <a href="../">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../BASE/latest/">Base Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../BASE/latest/">Release-1.2.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../BASE/Release-1.1.0/">Release-1.1.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../BASE/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../RM/latest/">Reference Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../RM/latest/">Release-1.1.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../RM/Release-1.0.4/">Release-1.0.4</a>
+        </li>
+        <li class="version">
+          <a href="../../../RM/development/">development</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../BASE/latest/" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../">Archetype Model</a></li>
+    <li><a href="./">{spec_title}</a></li>
+  </ul>
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">development</button>
+  <div class="version-menu">
+    <a class="version" href="../../latest/ADL2/">Release-2.3.0</a>
+    <a class="version" href="../../Release-2.2.0/ADL2/">Release-2.2.0</a>
+    <a class="version is-current" href="./">development</a>
+  </div>
+</div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Archetype Definition Language 2 (ADL2)</h1>
+<div class="sect1">
+<h2 id="_acknowledgements"><a class="anchor" href="#_acknowledgements"></a><a class="link" href="#_acknowledgements">Acknowledgements</a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_primary_author"><a class="anchor" href="#_primary_author"></a><a class="link" href="#_primary_author">Primary Author</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Thomas Beale, Ars Semantica, UK; openEHR International Board.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_contributors"><a class="anchor" href="#_contributors"></a><a class="link" href="#_contributors">Contributors</a></h3>
+<div class="paragraph">
+<p>This specification and its sibling Archetype Definition Language specification have benefited from formal and informal input from the openEHR and wider health informatics community. The openEHR Foundation would like to recognise the following people for their contributions.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Seref Arikan, MEcon, Ocean Informatics UK, Centre for Health Informatics and Multi-professional Education (CHIME), UCL, UK</p>
+</li>
+<li>
+<p>John Arnett, NHS Connecting for Health, UK</p>
+</li>
+<li>
+<p>Koray Atalag PhD, University of Auckland, NZ</p>
+</li>
+<li>
+<p>Tony Austin PhD, Centre for Health Informatics and Multi-professional Education (CHIME), UCL, UK</p>
+</li>
+<li>
+<p>Silje Ljosland Bakke, RN, Nasjonal IKT HF, Norway</p>
+</li>
+<li>
+<p>Pieter Bos, Software Engineer, Nedap, Netherlands</p>
+</li>
+<li>
+<p>Eric Browne PhD, HealthBase Australia</p>
+</li>
+<li>
+<p>Rong Chen MD, PhD, Cambio Heath Systems, Sweden</p>
+</li>
+<li>
+<p>Joey Coyle MD, PhD, Intermountain Healthcare, New York</p>
+</li>
+<li>
+<p>Borut Fabjan, Program Manager, Better d.o.o., Slovenia</p>
+</li>
+<li>
+<p>Adam Flinton, NHS Connecting for Health, UK</p>
+</li>
+<li>
+<p>Matias Forss MSc, Institute of Technology, Linköping University, Sweden</p>
+</li>
+<li>
+<p>Sebastian Garde, PhD, Ocean Informatics, Germany</p>
+</li>
+<li>
+<p>Andrew Goodchild PhD, Distributed Systems Technology Centre, Australia</p>
+</li>
+<li>
+<p>Peter Gummer MSc, Ocean Informatics</p>
+</li>
+<li>
+<p>Sam Heard MD, Ocean Informatics</p>
+</li>
+<li>
+<p>Mark Kramer, Division Chief Engineer, Health Technology Center, The Mitre Corporation, USA</p>
+</li>
+<li>
+<p>Patrick Langford, NeuronSong LLC</p>
+</li>
+<li>
+<p>Jose Alberto Maldondo PhD, Universitat Politècnica de València, Spain</p>
+</li>
+<li>
+<p>David Moner PhD, Universitat Politècnica de València, Spain</p>
+</li>
+<li>
+<p>Isabel Román Martínez PhD, Universitat de Sevilla, Spain</p>
+</li>
+<li>
+<p>Ian McNicoll MD, MSc, Ocean Informatics UK</p>
+</li>
+<li>
+<p>Claude Nanjo MA African Studies, M Public Health, Cognitive Medical Systems Inc., California</p>
+</li>
+<li>
+<p>Andrew Patterson PhD, LLM, Federation Health Software, Australia</p>
+</li>
+<li>
+<p>Ognian Pishev PhD, Australia, Ocean Informatics</p>
+</li>
+<li>
+<p>Rahil Qamar Siddiqui PhD, NHS Health &amp; Social Care Information Centre, UK</p>
+</li>
+<li>
+<p>Prof Alan Rector MD, PhD, University of Manchester, UK</p>
+</li>
+<li>
+<p>Harold Solbrig MSc, Mayo Clinic, Rochester, USA</p>
+</li>
+<li>
+<p>Alessandro Torrisi, Code24, Netherlands</p>
+</li>
+<li>
+<p>Zar Zar Tun, Distributed Systems Technology Centre, Australia</p>
+</li>
+<li>
+<p>Bert Verhees, ROSA Software, The Netherlands.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Thanks to Sebastian Garde, Central Qld University, Australia, for German translations.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_trademarks"><a class="anchor" href="#_trademarks"></a><a class="link" href="#_trademarks">Trademarks</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p>'Microsoft' and '.Net' are registered trademarks of the Microsoft Corporation.</p>
+</li>
+<li>
+<p>'Java' is a registered trademark of Oracle Corporation</p>
+</li>
+<li>
+<p>'Linux' is a registered trademark of Linus Torvalds.</p>
+</li>
+<li>
+<p>'openEHR' is a registered trademark of The openEHR Foundation</p>
+</li>
+<li>
+<p>'SNOMED CT' is a registered trademark of IHTSDO</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_supporters"><a class="anchor" href="#_supporters"></a><a class="link" href="#_supporters">Supporters</a></h3>
+<div class="paragraph">
+<p>The work reported in this paper has been funded by the following organisations:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>the <a href="https://www.openehr.org/community/industry_partners/" target="_blank" rel="noopener">openEHR Industry Partners</a>;</p>
+</li>
+<li>
+<p>Ars Semantica, UK;</p>
+</li>
+<li>
+<p>UCL (University College London) - Centre for Health Informatics and Multiprofessional Education (CHIME);</p>
+</li>
+<li>
+<p>Ocean Informatics, Australia.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Special thanks to Prof David Ingram, founding Director of CHIME, UCL, who provided a vision and collegial working environment ever since the days of GEHR (1992).</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_references"><a class="anchor" href="#_references"></a><a class="link" href="#_references">References</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>bibliography::[]</p>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="../ADL1.4/amendment_record/">Amendment Record</a></span>
+  <span class="next"><a href="preface/">Preface</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>
+    Copyright: © 2003+
+    <a href="https://www.openehr.org"
+        alt="is an independent, non-profit foundation, facilitating the sharing of health
+           records by consumers and clinicians via open specifications, clinical models
+           and open platform implementations.">The openEHR Foundation</a>
+  </p>
+
+  <p>
+    License:
+    <img src="/_/img/cc-by-nd-88x31.png"
+        alt="Creative Commons Attribution-NoDerivs 3.0 Unported."
+        style="vertical-align:middle;margin:0 0.25rem 0 0;">
+    <a href="https://creativecommons.org/licenses/by-nd/3.0/">
+      Creative Commons Attribution-NoDerivs 3.0 Unported.
+    </a>
+  </p>
+
+  <p>
+    <strong>Links: <strong>
+    <a href="https://www.openehr.org/terms-of-use" class="mr-1">Terms of use</a> |
+    <a href="https://www.openehr.org/privacy-policy" class="mx-1">Privacy policy</a> |
+    <a href="https://www.openehr.org/privacy-policy" class="mx-1">Logos &amp; Trademarks</a> |
+    <a href="https://www.openehr.org/contact-us" class="mx-1">Contact</a>
+  </p>
+</footer>
+
+<script id="site-script" src="../../../_/js/site.js" data-ui-root-path="../../../_"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+<script src="../../../_/js/vendor/lunr.js"></script>
+<script src="../../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../../.." data-snippet-length="80" data-stylesheet="../../../_/css/search.css"></script>
+<script async src="../../../search-index.js"></script>
+<script src="../../../_/js/medium-zoom.min.js"></script>
+<script src="../../../_/js/zoom.js"></script>
+  </body>
+</html>

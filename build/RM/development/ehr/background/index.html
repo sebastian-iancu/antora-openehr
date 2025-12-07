@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+    <title>Background :: openEHR Specifications (Local Build)</title>
+    <link rel="canonical" href="https://sebastian-iancu.github.io/antora-openehr/RM/latest/ehr/background/">
+    <link rel="prev" href="../preface/">
+    <link rel="next" href="../ehr_information_model/">
+    <meta name="description" content="openEHR EHR Information Model specification">
+    <meta name="keywords" content="EHR, EMR, reference model, openehr">
+    <meta name="generator" content="Antora 3.1.14">
+    <link rel="stylesheet" href="../../../../_/css/site.css">
+    <link rel="stylesheet" href="../../../../_/css/antora-openehr.css">
+    <link rel="stylesheet" href="../../../../_/css/openehr.css">
+<link rel="icon" href="../../../../_/img/favicon.ico" type="image/x-icon">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://sebastian-iancu.github.io/antora-openehr">openEHR Specifications (Local Build)</a>
+
+      <div class="navbar-item search hide-for-print">
+        <div id="search-field" class="field has-filter">
+          <input id="search-input" type="text" placeholder="Search the docs">
+          <label class="filter checkbox">
+            <input type="checkbox" data-facet-filter="component:RM"> Reference Model only
+          </label>
+        </div>
+      </div>
+
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">Specifications</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://specifications.openehr.org/" target="_blank">
+              openEHR specification
+            </a>
+            <a class="navbar-item" href="https://specifications.openehr.org/releases/UML/development/index.html" target="_blank">
+              openEHR portal
+            </a>
+            <a class="navbar-item" href="https://ckm.openehr.org/ckm/" target="_blank">
+              openEHR CKM
+            </a>
+          </div>
+        </div>
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">Community</a>
+          <div class="navbar-dropdown is-right">
+            <a class="navbar-item" href="https://openehr.atlassian.net/secure/Dashboard.jspa?selectPageId=10190" target="_blank">
+              Issue trackers
+            </a>
+            <a class="navbar-item" href="https://discourse.openehr.org/" target="_blank">
+              Discourse Forum
+            </a>
+            <a class="navbar-item" href="https://specifications.openehr.org/wiki/display/spec/Specifications+Home" target="_blank">
+              Wiki
+            </a>
+            <a class="navbar-item" href="https://github.com/openEHR" target="_blank">
+              GitHub
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="RM" data-version="development">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="../../">Reference Model</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../">Overview</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../common/">{spec_title}</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../common/preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../common/overview/">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../common/archetyped_package/">Archetyped Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../common/generic_package/">Generic Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../common/directory_package/">Directory Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../common/change_control_package/">Change Control Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../common/tags/">Tags Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../common/resource_package/">Resource Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../common/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../data_structures/">{spec_title}</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_structures/preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_structures/background/">Background</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_structures/overview/">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_structures/item_structure_package/">Item Structure Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_structures/representation_package/">Representation Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_structures/history_package/">History Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_structures/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../data_types/">{spec_title}</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_types/preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_types/background/">Background</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_types/introduction/">Introduction</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_types/basic_package/">Basic Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_types/text_package/">Text Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_types/quantity_package/">Quantity Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_types/date_time_package/">Date Time Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_types/time_specification_package/">Time_specification Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_types/encapsulated_package/">Encapsulated Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_types/uri_package/">Uri Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_types/implem_strategies/">Implementation Strategies</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_types/comparison_HL7/">Comparison with HL7v3 Types</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_types/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../demographic/">{spec_title}</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../demographic/preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../demographic/demographic_package/">Demographic package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../demographic/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../">{spec_title}</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../preface/">Preface</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="./">Background</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../ehr_information_model/">The EHR Information Model</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../ehr_package/">EHR Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../composition_package/">Composition Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../content_package/">Content Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../navigation_package/">Navigation Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../entry_package/">Entry Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../glossary/">Glossary</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../ehr_extract/">{spec_title}</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr_extract/preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr_extract/requirements/">Requirements</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr_extract/design_overview/">Design Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr_extract/common_package/">Extract.common Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr_extract/openehr_extract_package/">The openehr_extract Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr_extract/generic_extract_package/">Generic_extract Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr_extract/synchronisation_package/">Synchronisation Extracts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr_extract/message_package/">The Message package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr_extract/semantics/">Semantics of openEHR and ISO 13606 extracts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr_extract/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../entity/">{spec_title}</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entity/preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entity/overview/">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entity/entity/">Upper Entity Model</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entity/physical_entity/">Physical Entity Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entity/social_entity/">Social Entity Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entity/social_entity-party/">Party Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entity/social_entity-asset/">Asset Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entity/resource/">Resource Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entity/registry/">Registry Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entity/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../integration/">{spec_title}</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../integration/preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../integration/integration_package/">Integration Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../integration/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../support/">{spec_title}</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../support/preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../support/support_package/">Support Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../support/assumed_types/">Assumed Types</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../support/identification_package/">Identification Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../support/terminology_package/">Terminology Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../support/measurement_package/">Measurement Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../support/definition_package/">Definition Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../support/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Reference Model</span>
+    <span class="version">development</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <div class="title"><a href="../../../../AM/latest/">Archetype Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../AM/latest/">Release-2.3.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../AM/Release-2.2.0/">Release-2.2.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../AM/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../BASE/latest/">Base Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../BASE/latest/">Release-1.2.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../BASE/Release-1.1.0/">Release-1.1.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../BASE/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <div class="title"><a href="../../../latest/">Reference Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../latest/">Release-1.1.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../Release-1.0.4/">Release-1.0.4</a>
+        </li>
+        <li class="version is-current">
+          <a href="../../">development</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../../BASE/latest/" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../../">Reference Model</a></li>
+    <li><a href="../">{spec_title}</a></li>
+    <li><a href="./">Background</a></li>
+  </ul>
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">development</button>
+  <div class="version-menu">
+    <a class="version" href="../../../latest/ehr/background/">Release-1.1.0</a>
+    <a class="version" href="../../../Release-1.0.4/ehr/background/">Release-1.0.4</a>
+    <a class="version is-current" href="./">development</a>
+  </div>
+</div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Background</h1>
+<div class="sect1">
+<h2 id="_requirements"><a class="anchor" href="#_requirements"></a><a class="link" href="#_requirements">Requirements</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>There are broadly three sets of requirements which inform this model, as described in the following subsections.</p>
+</div>
+<div class="sect2">
+<h3 id="_original_gehr_requirements"><a class="anchor" href="#_original_gehr_requirements"></a><a class="link" href="#_original_gehr_requirements">Original GEHR Requirements</a></h3>
+<div class="paragraph">
+<p>From the European GEHR project 1992-5 cite:[Ingram1995], the following broad requirements areas were identified:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>the life-long EHR;</p>
+</li>
+<li>
+<p>priority: Clinician / Patient interaction;</p>
+</li>
+<li>
+<p>medico-legal faithfulness, traceability, audit-trailing;</p>
+</li>
+<li>
+<p>technology &amp; data format independent;</p>
+</li>
+<li>
+<p>facilitate sharing of EHRs;</p>
+</li>
+<li>
+<p>suitable for both primary &amp; acute care;</p>
+</li>
+<li>
+<p>secondary uses: education, research, population medicine;</p>
+</li>
+<li>
+<p>open standard &amp; software deliverables;</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The original deliverables can be reviewed in detail at the GEHR page at CHIME, UCL.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_gehr_australia_requirements"><a class="anchor" href="#_gehr_australia_requirements"></a><a class="link" href="#_gehr_australia_requirements">GEHR Australia Requirements</a></h3>
+<div class="paragraph">
+<p>The GEHR Australia project (1997-2001; citenp:[GeHR_Aus_GPCG], citenp:[GeHR_Aus2001]) introduced further requirements, including:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>support for clinical data structures: lists, tables, time-series etc;</p>
+</li>
+<li>
+<p>safer information model than the original (European) GEHR: context attributes only in valid places (but still similar style);</p>
+</li>
+<li>
+<p>separate groups for "persistent", "demographic" and "event" information in EHR, which corresponds closely to real clinical querying patterns;</p>
+</li>
+<li>
+<p>introduction of formally specified archetypes, and archetype-enabled information model;</p>
+</li>
+<li>
+<p>interoperability at the knowledge level, i.e. level of domain definitions of information such as "discharge summary" and "biochemistry result";</p>
+</li>
+<li>
+<p>XML-enabled;</p>
+</li>
+<li>
+<p>consider compatibility with <a href="https://www.iso.org/standard/40784.html" target="_blank" rel="noopener">ISO 13606</a>, <a href="https://www.omg.org/spec/COAS/" target="_blank" rel="noopener">OMG Corbamed</a>, <a href="https://www.hl7.org/implement/standards/product_brief.cfm?product_id=186" target="_blank" rel="noopener">HL7v3</a>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>GEHR Australia produced a proof of concept implementation in which clinical archetypes were developed and used. See citenp:[Beale2000] for a technical description of archetypes.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_european_synapses_and_synex_project_requirements"><a class="anchor" href="#_european_synapses_and_synex_project_requirements"></a><a class="link" href="#_european_synapses_and_synex_project_requirements">European Synapses and SynEx Project Requirements</a></h3>
+<div class="paragraph">
+<p>Following the original Good European Health Record project the EU-funded Synapses (1996-8; citenp:[Synapses_Req_B]) and SynEx (1998-2000; citenp:[Sottile1999]) projects extended the original requirements basis of GEHR to include further requirements, as follows:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>the requirements of a federation approach to unifying disparate clinical databases and EPR systems: the federated health record (FHR) cite:[Synapses_Req_A];</p>
+</li>
+<li>
+<p>the need to separate a generic and domain independent high-level model for the federated health record from the (closely related) model of the meta-data which defines the domain specific health record characteristics of any given clinical specialty and any given federation of database schemata;</p>
+</li>
+<li>
+<p>a formalism to define and communicate (share) knowledge about the semantic hierarchical organisation of an FHR, the permitted data values associated with each leaf node in a record hierarchy and any constraints on values that leaf nodes may take (the Synapses Object Dictionary, citenp:[Synapses_ODP]);</p>
+</li>
+<li>
+<p>the core technical requirements of and interfaces for a federation middleware service cite:[Synapses_Req_B].</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_european_ehcr_support_action_requirements"><a class="anchor" href="#_european_ehcr_support_action_requirements"></a><a class="link" href="#_european_ehcr_support_action_requirements">European EHCR Support Action Requirements</a></h3>
+<div class="paragraph">
+<p>This EU Support Action project ('SupA'; citenp:[EHCR_supA1998], citenp:[EHCR_supA2000a], citenp:[EHCR_supA2000b]) consolidated the requirements published by a wide range of European projects and national health informatics organisations as a Consolidated List of Requirements cite:[EHCR_supA2001].</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_iso_ehr_requirements"><a class="anchor" href="#_iso_ehr_requirements"></a><a class="link" href="#_iso_ehr_requirements">ISO EHR Requirements</a></h3>
+<div class="paragraph">
+<p>The above requirements publications and the recent experience of openEHR feed into the definition of a set of EHR requirements authored by ISO Technical Committee 215 (Health Informatics) - <a href="https://www.iso.org/standard/52823.html" target="_blank" rel="noopener">ISO 18308</a>. This has been reviewed and a <a href="https://specifications.openehr.org/releases/1.0.2/architecture/requirements/iso18308_conformance.pdf" target="_blank" rel="noopener">mapping to openEHR</a> developed.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_openehr_requirements"><a class="anchor" href="#_openehr_requirements"></a><a class="link" href="#_openehr_requirements">openEHR Requirements</a></h3>
+<div class="paragraph">
+<p>New requirements generated during the development of openEHR included the following:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>major improvements in information models from the point of view of reducing progammer errors and ambiguity;</p>
+</li>
+<li>
+<p>better modelling of time and context (temporal/spatial approach);</p>
+</li>
+<li>
+<p>better understanding of legacy system / federation problem;</p>
+</li>
+<li>
+<p>workflow modelling;</p>
+</li>
+<li>
+<p>harmonise with ISO 13606;</p>
+</li>
+<li>
+<p>integration with HL7v2 and other messaging systems;</p>
+</li>
+<li>
+<p>numerous specific clinical requirements.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_relationship_to_other_health_information_models"><a class="anchor" href="#_relationship_to_other_health_information_models"></a><a class="link" href="#_relationship_to_other_health_information_models">Relationship to other Health Information Models</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Where relevant, the correspondences to other information models have been documented in this specification. Correspondences to the GEHR Australia and EU Synapses/SynEx models are shown, since these are the models on which the openEHR EHR information model is primarily based. The following sections summarise the other models and standards with which correspondences are shown.</p>
+</div>
+<div class="sect2">
+<h3 id="_iso_13606"><a class="anchor" href="#_iso_13606"></a><a class="link" href="#_iso_13606">ISO 13606</a></h3>
+<div class="paragraph">
+<p>These models have been influenced by and have also influenced the models in ISO 13606 (2005 revision); accordingly, relationships to 13606 have been documented fairly precisely. Particular areas of openEHR which have been changed due to this process include:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>change of major class names (<code>TRANSACTION</code> &#8594; <code>COMPOSITION</code> etc; see CR-000013);</p>
+</li>
+<li>
+<p>improved model of <code>ATTESTATION</code> (see CR-000025);</p>
+</li>
+<li>
+<p>improved model of feeder audits (see CR-000027).</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Implementation experience with Release 0.9 and 0.95 of openEHR has further improved these areas significantly. Nevertheless, openEHR is not a copy of CEN, for two reasons. Firstly, its scope includes systems, while ISO 13606 defines an EHR Extract; secondly, ISO 13606 suffers somewhat from 'design by committee", and has no formal validation mechanism for its models.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_hl7_version_3"><a class="anchor" href="#_hl7_version_3"></a><a class="link" href="#_hl7_version_3">HL7 Version 3</a></h3>
+<div class="paragraph">
+<p>Correspondences to some parts of HL7 version 3 (ballot 5, July 2003) are also documented where possible, however, it should be understood that there are a number of difficulties with this. Firstly, while the HL7v3 Reference Information Model (RIM) - the closest HL7 artifact to an information model - provides similar data types and some related semantics, it is not intended to be a model of the EHR. In fact, it differs from the information model presented here (and for that matter most published information models) in two basic respects: a) it is an amalgam of semantics from many systems which would exist in a distributed health information environment, rather than a model of just one (the EHR); b) it is also not a model of data, but a combination of "analysis patterns" in the sense of citenp:[Fowler1997] from which further specific models - subschemas - are developed by a custom process of "refinement by restriction", in order to arrive at message definitions. As a consequence, data in messages are not instances of HL7v3 RIM classes, as would be the case in other systems based on information models of the kind presented here.</p>
+</div>
+<div class="paragraph">
+<p>Despite the differences, there are some areas that appear to be candidates for mapping, specifically the data types and terminology use, and the correspondence between openEHR Compositions and parts of the <a href="https://www.hl7.org/implement/standards/product_brief.cfm?product_id=7" target="_blank" rel="noopener">HL7 Clinical Document Architecture (CDA)</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_omg_hdtf"><a class="anchor" href="#_omg_hdtf"></a><a class="link" href="#_omg_hdtf">OMG HDTF</a></h3>
+<div class="paragraph">
+<p>In general, the openEHR information models represent a more recent analysis of the required semantics of EHR and related information than can be found in the information viewpoint of the OMG HDTF specifications (particularly <a href="https://www.omg.org/spec/PIDS/">OMG PIDS</a> and <a href="https://www.omg.org/spec/COAS/">OMG COAS</a>. However, the computational viewpoint (i.e. functional service interface definitions) is one of the inputs to the openEHR service model development activity.</p>
+</div>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="../preface/">Preface</a></span>
+  <span class="next"><a href="../ehr_information_model/">The EHR Information Model</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>
+    Copyright: © 2003+
+    <a href="https://www.openehr.org"
+        alt="is an independent, non-profit foundation, facilitating the sharing of health
+           records by consumers and clinicians via open specifications, clinical models
+           and open platform implementations.">The openEHR Foundation</a>
+  </p>
+
+  <p>
+    License:
+    <img src="/_/img/cc-by-nd-88x31.png"
+        alt="Creative Commons Attribution-NoDerivs 3.0 Unported."
+        style="vertical-align:middle;margin:0 0.25rem 0 0;">
+    <a href="https://creativecommons.org/licenses/by-nd/3.0/">
+      Creative Commons Attribution-NoDerivs 3.0 Unported.
+    </a>
+  </p>
+
+  <p>
+    <strong>Links: <strong>
+    <a href="https://www.openehr.org/terms-of-use" class="mr-1">Terms of use</a> |
+    <a href="https://www.openehr.org/privacy-policy" class="mx-1">Privacy policy</a> |
+    <a href="https://www.openehr.org/privacy-policy" class="mx-1">Logos &amp; Trademarks</a> |
+    <a href="https://www.openehr.org/contact-us" class="mx-1">Contact</a>
+  </p>
+</footer>
+
+<script id="site-script" src="../../../../_/js/site.js" data-ui-root-path="../../../../_"></script>
+<script async src="../../../../_/js/vendor/highlight.js"></script>
+<script src="../../../../_/js/vendor/lunr.js"></script>
+<script src="../../../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../../../.." data-snippet-length="80" data-stylesheet="../../../../_/css/search.css"></script>
+<script async src="../../../../search-index.js"></script>
+<script src="../../../../_/js/medium-zoom.min.js"></script>
+<script src="../../../../_/js/zoom.js"></script>
+  </body>
+</html>

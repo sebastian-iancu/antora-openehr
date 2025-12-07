@@ -1,0 +1,1536 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+    <title>Text Package :: openEHR Specifications (Local Build)</title>
+    <link rel="canonical" href="https://sebastian-iancu.github.io/antora-openehr/RM/latest/data_types/text_package/">
+    <link rel="prev" href="../basic_package/">
+    <link rel="next" href="../quantity_package/">
+    <meta name="description" content="openEHR Data Types Information Model specification">
+    <meta name="keywords" content="EHR, clinical, data types, openehr">
+    <meta name="generator" content="Antora 3.1.14">
+    <link rel="stylesheet" href="../../../../_/css/site.css">
+    <link rel="stylesheet" href="../../../../_/css/antora-openehr.css">
+    <link rel="stylesheet" href="../../../../_/css/openehr.css">
+<link rel="icon" href="../../../../_/img/favicon.ico" type="image/x-icon">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://sebastian-iancu.github.io/antora-openehr">openEHR Specifications (Local Build)</a>
+
+      <div class="navbar-item search hide-for-print">
+        <div id="search-field" class="field has-filter">
+          <input id="search-input" type="text" placeholder="Search the docs">
+          <label class="filter checkbox">
+            <input type="checkbox" data-facet-filter="component:RM"> Reference Model only
+          </label>
+        </div>
+      </div>
+
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">Specifications</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://specifications.openehr.org/" target="_blank">
+              openEHR specification
+            </a>
+            <a class="navbar-item" href="https://specifications.openehr.org/releases/UML/development/index.html" target="_blank">
+              openEHR portal
+            </a>
+            <a class="navbar-item" href="https://ckm.openehr.org/ckm/" target="_blank">
+              openEHR CKM
+            </a>
+          </div>
+        </div>
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">Community</a>
+          <div class="navbar-dropdown is-right">
+            <a class="navbar-item" href="https://openehr.atlassian.net/secure/Dashboard.jspa?selectPageId=10190" target="_blank">
+              Issue trackers
+            </a>
+            <a class="navbar-item" href="https://discourse.openehr.org/" target="_blank">
+              Discourse Forum
+            </a>
+            <a class="navbar-item" href="https://specifications.openehr.org/wiki/display/spec/Specifications+Home" target="_blank">
+              Wiki
+            </a>
+            <a class="navbar-item" href="https://github.com/openEHR" target="_blank">
+              GitHub
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="RM" data-version="Release-1.0.4">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="../../">Reference Model</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../">Overview</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../common/">Common Information Model</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../common/preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../common/overview/">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../common/archetyped_package/">Archetyped Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../common/generic_package/">Generic Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../common/directory_package/">Directory Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../common/change_control_package/">Change Control Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../common/resource_package/">Resource Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../common/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../data_structures/">Data Structures Information Model</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_structures/preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_structures/background/">Background</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_structures/overview/">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_structures/item_structure_package/">Item Structure Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_structures/representation_package/">Representation Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_structures/history_package/">History Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_structures/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../">Data Types Information Model</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../background/">Background</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../introduction/">Introduction</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../basic_package/">Basic Package</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="./">Text Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../quantity_package/">Quantity Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../date_time_package/">Date Time Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../time_specification_package/">Time_specification Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../encapsulated_package/">Encapsulated Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../uri_package/">Uri Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../implem_strategies/">Implementation Strategies</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../comparison_HL7/">Comparison with HL7v3 Types</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../demographic/">Demographic Information Model</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../demographic/preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../demographic/demographic_package/">Demographic package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../demographic/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../ehr/">EHR Information Model</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr/preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr/background/">Background</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr/ehr_information_model/">The EHR Information Model</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr/ehr_package/">EHR Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr/composition_package/">Composition Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr/content_package/">Content Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr/navigation_package/">Navigation Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr/entry_package/">Entry Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr/glossary/">Glossary</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../ehr_extract/">EHR Extract Information Model</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr_extract/preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr_extract/requirements/">Requirements</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr_extract/design_overview/">Design Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr_extract/common_package/">Extract.common Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr_extract/openehr_extract_package/">The openehr_extract Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr_extract/generic_extract_package/">Generic_extract Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr_extract/synchronisation_package/">Synchronisation Extracts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr_extract/message_package/">The Message package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr_extract/semantics/">Semantics of openEHR and ISO 13606 extracts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr_extract/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../integration/">Integration Information Model</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../integration/preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../integration/integration_package/">Integration Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../integration/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../support/">Support Information Model</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../support/preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../support/support_package/">Support Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../support/assumed_types/">Assumed Types</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../support/identification_package/">Identification Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../support/terminology_package/">Terminology Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../support/measurement_package/">Measurement Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../support/definition_package/">Definition Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../support/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Reference Model</span>
+    <span class="version">Release-1.0.4</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <div class="title"><a href="../../../../AM/latest/">Archetype Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../AM/latest/">Release-2.3.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../AM/Release-2.2.0/">Release-2.2.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../AM/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../BASE/latest/">Base Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../BASE/latest/">Release-1.2.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../BASE/Release-1.1.0/">Release-1.1.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../BASE/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <div class="title"><a href="../../../latest/">Reference Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../latest/">Release-1.1.0</a>
+        </li>
+        <li class="version is-current">
+          <a href="../../">Release-1.0.4</a>
+        </li>
+        <li class="version">
+          <a href="../../../development/">development</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../../BASE/latest/" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../../">Reference Model</a></li>
+    <li><a href="../">Data Types Information Model</a></li>
+    <li><a href="./">Text Package</a></li>
+  </ul>
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">Release-1.0.4</button>
+  <div class="version-menu">
+    <a class="version" href="../../../latest/data_types/text_package/">Release-1.1.0</a>
+    <a class="version is-current" href="./">Release-1.0.4</a>
+    <a class="version" href="../../../development/data_types/text_package/">development</a>
+  </div>
+</div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Text Package</h1>
+<div class="sect1">
+<h2 id="_overview"><a class="anchor" href="#_overview"></a><a class="link" href="#_overview">Overview</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The <code>rm.data_types.text</code> package contains classes for representing all textual values in the health record, including plain text, coded terms, and narrative text. It is illustrated below.</p>
+</div>
+<div id="rm_data_types_text" class="imageblock text-center text-center">
+<div class="content">
+<img src="../../_images/uml/RM-data_types.text.svg" alt="RM data types.text">
+</div>
+<div class="title">Figure 1. rm.data_types.text package</div>
+</div>
+<div class="sect2">
+<h3 id="_requirements"><a class="anchor" href="#_requirements"></a><a class="link" href="#_requirements">Requirements</a></h3>
+<div class="paragraph">
+<p>The sections below describe the requirements of text data types. Two overriding principles should be noted at the outset with regard to text.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Regardless of what terminologies are (or are not) available to the clinician and/or the software, the primary requirement is that in all cases clinicians are able to record exactly what they want to say. This means that if they want to record something very general, such as "cold" or a very specific term such as "Ross River virus infection" they should be able to, whether or not the appropriate coded terms are available. However, the facility should be available to additionally code any such textual item, at the time or indeed at some later time, so as to satisfy reporting or other needs.</p>
+</li>
+<li>
+<p>It is assumed that any client of terminology, such as the EHR, uses a terminology service which provides a complete interface to the terminology. The design of the <code>DV_CODED_TEXT</code> type reflects this. Accordingly, there is no concept of "post-coordination" outside the terminology environment allowed by the data types described here: the only thing that is available from the terminology service is a key which refers to a lexical entity, which may be a single term or a code phrase, and which may be part of a reference terminology and/or linked to element(s) of underlying ontologies. It is also assumed that there is no direct access to any particular terminology; access to all terminologies (whether simple coded lexicons or large semantic networks) is via the same abstract interface.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Terminology Ids are likely to be of various types.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Terminology Id = <code>"local"</code>: this constant value means that the origin of allowable values is described within the archetype. This is coded to allow translation. The local archetype then only needs the set of codes and the local translation. The archetype may contain a translation table if required.</p>
+</li>
+<li>
+<p>Terminology Id = <code>"[authority]"</code>. This might be <code>"openehr"</code>, <code>"centc251"</code>, <code>"hl7"</code>, etc;</p>
+</li>
+<li>
+<p>The variant Terminology Id = <code>"[authority]:[Domain value set]"</code> could also be supported, although it should not generally be necessary, since all codes should be unique within a given issuing authority. Examples might be <code>"openehr:event math function"</code>, <code>"hl7:gender"</code>;</p>
+</li>
+<li>
+<p>Terminology Id = <code>"SNOMED-CT"</code>, <code>"ICD10AM"</code>, etc. Idemtifiers of this kind must be unique values in an accepted set of terminologies from an authoritative source. These MUST be universally known. In openEHR, names from the US Natoinal Library of Medicine&#8217;s UMLS terminology name list are used. See the <a href="https://specifications.openehr.org/releases/RM/latest/support.html#_terminology_package" target="_blank" rel="noopener"><code>terminology</code> package in the for details</a>.</p>
+</li>
+</ol>
+</div>
+<div class="sect3">
+<h4 id="_narrative_text"><a class="anchor" href="#_narrative_text"></a><a class="link" href="#_narrative_text">Narrative Text</a></h4>
+<div class="paragraph">
+<p>Narrative text items are used in the EHR in a number of cases, including:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>values of coded attributes in the reference model;</p>
+</li>
+<li>
+<p>recording of subjective or imprecise patient responses, particularly quantities or dates not deemed sufficiently precise to be represented using structured quantitative or date/time date types;</p>
+</li>
+<li>
+<p>recording of narrative statements, e.g. visual observations;</p>
+</li>
+<li>
+<p>recording of tracts of prose, e.g. overall findings and conclusions, prognoses;</p>
+</li>
+<li>
+<p>recording of values that would normally be coded, but for which no code and/or no terminology service is available.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>While narrative text items themselves are not themselves coded, they may have code phrases associated
+with them, as described below under Mappings, and may be mixed within a paragraph with
+coded items.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_terminological_entities"><a class="anchor" href="#_terminological_entities"></a><a class="link" href="#_terminological_entities">Terminological Entities</a></h4>
+<div class="paragraph">
+<p>Textual entities available in a terminology service are used in the health record to enable processing,
+from simple queries to decision support. Reasons for using terminology include the following.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>To guarantee interoperability of meaning. For instance, if the term "cold" is recorded in plain text, it could be interpreted as "feeling cold", "C.O.L.D" (chronic obstructive lung disease), "rhinorrhoea", "coryza" or "U.R.T.I. (upper respiriatory tract infection), among others. If, however, it is coded from a terminology such as <a href="http://www.who.int/classifications/icd/en/" target="_blank" rel="noopener">ICD10</a> or <a href="http://www.snomed.org" target="_blank" rel="noopener">SNOMED CT</a>, any party reading the data (including software) knows the intention, since the meaning of the code in the terminology is unambiguous.</p>
+</li>
+<li>
+<p>To standardise textual renderings of terms and avoid informal shorthand. For example, practitioners wanting to write "systolic blood pressure" write things like "systolic BP", "systolic bp", "sys. BP." and so on; use of coded terms ensures that such abbreviations are either avoided, or associated with an unambiguous meaning.</p>
+</li>
+<li>
+<p>For unambiguous naming of problems, medications or diagnoses for support of knowledgebased tools such as prescribing packages and other decision support applications.</p>
+</li>
+<li>
+<p>For standardised names of things in the record e.g. a heading of "Physical examination" or an entry such as "Differential diagnosis".</p>
+</li>
+<li>
+<p>For finite sets of values ('value sets'), e.g. Blood Group = 'A|B|AB|O'.</p>
+</li>
+<li>
+<p>For classifying other data for the purpose of statistical studies, e.g. by putting ICD disease group classifiers on actual disease names entered in health records.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>A basic requirement for interoperability of text items, coded using terms (i.e. where the text is the
+official rubric for the code), is that both the rubric and the code (or 'code-phrase') must be recorded,
+to ensure the originally intended text is retained for receivers of EHR information who do not have
+access to the terminologies used at the origin. However, where a terminology service is available, the
+key can be used to unambiguously locate the string value of the term, and can also be used to find
+translations in other languages. (Note that these comments do not apply to mappings, which are
+described below).</p>
+</div>
+<div class="paragraph">
+<p>In some terminologies, there are semantic networks of links emanating from most coded terms,
+which classify them or relate them to other terms. Such links provide a means for decision support to
+make inferences about specific things found in the record. For instance if the term "leukaemia" is
+found, queries to the terminology service can be made in order to deduce that the patient has both a
+"cancer" and a "disease of the immune system" (assuming leukaemia is classified under these more
+general terms in the terminology).</p>
+</div>
+<div class="paragraph">
+<p>This specification assumes the existence of a terminology service which is responsible for interrogating
+actual terminologies and performing <em>validated coordination</em> of terms, i.e. creating combinations
+deemed valid by the underlying source terminology, potentially without even assigning a new code to
+the result. All validated coordination is carried out inside the terminology service, and any "term"
+made available by the service is already 'coordinated'. The difference between 'pre-coordinated' and
+'post-coordinated' terms is that the former have a single code, whereas the latter have a code phrase,
+or expression that is interpretable by the terminology. For example, the coordination "foot, left" (a
+shorthand way of writing the relationship "foot has-laterality left") could be created by the terminology
+service from the source terms "foot", "left" and "has-laterality" from a terminology such as
+SNOMED CT. Any such coordination must be valid within the source terminology, i.e. correspond to
+valid relationships defined therein.</p>
+</div>
+<div class="paragraph">
+<p>The class <code>DV_CODED_TEXT</code> described here captures the association of two things:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>the code phrase of a code phrase provided by the terminology service, recorded in the <code><em>defining_code</em></code> attribute.</p>
+</li>
+<li>
+<p>the text rubric of the code phrase, recorded in the <code><em>value</em></code> attribute (inherited from <code>DV_TEXT</code>);</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The class <code>CODE_PHRASE.<em>code_string</em></code> records a key, in the form of arguments to some retrieval function
+in the terminology service interface.</p>
+</div>
+<div class="paragraph">
+<p>The semantics attached to coordinations of terms may differ. Two categories of coordination
+described in the literature are 'qualification' and 'modification'. A common definition of the first is
+that "qualification narrows meaning" - i.e. creates a new term whose possible real world instances are
+within the set denoted by the original root term. Modification on the other hand changes the meaning
+of a root term. Various cases are described below under Meaning Modification. Both coordination
+types are assumed to be managed by the terminology service.</p>
+</div>
+<div class="paragraph">
+<p>Coded terms may also be mapped to terms from other terminologies, which may be intended as
+equivalents, classifiers, or something in between. The section below on Mappings deals with these.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_text_formatting"><a class="anchor" href="#_text_formatting"></a><a class="link" href="#_text_formatting">Text Formatting</a></h4>
+<div class="paragraph">
+<p>In modern information systems in all industries, the ability to visually format text exists. EHR systems are no different, and authors of narrative text parts of the health record expect to be able to create longer tracts of text that include paragraphs, bolding, bullet lists and other typical structures, as well as simple atoms of text. Generally speaking, the text associated with a coded term is a simple string, devoid of formatting or newlines, and if the text is a direct copy of the rubric (i.e. term) from a terminology, this will almost always be the case. However there is no guarantee that this will not change in the future, with perhaps newlines and e.g. bolding being used in 'rich text' rubrics.</p>
+</div>
+<div class="paragraph">
+<p>Clinicians need the freedom to maximise clarity of any text they write, and therefore should be able to include a reasonable level of formatting in text.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_design"><a class="anchor" href="#_design"></a><a class="link" href="#_design">Design</a></h3>
+<div class="paragraph">
+<p>All atomic text items are either instances of the type <code>DV_TEXT</code> or of <code>DV_CODED_TEXT</code>. The former allows the expression of text with optional formatting and hyperlinking. The latter additionally connects
+the text value to a key in the terminology service, with the implication that the key refers to a terminological entity lexically and semantically identical to the text value. Formatting and hyperlinking are <a href="#_formatting_and_hyperlinking">discussed in detail below</a>.</p>
+</div>
+<div class="paragraph">
+<p>The model of <code>DV_CODED_TEXT</code> is designed to capture the actual coded term chosen by the user or software at runtime; it is implicitly assumed that this includes whichever synonym (term of equivalent meaning from the same terminology) was chosen, for terminologies supporting synonyms, and any coordination of underlying distinct terms. A <code>DV_CODED_TEXT</code> instance can only be used if the final textual value chosen by the user is lexically identical to the rubric returned by the terminology service for the key; if the user makes even the slightest change, the identity of rubric / key is lost, and a mapping (see <a href="#_mappings">Mappings</a>) should be used instead.</p>
+</div>
+<div class="paragraph">
+<p>The type <code>DV_TEXT</code> should be used wherever a coded or non-coded text item is allowed, while the type <code>DV_CODED_TEXT</code> should be used wherever a text item must be coded.</p>
+</div>
+<div class="paragraph deprecated">
+<p><strong>Deprecated</strong>: The type <code>DV_PARAGRAPH</code> was used to represent larger tracts of text built from lists of <code>DV_TEXT</code> instances, i.e. instances of <code>DV_TEXT</code> and <code>DV_CODED_TEXT</code>. Such text is now represented as plain text with new lines or markdown text, <a href="#_formatting_and_hyperlinking">as described below</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_qualification"><a class="anchor" href="#_qualification"></a><a class="link" href="#_qualification">Qualification</a></h3>
+<div class="paragraph">
+<p>Qualification is the process of making a term more specific through the post-coordination of additional
+terms. It occurs when a terminology defines relationships between a primary term and other
+terms that qualify the primary. For example a coordination using the term "bronchitis" which creates
+a qualified term might be "acute bronchitis"; all real world instances of the latter are also instances of
+the former.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_meaning_modification"><a class="anchor" href="#_meaning_modification"></a><a class="link" href="#_meaning_modification">Meaning Modification</a></h3>
+<div class="paragraph">
+<p>Terms that change the meaning of other terms are often known as "modifiers". The difference
+between modification and qualification is that modifiers change the meaning so that the modifed term
+as a whole does <em>not</em> refer to instances of the unmodified term. We describe below the particular types
+of modifiers and how they are represented using the text data types.</p>
+</div>
+<div class="sect3">
+<h4 id="_mode_changing_terms"><a class="anchor" href="#_mode_changing_terms"></a><a class="link" href="#_mode_changing_terms">Mode-changing Terms</a></h4>
+<div class="paragraph">
+<p>One class of modifers is exemplified by the addition of words like "risk of", "fear of", "history of"
+and so on. These are sometimes called <em>mode-changing</em> terms, since they change the "mode" of the
+root term from the present to the past ("history of"), a potential future ("risk of") or some other alternate
+reality. Terms which are modified in this way should never be matched in queries searching for
+the root term; for example, a query for "coronary diease" (of the patient) should not match "family
+history of coronary disease".</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_context_sensitivity"><a class="anchor" href="#_context_sensitivity"></a><a class="link" href="#_context_sensitivity">Context Sensitivity</a></h4>
+<div class="paragraph">
+<p>There are many terms whose meaning is changed by the context in which they are stated, such as
+within a certain kind of note or test result. Consider the following:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>a blood sugar level after a 75gm oral loading has a different meaning than a fasting blood sugar;</p>
+</li>
+<li>
+<p>a systolic blood pressure in the pulmonary artery has a different meaning than a systemic arterial blood pressure;</p>
+</li>
+<li>
+<p>"total hip replacement" in the context of a "planned procedure";</p>
+</li>
+<li>
+<p>"meningitis" in the context of a "differential diagnosis".</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_negation"><a class="anchor" href="#_negation"></a><a class="link" href="#_negation">Negation</a></h4>
+<div class="paragraph">
+<p>Negation is a special kind of mode change and has been a serious design challenge in the past,
+because modifiers like "not" or "no" only make sense when attached to some terms, and create nonsensical
+values or ambiguities by arbitrarily association with other terms.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_representation_of_meaning_modifying_terms"><a class="anchor" href="#_representation_of_meaning_modifying_terms"></a><a class="link" href="#_representation_of_meaning_modifying_terms">Representation of Meaning-Modifying Terms</a></h4>
+<div class="paragraph">
+<p>Rather than provide explicit features for representing modifier terms within <code>DV_CODED_TEXT</code>, the
+general principle underlying representation of all post-coordinations other than qualifications, is that
+a higher-level, archetyped structure such as an <code>ENTRY</code> (defined in the EHR RM), is a <em>minimal indivisible
+unit of information</em>. Such higher-level entities can have internal structure, and it is possible (and
+desirable) to achieve the effect of combinations of terms through this structure. In the case of <code>ENTRY</code>,
+it will be via structuring of <code>CLUSTER</code>/<code>ELEMENT</code> objects. The general rule is: to obtain the full meaning
+of any terms found in the record, all of the node names in any <code>ENTRY</code> (coded or not) must be considered
+from the root to the relevant leaf. Conversely, the "final" meaning of any term in the record
+cannot be known in isolation from the rest of the terms in the structure.</p>
+</div>
+<div class="paragraph">
+<p>Accordingly, the concept "family history of coronary disease" is represented as an <code>ENTRY</code> whose root
+is named (for example) "subject family history", and which includes further structure, which may be
+in greater of lesser detail; the coded term "coronary disease" would appear somewhere in this structure.
+The actual structure is completely defined by appropriate archetypes. Contrary to some perceptions,
+there is no general way to represent concepts such as "family history of coronary disease",
+since it will vary depending on how much detail is recorded. Where some GPs routinely record just
+the simplest form, others may record the details of which family members had heart problems and
+exactly what they were.</p>
+</div>
+<div class="paragraph">
+<p>The same approach is used for context-dependent terms. Archetypes defining contexts such as
+"planned procedures" or "differential diagnosis" will use these terms as their root nodes; as a result,
+the meaning of any term appearing below the root can only be understood by including the root. Once
+again, the exact structures are completely dependent upon archetyping, and may be simple or quite
+sophisticated.</p>
+</div>
+<div class="paragraph">
+<p>Negations are more complex than might first be apparent and are best handled by good archetype
+design. Terminologies might provide a term such as "No known allergies" which is helpful. But if
+someone has an allergy of some sort, the medicolegal requirement might be to record that the person
+has no known allergies to penicillin or another class of medication that is being prescribed. The oftenproposed
+approach of using a generic negation 'modifier' to deal with such issues results in further
+problems. Consider the use of negation with liver - "no liver", "no palpable liver", "no liver disease",
+"no history of liver disease", "no liver function", "no liver function tests". The meaning of negated
+terms may be non-sensical and difficult to interpret.</p>
+</div>
+<div class="paragraph">
+<p>A basic principle of dealing with negatives is to realise that most naïve suggested use cases are quite
+ambiguous as stated. Does "no allergies" mean "no reported episode of allergy", "no allergic reactions
+ever", "no known allergies to medication" or something else? Does it mean that these statements
+are taken as given by the patient, or determined by tests? Like all medical phenomena, allergies
+must be described in some detail for the EHR to be of any real use. Almost inevitably, this precludes
+the use of negated terms. Since the actual information structure will be determined in advance by
+archetype designers, clinicians will almost never be in the situation of having to negate a term. However,
+if the need does arise, it should be dealt with by a negative or quantitative answer, i.e. a value
+rather than a name. For example, in any <code>ENTRY</code> describing current problems, the clinician may record
+the name/value pair "allergies: NONE". Here, "allergies" will be a <code>DV_CODED_TEXT</code>, and "NONE"
+will be either a <code>DV_CODED_TEXT</code> or a <code>DV_TEXT</code>; the two will be associated by a containing object,
+such as an instance of the <code>ELEMENT</code> class from the EHR RM. There is no explicit model of negation
+in openEHR.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_mappings"><a class="anchor" href="#_mappings"></a><a class="link" href="#_mappings">Mappings</a></h3>
+<div class="paragraph">
+<p>In a number of circumstances, both plain text and coded text items are mapped to terms from other
+terminologies. In theory, this should never occur, since it means that relationships between terms
+which should only be knowable in the knowledge base (in the form of the terminology service, or
+something else) are being created and transmitted as part of EHR information, potentially invalidating
+or overriding the knowledge base. Where mappings are required, the proper approach is to create thesauri
+within the knowledge environment, and map through them. Unfortunately, in some cases, activities
+in the real world do not respect the information/knowledge boundary, hence the model described
+here includes an explicit mapping concept, which itself includes a "purpose" and a "match" indicator.
+Matching corresponds to the categories described below.</p>
+</div>
+<div class="sect3">
+<h4 id="_classification_broader_terms"><a class="anchor" href="#_classification_broader_terms"></a><a class="link" href="#_classification_broader_terms">Classification (Broader Terms)</a></h4>
+<div class="paragraph">
+<p>Any text item, whether coded or not, may be classified with a coded term, for research, reporting and
+decision support purposes. For example, a GP working in tropical Australia may wish to write "Ross
+River infection", and be working with ICD9, which does not contain this term (although ICD9-CM
+does). He or she will use a plain text item, but will still be able to map it to an ICD9 classifier, such as
+the code for "arbovirus infection NOS". The same approach can be used for adding a classifying term
+to a coded text item. The utility of classifier terms is various: they allow decision support to make
+more powerful inferences; in situations where the available terminologies do not provide the classification
+inbuilt, and where it is known that not all users of EHR data will have terminologies available.
+In data terms, classification mapping can be visualised as illustrated below.</p>
+</div>
+<div id="coded_text_mappings" class="imageblock text-center text-center">
+<div class="content">
+<img src="../_images/diagrams/coded_text_mappings.png" alt="coded text mappings" width="70%">
+</div>
+<div class="title">Figure 2. Plain Text and Coded Text with Classifier(s)</div>
+</div>
+<div class="paragraph">
+<p>Classifying mappings are represented by adding a term to the mappings list of the original term. Each
+mapping is explicitly represented with an instance of <code>TERM_MAPPING</code>, which indicates both the term
+being associated with the original text item, and a value of '&gt;' for the match attribute, which indicates
+that the mapping is "broader". The possible values of the match attribute are '&gt;' (broader), '&lt;' (narrower),
+and '=' (equivalent); they are taken from the ISO standards <a href="#ISO_2788">[ISO_2788]</a>) and <a href="#ISO_5964">[ISO_5964]</a>.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_equivalent_synonymous_terms"><a class="anchor" href="#_equivalent_synonymous_terms"></a><a class="link" href="#_equivalent_synonymous_terms">Equivalent / Synonymous Terms</a></h4>
+<div class="paragraph">
+<p>Data from pathology laboratories has often been coded using a terminology local to the laboratory,
+due to lack of or economic unfeasibility of using existing widespread terminologies for the job. However,
+some laboratories also supply a nearest equivalent code from a well-known terminology such as
+<a href="http://loinc.org">LOINC</a>, to enable the receiver of the data to process it in a more standard fashion. Here, "equivalence"
+is taken to mean a term of the same meaning but from a different vocabulary.</p>
+</div>
+<div class="paragraph">
+<p>Another instance where equivalent terms might be supplied is to effect the translation of terms across
+specialist vocabularies such as nursing vocabularies when sharing EHRs across jurisdictions.</p>
+</div>
+<div class="paragraph">
+<p>In theory, the cleanest way for senders and receivers of data coded with both a local and a more standard
+equivalent to deal with the mapping problem is for the originator of the local terminology to provide
+a complete thesaurus of translations into one or more recognised terminologies. However, in
+practice, laboratories using the HL7 v2.x messaging standard usually encode a primary term and
+equivalents with the HL7 CE data type, meaning that equivalents are included only with the term they
+are used with. A similar pragmatic approach to mapping equivalent terms in the EHR is likely to be
+used with the data types described here, and can be effected with the same mapping approach as for
+classification.</p>
+</div>
+<div class="paragraph">
+<p>A further situation in which text values - this time plain text - is mapped to equivalent terms is when
+natural language processing is used to generate coded terms for existing free-text prose. The aim of
+such processing is to detect word phrases and associate them with a coded term of the same meaning,
+without obliterating the original text. In terms of the model described here, a <code>CODE_PHRASE</code> is associated
+with a <code>DV_TEXT</code> instance via the mappings attribute.</p>
+</div>
+<div class="paragraph">
+<p>In all cases with equivalents, the value of the match attribute is '=', indicating that the mapping is a
+synonym.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_more_specific_mappings_narrower_terms"><a class="anchor" href="#_more_specific_mappings_narrower_terms"></a><a class="link" href="#_more_specific_mappings_narrower_terms">More Specific Mappings (Narrower Terms)</a></h4>
+<div class="paragraph">
+<p>Occasionally, there is a need to create a mapping to a term of narrower meaning than the original text
+item. Circumstances in which this occurs include when a clinician wants to record a syndrome such as
+"croup" or "influenza", but the terminology does not contain these general terms, although it does
+contain more specific terms, e.g. "viral laryngo-tracheitis" or "influenza type A". Clearly the clinician
+should be allowed to record what he/she wants (as plain text if necessary), but it should also be possible
+to add a mapping to the more precise term. For mappings to narrower terms, the value of the
+match attribute is '&lt;'.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_the_unified_medical_language_system_umls"><a class="anchor" href="#_the_unified_medical_language_system_umls"></a><a class="link" href="#_the_unified_medical_language_system_umls">The Unified Medical Language System (UMLS)</a></h4>
+<div class="paragraph">
+<p>It has been argued in GEHR <a href="#GeHR_Aus_req">[GeHR_Aus_req]</a> that UMLS reference terms should also be supplied with occurrences
+of coded terms, in the form of the UMLS concept unique identifier, or "CUI". UMLS is a way
+of encoding terms developed at the National Library of Medicine in the United States, and consists of
+a meta-thesaurus, in which terms from any extant term set (such as <a href="http://www.who.int/classifications/icd/en/" target="_blank" rel="noopener">ICDx</a>, <a href="http://www.snomed.org" target="_blank" rel="noopener">SNOMED CT</a>, READ) can be
+cross-referenced. UMLS CUIs could turn out to be extremely useful for decision support and reporting.</p>
+</div>
+<div class="paragraph">
+<p>The proper use of UMLS is that terms from particular terminologies are passed to a UMLS interface
+and a CUI + rubric received in response. However, the mapping approach described above could also
+be used to map UMLS CUIs to existing text or terms in an EHR; in this case, a <code>DV_CODED_TEXT</code> is
+constructed for each UMLS "term", where the code is the CUI and the rubric is the text rendering of
+the CUI (guaranteed unique in UMLS). The same approach can be used for any other thesaurus
+which becomes available in the future.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_legacy_mapping_scenarios"><a class="anchor" href="#_legacy_mapping_scenarios"></a><a class="link" href="#_legacy_mapping_scenarios">Legacy Mapping Scenarios</a></h4>
+<div class="paragraph">
+<p>In cases where legacy data has to be converted to openEHR-compliant data, and only codes are available,
+e.g. ICD or ICPC codes, the following approach is recommended:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>create a new <code>DV_TEXT</code> whose value is "(not available)"</p>
+</li>
+<li>
+<p>add a mapping to the <code>DV_TEXT</code>, with:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code><em>purpose</em></code> = <code>"legacy conversion"</code></p>
+</li>
+<li>
+<p><code><em>match</em></code> = <code>"="</code></p>
+</li>
+<li>
+<p><code><em>target</em></code> = <code>CODE_PHRASE</code> object whose code_string and terminology_id are set to correspond to the available code in the legacy data.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>This expresses the reality that no text was ever recorded in the legacy system; rather a code was recorded directly in the data field. In the converted data, this code is more correctly considered a mapping.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_language_translations"><a class="anchor" href="#_language_translations"></a><a class="link" href="#_language_translations">Language Translations</a></h3>
+<div class="paragraph">
+<p>In most cases the natural language of a text object is known from the enclosing Entry (i.e. Observation)
+or other enclosing context. Where it is different (e.g. a german sentence within an English language
+diagnosis), or there is no enclosing context, the <code>DV_TEXT.<em>language</em></code> attribute can be set to
+indicate the language of the text item.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_formatting_and_hyperlinking"><a class="anchor" href="#_formatting_and_hyperlinking"></a><a class="link" href="#_formatting_and_hyperlinking">Formatting and Hyperlinking</a></h3>
+<div class="paragraph">
+<p>Formatted text is represented by <code>DV_TEXT</code> and <code>DV_CODED_TEXT</code> instances. In versions <em>prior to RM Release 1.0.4</em>, <code>DV_PARAGRAPH</code> was provided as a way to represent larger tracts of text containing newlines and formatting of sub-sections, with each subsection being represented by one <code>DV_TEXT</code> or <code>DV_CODED_TEXT</code>.</p>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<code>DV_PARAGRAPH</code> is now deprecated, and all text should be represented using the <code>DV_TEXT</code> or <code>DV_CODED_TEXT</code>. For legacy reasons, <code>DV_PARAGRAPH</code> remains legal, and should be supported in at least a basic way.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Formatting of the text in the <code><em>value</em></code> field of <code>DV_TEXT</code> and <code>DV_CODED_TEXT</code> instances may be indicated via the optional <code><em>formatting</em></code> attribute. How this attribute is used has changed from initial versions of the openEHR Reference Model.</p>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+Additionally, the <code><em>value</em></code> field was assumed to contain no newlines. This assumption is no longer made starting from RM Release 1.0.4, since <code>DV_PARAGRAPH</code> is no longer use to represent paragraphs.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>A common model of text processing is of a processing pipeline that consumes readable text containing markings, which is then rendered into HTML, PDF or some other rendering format, and then displayed by a tool such as a web browser that consumes the latter format. Historical approaches to marking text were known as 'markup', such as nroff, troff, Latek, and then more recently, numerous formats whose base syntax is XML. These formats all have the disadvantages of poor human readability in raw form, and being specific to particular rendering engines, and are starting to fall out of favour for uses involving human reading of the raw text. Another common approach to formatting text is to use the <em>output format</em>, usually HTML, to express e.g. fonts, bolding etc. This is also problematic for human readability, being complicated by the use of CSS classes in tags, which then need to be defined.</p>
+</div>
+<div class="paragraph deprecated">
+<p><strong>Deprecated</strong>: This was the original approach assumed for the <code>DV_TEXT.<em>formatting</em></code> attribute in openEHR, which was defined in versions <em>prior to RM Release 1.0.4</em> as containing CSS font strings to apply to the whole of the <code>DV_TEXT.<em>value</em></code>. This usage is now deprecated, while remaining legal in order to allow for legacy systems and data.</p>
+</div>
+<div class="paragraph">
+<p>The current trend (emerging mainly for documentation in software) is to use 'markdown', which consists of markings in the text that visually indicate the intention: literal newlines, bolding via asterisks etc. No explicit CSS classes are needed, and conversion to rendering form is assumed to be done by an industry-standard markdown-to-HTML or other such converter. This is the approach taken by this specification, and is applied as follows.</p>
+</div>
+<div class="paragraph">
+<p>The <code><em>formatting</em></code> attribute may contain one of the following values, with the associated meaning.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Void</code>:  if no value is supplied, no formatting marks are assumed to exist in the text, other than newlines, and it may safely be passed in a 'straight-through' fashion to a display device with no further processing, if desired;</p>
+</li>
+<li>
+<p><code>"markdown"</code>: the text is assumed to be markdown format, strongly recommended use of the <a href="https://spec.commonmark.org/">CommonMark</a> form of markdown, and should preferably be rendered via conversion to HTML in the usual way, but <em>may</em> be passed straight through to display if unavoidable, since markdown is acceptably human-readable;</p>
+</li>
+<li>
+<p><code>"plain"</code>: the text is treated as in the unformatted (<code>Void</code>) case above (newlines are allowed); this option is used to enable archetype-based modelling tools to clearly require a text object to be unformatted;</p>
+</li>
+<li>
+<p><code>"plain_no_newlines"</code>: as for the plain case, but newlines are not allowed - the text is a simple 'atom';</p>
+</li>
+<li>
+<p>(legacy - deprecated): for legacy purposes, it remains legal to use a string of the form <code>"name:value; name:value…"</code> , e.g. <code>"font-weight : bold; font-family : Arial; font-size : 12pt;"</code>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Related to the question of formatting, a second optional attribute, <code>DV_TEXT.<em>hyperlink</em></code> of type <code>DV_URI</code>, exists to specify a web link associated with the whole text represented by the <code>DV_TEXT</code> instance. Similarly to the case of formatting, the more modern markdown approach to using the <code><em>value</em></code> field is also more flexible with regards to links, since multiple instances of the latter may be used within a single text.</p>
+</div>
+<div class="paragraph deprecated">
+<p><strong>Deprecated</strong>: Starting at RM Release 1.0.4, the use of the <code><em>hyperlink</em></code> field is deprecated in favour of inline link(s) in the <code><em>value</em></code> field, represented using markdown; in CommonMark, the basic form of a link is <code>[text](uri)</code>.</p>
+</div>
+<div class="paragraph">
+<p>Not all CommonMark features are allowed in the <code><em>value</em></code> field, if it contains markdown. The following should not be used:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>HTML 'blocks';</p>
+</li>
+<li>
+<p>raw HTML;</p>
+</li>
+<li>
+<p>images - these may be included in openEHR content via the <code>DV_MULTIMEDIA</code> types.</p>
+</li>
+</ul>
+</div>
+<div class="sect3">
+<h4 id="_usage_in_dv_text_instances"><a class="anchor" href="#_usage_in_dv_text_instances"></a><a class="link" href="#_usage_in_dv_text_instances">Usage in DV_TEXT Instances</a></h4>
+<div class="paragraph">
+<p>In a concrete instance of <code>DV_TEXT</code>, the following are the likely usages of the <code><em>value</em></code> and <code><em>formatting</em></code> attributes. The <code><em>hyperlink</em></code> is assumed to be Void in all non-legacy cases.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 28.5714%;">
+<col style="width: 14.2857%;">
+<col style="width: 14.2857%;">
+<col style="width: 42.8572%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Requirement</th>
+<th class="tableblock halign-left valign-top"><code><em>value</em></code> attribute</th>
+<th class="tableblock halign-left valign-top"><code><em>formatting</em></code> attribute</th>
+<th class="tableblock halign-left valign-top">Legacy form</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Plain text 'atom'<br>
+ (no formatting, no newlines)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">plain text string</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Void</code> or <code>"plain_no_newlines"</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">(same)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Plain text 'atom' with a hyperlink<br>
+ (no formatting, no newlines)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text string of form <code>[text](uri)</code> or other CommonMark link variant</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>"markdown"</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><em>value</em></code> = plain text; <code><em>hyperlink</em></code> = URI/URL</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Plain text paragraphs,<br>
+ no other formatting</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">plain text string with newlines</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Void</code> or <code>"plain"</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DV_PARAGRAPH</code> instance(s) containing plain legacy text atom form <code>DV_TEXTs</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Formatted text with paragraphs, bolding, italics, bullet lists, links etc</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CommonMark text string</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>"markdown"</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DV_PARAGRAPH</code> instance(s) containing legacy form <code>DV_TEXTs</code> with CSS formatting and/or values in <code><em>hyperlink</em></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_usage_in_dv_coded_text_instances"><a class="anchor" href="#_usage_in_dv_coded_text_instances"></a><a class="link" href="#_usage_in_dv_coded_text_instances">Usage in DV_CODED_TEXT Instances</a></h4>
+<div class="paragraph">
+<p>In a concrete instance of <code>DV_CODED_TEXT</code>, the following are the likely usages of the <code><em>value</em></code> and <code><em>formatting</em></code> attributes. The <code><em>hyperlink</em></code> is assumed to be Void in all non-legacy cases.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 28.5714%;">
+<col style="width: 14.2857%;">
+<col style="width: 14.2857%;">
+<col style="width: 42.8572%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Requirement</th>
+<th class="tableblock halign-left valign-top"><code><em>value</em></code> attribute</th>
+<th class="tableblock halign-left valign-top"><code><em>formatting</em></code> attribute</th>
+<th class="tableblock halign-left valign-top">Legacy form</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Plain text of coded term</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">plain text string</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Void</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">(same)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Plain text of coded term with a hyperlink</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">text string of form <code>[text](uri)</code> or other CommonMark link variant</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>"markdown"</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><em>value</em></code> = plain text; <code><em>hyperlink</em></code> = URI/URL</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Plain text of coded term or other text, containing newlines</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Plain formatted text</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Void or <code>"plain"</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">(not applicable)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_class_descriptions"><a class="anchor" href="#_class_descriptions"></a><a class="link" href="#_class_descriptions">Class Descriptions</a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_dv_text_class"><a class="anchor" href="#_dv_text_class"></a><a class="link" href="#_dv_text_class">DV_TEXT Class</a></h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>DV_TEXT</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>A text item, which may contain any amount of legal characters arranged as e.g. words, sentences etc (i.e. one <code>DV_TEXT</code> may be more than one word). Visual formatting and hyperlinks may be included via markdown.</p>
+</div>
+<div class="paragraph">
+<p>If the <code><em>formatting</em></code> field is set, the <code><em>value</em></code> field is affected as follows:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code><em>formatting</em> = "plain"</code>: plain text, may contain newlines;</p>
+</li>
+<li>
+<p><code><em>formatting</em> = "plain_no_newlines"</code>: plain text with no newlines;</p>
+</li>
+<li>
+<p><code><em>formatting</em> = "markdown"</code>: text in markdown format; use of CommonMark strongly recommended.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>A <code>DV_TEXT</code> can be coded by adding mappings to it.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code>DATA_VALUE</code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>value</strong>: <code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Displayable rendition of the item, regardless of its underlying structure. For <code>DV_CODED_TEXT</code>, this is the rubric of the complete term as provided by the terminology service.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>hyperlink</strong>: <code>DV_URI</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>DEPRECATED: this field is deprecated; use markdown link/text in the <code><em>value</em></code> attribute, and <code>"markdown"</code> as the value of the <code><em>formatting</em></code> field.</p>
+</div>
+<div class="paragraph">
+<p>Original usage, prior to RM Release 1.0.4: Optional link sitting behind a section of plain text or coded term item.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>formatting</strong>: <code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>If set, contains one of the following values:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>"plain"</code>: use for plain text, possibly containing newlines, but otherwise unformatted (same as Void);</p>
+</li>
+<li>
+<p><code>"plain_no_newlines"</code>: use for text containing no newlines or other formatting;</p>
+</li>
+<li>
+<p><code>"markdown"</code>: use for markdown formatted text, strongly recommended in the format of the CommonMark specification.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>DEPRECATED usage: contains a string of the form <code>"name:value; name:value&#8230;&#8203;"</code> , e.g. <code>"font-weight : bold; font-family : Arial; font-size : 12pt;"</code>. Values taken from W3C CSS2 properties lists for background and font .</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>mappings</strong>: <code>List&lt;TERM_MAPPING&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Terms from other terminologies most closely matching this term, typically used where the originator (e.g. pathology lab) of information uses a local terminology but also supplies one or more equivalents from well known terminologies (e.g. LOINC).</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>language</strong>: <code>CODE_PHRASE</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Optional indicator of the localised language in which the value is written. Coded from openEHR Code Set  languages . Only used when either the text object is in a different language from the enclosing <code>ENTRY</code>, or else the text object is being used outside of an <code>ENTRY</code> or other enclosing structure which indicates the language.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>encoding</strong>: <code>CODE_PHRASE</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Name of character encoding scheme in which this value is encoded. Coded from openEHR Code Set  character sets . Unicode is the default assumption in openEHR, with UTF-8 being the assumed encoding. This attribute allows for variations from these assumptions.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Invariants</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><strong><em>Language_valid</em></strong>: <code>language /= Void implies code_set (Code_set_id_languages).has_code (language)</code></p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><strong><em>Encoding_valid</em></strong>: <code>encoding /= Void implies code_set (Code_set_id_character_sets).has_code (encoding)</code></p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><strong><em>Mappings_valid</em></strong>: <code>mappings /= void implies not mappings.is_empty</code></p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><strong><em>Formatting_valid</em></strong>: <code>formatting /= void implies not formatting.is_empty</code></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_term_mapping_class"><a class="anchor" href="#_term_mapping_class"></a><a class="link" href="#_term_mapping_class">TERM_MAPPING Class</a></h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>TERM_MAPPING</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Represents a coded term mapped to a <code>DV_TEXT</code>, and the relative match of the target term with respect to the mapped item. Plain or coded text items may appear in the EHR for which one or mappings in alternative terminologies are required. Mappings are only used to enable computer processing, so they can only be instances of <code>DV_CODED_TEXT</code>.</p>
+</div>
+<div class="paragraph">
+<p>Used for adding classification terms (e.g. adding ICD classifiers to SNOMED descriptive terms), or mapping into equivalents in other terminologies (e.g. across nursing vocabularies).</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>match</strong>: <code>char</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>The relative match of the target term with respect to the mapped text item. Result meanings:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>'&gt;'</code>: the mapping is to a broader term e.g. orginal text =  arbovirus infection , target =  viral infection</p>
+</li>
+<li>
+<p><code>'='</code>: the mapping is to a (supposedly) equivalent to the original item</p>
+</li>
+<li>
+<p><code>'&lt;'</code>: the mapping is to a narrower term. e.g. original text =  diabetes , mapping =  diabetes mellitus .</p>
+</li>
+<li>
+<p><code>'?'</code>: the kind of mapping is unknown.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The first three values are taken from the ISO standards 2788 ( Guide to Establishment and development of monolingual thesauri) and 5964 (Guide to Establishment and development of multilingual thesauri).</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>purpose</strong>: <code>DV_CODED_TEXT</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Purpose of the mapping e.g. 'automated data mining', 'billing', 'interoperability'.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>target</strong>: <code>CODE_PHRASE</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>The target term of the mapping.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Functions</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>narrower</strong> (): <code>Boolean</code><br>
+<strong><em>Post</em></strong>: <code>match = ‘&lt;’ implies Result</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>The mapping is to a narrower term.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>broader</strong> (): <code>Boolean</code><br>
+<strong><em>Post</em></strong>: <code>match = ‘&gt;’ implies Result</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>The mapping is to a broader term.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>equivalent</strong> (): <code>Boolean</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>The mapping is to an equivalent term.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>unknown</strong> (): <code>Boolean</code><br>
+<strong><em>Post</em></strong>: <code>match = ‘?’ implies Result</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>The kind of mapping is unknown.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_valid_match_code</strong> (<br>
+c: <code>char[1]</code><br>
+): <code>Boolean</code><br>
+<strong><em>Post</em></strong>: <code>Result := c = ‘&gt;’ or c = ‘=’ or c = ‘&lt;’ or c = ‘?’</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>True if match valid.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Invariants</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><strong><em>Purpose_valid</em></strong>: <code>purpose /= Void implies terminology (Terminology_id_openehr).has_code_for_group_id (Group_id_term_mapping_purpose, purpose.defining_code)</code></p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><strong><em>Match_valid</em></strong>: <code>is_valid_match_code (match)</code></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_code_phrase_class"><a class="anchor" href="#_code_phrase_class"></a><a class="link" href="#_code_phrase_class">CODE_PHRASE Class</a></h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>CODE_PHRASE</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>A fully coordinated (i.e. all coordination has been performed) term from a terminology service (as distinct from a particular terminology).</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>terminology_id</strong>: <code>TERMINOLOGY_ID</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Identifier of the distinct terminology from which the code_string (or its elements) was extracted.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>code_string</strong>: <code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>The key used by the terminology service to identify a concept or coordination of concepts. This string is most likely parsable inside the terminology service, but nothing can be assumed about its syntax outside that context.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Invariants</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><strong><em>Code_string_valid</em></strong>: <code>not code_string.is_empty</code></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_dv_coded_text_class"><a class="anchor" href="#_dv_coded_text_class"></a><a class="link" href="#_dv_coded_text_class">DV_CODED_TEXT Class</a></h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>DV_CODED_TEXT</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>A text item whose value must be the rubric from a controlled terminology, the key (i.e. the 'code') of which is the <code><em>defining_code</em></code> attribute. In other words: a <code>DV_CODED_TEXT</code> is a combination of a <code>CODE_PHRASE</code> (effectively a code) and the rubric of that term, from a terminology service, in the language in which the data were authored.</p>
+</div>
+<div class="paragraph">
+<p>Since <code>DV_CODED_TEXT</code> is a subtype of <code>DV_TEXT</code>, it can be used in place of it, effectively allowing the type <code>DV_TEXT</code> to mean  a text item, which may optionally be coded.</p>
+</div>
+<div class="paragraph">
+<p>Misuse: If the intention is to represent a term code attached in some way to a fragment of plain text, <code>DV_CODED_TEXT</code> should not be used; instead use a <code>DV_TEXT</code> and a <code>TERM_MAPPING</code> to a <code>CODE_PHRASE</code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code>DV_TEXT</code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>defining_code</strong>: <code>CODE_PHRASE</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>The term of which the  <code><em>value</em></code> attribute is the textual rendition (i.e. rubric).</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_dv_paragraph_class"><a class="anchor" href="#_dv_paragraph_class"></a><a class="link" href="#_dv_paragraph_class">DV_PARAGRAPH Class</a></h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>DV_PARAGRAPH</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>DEPRECATED: use markdown formatted <code>DV_TEXT</code> instead.</p>
+</div>
+<div class="paragraph">
+<p>Original definition:</p>
+</div>
+<div class="paragraph">
+<p>A logical composite text value consisting of a series of <code>DV_TEXTs</code>, i.e. plain text (optionally coded) potentially with simple formatting, to form a larger tract of prose, which may be interpreted for display purposes as a paragraph.</p>
+</div>
+<div class="paragraph">
+<p><code>DV_PARAGRAPH</code> is the standard way for constructing longer text items in summaries, reports and so on.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code>DATA_VALUE</code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>items</strong>: <code>List&lt;DV_TEXT&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Items making up the paragraph, each of which is a text item (which may have its own formatting, and/or have hyperlinks).</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Invariants</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><strong><em>Items_valid</em></strong>: <code>not items.is_empty</code></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="../basic_package/">Basic Package</a></span>
+  <span class="next"><a href="../quantity_package/">Quantity Package</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>
+    Copyright: © 2003+
+    <a href="https://www.openehr.org"
+        alt="is an independent, non-profit foundation, facilitating the sharing of health
+           records by consumers and clinicians via open specifications, clinical models
+           and open platform implementations.">The openEHR Foundation</a>
+  </p>
+
+  <p>
+    License:
+    <img src="/_/img/cc-by-nd-88x31.png"
+        alt="Creative Commons Attribution-NoDerivs 3.0 Unported."
+        style="vertical-align:middle;margin:0 0.25rem 0 0;">
+    <a href="https://creativecommons.org/licenses/by-nd/3.0/">
+      Creative Commons Attribution-NoDerivs 3.0 Unported.
+    </a>
+  </p>
+
+  <p>
+    <strong>Links: <strong>
+    <a href="https://www.openehr.org/terms-of-use" class="mr-1">Terms of use</a> |
+    <a href="https://www.openehr.org/privacy-policy" class="mx-1">Privacy policy</a> |
+    <a href="https://www.openehr.org/privacy-policy" class="mx-1">Logos &amp; Trademarks</a> |
+    <a href="https://www.openehr.org/contact-us" class="mx-1">Contact</a>
+  </p>
+</footer>
+
+<script id="site-script" src="../../../../_/js/site.js" data-ui-root-path="../../../../_"></script>
+<script async src="../../../../_/js/vendor/highlight.js"></script>
+<script src="../../../../_/js/vendor/lunr.js"></script>
+<script src="../../../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../../../.." data-snippet-length="80" data-stylesheet="../../../../_/css/search.css"></script>
+<script async src="../../../../search-index.js"></script>
+<script src="../../../../_/js/medium-zoom.min.js"></script>
+<script src="../../../../_/js/zoom.js"></script>
+  </body>
+</html>

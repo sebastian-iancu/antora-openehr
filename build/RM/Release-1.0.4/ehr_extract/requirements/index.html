@@ -1,0 +1,1119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+    <title>Requirements :: openEHR Specifications (Local Build)</title>
+    <link rel="canonical" href="https://sebastian-iancu.github.io/antora-openehr/RM/latest/ehr_extract/requirements/">
+    <link rel="prev" href="../preface/">
+    <link rel="next" href="../design_overview/">
+    <meta name="description" content="openEHR EHR Extract Information Model specification">
+    <meta name="keywords" content="EHR, Extract, openehr">
+    <meta name="generator" content="Antora 3.1.14">
+    <link rel="stylesheet" href="../../../../_/css/site.css">
+    <link rel="stylesheet" href="../../../../_/css/antora-openehr.css">
+    <link rel="stylesheet" href="../../../../_/css/openehr.css">
+<link rel="icon" href="../../../../_/img/favicon.ico" type="image/x-icon">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://sebastian-iancu.github.io/antora-openehr">openEHR Specifications (Local Build)</a>
+
+      <div class="navbar-item search hide-for-print">
+        <div id="search-field" class="field has-filter">
+          <input id="search-input" type="text" placeholder="Search the docs">
+          <label class="filter checkbox">
+            <input type="checkbox" data-facet-filter="component:RM"> Reference Model only
+          </label>
+        </div>
+      </div>
+
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">Specifications</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://specifications.openehr.org/" target="_blank">
+              openEHR specification
+            </a>
+            <a class="navbar-item" href="https://specifications.openehr.org/releases/UML/development/index.html" target="_blank">
+              openEHR portal
+            </a>
+            <a class="navbar-item" href="https://ckm.openehr.org/ckm/" target="_blank">
+              openEHR CKM
+            </a>
+          </div>
+        </div>
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">Community</a>
+          <div class="navbar-dropdown is-right">
+            <a class="navbar-item" href="https://openehr.atlassian.net/secure/Dashboard.jspa?selectPageId=10190" target="_blank">
+              Issue trackers
+            </a>
+            <a class="navbar-item" href="https://discourse.openehr.org/" target="_blank">
+              Discourse Forum
+            </a>
+            <a class="navbar-item" href="https://specifications.openehr.org/wiki/display/spec/Specifications+Home" target="_blank">
+              Wiki
+            </a>
+            <a class="navbar-item" href="https://github.com/openEHR" target="_blank">
+              GitHub
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="RM" data-version="Release-1.0.4">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="../../">Reference Model</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../">Overview</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../common/">Common Information Model</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../common/preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../common/overview/">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../common/archetyped_package/">Archetyped Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../common/generic_package/">Generic Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../common/directory_package/">Directory Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../common/change_control_package/">Change Control Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../common/resource_package/">Resource Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../common/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../data_structures/">Data Structures Information Model</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_structures/preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_structures/background/">Background</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_structures/overview/">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_structures/item_structure_package/">Item Structure Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_structures/representation_package/">Representation Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_structures/history_package/">History Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_structures/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../data_types/">Data Types Information Model</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_types/preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_types/background/">Background</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_types/introduction/">Introduction</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_types/basic_package/">Basic Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_types/text_package/">Text Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_types/quantity_package/">Quantity Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_types/date_time_package/">Date Time Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_types/time_specification_package/">Time_specification Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_types/encapsulated_package/">Encapsulated Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_types/uri_package/">Uri Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_types/implem_strategies/">Implementation Strategies</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_types/comparison_HL7/">Comparison with HL7v3 Types</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_types/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../demographic/">Demographic Information Model</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../demographic/preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../demographic/demographic_package/">Demographic package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../demographic/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../ehr/">EHR Information Model</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr/preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr/background/">Background</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr/ehr_information_model/">The EHR Information Model</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr/ehr_package/">EHR Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr/composition_package/">Composition Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr/content_package/">Content Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr/navigation_package/">Navigation Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr/entry_package/">Entry Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr/glossary/">Glossary</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../">EHR Extract Information Model</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../preface/">Preface</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="./">Requirements</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../design_overview/">Design Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../common_package/">Extract.common Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../openehr_extract_package/">The openehr_extract Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../generic_extract_package/">Generic_extract Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../synchronisation_package/">Synchronisation Extracts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../message_package/">The Message package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../semantics/">Semantics of openEHR and ISO 13606 extracts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../integration/">Integration Information Model</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../integration/preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../integration/integration_package/">Integration Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../integration/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../support/">Support Information Model</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../support/preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../support/support_package/">Support Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../support/assumed_types/">Assumed Types</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../support/identification_package/">Identification Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../support/terminology_package/">Terminology Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../support/measurement_package/">Measurement Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../support/definition_package/">Definition Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../support/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Reference Model</span>
+    <span class="version">Release-1.0.4</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <div class="title"><a href="../../../../AM/latest/">Archetype Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../AM/latest/">Release-2.3.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../AM/Release-2.2.0/">Release-2.2.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../AM/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../BASE/latest/">Base Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../BASE/latest/">Release-1.2.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../BASE/Release-1.1.0/">Release-1.1.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../BASE/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <div class="title"><a href="../../../latest/">Reference Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../latest/">Release-1.1.0</a>
+        </li>
+        <li class="version is-current">
+          <a href="../../">Release-1.0.4</a>
+        </li>
+        <li class="version">
+          <a href="../../../development/">development</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../../BASE/latest/" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../../">Reference Model</a></li>
+    <li><a href="../">EHR Extract Information Model</a></li>
+    <li><a href="./">Requirements</a></li>
+  </ul>
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">Release-1.0.4</button>
+  <div class="version-menu">
+    <a class="version" href="../../../latest/ehr_extract/requirements/">Release-1.1.0</a>
+    <a class="version is-current" href="./">Release-1.0.4</a>
+    <a class="version" href="../../../development/ehr_extract/requirements/">development</a>
+  </div>
+</div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Requirements</h1>
+<div class="sect1">
+<h2 id="_overview"><a class="anchor" href="#_overview"></a><a class="link" href="#_overview">Overview</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This section describes the requirements that the openEHR Extract Information Model (IM) is
+designed to meet. Requirements are expressed in terms of a description of the assumed operational
+environments (which acts as a design constraint), a set of use cases, functional and security requirements.
+The family of use cases describe coarse-grained information import to and export from health
+information systems, using openEHR standardised information structures as the <em>lingua franca</em>. The
+Extract IM is neutral with respect to the communication technology used between systems: the information
+structures can equally be used in a web services environment or in a messaging environment,
+including secure email. The concrete method of communication is therefore not a factor in the scenarios
+described here.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_operational_environment"><a class="anchor" href="#_operational_environment"></a><a class="link" href="#_operational_environment">Operational Environment</a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_openehr_environments"><a class="anchor" href="#_openehr_environments"></a><a class="link" href="#_openehr_environments">openEHR Environments</a></h3>
+<div class="paragraph">
+<p>The assumed operational openEHR environment for openEHR Extracts is shown in the following figure. In
+this figure, a Request for "information from the records of one or more 'subjects'" is created by a
+Requesting system. A <em>subject</em> record may be a patient EHR, a Person record in a demographic system,
+or any other logically meaningful top-level entity. Responding system(s) reply in the form of one or
+more Extracts. The Request/Response interaction is enabled by a transport mechanism and possibly
+other services. This be be in the form of comprehensive middleware, web services, or simple point-topoint
+protocols such as SMTP (email) transport.</p>
+</div>
+<div id="operational_environment" class="imageblock text-center text-center">
+<div class="content">
+<img src="../_images/diagrams/operational_environment.png" alt="operational environment" width="80%">
+</div>
+<div class="title">Figure 1. Operational openEHR Environment for Extracts</div>
+</div>
+<div class="paragraph">
+<p>Information in Responding systems is assumed to be in the following form.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Each such system contains one or more Subject records (e.g. EHRs); there may be records for the same Subject in more than one system.</p>
+</li>
+<li>
+<p>Each Subject record consists of one or more Version containers, each of which contains the version history of a particular piece of content. For an EHR, distinct containers are used for persistent Compositions (e.g. "medications list", "problem list") and event Compositions (Compositions created due to patient encounters and other events in the clinical care process).</p>
+</li>
+<li>
+<p>Each Version within a Version container corresponds to one version of the content managed by that container, in other words the state of a particular content item at some point in time when it was committed by a user.</p>
+</li>
+<li>
+<p>Groups of Versions, each one from a different Version container within a Responding system correspond to Contributions, i.e. the openEHR notion of a "change-set". Any particular Contribution corresponds to the set of Versions committed at one time, by a particular user to a particular system.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The above relationships reveal a hierarchy of potential 1:N relationships in the information accessible
+to the requesting system, with Contributions forming an alternative view of the content. At each level
+of the hierarchy, a system of identifiers is needed, e.g. to distinguish Subjects, to distinguish Versions
+and so on. In some specific circumstances, some of these may be reduced to 1:1 relationships, e.g.
+there may be no versioning, removing the need for specific identifiers for versions of an item.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_non_openehr_environments"><a class="anchor" href="#_non_openehr_environments"></a><a class="link" href="#_non_openehr_environments">Non-openEHR Environments</a></h3>
+<div class="paragraph">
+<p>The openEHR Extract defined in this specification can be used in non-openEHR environments, where
+the aim is to define messages whose content is expressed as templated archetypes. In general, not
+much can be assumed about the internal data architecture of such systems. For the purposes of this
+specification, the existence of two levels of information is assumed:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>'record' or equivalently 'patient' - i.e. a division of information on the basis of subject of care;</p>
+</li>
+<li>
+<p>'document' (Composition in openEHR), which is the coarsest grain item making up a record.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Regarding versioning in non-openEHR systems, it is assumed that some systems may support basic
+concepts including:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>document version;</p>
+</li>
+<li>
+<p>document version set - an identifier of a group of versions of the same logical item;</p>
+</li>
+<li>
+<p>document type / schema type - an identifier of some kind of model, schema or content type of a given document;</p>
+</li>
+<li>
+<p>document type version - the version of document type.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>A typical environment in which Extracts can be used to send legacy information in archetyped form is
+one in which cross-enterprise communications are required, including discharge summaries and referrals.
+The content of such messages may be defined in terms of archetypes, and then templated in order
+to define the total content of the message.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_location_of_information"><a class="anchor" href="#_location_of_information"></a><a class="link" href="#_location_of_information">Location of Information</a></h3>
+<div class="paragraph">
+<p>In more advanced environments, there may be a health information location service which obviates
+the need for any knowledge on the part of the requestor about which systems contain information on a
+particular Subject of interest (e.g. a certain patient); in simpler environments, the requesting system
+may need to explicitly identify the target systems of the request. The diagram below illustrates a direct request
+and a request mediated by a location service.</p>
+</div>
+<div id="reference_environment" class="imageblock text-center text-center">
+<div class="content">
+<img src="../_images/diagrams/reference_environment.png" alt="reference environment" width="60%">
+</div>
+<div class="title">Figure 2. Health Information Reference Environment</div>
+</div>
+<div class="paragraph">
+<p>This specification assumes that the EHR Request and Extract is between the Requesting system and
+each Responding system, even if the list of relevant Responding systems has been generated by a
+location service. In other words, this Extract specification does not encompass the idea of a compendium
+of Extracts from multiple Responding systems.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_granularity_of_extract_data"><a class="anchor" href="#_granularity_of_extract_data"></a><a class="link" href="#_granularity_of_extract_data">Granularity of Extract Data</a></h3>
+<div class="paragraph">
+<p>In <a href="#operational_environment">Operational openEHR Environment for Extracts</a> the lowest level of information shown in a Responding system is simply marked 'content'.
+This corresponds to top-level information structures such as Compositions, Folder trees, Parties
+etc in openEHR. Each such content item potentially contains a whole hierarchy of information items,
+only some of which is generally of interest to the Requestor. The typical database idea of a "query
+result" is usually expected to return only such fine-grained pieces. However, the Extract specification
+here only allows for a granularity of Compositions ('documents' etc), rather than fine-grained query
+responses which are dealt with by other means. This is because the primary use case of an Extract is
+to make parts of an EHR available somewhere else, rather than to intelligently query the record in situ
+and return the result.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_time"><a class="anchor" href="#_time"></a><a class="link" href="#_time">Time</a></h3>
+<div class="paragraph">
+<p>Versioned health record systems are 'bitemporal' systems, because they include two notions of time.
+Times mentioned in the data relate to real world events or states, such as the time of diagnosis of diabetes,
+or the date of discharge of a patient from a hospital. Real world time is distinquished from <em>system
+time</em>, which is the time of events in the information system itself, such as committal of
+Contributions. Both real world time and system time may need to be specified in a Request.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_use_cases"><a class="anchor" href="#_use_cases"></a><a class="link" href="#_use_cases">Use Cases</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The following sections describe typical use cases that the Request/Extract model must satisfy.</p>
+</div>
+<div class="sect2">
+<h3 id="_single_patient_ad_hoc_request"><a class="anchor" href="#_single_patient_ad_hoc_request"></a><a class="link" href="#_single_patient_ad_hoc_request">Single Patient, Ad Hoc Request</a></h3>
+<div class="paragraph">
+<p>A key clinical use case is the need to obtain some or all of a patient&#8217;s EHR from a remote system or
+systems. The request is most likely to be made due to the patient having been referred to another provider
+(including discharge to tertiary care), but other reasons such as falling ill while travelling will
+also figure.</p>
+</div>
+<div class="paragraph">
+<p>The request might be made to an identified system, such as the system of the referring provider, or it
+may be made to all systems containing data on the given patient, if a health information location service
+is available.</p>
+</div>
+<div class="paragraph">
+<p>The contents of the request may be specified in different ways, either by the clinician and/or the software,
+as follows:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>get this patient&#8217;s entire EHR from an identified source for the first time;</p>
+</li>
+<li>
+<p>get all changes to this patient&#8217;s EHR from specified (e.g. referring or GP) system since the
+last time this was done by me;</p>
+</li>
+<li>
+<p>get persistent Compositions such as "current medications", "problem list" and "allergies and
+interactions";</p>
+</li>
+<li>
+<p>get Compositions matching a specific query, such as "blood sugar level measurements during
+the last six months".</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The meaning of time is content-dependent. For Observations in an openEHR EHR, the sample times
+might be specified; for an Evaluation that documents a diagnosis, times for date of onset, date of last
+episode, date of resolution could all be specified.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_multiple_patient_batch_send"><a class="anchor" href="#_multiple_patient_batch_send"></a><a class="link" href="#_multiple_patient_batch_send">Multiple Patient, Batch Send</a></h3>
+<div class="paragraph">
+<p>A very common requirement for pathology laboratories is to be able to send result data for tests done
+for a number of patients, on a periodic batch basis, to a known receiver such as a hospital, clinic or
+state health system. The batch send is usually seen as a "standing request" by the receiver, and may be
+on a periodic basis (e.g. send all the results available every hour), an "as-available" basis, or according
+to some other scheme.
+Such data are currently often sent as HL7v2, Edifact or other similar messages.</p>
+</div>
+<div class="paragraph tbd">
+<p><strong>To Be Determined</strong>: patient per message? Send trigger?</p>
+</div>
+<div class="paragraph tbd">
+<p><strong>To Be Determined</strong>: Extract may be sent unsolicited - i.e. no Request</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_previous_versions_and_revision_histories"><a class="anchor" href="#_previous_versions_and_revision_histories"></a><a class="link" href="#_previous_versions_and_revision_histories">Previous Versions and Revision Histories</a></h3>
+<div class="paragraph">
+<p>In some circumstances, a request may be made for versions other than the latest of certain content.
+This might happen due to a study or medico-legal investigation that needs to establish what information
+was visible in certain systems at an earlier time. For example there may be a need to determine if
+the problem list, list of known allergies, and patient preferences were all compatible with the medications
+list at some earlier time.</p>
+</div>
+<div class="paragraph">
+<p>As part of querying for previous versions, the revision histories of Versioned containers might be
+requested, in order to allow a user or software agent to determine which Versions are of interest.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_systematic_update_and_persisted_requests"><a class="anchor" href="#_systematic_update_and_persisted_requests"></a><a class="link" href="#_systematic_update_and_persisted_requests">Systematic Update and Persisted Requests</a></h3>
+<div class="paragraph">
+<p>In larger healthcare delivery environments such as state and regional health services, patients are routinely
+treated by multiple providers, some or all of which are part of a large distributed clinical computing
+environment. They may visit various clinics, specialists and hospitals, each of which has its
+own patient record for each patient. However, there is usually a need for centralised aggregation of
+patient data within the overall health authority, with updating required on a routine basis.</p>
+</div>
+<div class="paragraph">
+<p>In such situations, the general requirement is for a request for update, typically for more than one
+patient, to be made once, and for it to be acted upon repeatedly until further notice. Specific requirements
+may include:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>periodic updates of changes since last update, with a specified period;</p>
+</li>
+<li>
+<p>event-driven updates, whereby an update occurs when a certain event occurs in the server,
+e.g. "any change to the EHR", "any change to medications or allergies" and so on.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>For these situations, the request can be persisted in the server. Even for one-off ad hoc requests, the
+requestor may require the request to be persisted in the server, so that it can be referred to simply by
+an identifier for later invocations.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_sharing_of_non_ehr_openehr_data"><a class="anchor" href="#_sharing_of_non_ehr_openehr_data"></a><a class="link" href="#_sharing_of_non_ehr_openehr_data">Sharing of non-EHR openEHR Data</a></h3>
+<div class="paragraph">
+<p>There will be a need to be able to request information from openEHR systems and services other than
+the EHR, such as demographics and workflow, as they are developed. One likely purpose for such
+requests is for import from openEHR systems into non-openEHR systems, for example from an
+openEHR demographics service to an existing hospital Patient Master index.</p>
+</div>
+<div class="paragraph">
+<p>It should be possible to use the same general form of request as used for an EHR. However, instead of
+specifying Extracts of patient records (EHRs), the data shared in these other cases will be whichever
+top-level business objects are relevant for that kind of service, e.g. <code>PARTYs</code> for the demographic service
+and so on.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_provision_of_data_from_non_openehr_systems"><a class="anchor" href="#_provision_of_data_from_non_openehr_systems"></a><a class="link" href="#_provision_of_data_from_non_openehr_systems">Provision of data from non-openEHR Systems</a></h3>
+<div class="paragraph">
+<p>One of the major uses of an openEHR system is as a shared EHR system, aggregating data from various
+existing systems in a standardised form. Data from such systems may be provided in different
+ways, including various messaging forms (HL7, Edifact), various kinds of EMR document (CEN
+EN13606, HL7 CDA), and other formats that may or may not be standardised.</p>
+</div>
+<div class="paragraph">
+<p>The developers of some such systems may decide to provide an openEHR-compatible export gateway,
+capable of serialising various data into openEHR structures, particularly the Composition /
+<code>GENERIC_ENTRY</code> form (see openEHR Integration IM) which is highly flexible and can accommodate
+most existing data formats. Types of non-openEHR systems that may supply openEHR Extracts in
+this fashion include pathology systems and departmental hospital systems, such as radiology, (RIS),
+histopathology and so on.</p>
+</div>
+<div class="paragraph">
+<p>Extract Requests might be specified in openEHR form (i.e. according to this document) or in some
+other form, such as web service calls or messages; either way, the logical request is the same, i.e.
+which patients, which content, which versions, and the update basis. The responses must be some
+subset of the openEHR Extract presented in this document.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_patient_access_to_health_data"><a class="anchor" href="#_patient_access_to_health_data"></a><a class="link" href="#_patient_access_to_health_data">Patient Access to Health Data</a></h3>
+<div class="paragraph">
+<p>Direct access by patients to their own health data outside of clinical encounters is a common aspiration
+of e-health programmes around the world. It seems clear that there will be various modes by
+which such access will occur, including:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>patient carrying USB stick or other portable device containing some or all of health record;</p>
+</li>
+<li>
+<p>access from home PC via secure web service to EHR, in a manner similar to online banking;</p>
+</li>
+<li>
+<p>access to EHR data in the form of encrypted email attachments on home PC either sent
+unsolicited (e.g. a scan cc:d to patient by imaging lab) or by request of the patient;</p>
+</li>
+<li>
+<p>access to EHR in the waiting rooms of doctors' surgeries, clinics etc via kiosks or normal
+PCs.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Both the USB stick and email scenarios involve asynchronous access of EHR information, and can be
+addressed by the EHR Extract.</p>
+</div>
+<div class="paragraph">
+<p>In the case of a portable device, the most obvious need is for the device to act as a synchronising
+transport between a home PC containing a copy of patient / family EHRs, and the EHR systems at
+various clinics that the patient visits. To achieve this, when changes are made at either place (in the
+home record or in the record held at a clinic), it should be possible to copy just the required changes to
+the device. In openEHR terms, this corresponds to copying Contributions made since the last synchronisation.</p>
+</div>
+<div class="paragraph">
+<p>The email attachment scenario is more likely to involve Extracts containing either information
+requested by the patient in a similar manner as for the ad hoc clinical requests described above (e.g.
+most recent test result) or laboratory information in the form of an openEHR Extract, destined for
+integration into an openEHR EHR. In the latter case, the information is likely to be in the form of
+Compositions containing <code>GENERIC_ENTRIEs</code>, built according to legacy archetypes, although it could
+equally be in "pure" openEHR form (i.e. Compositions containing proper openEHR Observations).</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_move_of_entire_record"><a class="anchor" href="#_move_of_entire_record"></a><a class="link" href="#_move_of_entire_record">Move of Entire Record</a></h3>
+<div class="paragraph">
+<p>A patient&#8217;s entire EHR may be moved permanently to another system for various reasons, due to the
+patient moving, a permanent transfer of care, or re-organisation of data centres in which EHRs are
+managed. This is known as change of custodianship of the record, and is distinct from situations in
+which copying and synchronisation take place.</p>
+</div>
+<div class="paragraph">
+<p>The record is deleted (possibly after archival) from active use at the sending system. In these situations,
+the usual need is for an interoperable form of the complete EHR (including all previous versions)
+to be exported from the existing system and sent to the destination system, since in general the
+two systems will not have the same implementation platform, versioning model and so on. In some
+cases, the implementations may be identical, allowing a copy and delete operation in native representation
+could be used.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_system_synchronisation"><a class="anchor" href="#_system_synchronisation"></a><a class="link" href="#_system_synchronisation">System Synchronisation</a></h3>
+<div class="sect3">
+<h4 id="_mirroring"><a class="anchor" href="#_mirroring"></a><a class="link" href="#_mirroring">Mirroring</a></h4>
+<div class="paragraph">
+<p>Two openEHR systems containing the same kind of data (i.e. EHR, demographic etc) may contain
+records that are intended to be logical "mirrors" (i.e. clones) of each other. In some cases, an entire
+system may be a clone of another, i.e. a "mirror system". Mirrored records are purely read-only, and
+in all cases, the mirror record or system is a slave of its source, and no local updates occur. Synchronisation
+is therefore always in one direction only.</p>
+</div>
+<div class="paragraph">
+<p>To maintain the information in mirrored records, an efficient update mechanism is required. The
+openEHR Contribution provides the necessary semantic unit because it is the unit of change to any
+record in a system, it can also be used as the unit of update to the same record in a mirroring system.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_the_virtual_ehr"><a class="anchor" href="#_the_virtual_ehr"></a><a class="link" href="#_the_virtual_ehr">The Virtual EHR</a></h4>
+<div class="paragraph">
+<p>If changes are allowed to multiple systems that also systematically synchronise, a "virtual EHR"
+exists. This term indicates that the totality of changes taken together form a complete EHR, even if
+any particular instant in any given system, not all such changes are visible. The virtual EHR is the
+usual situation in any large-scale distributed e-health environment. Synchronisation might be on an
+ad hoc or systematic basis, and may or may not be bidirectional. The difference between a synchronisation
+request and any other kind of request is that the request is specified not in terms of a user query
+but in terms of bringing the record up to date, regardless of what changes that might require.</p>
+</div>
+<div class="paragraph">
+<p>Due to the way version identification is defined in openEHR (see Common IM, change_control
+package), the virtual EHR is directly supported, and synchronisation is possible simply by copying
+Versions from one place to another and adding them to the relevant Versioned container at the
+receiver end. In a large health computing environment, cloning and mirroring might be used systematically
+to achieve a truly de-centralised system.</p>
+</div>
+<div class="paragraph">
+<p>The defining condition of this use case is that one or more (possibly all) records in a system are maintained
+as perfect copies of the same records in other systems, with possible delays, depending on
+when and how updating occurs.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_communication_between_non_openehr_emrehr_systems"><a class="anchor" href="#_communication_between_non_openehr_emrehr_systems"></a><a class="link" href="#_communication_between_non_openehr_emrehr_systems">Communication between non-openEHR EMR/EHR systems</a></h3>
+<div class="paragraph">
+<p>Since the openEHR Extract represents a generic, open standardised specification for representing
+clinical information, there is no reason why it cannot be used for systems that not otherwise implement
+openEHR. In this case, the Extract content is most likely to consist of Compositions and
+Generic_entries, and may or may not contain versioning information, depending on whether versioning
+is supported in the generating systems.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_technical_requirements"><a class="anchor" href="#_technical_requirements"></a><a class="link" href="#_technical_requirements">Technical Requirements</a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_specification_of_content"><a class="anchor" href="#_specification_of_content"></a><a class="link" href="#_specification_of_content">Specification of Content</a></h3>
+<div class="paragraph">
+<p>Content is specifiable in terms of matching criteria. This can take two forms: lists of specific top-level
+content items, or queries that specify top-level items in terms of matching subparts.</p>
+</div>
+<div class="paragraph tbd">
+<p>To Be Continued:</p>
+</div>
+<div class="paragraph">
+<p>Queries are expressed in the Archetype Query Language.</p>
+</div>
+<div class="paragraph tbd">
+<p>To Be Continued:</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_specification_of_versions"><a class="anchor" href="#_specification_of_versions"></a><a class="link" href="#_specification_of_versions">Specification of Versions</a></h3>
+<div class="paragraph">
+<p>The openEHR Extract supports detailed access to the versioned view of data. Which versions of the
+content should be returned can be specified in a number of ways:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>as a version time of the source EHR at which all content should be taken</p>
+</li>
+<li>
+<p>in more specific terms, such as:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>time window of committal;</p>
+</li>
+<li>
+<p>with or without revision history, or revision history only;</p>
+</li>
+<li>
+<p>all, some, latest versions of each content item;</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>in terms of identified Contributions, Contributions since a certain time etc.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph tbd">
+<p>To Be Continued:</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_completeness_of_data"><a class="anchor" href="#_completeness_of_data"></a><a class="link" href="#_completeness_of_data">Completeness of Data</a></h3>
+<div class="paragraph">
+<p>Information transferred in an EHR Extract needs to be self-standing in the clinical sense, i.e. it can be
+understood by the requestor without assuming any other means of access to the responding system. In
+general, this means that for references of any kind in the transferred EHR data, the Extract needs to
+either contain the reference target, or else it must be reasonable to assume that the requestor has independent
+access, or else doesn&#8217;t need it.</p>
+</div>
+<div class="sect3">
+<h4 id="_references_to_other_parts_of_the_same_ehr"><a class="anchor" href="#_references_to_other_parts_of_the_same_ehr"></a><a class="link" href="#_references_to_other_parts_of_the_same_ehr">References to Other Parts of the Same EHR</a></h4>
+<div class="paragraph">
+<p>In openEHR, there are two kinds of cross reference within an EHR: <code>LINKs</code> (defined in <code>LOCATABLE</code>),
+and hyperlinks (<code>DV_TEXT</code>.<code><em>hyperlink</em></code>). Both of these use a <code>DV_EHR_URI</code> instance to represent the link
+target. The contents of the URI are defined in the Architecture Overview.</p>
+</div>
+<div class="paragraph tbd">
+<p><strong>To Be Continued</strong>: Are EHR ids always included in URIs?</p>
+</div>
+<div class="paragraph">
+<p>In some cases, referenced items within the same EHR will need to travel with the originally requested
+item, in order for the latter to make sense. For example, a discharge summary or referral might refer
+(via <code>LINKs</code>) to other Compositions in the EHR, such as Medication list, Problem list, and lab reports.
+On the other hand, there may be links within the requested item to objects that are not required to be
+sent in an Extract.</p>
+</div>
+<div class="paragraph">
+<p>Which links should be followed when building an Extract can be specified in terms of:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>link depth to follow, i.e. how many jumps to continue from the original item; a value of 0
+means "don&#8217;t follow any links".</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>In addition, for <code>LINK</code> instances, the following can be specified:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>link type to follow, i.e. only follow links whose type attribute matches the specification.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_references_to_other_ehrs"><a class="anchor" href="#_references_to_other_ehrs"></a><a class="link" href="#_references_to_other_ehrs">References to Other EHRs</a></h4>
+<div class="paragraph">
+<p>References to items in other EHRs may occur within an EHR, e.g. to the EHR of a parent, other relation,
+organ donor etc. There is no requirement for such links to be followed when constructing EHR
+Extracts.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_references_to_resources_outside_the_ehr"><a class="anchor" href="#_references_to_resources_outside_the_ehr"></a><a class="link" href="#_references_to_resources_outside_the_ehr">References to Resources Outside the EHR</a></h4>
+<div class="paragraph">
+<p>Computable references can also be made to external items from within an openEHR EHR. Instances
+of the data type DV_URI occurring either on their own or in a <code>DV_TEXT</code> hyperlink are typically used to
+refer to resources such as online guidelines and references. Instances of <code>DV_MULTIMEDIA</code> can contain
+<code>DV_URI</code> instances that refer to multimedia resources usually within the same provider enterprise, e.g.
+radiology images stored in a PACS. Since URIs are by definition globally unique, they remain semantically
+valid no matter where the data containing them moves. However, there is no guarantee that
+they can always be resolved, as in the case of a URI referring to a PACS image in one provider environment
+when transferred to another. This is unlikely to be a problem since images are usually represented
+in the EHR as a small (e.g. 200kb) JPG or similar, and it is almost never the intention to have
+original image sets (which may be hundreds of Mb) travel with an EHR. Requests to access original
+images would be made separately to a request for EHR Extracts.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_references_to_demographic_entities"><a class="anchor" href="#_references_to_demographic_entities"></a><a class="link" href="#_references_to_demographic_entities">References to Demographic Entities</a></h4>
+<div class="paragraph">
+<p>Two kinds of demographic entities are referred to throughout an openEHR EHR. Individual providers
+and provider institutions are referenced from <code>PARTY_PROXY</code> objects in the record, via the
+external_ref attribute, which contains references to objects within a demographic repository, such as
+an openEHR demographic repository, a hospital MPI or a regional or national identity service. The
+<code>PARTY_IDENTIFIED</code> subtype of <code>PARTY_PROXY</code> can in addition carry human readable names and
+other computational identifiers for the provider in question.</p>
+</div>
+<div class="paragraph">
+<p>The second kind of demographic reference, found in the <code>PARTY_SELF</code> subtype of <code>PARTY_PROXY</code>, is
+to the EHR subject (i.e. patient), and may or may not be present in the EHR, depending on the level of
+security in place. Where it is present, it is to a record in a demographic or identity system.</p>
+</div>
+<div class="paragraph">
+<p>For the contents of an EHR Extract to make sense to the receiver, referenced demographic items may
+have to be included in the Extract, if the receiver has no access to a demographic system containing
+the entities. Whether patient demographics are included is a separate matter, since the requestor system
+already knows who the patient is, and may or may not need them. The requestor should therefore
+be able to specify whether the Extract includes referenced demographic entities other than the subject,
+and independently, whether subject demographics should be included.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_archetypes_and_terminology"><a class="anchor" href="#_archetypes_and_terminology"></a><a class="link" href="#_archetypes_and_terminology">Archetypes and Terminology</a></h4>
+<div class="paragraph">
+<p>Another kind of "reference" is terminology codes, stored in instances of the data type <code>DV_TEXT</code> (via
+the mapping attribute) and <code>DV_CODED_TEXT</code>.<code><em>defining_code</em></code>. In openEHR systems, all coded terms
+(i.e. instances of <code>DV_CODED_TEXT</code>) carry the text value of the code, in the language of the locale of
+the EHR. For normal use, this is typically sufficient. However, for the purposes of decision support or
+other applications requiring inferencing, the terminology itself needs to be available. This specification
+assumes that where the requestor requires inferencing or other terminology capabilities, independent
+access to the complete terminology will be obtained.</p>
+</div>
+<div class="paragraph">
+<p>The same assumption is made with respect to archetypes whose identifiers are mentioned in the EHR
+data or meta-data: archetypes are not themselves included in Extracts, and have to be resolved separately.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_security_and_privacy"><a class="anchor" href="#_security_and_privacy"></a><a class="link" href="#_security_and_privacy">Security and Privacy</a></h3>
+<div class="paragraph">
+<p>Security becomes one of the most important requirements for the EHR Extract for the obvious reason
+of its exposure in potentially uncontrolled environments outside the (supposedly) secure boundaries
+of requesting or responding systems. The general requirement is that the contents of an Extract are
+based on:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>the access control rules defined in the <code>EHR_ACCESS</code> object at source;</p>
+</li>
+<li>
+<p>any other access rules defined in policy services or other places;</p>
+</li>
+<li>
+<p>authentication of the requesting user.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Digital signing should be used based on the (preferably certified) public key of the requestor. Notarisation
+might also be used to provide non-repudiable proof of sending and/or receiving Extracts,
+although this is outside the scope of this specification.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_update_basis"><a class="anchor" href="#_update_basis"></a><a class="link" href="#_update_basis">Update Basis</a></h3>
+<div class="paragraph">
+<p>In addition to specifying the content a basis for update also needs to be specified. The simplest possible
+case is that of an ad hoc one-off query.
+More complex cases are periodic update and event-driven update.</p>
+</div>
+<div class="sect3">
+<h4 id="_persistent_request"><a class="anchor" href="#_persistent_request"></a><a class="link" href="#_persistent_request">Persistent Request</a></h4>
+<div class="paragraph tbd">
+<p>To Be Continued:</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="../preface/">Preface</a></span>
+  <span class="next"><a href="../design_overview/">Design Overview</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>
+    Copyright: © 2003+
+    <a href="https://www.openehr.org"
+        alt="is an independent, non-profit foundation, facilitating the sharing of health
+           records by consumers and clinicians via open specifications, clinical models
+           and open platform implementations.">The openEHR Foundation</a>
+  </p>
+
+  <p>
+    License:
+    <img src="/_/img/cc-by-nd-88x31.png"
+        alt="Creative Commons Attribution-NoDerivs 3.0 Unported."
+        style="vertical-align:middle;margin:0 0.25rem 0 0;">
+    <a href="https://creativecommons.org/licenses/by-nd/3.0/">
+      Creative Commons Attribution-NoDerivs 3.0 Unported.
+    </a>
+  </p>
+
+  <p>
+    <strong>Links: <strong>
+    <a href="https://www.openehr.org/terms-of-use" class="mr-1">Terms of use</a> |
+    <a href="https://www.openehr.org/privacy-policy" class="mx-1">Privacy policy</a> |
+    <a href="https://www.openehr.org/privacy-policy" class="mx-1">Logos &amp; Trademarks</a> |
+    <a href="https://www.openehr.org/contact-us" class="mx-1">Contact</a>
+  </p>
+</footer>
+
+<script id="site-script" src="../../../../_/js/site.js" data-ui-root-path="../../../../_"></script>
+<script async src="../../../../_/js/vendor/highlight.js"></script>
+<script src="../../../../_/js/vendor/lunr.js"></script>
+<script src="../../../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../../../.." data-snippet-length="80" data-stylesheet="../../../../_/css/search.css"></script>
+<script async src="../../../../search-index.js"></script>
+<script src="../../../../_/js/medium-zoom.min.js"></script>
+<script src="../../../../_/js/zoom.js"></script>
+  </body>
+</html>

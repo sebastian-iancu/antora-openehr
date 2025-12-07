@@ -1,0 +1,3130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+    <title>cADL - Constraint ADL :: openEHR Specifications (Local Build)</title>
+    <link rel="canonical" href="https://sebastian-iancu.github.io/antora-openehr/AM/Release-2.2.0/ADL2/cadl/">
+    <link rel="prev" href="../file_encoding/">
+    <link rel="next" href="../paths/">
+    <meta name="description" content="openEHR Archetype Definition Language 2 (ADL2)">
+    <meta name="keywords" content="EHR, ADL, AOM, health records, archetypes, constraint language, ISO 13606, openehr">
+    <meta name="generator" content="Antora 3.1.14">
+    <link rel="stylesheet" href="../../../../_/css/site.css">
+    <link rel="stylesheet" href="../../../../_/css/antora-openehr.css">
+    <link rel="stylesheet" href="../../../../_/css/openehr.css">
+<link rel="icon" href="../../../../_/img/favicon.ico" type="image/x-icon">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://sebastian-iancu.github.io/antora-openehr">openEHR Specifications (Local Build)</a>
+
+      <div class="navbar-item search hide-for-print">
+        <div id="search-field" class="field has-filter">
+          <input id="search-input" type="text" placeholder="Search the docs">
+          <label class="filter checkbox">
+            <input type="checkbox" data-facet-filter="component:AM"> Archetype Model only
+          </label>
+        </div>
+      </div>
+
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">Specifications</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://specifications.openehr.org/" target="_blank">
+              openEHR specification
+            </a>
+            <a class="navbar-item" href="https://specifications.openehr.org/releases/UML/development/index.html" target="_blank">
+              openEHR portal
+            </a>
+            <a class="navbar-item" href="https://ckm.openehr.org/ckm/" target="_blank">
+              openEHR CKM
+            </a>
+          </div>
+        </div>
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">Community</a>
+          <div class="navbar-dropdown is-right">
+            <a class="navbar-item" href="https://openehr.atlassian.net/secure/Dashboard.jspa?selectPageId=10190" target="_blank">
+              Issue trackers
+            </a>
+            <a class="navbar-item" href="https://discourse.openehr.org/" target="_blank">
+              Discourse Forum
+            </a>
+            <a class="navbar-item" href="https://specifications.openehr.org/wiki/display/spec/Specifications+Home" target="_blank">
+              Wiki
+            </a>
+            <a class="navbar-item" href="https://github.com/openEHR" target="_blank">
+              GitHub
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="AM" data-version="Release-2.2.0">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="../../">Archetype Model</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../">Overview</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../ADL1.4/">{spec_title}</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL1.4/preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL1.4/overview/">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL1.4/file_encoding/">File Encoding and Character Quoting</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL1.4/dadl/">dADL - Data ADL</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL1.4/cadl/">cADL - Constraint ADL</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL1.4/assertions/">Assertions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL1.4/paths/">ADL Paths</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL1.4/adl/">ADL - Archetype Definition Language</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL1.4/customising_adl/">Customising ADL</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL1.4/other_formalisms/">Relationship of ADL to Other Formalisms</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL1.4/masterAppB-extended_metadata/">Extended Meta-data Guide</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL1.4/masterAppC-syntax_spec/">Syntax Specification</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL1.4/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../">{spec_title}</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../overview/">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../file_encoding/">File Encoding and Character Quoting</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="./">cADL - Constraint ADL</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../paths/">ADL Paths</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../default_values/">Default Values</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../adl/">ADL - Archetype Definition Language</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../terminology_integration/">Terminology Integration</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../specialisation/">Specialisation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../templates/">Templates</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../other_formalisms/">Relationship of ADL to Other Formalisms</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../masterAppB-syntax_spec/">Syntax Specification</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../AOM1.4/">{spec_title}</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM1.4/preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM1.4/model_overview/">The Archetype Object Model</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM1.4/archetype_package/">The Archetype Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM1.4/constraint_model_package/">Constraint Model Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM1.4/assertion_package/">The Assertion Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM1.4/primitive_package/">Primitive Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM1.4/ontology_package/">Terminology Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM1.4/domain_extension/">Domain-specific Extension Example</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM1.4/masterAppB-diverse_reference_models/">Using Archetypes with Diverse Reference Models</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM1.4/masterAppC-rm_dependencies/">Reference Model Dependencies</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM1.4/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../AOM2/">{spec_title}</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM2/preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM2/model_overview/">Model Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM2/archetype_package/">The Archetype Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM2/constraint_model_package/">Constraint Model Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM2/rules_package/">The Rules Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM2/rm_overlay/">The RM Overlay Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM2/terminology_package/">Terminology Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM2/validation/">Validation and Transformation Semantics</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM2/serialisation_model/">Serialisation Model</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM2/templates/">Templates</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM2/rm_adaptation/">Reference Model Adaptation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM2/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../Identification/">{spec_title}</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../Identification/preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../Identification/overview/">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../Identification/artefact_source_id/">Source Artefact Identification</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../Identification/versioning/">Versioning</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../Identification/lifecycle_mgt/">Lifecycle Model</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../Identification/distributed_governance/">Distributed Governance</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../Identification/referencing/">Referencing</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../Identification/uris/">A Reliable URI for Knowledge Resources</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../Identification/artefact_authentication/">Artefact Authentication</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../Identification/scenarios/">Scenarios</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../Identification/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="#index.adoc">Language Design</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../OPT2/">{spec_title}</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../OPT2/preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../OPT2/overview/">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../OPT2/opt_raw/">The Raw Operational Template</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../OPT2/opt_profiled/">The Profiled Operational Template</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../OPT2/file_formats/">File Formats</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../OPT2/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../Overview/">{spec_title}</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../Overview/introduction/">Business Purpose of Archetypes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../Overview/formalism_overview/">Archetype Formalism Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../Overview/the_specifications/">The Specifications</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../Overview/semantic_overview/">Semantic Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../Overview/artefacts/">Artefacts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../Overview/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Archetype Model</span>
+    <span class="version">Release-2.2.0</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <div class="title"><a href="../../../latest/">Archetype Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../latest/">Release-2.3.0</a>
+        </li>
+        <li class="version is-current">
+          <a href="../../">Release-2.2.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../BASE/latest/">Base Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../BASE/latest/">Release-1.2.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../BASE/Release-1.1.0/">Release-1.1.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../BASE/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../RM/latest/">Reference Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../RM/latest/">Release-1.1.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../RM/Release-1.0.4/">Release-1.0.4</a>
+        </li>
+        <li class="version">
+          <a href="../../../../RM/development/">development</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../../BASE/latest/" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../../">Archetype Model</a></li>
+    <li><a href="../">{spec_title}</a></li>
+    <li><a href="./">cADL - Constraint ADL</a></li>
+  </ul>
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">Release-2.2.0</button>
+  <div class="version-menu">
+    <a class="version is-missing" href="../../../latest/">Release-2.3.0</a>
+    <a class="version is-current" href="./">Release-2.2.0</a>
+    <a class="version is-missing" href="../../../development/">development</a>
+  </div>
+</div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">cADL - Constraint ADL</h1>
+<div class="sect1">
+<h2 id="_overview"><a class="anchor" href="#_overview"></a><a class="link" href="#_overview">Overview</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>cADL is a block-structured syntax which enables constraints on data defined by object-oriented information models to be expressed in archetypes or other knowledge definition formalisms. It is most useful for defining the specific allowable configurations of data whose instances conform to very general object models. The general appearance of cADL is illustrated by the following example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cadl" data-lang="cadl">    PERSON[id1] matches {                                -- constraint on a PERSON instance
+        name matches {                                   -- constraint on PERSON.name
+            TEXT[id2] matches {/.+/}                     -- any non-empty string
+        }
+        addresses cardinality matches {1..*} matches {   -- constraint on
+            ADDRESS[id3] matches {                       -- PERSON.addresses
+                -- etc --
+            }
+        }
+    }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Some of the textual keywords in this example can be more efficiently rendered using common mathematical logic symbols. In the following example, the <code>matches</code> keyword have been replaced by an equivalent symbol:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cadl" data-lang="cadl">    PERSON[id1] ∈ {                            -- constraint on a PERSON instance
+        name ∈ {                               -- constraint on PERSON.name
+            TEXT[id2] ∈ {/..*/}                -- any non-empty string
+        }
+        addresses cardinality ∈ {1..*} ∈ {     -- constraint on
+            ADDRESS[id3] ∈ {                   -- PERSON.addresses
+                -- etc --
+            }
+        }
+    }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The full set of equivalences appears below. Raw cADL is persisted in the text-based form, to remove any difficulties when authoring cADL text in normal text editors, and to aid reading in English. However, the symbolic form might be more widely used for display purposes and in more sophisticated tools, as it is more succinct and less language-dependent. The use of symbols or text is completely a matter of taste, and no meaning whatsoever is lost by completely ignoring one or other format according to one&#8217;s personal preference. This document uses both conventions.</p>
+</div>
+<div class="paragraph">
+<p>In the standard cADL documented in this section, literal leaf values (such as the regular expression <code>/.+/</code> in the above example) are always constraints on a set of 'standard' widely-accepted primitive types, as described in the <a href="https://specifications.openehr.org/releases/LANG/latest/odin.html" target="_blank" rel="noopener">openEHR ODIN syntax specification</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_basics"><a class="anchor" href="#_basics"></a><a class="link" href="#_basics">Basics</a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_keywords"><a class="anchor" href="#_keywords"></a><a class="link" href="#_keywords">Keywords</a></h3>
+<div class="paragraph">
+<p>The following keywords are recognised in cADL:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>matches</code>, <code>~matches</code>, <code>is_in</code>, <code>~is_in</code></p>
+</li>
+<li>
+<p><code>occurrences</code>, <code>existence</code>, <code>cardinality</code></p>
+</li>
+<li>
+<p><code>ordered</code>, <code>unordered</code>, <code>unique</code></p>
+</li>
+<li>
+<p><code>use_node, allow_archetype</code></p>
+</li>
+<li>
+<p><code>include</code>, <code>exclude</code></p>
+</li>
+<li>
+<p><code>before</code> , <code>after</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Symbol equivalents for some of the above are given in the following table.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 16.6666%;">
+<col style="width: 66.6668%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Textual<br>
+ Rendering</th>
+<th class="tableblock halign-left valign-top">Symbolic<br>
+ Rendering</th>
+<th class="tableblock halign-left valign-top">Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">matches</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">∈</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Set membership, "p is in P"</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">not, ~</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">∼</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Negation, "not p"</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">*</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">∗</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Infinity, 'any number of&#8230;&#8203;'</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_block_node_structure"><a class="anchor" href="#_block_node_structure"></a><a class="link" href="#_block_node_structure">Block / Node Structure</a></h3>
+<div class="paragraph">
+<p>cADL constraints are written in a block-structured style, similar to block-structured programming languages like C. A typical block resembles the following (the recurring pattern <code>/.+/</code> is a regular expression matching a non-empty string):</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cadl" data-lang="cadl">    PERSON[id1] ∈ {
+        name ∈ {
+            PERSON_NAME[id2] ∈ {
+                forenames cardinality ∈ {1..*} ∈ {/.+/}
+                family_name ∈ {/.+/}
+                title ∈ {"Dr", "Miss", "Mrs", "Mr"}
+            }
+        }
+        addresses cardinality ∈ {1..*} ∈ {
+            LOCATION_ADDRESS[id3] ∈ {
+                street_number existence ∈ {0..1} ∈ {/.+/}
+                street_name ∈ {/.+/}
+                locality ∈ {/.+/}
+                post_code ∈ {/.+/}
+                state ∈ {/.+/}
+                country ∈ {/.+/}
+            }
+        }
+    }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In the above, each block is introduced by an identifier (shown in blue) from an information model. The identifiers alternate between type-names (upper case in this example, or 'camel' case) and type attribute names (lower case). Here, 'type-name' indicates the name of a type, which may be a class name, or may be a derived generic type name. An 'attribute name' is the name of an attribute in the inheritance-flattened form of a type, i.e. may be be defined in an ancestor class of the class to which the type-name most directly corresponds.</p>
+</div>
+<div class="paragraph">
+<p>Blocks introduced by a type name are known as <em>object blocks</em> or <em>object nodes</em>, while those introduced by an attribute name are <em>attribute blocks</em> or <em>attribute nodes</em>.</p>
+</div>
+<div class="paragraph">
+<p>The block identifier is followed by the ∈ operator (equivalent text keyword: <code>matches</code> or <code>is_in</code> ) followed by an open brace, is the start of a 'block', which continues until the closing matching brace (normally visually indented to match the line at the beginning of the block).</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cadl" data-lang="cadl">    PERSON[id1] ∈ {                     -- OBJECT block 1 ------------+
+        name ∈ {                            -- attribute block A ---+ |
+            PERSON_NAME[id2] ∈ { ... }          -- OBJECT block 2   + |
+        }                                   -------------------------+ |
+    }                                   -------------------------------+</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>An object block or node can be thought of as a constraint matching a set of instances conforming to the type which introduces the block.</p>
+</div>
+<div class="paragraph">
+<p>The example above expresses a constraint on an instance of the type <code>PERSON</code> ; the constraint is expressed by everything inside the <code>PERSON</code> block. The two blocks at the next level define constraints on properties of <code>PERSON</code> , in this case <code><em>name</em></code> and <code><em>addresses</em></code>. Each of these constraints is expressed in turn by the next level containing constraints on further types, and so on. The general structure is therefore a recursive nesting of constraints on types, followed by constraints on attributes (of that type), followed by types (being the types of the attribute under which it appears) until leaf nodes are reached.</p>
+</div>
+<div class="paragraph principle">
+<p>A cADL text is a structure of alternating object and attribute blocks each introduced respectively by type names and attribute names from an underlying information model.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_comments"><a class="anchor" href="#_comments"></a><a class="link" href="#_comments">Comments</a></h3>
+<div class="paragraph">
+<p>In a cADL text, comments are defined as follows:</p>
+</div>
+<div class="paragraph principle">
+<p>Comments are indicated by the leader characters '--'. Multi-line comments are achieved using the '--' leader on each line where the comment continues.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_the_underlying_information_model"><a class="anchor" href="#_the_underlying_information_model"></a><a class="link" href="#_the_underlying_information_model">The Underlying Information Model</a></h3>
+<div class="paragraph">
+<p>Identifiers in cADL texts correspond to entities - types and attributes - in an information model. The latter is typically an object-oriented model, but may just as easily be an entity-relationship model or any other typed model of information. A UML model compatible with the example above is shown in <a href="#uml_model_of_person">UML Model of Person</a>. Note that there can be more than one model compatible with a given fragment of cADL syntax, and in particular, there are usually more properties and classes in the reference model than are mentioned in the cADL constraints. In other words, a cADL text includes constraints <em>only for those parts of a model that are useful or meaningful to constrain</em>.</p>
+</div>
+<div id="uml_model_of_person" class="imageblock text-center text-center">
+<div class="content">
+<img src="../../_images/uml/AM-example-demographics.svg" alt="AM example demographics">
+</div>
+<div class="title">Figure 1. UML Model of Person</div>
+</div>
+<div class="paragraph">
+<p>Constraints expressed in cADL cannot invalidate those from the information model. For example, the <code>PERSON.<em>family_name</em></code> attribute is mandatory in the model in the above <code>PERSON</code> model, so it is not valid to express a constraint allowing the attribute to be optional. In general, a cADL archetype can only further constrain an existing information model. However, it must be remembered that for very generic models consisting of only a few classes and a lot of optionality, this rule is not so much a limitation as a way of adding meaning to information. Thus, for a demographic information model which has only the types <code>PARTY</code> and <code>PERSON</code>, one can write cADL which defines the concepts of entities such as <code>COMPANY</code> , <code>EMPLOYEE</code> , <code>PROFESSIONAL</code> , and so on, in terms of constraints on the types available in the information model.</p>
+</div>
+<div class="paragraph">
+<p>This general approach can be used to express constraints for instances of any information model. The following example shows how to express a constraint on the <code><em>value</em></code> property of an <code>ELEMENT</code> class to be a <code>DV_QUANTITY</code> with a suitable range for expressing blood pressure.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cadl" data-lang="cadl">    ELEMENT[id10] matches {          -- diastolic blood pressure
+        value matches {
+            DV_QUANTITY[id11] matches {
+                magnitude matches {|0..1000|}
+                property matches {"pressure"}
+                units matches {"mm[Hg]"}
+            }
+        }
+    }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In this specification, the terms underlying information model and <em>reference model</em> are equivalent and refer to the information model on which a cADL text is based.</p>
+</div>
+<div class="sect3">
+<h4 id="_information_model_identifiers"><a class="anchor" href="#_information_model_identifiers"></a><a class="link" href="#_information_model_identifiers">Information Model Identifiers</a></h4>
+<div class="paragraph">
+<p>Identifiers from the underlying information model are used to introduce all cADL nodes. Identifiers obey the same rules as in ODIN: type names commence with an upper case letter, while attribute and function names commence with a lower case letter. In cADL, names of types and the name of any property (i.e. attribute or parameterless function) can be used.</p>
+</div>
+<div class="paragraph principle">
+<p>A <strong>type name</strong> is any identifier with an initial upper case letter, followed by any combination of letters, digits and underscores. A <strong>generic type name</strong> (including nested forms) additionally may include commas, angle brackets and spaces, and must be syntactically correct as per the OMG UML 2.x specification or higher. An <strong>attribute name</strong> is any identifier with an initial lower case letter, followed by any combination of letters, digits and underscores. Any convention that obeys this rule is allowed.</p>
+</div>
+<div class="paragraph">
+<p>Type identifiers are shown in this document in all uppercase, e.g. <code>PERSON</code> , while attribute identifiers are shown in all lowercase, e.g. <code>home_address</code> . In both cases, underscores are used to represent word breaks. This convention is used to improve the readability of this document, and other conventions may be used, such as the common programmer&#8217;s mixed-case convention exemplified by <code>Person</code> and <code>homeAddress</code>. The convention chosen for any particular cADL document should be based on that used in the underlying information model.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_node_identifiers"><a class="anchor" href="#_node_identifiers"></a><a class="link" href="#_node_identifiers">Node Identifiers</a></h3>
+<div class="paragraph">
+<p>Node identifier codes appear after all type identifiers in a cADL text. They take the form of an 'id-code' in brackets, e.g. <code>[id3]</code>. The id-code of a root object in a structure is always <code>id1</code>, or for specialised archetypes, <code>id1.1</code>, <code>id1.1.1</code> etc. The rules and use of node identifiers is described in more detail below.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_the_matches_operator"><a class="anchor" href="#_the_matches_operator"></a><a class="link" href="#_the_matches_operator">The matches Operator</a></h3>
+<div class="paragraph">
+<p>The <code>matches</code> or <code>is_in</code> operator deserves special mention, since it is the key operator in cADL. This operator can be understood mathematically as set membership. When it occurs between an identifier and a block delimited by braces, the meaning is: the set of values allowed for the entity referred to by the name (either an object, or parts of an object - attributes) is specified between the braces. What appears between any matching pair of braces can be thought of as a <em>specification for a set of values</em>. Since blocks can be nested, this approach to specifying values can be understood in terms of nested sets, or in terms of a value space for instances of a type. Thus, in the following example, the <code>matches</code> operator links the name of an entity to a linear value space (i.e. a list), consisting of all words ending in 'ion'.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cadl" data-lang="cadl">    aaa matches {/\w*ion[\s\n\t ]/} -- the set of words ending in 'ion'</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The following example links the name of a type <code>XXX</code> with a hierarchical value space.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cadl" data-lang="cadl">    XXX[id2] matches {
+        xxx_attr1 matches {
+            YYY[id3] matches {
+                yyy_attr1 matches {0..3}
+            }
+        }
+        xxx_attr2 matches {
+            ZZZ[id4] matches {
+                zzz_attr1 matches {&gt;1992-12-01}
+            }
+        }
+    }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The meaning of the syntax above is: data matching the constraints conssists of an instance of type <code>XXX</code> , or any subtype allowed by the underlying information model, for which the value of attribute <code><em>aaa</em></code> is of type <code>YYY</code> , or any subtype allowed by the underlying information model, and so on, recursively until leaf level constraints are reached.</p>
+</div>
+<div class="paragraph">
+<p>Occasionally the <code>matches</code> operator needs to be used in the negative, usually at a leaf block. Any of the following can be used to constrain the value space of the attribute <code>aaa</code> to any number except 5:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cadl" data-lang="cadl">    aaa ~matches {5}
+    aaa ~is_in {5}
+    aaa ∉ {5}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The choice of whether to use <code>matches</code> or <code>is_in</code> is a matter of taste and background; those with a mathematical background will probably prefer <code>is_in</code> , while those with a data processing background may prefer <code>matches</code> .</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_natural_language"><a class="anchor" href="#_natural_language"></a><a class="link" href="#_natural_language">Natural Language</a></h3>
+<div class="paragraph">
+<p>cADL is completely independent of all natural languages. The only potential exception is where constraints include literal values from some language, and this is easily and routinely avoided by the use of separate language and terminology definitions, as used in ADL archetypes. However, for the purposes of readability, comments in English have been included in this document to aid the reader. In real cADL documents, comments are generated from the archetype terminology in the language of the locale.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_constraints_on_complex_types"><a class="anchor" href="#_constraints_on_complex_types"></a><a class="link" href="#_constraints_on_complex_types">Constraints on Complex types</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This section describes the semantics for constraining objects of complex, i.e. non-primitive types. The semantics apply recursively through a constraint structure until leaf nodes constraining primitive types are reached.</p>
+</div>
+<div class="sect2">
+<h3 id="_attribute_constraints"><a class="anchor" href="#_attribute_constraints"></a><a class="link" href="#_attribute_constraints">Attribute Constraints</a></h3>
+<div class="paragraph">
+<p>In any information model, attributes are either single-valued or multiply-valued, i.e. of a generic container type such as <code>List&lt;Contact&gt;</code> . Both have <code><em>existence</em></code> , while multiply-valued attributes also have <code><em>cardinality</em></code>.</p>
+</div>
+<div class="sect3">
+<h4 id="_existence"><a class="anchor" href="#_existence"></a><a class="link" href="#_existence">Existence</a></h4>
+<div class="paragraph">
+<p>The existence constraint may be used with any attribute to further constrain the existence defined by the underlying reference model. An existence constraint indicates whether an attribute value is mandatory or optional, and is indicated by "0..1" or "1" markers at line ends in UML diagrams (and often mistakenly referred to as a "cardinality of 1..1"). Attributes defined in the reference model have an effective existence constraint, defined by the invariants (or lack thereof) of the relevant class. For example, the <code><em>protocol</em></code> attribute in the <a href="https://specifications.openehr.org/releases/RM/latest/ehr.html" target="_blank" rel="noopener">openEHR EHR IM</a> <code>OBSERVATION</code> class is defined in the reference model as being optional, i.e. <code>0..1</code>. An archetype may redefine this to <code>{1..1}</code>, making the attribute mandatory. Existence constraints are expressed in cADL as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cadl" data-lang="cadl">    OBSERVATION[id1] matches {
+        protocol existence matches {1..1} matches {
+            -- details
+        }
+    }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The meaning of an existence constraint is to indicate whether a value - i.e. an object - is mandatory or optional (i.e. obligatory or not) in runtime data for the attribute in question. The same logic applies whether the attribute is of single or multiple cardinality, i.e. whether it is a container type or not. For container attributes, the existence constraint indicates whether the whole container (usually a list or set) is mandatory or not; a further cardinality constraint (described below) indicates how many members in the container are allowed.</p>
+</div>
+<div class="paragraph principle">
+<p>An <strong>existence constraint</strong> may be used directly after any attribute identifier, and indicates whether the object to which the attribute refers is mandatory or optional in the data.</p>
+</div>
+<div class="paragraph">
+<p>Existence is shown using the same constraint language as the rest of the archetype definition. Existence constraints can take the values <code>{0}</code> , <code>{0..0}</code> , <code>{0..1}</code> , <code>{1}</code> , or <code>{1..1}</code> . The first two of these constraints may not seem initially obvious, but can be used to indicate that an attribute must not be present in the particular situation modelled by the archetype. This may be reasonable in some cases.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_single_valued_attributes"><a class="anchor" href="#_single_valued_attributes"></a><a class="link" href="#_single_valued_attributes">Single-valued Attributes</a></h3>
+<div class="paragraph">
+<p>A single-valued attribute is an attribute whose type as declared in the underlying class model is of a single object type rather than a container type such as a list or set. Single-valued attributes can be constrained with a single object constraint as shown in the following example.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cadl" data-lang="cadl">    value matches {
+        DV_QUANTITY[id22] matches {
+            magnitude matches {|0..55|}
+            property matches {"velocity"}
+            units matches {"mph"}
+        }
+    }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Multiple alternative object constraints can also be defined, using a number of sibling blocks, as shown in the following example. Each block defines an alternative constraint, only one of which needs to be matched by the data.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cadl" data-lang="cadl">    value matches {
+        DV_QUANTITY[id22] matches { -- miles per hour
+            magnitude matches {|0..55|}
+            property matches {"velocity"}
+            units matches {"mph"}
+        }
+        DV_QUANTITY[id23] matches { -- km per hour
+            magnitude matches {|0..100|}
+            property matches {"velocity"}
+            units matches {"km/h"}
+        }
+    }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Here the occurrences of both <code>DV_QUANTITY</code> constraints is not stated, leading to the result that only one <code>DV_QUANTITY</code> instance can appear in runtime data, matching either one of the constraints.</p>
+</div>
+<div class="paragraph principle">
+<p>Two or more object constraints introduced by type names appearing after a single-valued attribute (i.e. one for which there is no cardinality constraint) are taken to be alternative constraints, only one of which is matched by the data.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_container_attributes"><a class="anchor" href="#_container_attributes"></a><a class="link" href="#_container_attributes">Container Attributes</a></h3>
+<div class="sect3">
+<h4 id="_cardinality"><a class="anchor" href="#_cardinality"></a><a class="link" href="#_cardinality">Cardinality</a></h4>
+<div class="paragraph">
+<p>The cardinality of container attributes may be constrained in cADL with the <code><em>cardinality</em></code> constraint. Cardinality indicates limits on the number of instance members of a container types such as lists and sets. Consider the following example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cadl" data-lang="cadl">    HISTORY[id2] occurrences ∈ {1} ∈ {
+        periodic ∈ {False}
+        events cardinality ∈ {*} ∈ {
+            EVENT[id3] occurrences ∈ {0..1} ∈ {    }           -- 1 min sample
+            EVENT[id4] occurrences ∈ {0..1} ∈ {    }           -- 2 min sample
+            EVENT[id5] occurrences ∈ {0..1} ∈ {    }           -- 3 min sample
+        }
+    }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>cardinality</code> keyword implies firstly that the property events must be of a container type, such as <code>List&lt;T&gt;</code> , <code>Set&lt;T&gt;</code> , <code>Bag&lt;T&gt;</code> . The integer range indicates the valid membership of the container; a single '*' means the range '0..*', i.e. '0 to many'. The type of the container is not explicitly indicated, since it is usually defined by the information model. However, the semantics of a logical set (unique membership, ordering not significant), a logical list (ordered, non-unique membership) or a bag (unordered, non-unique membership) can be constrained using the additional keywords <code>ordered</code> , <code>unordered</code> , <code>unique</code> and <code>non-unique</code> within the cardinality constraint, as per the following examples:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cadl" data-lang="cadl">    events cardinality ∈ {*; ordered} ∈ {                   -- logical list
+    events cardinality ∈ {*; unordered; unique} ∈ {         -- logical set
+    events cardinality ∈ {*; unordered} ∈ {                 -- logical bag</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If no numeric or ordering constraint on the cardinality of a container attribute is required, the keyword is used on its own, and simply indicates that the attribute is a container, as in the following example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cadl" data-lang="cadl">    events cardinality ∈ { -- indicates 'events' is a container</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Although this is not strictly ncessary for the purpose of expressing valid archetypes if the Reference Model can usually be referred to, it enables early stage parsing to generate the correct type of attributes without referring to a Reference Model schema, which in any case may not always be available. This in turn enables more faithful visualisation at an earlier point in the archetype compilation process.</p>
+</div>
+<div class="paragraph">
+<p>In theory, no cardinality constraint can be stronger than the semantics of the corresponding container in the relevant part of the reference model. However, in practice, developers often use lists to facilitate data integration, when the actual semantics are intended to be of a set; in such cases, they typically ensure set-like semantics in their own code rather than by using an <code>Set&lt;T&gt;</code> type. How such constraints are evaluated in practice may depend somewhat on knowledge of the software system.</p>
+</div>
+<div class="paragraph principle">
+<p>A <strong>cardinality constraint</strong> must be used after any Reference Model container attribute name (or after its existence constraint, if there is one) in order to designate it as a container attribute. Additionally, it may constrain the number of member items it may have in the data, and whether it has "list", "set", or "bag" semantics, via the use of the keywords 'ordered', 'unordered', 'unique' and 'non-unique'.</p>
+</div>
+<div class="paragraph">
+<p>The numeric part of the cardinality contraint can take the values <code>{0}</code>, <code>{0..0}</code>, <code>{0..n}</code>, <code>{m..n}</code>, <code>{0..*}</code>, or <code>{*}</code>, or a syntactic equivalent. The first two of these constraints are unlikely to be useful, but there is no reason to prevent them. There is no default cardinality, since if none is shown, the relevant attribute is assumed to be single-valued (in the interests of uniformity in archetypes, this holds even for smarter parsers that can access the reference model and determine that the attribute is in fact a container).</p>
+</div>
+<div class="paragraph">
+<p>Cardinality and existence constraints can co-occur, in order to indicate various combinations on a container type property, e.g. that it is optional, but if present, is a container that may be empty, as in the following:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cadl" data-lang="cadl">    events existence ∈ {0..1} cardinality ∈ {0..*} ∈ {-- etc --}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_object_constraints"><a class="anchor" href="#_object_constraints"></a><a class="link" href="#_object_constraints">Object Constraints</a></h3>
+<div class="sect3">
+<h4 id="_node_identifiers_2"><a class="anchor" href="#_node_identifiers_2"></a><a class="link" href="#_node_identifiers_2">Node Identifiers</a></h4>
+<div class="paragraph">
+<p>In cADL, an entity in brackets of the form <code>[idN]</code> following a type name is used to identify an object node, i.e. a node constraint delimiting a set of instances of the type as defined by the reference model. Object nodes always commence with a type name. Although any node identifier format could be supported, the current version of ADL assumes that node identifiers are of the form of an archetype term identifier, i.e. <code>[idN]</code> , e.g. <code>[id42]</code> . Node identifiers are shown in magenta in this document.</p>
+</div>
+<div class="paragraph">
+<p>The structural function of node identifiers is to allow the formation of paths:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>enable cADL nodes in an archetype definition to be unambiguously referred to within the same archetype;</p>
+</li>
+<li>
+<p>enable data created using a given archetype to be matched at runtime;</p>
+</li>
+<li>
+<p>to enable cADL nodes in a parent archetype to be unambiguously referred to from a specialised child archetype;</p>
+</li>
+<li>
+<p>to enable unique paths to be formed.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>All object nodes require a node identifier, guaranteeing the ability to generate unique paths, and to process specialised archetypes with respect to inheritance parents.</p>
+</div>
+<div class="paragraph principle">
+<p>A <strong>Node identifier</strong> is required for every object node in an archetype.</p>
+</div>
+<div class="paragraph">
+<p>The node identifier can also perform a semantic function, that of giving a design-time meaning to the node, by equating the node identifier to some description. The use of node identifiers in archetypes is the main source of their expressive power. Each node identifier acts as a 'semantic marker' or 'override' on the node. Thus, in the example shown in <a href="#_the_underlying_information_model">The Underlying Information Model</a>, the <code>ELEMENT</code> node is identified by the code <code>[id10]</code> , which can be designated elsewhere in an archetype as meaning "diastolic blood pressure". In this way rich meaning is given to data constructed from a limited number of object types.</p>
+</div>
+<div class="paragraph">
+<p><strong>Not every object node identifier needs to be defined in the archetype terminology</strong>: it is only mandatory for the identifiers of nodes defined under container attributes, and multiple alternative nodes under single-valued attributes. The identifiers of single object nodes defined under single-valued attributes may have terminology definitions, but don&#8217;t typically need them, since the meaning is obvious from the attribute.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_occurrences"><a class="anchor" href="#_occurrences"></a><a class="link" href="#_occurrences">Occurrences</a></h4>
+<div class="paragraph">
+<p>A constraint on occurrences is used only with cADL object nodes, to indicate how many times in data an instance conforming to the constraint can occur. It is usually only defined on objects that are children of a container attribute, since by definition, the occurrences of an object that is the value of a single-valued attribute can only be <code>0..1</code> or <code>1..1</code>, and this is already defined by the attribute&#8217;s <code>existence</code>. However, it may be used in specialised archetypes to exclude a possibility defined in a parent archetype (see <a href="#Attribute Redefinition">[Attribute Redefinition]</a>).</p>
+</div>
+<div class="paragraph">
+<p>In the example below, three <code>EVENT</code> constraints are shown; the first one ("1 minute sample") is shown as mandatory, while the other two are optional.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cadl" data-lang="cadl">    events cardinality ∈ {*} ∈ {
+        EVENT[id2] occurrences ∈ {1..1} ∈ {    }          -- 1 minute sample
+        EVENT[id3] occurrences ∈ {0..1} ∈ {    }          -- 2 minute sample
+        EVENT[id4] occurrences ∈ {0..1} ∈ {    }          -- 3 minute sample
+    }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The following example expresses a constraint on instances of <code>GROUP</code> such that for <code>GROUPs</code> representing tribes, clubs and families, there can only be one "head", but there may be many members.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cadl" data-lang="cadl">    GROUP[id103] ∈ {
+        kind ∈ {/tribe|family|club/}
+        members cardinality ∈ {*} ∈ {
+            PERSON[id104] occurrences ∈ {1} ∈ {
+                title ∈ {"head"}
+                -- etc --
+            }
+            PERSON[id105] occurrences ∈ {0..*} ∈ {
+                title ∈ {"member"}
+                -- etc --
+            }
+        }
+    }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The first <code>occurrences</code> constraint indicates that a <code>PERSON</code> with the title <code>"head"</code> is mandatory in the <code>GROUP</code> , while the second indicates that at runtime, instances of <code>PERSON</code> with the title <code>"member"</code> can number from none to many. Occurrences may take the value of any range including <code>{0..*}</code>, meaning that any number of instances of the given type may appear in data, each conforming to the one constraint block in the archetype. A single positive integer, or the infinity indicator, may also be used on its own, thus: <code>{2}</code> , <code>{*}</code> . A range of <code>{0..0}</code> or <code>{0}</code> indicates that no occurrences of this object are allowed in this archetype. If no occurrences constraint is stated, the occurrences of the object is define by the underlying reference model.</p>
+</div>
+<div class="paragraph principle">
+<p>An <strong>occurrences constraint</strong> may appear directly after the type name of any object constraint within a container attribute, in order to indicate how many times data objects conforming to the block may occur in the data.</p>
+</div>
+<div class="paragraph">
+<p>Where cardinality constraints are used (remembering that occurrences is always there by default, if not explicitly specified), cardinality and occurrences must always be compatible. The rules for this are formally stated in the Archetype Object Model specification. The key elements of these rules are as follows:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>where a cardinality constraint is stated with a finite upper bound:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>any child object with either stated occurrences with an open upper bound (typically <code>0..*</code> or <code>1..*</code>) or else inferred occurrences (<code>0..*</code>) is legal, since the occurrences open upper bound is interpreted to mean the maximum value allowed by the cardinality upper bound.</p>
+</li>
+<li>
+<p>the sum of all child object occurrences lower bounds must be less than the cardinality upper bound;</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>no 'orphans': at least one instance of an optional child object (occurrences lower bound = 0), and one instance of every mandatory child object (occurrences lower bound &gt; 0) must be includable within the cardinality range.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_any_constraints"><a class="anchor" href="#_any_constraints"></a><a class="link" href="#_any_constraints">"Any" Constraints</a></h3>
+<div class="paragraph">
+<p>There are two cases where it is useful to state a completely open, or 'any', constraint. The first is when it is desired to override the existence or cardinality of a property, such as in the following:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cadl" data-lang="cadl">    PERSON[id2] ∈ {
+        name existence ∈ {1}
+        -- etc --
+    }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In the above, no further <code>matches {}</code> part is required in the statement, since no more constraints are to be stated.</p>
+</div>
+<div class="paragraph">
+<p>The second use of "any" as a constraint value is for types, such as in the following:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cadl" data-lang="cadl">    ELEMENT[id4] ∈ {          -- speed limit
+        value ∈ {
+            DV_QUANTITY[id5]  -- type was 'DATA_VALUE' in RM
+        }
+    }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The meaning of this constraint is that in the data at runtime, the <code><em>value</em></code> property of <code>ELEMENT</code> must be of type <code>DV_QUANTITY</code> , but can have any value internally. This is most useful for constraining objects to be of a certain type, without further constraining value, and is especially useful where the information model contains subtyping, and there is a need to restrict data to be of certain subtypes in certain contexts.</p>
+</div>
+<div class="paragraph deprecated">
+<p><strong>Deprecated</strong>: In ADL 1.4, 'any' constraints were represented with an additional <code>matches {*}</code> at the end of the statement. This is deprecated. It is recommended that parsers silently accept this form, but output the modern ADL 2 form.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_reference_model_type_matching"><a class="anchor" href="#_reference_model_type_matching"></a><a class="link" href="#_reference_model_type_matching">Reference Model Type Matching</a></h3>
+<div class="paragraph">
+<p>All cADL object constraints state a type name from an underlying reference model. Lexically speaking, this may be an abstract class name, a concrete class name or a generic type name, if the RM in question supports generic (template) types. In the latter case, the type name is constructed from RM class names, according to the standard generic type name syntax used in UML and mainstream languages such as C++, Java, C# and so on, i.e. using the characters <code>&lt;&gt;</code>, <code>,</code> and space(s). Additionally, matching of type names is case-insensitive, and whitespace is ignored. Thus, <code>"SECTION"</code> in the archetype is assumed to match a data instance whose type is <code>SECTION</code> or <code>Section</code>; <code>"Interval&lt;Quantity&gt;"</code> in the archetype is assumed to match a data instance whose RM type is <code>INTERVAL &lt;QUANTITY&gt;</code>.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+direct matching of so-called CamelCase by Snake_case or SCREAMING_SNAKE_CASE and vice-versa is not assumed, but could be enabled by a switch in tools.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>In semantic terms, the data item conforming to the archetype constraint can be of any concrete type from the reference model (i.e. class name or derived generic type as above) that <em>conforms</em> to the type mentioned in the constraint, i.e. the same type if it is concrete, or any subtype. Correctly evaluating data/archetype conformance is up to tools to implement, and requires access to a formal description of the reference model.</p>
+</div>
+<div class="paragraph">
+<p>The precise specification of RM type matching is given in the section <a href="https://specifications.openehr.org/releases/AM/latest/AOM2.html#_rm_type_name_and_reference_model_type_matching" target="_blank" rel="noopener">Rm_type_name and reference model type matching</a> of the AOM2 specification.</p>
+</div>
+<div class="sect3">
+<h4 id="_narrowed_subtype_constraints"><a class="anchor" href="#_narrowed_subtype_constraints"></a><a class="link" href="#_narrowed_subtype_constraints">Narrowed Subtype Constraints</a></h4>
+<div class="paragraph">
+<p>One of the consequences of subtype-based type matching is that semantics are needed for when more than one reference model subtype is declared under the same attribute node in cADL. Consider the reference model inheritance structure shown below, in which the abstract <code>PARTY</code> class has abstract and concrete descendants including <code>ACTOR</code>, <code>ROLE</code>, and so on.</p>
+</div>
+<div id="ADL-demographics-parties" class="imageblock text-center text-center">
+<div class="content">
+<img src="../../_images/uml/AM-example-demographics-parties.svg" alt="AM example demographics parties">
+</div>
+<div class="title">Figure 2. Reference Model Sub-type Hierarchy</div>
+</div>
+<div class="paragraph">
+<p>The following cADL statement defines an instance space that includes instances of any of the concrete subtypes of the <code>PARTY</code> class within an instance of the class <code>XXXX</code> in the figure (the ellipsis indicates particular constrraints not shown here).</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cadl" data-lang="cadl">    counter_party ∈ {
+        PARTY[id4] ∈ { ... }
+    }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>However, in some circumstances, it may be desirable to define a constraint that will match a particular subtype in a specific way, while other subtypes are matched by the more general rule. Under a single-valued attribute, this can be done as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cadl" data-lang="cadl">    counter_party ∈ {
+        PARTY[id4] ∈ { ... }
+        PERSON[id5] ∈ {
+            date_of_birth ∈ { ... }
+        }
+    }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This cADL text says that the instance value of the <code><em>counter_party</em></code> attribute in the data can either be a <code>PERSON</code> object matching the <code>PERSON</code> block, with a <code><em>date_of_birth</em></code> matching the given range, or else any other kind of <code>PARTY</code> object.</p>
+</div>
+<div class="paragraph">
+<p>Under a multiply-valued attribute, the alternative subtypes are included as identified child members. The following example illustrates a constraint on the <code><em>counter_parties</em></code> attribute of instances of the class <code>YYYY</code> in <a href="#ADL-demographics-parties">Reference Model Sub-type Hierarchy</a>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cadl" data-lang="cadl">    counter_parties ∈ {
+        PERSON[id4] ∈ {
+            date_of_birth ∈ { ... }
+        }
+        ORGANISATION[id5] ∈ {
+            date_of_registration ∈ { ... }
+        }
+        PARTY[id6] ∈ { ... }
+    }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The above says that <code>ORGANISATION</code> and <code>PERSON</code> instances in the data can only match the <code>ORGANISATION</code> and <code>PERSON</code> constraints stated above, while an instance of any other subtype of <code>PARTY</code> must match the <code>PARTY</code> constraint.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_remove_specified_subtypes"><a class="anchor" href="#_remove_specified_subtypes"></a><a class="link" href="#_remove_specified_subtypes">Remove Specified Subtypes</a></h4>
+<div class="paragraph">
+<p>In some cases it is required to remove some subtypes altogether. This is achieved by stating a constraint on the specific subtypes with <code>occurrences</code> limited to zero. The following example matches any <code>PARTY</code> instance with the exception of instances of <code>COMPANY</code> or <code>GROUP</code> subtypes.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cadl" data-lang="cadl">    counter_party ∈ {
+        PARTY[id4] ∈ { ... }
+        COMPANY[id5] occurrences ∈ {0}
+        GROUP[id6] occurrences ∈ {0}
+    }</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_paths"><a class="anchor" href="#_paths"></a><a class="link" href="#_paths">Paths</a></h3>
+<div class="sect3">
+<h4 id="_archetype_path_formation"><a class="anchor" href="#_archetype_path_formation"></a><a class="link" href="#_archetype_path_formation">Archetype Path Formation</a></h4>
+<div class="paragraph">
+<p>The use of identified object nodes allows the formation of archetype paths, which can be used to unambiguously reference object nodes within the same archetype or within a specialised child. The syntax of archetype paths is designed to be close to the W3C Xpath syntax, and can be directly converted to it for use in XML.</p>
+</div>
+<div class="paragraph principle">
+<p>Archetype paths are paths extracted from the definition section of an archetype, and refer to object nodes within the definition. A path is constructed as a concatenation of '/' characters and attribute names, with the latter including node identifiers as predicates where required for disambiguation.</p>
+</div>
+<div class="paragraph">
+<p>In the following example, the <code>PERSON</code> constraint node is the sole object constraint under the single-valued attribute manager:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cadl" data-lang="cadl">    manager ∈ {
+        PERSON[id104] ∈ {
+            title ∈ {"head of finance", "head of engineering"}
+        }
+    }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Two valid paths to the object under the <code><em>title</em></code> attribute are possible:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cadl" data-lang="cadl">    manager[id104]/title
+    manager/title</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Where there are more than one sibling node, node identifiers must be used to ensure unique referencing:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cadl" data-lang="cadl">    employees ∈ {
+        PERSON[id104] ∈ {
+            title ∈ {"head"}
+        }
+        PERSON[id105] matches {
+            title ∈ {"member"}
+        }
+    }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The paths to the respective <code><em>title</em></code> attributes are now:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cadl" data-lang="cadl">    employees[id104]/title
+    employees[id105]/title</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The following provides another example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cadl" data-lang="cadl">    HISTORY[id1] occurrences ∈ {1} ∈ {
+        periodic ∈ {False}
+        events cardinality ∈ {*} ∈ {
+            EVENT[id2] occurrences ∈ {0..1} ∈ {    }           -- 1 min sample
+            EVENT[id3] occurrences ∈ {0..1} ∈ {    }           -- 2 min sample
+            EVENT[id4] occurrences ∈ {0..1} ∈ {    }           -- 3 min sample
+        }
+    }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The following paths can be constructed:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cadl" data-lang="cadl">    /                      -- the HISTORY (root) object
+    /periodic              -- the HISTORY.periodic attribute
+    /events[id2]           -- the 1 minute event object
+    /events[id3]           -- the 2 minute event object
+    /events[id4]           -- the 3 minute event object</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The above paths can all be used to reference the relevant nodes within the archetype in which they are defined, or within any specialised child archetype.</p>
+</div>
+<div class="paragraph">
+<p>Paths used in cADL are expressed in the ADL path syntax, described in detail in <a href="#ADL Paths">[ADL Paths]</a>. ADL paths have the same alternating object/attribute structure implied in the general hierarchical structure of cADL, obeying the pattern <code>TYPE/attribute/TYPE/attribute/</code> &#8230;&#8203; .</p>
+</div>
+<div class="paragraph">
+<p>The examples above are <em>physical</em> paths because they refer to object nodes using node identifier codes such as 'id4'. Physical paths can be rendered as <em>logical</em> paths by adding the code meanings from the <code>terminology</code> section as annotations for node identifiers, if defined. Thus, the following two paths might be equivalent:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>    /events[id4]                       -- the 3 minute event object
+    /events[id4|3 minute event|]       -- the 3 minute event object</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The double-bar ('|xxx|') method of displaying annotations on codes is adopted from the <a href="http://www.snomed.org" target="_blank" rel="noopener">SNOMED CT medical terminology</a> and is widely used in the healthcare domain.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_external_use_of_paths"><a class="anchor" href="#_external_use_of_paths"></a><a class="link" href="#_external_use_of_paths">External Use of Paths</a></h4>
+<div class="paragraph">
+<p>None of the paths shown above are valid outside the cADL text in which they occur, since they do not include an identifier of the enclosing artefact, normally an archetype. To reference a cADL node in an archetype from elsewhere (e.g. another archetype or a template), the identifier of the containing itself must be prefixed to the path, as in the following example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>    [openehr-ehr-entry.apgar-result.v]/events[id2]</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This kind of path expression is necessary to form the paths that occur when archetypes are composed to form larger structures.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_runtime_paths"><a class="anchor" href="#_runtime_paths"></a><a class="link" href="#_runtime_paths">Runtime Paths</a></h4>
+<div class="paragraph">
+<p>Paths for use with runtime data based on an archetype can be constructed in the same way as the paths from the archetype, and are the same except for single-valued attributes. Since in data only a single instance can appear as the value of a single-valued attribute, there is never any ambiguity in referencing it, whereas an archetype path to or through the same attribute may require a node identifier due to the possible presence of multiple alternatives. Consider the example from above:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cadl" data-lang="cadl">    items cardinality matches {*} matches {
+        ELEMENT[id4] matches {  -- speed limit
+            value matches {
+                DV_QUANTITY[id22] matches {                       -- miles per hour
+                    magnitude matches {|0..55|}
+                    property matches {"velocity"}
+                    units matches {"mph"}
+                }
+                DV_QUANTITY[id23] matches {                       -- km per hour
+                    magnitude matches {|0..100|}
+                    property matches {"velocity"}
+                    units matches {"km/h"}
+                }
+            }
+        }
+    }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The following archetype paths can be constructed:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cadl" data-lang="cadl">    items[id4]/value[id22]
+    items[id4]/value[id23]</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>For instance data created according to this archetype, the following runtime path can be used:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cadl" data-lang="cadl">    items[id4]/value               -- since there is only one DV_QUANTITY in the data</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>A query using this path will match the data regardless of which type of <code>DV_QUANTITY</code> object is there. However, in some circumstances, queries may need to be specific, in which case they will use the full archetype path, i.e. <code>items[id4]/value[id22]</code> or <code>items[id4]/value[id23]</code> to select only 'miles' or 'kilometres' data. This will only work if the node ids (id-codes) are in fact stored in all types of the reference model data. If for example this was not the case with the <code>DV_QUANTITY</code> type, another facet of the <code>DV_QUANTITY</code> objects from the archetype such as 'units = "km/h"' would need to be used in the query to correctly locate only metric <code>DV_QUANTITY</code> objects.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_internal_references_proxy_constraint_objects"><a class="anchor" href="#_internal_references_proxy_constraint_objects"></a><a class="link" href="#_internal_references_proxy_constraint_objects">Internal References (Proxy Constraint Objects)</a></h3>
+<div class="paragraph">
+<p>It is possible to define a constraint structure at a certain point to be the same as a structure defined elsewhere in the archetype, rather than copying the desired structure. This is achieved using a proxy constraint object, using the following syntax:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cadl" data-lang="cadl">    use_node TYPE[idN] archetype_path</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This statement defines a node of type <code>TYPE</code>, whose definition is the same as the one found at path <code>archetype_path</code>. The type mentioned in the <code>use_node</code> reference must always be the same type as the referenced type.</p>
+</div>
+<div class="paragraph">
+<p>The path must not be in the parent path of the proxy object itself, but may be a sibling of the proxy object. The sibling case is a special case, and the meaning of the proxy constraint is that the target object&#8217;s children should be re-used, but not the target itself (since that would illegally create two siblings with the same identifier). The general case is that the proxy object and target object locations are different, and the meaning is that the proxy object is logically replaced by a deep copy of the target object. (In theory the sibling case could be banned, and proxies defined one level further down with targets of the children of the originally intended target, but this creates inconvenience for the archetype author, and can easily be dealt with in tools).</p>
+</div>
+<div class="paragraph">
+<p>Occurrences from the target are also assumed, or may be explicitly overridden:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cadl" data-lang="cadl">    use_node TYPE[id4] occurrences ∈ {0..1} archetype_path</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Proxy objects provide an internal reuse mechanism. Specialised archetypes may redefine structures on such nodes as if they had been defined inline. This is described in more detail in <a href="#Internal Reference (Proxy Object) Redefinition">[Internal Reference (Proxy Object) Redefinition]</a>.</p>
+</div>
+<div class="paragraph principle">
+<p>A proxy constraint object allows object constraints defined elsewhere to be re-used within the same archetype or a specialised child.</p>
+</div>
+<div class="paragraph">
+<p>The following example shows the definitions of the <code>ADDRESS</code> nodes for phone, fax and email for a home <code>CONTACT</code> being reused for a work <code>CONTACT</code> .</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cadl" data-lang="cadl">    PERSON[id1] ∈ {
+        identities ∈ {
+            -- etc --
+        }
+        contacts cardinality ∈ {0..*} ∈ {
+            CONTACT[id2] ∈ {      -- home address
+                purpose ∈ {...}
+                addresses ∈ {...}
+            }
+            CONTACT[id3] ∈ {      -- postal address
+                purpose ∈ {...}
+                addresses ∈ {...}
+            }
+            CONTACT[id4] ∈ {      -- home contact
+                purpose ∈ {...}
+                addresses cardinality ∈ {0..*} ∈ {
+                    ADDRESS[id5] ∈ {                            -- phone
+                        type ∈ {...}
+                        details ∈ {...}
+                    }
+                    ADDRESS[id6] ∈ {                            -- fax
+                        type ∈ {...}
+                        details ∈ {...}
+                    }
+                    ADDRESS[id7] ∈ {                            -- email
+                        type ∈ {...}
+                        details ∈ {...}
+                    }
+                }
+            }
+            CONTACT[id8] ∈ {                                    -- work contact
+                purpose ∈ {...}
+                addresses cardinality ∈ {0..*} ∈ {
+                    use_node ADDRESS[id9] /contacts[id4]/addresses[id5]    -- phone
+                    use_node ADDRESS[id10] /contacts[id4]/addresses[id6]   -- fax
+                    use_node ADDRESS[id11] /contacts[id4]/addresses[id7]   -- email
+                }
+            }
+        }
+    }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The following example shows the occurrences being overridden in the referring node, to enable the specification for 'phone' to be re-used, but with a different occurrences constraint.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cadl" data-lang="cadl">    PERSON[id1] ∈ {
+        contacts cardinality ∈ {0..*} ∈ {
+            CONTACT[id4] ∈ {                                   -- home contact
+                addresses cardinality ∈ {0..*} ∈ {
+                    ADDRESS[id5] occurrences ∈ {1} ∈ { ...}   -- phone
+                }
+            }
+            CONTACT[id8] ∈ {                                  -- work contact
+                addresses cardinality ∈ {0..*} ∈ {
+                    use_node ADDRESS[id9] occurrences ∈ {0..*} /contacts[id4]/addresses[id5]      -- phone
+                }
+            }
+        }
+    }</code></pre>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_paths_and_proxy_objects"><a class="anchor" href="#_paths_and_proxy_objects"></a><a class="link" href="#_paths_and_proxy_objects">Paths and Proxy Objects</a></h4>
+<div class="paragraph">
+<p>In forming paths through the proxy and to nodes below the target, two cases can be identified:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>if the proxy object is a sibling of the target object, the proxy object node identifier is used in paths, and the node id of the target object is not;</p>
+</li>
+<li>
+<p>otherwise, paths are formed using the identifier from the proxy target object.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_external_references"><a class="anchor" href="#_external_references"></a><a class="link" href="#_external_references">External References</a></h3>
+<div class="paragraph">
+<p>Another kind of reference in an archetype is to another archetype. There are two ways this can be done: using a direct reference, and using an archetype 'slot'. The first is used when the need is to refer to one specific archetype (or to a template from another template), while the second is a constraint that allows for various archetypes matching specified criteria to be used. The slot concept is described in the next section.</p>
+</div>
+<div class="paragraph principle">
+<p>An external reference defines a fixed compositional connection between two archetypes.</p>
+</div>
+<div class="paragraph">
+<p>Direct references, or external references as they will be denoted here occur for two main reasons: re-use and templating. In the first case, an archetype has originally been built using inline constraints when it is discovered that another archetype contains the same or very similar inline constraints at a similar point. As would be normal in software design, a refactoring exercise is conducted that results in the common part being created as its own, new archetype, and both original archetypes 'referring' to it. They do this using an external reference, which has syntax of the form:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>    use_archetype TYPE[idN, archetype_id] &lt;occurrences constraint&gt;</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In the above, the <code>archetype_id</code> is included with the usual archetype node identifier (id-code). The usual occurrence constraints can be applied at the end.</p>
+</div>
+<div class="paragraph">
+<p>The following example shows sections of two parent archetypes both referring to the same child archetype. The first section is from an openEHR <code>INSTRUCTION</code> archetype to do with a medication order.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cadl" data-lang="cadl">    INSTRUCTION[id1] ∈ {                                       -- Medication order
+        activities cardinality ∈ {0..*; unordered} ∈ {
+            ACTIVITY[id2] ∈ {                                  -- Medication activity
+                action_archetype_id ∈ {/openEHR-EHR-ACTION\.medication\.v1/}
+                description ∈ {
+                    use_archetype ITEM_TREE[id3, openEHR-EHR-ITEM_TREE.medication.v1]
+                }
+            }
+        }
+    }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This section is from an openEHR <code>ACTION</code> archetype defining medication administration actions.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cadl" data-lang="cadl">    ACTION[id1] ∈ {                          -- Medication action
+        ism_transition ∈ {
+            ISM_TRANSITION[id2] ∈ { ... }
+            -- ...
+        }
+        description ∈ {
+            use_archetype ITEM_TREE[id3, openEHR-EHR-ITEM_TREE.medication.v1]
+        }
+    }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Each of these archetypes refers to the openEHR <code>ITEM_TREE</code> archetype <code>openEHR-EHR-ITEM_TREE.medication.v1</code> , which is a normal archetype describing medication.</p>
+</div>
+<div class="paragraph">
+<p>Following the standard object-oriented semantics of type substitutability, and also the ontological subsumption notion, specialisations of the referenced archetype (including templates) are also valid substitutions at design or runtime. At design time, this takes the form of a redefinition, e.g.:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cadl" data-lang="cadl">    description ∈ {
+        use_archetype ITEM_TREE[id3.1, openEHR-EHR-ITEM_TREE.vaccine.v1]
+    }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>where the 'vaccine' archetype is a specialisation of the 'medication' archetype. Redefinitions of this kind are described in more detail in <a href="#External Reference Redefinition">[External Reference Redefinition]</a>.</p>
+</div>
+<div class="paragraph">
+<p>External references can of course also be defined under container attributes.</p>
+</div>
+<div class="paragraph">
+<p>The second use of external references is typically in templates, to specify an archetype or sub-template of a template for an attribute where no slot has been defined. This use is described in <a href="#Unconstrained Attributes">[Unconstrained Attributes]</a>.</p>
+</div>
+<div class="sect3">
+<h4 id="_paths_2"><a class="anchor" href="#_paths_2"></a><a class="link" href="#_paths_2">Paths</a></h4>
+<div class="paragraph">
+<p>Paths that terminate in external reference nodes in source-form archetypes will include only the id-codes, as in the following examples:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cadl" data-lang="cadl">    /activities[id2]/description[id3]
+    /description[id2]</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Howver, in flattened archetypes, the corresponding paths will include the archetype identifier(s) rather than the id-codes, and may continue down through the structure of the included archetypes, as in the following example.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cadl" data-lang="cadl">    /activities[id2]/description[openEHR-EHR-ITEM_TREE.medication.v1]/...
+    /description[openEHR-EHR-ITEM_TREE.medication.v1]/...</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_archetype_slots"><a class="anchor" href="#_archetype_slots"></a><a class="link" href="#_archetype_slots">Archetype Slots</a></h3>
+<div class="paragraph">
+<p>At any point in a cADL definition, a constraint can be defined that allows other archetypes to be used, rather than defining the desired constraints inline. This is known as an archetype 'slot', i.e. a connection point whose allowable 'fillers' are constrained by a set of statements, written in the {openehr_rules}[openEHR rules language].</p>
+</div>
+<div class="paragraph principle">
+<p>An archetype slot defines a constrained compositional chaining point in an archetype at which other archetypes can be inserted, if they are in the set defined by the slot constraint.</p>
+</div>
+<div class="paragraph">
+<p>An archetype slot is introduced with the keyword <code>allow_archetype</code> and defined in terms of two lists of assertion statements defining which archetypes are allowed and/or which are excluded from filling that slot, introduced with the keywords <code>include</code> and <code>exclude</code> , respectively. The following example illustrates the general form of an archetype slot.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cadl" data-lang="cadl">    allow_archetype SECTION[id5] occurrences ∈ {0..*} ∈ {
+        include
+            -- constraints for inclusion
+        exclude
+            -- constraints for exclusion
+    }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>A slot constraint evaluates to a set of archetype identifiers from whatever is considered in the current model environment to be the total available set of archetypes.</p>
+</div>
+<div class="paragraph">
+<p>The simplest possible slot has no includes or excludes, and effectively imposes no constraint. However, it is allowed in order to enable authoring tools to create a slot whose actual constraint definition will be defined at a later point in time.</p>
+</div>
+<div class="paragraph">
+<p>A slot is designed to be 'filled', i.e. to have one of the allowed archetypes chosen for use. This is done in a child archetype, almost always a template. A slot can also be 'closed', meaning no further fillers can be added.</p>
+</div>
+<div class="paragraph">
+<p>The actual specification of slot fillers, and also the 'closing' of slots is done in specialised archetypes, and is described in <a href="#Slot Filling and Redefinition">[Slot Filling and Redefinition]</a>, in the chapter on specialisation.</p>
+</div>
+<div class="sect3">
+<h4 id="_formal_semantics_of_include_and_exclude_constraints"><a class="anchor" href="#_formal_semantics_of_include_and_exclude_constraints"></a><a class="link" href="#_formal_semantics_of_include_and_exclude_constraints">Formal Semantics of include and exclude Constraints</a></h4>
+<div class="paragraph">
+<p>The semantics of the <code>include</code> and <code>exclude</code> lists are somewhat subtle. They are as follows:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The meaning of the 'set of all archetypes' in any given environment is evaluable (and evaluated) to a finite set consisting of all archetypes available within the current archetype Library, not some notional virtual / global set of archetypes, or theoretical possible set.</p>
+</li>
+<li>
+<p>Either the <code>include</code> or <code>exclude</code> constraint, but not both, may be 'substantive', i.e. define a particular set of archetypes that would be matched within a given slot, or 'open', i.e. matching all possible archetypes.</p>
+</li>
+<li>
+<p>A slot constraint may consist of a single <code>include</code> or <code>exclude</code> constraint, or of an <code>include</code> / <code>exclude</code> pair.</p>
+</li>
+<li>
+<p>If an <code>include</code> or <code>exclude</code> constraint is present on its own, it is understood as a recommendation, i.e. it does not constitute a formal constraint for matching or exclusion, but tools and applications may use the recommended match set in an intelligent way. The result set for such an <code>include</code> or <code>exclude</code> is the whole current archetype set.</p>
+</li>
+<li>
+<p>If a substantive <code>include</code> or <code>exclude</code> constraint is present with a corresponding open <code>exclude</code> or <code>include</code> , respectively, the substantive constraint is considered formally binding.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The meaning of the slot constraint overall is that only archetypes matching the <code>include</code> constraint are allowed, and no others. The same logic applies in the reverse sense when the <code>exclude</code> constraint is substantive.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_slots_based_on_lexical_archetype_identifiers"><a class="anchor" href="#_slots_based_on_lexical_archetype_identifiers"></a><a class="link" href="#_slots_based_on_lexical_archetype_identifiers">Slots based on Lexical Archetype Identifiers</a></h4>
+<div class="paragraph">
+<p>In this kind of slot constraint, the core expression type is of the following form:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cadl" data-lang="cadl">    archetype_id/value ∈ {/openEHR-EHR-\.SECTION\..*\..*/}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>where archetype_id/value stands for the literal String value of the archetype identifier, and the regular expression is recognised as occurring between two slash delimiters (//).</p>
+</div>
+<div class="paragraph">
+<p>The following example shows how the "Objective" <code>SECTION</code> in a problem/SOAP headings archetype defines two slots, indicating which <code>OBSERVATION</code> and <code>SECTION</code> archetypes are allowed and excluded under the <code><em>items</em></code> property.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cadl" data-lang="cadl">    SECTION [id1] occurrences ∈ {0..1} ∈ {                      -- objective
+        items cardinality ∈ {0..*} ∈ {
+            allow_archetype SECTION[id2] occurrences ∈ {0..*} ∈ {
+                include
+                    archetype_id/value ∈ {/.*/}
+                exclude
+                    archetype_id/value ∈ {/openEHR-EHR-SECTION\.patient_details\..+/}
+            }
+        }
+    }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Here, every constraint inside the block starting on an <code>allow_archetype</code> line contains constraints that must be met by archetypes in order to fill the slot. In the examples above, the constraints are in the form of regular expressions on archetype identifiers. In cADL, the PERL regular expression syntax is assumed.</p>
+</div>
+<div class="paragraph">
+<p>There are two ways in which <code><em>archetype_id</em></code> regular expressions patterns can be used:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>as a pattern against which to test a particular archetype identifier being proposed for that slot;</p>
+</li>
+<li>
+<p>as a pattern to use against a population of archetypes (e.g. all archetypes in a particular repository) in order to generate a list of all possible archetypes for filling the slot.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Due to the second use, it is required that the regular expression pattern always cover a full archetype identifier rather than only sub-parts. As a consequence, a 'meta-pattern' can be defined to check <code><em>archetype_id</em></code> regular expressions for validity:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>    ^.+-.+-.+\..*\..+$</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Because identifier matching is an inherently lexical operation, subtypes of mentioned types are not matched unless explicitly stated. Consider the following example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cadl" data-lang="cadl">    allow_archetype ENTRY[id2] ∈ {    -- any kind of ENTRY
+        include
+            archetype_id/value ∈ {/openEHR-EHR-ENTRY..+\.v1/}
+    }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The intention is to allow any kind of <code>ENTRY</code> , but the above constraint won&#8217;t have the desired effect, because the pattern <code>openEHR-EHR-ENTRY</code> is unlikely to match any actual archetypes. Instead the following kind of constraint should be used:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cadl" data-lang="cadl">    allow_archetype ENTRY[id2] ∈ {    -- any kind of ENTRY
+        include
+            archetype_id/value ∈ {/openEHR-EHR-EVALUATION\..+\.v1|openEHR-EHR-OBSERVATION\..+\.v1/}
+    }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The above would allow any <code>EVALUATION</code> and any <code>OBSERVATION</code> archetypes to be used in the slot. Note that since no exclude clause was used, the above slot definition constitutes a recommendation. To make it a hard constraint, the following would be needed:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cadl" data-lang="cadl">    allow_archetype ENTRY[id2] ∈ {    -- any kind of ENTRY
+        include
+            archetype_id/value ∈ {/openEHR-EHR-EVALUATION\..+\.v1|openEHR-EHR-OBSERVATION\..+\.v1/}
+        exclude
+            archetype_id/value ∈ {/.*/}
+    }</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_slots_based_on_other_constraints"><a class="anchor" href="#_slots_based_on_other_constraints"></a><a class="link" href="#_slots_based_on_other_constraints">Slots based on other Constraints</a></h4>
+<div class="paragraph">
+<p>Other constraints are possible as well, including that the allowed archetype must contain a certain keyword, or a certain path. The latter allows archetypes to be linked together on the basis of content. For example, under a "genetic relatives" heading in a Family History Organiser archetype, the following slot constraint might be used:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cadl" data-lang="cadl">    allow_archetype EVALUATION[id2] occurrences ∈ {0..*} matches {
+        include
+            archetype_id ∈ {/openEHR-EHR-EVALUATION.family_history.v1/}
+                ∧ ∃ /subject/relationship/defining_code -&gt;
+                ∼ ( [openehr::0] ∈ /subject/relationship/defining_code) -- self
+    }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This says that the slot allows archetypes on the <code>EVALUATION</code> class, which either have as their concept 'family_history' or, if there is a constraint on the subject relationship, then it may not include the code <code>[openehr::0]</code> (the openEHR term for "self") - i.e. it must be an archetype designed for family members rather than the subject of care his/herself.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_slot_filling"><a class="anchor" href="#_slot_filling"></a><a class="link" href="#_slot_filling">Slot-filling</a></h4>
+<div class="paragraph">
+<p>Slots are 'filled' in specialised archetypes or templates by the use of use_archetype statements, i.e. the same construct as for an external reference described above. The typical form of a filled slot is as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cadl" data-lang="cadl">    SECTION[id1] ∈ {    -- Past history
+        /items ∈ {
+            use_archetype EVALUATION[id2, org.openehr::openEHR-EHR-EVALUATION.problem.v1]
+            use_archetype EVALUATION[id2, org.openehr::openEHR-EHR-EVALUATION.clin_synopsis.v1]
+        }
+    }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In ADL, slot-filling is considered a kind of specialisation of a slot, which enables slots to be filled by the same mechanism as any other kind of specialisation found in a child archetype. Slot-filling and other forms of slot redefinition are described in more detail in <a href="#Slot Filling and Redefinition">[Slot Filling and Redefinition]</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_mixed_structures"><a class="anchor" href="#_mixed_structures"></a><a class="link" href="#_mixed_structures">Mixed Structures</a></h3>
+<div class="paragraph">
+<p>Four types of structure representing constraints on reference model objects have been presented so far:</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">complex object structures</dt>
+<dd>
+<p>any node introduced by a type name and followed by {} containing constraints on attributes;</p>
+</dd>
+<dt class="hdlist1">internal references</dt>
+<dd>
+<p>any node introduced by the keyword <code>use_node</code> , followed by a type name; such nodes indicate re-use of a complex object constraint that has already been expressed elsewhere in the archetype;</p>
+</dd>
+<dt class="hdlist1">archetype slots</dt>
+<dd>
+<p>any node introduced by the keyword <code>allow_archetype</code> , followed by a type name; such nodes indicate a complex object constraint which is expressed in some other archetype;</p>
+</dd>
+<dt class="hdlist1">value set constraints</dt>
+<dd>
+<p>any node whose constraint is of the form <code>[acN]</code> .</p>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>Under any given attribute node, any combination of these object constraint types can co-exist, as in the following example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cadl" data-lang="cadl">    SECTION[id2000] ∈ {
+        items cardinality ∈ {0..*; ordered} ∈ {
+            ENTRY[id2001] ∈ {...}
+            allow_archetype ENTRY[id2002] ∈ {...}
+            use_node ENTRY[id2003] /some_path[id4]
+            ENTRY[id2004] ∈ {...}
+            use_node ENTRY[id2005] /some_path[id1012]
+            use_node ENTRY[id2006] /some_path[id1052]
+            ENTRY[id2007] ∈ {...}
+        }
+    }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Here we have a constraint on an attribute called <code><em>items</em></code> (of cardinality <code>0..*</code>), expressed as a series of possible constraints on objects of type <code>ENTRY</code>. The 1st, 4th and 7th are described inline; the 3rd, 5th and 6th are expressed in terms of internal references to other nodes earlier in the archetype, while the 2nd is an archetype slot, whose constraints are expressed in other archetypes matching the include/exclude constraints appearing between the braces of this node. Note also that the <code>ordered</code> keyword on the enclosing <code><em>items</em></code> node has been used to indicate that the list order is intended to be significant.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_second_order_constraints"><a class="anchor" href="#_second_order_constraints"></a><a class="link" href="#_second_order_constraints">Second-order Constraints</a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_tuple_constraints"><a class="anchor" href="#_tuple_constraints"></a><a class="link" href="#_tuple_constraints">Tuple Constraints</a></h3>
+<div class="paragraph">
+<p>In realistic data, it is not uncommon to need to need to constrain multiple object properties that covary in a specific way. A simple example is the need to state range constraints on a temperature, represented as an openEHR <code>DV_QUANTITY</code> type, for both Centigrade and Fahrenheit scales. The default way to do this in ADL is as follows (the <code>DV_QUANTITY</code> class has <code><em>property</em></code>, <code><em>units</em></code> and <code><em>magnitude</em></code> attributes):</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cadl" data-lang="cadl">    --
+    -- basic form of constraint on a Quantity type, allowing unintended combinations
+    --
+    value ∈ {
+        DV_QUANTITY [id14] ∈ {
+            property ∈ {[openehr::151|temperature|]}
+            units ∈ {"deg F"}
+            magnitude ∈ {|32.0..212.0|}
+        }
+        DV_QUANTITY [id15] ∈ {
+            property ∈ {[openehr::151|temperature|]}
+            units ∈ {"deg C"}
+            magnitude ∈ {|0.0..100.0|}
+        }
+    }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>However, this is verbose, and does not clearly convey the dependence of <code><em>units</em></code> and <code><em>magnitude</em></code> on each other. What we logically want to do is to state a single constraint on a <code>DV_QUANTITY</code> that sets the <code><em>magnitude</em></code> range constraint dependent on the <code><em>units</em></code> constraint.</p>
+</div>
+<div class="paragraph">
+<p>The covarying requirement could be met using assertions like the following in the <code>rules</code> section:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>    .../value/units = "deg F" -&gt; magnitude ∈ {|32.0..212.0|}
+    .../value/units = "deg C" -&gt; magnitude ∈ {|0.0..100.0|}</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>However, this seems obscure for what is logically a very simple kind of constraint.</p>
+</div>
+<div class="paragraph">
+<p>A generic solution that can be used in the main <code>definition</code> section involves treating covarying properties formally as tuples, and providing syntax to express constraints on tuples. The following syntax achieves this:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cadl" data-lang="cadl">    --
+    -- Tuple form of constraint on a Quantity type
+    --
+    value ∈ {
+        DV_QUANTITY[id14] ∈ {
+            property ∈ {[openehr::151|temperature|]}
+            [units, magnitude] ∈ {
+                [{"deg F"}, {|32.0..212.0|}] ,
+                [{"deg C"}, {|0.0..100.0|}]
+            }
+        }
+    }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The above defines constraints on <code><em>units</em></code> and <code><em>magnitude</em></code> together, as tuples such as <code>[{"deg F"}, {|32.0..212.0|}]</code> .</p>
+</div>
+<div class="paragraph">
+<p>The brackets surrounding each leaf level constraint are needed because although such constraints are typically atomic, as above, they may also take other standard ADL forms such as a list of strings, list of integers etc. In the latter case, the ',' characters from such lists will be conflated with the ',' separator of the distinct constraints in the tuple. Use of <code>{}</code> is also logically justified: each such entity is indeed a constraint in the ADL sense, and all ADL constraints are delimited by <code>{}</code>.</p>
+</div>
+<div class="paragraph">
+<p>The tuple form has the advantage of expressing the additional constraint that only <em>corresponding</em> <code><em>units</em></code> and <code><em>magnitude</em></code> leaf level constraints can occur together, while other combinations like <code>"deg F"</code> and <code>|0.0..100.0|</code> would be illegal.</p>
+</div>
+<div class="paragraph">
+<p>Another way to attempt to represent the effect of covarying constraints might be as follows, using lists of primitive values as shown below. However, there is nothing in these constraints that forces the correct associations between the <code><em>units</em></code> and <code><em>magnitude</em></code> constraints, preventing wrong combinations.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cadl" data-lang="cadl">    --
+    -- List form of constraint on a Quantity type, also allowing unintended combinations
+    --
+    value ∈ {
+        DV_QUANTITY[id14] ∈ {
+            property ∈ {[openehr::151|temperature|]}
+            units ∈ {"deg F", "deg C"}
+            magnitude ∈ {|32.0..212.0|, |0.0..100.0|}
+        }
+    }</code></pre>
+</div>
+</div>
+<div class="paragraph deprecated">
+<p><strong>Deprecated</strong>: In the openEHR ADL 1.4 Archetype Profile, a custom constrainer type <code>C_DV_QUANTITY</code> was used to to provide the above constraint. However, this is specific to the Reference Model type, and does not solve similar constraints occurring in other types. This type and also the <code>C_DV_ORDINAL</code> type have been removed from ADL 2 altogether.</p>
+</div>
+<div class="paragraph">
+<p>This same syntax will work for tuples of 3 or more co-varying properties. It does involve some extra work for compiler implementers, but this only needs to be performed once to support any use of tuple constraints, regardless of Reference Model type.</p>
+</div>
+<div class="paragraph">
+<p>A constraint on the openEHR <code>DV_ORDINAL</code> type provides another example of the utility of ADL tuples. First, a typical ordinal constraint (a scale of +, ++, +++) with  standard ADL:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cadl" data-lang="cadl">    --
+    -- Basic form of constraint on an Ordinal type, allowing unintended combinations
+    --
+    ordinal_attr ∈ {
+        DV_ORDINAL[id3] ∈ {
+            value ∈ {0}
+            symbol ∈ {
+                DV_CODED_TEXT[id4] ∈ {
+                    code ∈ {"at1"}          -- +
+                }
+            }
+        }
+        DV_ORDINAL[id5] ∈ {
+            value ∈ {1}
+            symbol ∈ {
+                DV_CODED_TEXT[id6] ∈ {
+                    code ∈ {"at2"}          -- ++
+                        }
+                    }
+                }
+            }
+        }
+        DV_ORDINAL[id7] ∈ {
+            value ∈ {2}
+            symbol ∈ {
+                DV_CODED_TEXT[id8] ∈ {
+                    code ∈ {"at3"}         -- +++
+                }
+            }
+        }
+    }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>By the use of tuple constraint, almost the same thing can be chieved much more efficiently. We can write:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cadl" data-lang="cadl">    --
+    -- Tuple form of constraint on an Ordinal type
+    --
+    ordinal_attr ∈ {
+        DV_ORDINAL[id3] ∈ {
+            [value, symbol] ∈ {
+                [{0}, {[at1]}],           -- +
+                [{1}, {[at2]}],           -- ++
+                [{2}, {[at3]}]            -- +++
+            }
+        }
+    }</code></pre>
+</div>
+</div>
+<div class="paragraph deprecated">
+<p>Deprecated: in the openEHR profiled version of ADL 1.4, a custom syntax was used, below, which is now replaced by the above generic form:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>    --
+    -- ADL 1.4
+    --
+    ordinal_attr ∈ {
+        0|[local::at1],       -- +
+        1|[local::at2],       -- ++
+        2|[local::at3]        -- +++
+    }</pre>
+</div>
+</div>
+<div class="paragraph deprecated">
+<p>This hides the <code>DV_ORDINAL</code> type altogether, but as for the <code>C_DV_QUANTITY</code> example above, it was a custom solution.</p>
+</div>
+<div class="sect3">
+<h4 id="_paths_in_tuple_structures"><a class="anchor" href="#_paths_in_tuple_structures"></a><a class="link" href="#_paths_in_tuple_structures">Paths in Tuple structures</a></h4>
+<div class="paragraph">
+<p>Unlike the basic form primitive constraint, tuple constraints introduce multiplicity, and as a consequence, paths to ther terminal objects are no longer unique. Thus, the paths <code>value[id4]/magnitude</code> (the Quantity example) and <code>ordinal_attr[id3]/value</code> (the ordinal example) could each refer to more than one primitive object.</p>
+</div>
+<div class="paragraph">
+<p>This solved by allowing Xpath-style child numbering predicates in paths starting at 1, as shown below.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cadl" data-lang="cadl">value[id4]/magnitude[1]     -- refer to the constraint {|32.0..212.0|}
+value[id4]/magnitude[2]     -- refer to the constraint {|0.0..100.0|}
+
+ordinal_attr[id3]/value[1]  -- refer to the constraint {0}
+ordinal_attr[id3]/value[2]  -- refer to the constraint {1}
+ordinal_attr[id3]/value[3]  -- refer to the constraint {2}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_group_constraints"><a class="anchor" href="#_group_constraints"></a><a class="link" href="#_group_constraints">Group Constraints</a></h3>
+<div class="paragraph">
+<p>Within a container attribute, any number of object constraints may be defined. The cardinality and occurrences constraints described above show how to control respectively, the overall container contents, and the occurrence of any particular object constraint within data. However, sometimes finer control is needed on repetition and grouping of members within the container. This can be achieved by the <code>group</code> construct, which provides an interior block where a subset of the overall container can be treated as a sub-group. The following example shows a typical used of the group construct.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cadl" data-lang="cadl">    ITEM_TREE[id1] ∈ {
+        items matches {
+            ELEMENT[id2] occurrences ∈ {1} ∈ {...}              -- Investigation type
+            ELEMENT[id3] occurrences ∈ {0..1} ∈ {...}           -- reason
+            group cardinality ∈ {1} occurrences ∈ {0..1} ∈ {   -- Methodology
+                ELEMENT[id6] occurrences ∈ {0..1} ∈ {...}       -- as Text
+                ELEMENT[id7] occurrences ∈ {0..1} ∈ {...}       -- Coded
+                CLUSTER[id8] occurrences ∈ {0..1} ∈ {...}       -- structured
+            }
+            ELEMENT[id11] occurrences ∈ {0..1} ∈ {...}          -- (other details)
+            CLUSTER[id12] occurrences ∈ {0..1} ∈ {...}          -- (other details)
+        }
+    }</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+although block-style indenting is used to express group blocks, the <code>group</code> constraint is not itself a structural object node, only a pure grouping mechanism.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>In the above, the group is used to state a logical choice of methodology representations, each defined by one of the three constraints within the group. The <code>group</code> construct includes both <code>cardinality</code> and <code>occurrences</code> qualifier constraints. The former indicates the size and ordering of the group, in the same way as a cardinality constraint does for the overall contents of a container attribute. The latter defines the repeatability of the group. If the group <code>occurrences</code> upper limit is above 1, it means that the sub group may repeat, with each repetition respecting the order and size defined by the group cardinality.</p>
+</div>
+<div class="paragraph principle">
+<p>A <code>group</code> constraint may be used to delimit a subset of objects within the total list of object constraints defined within a container attribute. A cardinality must be stated, defining size, ordering and uniqueness of the subset. An occurrences defining the repeatability of the subset must also be stated. Group constraints can be nested.</p>
+</div>
+<div class="paragraph">
+<p>The use of group cardinality and occurrences constraints, coupled with the occurrences constraints on each group member provide a means of specifying a number of logical constraint types found in other formalisms, including XML, as follows.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 16.6666%;">
+<col style="width: 16.6668%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Logical constraint</th>
+<th class="tableblock halign-left valign-top">Group<br>
+                             cardinality</th>
+<th class="tableblock halign-left valign-top">Group<br>
+                                                     occurrences</th>
+<th class="tableblock halign-left valign-top">Item<br>
+                                                                     occurrences</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1 of N choice</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1..1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">upper = 1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0..1</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1 of N choice, repeating</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1..1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">upper &gt; 1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0..1</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">N of M choice</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">N..N</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">upper = 1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0..1</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">N of M choice, repeating</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">N..N</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">upper &gt; 1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0..1</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">sequence, repeating</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">upper &gt; 1, ordered</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">upper &gt; 1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">any</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">sub-group, repeating</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">upper &gt; 1, unordered</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">upper &gt; 1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">any</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Group blocks can be nested, enabling subsets of subsets to be defined, as illustrated below.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cadl" data-lang="cadl">    items ∈ {
+        ELEMENT[id2] occurrences ∈ {1} ∈ {...}                -- Investigation type
+        ELEMENT[id3] occurrences ∈ {0..1} ∈ {...}             -- Investigation reason
+        group cardinality ∈ {2} occurrences ∈ {*} ∈ {         -- pick any 2 &amp; repeat
+            ELEMENT[id6] occurrences ∈ {0..1} ∈ {...}
+            ELEMENT[id7] occurrences ∈ {0..1} ∈ {...}
+            CLUSTER[id8] occurrences ∈ {0..1} ∈ {...}
+            group cardinality ∈ {1} occurrences ∈ {0..1} ∈ {  -- at least one
+                ELEMENT[id9] occurrences ∈ {0..1} ∈ {...}
+                CLUSTER[id10] occurrences ∈ {0..1} ∈ {...}
+            }
+        }
+        ELEMENT[id11] occurrences ∈ {0..1} ∈ {...}            -- (other details)
+        CLUSTER[id12] occurrences ∈ {0..1} ∈ {...}            -- (other details)
+    }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>For nested groups, the individual object nodes of the sub-group count <em>individually</em> towards the super-group&#8217;s cardinality, i.e. the group itself is not counted as a node. Thus, in the following example, any three nodes can be chosen from nodes <code>id6</code> - <code>id11</code>, with one or two of those nodes being from nodes <code>id9</code> - <code>id11</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cadl" data-lang="cadl">    group cardinality ∈ {3} occurrences ∈ {*} ∈ {         -- pick any 3 from id6-id11 &amp; repeat
+        ELEMENT[id6] occurrences ∈ {0..1} ∈ {...}
+        ELEMENT[id7] occurrences ∈ {0..1} ∈ {...}
+        CLUSTER[id8] occurrences ∈ {0..1} ∈ {...}
+            group cardinality ∈ {1} occurrences ∈ {1..2} ∈ {  -- pick 1-2 from id9 - id11
+                ELEMENT[id9] occurrences ∈ {0..1} ∈ {...}
+                CLUSTER[id10] occurrences ∈ {0..1} ∈ {...}
+                ELEMENT[id11] occurrences ∈ {0..1} ∈ {...}
+            }
+        }
+    }</code></pre>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_slots_and_grouping"><a class="anchor" href="#_slots_and_grouping"></a><a class="link" href="#_slots_and_grouping">Slots and Grouping</a></h4>
+<div class="paragraph">
+<p>The group constraint is often useful with a slot definition, in order to control the ordering and occurrences of items defined by other archetypes, within an overall container. Consider the example of data of the general structure: 'any number of problem and diagnosis Entries, followed by one plan and one or more treatment Entries'. An example of data following this structure would be:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>EVALUATION</code> : problem #1</p>
+</li>
+<li>
+<p><code>EVALUATION</code> : diagnosis #1</p>
+</li>
+<li>
+<p><code>EVALUATION</code> : problem #2</p>
+</li>
+<li>
+<p><code>EVALUATION</code> : problem #3</p>
+</li>
+<li>
+<p><code>EVALUATION</code> : plan</p>
+</li>
+<li>
+<p><code>INSTRUCTION</code> : medication #1</p>
+</li>
+<li>
+<p><code>INSTRUCTION</code> : therapy #1</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>It might be expected that the slot constraints needed to define this are as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cadl" data-lang="cadl">    SECTION[id2] occurrences ∈ {0..1} ∈ {                           -- Subjective
+        items cardinality ∈ {0..*; ordered} ∈ {
+            allow_archetype EVALUATION[id6] occurrences ∈ {*} ∈ {   -- Problem
+                include
+                    archetype_id/value ∈ {/openEHR-EHR-EVALUATION\.problem\.v*/}
+            }
+            allow_archetype EVALUATION[id7] occurrences ∈ {*} ∈ {   -- Diagnosis
+                include
+                    archetype_id/value ∈ {/openEHR-EHR-EVALUATION\.problem-diagnosis\.v*/}
+            }
+            allow_archetype EVALUATION[id8] occurrences ∈ {1} ∈ {   -- Plan
+                include
+                    archetype_id/value ∈ {/openEHR-EHR-EVALUATION\.plan\.v*/}
+            }
+            allow_archetype INSTRUCTION[id9] occurrences ∈ {1..*} ∈ {  -- Intervention
+                include
+                    archetype_id/value ∈ {/openEHR-EHR-INSTRUCTION\.(medication_order|therapy)\.v*/}
+            }
+        }
+    }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The above says that the <code>SECTION.<em>items</em></code> attribute is an ordered list, and that its contents include multiple <code>EVALUATION</code> objects representing problem, diagnosis and plan, and also multiple <code>INSTRUCTION</code> objects representing interventions. The problem is now apparent. Each slot definition is set of possibilities, but we do not necessarily want to follow the slot ordering for the ordering of the archetypes chosen to fill the slots. To impose the required ordering and occurrences, we can use the group construct as follows.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cadl" data-lang="cadl">    SECTION[id2] occurrences ∈ {0..1} ∈ {                             -- Subjective
+        items cardinality ∈ {0..*; ordered} ∈ {
+            group cardinality ∈ {0..1} occurrences ∈ {0..*} ∈ {
+                                    -- sub-group of any number of problems &amp; diagnoses
+                allow_archetype EVALUATION[id6] occurrences ∈ {1} ∈ {  --Problem
+                    include
+                      archetype_id/value ∈ {/openEHR-EHR-EVALUATION\.problem\.v*/}
+                }
+                allow_archetype EVALUATION[id7] occurrences ∈ {1} ∈ {  -- Diagnosis
+                    include
+                      archetype_id/value ∈ {/openEHR-EHR-EVALUATION\.diagnosis\.v*/}
+                }
+            }
+            allow_archetype EVALUATION[id8] occurrences ∈ {1} ∈ {      -- Plan
+                include
+                    archetype_id/value ∈ {/openEHR-EHR-EVALUATION\.plan\.v*/}
+            }
+            allow_archetype INSTRUCTION[id9] occurrences ∈ {1..*} ∈ {     -- Intervention
+                include
+                    archetype_id/value ∈ {/openEHR-EHR-INSTRUCTION\.(medication_order|therapy)\.v*/}
+            }
+        }
+    }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The above has the desired result in data: a group of any number of problems and diagnoses, followed by a plan, followed by one or more medications or other therapies.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="cADL_Constraints_Primitive_Types"><a class="anchor" href="#cADL_Constraints_Primitive_Types"></a><a class="link" href="#cADL_Constraints_Primitive_Types">Constraints on Primitive Types</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>ADL assumes the existence of various primitive types, as described in the <a href="https://specifications.openehr.org/releases/BASE/latest/foundation_types.html" target="_blank" rel="noopener">openEHR Foundation Types</a> specification. These include the usual built-in types of any programming language, as well as dates and times, and lists and intervals of primitive types. The following subsections describe how each of these is constrained.</p>
+</div>
+<div class="sect2">
+<h3 id="_general_structure"><a class="anchor" href="#_general_structure"></a><a class="link" href="#_general_structure">General Structure</a></h3>
+<div class="paragraph">
+<p>At the leaf nodes in a cADL text, constraints can be expressed on the following primitive types:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Boolean</code>;</p>
+</li>
+<li>
+<p><code>Character</code>, <code>String</code>;</p>
+</li>
+<li>
+<p><code>Integer</code>, <code>Real</code>;</p>
+</li>
+<li>
+<p><code>Date</code>, <code>Time</code>, <code>Date_time</code>, <code>Duration</code>;</p>
+</li>
+<li>
+<p><code>Terminology_code</code>;</p>
+</li>
+<li>
+<p>lists and intervals of some of the above.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Since primitive objects constitute the terminal nodes in an archetype, constraints may constrain type, occurrences (rare), and value.</p>
+</div>
+<div class="paragraph">
+<p>While constraints on complex types follow the rules described so far, constraints on attributes of primitive types in cADL may be expressed in a shorter form, without type names, and omitting one level of braces, as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cadl" data-lang="cadl">    some_attr matches {&lt;some_pattern&gt;}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>rather than:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cadl" data-lang="cadl">    some_attr matches {
+        PRIMITIVE_TYPE[id3] matches {&lt;some_pattern&gt;}
+    }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This is possible because the syntax patterns of all primitive type constraints are mutually distinguishable, i.e. the type can always be inferred from the syntax alone. Since all leaf attributes of all object models are of primitive types, or lists or sets of them, cADL archetypes using the brief form for primitive types are significantly less verbose overall, as well as being more directly comprehensible to human readers. Because the brief form omits an id-code, the id-code for primitive object nodes is automatically set to a fixed value, defined in the <a href="https://specifications.openehr.org/releases/AM/latest/AOM2.html#_overview" target="_blank" rel="noopener">AOM specification</a> as <code>Primitive_node_id</code>.</p>
+</div>
+<div class="paragraph">
+<p>Although for the majority of primitive type constraints, the shortened form is the most convenient, there is one circumstance in which the regular syntax form is needed, which is when only the type is to be constrained, but not the value. This leads to a constraint of the following form:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cadl" data-lang="cadl">    some_attr matches {
+        PRIMITIVE_TYPE[id3]
+    }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This may occur because the attribute <code><em>some_attr</em></code> in the reference model is of a more general type, e.g. <code>Any</code>. The constraint may thus be to simply require a <code>String</code>, <code>Terminology_code</code> or other primitive type. In the regular form a valid id-code must be supplied; this may be either a standard id-code (e.g. <code>id9</code>) or the <code>Primitive_node_id</code> value. If the former is used, any specialised archetype that adds a value constraint must use the regular form, as in the following example.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cadl" data-lang="cadl">    -- in parent archetype
+    some_attr matches {
+        String[id3]
+    }
+
+    -- in specialisation child
+    some_attr matches {
+        String[id3] matches {"match me"}
+    }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If the <code>Primitive_node_id</code> is used, a specialisation may use the brief form, as in the following.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cadl" data-lang="cadl">    -- in parent archetype
+    some_attr matches {
+        String[id9999]
+    }
+
+    -- in specialisation child
+    some_attr matches {"match me"}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_assumed_values"><a class="anchor" href="#_assumed_values"></a><a class="link" href="#_assumed_values">Assumed Values</a></h3>
+<div class="paragraph">
+<p>In an archetype containing optional data elements, an ability to define 'assumed' values is useful. For example, an archetype for 'blood pressure measurement' might include an optional data element describing the patient position, with choices 'lying', 'sitting' and 'standing'. Since this element is optional, data could be created according to the archetype that does not contain it. However, a blood pressure cannot be taken without the patient in some position, so clearly there is an implied value.</p>
+</div>
+<div class="paragraph">
+<p>The archetype allows this to be explicitly stated so that all users/systems know what value to assume when optional items are not included in the data. Assumed values are definable on any primitive type, and are expressed after the constraint expression, by a semi-colon (';') followed by a value of the same type as that implied by the preceding part of the constraint. Example constraints containing assumed values are shown in the sections below.</p>
+</div>
+<div class="paragraph">
+<p>If no assumed value is stated, no reliable assumption can be made by the receiver of the archetyped data about what the values of removed optional parts might be, from inspecting the archetype. However, this usually corresponds to a situation where the assumed value does not even need to be stated - the same value will be assumed by all users of this data, if its value is not transmitted. In most cases, if an element specified as optional in the archetype, data users only care about the value if it is actually present. The 'assumed value' concept is therefore not likely to be needed in most cases.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_constraints_on_boolean"><a class="anchor" href="#_constraints_on_boolean"></a><a class="link" href="#_constraints_on_boolean">Constraints on Boolean</a></h3>
+<div class="paragraph">
+<p>Boolean runtime values can be constrained to be True, False, or either, as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cadl" data-lang="cadl">    some_flag matches {True}
+    some_flag matches {False}
+    some_flag matches {True, False}
+    some_flag matches {True, False; False}         -- with assumed value</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_constraints_on_character"><a class="anchor" href="#_constraints_on_character"></a><a class="link" href="#_constraints_on_character">Constraints on Character</a></h3>
+<div class="paragraph">
+<p>Attribute values of type <code>Character</code> can be constrained in two ways: using a list of characters, and using a regular expression.</p>
+</div>
+<div class="sect3">
+<h4 id="_list_of_characters"><a class="anchor" href="#_list_of_characters"></a><a class="link" href="#_list_of_characters">List of Characters</a></h4>
+<div class="paragraph">
+<p>The following examples show how a character value may be constrained using a list of fixed character values. Each character is enclosed in single quotes.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cadl" data-lang="cadl">    color_name matches {'r'}
+    color_name matches {'r', 'g', 'b'}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_regular_expression"><a class="anchor" href="#_regular_expression"></a><a class="link" href="#_regular_expression">Regular Expression</a></h4>
+<div class="paragraph">
+<p>Character values can also be constrained using a single-character regular expression character class, as per the following examples:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cadl" data-lang="cadl">    color_name matches {/[rgbcmyk]/}
+    color_name matches {/[^\s\t\n]/}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The only allowed elements of the regular expression syntax in character expressions are the following:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>any item from the Character Classes list above;</p>
+</li>
+<li>
+<p>any item from the Special Character Classes list above;</p>
+</li>
+<li>
+<p>an alternative expression whose parts are any item types, e.g. <code>'a'|'b'|[m-z]</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_constraints_on_string"><a class="anchor" href="#_constraints_on_string"></a><a class="link" href="#_constraints_on_string">Constraints on String</a></h3>
+<div class="paragraph">
+<p>The value of an attribute of type <code>String</code> is constrained using a list of one or more Strings, each of which may be a fixed String, or a regular expression. In both cases, comparison to the constraint values is case-sensitive.</p>
+</div>
+<div class="paragraph">
+<p>Although any mixture of fixed Strings and regular expressions may be used, the most common possibilities are a list of fixed Strings and a single regular expression.</p>
+</div>
+<div class="sect3">
+<h4 id="_list_of_strings"><a class="anchor" href="#_list_of_strings"></a><a class="link" href="#_list_of_strings">List of Strings</a></h4>
+<div class="paragraph">
+<p>A String-valued attribute can be constrained by a list of strings (using the ODIN syntax for string lists), including the simple case of a single string. Examples are as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cadl" data-lang="cadl">    species ∈ {"platypus"}
+    species ∈ {"platypus", "kangaroo"}
+    species ∈ {"platypus", "kangaroo", "wombat"}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The first example constrains the runtime value of the <code><em>species</em></code> attribute of some object to take the value "platypus"; the second constrains it be either "platypus" or "kangaroo", and so on. <strong>In almost all cases, this kind of string constraint should be avoided</strong>, since it usually renders the body of the archetype language-dependent. Exceptions are proper names (e.g. "NHS", "Apgar"), product tradenames (but note even these are typically different in different language locales, even if the different names are not literally translations of each other). The preferred way of constraining string attributes in a language independent way is with value sets of terminology codes. See <a href="#cADL_Terminology_Constraints">Terminology Constraints</a>.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_regular_expression_2"><a class="anchor" href="#_regular_expression_2"></a><a class="link" href="#_regular_expression_2">Regular Expression</a></h4>
+<div class="paragraph">
+<p>The second way of constraining strings is with regular expressions, a widely used syntax for expressing patterns for matching strings. The regular expression syntax used in cADL is a proper subset of that used in the Perl language (see <a href="#Perl_regex">[Perl_regex]</a> for a full specification of the regular expression language of Perl). It is specified as a constraint using either <code>//</code> or <code>^^</code> delimiters:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>    string_attr matches {/regular expression/}
+    string_attr matches {^regular expression^}</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>For example, the following two patterns are equivalent:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cadl" data-lang="cadl">    units ∈ {/km\/h|mi\/h/}
+    units ∈ {^km/h|mi/h^}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The rules for including special characters within strings are described in <a href="#File Encoding and Character Quoting">[File Encoding and Character Quoting]</a>.</p>
+</div>
+<div class="paragraph tbd">
+<p>TBD: there is an argument for only allowing a single String value rather than a list, where the value is aways a regex since <code>{"platypus", "kangaroo", "wombat"}</code> can be expressed as <code>{/platypus|kangaroo|wombat/}</code>. See also AOM spec.</p>
+</div>
+<div class="paragraph">
+<p>The regular expression patterns supported in cADL are as follows.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 14.2857%;">
+<col style="width: 42.8571%;">
+<col style="width: 42.8572%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-center valign-top" colspan="3">Character Class</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>.</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">match any single character.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">E.g. <code>&#8230;&#8203;</code> matches any 3 characters;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[xyz]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">match any of the characters in the set <code>xyz</code> (case sensitive).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">E.g. <code>[0-9]</code> matches any string containing a single decimal digit;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[a-m]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">match any of the characters in the set of characters formed by the continuous range from <code>a</code> to <code>m</code> (case sensitive).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">E.g. <code>[0-9]</code> matches any single character string containing a single decimal digit, <code>[S-Z]</code> matches any single character in the range <code>S</code> - <code>Z</code> ;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[^a-m]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">match any character except those in the set of characters formed by the continuous range from <code>a</code> to <code>m</code> .</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">E.g. <code>[^0-9]</code> matches any single character string as long as it does not contain a single decimal digit;</p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top" colspan="3"><p class="tableblock">Grouping</p></th>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>(pattern)</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">parentheses are used to group items; any pattern appearing within parentheses is treated as an atomic item for the purposes of the occurrences operators.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">E.g. <code>([1-9][0-9])</code> matches any 2-digit number.</p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top" colspan="3"><p class="tableblock">Occurrences</p></th>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">match 0 or more of the preceding atomic item.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">E.g. <code>.*</code> matches any string; <code>[a-z][a-z0-9]*</code> matches any alphanumeric string starting with a letter;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>+</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">match 1 or more occurrences of the preceding atomic item.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">E.g. <code>a[^\s]+</code> matches any string starting with 'a', followed by at least one further non-whitespace character;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>?</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">match 0 or 1 occurrences of the preceding atomic item.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">E.g. <code>ab?</code> matches the strings <code>"a"</code> and <code>"ab"</code> ;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>{m,n}</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">match m to n occurrences of the preceding atomic item.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">E.g. <code>ab{1,3}</code> matches the strings <code>"ab"</code> and <code>"abb"</code> and <code>"abbb"</code> ; <code>[a-z]{1,3}</code> matches all lower-case alphabetic strings of one to three characters in length;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>{m,}</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">match at least m occurrences of the preceding atomic item;</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>{,n}</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">match at most n occurrences of the preceding atomic item;</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>{m}</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">match exactly m occurrences of the preceding atomic item;</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top" colspan="3"><p class="tableblock">Special Character Classes</p></th>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>\d</code> , <code>\D</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">match a decimal digit character; match a non-digit character;</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>\s</code> , <code>\S</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">match a whitespace character; match a non-whitespace character;</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top" colspan="3"><p class="tableblock">Alternatives</p></th>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>pattern1|pattern2</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">match either pattern1 or pattern2.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">E.g. <code>lying|sitting|standing</code> matches any of the words <code>"lying"</code> , <code>"sitting"</code> and <code>"standing"</code> .</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>A similar warning as for a list of strings should be noted for the use of regular expressions to constrain strings: they should be limited to non-linguistically dependent patterns, such as proper and scientific names. The use of regular expressions for constraints on normal words will render an archetype linguistically dependent, and potentially unusable by others.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_constraints_on_ordered_types"><a class="anchor" href="#_constraints_on_ordered_types"></a><a class="link" href="#_constraints_on_ordered_types">Constraints on Ordered Types</a></h3>
+<div class="paragraph">
+<p>Of the primitive types defined in the <a href="https://specifications.openehr.org/releases/BASE/latest/foundation_types.html" target="_blank" rel="noopener">openEHR Foundation Types</a>, some inherit (at least notionally) from the abstract type <code>Ordered</code>, including <code>Integer</code>, <code>Real</code>, and the Date/Time types. Constraints on all these types follow a constraint type of <code>List&lt;Interval&lt;T:Ordered&gt;&gt;</code>, i.e. a <code>List</code> of <code>Intervals</code>. Since the <code>Interval&lt;T&gt;</code> type in openEHR includes a descendant <code>Point_interval&lt;T&gt;</code> that can represent a degenerate interval of the form <code>{N..N}</code>, i.e. effectively a single value, this constraint type can represent many patterns of constraint, including:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>single value e.g. <code>{3}</code>;</p>
+</li>
+<li>
+<p>list of values e.g. <code>{3, 4, 5}</code>;</p>
+</li>
+<li>
+<p>single interval e.g. <code>{|0..10|}</code>;</p>
+</li>
+<li>
+<p>list of intervals e.g. <code>{|0..10|, |60..90|, |&gt;500|}</code>;</p>
+</li>
+<li>
+<p>any combination of values and intervals, e.g. <code>{5, |10..100|, 150, |200..400|, 1000}</code>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Additional 'pattern' constraints are available on the Date/Time types.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_constraints_on_integer"><a class="anchor" href="#_constraints_on_integer"></a><a class="link" href="#_constraints_on_integer">Constraints on Integer</a></h3>
+<div class="paragraph">
+<p>The value of an attribute of type <code>Integer</code> is constrained using a list of one or more integer values or intervals. The most common possibilities are a list of single integers, and a single interval, but multiple intervals and or single values are possible as well.</p>
+</div>
+<div class="sect3">
+<h4 id="_list_of_integers"><a class="anchor" href="#_list_of_integers"></a><a class="link" href="#_list_of_integers">List of Integers</a></h4>
+<div class="paragraph">
+<p>Lists of integers expressed in the syntax from ODIN can be used as a constraint, e.g.:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cadl" data-lang="cadl">    length matches {1000}       -- fixed value of 1000
+    magnitude matches {0, 5, 8} -- any of 0, 5 or 8</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The first constraint requires the attribute <code><em>length</em></code> to be 1000, while the second limits the value of <code><em>magnitude</em></code> to be 0, 5, or 8 only. A list may contain a single integer only:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cadl" data-lang="cadl">    magnitude matches {0} -- matches 0</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_interval_of_integer"><a class="anchor" href="#_interval_of_integer"></a><a class="link" href="#_interval_of_integer">Interval of Integer</a></h4>
+<div class="paragraph">
+<p>Integer intervals are expressed using the interval syntax from ODIN (described in the <a href="https://specifications.openehr.org/releases/LANG/latest/odin.html">openEHR ODIN specification</a>. Examples of 2-sided intervals include:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cadl" data-lang="cadl">    length matches {|1000|}                       -- point interval of 1000 (=fixed value)
+    length matches {|950..1050|}                  -- allow 950 - 1050
+    length matches {|0..1000|}                    -- allow 0 - 1000
+    length matches {|0..&lt;1000|}                   -- allow 0&gt;= x &lt;1000
+    length matches {|&gt;0..&lt;1000|}                  -- allow 0&gt; x &lt;1000
+    length matches {|100+/-5|}                    -- allow 100 +/- 5, i.e. 95 - 105</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples of one-sided intervals include:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cadl" data-lang="cadl">    length matches {|&lt;10|}                        -- allow up to 9
+    length matches {|&gt;10|}                        -- allow 11 or more
+    length matches {|&lt;=10|}                       -- allow up to 10
+    length matches {|&gt;=10|}                       -- allow 10 or more
+    length matches {|&gt;=10|;5}                     -- allow 10 or more; assumed value = 5</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_more_complex_integer_constraints"><a class="anchor" href="#_more_complex_integer_constraints"></a><a class="link" href="#_more_complex_integer_constraints">More Complex Integer Constraints</a></h4>
+<div class="paragraph">
+<p>There may be applications for which the full possibilities of the Integer value constraint need to be exploited. The following provides an example.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cadl" data-lang="cadl">    length matches {5, |10..100|, 150, |200..400|, 1000}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In such cases, all of the values and ranges should be mutually exclusive.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_constraints_on_real"><a class="anchor" href="#_constraints_on_real"></a><a class="link" href="#_constraints_on_real">Constraints on Real</a></h3>
+<div class="paragraph">
+<p>Constraints on attributes of type <code>Real</code> follow the same syntax as for Integers, in both list and interval forms. The only difference is that the real number values used in the constraints are indicated by the use of the decimal point and at least one succeeding digit, which may be 0. Typical examples are:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cadl" data-lang="cadl">    magnitude ∈ {5.5}                             -- list of one (fixed value)
+    magnitude ∈ {|5.5|}                           -- point interval (=fixed value)
+    magnitude ∈ {|5.5..6.0|}                      -- interval
+    magnitude ∈ {5.5, 6.0, 6.5}                   -- list
+    magnitude ∈ {|0.0..&lt;1000.0|}                  -- allow 0&gt;= x &lt;1000.0
+    magnitude ∈ {|&lt;10.0|}                         -- allow anything less than 10.0
+    magnitude ∈ {|&gt;10.0|}                         -- allow greater than 10.0
+    magnitude ∈ {|&lt;=10.0|}                        -- allow up to 10.0
+    magnitude ∈ {|&gt;=10.0|}                        -- allow 10.0 or more
+    magnitude ∈ {|80.0+/-12.0|}                   -- allow 80 +/- 12</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_constraints_on_dates_times_and_durations"><a class="anchor" href="#_constraints_on_dates_times_and_durations"></a><a class="link" href="#_constraints_on_dates_times_and_durations">Constraints on Dates, Times and Durations</a></h3>
+<div class="paragraph">
+<p>Attributes of type <code>Date</code>, <code>Time</code>, <code>Date_time</code> and <code>Duration</code> (or of differently-named primitive types with the same meaning) may all be constrained in either of two ways:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>in terms of values, using a list of ISO 8601 values or value intervals, in the same manner as for <code>Integer</code> and <code>Real</code>; and</p>
+</li>
+<li>
+<p>using patterns based on the ISO 8601 value syntax.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The first method allows temporal values to be constrained to actual date, time etc values, while the second allows values to be constrained on the basis of which parts of the date, time etc are present or missing, regardless of value. The pattern method is described first, since patterns can also be used in lists and intervals.</p>
+</div>
+<div class="sect3">
+<h4 id="_date_time_and_datetime"><a class="anchor" href="#_date_time_and_datetime"></a><a class="link" href="#_date_time_and_datetime">Date, Time and Date/Time</a></h4>
+<div class="sect4">
+<h5 id="_patterns"><a class="anchor" href="#_patterns"></a><a class="link" href="#_patterns">Patterns</a></h5>
+<div class="paragraph">
+<p>Dates, times, and date/times (i.e. timestamps), can be constrained using patterns based on the ISO 8601 date/time syntax, which indicate which parts of the date or time must be supplied. A constraint pattern is formed from the abstract pattern <code>yyyy-mm-ddThh:mm:ss</code> (itself formed by translating each field of an ISO 8601 date/time into a letter representing its type), with either <code>?</code> (meaning optional) or <code>X</code> (not allowed) characters substituted in appropriate places. The syntax of legal patterns is shown by the following regular expressions:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>date_pattern:           yyyy-(mm|??|XX)-(dd|??|XX)
+time_pattern:           hh:(mm|??|XX):(ss|??|XX)
+time_in_date_pattern:   T(hh|??|XX):(mm|??|XX):(ss|??|XX)
+date_time_pattern:      date_constraint time_in_date_pattern</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>All expressions generated by these patterns must also satisfy the validity rules:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>where <code>??</code> appears in a field, only <code>??</code> or <code>XX</code> can appear in fields to the right</p>
+</li>
+<li>
+<p>where <code>XX</code> appears in a field, only <code>XX</code> can appear in fields to the right</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The following table shows the valid patterns that can be used, and the types implied by each pattern.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 30%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Implied Type</th>
+<th class="tableblock halign-left valign-top">Pattern</th>
+<th class="tableblock halign-left valign-top">Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Date</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">yyyy-mm-dd</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">full date must be specified</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Date</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">yyyy-mm-??</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">optional day;<br>
+ e.g. day in month forgotten</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Date</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">yyyy-??-??</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">optional month, optional day;<br>
+ i.e. any date allowed; e.g. mental health questionnaires which include well known historical dates</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Date</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">yyyy-mm-XX</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">mandatory month, no day</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Date</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">yyyy-??-XX</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">optional month, no day</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Time</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">hh:mm:ss</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">full time must be specified</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Time</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">hh:mm:XX</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no seconds;<br>
+ e.g. appointment time</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Time</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">hh:??:XX</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">optional minutes, no seconds;<br>
+ e.g. normal clock times</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Time</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">hh:??:??</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">optional minutes, seconds;<br>
+ i.e. any time allowed</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Date/Time</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">yyyy-mm-ddThh:mm:ss</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">full date/time must be specified</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Date/Time</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">yyyy-mm-ddThh:mm:??</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">optional seconds;<br>
+ e.g. appointment date/time</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Date/Time</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">yyyy-mm-ddThh:mm:XX</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no seconds;<br>
+ e.g. appointment date/time</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Date/Time</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">yyyy-mm-ddThh:??:XX</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no seconds, minutes optional;<br>
+ e.g. in patient-recollected date/times</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Date/Time</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">yyyy-??-??T??:??:??</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">minimum valid date/time constraint</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>In the above patterns, the 'yyyy' etc match strings can be replaced by literal date/time numbers. For example, <code>yyyy-??-XX</code> could be transformed into <code>1995-??-XX</code> to mean any partial date in 1995.</p>
+</div>
+<div class="paragraph">
+<p>An assumed value can be used with any of the above as follows: <code>yyyy-??-??; 1970-01-01</code>.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_intervals"><a class="anchor" href="#_intervals"></a><a class="link" href="#_intervals">Intervals</a></h5>
+<div class="paragraph">
+<p>Dates, times and date/times can also be constrained using intervals. Each date, time etc in an interval may be a literal date, time etc value. Examples of such constraints:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cadl" data-lang="cadl">    |09:30:00|                                     -- exactly 9:30 am
+    |&lt; 09:30:00|                                   -- any time before 9:30 am
+    |&lt;= 09:30:00|                                  -- any time at or before 9:30 am
+    |&gt; 09:30:00|                                   -- any time after 9:30 am
+    |&gt;= 09:30:00|                                  -- any time at or after 9:30 am
+    |2004-05-20..2004-06-02|                       -- a date range
+    |2004-05-20T00:00:00..2005-05-19T23:59:59|     -- a date/time range
+    |&gt;= 09:30:00|;09:30:00                         -- any time at or after 9:30 am; assume 9:30 am</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_duration_constraints"><a class="anchor" href="#_duration_constraints"></a><a class="link" href="#_duration_constraints">Duration Constraints</a></h4>
+<div class="sect4">
+<h5 id="_patterns_2"><a class="anchor" href="#_patterns_2"></a><a class="link" href="#_patterns_2">Patterns</a></h5>
+<div class="paragraph">
+<p>Patterns based on ISO 8601 can be used to constrain durations in the same way as for Date/time types. The general form of a pattern is:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-regex" data-lang="regex">    P[Y|y][M|m][W|w][D|d][T[H|h][M|m][S|s]]</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+that allowing the <code>W</code> designator to be used with the other designators corresponds to a deviation from the published ISO 8601 standard used in openEHR, namely:
+* durations are supposed to take the form of <code>PnnW</code> or <code>PnnYnnMnnDTnnHnnMnnS</code>, but in openEHR, the <code>W</code> (week) designator can be used with the other designators, since it is very common to state durations of pregnancy as some combination of weeks and days.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The use of this pattern indicates which 'slots' in an ISO duration string may be filled. Where multiple letters are supplied in a given pattern, the meaning is 'or', i.e. any one or more of the slots may be supplied in the data. This syntax allows specifications like the following to be made:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cadl" data-lang="cadl">    Pd            -- a duration containing days only, e.g. P5d
+    Pm            -- a duration containing months only, e.g. P5m
+    PTm           -- a duration containing minutes only, e.g. PT5m
+    Pwd           -- a duration containing weeks and/or days only, e.g. P4w
+    PThm          -- a duration containing hours and/or minutes only, e.g. PT2h30m</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Note that the 's' (seconds) slot covers fractional seconds as well as whole seconds.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_lists_and_intervals"><a class="anchor" href="#_lists_and_intervals"></a><a class="link" href="#_lists_and_intervals">Lists and Intervals</a></h5>
+<div class="paragraph">
+<p>Durations can also be constrained by using absolute ISO 8601 duration values, or ranges of the same, e.g.:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cadl" data-lang="cadl">    PT1m              -- 1 minute
+    P1dT8h            -- 1 day 8 hrs
+    |PT0m..PT1m30s|   -- Reasonable time offset of first apgar sample</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_mixed_pattern_and_interval"><a class="anchor" href="#_mixed_pattern_and_interval"></a><a class="link" href="#_mixed_pattern_and_interval">Mixed Pattern and Interval</a></h5>
+<div class="paragraph">
+<p>In some cases there is a need to be able to limit the allowed units as well as state a duration interval. This is common in obstetrics, where physicians want to be able to set an interval from say 0-50 weeks and limit the units to only weeks and days. This can be done as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>    PWD/|P0W..P50W|   -- 0-50 weeks, expressed only using weeks and days</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The general form is a pattern followed by a slash ('/') followed by an interval, as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-antlr-java" data-lang="antlr-java">duration_constraint: duration_pattern '/' duration_interval ;</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="cADL_Terminology_Constraints"><a class="anchor" href="#cADL_Terminology_Constraints"></a><a class="link" href="#cADL_Terminology_Constraints">Terminology Constraints</a></h3>
+<div class="paragraph">
+<p>Terminology constraints deal with a special category of data values known as 'coded terms' or 'terminology'. Coded data values are both textual (e.g. "diastolic blood pressure") and semantic (may have relationships to each other). The idea is that instead of using text, the possible values are represented in structured vocabularies, terminologies or ontologies that define both the possible text (including translations) and also the relationships, if any, between the terms (sometimes known as 'concepts'). In health, typical examples include 'terminology' resources such as <a href="http://www.who.int/classifications/icd/en/">WHO ICDx</a> and <a href="http://www.snomed.org">SNOMED CT</a> terminologies and drug databases.</p>
+</div>
+<div class="paragraph">
+<p>Coded terms are treated as a primitive type in ADL in order to enable the formalism and tools to work with terminology constraints. Unlike other primitive constraints, terminology constraints may be complex, because they can refer to external resources, either directly or via 'bindings' defined elsewhere in the archeype. This section describes just the syntax representations and relationships between these.</p>
+</div>
+<div class="paragraph">
+<p>The full description, including binding and resolution is provided in <a href="#Terminology Integration">[Terminology Integration]</a>. This section describes only the syntax for term constraint in the <code>definition</code> section of an archetype.</p>
+</div>
+<div class="paragraph">
+<p>Syntactically, there are two types of terminology constraint expressible in 'source form' ADL, i.e. authored archetypes and templates. The first is expressed with an ac-code which refers to a value set which is either defined in the archetype terminology or externally. The second, for convenience, uses a single at-code, in order to express a single term value without requiring a value-set. For the first case, an assumed value in the form of an at-code can also be stated, and has the same sense as the assumed values of other primitive types already described.</p>
+</div>
+<div class="paragraph">
+<p>The possibilities are illustrated below.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cadl" data-lang="cadl">    --
+    -- fragment of openehr-ehr-EVALUATION.term_constraint_variations.v0.0.1
+    --
+
+    items matches {
+        ELEMENT[id11] occurrences matches {0..1} matches {
+            name matches {
+                DV_CODED_TEXT[id8] matches {
+                    defining_code matches {[at5]}		-- set name to 'Substance'
+                }
+            }
+            value matches {
+                DV_CODED_TEXT[id55] matches {
+                    defining_code matches {[ac1]}		-- Type of Substance/Agent
+                }
+            }
+        }
+        ELEMENT[id22] occurrences matches {0..1} matches {	-- Certainty
+            value matches {
+                DV_CODED_TEXT[id58] matches {
+                    defining_code matches {[ac2; at23]}
+                }
+            }
+        }
+        ...
+    }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In the above, the constraint at the path <code>items[id11]/name[id8]</code> is on a <code>DV_CODED_TEXT</code>.<code><em>defining_code</em></code> representing the <code><em>name</em></code> of the <code>ELEMENT</code>. It is constrained to a single at-code value representing 'Substance' (assume this is the preferred name of the institution that created this archetype). The at-code is defined in the terminology part of the archetype, and may have bindings defined there as well. These are described in later sections.</p>
+</div>
+<div class="paragraph">
+<p>The second variant uses the code <code>ac1</code>, which refers to a value set. This is by definition: all ac-codes in ADL refer only to value sets. This is the most common form of terminology constraint - defining possible codes for a codeable value in the model. The code and any bindings are also defined in the <code>terminology</code> section.</p>
+</div>
+<div class="paragraph">
+<p>The last variant shows a second value set, this time with an assumed code, where <code>at23</code> must be in the value set referred to by <code>ac2</code>.</p>
+</div>
+<div class="paragraph">
+<p>A further syntax possibility exists, for use at the point of operational template generation. As described in <a href="#From Constraints to Concrete Codes in Data">[From Constraints to Concrete Codes in Data]</a>, the choice may be made that a specific operational template (OPT) should use external codes from the archetype bindings (such as from <a href="http://www.snomed.org">SNOMED CT</a>, <a href="http://www.who.int/classifications/icd/en/">ICD10</a>, etc) as the values of some or all coded nodes, rather than using the internal at-codes.</p>
+</div>
+<div class="paragraph">
+<p>To express this choice, the OPT&#8217;s <code>definition</code> section contains a modified version of the usual syntax <code>[at1]</code> or <code>[ac1]</code> in those nodes where an external term from the bindings is to be used. This takes the form <code>[acN@ttttt]</code> or <code>[atN@ttttt]</code> where <code>ttttt</code> is the namespace identifier of a binding in the <code>terminology</code> section of the archetype.</p>
+</div>
+<div class="paragraph">
+<p>Specifying which codable nodes (including 'all' and 'none' options) should have their values substituted by the external codes is assumed to be part of the OPT generator tool. Different terminology bindings may be specified on different nodes of the same archetype, or none at all, allowing for a mixture of external term substitional depending on node.</p>
+</div>
+<div class="paragraph">
+<p>The following example shows the result in an operational template fragment.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cadl" data-lang="cadl">    --
+    -- extract of an operational template based on openehr-ehr-EVALUATION.term_constraint_variations.v0.0.1
+    --
+    value matches {
+        DV_CODED_TEXT[id55] matches {
+            defining_code matches {[ac1@snomed_ct]}        -- use snomed_ct binding for value from ac1 at runtime
+        }
+    }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>See <a href="#Terminology Integration">[Terminology Integration]</a> for fuller picture of how this works.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_constraints_on_lists_of_primitive_types"><a class="anchor" href="#_constraints_on_lists_of_primitive_types"></a><a class="link" href="#_constraints_on_lists_of_primitive_types">Constraints on Lists of Primitive Types</a></h3>
+<div class="paragraph">
+<p>In some cases, the type in the information model of an attribute to be constrained is a list or set of primitive types, i.e. <code>List&lt;Integer&gt;</code>, <code>Set&lt;String&gt;</code> etc. Here, the types <code>List&lt;T&gt;</code> and <code>Set&lt;T&gt;</code> are understood in the standard way in computer science, i.e. as linear containers with respectively, ordering and unique membership.</p>
+</div>
+<div class="paragraph">
+<p>Any constraint described above for single-valued attributes, which is commensurate with the type of the attribute in question, may be used for this purpose as well. However, for values of type <code>List&lt;T&gt;</code>, <code>Set&lt;T&gt;</code> etc, the meaning is now that every item in the value list is constrained to be <em>any one of the values</em> specified by the constraint expression. For example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cadl" data-lang="cadl">    speed_limits cardinality ∈ {0..*; ordered} ∈ {50, 60, 70, 80, 100, 130}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>constrains each value in the list corresponding to the value of the attribute <code>speed_limits</code> (of type <code>List&lt;Integer&gt;</code> ), to be any one of the values <code>50</code>, <code>60</code>, <code>70</code> etc.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_constraints_on_intervals_of_ordered_primitive_types"><a class="anchor" href="#_constraints_on_intervals_of_ordered_primitive_types"></a><a class="link" href="#_constraints_on_intervals_of_ordered_primitive_types">Constraints on Intervals of Ordered Primitive Types</a></h3>
+<div class="paragraph">
+<p>A third variation on primitive types is that of Intervals of Ordered primitive types, i.e. where the attribute type is <code>Interval&lt;Integer&gt;</code>, <code>Interval&lt;Duration&gt;</code> etc. The type <code>Interval&lt;T:Ordered&gt;</code> is understood as defined in the <a href="https://specifications.openehr.org/releases/BASE/latest/foundation_types.html#_interval">openEHR Foundation Types</a>, and corresponds to a similar type in most programming language libraries.</p>
+</div>
+<div class="paragraph">
+<p>Values of these types may be constrained with the same constraint expressions as for atomic values of the same type, with the most usual pattern being one or more Intervals, e.g.:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cadl" data-lang="cadl">    speed_range ∈ {|0..60|, |60..90|, |90..110|, |110..130|, |&gt;130|}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The meaning of such constraints is interpreted differently for Interval-valued attributes compared to single-valued attributes. Here, each Interval in the constraint is understood as a <em>possible (Interval) value</em> for the constrained attribute, not as providing a range of possble values. The example above thus allows 5 different Interval values for the attribute <code>speed_range</code>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_constraints_on_enumerated_types"><a class="anchor" href="#_constraints_on_enumerated_types"></a><a class="link" href="#_constraints_on_enumerated_types">Constraints on Enumerated Types</a></h3>
+<div class="paragraph">
+<p>Enumeration types in a reference model are assumed to have the semantics defined in UML and mainstream programming languages, i.e. to be a distinct type based on a primitive type, normally Integer or String. Each such type consists of a set of values from the domain of its underlying type, thus, a set of Integer, String or other primitive values. Each of these values is assumed to be named in the manner of a symbolic constant. Although strictly speaking UML doesn&#8217;t require an enumerated type to be based on an underlying primitive type, programming languages do, hence the assumption here that values from the domain of such a type are involved.</p>
+</div>
+<div class="paragraph">
+<p>In ADL, constraints on enumerated types are represented by constraints on the underlying primitive values. The following example shows 2 constraints on an attribute of the type <code>PROPORTION_KIND</code> from the openEHR Reference Model.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cadl" data-lang="cadl">    ITEM_TREE[id4] ∈ {
+        items ∈ {
+            ELEMENT[id5] occurrences ∈ {0..1} matches {    -- test enum 1
+                value ∈ {
+                    DV_PROPORTION[id6] ∈ {
+                        numerator ∈ {|0.0..1.0|; 0.0}
+                        type ∈ {1}                         -- pk_unitary
+                    }
+                }
+            }
+            ELEMENT[id7] ∈ {                               -- test enum 2
+                value ∈ {
+                    DV_PROPORTION[id8] ∈ {
+                        numerator ∈ {|0.0..1.0|; 0.0}
+                        type ∈ {2, 3}                      -- pk_percent, pk_fraction
+                    }
+                }
+            }
+        }
+    }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><code>PROPORTION_KIND</code> is defined as <code>{pk_ratio = 0; pk_unitary = 1; pk_percent = 2; pk_fraction = 3; pk_integer_fraction = 4}</code> in its reference model. Modelling tools are relied on to visualise enumeration constraints in a suitable way, by inferring the type based on inspection of the reference model on which the archetype is based.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_syntax_validity_rules"><a class="anchor" href="#_syntax_validity_rules"></a><a class="link" href="#_syntax_validity_rules">Syntax Validity Rules</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Various coded syntax rules have been defined for the cADL syntax, for use by parser and compiler authors. These can be found on at the GitHub location <a href="https://github.com/openEHR/adl-resources/blob/master/messages/ADL/adl_syntax_errors.txt" class="bare">https://github.com/openEHR/adl-resources/blob/master/messages/ADL/adl_syntax_errors.txt</a>.</p>
+</div>
+<div class="paragraph">
+<p>The state of this file at the issue of this document is as follows.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-odin" data-lang="odin">syntax_errors = &lt;
+    ["SUNK"] = &lt;"Syntax error (unknown cause)"&gt;
+    ["SARID"] = &lt;"Syntax error in artefact identification clause; expecting archetype id (format = model_issuer-package-class.concept.version)"&gt;
+
+    ["SASID"] = &lt;"Syntax error in 'specialise' clause; expecting parent archetype id (model_issuer-ref_model-model_class.concept.version)"&gt;
+
+    ["SACO"] = &lt;"Syntax error in 'concept' clause; expecting TERM_CODE reference"&gt;
+    ["SALA"] = &lt;"Syntax error in language section"&gt;
+    ["SALAN"] = &lt;"Syntax error no language section found"&gt;
+    ["SADS"] = &lt;"Syntax error in description section"&gt;
+    ["SADF"] = &lt;"Syntax error in definition section"&gt;
+    ["SAIV"] = &lt;"Syntax error in invariant section"&gt;
+    ["SAON"] = &lt;"Syntax error in terminology section"&gt;
+    ["SAAN"] = &lt;"Syntax error in annotations section"&gt;
+
+    ["SDSF"] = &lt;"Syntax error: differential syntax not allowed in top-level archetype"&gt;
+    ["SDINV"] = &lt;"Syntax error: invalid ODIN section; error: $1"&gt;
+    ["SCCOG"] = &lt;"Syntax error: expecting a new node definition, primitive node definition, 'use' path, or 'archetype' reference"&gt;
+    ["SUAID"] = &lt;"Syntax error: expecting [archetype_id] in use_archetype statement"&gt;
+    ["SUAIDI"] = &lt;"Syntax error: invalid archetype id $1"&gt;
+    ["SOCCF"] = &lt;"Syntax error: expecting an 'occurrences expression', e.g. 'occurrences matches {n..m}'"&gt;
+    ["SUNPA"] = &lt;"Syntax error: expecting absolute path in use_node statement"&gt;
+    ["SCOAT"] = &lt;"Syntax error: expecting attribute definition(s)"&gt;
+    ["SUAS"] = &lt;"Syntax error: error after 'use_archetype' keyword; expecting Object node definition"&gt;
+    ["SCAS"] = &lt;"Syntax error: expecting a 'any' node, 'leaf' node, or new node definition"&gt;
+    ["SINVS"] = &lt;"Syntax error: illegal invariant expression at identifier $1"&gt;
+    ["SEXPT"] = &lt;"Syntax error: expecting absolute path after exists keyword"&gt;
+    ["SEXLSG"] = &lt;"Syntax error: existence single value must be 0 or 1"&gt;
+    ["SEXLU1"] = &lt;"Syntax error: existence upper limit must be 0 or 1 when lower limit is 0"&gt;
+    ["SEXLU2"] = &lt;"Syntax error: existence upper limit must be 1 when lower limit is 1"&gt;
+    ["SEXLMG"] = &lt;"Syntax error: existence must be one of 0..0, 0..1, or 1..1"&gt;
+
+    ["SCIAV"] = &lt;"Syntax error: invalid assumed value; must be an integer"&gt;
+    ["SCRAV"] = &lt;"Syntax error: invalid assumed value; must be a real number"&gt;
+    ["SCDAV"] = &lt;"Syntax error: invalid assumed value; must be an ISO8601 date"&gt;
+    ["SCTAV"] = &lt;"Syntax error: invalid assumed value; must be an ISO8601 time"&gt;
+    ["SCDTAV"] = &lt;"Syntax error: invalid assumed value; must be an ISO8601 date/time"&gt;
+    ["SCDUAV"] = &lt;"Syntax error: invalid assumed value; must be an ISO8601 duration"&gt;
+    ["SCSAV"] = &lt;"Syntax error: invalid assumed value; must be a string"&gt;
+    ["SCBAV"] = &lt;"Syntax error: invalid assumed value; must be a 'True' or 'False'"&gt;
+    ["SCOAV"] = &lt;"Syntax error: invalid assumed value; must be an ordinal integer value"&gt;
+
+    ["SCDPT"] = &lt;"Syntax error: invalid date constraint pattern '$1'; allowed patterns: $2"&gt;
+    ["SCTPT"] = &lt;"Syntax error: invalid time constraint pattern '$1'; allowed patterns: $2"&gt;
+    ["SCDTPT"] = &lt;"Syntax error: invalid date/time constraint pattern '$1'; allowed patterns: $2"&gt;
+    ["SCDUPT"] = &lt;"Syntax error: invalid duration constraint pattern '$1'; legal pattern: P[Y|y][M|m][W|w][D|d][T[H|h][M|m][S|s]] or P[W|w] [/duration_interval]"&gt;
+
+    ["SCSRE"] = &lt;"Syntax error: regular expression compile error '$1' is not a valid regular expression"&gt;
+    ["STCCP"] = &lt;"Syntax error: invalid term code constraint pattern '$1': $2"&gt;
+    ["STCDC"] = &lt;"Syntax error: duplicate code(s) found in code list"&gt;
+    ["STCAC"] = &lt;"Syntax error: assumed value code $1 not found in code list"&gt;
+    ["STCNT"] = &lt;"Syntax error: terminology not specified"&gt;
+&gt;</code></pre>
+</div>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="../file_encoding/">File Encoding and Character Quoting</a></span>
+  <span class="next"><a href="../paths/">ADL Paths</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>
+    Copyright: © 2003+
+    <a href="https://www.openehr.org"
+        alt="is an independent, non-profit foundation, facilitating the sharing of health
+           records by consumers and clinicians via open specifications, clinical models
+           and open platform implementations.">The openEHR Foundation</a>
+  </p>
+
+  <p>
+    License:
+    <img src="/_/img/cc-by-nd-88x31.png"
+        alt="Creative Commons Attribution-NoDerivs 3.0 Unported."
+        style="vertical-align:middle;margin:0 0.25rem 0 0;">
+    <a href="https://creativecommons.org/licenses/by-nd/3.0/">
+      Creative Commons Attribution-NoDerivs 3.0 Unported.
+    </a>
+  </p>
+
+  <p>
+    <strong>Links: <strong>
+    <a href="https://www.openehr.org/terms-of-use" class="mr-1">Terms of use</a> |
+    <a href="https://www.openehr.org/privacy-policy" class="mx-1">Privacy policy</a> |
+    <a href="https://www.openehr.org/privacy-policy" class="mx-1">Logos &amp; Trademarks</a> |
+    <a href="https://www.openehr.org/contact-us" class="mx-1">Contact</a>
+  </p>
+</footer>
+
+<script id="site-script" src="../../../../_/js/site.js" data-ui-root-path="../../../../_"></script>
+<script async src="../../../../_/js/vendor/highlight.js"></script>
+<script src="../../../../_/js/vendor/lunr.js"></script>
+<script src="../../../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../../../.." data-snippet-length="80" data-stylesheet="../../../../_/css/search.css"></script>
+<script async src="../../../../search-index.js"></script>
+<script src="../../../../_/js/medium-zoom.min.js"></script>
+<script src="../../../../_/js/zoom.js"></script>
+  </body>
+</html>

@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+    <title>Assertions :: openEHR Specifications (Local Build)</title>
+    <link rel="canonical" href="https://sebastian-iancu.github.io/antora-openehr/AM/latest/ADL1.4/assertions/">
+    <link rel="prev" href="../cadl/">
+    <link rel="next" href="../paths/">
+    <meta name="description" content="openEHR Archetype Definition Language 1.4 (ADL1.4) (ISO 13606-2:2008)">
+    <meta name="keywords" content="EHR, ADL, AOM, health records, archetypes, constraint language, ISO 13606, openehr">
+    <meta name="generator" content="Antora 3.1.14">
+    <link rel="stylesheet" href="../../../../_/css/site.css">
+    <link rel="stylesheet" href="../../../../_/css/antora-openehr.css">
+    <link rel="stylesheet" href="../../../../_/css/openehr.css">
+<link rel="icon" href="../../../../_/img/favicon.ico" type="image/x-icon">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://sebastian-iancu.github.io/antora-openehr">openEHR Specifications (Local Build)</a>
+
+      <div class="navbar-item search hide-for-print">
+        <div id="search-field" class="field has-filter">
+          <input id="search-input" type="text" placeholder="Search the docs">
+          <label class="filter checkbox">
+            <input type="checkbox" data-facet-filter="component:AM"> Archetype Model only
+          </label>
+        </div>
+      </div>
+
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">Specifications</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://specifications.openehr.org/" target="_blank">
+              openEHR specification
+            </a>
+            <a class="navbar-item" href="https://specifications.openehr.org/releases/UML/development/index.html" target="_blank">
+              openEHR portal
+            </a>
+            <a class="navbar-item" href="https://ckm.openehr.org/ckm/" target="_blank">
+              openEHR CKM
+            </a>
+          </div>
+        </div>
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">Community</a>
+          <div class="navbar-dropdown is-right">
+            <a class="navbar-item" href="https://openehr.atlassian.net/secure/Dashboard.jspa?selectPageId=10190" target="_blank">
+              Issue trackers
+            </a>
+            <a class="navbar-item" href="https://discourse.openehr.org/" target="_blank">
+              Discourse Forum
+            </a>
+            <a class="navbar-item" href="https://specifications.openehr.org/wiki/display/spec/Specifications+Home" target="_blank">
+              Wiki
+            </a>
+            <a class="navbar-item" href="https://github.com/openEHR" target="_blank">
+              GitHub
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="AM" data-version="Release-2.2.0">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="../../">Archetype Model</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../">Overview</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../">{spec_title}</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../overview/">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../file_encoding/">File Encoding and Character Quoting</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../dadl/">dADL - Data ADL</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../cadl/">cADL - Constraint ADL</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="./">Assertions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../paths/">ADL Paths</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../adl/">ADL - Archetype Definition Language</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../customising_adl/">Customising ADL</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../other_formalisms/">Relationship of ADL to Other Formalisms</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../masterAppB-extended_metadata/">Extended Meta-data Guide</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../masterAppC-syntax_spec/">Syntax Specification</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../ADL2/">{spec_title}</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/overview/">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/file_encoding/">File Encoding and Character Quoting</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/cadl/">cADL - Constraint ADL</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/paths/">ADL Paths</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/default_values/">Default Values</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/adl/">ADL - Archetype Definition Language</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/terminology_integration/">Terminology Integration</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/specialisation/">Specialisation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/templates/">Templates</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/other_formalisms/">Relationship of ADL to Other Formalisms</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/masterAppB-syntax_spec/">Syntax Specification</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../AOM1.4/">{spec_title}</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM1.4/preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM1.4/model_overview/">The Archetype Object Model</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM1.4/archetype_package/">The Archetype Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM1.4/constraint_model_package/">Constraint Model Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM1.4/assertion_package/">The Assertion Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM1.4/primitive_package/">Primitive Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM1.4/ontology_package/">Terminology Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM1.4/domain_extension/">Domain-specific Extension Example</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM1.4/masterAppB-diverse_reference_models/">Using Archetypes with Diverse Reference Models</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM1.4/masterAppC-rm_dependencies/">Reference Model Dependencies</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM1.4/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../AOM2/">{spec_title}</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM2/preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM2/model_overview/">Model Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM2/archetype_package/">The Archetype Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM2/constraint_model_package/">Constraint Model Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM2/rules_package/">The Rules Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM2/rm_overlay/">The RM Overlay Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM2/terminology_package/">Terminology Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM2/validation/">Validation and Transformation Semantics</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM2/serialisation_model/">Serialisation Model</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM2/templates/">Templates</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM2/rm_adaptation/">Reference Model Adaptation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM2/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../Identification/">{spec_title}</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../Identification/preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../Identification/overview/">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../Identification/artefact_source_id/">Source Artefact Identification</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../Identification/versioning/">Versioning</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../Identification/lifecycle_mgt/">Lifecycle Model</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../Identification/distributed_governance/">Distributed Governance</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../Identification/referencing/">Referencing</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../Identification/uris/">A Reliable URI for Knowledge Resources</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../Identification/artefact_authentication/">Artefact Authentication</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../Identification/scenarios/">Scenarios</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../Identification/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="#index.adoc">Language Design</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../OPT2/">{spec_title}</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../OPT2/preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../OPT2/overview/">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../OPT2/opt_raw/">The Raw Operational Template</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../OPT2/opt_profiled/">The Profiled Operational Template</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../OPT2/file_formats/">File Formats</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../OPT2/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../Overview/">{spec_title}</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../Overview/introduction/">Business Purpose of Archetypes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../Overview/formalism_overview/">Archetype Formalism Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../Overview/the_specifications/">The Specifications</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../Overview/semantic_overview/">Semantic Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../Overview/artefacts/">Artefacts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../Overview/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Archetype Model</span>
+    <span class="version">Release-2.2.0</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <div class="title"><a href="../../../latest/">Archetype Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../latest/">Release-2.3.0</a>
+        </li>
+        <li class="version is-current">
+          <a href="../../">Release-2.2.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../BASE/latest/">Base Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../BASE/latest/">Release-1.2.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../BASE/Release-1.1.0/">Release-1.1.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../BASE/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../RM/latest/">Reference Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../RM/latest/">Release-1.1.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../RM/Release-1.0.4/">Release-1.0.4</a>
+        </li>
+        <li class="version">
+          <a href="../../../../RM/development/">development</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../../BASE/latest/" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../../">Archetype Model</a></li>
+    <li><a href="../">{spec_title}</a></li>
+    <li><a href="./">Assertions</a></li>
+  </ul>
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">Release-2.2.0</button>
+  <div class="version-menu">
+    <a class="version" href="../../../latest/ADL1.4/assertions/">Release-2.3.0</a>
+    <a class="version is-current" href="./">Release-2.2.0</a>
+    <a class="version" href="../../../development/ADL1.4/assertions/">development</a>
+  </div>
+</div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Assertions</h1>
+<div class="sect1">
+<h2 id="_overview"><a class="anchor" href="#_overview"></a><a class="link" href="#_overview">Overview</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This section describes the assertion sub-language of archetypes. Assertions are used in archetype "slot" clauses in the cADL <code>definition</code> section, and in the <code>invariant</code> section. The following simple assertion in an invariant clause says that the speed in kilometres of some node is related to the speed-in-miles by a factor of 1.6:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-expr" data-lang="expr">    validity: /speed[at0002]/kilometres/magnitude = /speed[at0004]/miles/magnitude * 1.6</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The archetype assertion language is a small language of its own. Formally it is a first-order predicate logic with equality and comparison operators (=, &gt;, etc). It is very nearly a subset of the OMG’s emerging OCL (Object Constraint Language) syntax, and is very similar to the assertion syntax which has been used in the <a href="#Object_Z">[Object_Z]</a> and <a href="#Eiffel">[Eiffel]</a> languages and tools for over a decade. (See <a href="#Sowa_2000">[Sowa_2000]</a>, <a href="#Hein_2002">[Hein_2002]</a>, <a href="#Kilov_1994">[Kilov_1994]</a> for an explanation of predicate logic in information modelling.)</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_keywords"><a class="anchor" href="#_keywords"></a><a class="link" href="#_keywords">Keywords</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The syntax of the invariant section is a subset of first-order predicate logic. In it, the following keywords can be used:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>exists</code> , <code>for_all</code> ,</p>
+</li>
+<li>
+<p><code>and</code> , <code>or</code> , <code>xor</code> , <code>not</code> , <code>implies</code></p>
+</li>
+<li>
+<p><code>true</code> , <code>false</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Symbol equivalents for some of the above are given in the following table.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 60%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Textual<br>
+ Rendering</th>
+<th class="tableblock halign-left valign-top">Symbolic<br>
+ Rendering</th>
+<th class="tableblock halign-left valign-top">Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">matches, is_in</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">∈</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Set membership, "p is in P"</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">exists</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">∃</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Existential quantifier, "there exists &#8230;&#8203;"</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">for_all</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">∀</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Universal quantifier, "for all x&#8230;&#8203;"</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">implies</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">®</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Material implication, "p implies q", or "if p then q"</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">and</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">∧</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Logical conjunction, "p and q"</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">or</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">∨</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Logical disjunction, "p or q"</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">xor</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">∨</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Exclusive or, "only one of p or q"</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">not, ~</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">∼, ¬</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Negation, "not p"</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>The <code>not</code> operator can be applied as a prefix operator to all other operators except <code>for_all</code>; either textual rendering <code>not</code> or <code>~</code> can be used.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_operators"><a class="anchor" href="#_operators"></a><a class="link" href="#_operators">Operators</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Assertion expressions can include arithmetic, relational and boolean operators, plus the existential and universal quantifiers.</p>
+</div>
+<div class="sect2">
+<h3 id="_arithmetic_operators"><a class="anchor" href="#_arithmetic_operators"></a><a class="link" href="#_arithmetic_operators">Arithmetic Operators</a></h3>
+<div class="paragraph">
+<p>The supported arithmetic operators are as follows:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>addition: <code>+</code></p>
+</li>
+<li>
+<p>subtraction: <code>-</code></p>
+</li>
+<li>
+<p>multiplication: <code>*</code></p>
+</li>
+<li>
+<p>division: <code>/</code></p>
+</li>
+<li>
+<p>exponent: <code>^</code></p>
+</li>
+<li>
+<p>modulo division: <code>%</code>&#8201;&#8212;&#8201;remainder after integer division</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_equality_operators"><a class="anchor" href="#_equality_operators"></a><a class="link" href="#_equality_operators">Equality Operators</a></h3>
+<div class="paragraph">
+<p>The supported equality operators are as follows:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>equality: <code>=</code></p>
+</li>
+<li>
+<p>inequality: <code>&lt;&gt;</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The semantics of these operators are of value comparison.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_relational_operators"><a class="anchor" href="#_relational_operators"></a><a class="link" href="#_relational_operators">Relational Operators</a></h3>
+<div class="paragraph">
+<p>The supported relational operators are as follows:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>less than: <code>&lt;</code></p>
+</li>
+<li>
+<p>less than or equal: <code>&lt;=</code></p>
+</li>
+<li>
+<p>greater than: <code>&gt;</code></p>
+</li>
+<li>
+<p>greater than or equal: <code>&gt;=</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The semantics of these operators are of value comparison on entities of Comparable types (see openEHR Support IM, Assumed Types section). All generate a Boolean result.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_boolean_operators"><a class="anchor" href="#_boolean_operators"></a><a class="link" href="#_boolean_operators">Boolean Operators</a></h3>
+<div class="paragraph">
+<p>The supported boolean operators are as follows:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>not: <code>not</code></p>
+</li>
+<li>
+<p>and: <code>and</code></p>
+</li>
+<li>
+<p>xor: <code>xor</code></p>
+</li>
+<li>
+<p>implies: <code>implies</code></p>
+</li>
+<li>
+<p>set membership: <code>matches</code>, <code>is_in</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The boolean operators also have symbolic equivalents shown earlier.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_quantifiers"><a class="anchor" href="#_quantifiers"></a><a class="link" href="#_quantifiers">Quantifiers</a></h3>
+<div class="paragraph">
+<p>The two standard logical quantifier operators are supported:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>existential quantifier: <code>exists</code></p>
+</li>
+<li>
+<p>universal quantifier: <code>for_all</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>These operators also have the usual symbolic equivalents shown earlier.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_operands"><a class="anchor" href="#_operands"></a><a class="link" href="#_operands">Operands</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Operands in an assertion expression can be any of the following:</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><em>manifest constant</em></dt>
+<dd>
+<p>any constant of any primitive type, expressed according to the dADL syntax for values;</p>
+</dd>
+<dt class="hdlist1"><em>variable reference</em></dt>
+<dd>
+<p>any name starting with <code>$</code>, e.g. <code>$body_weight</code>;</p>
+</dd>
+<dt class="hdlist1"><em>object reference</em></dt>
+<dd>
+<p>a path referring to an object node, i.e. any path ending in a node identifier;</p>
+</dd>
+<dt class="hdlist1"><em>property reference</em></dt>
+<dd>
+<p>a path referring to a property, i.e. any path ending in <code>.property_name</code>.</p>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>If an assertion is used in an archetype slot definition, its paths refer to the archetype filling the slot, not the one containing the slot.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_precedence_and_parentheses"><a class="anchor" href="#_precedence_and_parentheses"></a><a class="link" href="#_precedence_and_parentheses">Precedence and Parentheses</a></h2>
+<div class="sectionbody">
+<div class="paragraph tbd">
+<p>To be continued.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_future"><a class="anchor" href="#_future"></a><a class="link" href="#_future">Future</a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_variables"><a class="anchor" href="#_variables"></a><a class="link" href="#_variables">Variables</a></h3>
+<div class="paragraph tbd">
+<p><strong>TBD</strong>: : main problem of variables is that they must have names, which are language-dependent; imagine if there were a mixture of variables added by authors in different languages. The only solution is to name them with terms.</p>
+</div>
+<div class="paragraph tbd">
+<p><strong>TBD</strong>: : Variables have to be treated as term coordinations, and should be coded e.g. using ccNNNN codes (“cc” = coordinated code). Then they can be given meanings in any language.</p>
+</div>
+<div class="sect3">
+<h4 id="_predefined_variables"><a class="anchor" href="#_predefined_variables"></a><a class="link" href="#_predefined_variables">Predefined Variables</a></h4>
+<div class="paragraph">
+<p>A number of predefined variables can be referenced in ADL assertion expressions, without prior definition, including:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>$current_date: Date</code>; returns the date whenever the archetype is evaluated</p>
+</li>
+<li>
+<p><code>$current_time: Time</code>; returns time whenever the archetype is evaluated</p>
+</li>
+<li>
+<p><code>$current_date_time: Date_Time</code>; returns date/time whenever the archetype is evaluated</p>
+</li>
+</ul>
+</div>
+<div class="paragraph tbd">
+<p>To Be Continued: these should be coded as well, using openEHR codes</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_archetype_defined_variables"><a class="anchor" href="#_archetype_defined_variables"></a><a class="link" href="#_archetype_defined_variables">Archetype-defined Variables</a></h4>
+<div class="paragraph">
+<p>Variables can also be defined inside an archetype, as part of the assertion statements in an invariant. The syntax of variable definition is as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre> let $var_name = reference</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Here, a reference can be any of the operand types listed above. 'Let' statements can come anywhere in an <code>invariant</code> block, but for readability, should generally come first.
+The following example illustrates the use of variables in an invariant block:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>invariant
+    let $sys_bp = /data[at9001]/events[at9002]/data[at1000]/items[at1100]
+    let $dia_bp = /data[at9001]/events[at9002]/data[at1000]/items[at1200]
+    $sys_bp &gt;= $dia_bp</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_syntax_specification"><a class="anchor" href="#_syntax_specification"></a><a class="link" href="#_syntax_specification">Syntax Specification</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The assertion grammar is part of the cADL grammar. This grammar is implemented and tested using lex (.l file) and yacc (.y file) specifications for in the Eiffel programming environment. The 1.4 release of these files is available in the <a href="https://github.com/openEHR/adl-tools/tree/Release-1.4/components/adl_parser/src/syntax/cadl/parser">cADL grammar files</a>. The .l and .y files can be converted for use in another yacc/lex-based programming environment.</p>
+</div>
+<div class="sect2">
+<h3 id="_grammar"><a class="anchor" href="#_grammar"></a><a class="link" href="#_grammar">Grammar</a></h3>
+<div class="paragraph">
+<p>The following provides the assertion parser production rules (yacc specification). Note that because of interdependencies with path and assertion production rules, practical implementations may have to include all production rules in one parser.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-antlr-java" data-lang="antlr-java">assertions:
+    assertion
+    | assertions assertion
+    ;
+
+assertion:
+    any_identifier ':' boolean_expression
+    | boolean_expression
+    ;
+
+boolean_expression:
+    boolean_leaf
+    | boolean_node
+    ;
+
+boolean_node:
+    SYM_EXISTS absolute_path
+    | relative_path SYM_MATCHES SYM_START_CBLOCK c_primitive SYM_END_CBLOCK
+    | SYM_NOT boolean_leaf
+    | arithmetic_expression '=' arithmetic_expression
+    | arithmetic_expression SYM_NE arithmetic_expression
+    | arithmetic_expression SYM_LT arithmetic_expression
+    | arithmetic_expression SYM_GT arithmetic_expression
+    | arithmetic_expression SYM_LE arithmetic_expression
+    | arithmetic_expression SYM_GE arithmetic_expression
+    | boolean_expression SYM_AND boolean_expression
+    | boolean_expression SYM_OR boolean_expression
+    | boolean_expression SYM_XOR boolean_expression
+    | boolean_expression SYM_IMPLIES boolean_expression
+    ;
+
+boolean_leaf:
+    '(' boolean_expression ')'
+    | SYM_TRUE
+    | SYM_FALSE
+    ;
+
+arithmetic_expression:
+    arithmetic_leaf
+    | arithmetic_node
+    ;
+
+arithmetic_node:
+    arithmetic_expression '+' arithmetic_leaf
+    | arithmetic_expression '-' arithmetic_leaf
+    | arithmetic_expression '*' arithmetic_leaf
+    | arithmetic_expression '/' arithmetic_leaf
+    | arithmetic_expression '^' arithmetic_leaf
+    ;
+
+arithmetic_leaf:
+    '(' arithmetic_expression ')'
+    | integer_value
+    | real_value
+    | absolute_path
+    ;</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="../cadl/">cADL - Constraint ADL</a></span>
+  <span class="next"><a href="../paths/">ADL Paths</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>
+    Copyright: © 2003+
+    <a href="https://www.openehr.org"
+        alt="is an independent, non-profit foundation, facilitating the sharing of health
+           records by consumers and clinicians via open specifications, clinical models
+           and open platform implementations.">The openEHR Foundation</a>
+  </p>
+
+  <p>
+    License:
+    <img src="/_/img/cc-by-nd-88x31.png"
+        alt="Creative Commons Attribution-NoDerivs 3.0 Unported."
+        style="vertical-align:middle;margin:0 0.25rem 0 0;">
+    <a href="https://creativecommons.org/licenses/by-nd/3.0/">
+      Creative Commons Attribution-NoDerivs 3.0 Unported.
+    </a>
+  </p>
+
+  <p>
+    <strong>Links: <strong>
+    <a href="https://www.openehr.org/terms-of-use" class="mr-1">Terms of use</a> |
+    <a href="https://www.openehr.org/privacy-policy" class="mx-1">Privacy policy</a> |
+    <a href="https://www.openehr.org/privacy-policy" class="mx-1">Logos &amp; Trademarks</a> |
+    <a href="https://www.openehr.org/contact-us" class="mx-1">Contact</a>
+  </p>
+</footer>
+
+<script id="site-script" src="../../../../_/js/site.js" data-ui-root-path="../../../../_"></script>
+<script async src="../../../../_/js/vendor/highlight.js"></script>
+<script src="../../../../_/js/vendor/lunr.js"></script>
+<script src="../../../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../../../.." data-snippet-length="80" data-stylesheet="../../../../_/css/search.css"></script>
+<script async src="../../../../search-index.js"></script>
+<script src="../../../../_/js/medium-zoom.min.js"></script>
+<script src="../../../../_/js/zoom.js"></script>
+  </body>
+</html>

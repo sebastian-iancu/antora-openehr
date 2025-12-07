@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+    <title>Integration Package :: openEHR Specifications (Local Build)</title>
+    <link rel="canonical" href="https://sebastian-iancu.github.io/antora-openehr/RM/latest/integration/integration_package/">
+    <link rel="prev" href="../preface/">
+    <link rel="next" href="../amendment_record/">
+    <meta name="description" content="openEHR Integration Information Model specification">
+    <meta name="keywords" content="EHR, integration, openehr">
+    <meta name="generator" content="Antora 3.1.14">
+    <link rel="stylesheet" href="../../../../_/css/site.css">
+    <link rel="stylesheet" href="../../../../_/css/antora-openehr.css">
+    <link rel="stylesheet" href="../../../../_/css/openehr.css">
+<link rel="icon" href="../../../../_/img/favicon.ico" type="image/x-icon">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://sebastian-iancu.github.io/antora-openehr">openEHR Specifications (Local Build)</a>
+
+      <div class="navbar-item search hide-for-print">
+        <div id="search-field" class="field has-filter">
+          <input id="search-input" type="text" placeholder="Search the docs">
+          <label class="filter checkbox">
+            <input type="checkbox" data-facet-filter="component:RM"> Reference Model only
+          </label>
+        </div>
+      </div>
+
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">Specifications</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://specifications.openehr.org/" target="_blank">
+              openEHR specification
+            </a>
+            <a class="navbar-item" href="https://specifications.openehr.org/releases/UML/development/index.html" target="_blank">
+              openEHR portal
+            </a>
+            <a class="navbar-item" href="https://ckm.openehr.org/ckm/" target="_blank">
+              openEHR CKM
+            </a>
+          </div>
+        </div>
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">Community</a>
+          <div class="navbar-dropdown is-right">
+            <a class="navbar-item" href="https://openehr.atlassian.net/secure/Dashboard.jspa?selectPageId=10190" target="_blank">
+              Issue trackers
+            </a>
+            <a class="navbar-item" href="https://discourse.openehr.org/" target="_blank">
+              Discourse Forum
+            </a>
+            <a class="navbar-item" href="https://specifications.openehr.org/wiki/display/spec/Specifications+Home" target="_blank">
+              Wiki
+            </a>
+            <a class="navbar-item" href="https://github.com/openEHR" target="_blank">
+              GitHub
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="RM" data-version="Release-1.0.4">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="../../">Reference Model</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../">Overview</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../common/">Common Information Model</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../common/preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../common/overview/">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../common/archetyped_package/">Archetyped Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../common/generic_package/">Generic Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../common/directory_package/">Directory Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../common/change_control_package/">Change Control Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../common/resource_package/">Resource Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../common/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../data_structures/">Data Structures Information Model</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_structures/preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_structures/background/">Background</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_structures/overview/">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_structures/item_structure_package/">Item Structure Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_structures/representation_package/">Representation Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_structures/history_package/">History Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_structures/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../data_types/">Data Types Information Model</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_types/preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_types/background/">Background</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_types/introduction/">Introduction</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_types/basic_package/">Basic Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_types/text_package/">Text Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_types/quantity_package/">Quantity Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_types/date_time_package/">Date Time Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_types/time_specification_package/">Time_specification Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_types/encapsulated_package/">Encapsulated Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_types/uri_package/">Uri Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_types/implem_strategies/">Implementation Strategies</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_types/comparison_HL7/">Comparison with HL7v3 Types</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_types/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../demographic/">Demographic Information Model</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../demographic/preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../demographic/demographic_package/">Demographic package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../demographic/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../ehr/">EHR Information Model</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr/preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr/background/">Background</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr/ehr_information_model/">The EHR Information Model</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr/ehr_package/">EHR Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr/composition_package/">Composition Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr/content_package/">Content Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr/navigation_package/">Navigation Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr/entry_package/">Entry Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr/glossary/">Glossary</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../ehr_extract/">EHR Extract Information Model</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr_extract/preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr_extract/requirements/">Requirements</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr_extract/design_overview/">Design Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr_extract/common_package/">Extract.common Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr_extract/openehr_extract_package/">The openehr_extract Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr_extract/generic_extract_package/">Generic_extract Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr_extract/synchronisation_package/">Synchronisation Extracts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr_extract/message_package/">The Message package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr_extract/semantics/">Semantics of openEHR and ISO 13606 extracts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr_extract/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../">Integration Information Model</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../preface/">Preface</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="./">Integration Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../support/">Support Information Model</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../support/preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../support/support_package/">Support Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../support/assumed_types/">Assumed Types</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../support/identification_package/">Identification Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../support/terminology_package/">Terminology Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../support/measurement_package/">Measurement Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../support/definition_package/">Definition Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../support/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Reference Model</span>
+    <span class="version">Release-1.0.4</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <div class="title"><a href="../../../../AM/latest/">Archetype Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../AM/latest/">Release-2.3.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../AM/Release-2.2.0/">Release-2.2.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../AM/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../BASE/latest/">Base Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../BASE/latest/">Release-1.2.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../BASE/Release-1.1.0/">Release-1.1.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../BASE/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <div class="title"><a href="../../../latest/">Reference Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../latest/">Release-1.1.0</a>
+        </li>
+        <li class="version is-current">
+          <a href="../../">Release-1.0.4</a>
+        </li>
+        <li class="version">
+          <a href="../../../development/">development</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../../BASE/latest/" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../../">Reference Model</a></li>
+    <li><a href="../">Integration Information Model</a></li>
+    <li><a href="./">Integration Package</a></li>
+  </ul>
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">Release-1.0.4</button>
+  <div class="version-menu">
+    <a class="version" href="../../../latest/integration/integration_package/">Release-1.1.0</a>
+    <a class="version is-current" href="./">Release-1.0.4</a>
+    <a class="version" href="../../../development/integration/integration_package/">development</a>
+  </div>
+</div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Integration Package</h1>
+<div class="sect1">
+<h2 id="_requirements"><a class="anchor" href="#_requirements"></a><a class="link" href="#_requirements">Requirements</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Getting data in and out of the EHR is one of the most basic requirements openEHR aims to satisfy. In
+"greenfield" (new build) situations, and for data being created by GUI applications via the openEHR
+EHR APIs, there is no issue, since native openEHR structures and semantics are being used. In almost
+all other situations, existing data sources and sinks have to be accounted for. In general, external or
+'legacy' data (here the term is used for convenience, and does not imply anything about the age or
+quality of the systems in question) have different syntactic and semantic formats than openEHR data,
+and seamless conversion requires addressing both levels.</p>
+</div>
+<div class="paragraph">
+<p>Typical examples of legacy data sources and sinks include relational databases, HL7v2 messages, and
+HL7 CDA documents. HL7v2 messages are probably one of the most common sources of pathology
+messages in many countries; EDIFACT messages are another. More recently, HL7v2 messages have
+been designed for referrals and even discharge summaries. Not all legacy systems are standardised;
+many if not most hospitals as well as GP and other desktop products have their own private models of
+data and terminology usage. Technically speaking, there is not much difference between standardised
+and non-standardised legacy models; only the reusability of the solution differs.</p>
+</div>
+<div class="paragraph">
+<p>Another important category of externally sourced data addressed by the Integration package
+described here is data expressed in a form of a CEN EN13606 Extract. Part 1 of EN13606 defines a
+information model which is nearly identical to that of openEHR at the <code>COMPOSITION</code> and <code>SECTION</code>
+levels. The CEN EN13606 <code>Entry</code> class is a generic structure with a minimum of contextual metadata,
+and can easily be mapped to the openEHR Entry type described in this specification.</p>
+</div>
+<div class="paragraph">
+<p>The primary need with respect to legacy data is to be able to convert data from multiple mutually
+incompatible sources into a single, standardised patient-centric EHR for each patient, that can then be
+longitudinally viewed and queried. This is what enables GP and specialist notes, diagnoses and plans
+to be integrated with laboratory results from multiple sources, patient notes, administrative data and
+so on, to provide a coherent record of the patient journey.</p>
+</div>
+<div class="paragraph">
+<p>In technical terms, a number of types of incompatibility have to be dealt with. There is no guarantee
+of correspondence of scope of incoming transactions and target openEHR structures - an incoming
+document for example might correspond to a number of clinical archetypes. Structure will not usually
+correspond, with legacy data (particularly messages) usually having flatter structures than those
+defined in target archetypes. Terminology use is extremely variable in existing systems and messages,
+and also has to be dealt with. Data types will also not correspond directly, so that for example, a mapping
+between an incoming string "110/80 mmHg" and the target openEHR form of two
+<code>DV_QUANTITY</code> objects each with their own value and units has to be made.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_design_basis"><a class="anchor" href="#_design_basis"></a><a class="link" href="#_design_basis">Design Basis</a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_overview"><a class="anchor" href="#_overview"></a><a class="link" href="#_overview">Overview</a></h3>
+<div class="paragraph">
+<p>The design basis for connecting existing systems to openEHR is founded upon a clear separation of
+the syntactic and semantic transformations required on data. The syntactic transformation converts
+source data from its original form (or whatever intermediate form it may have been converted to) to a
+format obeying a special class in the openEHR reference model, but whose logical structure and
+semantics are controlled by 'integration' archetypes so as to mimic the design of the source data. This
+step brings the data into the openEHR computational context. The second step causes transformation
+on this intermediate openEHR data into data which are a) instances of the main openEHR reference
+model, and b) obey 'designed' clinical archetypes.</p>
+</div>
+<div class="paragraph">
+<p>The additional elements of the openEHR architecture which make this transformation possible are:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>a class <code>GENERIC_ENTRY</code>, which is a sibling of <code>SECTION</code> and <code>ENTRY</code>, and contains completely generic, archetypable structures;</p>
+</li>
+<li>
+<p>'integration' archetypes, i.e. archetypes defined against the <code>GENERIC_ENTRY</code> class;</p>
+</li>
+<li>
+<p>semantic transformation rules from openEHR data based on <code>GENERIC_ENTRY</code> and integration archetypes to data based on the subtypes of <code>ENTRY</code>, and designed archetypes.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The figure below illustrates the <code>rm.integration</code> package, which contains a single class
+<code>GENERIC_ENTRY</code>. Unlike other classes in the openEHR reference model, <code>GENERIC_ENTRY</code> contains
+no hard-wired attributes at all, only one generic attribute, <code><em>data</em></code>. No assumptions at all are made about
+the actual shape of such data.</p>
+</div>
+<div id="integration_package" class="imageblock text-center text-center">
+<div class="content">
+<img src="../../_images/uml/RM-integration.svg" alt="RM integration">
+</div>
+<div class="title">Figure 1. rm.integration Package</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_semantics_of_generic_entry"><a class="anchor" href="#_semantics_of_generic_entry"></a><a class="link" href="#_semantics_of_generic_entry">Semantics of GENERIC_ENTRY</a></h3>
+<div class="paragraph">
+<p>A number of useful consequences follow from this modelling approach. Firstly, instances of
+<code>GENERIC_ENTRY</code> will contain attributes inherited from the <code>LOCATABLE</code> class, including
+<code><em>archetype_node_id</em></code>, and are thus archetypable in the same way as all other classes in the openEHR
+reference model. The <code>LOCATABLE</code> attribute feeder_audit is also inherited, and may be used to mark
+every node of data with relevant meta-data from the source system record or message. Secondly, as a
+subtype of <code>CONTENT_ITEM</code>, <code>GENERIC_ENTRY</code> is a valid value for <code>COMPOSITION</code>.<code><em>content</em></code>. This is a
+completely desirable situation, since the same rules apply to <code>GENERIC_ENTRY</code> as to other content:
+instances can only be committed to the record as part of a <code>COMPOSITION</code> instance. <code>GENERIC_ENTRY</code>
+data are thus audit-trailed and versioned in the normal way. Thirdly, <code>GENERIC_ENTRY</code> instances can
+occur within a hierarchy of <code>SECTIONs</code>, which is useful for data sources which have headings or section
+equivalents (this is quite common in hospital information systems containing physician notes).
+Lastly, in common with all other openEHR data, design-time paths can be constructed for archetypes
+of <code>GENERIC_ENTRY</code>, while runtime paths can be extracted from data based on such archetypes. These
+path sets can be used for writing the data transformation rules.</p>
+</div>
+<div class="paragraph">
+<p>It should be remembered that while <code>GENERIC_ENTRY</code> provides a standardised syntactic form for
+externally sourced data within openEHR, it provides no semantic coherence. This is particularly true
+for <code>GENERIC_ENTRY</code> instances sourced from numerous data sources: there is no guarantee that the
+<code>GENERIC_ENTRY</code> representations of "cholesterol result" from system A will be congruent with those
+sourced from system B. It is not even required that the data sources be vastly different for this problem
+to occur. Examples of messages can be found coming from different pathology laboratories,
+which obey the same minor version of HL7v2 (e.g. 2.3.1) and supposedly implement the same message
+type (e.g. "complete blood picture") but which differ in actual structure and content.
+The consequence of this situation is that <code>GENERIC_ENTRY</code> data cannot in general be safely used for
+clinical computation (e.g. decision support), and will not in general even support reliable clinical querying.
+In other words, a repository of <code>GENERIC_ENTRYs</code> (within appropriate <code>COMPOSITION</code> structures)
+does not constitute a reliable or interoperable health record - it can only be considered a
+standardised health information data store whose primary purpose is as the input to or output of
+semantic conversion processes, or for other auditing or non-clinical data management purposes.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_use_with_openehr_extracts"><a class="anchor" href="#_use_with_openehr_extracts"></a><a class="link" href="#_use_with_openehr_extracts">Use with openEHR Extracts</a></h3>
+<div class="paragraph">
+<p>The <code>GENERIC_ENTRY</code> class provides a way to represent data from non-openEHR systems that implement
+the openEHR Extract specification in order to either communicate with openEHR systems, or to
+communicate with other systems also implementing the openEHR Extract specification.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_integration_with_cen_en13606"><a class="anchor" href="#_integration_with_cen_en13606"></a><a class="link" href="#_integration_with_cen_en13606">Integration with CEN EN13606</a></h3>
+<div class="paragraph">
+<p>The <code>GENERIC_ENTRY</code> class provides a convenient basis for making openEHR systems EN13606-
+compliant, which in turn gives openEHR a gateway capability in heterogeneous environments where
+EN13606 is being used to communicate data. A CEN EN13606 EHR Extract can be converted to a
+series of <code>COMPOSITIONs</code> containing <code>GENERIC_ENTRY</code> objects which obey appropriate integration
+archetypes; this data can then be semantically converted into orthodox openEHR objects for integration
+into a coherent EHR. Similarly, openEHR data can be converted into the <code>GENERIC_ENTRY</code>-based
+intermediate form for further conversion into EN13606 EHR Extracts.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_data_conversion_architecture"><a class="anchor" href="#_data_conversion_architecture"></a><a class="link" href="#_data_conversion_architecture">Data Conversion Architecture</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The integration archetype-based strategy for importing data into an openEHR system, shown in the following figure, consists of two steps.</p>
+</div>
+<div id="integration_environment" class="imageblock text-center text-center">
+<div class="content">
+<img src="../_images/diagrams/integration_environment.png" alt="integration environment" width="80%">
+</div>
+<div class="title">Figure 2. Data Integration using openEHR</div>
+</div>
+<div class="paragraph">
+<p>Firstly, data are converted from their original syntactic format into openEHR <code>COMPOSITION</code>/<code>SECTION</code>/
+<code>GENERIC_ENTRY</code> structures, shown in the openEHR integration switch. Most of the data will
+appear in the <code>GENERIC_ENTRY</code> part, controlled by an integration archetype designed to mimic the
+incoming structure (such as an HL7v2 lab message) as closely as possible; <code>FEEDER_AUDIT</code> structures
+are used to contain integration meta-data. The result of this step is data that are expressed in the
+openEHR type system (i.e. as instances of the openEHR reference model), and are immediately amenable
+to processing with normal openEHR software.</p>
+</div>
+<div class="paragraph">
+<p>In the second step, semantic transformation is effected, by the use of mappings between integration
+and designed archetypes. Such mappings are created by archetype authors using tools. The mapping
+rules are the key to defining structural transformations, use of terminological codes, and other
+changes. Serious challenges of course remain in the business of integrating heterogeneous systems;
+some of these are dealt with in the Common IM document sections on Feeder systems.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_class_descriptions"><a class="anchor" href="#_class_descriptions"></a><a class="link" href="#_class_descriptions">Class Descriptions</a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_generic_entry_class"><a class="anchor" href="#_generic_entry_class"></a><a class="link" href="#_generic_entry_class">GENERIC_ENTRY Class</a></h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>GENERIC_ENTRY</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>This class is used to create intermediate representations of data from sources not otherwise conforming to openEHR classes, such as HL7 messages, relational databases and so on.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code>CONTENT_ITEM</code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>data</strong>: <code>ITEM_TREE</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>The ‘data’ from the source message or record.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="../preface/">Preface</a></span>
+  <span class="next"><a href="../amendment_record/">Amendment Record</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>
+    Copyright: © 2003+
+    <a href="https://www.openehr.org"
+        alt="is an independent, non-profit foundation, facilitating the sharing of health
+           records by consumers and clinicians via open specifications, clinical models
+           and open platform implementations.">The openEHR Foundation</a>
+  </p>
+
+  <p>
+    License:
+    <img src="/_/img/cc-by-nd-88x31.png"
+        alt="Creative Commons Attribution-NoDerivs 3.0 Unported."
+        style="vertical-align:middle;margin:0 0.25rem 0 0;">
+    <a href="https://creativecommons.org/licenses/by-nd/3.0/">
+      Creative Commons Attribution-NoDerivs 3.0 Unported.
+    </a>
+  </p>
+
+  <p>
+    <strong>Links: <strong>
+    <a href="https://www.openehr.org/terms-of-use" class="mr-1">Terms of use</a> |
+    <a href="https://www.openehr.org/privacy-policy" class="mx-1">Privacy policy</a> |
+    <a href="https://www.openehr.org/privacy-policy" class="mx-1">Logos &amp; Trademarks</a> |
+    <a href="https://www.openehr.org/contact-us" class="mx-1">Contact</a>
+  </p>
+</footer>
+
+<script id="site-script" src="../../../../_/js/site.js" data-ui-root-path="../../../../_"></script>
+<script async src="../../../../_/js/vendor/highlight.js"></script>
+<script src="../../../../_/js/vendor/lunr.js"></script>
+<script src="../../../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../../../.." data-snippet-length="80" data-stylesheet="../../../../_/css/search.css"></script>
+<script async src="../../../../search-index.js"></script>
+<script src="../../../../_/js/medium-zoom.min.js"></script>
+<script src="../../../../_/js/zoom.js"></script>
+  </body>
+</html>

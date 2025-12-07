@@ -1,0 +1,946 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+    <title>Comparison with HL7v3 Types :: openEHR Specifications (Local Build)</title>
+    <link rel="canonical" href="https://sebastian-iancu.github.io/antora-openehr/RM/latest/data_types/comparison_HL7/">
+    <link rel="prev" href="../implem_strategies/">
+    <link rel="next" href="../amendment_record/">
+    <meta name="description" content="openEHR Data Types Information Model specification">
+    <meta name="keywords" content="EHR, clinical, data types, openehr">
+    <meta name="generator" content="Antora 3.1.14">
+    <link rel="stylesheet" href="../../../../_/css/site.css">
+    <link rel="stylesheet" href="../../../../_/css/antora-openehr.css">
+    <link rel="stylesheet" href="../../../../_/css/openehr.css">
+<link rel="icon" href="../../../../_/img/favicon.ico" type="image/x-icon">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://sebastian-iancu.github.io/antora-openehr">openEHR Specifications (Local Build)</a>
+
+      <div class="navbar-item search hide-for-print">
+        <div id="search-field" class="field has-filter">
+          <input id="search-input" type="text" placeholder="Search the docs">
+          <label class="filter checkbox">
+            <input type="checkbox" data-facet-filter="component:RM"> Reference Model only
+          </label>
+        </div>
+      </div>
+
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">Specifications</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://specifications.openehr.org/" target="_blank">
+              openEHR specification
+            </a>
+            <a class="navbar-item" href="https://specifications.openehr.org/releases/UML/development/index.html" target="_blank">
+              openEHR portal
+            </a>
+            <a class="navbar-item" href="https://ckm.openehr.org/ckm/" target="_blank">
+              openEHR CKM
+            </a>
+          </div>
+        </div>
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">Community</a>
+          <div class="navbar-dropdown is-right">
+            <a class="navbar-item" href="https://openehr.atlassian.net/secure/Dashboard.jspa?selectPageId=10190" target="_blank">
+              Issue trackers
+            </a>
+            <a class="navbar-item" href="https://discourse.openehr.org/" target="_blank">
+              Discourse Forum
+            </a>
+            <a class="navbar-item" href="https://specifications.openehr.org/wiki/display/spec/Specifications+Home" target="_blank">
+              Wiki
+            </a>
+            <a class="navbar-item" href="https://github.com/openEHR" target="_blank">
+              GitHub
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="RM" data-version="Release-1.1.0">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="../../">Reference Model</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../">Overview</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../common/">{spec_title}</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../common/preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../common/overview/">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../common/archetyped_package/">Archetyped Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../common/generic_package/">Generic Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../common/directory_package/">Directory Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../common/change_control_package/">Change Control Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../common/resource_package/">Resource Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../common/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../data_structures/">{spec_title}</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_structures/preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_structures/background/">Background</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_structures/overview/">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_structures/item_structure_package/">Item Structure Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_structures/representation_package/">Representation Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_structures/history_package/">History Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_structures/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../">{spec_title}</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../background/">Background</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../introduction/">Introduction</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../basic_package/">Basic Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../text_package/">Text Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../quantity_package/">Quantity Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../date_time_package/">Date Time Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../time_specification_package/">Time_specification Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../encapsulated_package/">Encapsulated Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../uri_package/">Uri Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../implem_strategies/">Implementation Strategies</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="./">Comparison with HL7v3 Types</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../demographic/">{spec_title}</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../demographic/preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../demographic/demographic_package/">Demographic package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../demographic/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../ehr/">{spec_title}</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr/preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr/background/">Background</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr/ehr_information_model/">The EHR Information Model</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr/ehr_package/">EHR Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr/composition_package/">Composition Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr/content_package/">Content Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr/navigation_package/">Navigation Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr/entry_package/">Entry Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr/glossary/">Glossary</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../ehr_extract/">{spec_title}</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr_extract/preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr_extract/requirements/">Requirements</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr_extract/design_overview/">Design Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr_extract/common_package/">Extract.common Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr_extract/openehr_extract_package/">The openehr_extract Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr_extract/generic_extract_package/">Generic_extract Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr_extract/synchronisation_package/">Synchronisation Extracts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr_extract/message_package/">The Message package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr_extract/semantics/">Semantics of openEHR and ISO 13606 extracts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr_extract/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../integration/">{spec_title}</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../integration/preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../integration/integration_package/">Integration Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../integration/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../support/">{spec_title}</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../support/preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../support/support_package/">Support Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../support/assumed_types/">Assumed Types</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../support/identification_package/">Identification Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../support/terminology_package/">Terminology Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../support/measurement_package/">Measurement Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../support/definition_package/">Definition Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../support/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Reference Model</span>
+    <span class="version">Release-1.1.0</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <div class="title"><a href="../../../../AM/latest/">Archetype Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../AM/latest/">Release-2.3.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../AM/Release-2.2.0/">Release-2.2.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../AM/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../BASE/latest/">Base Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../BASE/latest/">Release-1.2.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../BASE/Release-1.1.0/">Release-1.1.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../BASE/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <div class="title"><a href="../../">Reference Model</a></div>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../../">Release-1.1.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../Release-1.0.4/">Release-1.0.4</a>
+        </li>
+        <li class="version">
+          <a href="../../../development/">development</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../../BASE/latest/" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../../">Reference Model</a></li>
+    <li><a href="../">{spec_title}</a></li>
+    <li><a href="./">Comparison with HL7v3 Types</a></li>
+  </ul>
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">Release-1.1.0</button>
+  <div class="version-menu">
+    <a class="version is-current" href="./">Release-1.1.0</a>
+    <a class="version" href="../../../Release-1.0.4/data_types/comparison_HL7/">Release-1.0.4</a>
+    <a class="version" href="../../../development/data_types/comparison_HL7/">development</a>
+  </div>
+</div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Comparison with HL7v3 Types</h1>
+<div class="sect1">
+<h2 id="_scope"><a class="anchor" href="#_scope"></a><a class="link" href="#_scope">Scope</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Some HL7v3 types are not modelled in openEHR. HL7v3 V3DT types which are assumed by
+openEHR to exist in the underlying type system of any implementation technology include:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Integer (<code>INT</code>)</p>
+</li>
+<li>
+<p>Real (<code>REAL</code>)</p>
+</li>
+<li>
+<p>Set (<code>SET</code>)</p>
+</li>
+<li>
+<p>List (<code>LIST</code>)</p>
+</li>
+<li>
+<p>Bag (<code>BAG</code>)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>HL7v3 types which are not modelled here because they are almost always too volatile for concrete
+modelling, and can be created with archetyped generic information structures are as follows (even in
+HL7 they are really data structures rather than data types):</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Postal address (<code>AD</code>)</p>
+</li>
+<li>
+<p>Entity name (<code>EN</code>)</p>
+</li>
+<li>
+<p>Person name (<code>PN</code>)</p>
+</li>
+<li>
+<p>Organisation name (<code>ON</code>)</p>
+</li>
+<li>
+<p>Trivial name (<code>TN</code>)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>These types are all modelled by archetyped spatial data structures in openEHR (equivalent to subtypes
+of Structure in the CDA specification).
+HL7v3 types which may need to be modelled in the future include:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Uncertain value probabilistic (<code>UVP</code>)</p>
+</li>
+<li>
+<p>Non-parametric probability distribution (<code>NPPD</code>)</p>
+</li>
+<li>
+<p>Parametric probability distribution (<code>PPD</code>)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Types which are provided by openEHR but not supported directly by HL7 include:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>state variable (<code>DV_STATE</code>);</p>
+</li>
+<li>
+<p>ordinal values (<code>DV_ORDINAL</code>);</p>
+</li>
+<li>
+<p>explicit partial date and time types (<code>DV_DATE</code>, <code>DV_TIME</code>);</p>
+</li>
+<li>
+<p>explicit time duration (<code>DV_DURATION</code>).</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Types in the latter two categories may be implementable with the <code>TS</code> (timestamp) type.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_design_differences"><a class="anchor" href="#_design_differences"></a><a class="link" href="#_design_differences">Design Differences</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>There are some significant differences in design approach between the openEHR data types and the
+HL7v3 data types, described in the following sections.</p>
+</div>
+<div class="sect2">
+<h3 id="_naming"><a class="anchor" href="#_naming"></a><a class="link" href="#_naming">Naming</a></h3>
+<div class="paragraph">
+<p>All types in the HL7 specification have two names, one short and one long. For example the type representing
+physical quantities is known both as "PhysicalQuantity" and "PQ". While short names may
+be reasonable for often-used types, someshort names are not obvious, e.g. "EN", "ON", "TN",
+"NPPD" etc. Short names certainly have benefits for drawing tools such as Rational Rose or other
+UML tools, however, it is questionable whether a formal model should include concept names chosen
+on the basis of visual appearance in such tools (one might argue that such tools should provide aliases
+for visual purposes, without changing the actual model). Another problem is that UML does not
+include the concept of class name aliases, nor do most programming languages.</p>
+</div>
+<div class="paragraph">
+<p>The openEHR model uses one name only for each class.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_identification"><a class="anchor" href="#_identification"></a><a class="link" href="#_identification">Identification</a></h3>
+<div class="paragraph">
+<p>The HL7 V3DT includes the types <code>II</code>, <code>UID</code>, <code>OID</code> and <code>UUID</code>. The <code>II</code> type is claimed to be for identifying
+all kinds of entities, which we here classify as real-world entities ("RWEs") (such as people, vehicle
+registrations, invoices) and informational entities ("IEs") - which in general are snapshots of data
+representing an RWE in a computer system. One problem with RWE identification schemes is that
+some are known (e.g. social security number) to produce fallible identifiers or situations where multiple
+RWEs have the same identifier, or no identifier at all. Conversely, with well-controlled and internationally
+agreed ways of issuing/generating information system identifiers (e.g. GUID, ISO OID) it
+is thought that such identifiers can be made reliable, and indeed correspond 1:1 with their intended
+IEs. However, a problem with IEs is that there are often duplicates and also multiple versions in time,
+each intended to represent the same RWE (such as a particular person, observation or composition).</p>
+</div>
+<div class="paragraph">
+<p>As far as can be ascertained currently, there is no standard analysis taking into account the existence
+of IEs and RWEs, and recognising the fact that multiple versions and/or duplicates may refer to the
+same RWE.</p>
+</div>
+<div class="paragraph">
+<p>The approach taken in openEHR with respect to identifiers is currently as follows.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>RWE identifiers such as social security numbers, licence numbers, etc are modelled with the
+type <code>DV_IDENTIFIER</code>, which has the attributes:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code><em>issuer</em></code>: <code>String</code></p>
+</li>
+<li>
+<p><code><em>id</em></code>: <code>String</code></p>
+</li>
+<li>
+<p><code><em>type</em></code>: <code>String</code>
+The attributes listed above are nearly the same as for the HL7 II type, indicating that the two
+types may be compatible.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Identification of IEs is done using the type <code>OBJECT_ID</code>, which is not a data type, and is documented
+in the Support Information Model. The <code>OBJECT_ID</code> type takes into account the
+fact that there may be multiple IEs referring to the same underlying RWE by adding a version
+identifier (assumed to be a timestamp).</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_archetyping"><a class="anchor" href="#_archetyping"></a><a class="link" href="#_archetyping">Archetyping</a></h3>
+<div class="paragraph">
+<p>The openEHR data types are defined on the assumption of archetype-based systems. While they will
+work perfectly well in systems which know nothing about archetyping, some types are not defined
+because archetypable structures built from more basic entities are assumed instead, rather than concretely
+modelled data types. These include 'types' for Address and PersonName which are found in
+HL7v3 and ISO 13606.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_treatment_of_inbuilt_types"><a class="anchor" href="#_treatment_of_inbuilt_types"></a><a class="link" href="#_treatment_of_inbuilt_types">Treatment of Inbuilt Types</a></h3>
+<div class="paragraph">
+<p>The HL7v3 data types do not make any assumptions about the existence of types typically built-in to
+most object and relational formalisms, such as the basic types <code>String</code>, <code>Integer</code>, <code>Boolean</code>, <code>Real</code>,
+<code>Double</code>, and the generic types <code>Set&lt;T&gt;</code>, <code>Bag&lt;T&gt;</code> and <code>Array&lt;T&gt;</code>. Hence, the types <code>ST</code>, <code>INT</code>, <code>REAL</code>,
+<code>BL</code>, <code>SET&lt;T&gt;</code>, <code>BAG&lt;T&gt;</code> and so on are redefined by HL7. The supposed advantage of this approach is
+that the semantics of all types in the HL7 system, right down to atomic data items are self-contained
+in the definition, and do not rely on external semantics. Possible problems with this approach include
+the following.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The HL7 definitions diverge from the OMG IDL and ISO 11404 definitions of the basic data
+types, which could cause unexpected problems in software development and data processing
+which is done in typical development technologies (object-oriented and relational).</p>
+</li>
+<li>
+<p>The HL7 types <code>INT</code> and <code>REAL</code> are defined as subtypes of the <code>QTY</code> type, a relationship that
+does not exist in any object-oriented formalism for these types (in particular, there is no substitutability
+of a type called Integer or Real for a type called Qty built in to any object language).
+The definitions of <code>INT</code> and <code>REAL</code> are also different from those found in most object
+formalisms. This might cause some difficulty in implementation.</p>
+</li>
+<li>
+<p>The binary data type <code>BIN</code> is represented as a <code>List&lt;BL&gt;</code> (where each item can be True, False, null), whereas it would normally be expected to be something like <code>Array&lt;Octet&gt;</code> (i.e. an array of bytes) in most software environments. There does not appear to be any utility in defining it as <code>List&lt;BL&gt;</code>, since binary data is almost without exception represented and processed as contiguous arrays of machine bytes.</p>
+</li>
+<li>
+<p>The string type <code>ST</code> inherits from the encapsulated data type <code>ED</code>, which in turn inherits from the binary data type <code>BIN</code>. The result of this is that an instance of <code>ST</code> contains numerous data attributes relating to multi-media data, and the content is presumably represented as a <code>List&lt;BL&gt;</code>. This is a major departure from the standard understanding of a string in computer sciences, which is usually simply an array of characters.</p>
+</li>
+<li>
+<p>The HL7 boolean type <code>BL</code> is a three-valued logic type due to the null marker approach (see below), not the usual two-valued type found in the Boolean concept in programming languages. The same is true of <code>INT</code> and <code>REAL:</code> due to the null marker design, "null" is a possible return value of an integer or real as well as true integer and real values.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>In general, where differences exist between same-named types in HL7 and an underlying formalism
+such as a programming language, there is likely to be some confusion in implementation. Further,
+there is likely to be confusion in how to process instances of basic types which contain numerous
+(and sometimes recursive) fields which are not used in the standard specifications of basic types.
+The openEHR approach with respect to inbuilt types is to assume only those types found in the mainstream
+object-oriented programming languages, and in particular, definitive formalisms like OMG
+IDL and XML. While this means there there is in theory less control over these types than in the HL7
+approach, the number of types involved is quite small, and the problem of bindings to the basic types
+of object formalisms is well understood. Additionally, since it is recognised that some data types
+defined by openEHR could clash with types found in some languages and libraries, all data type class
+names are prefaced with "DV_" to avoid naming confusion, and to allow implementations of
+openEHR types to co-exist with existing types in implementation formalisms.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_use_of_null_markers"><a class="anchor" href="#_use_of_null_markers"></a><a class="link" href="#_use_of_null_markers">Use of Null Markers</a></h3>
+<div class="paragraph">
+<p>All HL7 data types inherit from the <code>ANY</code> class (equivalent to the <code>DATA_VALUE</code> class in openEHR)
+which contains the attributes:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>BL nonNull;
+CS nullFlavor;
+BL isNull;</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The purpose of these attributes is to indicate whether a datum is Null, and for what reason. Since
+some data type classes also appear as the attributes of other data types, the Null markers also indicate
+whether any part of a datum is null. Thus, in the class Interval&lt;T&gt; shown below, all attributes have
+the possibility of containing a Null marker.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">type Interval&lt;T&gt; alias IVL&lt;T&gt; extends Set&lt;T&gt;
+{
+    T low;
+    BL lowClosed;
+    T high;
+    BL highClosed;
+    T.diff width;
+    T center;
+    IVL&lt;T&gt; hull(IVL&lt;T&gt; x);
+    literal ST;
+    promotion IVL&lt;T&gt; (T x);
+    demotion T;
+};</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>For example, this allows an interval with missing ends and width to exist as a structured type. The
+consequence of the approach is that the entire model is essentially a model of "partial" data types;
+<em>any attribute and any function call may return a Null value, as well as the true values of its type</em> (in
+fact, in the specification, Null values are defined to be valid values of all data types). This design
+decision was taken in HL7 so that any datum, no matter how unknown, would be structurally representable
+in the same way as completely known data, enabling it to be processed in the same way as all
+other instances of the same type.</p>
+</div>
+<div class="paragraph">
+<p>However, an important object-oriented design principle has been ignored in this approach. In the
+proper design of classes, properties and class invariants are stated. Invariants are statements which
+describe the correctness conditions of instances of the class; the general rule is that the post-condition
+of a creation routine (constructor) of a class must be that the invariants are satisfied. For example, an
+invariant of the HL7 <code>IVL&lt;T&gt;</code> class could be:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>(exists(low) and exists(high)) or else
+(exists(low) and exists(width)) or else
+(exists(width) and exists(high))</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>When an instance of this class is created, this condition should be satisfied, and remain satisfied for
+the life of the instance. To do otherwise is to create instances of data which other software can make
+no assumptions about, and is forced to check every single field, and then determine what to do in an
+ad hoc way. (See cite:[Meyer_OOSC2] p366, cite:[Booch1994] p43, cite:[Kilov1994] p29 for detailed explanations of the invariant concept).
+Possible consequences of the built-in Null marker design approach include:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>since even HL7&#8217;s basic types <code>ST</code>, <code>INT</code>, <code>REAL</code>, <code>LIST&lt;&gt;</code>, <code>SET&lt;&gt;</code> include null markers, processing
+of null values will be pervasive at the lowest level;</p>
+</li>
+<li>
+<p>software will be more complex, both implementations of the data types, and of software
+which handle them. This is because the software always has to deal with the possibility of
+calls to routines and attributes returning Null values. Most clinical information systems to
+date have taken the approach that a datum is either represented as an instance of a formal
+type if fully known, or else as narrative text if only partial;</p>
+</li>
+<li>
+<p>data may not be always be safely processable, since some software may not properly handle
+the null values associated with attributes of partially known data items. Essentially, all software
+which processes the data has to be "null-value aware", and make no assumptions at all
+about whether a particular data instance is valid or not.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The HL7 data type model is in contrast with simpler approaches such as used in CEN, GEHR, and
+openEHR, where data types are formal models of types such as Coded_term, Quantity and so on.
+Rather than build the possibility of null markers into every attribute and class in the data types, a single
+null marker is defined in relevant containing classes. This decision is based on the principle that
+data types should be defined independently of their context of use. Hence, where data types are used
+as data values, such as in the value attribute of the class <code>ELEMENT</code> from the openEHR EHR reference
+model, the parallel features is_null and null_flavour are also defined. However, where data types
+appear as attributes elsewhere in the model and there is no possibility of them being null, no null
+markers are used. The figure below shows visually the difference between the two approaches.</p>
+</div>
+<div id="HL7_null_value" class="imageblock text-center text-center">
+<div class="content">
+<img src="../_images/diagrams/HL7_null_value.png" alt="HL7 null value" width="65%">
+</div>
+<div class="title">Figure 1. HL7 and Typical Null value approaches</div>
+</div>
+<div class="paragraph">
+<p>The consequences of the standard software-engineering approach include:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>data types can be more easily formally specified, since the semantics of invariants, attributes and operations do not need to include the possibility of null values;</p>
+</li>
+<li>
+<p>software implementations are simpler;</p>
+</li>
+<li>
+<p>data are always guaranteed to be safely processable for decision support and general querying, since no instance of a formal type will be created in the first place if the datum is very unreliable;</p>
+</li>
+<li>
+<p>null markers only appear in models where they are relevent, rather than everywhere data types are used;</p>
+</li>
+<li>
+<p>however, the openEHR data types do not automatically deal with missing or unknown internal attribute values (such as missing high and low values for an interval, partial dates etc).</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>In order to deal with the last possibility, various approaches are used in openEHR:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>for most data which is not fully known, no data type instance is created, and a null marker is created. Depending on the design of the revelant archetypes, there will usually be the possibility of recording the datum in narrative form;</p>
+</li>
+<li>
+<p><code>ENTRYs</code> in the openEHR EHR reference model include a certainty:Boolean attribute, for recording a level of doubt;</p>
+</li>
+<li>
+<p>for particular data types which are often partial, special features are defined. The main types affected are <code>DV_DATE</code>, <code>DV_TIME</code>, and <code>DV_DATE_TIME</code>; the properties month_unknown, day_unknown, minute_unknown, and second_unknown (based on ISO 8601 semantics) are used to define explicitly the semantics of dates with a missing day, times with missing seconds and so on;</p>
+</li>
+<li>
+<p>Intervals of date/time types include types generated when the parameter type is one of the partial classes, thus, types <code>DV_INTERVAL&lt;DV_DATE&gt;</code> (where one or both ends has an unknown part) are possible. This covers the need for intervals in which some date is missing from the end date/times, while not allowing intervals with completely missing items to be created;</p>
+</li>
+<li>
+<p>for expressing uncertainy more precisely, probability distribution data types (based on the types defined in HL7) can be used.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>A consequence of the HL7 model is that data instances represented in XML or another structured text
+format will be structurally the same regardless of whether there are Null values or not. A structured
+form for partially known data (which would normally break the invariants of its class) may well be
+useful for representing the data as part of a text field, making it easier to use for whatever processing
+is possible later on.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_terminology_approach"><a class="anchor" href="#_terminology_approach"></a><a class="link" href="#_terminology_approach">Terminology Approach</a></h3>
+<div class="paragraph">
+<p>The approach in openEHR is to assume the existence of a Terminology Server which is the sole
+authoritative interface with terminologies of any kind, and is the only entity which can assume
+responsibility for querying, post-coordination or other manipulations of terms. No allowance is made
+for coordination of "modifiers", "qualifiers" or any other terms outside the service. As a consequence,
+there are no coordination facilities in the type <code>DV_CODED_TEXT</code>, a departure from earlier versions of
+the specification - any term provided from the terminology service must already be "coordinated",
+either by the terminology service, or by one of the terminologies it accesses. This places the responsibility
+of combining terms firmly in the knowledge part of the system, and prevents unsanctioned,
+unvalidated combinations being created elsewhere.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_datetime_approach"><a class="anchor" href="#_datetime_approach"></a><a class="link" href="#_datetime_approach">Date/Time Approach</a></h3>
+<div class="paragraph">
+<p>The HL7 specification uses a single <code>TS</code> type to represent all logical dates, times, date/times, and partial
+versions thereof. The openEHR specification defines distinct types for each, since these are the
+types which occur in the real world, and it is easier to specify correctness constraints with this
+approach. It is recognised that a single type may be used by some implementors (depending on what
+is available in the language being used), however, the recommended practice is to wrap any such
+types with the logical types described in this specification. This approach reduces the possibility for
+any errors in transmitted data (since no strange combinations of year, &#8230;&#8203; , second can occur not explicitly
+described in the type definitions).</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_time_specification_types"><a class="anchor" href="#_time_specification_types"></a><a class="link" href="#_time_specification_types">Time Specification Types</a></h3>
+<div class="paragraph">
+<p>The HL7 approach for time specification appears to cover all reasonable requirements, but has some
+minor problems, including:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>the types <code>PIVL</code> and <code>EIVL</code> are declared as being generic types (i.e. <code>PIVL&lt;T:TS&gt;</code>,
+<code>EIVL&lt;T:TS&gt;</code>), when there appears to be no reason for this;</p>
+</li>
+<li>
+<p>the <code>PIVL</code>.<code><em>phase</em></code> attribute is used to represent an interval during which a activity occurs,
+example given is "2 minutes every 8 hours". However, the "2 mins" is almost always part of
+a therapeutic prescription of some kind, not part of the timing specification as such. Therapeutic
+prescriptions have the form "do X every Y time", where the X describes what to do,
+and how long to do it for (e.g. 40 mins massage, administer a drug slowly over 10 mins). In
+fact, what we are really interested in with a timing specification is the specification of the
+starting points in time of some activity, not a time-based graph of on/off points, whch is
+effectively what the <code>PIVL</code> type is now.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_type_conversions"><a class="anchor" href="#_type_conversions"></a><a class="link" href="#_type_conversions">Type Conversions</a></h3>
+<div class="paragraph">
+<p>The HL7v3 data types specification allows various type conversions, as follows:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>Three kinds of type conversions are defined: promotion, demotion, and character string literals.
+Type conversions can be implicit or explicit. Implicit type conversion occurs when a certain
+type is expected (e.g. as an argument to a statement) but a different type is actually provided.</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>One notable kind of conversion possible in HL7 is of a value of any type <code>T</code> into an instance of
+<code>Set&lt;T&gt;</code>, <code>List&lt;T&gt;</code>, <code>Bag&lt;T&gt;</code> or <code>IVL&lt;T&gt;</code> containing the value.
+The openEHR model does not provide for any type conversions other than those automatically available
+between inbuilt basic numeric types such as Integer, Float and Double, and between types
+related by inheritance, as supported by all object-oriented languages.</p>
+</div>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="../implem_strategies/">Implementation Strategies</a></span>
+  <span class="next"><a href="../amendment_record/">Amendment Record</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>
+    Copyright: © 2003+
+    <a href="https://www.openehr.org"
+        alt="is an independent, non-profit foundation, facilitating the sharing of health
+           records by consumers and clinicians via open specifications, clinical models
+           and open platform implementations.">The openEHR Foundation</a>
+  </p>
+
+  <p>
+    License:
+    <img src="/_/img/cc-by-nd-88x31.png"
+        alt="Creative Commons Attribution-NoDerivs 3.0 Unported."
+        style="vertical-align:middle;margin:0 0.25rem 0 0;">
+    <a href="https://creativecommons.org/licenses/by-nd/3.0/">
+      Creative Commons Attribution-NoDerivs 3.0 Unported.
+    </a>
+  </p>
+
+  <p>
+    <strong>Links: <strong>
+    <a href="https://www.openehr.org/terms-of-use" class="mr-1">Terms of use</a> |
+    <a href="https://www.openehr.org/privacy-policy" class="mx-1">Privacy policy</a> |
+    <a href="https://www.openehr.org/privacy-policy" class="mx-1">Logos &amp; Trademarks</a> |
+    <a href="https://www.openehr.org/contact-us" class="mx-1">Contact</a>
+  </p>
+</footer>
+
+<script id="site-script" src="../../../../_/js/site.js" data-ui-root-path="../../../../_"></script>
+<script async src="../../../../_/js/vendor/highlight.js"></script>
+<script src="../../../../_/js/vendor/lunr.js"></script>
+<script src="../../../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../../../.." data-snippet-length="80" data-stylesheet="../../../../_/css/search.css"></script>
+<script async src="../../../../search-index.js"></script>
+<script src="../../../../_/js/medium-zoom.min.js"></script>
+<script src="../../../../_/js/zoom.js"></script>
+  </body>
+</html>

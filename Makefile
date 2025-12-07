@@ -14,7 +14,7 @@ NC := \033[0m # No Color
 # Configuration
 REPOS_DIR := repos
 BUILD_DIR := build
-SPECS_REPOS := specifications-BASE specifications-RM
+SPECS_REPOS := specifications-BASE specifications-RM specifications-AM
 #SPECS_REPOS := specifications-BASE specifications-RM specifications-AM \
 #               specifications-LANG specifications-SM specifications-QUERY \
 #               specifications-PROC specifications-CDS specifications-CNF \

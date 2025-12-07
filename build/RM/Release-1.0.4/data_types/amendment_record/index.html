@@ -1,0 +1,1080 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+    <title>Amendment Record :: openEHR Specifications (Local Build)</title>
+    <link rel="canonical" href="https://sebastian-iancu.github.io/antora-openehr/RM/latest/data_types/amendment_record/">
+    <link rel="prev" href="../comparison_HL7/">
+    <link rel="next" href="../../demographic/">
+    <meta name="description" content="openEHR Data Types Information Model specification">
+    <meta name="keywords" content="EHR, clinical, data types, openehr">
+    <meta name="generator" content="Antora 3.1.14">
+    <link rel="stylesheet" href="../../../../_/css/site.css">
+    <link rel="stylesheet" href="../../../../_/css/antora-openehr.css">
+    <link rel="stylesheet" href="../../../../_/css/openehr.css">
+<link rel="icon" href="../../../../_/img/favicon.ico" type="image/x-icon">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://sebastian-iancu.github.io/antora-openehr">openEHR Specifications (Local Build)</a>
+
+      <div class="navbar-item search hide-for-print">
+        <div id="search-field" class="field has-filter">
+          <input id="search-input" type="text" placeholder="Search the docs">
+          <label class="filter checkbox">
+            <input type="checkbox" data-facet-filter="component:RM"> Reference Model only
+          </label>
+        </div>
+      </div>
+
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">Specifications</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://specifications.openehr.org/" target="_blank">
+              openEHR specification
+            </a>
+            <a class="navbar-item" href="https://specifications.openehr.org/releases/UML/development/index.html" target="_blank">
+              openEHR portal
+            </a>
+            <a class="navbar-item" href="https://ckm.openehr.org/ckm/" target="_blank">
+              openEHR CKM
+            </a>
+          </div>
+        </div>
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">Community</a>
+          <div class="navbar-dropdown is-right">
+            <a class="navbar-item" href="https://openehr.atlassian.net/secure/Dashboard.jspa?selectPageId=10190" target="_blank">
+              Issue trackers
+            </a>
+            <a class="navbar-item" href="https://discourse.openehr.org/" target="_blank">
+              Discourse Forum
+            </a>
+            <a class="navbar-item" href="https://specifications.openehr.org/wiki/display/spec/Specifications+Home" target="_blank">
+              Wiki
+            </a>
+            <a class="navbar-item" href="https://github.com/openEHR" target="_blank">
+              GitHub
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="RM" data-version="Release-1.0.4">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="../../">Reference Model</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../">Overview</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../common/">Common Information Model</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../common/preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../common/overview/">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../common/archetyped_package/">Archetyped Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../common/generic_package/">Generic Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../common/directory_package/">Directory Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../common/change_control_package/">Change Control Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../common/resource_package/">Resource Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../common/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../data_structures/">Data Structures Information Model</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_structures/preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_structures/background/">Background</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_structures/overview/">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_structures/item_structure_package/">Item Structure Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_structures/representation_package/">Representation Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_structures/history_package/">History Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_structures/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../">Data Types Information Model</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../background/">Background</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../introduction/">Introduction</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../basic_package/">Basic Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../text_package/">Text Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../quantity_package/">Quantity Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../date_time_package/">Date Time Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../time_specification_package/">Time_specification Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../encapsulated_package/">Encapsulated Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../uri_package/">Uri Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../implem_strategies/">Implementation Strategies</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../comparison_HL7/">Comparison with HL7v3 Types</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="./">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../demographic/">Demographic Information Model</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../demographic/preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../demographic/demographic_package/">Demographic package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../demographic/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../ehr/">EHR Information Model</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr/preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr/background/">Background</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr/ehr_information_model/">The EHR Information Model</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr/ehr_package/">EHR Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr/composition_package/">Composition Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr/content_package/">Content Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr/navigation_package/">Navigation Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr/entry_package/">Entry Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr/glossary/">Glossary</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../ehr_extract/">EHR Extract Information Model</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr_extract/preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr_extract/requirements/">Requirements</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr_extract/design_overview/">Design Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr_extract/common_package/">Extract.common Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr_extract/openehr_extract_package/">The openehr_extract Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr_extract/generic_extract_package/">Generic_extract Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr_extract/synchronisation_package/">Synchronisation Extracts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr_extract/message_package/">The Message package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr_extract/semantics/">Semantics of openEHR and ISO 13606 extracts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr_extract/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../integration/">Integration Information Model</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../integration/preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../integration/integration_package/">Integration Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../integration/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../support/">Support Information Model</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../support/preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../support/support_package/">Support Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../support/assumed_types/">Assumed Types</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../support/identification_package/">Identification Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../support/terminology_package/">Terminology Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../support/measurement_package/">Measurement Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../support/definition_package/">Definition Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../support/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Reference Model</span>
+    <span class="version">Release-1.0.4</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <div class="title"><a href="../../../../AM/latest/">Archetype Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../AM/latest/">Release-2.3.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../AM/Release-2.2.0/">Release-2.2.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../AM/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../BASE/latest/">Base Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../BASE/latest/">Release-1.2.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../BASE/Release-1.1.0/">Release-1.1.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../BASE/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <div class="title"><a href="../../../latest/">Reference Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../latest/">Release-1.1.0</a>
+        </li>
+        <li class="version is-current">
+          <a href="../../">Release-1.0.4</a>
+        </li>
+        <li class="version">
+          <a href="../../../development/">development</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../../BASE/latest/" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../../">Reference Model</a></li>
+    <li><a href="../">Data Types Information Model</a></li>
+    <li><a href="./">Amendment Record</a></li>
+  </ul>
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">Release-1.0.4</button>
+  <div class="version-menu">
+    <a class="version" href="../../../latest/data_types/amendment_record/">Release-1.1.0</a>
+    <a class="version is-current" href="./">Release-1.0.4</a>
+    <a class="version" href="../../../development/data_types/amendment_record/">development</a>
+  </div>
+</div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Amendment Record</h1>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 9.0909%;">
+<col style="width: 54.5454%;">
+<col style="width: 18.1818%;">
+<col style="width: 18.1819%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Issue</th>
+<th class="tableblock halign-left valign-top">Details</th>
+<th class="tableblock halign-left valign-top">Raiser, Implementer</th>
+<th class="tableblock halign-left valign-top">Completed</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top" colspan="4"><p class="tableblock"><strong>RM Release 1.0.4</strong></p></th>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a id="latest_issue"></a>2.1.3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://specifications.openehr.org/tickets/SPECRM-39" target="_blank" rel="noopener">SPECRM-39</a>: Support newlines and formatting in <code>DV_TEXT</code>. Addresses (<a href="https://specifications.openehr.org/tickets/SPECPR-117" target="_blank" rel="noopener">SPECPR-117</a>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">H Frankel</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a id="latest_issue_date"></a>21 Dec 2018</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://specifications.openehr.org/tickets/SPECRM-78" target="_blank" rel="noopener">SPECRM-78</a>: Improve documentation on 'plain text' EHR URIs.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">H Frankel</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://specifications.openehr.org/tickets/SPECRM-72" target="_blank" rel="noopener">SPECRM-72</a>: Add guidance on date/time formatting, recommending extended ISO8601 format.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">B Lah</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://specifications.openehr.org/tickets/SPECPUB-3" target="_blank" rel="noopener">SPECPUB-3</a>: Correct UML conversion error: <code>DV_MULTIMEDIA.<em>integrity_check</em></code> corrected to multiple bytes. (fixes <a href="https://specifications.openehr.org/tickets/SPECPR-295" target="_blank" rel="noopener">SPECPR-295</a>).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">P Bos</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://specifications.openehr.org/tickets/SPECPUB-3" target="_blank" rel="noopener">SPECPUB-3</a>: Correct UML coversion errors: revert <code>DV_MULTIMEDIA.<em>data</em></code> to <code>Array&lt;Byte&gt;</code>; revert <code><em>integrity_check_algorithm</em></code> multiplicity to <code>[0..1]</code>.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">K Lundberg</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://specifications.openehr.org/tickets/SPECRM-67" target="_blank" rel="noopener">SPECRM-67</a>: Improve description of <code>DV_ENCAPSULATED</code> encoding variations (see <a href="https://specifications.openehr.org/tickets/SPECPR-258" target="_blank" rel="noopener">SPECPR-258</a>).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">P Pazos</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">23 Apr 2018</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://specifications.openehr.org/tickets/SPECPUB-3" target="_blank" rel="noopener">SPECPUB-3</a>: Remove invariants except for <code><em>id</em></code> field, as per SPECRM-23 (see <a href="https://specifications.openehr.org/tickets/SPECPR-202" target="_blank" rel="noopener">SPECPR-202</a>).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">S Iancu,<br>
+ P Pazos</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">18 Apr 2018</p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top" colspan="4"><p class="tableblock"><strong>RM Release 1.0.3</strong></p></th>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2.1.2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://specifications.openehr.org/tickets/SPECRM-32" target="_blank" rel="noopener">SPECRM-32</a>: Add invariant to <code>DV_PROPORTION</code> preventing 0 denominator. (<a href="https://specifications.openehr.org/tickets/SPECPR-112" target="_blank" rel="noopener">SPECPR-112</a>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">P Pazos</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">15 Nov 2015</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://specifications.openehr.org/tickets/SPECRM-33" target="_blank" rel="noopener">SPECRM-33</a>: Clarify specification of EHR URI scheme. Slight adjustments to <code>DV_EHR_URI</code> text.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">H Frankel,<br>
+ E Sundvall,<br>
+ B Lah,<br>
+ S Iancu</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://specifications.openehr.org/tickets/SPECRM-23" target="_blank" rel="noopener">SPECRM-23</a>: Make some <code>DV_IDENTIFIER</code> features optional. (<a href="https://specifications.openehr.org/tickets/SPECPR-33" target="_blank" rel="noopener">SPECPR-33</a>).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">S Heard</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://specifications.openehr.org/tickets/SPECRM-44" target="_blank" rel="noopener">SPECRM-44</a>: Remove <code>DV_ENCAPSULATED.<em>size</em></code> abstract property. (<a href="https://specifications.openehr.org/tickets/SPECPR-98" target="_blank" rel="noopener">SPECPR-98</a>).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">H Frankel</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://specifications.openehr.org/tickets/SPECRM-20" target="_blank" rel="noopener">SPECRM-20</a>: Correct wrong <code>DV_DATE.<em>magnitude</em></code> origin to '0001-01-01' (<a href="https://specifications.openehr.org/tickets/SPECPR-64" target="_blank" rel="noopener">SPECPR-64</a>).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">P Gummer</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top" colspan="4"><p class="tableblock"><strong>Release 1.0.2</strong></p></th>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2.1.1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://specifications.openehr.org/tickets/SPEC-257" target="_blank" rel="noopener">SPEC-257</a>: Correct minor typos and clarify text. Replace <code>DV_EHR_URI</code> with <code>DV_URI</code> in inheritance of class definition of <code>DV_EHR_URI</code>.<br>
+ Clarify the description of the type attribute in <code>DV_PROPORTION</code> to indicate how it is controlled by <code>PROPORTION_KIND</code>.  Add <code><em>as_string()</em></code> function to <code>DV_ENCAPSULATED</code> class in UML diagram of encapsulated package.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T Cook<br>
+ C Ma,<br>
+ R Chen</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">20 Nov 2008</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://specifications.openehr.org/tickets/SPEC-261" target="_blank" rel="noopener">SPEC-261</a>: Indicate how accuracy is treated over add/subtract operations in <code>DV_QUANTIFIED</code> types. Indicate special values for unknown accuracy.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">G Geurts,<br>
+ R Chen</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top" colspan="4"><p class="tableblock"><strong>Release 1.0.1</strong></p></th>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2.1.0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://specifications.openehr.org/tickets/SPEC-144" target="_blank" rel="noopener">SPEC-144</a>: Add new type: <code>DV_PROPORTION</code>.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">S Heard</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">12 Apr 2007</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://specifications.openehr.org/tickets/SPEC-198" target="_blank" rel="noopener">SPEC-198</a>: Change DV_Date/Time/Duration to have value as attribute.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">S Heard</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://specifications.openehr.org/tickets/SPEC-199" target="_blank" rel="noopener">SPEC-199</a>: Add normal_range attribute to <code>DV_ORDERED</code>.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">S Heard</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://specifications.openehr.org/tickets/SPEC-200" target="_blank" rel="noopener">SPEC-200</a>. Correct Release 1.0 typographical errors. Correct <code>DV_ENCAPSULATED</code>.<code><em>size</em></code> to abstract in definition table. Correct <code>DV_STATE</code>.<code><em>value</em></code> in UML of <code>basic</code> package to be <code>DV_CODED_TEXT</code>. Correct <code>DV_ORDINAL</code>.<code><em>symbol</em></code> type to <code>DV_CODED_TEXT</code> in UML diagram for <code>QUANTITY</code> package.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">H Frankel<br>
+ S Heard<br>
+ G Grieve<br>
+ D Lloyd<br>
+ R Chen</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Add missing inheritance of <code>Ordered</code> to <code>DV_ORDERED</code>.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">G Grieve</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://specifications.openehr.org/tickets/SPEC-205" target="_blank" rel="noopener">SPEC-205</a>: Convert Date/time constants to a class.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">D Lloyd</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://specifications.openehr.org/tickets/SPEC-211" target="_blank" rel="noopener">SPEC-211</a>: Add <code><em>magnitude_status</em></code> to <code>DV_QUANTIFIED</code>.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">S Heard</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://specifications.openehr.org/tickets/SPEC-215" target="_blank" rel="noopener">SPEC-215</a>: Merge <code>DV_PARTIAL_XX</code> date/time classes and move ISO 8601 semantics to Support IM. Remove <code>DV_WORLD_TIME</code> class.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T Beale</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://specifications.openehr.org/tickets/SPEC-216" target="_blank" rel="noopener">SPEC-216</a>: Allow mixture of W, D etc in ISO8601 Duration (deviation from standard).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">S Heard</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://specifications.openehr.org/tickets/SPEC-219" target="_blank" rel="noopener">SPEC-219</a>: Use constants instead of literals to refer to terminology in RM.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">R Chen</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://specifications.openehr.org/tickets/SPEC-221" target="_blank" rel="noopener">SPEC-221</a>. Add normal_status to <code>DV_ORDERED</code>. Adjusted invariants.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">H Frankel</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://specifications.openehr.org/tickets/SPEC-227" target="_blank" rel="noopener">SPEC-227</a>: Remove <code>DV_QUANTITY_RATIO</code>.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">S Heard</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://specifications.openehr.org/tickets/SPEC-230" target="_blank" rel="noopener">SPEC-230</a>: Change <code>DV_DATE_TIME</code>.<code><em>to_quantity</em></code> to seconds</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">C Ma</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://specifications.openehr.org/tickets/SPEC-236" target="_blank" rel="noopener">SPEC-236</a>: Change use of Character to Octet in <code>DV_MULTIMEDIA</code>.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">G Grieve</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://specifications.openehr.org/tickets/SPEC-237" target="_blank" rel="noopener">SPEC-237</a>: Correct semantics of Quantity and Date/Time types.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T Beale<br>
+ G Grieve</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://specifications.openehr.org/tickets/SPEC-240" target="_blank" rel="noopener">SPEC-240</a>: Allow <code>DV_ORDINAL</code> values to be negative.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">R Chen</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://specifications.openehr.org/tickets/SPEC-247" target="_blank" rel="noopener">SPEC-247</a>: Add <code>DV_TEMPORAL</code> class to <code>quantity</code> package.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">H Frankel</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top" colspan="4"><p class="tableblock"><strong>Release 1.0</strong></p></th>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2.0.0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://specifications.openehr.org/tickets/SPEC-176" target="_blank" rel="noopener">SPEC-176</a>. Make <code>DV_QUANTIFIED</code>.<code><em>accuracy</em></code> optional.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">S Heard</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">01 Feb 2006</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://specifications.openehr.org/tickets/SPEC-163" target="_blank" rel="noopener">SPEC-163</a>. Add identifiers to <code>FEEDER_AUDIT</code> for originating and gateway systems. Added <code><em>assigner</em></code> attribute to <code>DV_IDENTIFIER</code>.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">H Frankel</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://specifications.openehr.org/tickets/SPEC-121" target="_blank" rel="noopener">SPEC-121</a>. Improve <code>DV_EHR_URI</code> model to support Xpath style paths.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T Beale</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://specifications.openehr.org/tickets/SPEC-161" target="_blank" rel="noopener">SPEC-161</a>. Support distributed versioning. Remove functions from <code>DV_EHR_URI</code>.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T Beale<br>
+ H Frankel</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top" colspan="4"><p class="tableblock"><strong>Release 0.96</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top" colspan="4"><p class="tableblock"><strong>Release 0.95</strong></p></th>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1.9.1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Improve implementation guidance. <code>DV_ORDINAL</code>.<code><em>limits</em></code> type corrected to <code>REFERENCE_RANGE&lt;DV_ORDINAL&gt;</code>.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">D Lloyd</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">22 Feb 2005</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1.9</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://specifications.openehr.org/tickets/SPEC-126" target="_blank" rel="noopener">SPEC-126</a>. Correct details of partial date/time classes.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T Beale</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">09 Dec 2004</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://specifications.openehr.org/tickets/SPEC-112" target="_blank" rel="noopener">SPEC-112</a>. Add <code>DV_PARTIAL_DATE_TIME</code> class</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DSTC</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://specifications.openehr.org/tickets/SPEC-113" target="_blank" rel="noopener">SPEC-113</a>. Add <code>DATA_VALUE</code> subtype for identifying realworld entities</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DSTC</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://specifications.openehr.org/tickets/SPEC-118" target="_blank" rel="noopener">SPEC-118</a>. Make package names lower case.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T Beale</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://specifications.openehr.org/tickets/SPEC-119" target="_blank" rel="noopener">SPEC-119</a>. Improve Data types documentation.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T Beale</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://specifications.openehr.org/tickets/SPEC-102" target="_blank" rel="noopener">SPEC-102</a>. Make <code>DV_TEXT</code>.<code><em>language</em></code> and <code><em>charset</em></code> optional.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DSTC</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top" colspan="4"><p class="tableblock"><strong>Release 0.9</strong></p></th>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1.8</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://specifications.openehr.org/tickets/SPEC-23" target="_blank" rel="noopener">SPEC-23</a>. <code>TERM_MAPPING</code>.<code><em>match</em></code> should be coded/enumerated.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">G Grieve</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">09 Mar 2004</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://specifications.openehr.org/tickets/SPEC-69" target="_blank" rel="noopener">SPEC-69</a>. Correct date/time types statistical descriptions.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A Goodchild</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://specifications.openehr.org/tickets/SPEC-46" target="_blank" rel="noopener">SPEC-46</a>. Rename <code>COORDINATED_TERM</code> to <code>CODE_PHRASE</code> and <code>DV_CODED_TEXT</code>.<code><em>definition</em></code> to <code><em>defining_code</em></code>.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T Beale</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://specifications.openehr.org/tickets/SPEC-84" target="_blank" rel="noopener">SPEC-84</a>. Rename <code>DV_COUNTABLE</code> to <code>DV_COUNT</code>.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DSTC</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://specifications.openehr.org/tickets/SPEC-90" target="_blank" rel="noopener">SPEC-90</a>. Make <code>TERM_MAPPING</code>.<code><em>purpose</em></code> optional.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DSTC</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://specifications.openehr.org/tickets/SPEC-91" target="_blank" rel="noopener">SPEC-91</a>. Correct anomalies in use of <code>CODE_PHRASE</code> and <code>DV_CODED_TEXT</code>.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T Beale</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://specifications.openehr.org/tickets/SPEC-94" target="_blank" rel="noopener">SPEC-94</a>. Add <code><em>lifecycle</em></code> state attribute to <code>VERSION</code>; correct <code>DV_STATE</code>.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DSTC</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://specifications.openehr.org/tickets/SPEC-95" target="_blank" rel="noopener">SPEC-95</a>. Remove <code><em>property</em></code> attribute from <code>quantity</code> package.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DSTC,<br>
+ S Heard</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Formally validated using ISE Eiffel 5.4.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T Beale</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1.7.9</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://specifications.openehr.org/tickets/SPEC-66" target="_blank" rel="noopener">SPEC-66</a>. Make <code>DV_ORDERED</code>.<code><em>normal_range</em></code> a function.<br>
+ Correct UML for <code>DV_QUANTITY</code>.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Z Tun</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">10 Nov 2003</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1.7.8</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://specifications.openehr.org/tickets/SPEC-53" target="_blank" rel="noopener">SPEC-53</a>. Make <code>DV_ORDINAL</code>.<code><em>limits</em></code> a function.<br>
+ <a href="https://specifications.openehr.org/tickets/SPEC-54" target="_blank" rel="noopener">SPEC-54</a>. Move <code>DV_QUANTIFIED</code>.<code><em>is_normal</em></code> to <code>DV_ORDERED</code><br>
+ <a href="https://specifications.openehr.org/tickets/SPEC-55" target="_blank" rel="noopener">SPEC-55</a>. Redefine <code>DV_ORDERED</code>.<code><em>less_than</em></code> as infix function '&lt;'.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T Beale</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">02 Nov 2003</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1.7.7</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://specifications.openehr.org/tickets/SPEC-41" target="_blank" rel="noopener">SPEC-41</a>. Visually differentiate primitive types in openEHR documents.<br>
+ <a href="https://specifications.openehr.org/tickets/SPEC-34" target="_blank" rel="noopener">SPEC-34</a>. State representation of date/time classes to be ISO8601.<br>
+ <a href="https://specifications.openehr.org/tickets/SPEC-52" target="_blank" rel="noopener">SPEC-52</a>. Change <code>DV_DURATION</code>.<code><em>sign</em></code> to prefix "-" operation.<br>
+ <a href="https://specifications.openehr.org/tickets/SPEC-42" target="_blank" rel="noopener">SPEC-42</a>. Make <code>DV_ORDINAL</code>.<code><em>rubric</em></code> a <code>DV_CODED_TEXT</code>; <code><em>type</em></code> attribute not needed.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">D Lloyd,<br>
+ DSTC,<br>
+ T Beale</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">26 Oct 2003</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1.7.6</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://specifications.openehr.org/tickets/SPEC-13" target="_blank" rel="noopener">SPEC-13</a>. Rename key classes, according to CEN ENV 13606.<br>
+ <a href="https://specifications.openehr.org/tickets/SPEC-26" target="_blank" rel="noopener">SPEC-26</a>. Rename <code>DV_QUANTITY</code>.<code><em>value</em></code> to <code><em>magnitude</em></code>.<br>
+ <a href="https://specifications.openehr.org/tickets/SPEC-31" target="_blank" rel="noopener">SPEC-31</a>. Change abstract <code>NUMERIC</code> to <code>DOUBLE</code> in <code>DV_QUANTITY</code>.<code><em>value</em></code>.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">S Heard,<br>
+ D Kalra,<br>
+ T Beale,<br>
+ A Goodchild,<br>
+ Z Tun</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">01 Oct 2003</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1.7.5</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://specifications.openehr.org/tickets/SPEC-22" target="_blank" rel="noopener">SPEC-22</a>. Code <code>TERM_MAPPING</code>.<code><em>purpose</em></code>.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">G Grieve</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">20 Jun 2003</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1.7.4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://specifications.openehr.org/tickets/SPEC-20" target="_blank" rel="noopener">SPEC-20</a>. Move <code>VERSION</code>.<code><em>charset</em></code> to <code>DV_TEXT</code>, <code><em>territory</em></code> to <code>TRANSACTION</code>. Remove <code>VERSION</code>.<code><em>language</em></code>.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A Goodchild</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">10 Jun 2003</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1.7.3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DV_INTERVAL</code> now inherits from <code>INTERVAL</code> to avoid duplicating semantics. (Formally validated).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T Beale</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">25 Mar 2003</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1.7.2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Minor corrections to diagrams in Text package. Improved heading structure, package naming. Corrected error in <code>text</code> package diagram. Replaced <code>TEXT_FORMAT_PROPERTY</code> class with string attribute of same form. Made <code>MULTIMEDIA</code>.<code><em>media_type</em></code> mandatory.  (Formally validated).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T Beale,<br>
+ Z Tun</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">21 Mar 2003</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1.7.1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Moved definitions and assumed types to Support Reference Model. No semantic changes.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T Beale</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">25 Feb 2003</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1.7</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Formally validated using ISE Eiffel 5.2.<br>
+ <a href="https://specifications.openehr.org/tickets/SPEC-1" target="_blank" rel="noopener">SPEC-1</a>. Review of Data Types specification.  Made pluralities of Terminology name definitions (sect 3.2.1) consistent.<br>
+ Corrected types of <code>DV_ENCAPSULATED</code>.<code><em>language</em></code>, <code><em>charset</em></code>, <code>DV_MULTIMEDIA</code>.<code><em>integrity_check_algorithm</em></code>, <code><em>compression_algorithm</em></code>, <code><em>media_type</em></code>.<br>
+ Corrected pluralities of Terminology name definitions (sect 3.2.1).<br>
+ Corrected invariants of <code>DV_ENCAPSULATED</code>, <code>DV_MULTI_MEDIA</code>, <code>DV_QUANTITY</code>, <code>DV_CODED_TEXT</code>, <code>DV_TEXT</code>, <code>DV_INTERVAL</code>, <code>TERM_MAPPING</code>.<br>
+ Corrected <code>DV_TEXT</code>.<code><em>formatting</em></code>; added <code>TERM_MAPPING</code> validity function. Made <code>DV_ORDINAL</code>.<code><em>limits</em></code> an attribute. Removed <code>TERM_MAPPING</code>.<code><em>source</em></code>; moved <code>COORDINATED_TERM</code>.<code><em>language</em></code> to <code>DV_TEXT</code>; changed type to <code>COOORDINATED_TERM</code>.<br>
+ Corrected time specification classes.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Z Tun,<br>
+ T Beale</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">17 Feb 2003</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1.6.1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Rome CEN TC 251 meeting. Updates to HL7 comparison text. <code>DV_DATE</code> now inherits from <code>DV_CUSTOMARY_QUANTITY</code>.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">S Heard,<br>
+ T Beale</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">27 Jan 2003</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1.6</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sam Heard complete review. Changed constant terminology defs to runtime-evaluated set; removed <code>DV_PHYSICAL_DATA</code>.  Added new chapter for generic implementation guidelines, and new section for assumed types. Post-conditions moved to invariants: <code>DV_TEXT</code>.<code><em>value</em></code>, <code>DV_ORDERED</code>.<code><em>is_simple</em></code>, <code>DV_PARTIAL_DATE</code>.<code><em>probable_date</em></code>, possible_dates, <code>DV_PARTIAL_TIME</code>.<code><em>probable_time</em></code>, possible_times. Minor updates to HL7 comparison text. Added explanation to HL7 section.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">S Heard,<br>
+ T Beale</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">13 Dec 2002</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1.5.9</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Minor corrections: <code>DV_ENCAPSULATED</code>; <code>DV_QUANTITY</code>.<code><em>units</em></code> defined to be String; changed <code>COORDINATED_TERM</code> class (but semantically equivalent).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T Beale</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">10 Nov 2002</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1.5.8</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Changed name of LINK package to URI. Major update to Text cluster classes and explanation. Updated HL7 data type comparison.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T Beale,<br>
+ D Kalra,<br>
+ D Lloyd,<br>
+ M Darlison</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1 Nov 2002</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1.5.7</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DV_TEXT_LIST</code> reverted to <code>TEXT_LIST</code>. <code>DV_LINK</code> no longer a data types; renamed to <code>LINK</code> and moved to Common RM. <code>link</code> package renamed to <code>uri</code>.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">S Heard,<br>
+ Z Tun,<br>
+ T Beale,<br>
+ D Kalra,<br>
+ M Darlison</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">18 Oct 2002</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1.5.6</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Rewrite of <code>TIME_SPECIFICATION</code> parse specs. Adjustments to <code>DV_ORDINAL</code>.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T Beale</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">16 Sep 2002</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1.5.5</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Timezone not allowed on pure <code>DV_DATE</code> in ISO8601.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T Beale,<br>
+ S Heard</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2 Sep 2002</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1.5.4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Moved <code>DV_QUANTIFIED</code>.<code><em>units</em></code> and property attributes to <code>DV_QUANTITY</code>. Introduced <code>DV_WORLD_TIME</code>.<code><em>to_quantity</em></code>. Added <code><em>fractional_second</em></code> to <code>DV_TIME</code>, <code>DV_DATE_TIME</code>, <code>DV_DURATION</code>.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T Beale,<br>
+ S Heard</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">29 Aug 2002</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1.5.3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Further corrections - removed derived ‘/’ markers; renamed <code>TERM_MAPPING</code>.<code><em>granularity</em></code> to match. Improved explanation of <code>DV_ORDINAL</code>. <code>DV_QUANTIFIED</code>.<code><em>units</em></code> is now a <code>DV_PARSABLE</code>.  <code>REFERENCE_RANGE</code>.<code><em>meaning</em></code> is now a <code>DV_TEXT</code>.  <code>DV_ENCAPSULATED</code>.<code><em>uri</em></code> is now a <code>DV_URI</code>. <code>DV_LINK</code>.<code><em>type</em></code> is now a <code>DV_TEXT</code>. Detailed review by Zar Zar Tun (DSTC).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T Beale,<br>
+ S Heard,<br>
+ P Schloeffel,<br>
+ D Lloyd,<br>
+ Z Tun</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">20 Aug 2002</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1.5.2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Further corrections - removed derived ‘/’ markers; renamed <code>TERM_MAPPING</code>.<code><em>granularity</em></code> to match.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T Beale,<br>
+ D Lloyd,<br>
+ S Heard</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">15 Aug 2002</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1.5.1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Minor corrections.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T Beale,<br>
+ S Heard</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">15 Aug 2002</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1.5</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Rewrite of section describing text types; addition of new attribute <code>DV_CODED_TEXT</code>.<code><em>mappings</em></code>. Removal of <code>TERM_REFERENCE</code>.<code><em>concept_code</em></code>.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T Beale,<br>
+ S Heard</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1 Aug 2002</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1.4.3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Minor changes to text. Corrections to <code>DV_CODED_TEXT</code> relationships.  Made <code>DV_INTERVAL</code>.<code><em>lower_unbounded</em></code> and <code>DV_INTERVAL</code>.<code><em>upper_unbounded</em></code> functions.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T Beale,<br>
+ Z Tun</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">16 Jul 2002</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1.4.2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DV_LINK</code>.<code><em>meaning</em></code> changed to <code>DV_TEXT</code> (typo in table). Added abstract class <code>DV_WORLD_TIME</code>.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T Beale,<br>
+ D Lloyd</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">14 Jul 2002</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1.4.1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Changes to <code>DV_ENCAPSULATED</code>, <code>DV_PARSABLE</code> invariants.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T Beale<br>
+ Z Tun</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">10 Jul 2002</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1.4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DV_ENCAPSULATED</code>. text_equivalent renamed to <code>DV_ENCAPSULATED</code>.<code><em>alternate_text</em></code>. Added invariant for <code>QUANTITY</code>.<code><em>precision</em></code>.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T Beale,<br>
+ D Lloyd</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">01 Jul 2002</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1.3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Added timezone to <code>DV_TIME</code> and <code>DV_DATE_TIME</code> and sign to <code>DV_DURATION</code>; added linguistic_order to <code>TERM_RELATION</code>; added as_display_string and <code><em>as_canonical_string</em></code> to all types.  Added <code>DV_STATE</code>.<code><em>is_terminal</em></code>. Renamed <code>TERM_TEXT</code> as <code>CODED_TEXT</code>.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T Beale,<br>
+ D Lloyd</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">30 Jun 2002</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1.2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Minor corrections to Text package.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T Beale</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">15 May 2002</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1.1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Numerous small changes, including: term equivalents, relationships and quantity reference ranges.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T Beale,<br>
+ D Lloyd,<br>
+ D Kalra,<br>
+ S Heard</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">10 May 2002</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1.0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Separated from the openEHR Reference Model.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T Beale</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">5 May 2002</p></td>
+</tr>
+</tbody>
+</table>
+<nav class="pagination">
+  <span class="prev"><a href="../comparison_HL7/">Comparison with HL7v3 Types</a></span>
+  <span class="next"><a href="../../demographic/">Demographic Information Model</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>
+    Copyright: © 2003+
+    <a href="https://www.openehr.org"
+        alt="is an independent, non-profit foundation, facilitating the sharing of health
+           records by consumers and clinicians via open specifications, clinical models
+           and open platform implementations.">The openEHR Foundation</a>
+  </p>
+
+  <p>
+    License:
+    <img src="/_/img/cc-by-nd-88x31.png"
+        alt="Creative Commons Attribution-NoDerivs 3.0 Unported."
+        style="vertical-align:middle;margin:0 0.25rem 0 0;">
+    <a href="https://creativecommons.org/licenses/by-nd/3.0/">
+      Creative Commons Attribution-NoDerivs 3.0 Unported.
+    </a>
+  </p>
+
+  <p>
+    <strong>Links: <strong>
+    <a href="https://www.openehr.org/terms-of-use" class="mr-1">Terms of use</a> |
+    <a href="https://www.openehr.org/privacy-policy" class="mx-1">Privacy policy</a> |
+    <a href="https://www.openehr.org/privacy-policy" class="mx-1">Logos &amp; Trademarks</a> |
+    <a href="https://www.openehr.org/contact-us" class="mx-1">Contact</a>
+  </p>
+</footer>
+
+<script id="site-script" src="../../../../_/js/site.js" data-ui-root-path="../../../../_"></script>
+<script async src="../../../../_/js/vendor/highlight.js"></script>
+<script src="../../../../_/js/vendor/lunr.js"></script>
+<script src="../../../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../../../.." data-snippet-length="80" data-stylesheet="../../../../_/css/search.css"></script>
+<script async src="../../../../search-index.js"></script>
+<script src="../../../../_/js/medium-zoom.min.js"></script>
+<script src="../../../../_/js/zoom.js"></script>
+  </body>
+</html>

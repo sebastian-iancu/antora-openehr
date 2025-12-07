@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+    <title>Untitled :: openEHR Specifications (Local Build)</title>
+    <link rel="canonical" href="https://sebastian-iancu.github.io/antora-openehr/AM/latest/ADL2/master09.04-spec_attrib_redef/">
+    <link rel="prev" href="../master09.03-spec_examples/">
+    <link rel="next" href="../master09.05-spec_object_redef/">
+    <meta name="description" content="openEHR Archetype Definition Language 2 (ADL2)">
+    <meta name="keywords" content="EHR, ADL, AOM, health records, archetypes, constraint language, ISO 13606, openehr">
+    <meta name="generator" content="Antora 3.1.14">
+    <link rel="stylesheet" href="../../../../_/css/site.css">
+    <link rel="stylesheet" href="../../../../_/css/antora-openehr.css">
+    <link rel="stylesheet" href="../../../../_/css/openehr.css">
+<link rel="icon" href="../../../../_/img/favicon.ico" type="image/x-icon">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://sebastian-iancu.github.io/antora-openehr">openEHR Specifications (Local Build)</a>
+
+      <div class="navbar-item search hide-for-print">
+        <div id="search-field" class="field has-filter">
+          <input id="search-input" type="text" placeholder="Search the docs">
+          <label class="filter checkbox">
+            <input type="checkbox" data-facet-filter="component:AM"> Archetype Model only
+          </label>
+        </div>
+      </div>
+
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">Specifications</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://specifications.openehr.org/" target="_blank">
+              openEHR specification
+            </a>
+            <a class="navbar-item" href="https://specifications.openehr.org/releases/UML/development/index.html" target="_blank">
+              openEHR portal
+            </a>
+            <a class="navbar-item" href="https://ckm.openehr.org/ckm/" target="_blank">
+              openEHR CKM
+            </a>
+          </div>
+        </div>
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">Community</a>
+          <div class="navbar-dropdown is-right">
+            <a class="navbar-item" href="https://openehr.atlassian.net/secure/Dashboard.jspa?selectPageId=10190" target="_blank">
+              Issue trackers
+            </a>
+            <a class="navbar-item" href="https://discourse.openehr.org/" target="_blank">
+              Discourse Forum
+            </a>
+            <a class="navbar-item" href="https://specifications.openehr.org/wiki/display/spec/Specifications+Home" target="_blank">
+              Wiki
+            </a>
+            <a class="navbar-item" href="https://github.com/openEHR" target="_blank">
+              GitHub
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="AM" data-version="development">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="../../">Archetype Model</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../">Overview</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../ADL1.4/">{spec_title}</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL1.4/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../">{spec_title}</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../overview/">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../file_encoding/">File Encoding and Character Quoting</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../master04.1-cadl_overview/">cADL - Constraint ADL</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../master04.2-cadl_basics/">Master04.2-Cadl Basics</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../master04.3-cadl_complex_types/">Master04.3-Cadl Complex Types</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../master04.4-cadl_second_order/">Master04.4-Cadl Second Order</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../master04.5-cadl_primitive_types/">Master04.5-Cadl Primitive Types</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../master04.6-cadl_validity_rules/">Master04.6-Cadl Validity Rules</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../paths/">ADL Paths</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../default_values/">Default Values</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../master07.01-adl_introduction/">ADL - Archetype Definition Language</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../master07.02-adl_conventions/">Master07.02-Adl Conventions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../master07.03-adl_artefacts/">Master07.03-Adl Artefacts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../master07.04-adl_basics/">Master07.04-Adl Basics</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../master07.05-adl_identification/">Master07.05-Adl Identification</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../master07.06-adl_specialise/">Master07.06-Adl Specialise</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../master07.07-adl_language/">Master07.07-Adl Language</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../master07.08-adl_description/">Master07.08-Adl Description</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../master07.09-adl_deprecated/">Master07.09-Adl Deprecated</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../master07.10-adl_definition/">Master07.10-Adl Definition</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../master07.11-adl_rules/">Master07.11-Adl Rules</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../master07.12-adl_rm_overlay/">Master07.12-Adl Rm Overlay</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../master07.13-adl_terminology/">Master07.13-Adl Terminology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../master07.14-adl_annotations/">Master07.14-Adl Annotations</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../terminology_integration/">Terminology Integration</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../master09.01-spec_overview/">Specialisation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../master09.02-spec_concepts/">Master09.02-Spec Concepts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../master09.03-spec_examples/">Master09.03-Spec Examples</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="./">Master09.04-Spec Attrib Redef</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../master09.05-spec_object_redef/">Master09.05-Spec Object Redef</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../master09.06-spec_rules/">Master09.06-Spec Rules</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../master09.07-spec_languages/">Master09.07-Spec Languages</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../master09.08-spec_description/">Master09.08-Spec Description</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../master09.09-spec_terminology/">Master09.09-Spec Terminology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../master09.10-spec_bindings/">Master09.10-Spec Bindings</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../templates/">Templates</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../other_formalisms/">Relationship of ADL to Other Formalisms</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../masterAppB-syntax_spec/">Syntax Specification</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../AOM1.4/">{spec_title}</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM1.4/preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM1.4/model_overview/">The Archetype Object Model</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM1.4/archetype_package/">The Archetype Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM1.4/constraint_model_package/">Constraint Model Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM1.4/assertion_package/">The Assertion Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM1.4/primitive_package/">Primitive Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM1.4/ontology_package/">Terminology Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM1.4/domain_extension/">Domain-specific Extension Example</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM1.4/masterAppB-diverse_reference_models/">Using Archetypes with Diverse Reference Models</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM1.4/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../AOM2/">{spec_title}</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM2/preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM2/model_overview/">Model Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM2/archetype_package/">The Archetype Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM2/master04.1-constraint_model-overview/">Constraint Model Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM2/master04.2-constraint_model-semantics/">Master04.2-Constraint Model-Semantics</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM2/master04.3-constraint_model-second_order/">Master04.3-Constraint Model-Second Order</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM2/master04.4-constraint_model-AOM_type_subs/">Master04.4-Constraint Model-AOM Type Subs</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM2/master04.5-constraint_model-class_definitions/">Master04.5-Constraint Model-Class Definitions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM2/rules_package/">The Rules Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM2/rm_overlay/">The RM Overlay Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM2/terminology_package/">Terminology Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM2/validation/">Validation and Transformation Semantics</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM2/serialisation_model/">Serialisation Model</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM2/templates/">Templates</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM2/rm_adaptation/">Reference Model Adaptation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM2/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../Identification/">{spec_title}</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../Identification/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="#index.adoc">Language Design</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../OPT2/">{spec_title}</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../OPT2/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../Overview/">{spec_title}</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../Overview/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Archetype Model</span>
+    <span class="version">development</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <div class="title"><a href="../../../latest/">Archetype Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../latest/">Release-2.3.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../Release-2.2.0/">Release-2.2.0</a>
+        </li>
+        <li class="version is-current">
+          <a href="../../">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../BASE/latest/">Base Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../BASE/latest/">Release-1.2.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../BASE/Release-1.1.0/">Release-1.1.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../BASE/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../RM/latest/">Reference Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../RM/latest/">Release-1.1.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../RM/Release-1.0.4/">Release-1.0.4</a>
+        </li>
+        <li class="version">
+          <a href="../../../../RM/development/">development</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../../BASE/latest/" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../../">Archetype Model</a></li>
+    <li><a href="../">{spec_title}</a></li>
+    <li><a href="./">Master09.04-Spec Attrib Redef</a></li>
+  </ul>
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">development</button>
+  <div class="version-menu">
+    <a class="version" href="../../../latest/ADL2/master09.04-spec_attrib_redef/">Release-2.3.0</a>
+    <a class="version is-missing" href="../../../Release-2.2.0/">Release-2.2.0</a>
+    <a class="version is-current" href="./">development</a>
+  </div>
+</div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<div class="sect1">
+<h2 id="_attribute_redefinition"><a class="anchor" href="#_attribute_redefinition"></a><a class="link" href="#_attribute_redefinition">Attribute Redefinition</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>A small number of things can be redefined on attributes, including existence and cardinality. A basic rule of redefinition is that a specialised archetype cannot change the multiplicity type of an attribute.</p>
+</div>
+<div class="sect2">
+<h3 id="_existence_redefinition_mandation_and_exclusion"><a class="anchor" href="#_existence_redefinition_mandation_and_exclusion"></a><a class="link" href="#_existence_redefinition_mandation_and_exclusion">Existence Redefinition: Mandation and Exclusion</a></h3>
+<div class="paragraph">
+<p>All attributes mentioned in an archetype have an <em>existence</em> constraint, indicating whether a value is required or not. The constraint is either stated explicitly - typically done for single-valued attributes - or it is the value from the reference model - typical for multiply-valued attributes. In both cases, the existence of an attribute in a parent archetype can be redefined in a specialised archetype using the standard cADL syntax. In the following example, an implicit existence constraint picked up from the reference model of <code>{0..1}</code> is redefined in a child archetype to <code>{1}</code> , i.e. mandatory.</p>
+</div>
+<div class="paragraph">
+<p>Parent archetype:</p>
+</div>
+<div id="_tabs_1" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="_tabs_1_at_coded_adl2" class="tab">
+<p>at-coded ADL2</p>
+</li>
+<li id="_tabs_1_id_coded_adl2" class="tab">
+<p>id-coded ADL2</p>
+</li>
+</ul>
+</div>
+<div id="_tabs_1_at_coded_adl2--panel" class="tabpanel" aria-labelledby="_tabs_1_at_coded_adl2">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cadl" data-lang="cadl">    OBSERVATION[at0000] ∈ {                -- blood pressure measurement
+        protocol ∈ {                    -- existence not changed from reference model
+            -- etc
+        }
+    }</code></pre>
+</div>
+</div>
+</div>
+<div id="_tabs_1_id_coded_adl2--panel" class="tabpanel" aria-labelledby="_tabs_1_id_coded_adl2">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cadl" data-lang="cadl">    OBSERVATION[id1] ∈ {                -- blood pressure measurement
+        protocol ∈ {                    -- existence not changed from reference model
+            -- etc
+        }
+    }</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Child archetype:</p>
+</div>
+<div id="_tabs_2" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="_tabs_2_at_coded_adl2" class="tab">
+<p>at-coded ADL2</p>
+</li>
+<li id="_tabs_2_id_coded_adl2" class="tab">
+<p>id-coded ADL2</p>
+</li>
+</ul>
+</div>
+<div id="_tabs_2_at_coded_adl2--panel" class="tabpanel" aria-labelledby="_tabs_2_at_coded_adl2">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cadl" data-lang="cadl">    OBSERVATION[at0000.1] ∈ {              -- paediatric blood pressure measurement
+        /protocol existence ∈ {1} ∈ {
+            -- etc
+        }
+    }</code></pre>
+</div>
+</div>
+</div>
+<div id="_tabs_2_id_coded_adl2--panel" class="tabpanel" aria-labelledby="_tabs_2_id_coded_adl2">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cadl" data-lang="cadl">    OBSERVATION[id1.1] ∈ {              -- paediatric blood pressure measurement
+        /protocol existence ∈ {1} ∈ {
+            -- etc
+        }
+    }</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Redefinition of existence to <code>{0}</code> by this method denotes exclusion, i.e. removal of the entire attribute (including all sub-structure) from the resulting structure. In an archetype, it is likely to indicate poor design, given that the decision to remove optional attributes is much more likely to be local, and therefore more appropriate in templates rather than archetypes; within a template it would be perfectly normal. The following example shows the protocol attribute in the above <code>OBSERVATION</code> archetype being excluded in this way:</p>
+</div>
+<div id="_tabs_3" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="_tabs_3_at_coded_adl2" class="tab">
+<p>at-coded ADL2</p>
+</li>
+<li id="_tabs_3_id_coded_adl2" class="tab">
+<p>id-coded ADL2</p>
+</li>
+</ul>
+</div>
+<div id="_tabs_3_at_coded_adl2--panel" class="tabpanel" aria-labelledby="_tabs_3_at_coded_adl2">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cadl" data-lang="cadl">   OBSERVATION[at0000] ∈ {                -- paediatric blood pressure measurement
+        /protocol existence ∈ {0}
+    }</code></pre>
+</div>
+</div>
+</div>
+<div id="_tabs_3_id_coded_adl2--panel" class="tabpanel" aria-labelledby="_tabs_3_id_coded_adl2">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cadl" data-lang="cadl">   OBSERVATION[id1] ∈ {                -- paediatric blood pressure measurement
+        /protocol existence ∈ {0}
+    }</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Note that in the above, the '/' is used to denote '/protocol' as a differential path. Without the slash, the 'protocol' attribute would be considered to be trying to constrain a hitherto unconstrained attribute called 'protocol', rather than redefine a constraint already present in a parent archetype.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_multiply_valued_container_attributes"><a class="anchor" href="#_multiply_valued_container_attributes"></a><a class="link" href="#_multiply_valued_container_attributes">Multiply-valued (Container) Attributes</a></h3>
+<div class="paragraph">
+<p>The following sub-sections describe specialisation semantics specific to container attributes.</p>
+</div>
+<div class="sect3">
+<h4 id="_cardinality"><a class="anchor" href="#_cardinality"></a><a class="link" href="#_cardinality">Cardinality</a></h4>
+<div class="paragraph">
+<p>The <em>cardinality</em> constraint defines how many object instances can be in the container within the data (not the archetype). In a specialised archetype, cardinality can be redefined to be a narrower range than in the parent, further limiting the valid ranges of items in the data that may occur within the container. This would normally only make sense if refinements were made to the occurrences of the contained items, i.e.:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>narrowing the occurrences range of an object;</p>
+</li>
+<li>
+<p>excluding an object by setting its occurrences to <code>{0}</code>;</p>
+</li>
+<li>
+<p>adding new objects, which themselves will have occurrences constraints;</p>
+</li>
+<li>
+<p>setting some object occurrences to mandatory, and the enclosing cardinality lower limit to some non-zero value.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>As long as the relationship between the enclosing attribute&#8217;s cardinality constraint and the occurrences constraints defined on all the contained items (including those inherited unchanged, and therefore not mentioned in the specialised archetype) is respected (see <a href="https://specifications.openehr.org/releases/AM/latest/AOM2.html#VACMCU" target="_blank" rel="noopener">VACMCU, VACMCO validity rules, AOM2 specification</a>), any of the above specialisations can occur.</p>
+</div>
+<div class="paragraph">
+<p>The following provides an example of cardinality redefinition.</p>
+</div>
+<div class="paragraph">
+<p>Parent archetype:</p>
+</div>
+<div id="_tabs_4" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="_tabs_4_at_coded_adl2" class="tab">
+<p>at-coded ADL2</p>
+</li>
+<li id="_tabs_4_id_coded_adl2" class="tab">
+<p>id-coded ADL2</p>
+</li>
+</ul>
+</div>
+<div id="_tabs_4_at_coded_adl2--panel" class="tabpanel" aria-labelledby="_tabs_4_at_coded_adl2">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cadl" data-lang="cadl">    ITEM_LIST[at0002] ∈ {                                      -- general check list
+        items cardinality ∈ {0..*} ∈ {                      -- any number of items
+            ELEMENT[at0011] occurrences ∈ {0..*} ∈ {...}      -- generic checklist item
+        }
+    }</code></pre>
+</div>
+</div>
+</div>
+<div id="_tabs_4_id_coded_adl2--panel" class="tabpanel" aria-labelledby="_tabs_4_id_coded_adl2">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cadl" data-lang="cadl">    ITEM_LIST[id3] ∈ {                                      -- general check list
+        items cardinality ∈ {0..*} ∈ {                      -- any number of items
+            ELEMENT[id12] occurrences ∈ {0..*} ∈ {...}      -- generic checklist item
+        }
+    }</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Child archetype:</p>
+</div>
+<div id="_tabs_5" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="_tabs_5_at_coded_adl2" class="tab">
+<p>at-coded ADL2</p>
+</li>
+<li id="_tabs_5_id_coded_adl2" class="tab">
+<p>id-coded ADL2</p>
+</li>
+</ul>
+</div>
+<div id="_tabs_5_at_coded_adl2--panel" class="tabpanel" aria-labelledby="_tabs_5_at_coded_adl2">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cadl" data-lang="cadl">    ITEM_LIST[at0002] ∈ {                                      -- pre-operative check list
+        /items cardinality ∈ {3..10} ∈ {                    -- at least 3 mandatory items
+            ELEMENT[at0011.1] occurrences ∈ {1} ∈ {...}       -- item #1
+            ELEMENT[at0011.2] occurrences ∈ {1} ∈ {...}       -- item #2
+            ELEMENT[at0011.3] occurrences ∈ {1} ∈ {...}       -- item #3
+            ELEMENT[at0011.4] occurrences ∈ {0..1} ∈ {...}    -- item #4
+            ...
+            ELEMENT[at0011.10] occurrences ∈ {0..1} ∈ {...}   -- item #10
+        }
+    }</code></pre>
+</div>
+</div>
+</div>
+<div id="_tabs_5_id_coded_adl2--panel" class="tabpanel" aria-labelledby="_tabs_5_id_coded_adl2">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cadl" data-lang="cadl">    ITEM_LIST[id3] ∈ {                                      -- pre-operative check list
+        /items cardinality ∈ {3..10} ∈ {                    -- at least 3 mandatory items
+            ELEMENT[id12.1] occurrences ∈ {1} ∈ {...}       -- item #1
+            ELEMENT[id12.2] occurrences ∈ {1} ∈ {...}       -- item #2
+            ELEMENT[id12.3] occurrences ∈ {1} ∈ {...}       -- item #3
+            ELEMENT[id12.4] occurrences ∈ {0..1} ∈ {...}    -- item #4
+            ...
+            ELEMENT[id12.10] occurrences ∈ {0..1} ∈ {...}   -- item #10
+        }
+    }</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_ordering_of_sibling_nodes"><a class="anchor" href="#_ordering_of_sibling_nodes"></a><a class="link" href="#_ordering_of_sibling_nodes">Ordering of Sibling Nodes</a></h4>
+<div class="paragraph">
+<p>Within container attributes, the order of objects may be significant from the point of view of domain users, i.e. the container may be considered as an ordered list. This is easy to achieve in top-level archetype, using the 'ordered' qualifier on a cardinality constraint. However, when particular node(s) are redefined into multiple specialised nodes, or new nodes added by extension, the desired order of the new nodes may be such that they should occur interspersed at particular locations among nodes defined in the parent archetype. The following text is a slightly summarised view of the items attribute from the problem archetype shown in <a href="#redefinition_for_specialisation">[redefinition_for_specialisation]</a>:</p>
+</div>
+<div id="_tabs_6" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="_tabs_6_at_coded_adl2" class="tab">
+<p>at-coded ADL2</p>
+</li>
+<li id="_tabs_6_id_coded_adl2" class="tab">
+<p>id-coded ADL2</p>
+</li>
+</ul>
+</div>
+<div id="_tabs_6_at_coded_adl2--panel" class="tabpanel" aria-labelledby="_tabs_6_at_coded_adl2">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cadl" data-lang="cadl">    items cardinality ∈ {0..*; ordered} ∈ {
+        ELEMENT[at0001] occurrences ∈ {1} ∈ {...}              -- Problem
+        ELEMENT[at0002] occurrences ∈ {0..1} ∈ {...}           -- Date of initial onset
+        ELEMENT[at0003] occurrences ∈ {0..1} ∈ {...}           -- Age at initial onset
+        ELEMENT[at0004] occurrences ∈ {0..1} ∈ {...}           -- Severity
+        ELEMENT[at0008] occurrences ∈ {0..1} ∈ {...}           -- Clinical description
+        ELEMENT[at0009] occurrences ∈ {0..1} ∈ {...}           -- Date clinically received
+        CLUSTER[at0010] occurrences ∈ {0..*} ∈ {...}           -- Location
+        CLUSTER[at0013] occurrences ∈ {0..1} ∈ {...}           -- Aetiology
+        CLUSTER[at0017] occurrences ∈ {0..1} ∈ {...}           -- Occurrences or exacerb'ns
+        CLUSTER[at0025] occurrences ∈ {0..1} ∈ {...}           -- Related problems
+        ELEMENT[at0029] occurrences ∈ {0..1} ∈ {...}           -- Date of resolution
+        ELEMENT[at0030] occurrences ∈ {0..1} ∈ {...}           -- Age at resolution
+    }</code></pre>
+</div>
+</div>
+</div>
+<div id="_tabs_6_id_coded_adl2--panel" class="tabpanel" aria-labelledby="_tabs_6_id_coded_adl2">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cadl" data-lang="cadl">    items cardinality ∈ {0..*; ordered} ∈ {
+        ELEMENT[id2] occurrences ∈ {1} ∈ {...}               -- Problem
+        ELEMENT[id3] occurrences ∈ {0..1} ∈ {...}            -- Date of initial onset
+        ELEMENT[id4] occurrences ∈ {0..1} ∈ {...}            -- Age at initial onset
+        ELEMENT[id5] occurrences ∈ {0..1} ∈ {...}            -- Severity
+        ELEMENT[id9] occurrences ∈ {0..1} ∈ {...}            -- Clinical description
+        ELEMENT[id10] occurrences ∈ {0..1} ∈ {...}           -- Date clinically received
+        CLUSTER[id11] occurrences ∈ {0..*} ∈ {...}           -- Location
+        CLUSTER[id14] occurrences ∈ {0..1} ∈ {...}           -- Aetiology
+        CLUSTER[id18] occurrences ∈ {0..1} ∈ {...}           -- Occurrences or exacerb'ns
+        CLUSTER[id26] occurrences ∈ {0..1} ∈ {...}           -- Related problems
+        ELEMENT[id30] occurrences ∈ {0..1} ∈ {...}           -- Date of resolution
+        ELEMENT[id31] occurrences ∈ {0..1} ∈ {...}           -- Age at resolution
+    }</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>To indicate significant ordering in the specialised problem-diagnosis archetype, the keywords ` before` and ` after` can be used, as follows:</p>
+</div>
+<div id="_tabs_7" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="_tabs_7_at_coded_adl2" class="tab">
+<p>at-coded ADL2</p>
+</li>
+<li id="_tabs_7_id_coded_adl2" class="tab">
+<p>id-coded ADL2</p>
+</li>
+</ul>
+</div>
+<div id="_tabs_7_at_coded_adl2--panel" class="tabpanel" aria-labelledby="_tabs_7_at_coded_adl2">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cadl" data-lang="cadl">    /data[at0002]/items ∈ {
+        before [at0002]
+        ELEMENT[at0001.1] ∈ {...}                             -- Diagnosis
+        ELEMENT[at0.32] occurrences ∈ {0..1} ∈ {...}          -- Status
+        after [at0025]
+        CLUSTER[at0.35] occurrences ∈ {0..1} ∈ {...}          -- Diagnostic criteria
+        CLUSTER[at0.37] occurrences ∈ {0..1} ∈ {...}          -- Clinical Staging
+    }</code></pre>
+</div>
+</div>
+</div>
+<div id="_tabs_7_id_coded_adl2--panel" class="tabpanel" aria-labelledby="_tabs_7_id_coded_adl2">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cadl" data-lang="cadl">    /data[id3]/items ∈ {
+        before [id3]
+        ELEMENT[id2.1] ∈ {...}                                -- Diagnosis
+        ELEMENT[id0.32] occurrences ∈ {0..1} ∈ {...}          -- Status
+        after [id26]
+        CLUSTER[id0.35] occurrences ∈ {0..1} ∈ {...}          -- Diagnostic criteria
+        CLUSTER[id0.37] occurrences ∈ {0..1} ∈ {...}          -- Clinical Staging
+    }</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>These keywords are followed by a node identifier reference, and act to anchor the location of the node definitions immediately following until the next sibling order marker or the end of the list. The following visual rendition is equivalent, but arguably less readable:</p>
+</div>
+<div id="_tabs_8" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="_tabs_8_at_coded_adl2" class="tab">
+<p>at-coded ADL2</p>
+</li>
+<li id="_tabs_8_id_coded_adl2" class="tab">
+<p>id-coded ADL2</p>
+</li>
+</ul>
+</div>
+<div id="_tabs_8_at_coded_adl2--panel" class="tabpanel" aria-labelledby="_tabs_8_at_coded_adl2">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cadl" data-lang="cadl">    after [at0025] CLUSTER[at0.35] occurrences ∈ {0..1} ∈ {...}  -- etc</code></pre>
+</div>
+</div>
+</div>
+<div id="_tabs_8_id_coded_adl2--panel" class="tabpanel" aria-labelledby="_tabs_8_id_coded_adl2">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cadl" data-lang="cadl">    after [id26] CLUSTER[id0.35] occurrences ∈ {0..1} ∈ {...}  -- etc</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>The rules for specifying ordering are as follows.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Ordering is only applicable to object nodes defined within a multiply-valued (i.e. container) attribute whose cardinality includes the <code>ordered</code> constraint;</p>
+</li>
+<li>
+<p>Any <code>before</code> or <code>after</code> statement can use as its anchor the node identifier of any sibling node from the same container attribute in the flat form of the parent archetype, or a redefined version of the same, local to the current archetype;</p>
+</li>
+<li>
+<p>If no sibling order markers are used, redefined nodes should appear in the same position as the nodes they replace, while extension nodes appear at the end.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>If ordering indicators are used in an archetype that is itself further specialised, the following rules apply:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>If the referenced identifier becomes unavailable due to being redefined in the new archetype, it must be redefined to refer to an available sibling identifier as per the rules above.</p>
+</li>
+<li>
+<p>If this does not occur, a <code>before</code> reference will default to the first sibling node identifier currently available conforming to the original identifier, while an <code>after</code> reference will default to the <em>last</em> such identifier available in the current flat archetype.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>If, due to multiple levels of redefinition, there is more than one candidate to go before (or after) a given node, the compiler should output a warning. The problem would be resolved by the choice of one of the candidates being changed to indicate that it is to be ordered before (after) another of the candidates rather than the originally stated node.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="../master09.03-spec_examples/">Master09.03-Spec Examples</a></span>
+  <span class="next"><a href="../master09.05-spec_object_redef/">Master09.05-Spec Object Redef</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>
+    Copyright: © 2003+
+    <a href="https://www.openehr.org"
+        alt="is an independent, non-profit foundation, facilitating the sharing of health
+           records by consumers and clinicians via open specifications, clinical models
+           and open platform implementations.">The openEHR Foundation</a>
+  </p>
+
+  <p>
+    License:
+    <img src="/_/img/cc-by-nd-88x31.png"
+        alt="Creative Commons Attribution-NoDerivs 3.0 Unported."
+        style="vertical-align:middle;margin:0 0.25rem 0 0;">
+    <a href="https://creativecommons.org/licenses/by-nd/3.0/">
+      Creative Commons Attribution-NoDerivs 3.0 Unported.
+    </a>
+  </p>
+
+  <p>
+    <strong>Links: <strong>
+    <a href="https://www.openehr.org/terms-of-use" class="mr-1">Terms of use</a> |
+    <a href="https://www.openehr.org/privacy-policy" class="mx-1">Privacy policy</a> |
+    <a href="https://www.openehr.org/privacy-policy" class="mx-1">Logos &amp; Trademarks</a> |
+    <a href="https://www.openehr.org/contact-us" class="mx-1">Contact</a>
+  </p>
+</footer>
+
+<script id="site-script" src="../../../../_/js/site.js" data-ui-root-path="../../../../_"></script>
+<script async src="../../../../_/js/vendor/highlight.js"></script>
+<script src="../../../../_/js/vendor/lunr.js"></script>
+<script src="../../../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../../../.." data-snippet-length="80" data-stylesheet="../../../../_/css/search.css"></script>
+<script async src="../../../../search-index.js"></script>
+<script src="../../../../_/js/medium-zoom.min.js"></script>
+<script src="../../../../_/js/zoom.js"></script>
+  </body>
+</html>

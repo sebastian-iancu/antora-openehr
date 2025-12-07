@@ -1,0 +1,2302 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+    <title>Quantity Package :: openEHR Specifications (Local Build)</title>
+    <link rel="canonical" href="https://sebastian-iancu.github.io/antora-openehr/RM/latest/data_types/quantity_package/">
+    <link rel="prev" href="../text_package/">
+    <link rel="next" href="../date_time_package/">
+    <meta name="description" content="openEHR Data Types Information Model specification">
+    <meta name="keywords" content="EHR, clinical, data types, openehr">
+    <meta name="generator" content="Antora 3.1.14">
+    <link rel="stylesheet" href="../../../../_/css/site.css">
+    <link rel="stylesheet" href="../../../../_/css/antora-openehr.css">
+    <link rel="stylesheet" href="../../../../_/css/openehr.css">
+<link rel="icon" href="../../../../_/img/favicon.ico" type="image/x-icon">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://sebastian-iancu.github.io/antora-openehr">openEHR Specifications (Local Build)</a>
+
+      <div class="navbar-item search hide-for-print">
+        <div id="search-field" class="field has-filter">
+          <input id="search-input" type="text" placeholder="Search the docs">
+          <label class="filter checkbox">
+            <input type="checkbox" data-facet-filter="component:RM"> Reference Model only
+          </label>
+        </div>
+      </div>
+
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">Specifications</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://specifications.openehr.org/" target="_blank">
+              openEHR specification
+            </a>
+            <a class="navbar-item" href="https://specifications.openehr.org/releases/UML/development/index.html" target="_blank">
+              openEHR portal
+            </a>
+            <a class="navbar-item" href="https://ckm.openehr.org/ckm/" target="_blank">
+              openEHR CKM
+            </a>
+          </div>
+        </div>
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">Community</a>
+          <div class="navbar-dropdown is-right">
+            <a class="navbar-item" href="https://openehr.atlassian.net/secure/Dashboard.jspa?selectPageId=10190" target="_blank">
+              Issue trackers
+            </a>
+            <a class="navbar-item" href="https://discourse.openehr.org/" target="_blank">
+              Discourse Forum
+            </a>
+            <a class="navbar-item" href="https://specifications.openehr.org/wiki/display/spec/Specifications+Home" target="_blank">
+              Wiki
+            </a>
+            <a class="navbar-item" href="https://github.com/openEHR" target="_blank">
+              GitHub
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="RM" data-version="Release-1.1.0">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="../../">Reference Model</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../">Overview</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../common/">{spec_title}</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../common/preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../common/overview/">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../common/archetyped_package/">Archetyped Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../common/generic_package/">Generic Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../common/directory_package/">Directory Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../common/change_control_package/">Change Control Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../common/resource_package/">Resource Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../common/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../data_structures/">{spec_title}</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_structures/preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_structures/background/">Background</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_structures/overview/">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_structures/item_structure_package/">Item Structure Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_structures/representation_package/">Representation Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_structures/history_package/">History Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_structures/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../">{spec_title}</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../background/">Background</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../introduction/">Introduction</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../basic_package/">Basic Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../text_package/">Text Package</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="./">Quantity Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../date_time_package/">Date Time Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../time_specification_package/">Time_specification Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../encapsulated_package/">Encapsulated Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../uri_package/">Uri Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../implem_strategies/">Implementation Strategies</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../comparison_HL7/">Comparison with HL7v3 Types</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../demographic/">{spec_title}</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../demographic/preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../demographic/demographic_package/">Demographic package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../demographic/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../ehr/">{spec_title}</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr/preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr/background/">Background</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr/ehr_information_model/">The EHR Information Model</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr/ehr_package/">EHR Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr/composition_package/">Composition Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr/content_package/">Content Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr/navigation_package/">Navigation Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr/entry_package/">Entry Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr/glossary/">Glossary</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../ehr_extract/">{spec_title}</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr_extract/preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr_extract/requirements/">Requirements</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr_extract/design_overview/">Design Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr_extract/common_package/">Extract.common Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr_extract/openehr_extract_package/">The openehr_extract Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr_extract/generic_extract_package/">Generic_extract Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr_extract/synchronisation_package/">Synchronisation Extracts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr_extract/message_package/">The Message package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr_extract/semantics/">Semantics of openEHR and ISO 13606 extracts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr_extract/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../integration/">{spec_title}</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../integration/preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../integration/integration_package/">Integration Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../integration/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../support/">{spec_title}</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../support/preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../support/support_package/">Support Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../support/assumed_types/">Assumed Types</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../support/identification_package/">Identification Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../support/terminology_package/">Terminology Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../support/measurement_package/">Measurement Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../support/definition_package/">Definition Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../support/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Reference Model</span>
+    <span class="version">Release-1.1.0</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <div class="title"><a href="../../../../AM/latest/">Archetype Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../AM/latest/">Release-2.3.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../AM/Release-2.2.0/">Release-2.2.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../AM/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../BASE/latest/">Base Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../BASE/latest/">Release-1.2.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../BASE/Release-1.1.0/">Release-1.1.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../BASE/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <div class="title"><a href="../../">Reference Model</a></div>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../../">Release-1.1.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../Release-1.0.4/">Release-1.0.4</a>
+        </li>
+        <li class="version">
+          <a href="../../../development/">development</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../../BASE/latest/" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../../">Reference Model</a></li>
+    <li><a href="../">{spec_title}</a></li>
+    <li><a href="./">Quantity Package</a></li>
+  </ul>
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">Release-1.1.0</button>
+  <div class="version-menu">
+    <a class="version is-current" href="./">Release-1.1.0</a>
+    <a class="version" href="../../../Release-1.0.4/data_types/quantity_package/">Release-1.0.4</a>
+    <a class="version" href="../../../development/data_types/quantity_package/">development</a>
+  </div>
+</div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Quantity Package</h1>
+<div class="sect1">
+<h2 id="_overview"><a class="anchor" href="#_overview"></a><a class="link" href="#_overview">Overview</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The <code>data_types.quantity</code> package is illustrated below. Dates and Times are found in the next section.</p>
+</div>
+<div id="rm_data_types_quantity" class="imageblock text-center text-center">
+<div class="content">
+<img src="../../_images/uml/RM-data_types.quantity.svg" alt="RM data types.quantity">
+</div>
+<div class="title">Figure 1. rm.data_types.quantity package</div>
+</div>
+<div class="sect2">
+<h3 id="_requirements"><a class="anchor" href="#_requirements"></a><a class="link" href="#_requirements">Requirements</a></h3>
+<div class="sect3">
+<h4 id="_scores_and_scales"><a class="anchor" href="#_scores_and_scales"></a><a class="link" href="#_scores_and_scales">Scores and Scales</a></h4>
+<div class="paragraph">
+<p>Medicine is a domain in which symbols representing relative magnitudes are commonly used, without exact values being used. The main purpose is usually to classify patients into groups for which different decisions might be made. Such classifications are typically known as <em>scores</em> or <em>scales</em>. For example the characterisation of pain as 'mild', 'medium', 'severe', or the reflex response to tendon percussion as "-", "+/-", "+", "++", "+++", "++++". Many scores such as the Apgar Score, Glasgow Coma Scale (GCS), and Barthel Index are globally known and used.</p>
+</div>
+<div class="paragraph">
+<p>In some cases, there may be no way (or need) to precisely quantify such values because they reflect a subjective experience of the patient or informal judgment by the clinician. However, they are understood as being ordered, e.g. pass: [<code>++</code>] is arithmetically greater than `+`.</p>
+</div>
+<div class="paragraph">
+<p>Similarly, even though the symbolic values for haemolysed blood in a urinalysis have approximate
+ranges stated for them, as shown below, these 'values' are not usable in the same way as true quantities.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>"neg"</code>, <code>"trace"</code> (10 cells/&#956;l)</p>
+</li>
+<li>
+<p><code>"small"</code> (&lt;25 cells/&#956;l)</p>
+</li>
+<li>
+<p><code>"moderate"</code> (&lt;80 cells/&#956;l)</p>
+</li>
+<li>
+<p><code>"large"</code> (&gt;200 cells/&#956;l)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>A second requirement for score and scale values is that in many cases there is a need to associate numeric values values with the symbols, in order to facilitate ordered comparison, and also to enable longitudinal comparison across results of the same kind (e.g. pain, protein). The majority of scores and scales are limited to Integer values, but some use Real numbers interspersed with Integers e.g. the <a href="https://www.researchgate.net/publication/228089364_Proposing_a_standardized_method_for_evaluating_patient_report_of_the_intensity_of_dyspnea_during_exercise_testing_in_COPD">Borg CR 10 scale</a> for perceived exertion. In both cases, values may be negative, zero or positive.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+an argument sometimes put forward for recording all ordinals in a more precise way is that comparisons might want to be made between the values quoted by two laboratories for the same symbol (e.g. 'moderate'). There are a number of counter-arguments. Firstly, such comparisons are a poor attempt at normalisation, an activity which is the business of pathologists, not EHR users. Secondly, the symbolic values are often arrived at by the tester making a judgement of colour on a strip, which while an adequate (and cost-effective) approach for classifying, is not a valid means of quantifying a value. Lastly, in most cases, if a quantified point value or range is desired, or available, then it will be used - meaning that the appropriate quantitative data type can be used, rather than an the ordinal type.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_countable_things"><a class="anchor" href="#_countable_things"></a><a class="link" href="#_countable_things">Countable Things</a></h4>
+<div class="paragraph">
+<p>A common kind of data value in medicine is the dimensionless countable quantity, e.g.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>number of doses: 2;</p>
+</li>
+<li>
+<p>number of previous pregnancies: 1;</p>
+</li>
+<li>
+<p>number of tablets: 3.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Values of this type are always integral. Countable values need to be convertible to real numbers for statistical purposes, for example for a study of average number of pregnancies per couple.</p>
+</div>
+<div class="paragraph">
+<p>Some countable entities such as tablets are divisible into major fractions, typically halves and occasionally quarters.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_dimensioned_quantities"><a class="anchor" href="#_dimensioned_quantities"></a><a class="link" href="#_dimensioned_quantities">Dimensioned Quantities</a></h4>
+<div class="paragraph">
+<p>The most common kind of quantity is a measured, dimensioned quantity. Anything which is measurable
+(rather than countable) involves a number of data aspects, namely:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>a magnitude whose value is a real number;</p>
+</li>
+<li>
+<p>the physical property being measured, with the appropriate units;</p>
+</li>
+<li>
+<p>a concept of precision, i.e. to what number of decimal places the value is recorded;</p>
+</li>
+<li>
+<p>a concept of accuracy, i.e. the known or assumed error in the measurement due to instrumentation or human judgement.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Examples of dimensioned quantities include:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>systolic BP: 110 mmHg</p>
+</li>
+<li>
+<p>height: 178 cm</p>
+</li>
+<li>
+<p>rate of asthma attacks: 7 /week</p>
+</li>
+<li>
+<p>weight loss: 2.5 kg</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_ratios_and_proportions"><a class="anchor" href="#_ratios_and_proportions"></a><a class="link" href="#_ratios_and_proportions">Ratios and Proportions</a></h4>
+<div class="paragraph">
+<p>A common quantitative type in science and medicine is the proportion, or ratio, which is used in situations like the following:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>1:128 (a titer);</p>
+</li>
+<li>
+<p>Na:K concentration ratio (unitary denominator);</p>
+</li>
+<li>
+<p>albumin:creatinine ratio;</p>
+</li>
+<li>
+<p>% e.g. red cell distribution width (RDW) which is the width of a distribution of RBC widths.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>In general ratios have real number values, even if many examples appear to be integer ratios. Proportions with unitary denominator and % (denominator = 100) are common.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_formulations"><a class="anchor" href="#_formulations"></a><a class="link" href="#_formulations">Formulations</a></h4>
+<div class="paragraph">
+<p>A concept superficially similar to proportions and ratios is formulations of materials, such as a solid in a liquid e.g.:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>250 mg / 500 ml (solute/solvent)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Although a single solute/single solvent formulation appears to have the same form as a ratio, the general form is for any number of substances to be mixed together, usually according to a particular procedure. Formulations are therefore not candidates for direct modelling as fine-grained quantities, but instead are constructed by archetyping a higher-level structure, each leaf element of which contains the required kind of Quantity.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_quantity_ranges"><a class="anchor" href="#_quantity_ranges"></a><a class="link" href="#_quantity_ranges">Quantity Ranges</a></h4>
+<div class="paragraph">
+<p>Quantity ranges are ubiquitous in science and medicine, and may be defined for any kind of measured
+phenomenon. Examples include:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>healthy weight range, e.g. 48kg - 60kg</p>
+</li>
+<li>
+<p>normal range for urinalysis in pregnancy - protein, e.g. "nil" - "trace"</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_reference_ranges"><a class="anchor" href="#_reference_ranges"></a><a class="link" href="#_reference_ranges">Reference Ranges</a></h4>
+<div class="paragraph">
+<p>A reference range is a quantity range attached to a measured value, and is common for laboratory
+result values. The typical form of a reference range found in a pathology result indicates what is considered
+the 'normal' range for a measured value. Examples of reference ranges:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>normal range for serum Na is 135 - 145 mmol/L.</p>
+</li>
+<li>
+<p>desirable total cholesterol: &lt; 5.5 mmol/L (strictly this probably should be 2.0 - 5.5 mmol/L, but is not usually quoted this way as low cholesterol is not considered a problem.)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Ranges can also be quoted for drug administrations, in which case they are usually thought of as the 'therapeutic' range. For example, the anticonvulsant drug Carbamazepine has a therapeutic range of 20 - 40 &#956;Mol/L. In some cases, there are multiple ranges associated with a drug, for example, Salicylate has a therapeutic range of 1.0 - 2.5 mmol/L and a toxic range &gt; 3.6 mmol/L</p>
+</div>
+<div class="paragraph">
+<p>Various examples occur in which multiple ranges may be stated, including the following.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The administration recomendations for drugs which depend on the particular patient state. For example, the therapeutic range of Cyclosporin (an immunosuppresant) is a function of time post-transplant for the affected organ, e.g. kidney: &lt; 6 months: 250 - 350 &#956;g/L, &gt; 6 months: 100 - 200 &#956;g/L.</p>
+</li>
+<li>
+<p>Normal ranges for blood IgG, IgA, IgM which vary significantly with the age in months from birth.</p>
+</li>
+<li>
+<p>Progesterone and pituitary hormones have ranges which are different for different phases of the menstrual cycle and for menopause. This may result in 4 or 5 ranges given for one result. Only one will apply to any particular patient - but the exact phase of the cycle may be unknown - so the ranges may need to be associated with the value with no 'normal' range.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Where there are multiple ranges, the important question is: <em>which range information is relevant to the actual data being recorded for the patient?</em> In theory, only the range corresponding to the particular patient situation should be used, i.e. the range which applies after taking into account sex, age, smoking status, "professional athlete", organ transplanted, etc. In most cases, this is a single "normal" range, or a pair of ranges, typically "therapeutic" and "critical". However, practical factors complicate things. Firstly, data is sometimes supplied from pathology labs along with some or all of the applicable reference ranges, even though only some could possibly apply. This is particularly the case if the laboratory has no other data on the patient, and cannot evaluate which range applies. The requirement for faithfulness of recording might be extended to reference data supplied by laboratories, regardless of how irrelevant or arbitrarily chosen the reference data is, meaning that such data has to be stored in the record anyway. Secondly, there may be circumstances in which physicians want a number of reference ranges, even while knowing that only one range is applicable to the datum. Ranges above and below the relevant one might be useful to a physician wishing to determine how far out of range the datum is.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_normal_range_and_status_in_laboratory_data"><a class="anchor" href="#_normal_range_and_status_in_laboratory_data"></a><a class="link" href="#_normal_range_and_status_in_laboratory_data">Normal Range and Status in Laboratory data</a></h4>
+<div class="paragraph">
+<p>It is quite common for laboratories to include a normal range with each measured value, and/or a normal 'status', which indicates where the value lies with respect to the normal range. The latter will commonly take the form of markers like "HHH" (critically high), HH (abnormally high), H (borderline high), L, LL, LLL in HL7v2 messaging, although other schemes are undoubtedly used.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_design"><a class="anchor" href="#_design"></a><a class="link" href="#_design">Design</a></h3>
+<div class="sect3">
+<h4 id="_basic_semantics"><a class="anchor" href="#_basic_semantics"></a><a class="link" href="#_basic_semantics">Basic Semantics</a></h4>
+<div class="paragraph">
+<p>In order to make sense of the requirements in a systematic way, a proper typology for quantities is needed. The most basic characteristic of all values typically called 'quantities' is that they are ordered, meaning that the operator "&lt;" (less-than) is defined between any two values in the domain. An ancestor class for all quantities called <code>DV_ORDERED</code> is accordingly defined. This type is subtyped into ordinals, scales and true quantities, represented by the classes <code>DV_ORDINAL</code>, <code>DV_SCALE</code> and <code>DV_QUANTIFIED</code> respectively.</p>
+</div>
+<div class="paragraph">
+<p><code>DV_ORDINAL</code> and <code>DV_SCALE</code> are used for scores and scales as described in the requirements above. <code>DV_ORDINAL</code> represents data values whose values are Integers, and which have symbolic or text names instead, such as "+", "++", "+++", or <code>"mild"</code>, <code>"medium"</code>, <code>"severe"</code>. Each symbol can be assigned any Integer value, providing a basis for computable comparison. Typical uses for <code>DV_ORDINAL</code> include representing values from the Apgar and Glasgow Coma Scales, e.g. <code>0｜heart rate absent｜</code>, <code>4｜withdraws from pain｜</code>. <code>DV_SCALE</code> is similar to <code>DV_ORDINAL</code>, and was introduced to support scales / scores containing Real values as well as Integers.</p>
+</div>
+<div class="paragraph">
+<p>In contrast to <code>DV_ORDINAL</code> and <code>DV_SCALE</code>, instances of <code>DV_QUANTIFIED</code> and all its subtypes have precise numeric magnitudes. Accordingly, <code>DV_QUANTIFIED</code> introduces the properties <code><em>magnitude</em></code> and <code><em>magnitude_status</em></code>. The <code><em>magnitude</em></code> attribute is guaranteed to be available on any <code>DV_QUANTIFIED</code>, carrying the effective value, regardless of the particular subtype. The optional <code><em>magnitude_status</em></code> attribute can be used to provide a non-quantified indication of accuracy, and takes the following values:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>"="</code> : magnitude is a point value</p>
+</li>
+<li>
+<p><code>"&lt;"</code> : value is &lt; magnitude</p>
+</li>
+<li>
+<p><code>"&gt;"</code> : value is &gt; magnitude</p>
+</li>
+<li>
+<p><code>"&lt;="</code> : value is &lt;= magnitude</p>
+</li>
+<li>
+<p><code>"&gt;="</code> : value is &gt;= magnitude</p>
+</li>
+<li>
+<p><code>"~"</code> : value is approximately magnitude</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>If not present, the meaning is <code>"="</code>.</p>
+</div>
+<div class="paragraph">
+<p>Logically, an accuracy attribute should also be included in <code>DV_QUANTIFIED</code>, but as its modelling is different in the subtypes in a way that does not easily lend itself to a common ancestor, it is only included in the subtypes.</p>
+</div>
+<div class="paragraph">
+<p>The <code>DV_QUANTIFIED</code> class has two subtypes: <code>DV_AMOUNT</code> and <code>DV_ABSOLUTE_QUANTITY</code>. The former corresponds to relative 'amounts' of something, either a physical property (such as mass) or items (e.g. cigarettes). Mathematically, the <code>+</code> and <code>-</code> operators (as well as <code>*</code> and <code>/</code>) are defined in the same way as for the real numbers (or any other mathematical 'field'), with the semantics that adding two relative quantities measuring the same thing (i.e. with the same units) produces another relative quantity of the same kind; while the semantics of subtraction are that one relative quantity subtracted from another generates a third.</p>
+</div>
+<div class="paragraph">
+<p>The second subtype of <code>DV_QUANTIFIED</code>, <code>DV_ABSOLUTE_QUANTITY</code>, models quantities whose values are absolute along a line having a defined origin. The main example of absolute quantities are the temporal concepts date, time and date/time. These are distinguished from relative quantities in that the normal addition and subtraction operations don&#8217;t apply. Instead, the semantics of such operators are based on the idea of the difference between absolute values being a relative amount. For example, two dates can be subtracted, but the result is a duration, not another date. For this reason, the operations <code><em>add</em></code>, <code><em>subtract</em></code> and <code><em>diff</em></code> are defined rather than <code>+</code> or <code>-</code>. Date/time types, as well as the relative concept duration, are defined in <a href="#_date_time_package">[_date_time_package]</a>.</p>
+</div>
+<div class="paragraph">
+<p>Subtypes of <code>DV_AMOUNT</code> are <code>DV_PROPORTION</code>, <code>DV_QUANTITY</code>, <code>DV_COUNT</code>, and <code>DV_DURATION</code> (see date_time package). The type <code>DV_COUNT</code> has an integer magnitude and is used to record naturally countable things such as number of previous pregnancies, number of steps taken by a recovering stroke victim and so on. There are no units or precision in a <code>DV_COUNT</code>. Countable quantities can be used to create instances of <code>DV_QUANTITY</code>, such as during a statistical study which average tobacco
+consumption over a time period. Such a computation might cause the creation of <code>DV_QUANTITY</code> objects representing values like {magnitude = 5.85, units = '/ week'}</p>
+</div>
+<div class="paragraph">
+<p><code>DV_QUANTITY</code> is used to represent amounts of measurable things, and has a real number magnitude, precision, units and accuracy. The <code><em>units</em></code> attribute contains the scientific unit in a parsable form defined by default by the <a href="http://unitsofmeasure.org/ucum.html">Unified Code for Units of Measure (UCUM)</a> (case-sensitive form), or by another system or terminology specified in the <code><em>units_system</em></code> attribute. In some cases, such as metric units, the UCUM code and the display form are the same, e.g. 'kg'. However this is not the general case, and many common units have different display and code forms, e.g. degrees Celcius:  '°C' and 'Cel'. In general the unit display name should be looked up if it is not known in context that the code is directly displayable. The <code><em>units_display_name</em></code> attribute may be used if the displayable form of the units is required in the data, and/or terminology lookup is not available or desirable. Unit names may be language dependent, particularly older units.</p>
+</div>
+<div class="paragraph">
+<p>A valid units string always implies a measured <em>property</em>, such as force or pressure. If unit strings are compared in the application environment to determine if they measure the same property (e.g. <code>"bar"</code> and <code>"kPa"</code> are both units of 'pressure'), which enables the <code><em>is_strictly_comparable_to()</em></code> function defined on <code>DV_ORDERED</code> to be properly specified on <code>DV_QUANTITY</code>.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+while these semantics will allow comparison of e.g. two pressures recorded in <code>mbar and mmHg, or even two accelerations whose units are `"m.s^-2"</code> and <code>"m/s^2"</code>, they provide no guarantee that this is a sensible thing to do in terms of domain semantics: comparing a blood pressure to an atmospheric pressure for example may or may not make any sense. It is not within the scope of the quantity package to express such semantics - this is up to application software which uses Quantities found in specific places in the data.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_accuracy_and_uncertainty"><a class="anchor" href="#_accuracy_and_uncertainty"></a><a class="link" href="#_accuracy_and_uncertainty">Accuracy and Uncertainty</a></h4>
+<div class="paragraph">
+<p>Theoretically it might be argued that accuracy should not be included in a model for quantified values, because it is an artifact of a measuring process and/or device, not of a quantity itself. For example, a weight of "82 kg &#177;5%" can be represented in two parts. The "82 kg" is represented as a <code>DV_QUANTITY</code>, while the "&#177;5%" could be included in the protocol description of the weighing instrument, since this is where the error comes from. For practical purposes however, (in)accuracy in a measured quantity corresponds to a range of possible values. In realistic computing in health, it is quite likely that the accuracy will be required in computations on quantities, especially for statistical population queries in which measurement error must be disambiguated from true correlation.</p>
+</div>
+<div class="paragraph">
+<p>Accuracy is therefore introduced as the abstract feature accuracy of the <code>DV_QUANTIFIED</code> class. It is defined concretely in the two descendants, <code>DV_AMOUNT</code>, where it is of type Real, and <code>DV_ABSOLUTE_QUANTITY</code>, where it is of a differential type defined by subtypes. A value of 0 in either case indicates 100% accuracy, i.e. no error in measurement. Where accuracy is not recorded in a quantity, it is represented by a special value. In <code>DV_AMOUNT</code>, a value of -1 for the accuracy attribute
+is used for this purpose, and the constant unknown_accuracy_value = -1 is provided within the class to give a symbolic name for the special value. In the <code>DV_ABSOLUTE_QUANTITY</code> class, <code><em>accuracy_unknown</em></code> is represented by a Void (i.e. null) value for the accuracy attribute. An abstract Boolean feature <code><em>accuracy_unknown</em></code> is defined in the parent class <code>DV_QUANTIFIED</code> to provide a logical test of accuracy being absent, and is implemented in the respective  descendants by concrete functions that check for the special values.</p>
+</div>
+<div class="paragraph">
+<p>In addition, the class <code>DV_AMOUNT</code>, provides a feature <code><em>accuracy_is_percent</em>: Boolean</code> to indicate if accuracy value is to be understood as a percentage, or an absolute value.</p>
+</div>
+<div class="paragraph">
+<p>When two compatible quantities are added or subtracted using the + or - operators (<code>DV_AMOUNT</code> descendants) or add and substract (<code>DV_ABSOLUTE_QUANTITY</code> class), accuracy behaves in the following way:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>if accuracies are present in both quantities, they are added in the result, for both addition and subtraction operations;</p>
+</li>
+<li>
+<p>if either or both quantities has an unknown accuracy, the accuracy of the result is also unknown;</p>
+</li>
+<li>
+<p>if two <code>DV_AMOUNT</code> descendants are added or subtracted, and only one has <code><em>accuracy_is_percent</em></code> = True, accuracy is expressed in the result in the form used in the larger of the two quantities.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The related notion of 'uncertainty' is understood as a subjective judgement made by the clinician, indicating that he/she is not certain of a particular statement. It is not the same as accuracy: uncertainty may apply to non-quantified values, such as subjective statements, and it is not an aspect of objective measurement processes, but of human confidence. Where the uncertainty is due to subjective memory e.g. "I think my grandfather was 56 when he died", the uncertainty is simply recorded as another value, along with the main data item being recorded. Uncertainty is therefore not directly modelled in the openEHR data types, but appears instead in particular archetypes.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_quantity_ranges_2"><a class="anchor" href="#_quantity_ranges_2"></a><a class="link" href="#_quantity_ranges_2">Quantity Ranges</a></h4>
+<div class="paragraph">
+<p>Ranges are modelled by the generic type <code>DV_INTERVAL&lt;T:DV_ORDERED&gt;</code> which enables a range of any of the other quantity types (except ratio) to be constructed. This allows any subtype of <code>DV_ORDERED</code> to occur as a range as well.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_proportions"><a class="anchor" href="#_proportions"></a><a class="link" href="#_proportions">Proportions</a></h4>
+<div class="paragraph">
+<p>The <code>DV_PROPORTION</code> type is provided for representing true ratios, i.e. relative values, and consists of numerator and denominator Real values, and a magnitude function which is computed as the result of the numerator/denominator division. The type attribute is used to indicate the logical type of the proportion. Supported types include:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><em>percent</em>: denominator is 100; usual presentation is "numerator %"</p>
+</li>
+<li>
+<p><em>unitary</em>: denominator is 1; usual presentation is "numerator"</p>
+</li>
+<li>
+<p><em>fraction</em>: numerator and denominator are both integer values; usual presentation is n/d, e.g. such as ½ or ¾, 1/2, 3/4 etc;</p>
+</li>
+<li>
+<p><em>integer_fraction</em>: numerator and denominator are both integer values; usual presentation is n/d; if numerator &gt; denominator, display as "a b/c", i.e. the integer part followed by the remaining fraction part, e.g. 1½; this is the most likely form for expressing a number of tablets;</p>
+</li>
+<li>
+<p><em>ratio</em>: numerator and denominator can take any value; usual presentation is "numerator: denominator"</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Lastly, the <code><em>is_integral</em></code> function indicates that the numerator and denominator are both integer values; this is used for fractions (the fraction and integer_fraction types above) and other commonly occurring ratios where both parts are always integer values.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_normal_and_reference_ranges"><a class="anchor" href="#_normal_and_reference_ranges"></a><a class="link" href="#_normal_and_reference_ranges">Normal and Reference Ranges</a></h4>
+<div class="paragraph">
+<p>Normal range for any of the quantity types (i.e. any instance of a subtype of <code>DV_ORDERED</code>) can be included via the attribute <code>DV_ORDERED</code>.<code><em>normal_range</em></code>, of type <code>REFERENCE_RANGE</code>. Other reference ranges (e.g. sub-critical, critical etc) can be included via the attribute <code>DV_ORDERED</code>.<code><em>other_reference_ranges</em></code>. The separation of normal and other reference range attributes is used because the former constitute the vast majority of ranges quoted for quantitative data.</p>
+</div>
+<div class="paragraph">
+<p>Normal status can be included via the attribute <code>DV_ORDERED</code>.<code><em>normal_status</em></code>, which takes the form of a <code>DV_ORDINAL</code>, whose symbol attribute is coded according to the openEHR terminology group "normal status", and takes values "HHH" (critically high), "HH" (abnormally high), "H" (borderline high)", "N" (normal), "L" &#8230;&#8203; "LLL".</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_recording_time"><a class="anchor" href="#_recording_time"></a><a class="link" href="#_recording_time">Recording Time</a></h4>
+<div class="paragraph">
+<p>Time can be recorded in two ways. Absolute times in the social time domain, such as dates and time of day are recorded using the types in the date_time package. Fine-grained 'time', which is a duration rather than a time, is recorded using a <code>DV_QUANTITY</code> with units = 's' or another temporal unit ('h', 'ms', 'ns' etc).</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_class_descriptions"><a class="anchor" href="#_class_descriptions"></a><a class="link" href="#_class_descriptions">Class Descriptions</a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_dv_ordered_class"><a class="anchor" href="#_dv_ordered_class"></a><a class="link" href="#_dv_ordered_class">DV_ORDERED Class</a></h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong><em>DV_ORDERED (abstract)</em></strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Abstract class defining the concept of ordered values, which includes ordinals as well as true quantities. It defines the functions  <code>&lt;</code> and <code><em>is_strictly_comparable_to()</em></code>, the latter of which must evaluate to <code>True</code> for instances being compared with the  <code>&lt;</code> function, or used as limits in the <code>DV_INTERVAL&lt;T&gt;</code> class.</p>
+</div>
+<div class="paragraph">
+<p>Data value types which are to be used as limits in the <code>DV_INTERVAL&lt;T&gt;</code> class must inherit from this class, and implement the function <code><em>is_strictly_comparable_to()</em></code> to ensure that instances compare meaningfully. For example, instances of <code>DV_QUANTITY</code> can only be compared if they measure the same kind of physical quantity.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="#_data_value_class">DATA_VALUE</a></code>, <code><a href="/releases/BASE/latest/foundation_types.html#_ordered_class" target="_blank" rel="noopener">Ordered</a></code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>normal_status</strong>: <code><a href="#_code_phrase_class">CODE_PHRASE</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Optional normal status indicator of value with respect to normal range for this value. Often included by lab, even if the normal range itself is not included. Coded by ordinals in series HHH, HH, H, (nothing), L, LL, LLL; see openEHR terminology group  <code>normal_status</code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>normal_range</strong>: <code><a href="#_dv_interval_class">DV_INTERVAL</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Optional normal range.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>other_reference_ranges</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_list_class" target="_blank" rel="noopener">List</a>&lt;<a href="#_reference_range_class">REFERENCE_RANGE</a>&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Optional tagged other reference ranges for this value in its particular measurement context.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Functions</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(abstract)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_strictly_comparable_to</strong> (<br>
+other: <code><a href="#_dv_ordered_class">DV_ORDERED</a>[1]</code><br>
+): <code><a href="/releases/BASE/latest/foundation_types.html#_boolean_class" target="_blank" rel="noopener">Boolean</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Test if two instances are strictly comparable. Effected in descendants.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_simple</strong> (): <code><a href="/releases/BASE/latest/foundation_types.html#_boolean_class" target="_blank" rel="noopener">Boolean</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>True if this quantity has no reference ranges.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_normal</strong> (): <code><a href="/releases/BASE/latest/foundation_types.html#_boolean_class" target="_blank" rel="noopener">Boolean</a></code><br>
+<br>
+<em>Pre</em>: <code>normal_range /= Void or normal_status /= Void</code><br>
+<em>Post_range</em>: <code>normal_range /= Void implies Result = normal_range.has (self)</code><br>
+<em>Post_status</em>: <code>normal_status /= Void implies normal_status.code_string.is_equal (“N”)</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Value is in the normal range, determined by comparison of the value to <code><em>normal_range</em></code> if present, or by the <code><em>normal_status</em></code> marker if present.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(effected)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>less_than</strong> <em>alias</em> "&lt;" (<br>
+other: <code><a href="#_dv_ordered_class">DV_ORDERED</a>[1]</code><br>
+): <code><a href="/releases/BASE/latest/foundation_types.html#_boolean_class" target="_blank" rel="noopener">Boolean</a></code><br>
+<br>
+<em>Pre_comparable</em>: <code>is_strictly_comparable_to (other)</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>True if this Ordered object is less than <code><em>other</em></code>. Redefined in descendants.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Invariants</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Other_reference_ranges_validity</em>: <code>other_reference_ranges /= Void implies not other_reference_ranges.is_empty</code></p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Is_simple_validity</em>: <code>(normal_range = Void and other_reference_ranges = Void) implies is_simple</code></p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Normal_status_validity</em>: <code>normal_status /= Void implies code_set (Code_set_id_normal_statuses).has_code (normal_status)</code></p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Normal_range_and_status_consistency</em>: <code>(normal_range /= Void and normal_status /= Void) implies (normal_status.code_string.is_equal (“N”) xor not normal_range.has (self))</code></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_dv_interval_class"><a class="anchor" href="#_dv_interval_class"></a><a class="link" href="#_dv_interval_class">DV_INTERVAL Class</a></h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>DV_INTERVAL&lt;T&gt;</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Generic class defining an interval (i.e. range) of a comparable type. An interval is a contiguous subrange of a comparable base type. Used to define intervals of dates, times, quantities (whose units match) and so on. The type parameter, <code>T</code>, must be a descendant of the type <code>DV_ORDERED</code>, which is necessary (but not sufficient) for instances to be compared (<code><em>strictly_comparable</em></code> is also needed).</p>
+</div>
+<div class="paragraph">
+<p>Without the <code>DV_INTERVAL</code> class, quite a few more <code>DV_</code> classes would be needed to express logical intervals, namely interval versions of all the date/time classes, and of quantity classes. Further, it allows the semantics of intervals to be stated in one place unequivocally, including the conditions for strict comparison.</p>
+</div>
+<div class="paragraph">
+<p>The basic semantics are derived from the class <code>Interval&lt;T&gt;</code>, described in the support RM.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="#_data_value_class">DATA_VALUE</a></code>, <code><a href="/releases/BASE/latest/foundation_types.html#_interval_class" target="_blank" rel="noopener">Interval</a></code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Invariants</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Limits_consistent</em>: <code>(not upper_unbounded and not lower_unbounded) implies (lower.is_strictly_comparable_to(upper) and lower &lt;= upper)</code></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_reference_range_class"><a class="anchor" href="#_reference_range_class"></a><a class="link" href="#_reference_range_class">REFERENCE_RANGE Class</a></h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>REFERENCE_RANGE&lt;T&gt;</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Defines a named range to be associated with any <code>DV_ORDERED</code> datum. Each such range is particular to the patient and context, e.g. sex, age, and any other factor which affects ranges. May be used to represent normal, therapeutic, dangerous, critical etc ranges.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>meaning</strong>: <code><a href="#_dv_text_class">DV_TEXT</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Term whose value indicates the meaning of this range, e.g.  normal,  critical,  therapeutic  etc.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>range</strong>: <code><a href="#_dv_interval_class">DV_INTERVAL</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>The data range for this meaning, e.g. critical  etc.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Functions</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_in_range</strong> (<br>
+v: <code><a href="#_dv_ordered_class">DV_ORDERED</a>[1]</code><br>
+): <code><a href="/releases/BASE/latest/foundation_types.html#_boolean_class" target="_blank" rel="noopener">Boolean</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Indicates if the value  <code><em>v</em></code> is inside the range.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Invariants</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Range_is_simple</em>: <code>(range.lower_unbounded or else range.lower.is_simple) and (range.upper_unbounded or else range.upper.is_simple)</code></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_dv_ordinal_class"><a class="anchor" href="#_dv_ordinal_class"></a><a class="link" href="#_dv_ordinal_class">DV_ORDINAL Class</a></h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>DV_ORDINAL</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>A data type that represents integral score values, e.g. pain, Apgar values, etc, where there is:</p>
+</div>
+<div class="paragraph">
+<p>a) implied ordering,
+b) no implication that the distance between each value is constant, and
+c) the total number of values is finite;
+d) integer values only.</p>
+</div>
+<div class="paragraph">
+<p>Note that although the term 'ordinal' in mathematics means natural numbers only, here any integer is allowed, since negative and zero values are often used by medical professionals for values around a neutral point. Examples of sets of ordinal values:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>-3, -2, -1, 0, 1, 2, 3 &#8201;&#8212;&#8201;reflex response values</p>
+</li>
+<li>
+<p>0, 1, 2                 &#8201;&#8212;&#8201;Apgar values</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>This class is used for recording any clinical datum which is customarily recorded using symbolic values. Example: the results on a urinalysis strip, e.g. <code>{neg, trace, , , }</code> are used for leucocytes, protein, nitrites etc; for non-haemolysed blood <code>{neg, trace, moderate}</code>; for haemolysed blood <code>{small, moderate, large}</code>.</p>
+</div>
+<div class="paragraph">
+<p>For scores or scales that include Real numbers (or might in the future, i.e. not fixed for all time, such as Apgar), use <code>DV_SCALE</code>. <code>DV_SCALE</code> may also be used in future for representing purely Integer-based scales, however, the <code>DV_ORDINAL</code> type should continue to be supported in software implementations in order to accommodate existing data that are instances of this type.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="#_dv_ordered_class">DV_ORDERED</a></code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>symbol</strong>: <code><a href="#_dv_coded_text_class">DV_CODED_TEXT</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Coded textual representation of this value in the enumeration, which may be strings made from  +  symbols, or other enumerations of terms such as  <code>mild</code>, <code>moderate</code>, <code>severe</code>, or even the same number series as the values, e.g. 1, 2, 3.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>value</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_integer_class" target="_blank" rel="noopener">Integer</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Value in ordered enumeration of values. Any integer value can be used.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Functions</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(effected)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>less_than</strong> <em>alias</em> "&lt;" (<br>
+other: <code><a href="#_dv_ordinal_class">DV_ORDINAL</a>[1]</code><br>
+): <code><a href="/releases/BASE/latest/foundation_types.html#_boolean_class" target="_blank" rel="noopener">Boolean</a></code><br>
+<br>
+<em>Pre_comparable</em>: <code>is_strictly_comparable_to (other)</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>True if this Ordinal value is less than <code><em>other</em></code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(effected)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_strictly_comparable_to</strong> (<br>
+other: <code><a href="#_dv_ordinal_class">DV_ORDINAL</a>[1]</code><br>
+): <code><a href="/releases/BASE/latest/foundation_types.html#_boolean_class" target="_blank" rel="noopener">Boolean</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Test if this Ordinal is strictly comparable to <code><em>other</em></code>.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_dv_scale_class"><a class="anchor" href="#_dv_scale_class"></a><a class="link" href="#_dv_scale_class">DV_SCALE Class</a></h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>DV_SCALE</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>A data type that represents scale values, where there is:</p>
+</div>
+<div class="paragraph">
+<p>a) implied ordering,
+b) no implication that the distance between each value is constant, and
+c) the total number of values is finite;
+d) non-integer values are allowed.</p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>Borg CR 10 Scale
+
+0    No Breathlessness at all
+0.5  Very Very Slight (Just Noticeable)
+1    Very Slight
+2    Slight Breathlessness
+3    Moderate
+... etc</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>For scores that include only Integers, <code>DV_SCALE</code> may also be used, but <code>DV_ORDINAL</code> should be supported to accommodate existing data instances of that type.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="#_dv_ordered_class">DV_ORDERED</a></code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>symbol</strong>: <code><a href="#_dv_coded_text_class">DV_CODED_TEXT</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Coded textual representation of this value in the scale range, which may be strings made from symbols or other enumerations of terms such as  <code>no breathlessness</code>, <code>very very slight</code>, <code>slight breathlessness</code>. Codes come from archetypes.</p>
+</div>
+<div class="paragraph">
+<p>In some cases, a scale may include values that have no code/symbol. In this case, the symbol will be a <code>DV-CODED_TEXT</code> including the <code><em>terminology_id</em></code> and a blank String value for <code><em>code_string</em></code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>value</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_real_class" target="_blank" rel="noopener">Real</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Real number value of Scale item.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Functions</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(effected)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_strictly_comparable_to</strong> (<br>
+other: <code><a href="#_dv_scale_class">DV_SCALE</a>[1]</code><br>
+): <code><a href="/releases/BASE/latest/foundation_types.html#_boolean_class" target="_blank" rel="noopener">Boolean</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Test if this Scale value is strictly comparable to <code><em>other</em></code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(effected)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>less_than</strong> <em>alias</em> "&lt;" (<br>
+other: <code><a href="#_dv_scale_class">DV_SCALE</a>[1]</code><br>
+): <code><a href="/releases/BASE/latest/foundation_types.html#_boolean_class" target="_blank" rel="noopener">Boolean</a></code><br>
+<br>
+<em>Pre_comparable</em>: <code>is_strictly_comparable_to (other)</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>True if this Scale value is less than <code><em>other</em></code>.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_dv_quantified_class"><a class="anchor" href="#_dv_quantified_class"></a><a class="link" href="#_dv_quantified_class">DV_QUANTIFIED Class</a></h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong><em>DV_QUANTIFIED (abstract)</em></strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Abstract class defining the concept of true quantified values, i.e. values which are not only ordered, but which have a precise magnitude.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="#_dv_ordered_class">DV_ORDERED</a></code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>magnitude_status</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Optional status of magnitude with values:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>"="</code>   :   magnitude is a point value</p>
+</li>
+<li>
+<p><code>"&lt;"</code>   :   value is &lt; magnitude</p>
+</li>
+<li>
+<p><code>"&gt;"</code>   :   value is &gt; magnitude</p>
+</li>
+<li>
+<p><code>"&lt;="</code> : value is &lt;= magnitude</p>
+</li>
+<li>
+<p><code>"&gt;="</code> : value is &gt;= magnitude</p>
+</li>
+<li>
+<p><code>"~"</code>   :   value is approximately magnitude</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>If not present, assumed meaning is  <code>"="</code> .</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>accuracy</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_any_class" target="_blank" rel="noopener">Any</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Accuracy of measurement. Exact form of expression determined in descendants.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Functions</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>valid_magnitude_status</strong> (): <code><a href="/releases/BASE/latest/foundation_types.html#_boolean_class" target="_blank" rel="noopener">Boolean</a></code><br>
+<br>
+<em>Post</em>: <code>Result = s in {"=", "&lt;", "&gt;", "&lt;=", "&gt;=", "~"}</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Test whether a string value is one of the valid values for the magnitude_status attribute.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(abstract)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>magnitude</strong> (): <code><a href="/releases/BASE/latest/foundation_types.html#_ordered_numeric_class" target="_blank" rel="noopener">Ordered_Numeric</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>accuracy_unknown</strong> (): <code><a href="/releases/BASE/latest/foundation_types.html#_boolean_class" target="_blank" rel="noopener">Boolean</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>True if accuracy is not known, e.g. due to not being recorded or discernable.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(effected)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_equal</strong> (<br>
+other: <code><a href="#_dv_quantified_class">DV_QUANTIFIED</a>[1]</code><br>
+): <code><a href="/releases/BASE/latest/foundation_types.html#_boolean_class" target="_blank" rel="noopener">Boolean</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Return True if this <code>DV_QUANTIFIED</code> is considered equal to <code><em>other</em></code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(effected)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>less_than</strong> <em>alias</em> "&lt;" (<br>
+other: <code><a href="#_dv_quantified_class">DV_QUANTIFIED</a>[1]</code><br>
+): <code><a href="/releases/BASE/latest/foundation_types.html#_boolean_class" target="_blank" rel="noopener">Boolean</a></code><br>
+<br>
+<em>Post_result</em>: <code>Result = magnitude &lt; other.magnitude</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>True if <code><em>other</em></code> is less than this Quantified object. Based on comparison of <code><em>magnitude</em></code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Invariants</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Magnitude_status_valid</em>: <code>magnitude_status /= Void implies valid_magnitude_status (magnitude_status)</code></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_dv_amount_class"><a class="anchor" href="#_dv_amount_class"></a><a class="link" href="#_dv_amount_class">DV_AMOUNT Class</a></h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong><em>DV_AMOUNT (abstract)</em></strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Abstract class defining the concept of relative quantified  'amounts'. For relative quantities, the  <code>+</code> and  <code>-</code> operators are defined (unlike descendants of <code>DV_ABSOLUTE_QUANTITY</code>, such as the date/time types).</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="#_dv_quantified_class">DV_QUANTIFIED</a></code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>accuracy_is_percent</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_boolean_class" target="_blank" rel="noopener">Boolean</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>If <code>True</code>, indicates that when this object was created, <code><em>accuracy</em></code> was recorded as a percent value; if <code>False</code>, as an absolute quantity value.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1<br>
+(redefined)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>accuracy</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_real_class" target="_blank" rel="noopener">Real</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Accuracy of measurement, expressed either as a half-range percent value (<code><em>accuracy_is_percent</em></code> = <code>True</code>) or a half-range quantity. A value of <code>0</code> means that accuracy is 100%, i.e. no error.</p>
+</div>
+<div class="paragraph">
+<p>A value of <code><em>unknown_accuracy_value</em></code> means that accuracy was not recorded.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Functions</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>valid_percentage</strong> (<br>
+number: <code><a href="/releases/BASE/latest/foundation_types.html#_ordered_numeric_class" target="_blank" rel="noopener">Ordered_Numeric</a>[1]</code><br>
+): <code><a href="/releases/BASE/latest/foundation_types.html#_boolean_class" target="_blank" rel="noopener">Boolean</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Test whether a number is a valid percentage, i.e. between 0 and 100.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>add</strong> <em>alias</em> "+" (<br>
+other: <code><a href="#_dv_amount_class">DV_AMOUNT</a>[1]</code><br>
+): <code><a href="#_dv_amount_class">DV_AMOUNT</a></code><br>
+<br>
+<em>Pre_comparable</em>: <code>is_strictly_comparable_to (other)</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Sum of this amount and another. The value of accuracy in the result is either:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>the sum of the accuracies of the operands, if both present, or;</p>
+</li>
+<li>
+<p>both operand accuracies are unknown_accuracy_value.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>If the accuracy value is a percentage in one operand and not in the other, the form in the result is that of the larger operand.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>subtract</strong> <em>alias</em> "-" (<br>
+other: <code><a href="#_dv_amount_class">DV_AMOUNT</a>[1]</code><br>
+): <code><a href="#_dv_amount_class">DV_AMOUNT</a></code><br>
+<br>
+<em>Pre_comparable</em>: <code>is_strictly_comparable_to (other)</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Difference of this amount and another. The value of <code><em>accuracy</em></code> in the result is either:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>the sum of the accuracies of the operands, if both present, or;</p>
+</li>
+<li>
+<p>unknown, if either or both operand accuracies are unknown.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>If the <code><em>accuracy</em></code> value is a percentage in one operand and not in the other, the form in the result is that of the larger operand.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(effected)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_equal</strong> (<br>
+other: <code><a href="#_dv_amount_class">DV_AMOUNT</a>[1]</code><br>
+): <code><a href="/releases/BASE/latest/foundation_types.html#_boolean_class" target="_blank" rel="noopener">Boolean</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Return True if this <code>DV_AMOUNT</code> is considered equal to <code><em>other</em></code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>multiply</strong> <em>alias</em> "&#42;" (<br>
+factor: <code><a href="/releases/BASE/latest/foundation_types.html#_real_class" target="_blank" rel="noopener">Real</a>[1]</code><br>
+): <code><a href="#_dv_amount_class">DV_AMOUNT</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Product of this Amount and <code><em>factor</em></code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>negative</strong> <em>alias</em> "-" (): <code><a href="#_dv_amount_class">DV_AMOUNT</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Negated version of current object, such as used for representing a difference, e.g. a weight loss.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(effected)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>less_than</strong> <em>alias</em> "&lt;" (<br>
+other: <code><a href="#_dv_amount_class">DV_AMOUNT</a>[1]</code><br>
+): <code><a href="/releases/BASE/latest/foundation_types.html#_boolean_class" target="_blank" rel="noopener">Boolean</a></code><br>
+<br>
+<em>Post_result</em>: <code>Result = magnitude &lt; other.magnitude</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>True if this object is less than <code><em>other</em></code>. Based on comparison of <code><em>magnitude</em></code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Invariants</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Accuracy_is_percent_validity</em>: <code>accuracy = 0 implies not accuracy_is_percent</code></p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Accuracy_validity</em>: <code>accuracy_is_percent implies valid_percentage (accuracy)</code></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_dv_quantity_class"><a class="anchor" href="#_dv_quantity_class"></a><a class="link" href="#_dv_quantity_class">DV_QUANTITY Class</a></h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>DV_QUANTITY</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Quantitified type representing  scientific  quantities, i.e. quantities expressed as a magnitude and units. Units are expressed in the UCUM syntax (<a href="http://unitsofmeasure.org/ucum.html">Unified Code for Units of Measure (UCUM)</a>, by Gunther Schadow and Clement J. McDonald of The Regenstrief Institute)  (case-sensitive form) by default, or another system if <code><em>units_system</em></code> is set.</p>
+</div>
+<div class="paragraph">
+<p>Can also be used for time durations, where it is more convenient to treat these as simply a number of seconds rather than days, months, years (in the latter case, <code>DV_DURATION</code> may be used).</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="#_dv_amount_class">DV_AMOUNT</a></code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>magnitude</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_real_class" target="_blank" rel="noopener">Real</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Numeric magnitude of the quantity.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>precision</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_integer_class" target="_blank" rel="noopener">Integer</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Precision to which the value of the quantity is expressed, in terms of number of decimal places. The value 0 implies an integral quantity.
+The value -1 implies no limit, i.e. any number of decimal places.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>units</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Quantity units, expressed as a code or syntax string from either UCUM (the default) or the units system specified in <code><em>units_system</em></code>, when set.</p>
+</div>
+<div class="paragraph">
+<p>In either case, the value is the code or syntax - normally formed of standard ASCII - which is in principal not the same as the display string, although in simple cases such as 'm' (for meters) it will be.</p>
+</div>
+<div class="paragraph">
+<p>If the <code><em>units_display_name</em></code> field is set, this may be used for display. If not, the implementations must effect the resolution of the <code><em>units</em></code> value to a display form locally, e.g. by lookup of reference tables, request to a terminology service etc.</p>
+</div>
+<div class="paragraph">
+<p>Example values from UCUM: "kg/m^2", “mm[Hg]", "ms-1", "km/h".</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>units_system</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Optional field used to specify a units system from which codes in <code><em>units</em></code> are defined. Value is a URI identifying a terminology containing units concepts from the  (<a href="https://www.hl7.org/fhir/terminologies-systems.html">HL7 FHIR terminologies list</a>).</p>
+</div>
+<div class="paragraph">
+<p>If not set, the UCUM standard (case-sensitive codes) is assumed as the units system.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>units_display_name</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Optional field containing the displayable form of the <code><em>units</em></code> field, e.g. <code>'°C'</code>.</p>
+</div>
+<div class="paragraph">
+<p>If not set, the application environment needs to determine the displayable form.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The display name may be language-dependent for various older and non-systematic units. For this reason, it is not recommended to add unit display names to archetypes, only to templates (for localisation purposes).
+</td>
+</tr>
+</table>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1<br>
+(redefined)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>normal_range</strong>: <code><a href="#_dv_interval_class">DV_INTERVAL</a>&lt;<a href="#_dv_quantity_class">DV_QUANTITY</a>&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Optional normal range.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1<br>
+(redefined)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>other_reference_ranges</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_list_class" target="_blank" rel="noopener">List</a>&lt;<a href="#_reference_range_class">REFERENCE_RANGE</a>&lt;<a href="#_dv_quantity_class">DV_QUANTITY</a>&gt;&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Optional tagged other reference ranges for this value in its particular measurement context.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Functions</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(redefined)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>add</strong> <em>alias</em> "+" (<br>
+other: <code><a href="#_dv_quantity_class">DV_QUANTITY</a>[1]</code><br>
+): <code><a href="#_dv_quantity_class">DV_QUANTITY</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Sum of this <code>DV_QUANTITY</code> and <code><em>other</em></code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(redefined)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>subtract</strong> <em>alias</em> "-" (<br>
+other: <code><a href="#_dv_quantity_class">DV_QUANTITY</a>[1]</code><br>
+): <code><a href="#_dv_quantity_class">DV_QUANTITY</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Difference of this <code>DV_QUANTITY</code> and <code><em>other</em></code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(redefined)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>multiply</strong> <em>alias</em> "&#42;" (<br>
+factor: <code><a href="/releases/BASE/latest/foundation_types.html#_real_class" target="_blank" rel="noopener">Real</a>[1]</code><br>
+): <code><a href="#_dv_quantity_class">DV_QUANTITY</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Product of this <code>DV_QUANTITY</code> and <code><em>factor</em></code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(effected)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>less_than</strong> <em>alias</em> "&lt;" (<br>
+other: <code><a href="#_dv_quantity_class">DV_QUANTITY</a>[1]</code><br>
+): <code><a href="/releases/BASE/latest/foundation_types.html#_boolean_class" target="_blank" rel="noopener">Boolean</a></code><br>
+<br>
+<em>Post_result</em>: <code>Result = magnitude &lt; other.magnitude</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>True if this Quantified object is less than <code><em>other</em></code>. Based on comparison of <code><em>magnitude</em></code>. Only valid if <code><em>is_strictly_comparable_to()</em></code> is True.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_integral</strong> (): <code><a href="/releases/BASE/latest/foundation_types.html#_boolean_class" target="_blank" rel="noopener">Boolean</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>True if <code><em>precision</em></code> = 0, meaning that the <code><em>magnitude</em></code> is a whole number.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(effected)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_strictly_comparable_to</strong> (<br>
+other: <code><a href="#_dv_ordered_class">DV_ORDERED</a>[1]</code><br>
+): <code><a href="/releases/BASE/latest/foundation_types.html#_boolean_class" target="_blank" rel="noopener">Boolean</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>True if this quantity and <code><em>other</em></code> have the same <code><em>units</em></code> and also <code><em>units_system</em></code> if it exists.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_dv_count_class"><a class="anchor" href="#_dv_count_class"></a><a class="link" href="#_dv_count_class">DV_COUNT Class</a></h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>DV_COUNT</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Countable quantities. Used for countable types such as pregnancies and steps (taken by a physiotherapy patient), number of cigarettes smoked in a day.</p>
+</div>
+<div class="paragraph">
+<p>Misuse: Not to be used for amounts of physical entities (which all have units).</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="#_dv_amount_class">DV_AMOUNT</a></code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>magnitude</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_integer64_class" target="_blank" rel="noopener">Integer64</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1<br>
+(redefined)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>normal_range</strong>: <code><a href="#_dv_interval_class">DV_INTERVAL</a>&lt;<a href="#_dv_count_class">DV_COUNT</a>&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Optional normal range.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1<br>
+(redefined)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>other_reference_ranges</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_list_class" target="_blank" rel="noopener">List</a>&lt;<a href="#_reference_range_class">REFERENCE_RANGE</a>&lt;<a href="#_dv_count_class">DV_COUNT</a>&gt;&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Optional tagged other reference ranges for this value in its particular measurement context.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Functions</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(redefined)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>add</strong> <em>alias</em> "+" (<br>
+other: <code><a href="#_dv_count_class">DV_COUNT</a>[1]</code><br>
+): <code><a href="#_dv_count_class">DV_COUNT</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Sum of this <code>DV_COUNT</code> and <code><em>other</em></code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(redefined)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>subtract</strong> <em>alias</em> "-" (<br>
+other: <code><a href="#_dv_count_class">DV_COUNT</a>[1]</code><br>
+): <code><a href="#_dv_count_class">DV_COUNT</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Difference of this <code>DV_COUNT</code> and <code><em>other</em></code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(redefined)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>multiply</strong> <em>alias</em> "&#42;" (<br>
+factor: <code><a href="/releases/BASE/latest/foundation_types.html#_real_class" target="_blank" rel="noopener">Real</a>[1]</code><br>
+): <code><a href="#_dv_count_class">DV_COUNT</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Product of this <code>DV_COUNT</code> and <code><em>factor</em></code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(effected)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>less_than</strong> <em>alias</em> "&lt;" (<br>
+other: <code><a href="#_dv_count_class">DV_COUNT</a>[1]</code><br>
+): <code><a href="/releases/BASE/latest/foundation_types.html#_boolean_class" target="_blank" rel="noopener">Boolean</a></code><br>
+<br>
+<em>Post_result</em>: <code>Result = magnitude &lt; other.magnitude</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>True if <code><em>other</em></code> is less than this Quantified object. Based on comparison of <code><em>magnitude</em></code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(effected)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_strictly_comparable_to</strong> (<br>
+other: <code><a href="#_dv_ordered_class">DV_ORDERED</a>[1]</code><br>
+): <code><a href="/releases/BASE/latest/foundation_types.html#_boolean_class" target="_blank" rel="noopener">Boolean</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Return True.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_dv_proportion_class"><a class="anchor" href="#_dv_proportion_class"></a><a class="link" href="#_dv_proportion_class">DV_PROPORTION Class</a></h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>DV_PROPORTION</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Models a ratio of values, i.e. where the numerator and denominator are both pure numbers. The <code><em>valid_proportion_kind</em></code> property of the <code>PROPORTION_KIND</code> class is used to control the type attribute to be one of a defined set.</p>
+</div>
+<div class="paragraph">
+<p>Used for recording titers (e.g. 1:128), concentration ratios, e.g. Na:K (unitary denominator), albumin:creatinine ratio, and percentages, e.g. red cell distirbution width (RDW).</p>
+</div>
+<div class="paragraph">
+<p>Misuse: Should not be used to represent things like blood pressure which are often written using a  '/' character, giving the misleading impression that the item is a ratio, when in fact it is a structured value. Similarly, visual acuity, often written as (e.g.) "6/24" in clinical notes is not a ratio but an ordinal (which includes non-numeric symbols like CF = count fingers etc). Should not be used for formulations.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="#_proportion_kind_class">PROPORTION_KIND</a></code>, <code><a href="#_dv_amount_class">DV_AMOUNT</a></code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>numerator</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_real_class" target="_blank" rel="noopener">Real</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Numerator of ratio</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>denominator</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_real_class" target="_blank" rel="noopener">Real</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Denominator of ratio.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>type</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_integer_class" target="_blank" rel="noopener">Integer</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Indicates semantic type of proportion, including percent, unitary etc.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>precision</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_integer_class" target="_blank" rel="noopener">Integer</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Precision  to  which  the  <code><em>numerator</em></code> and <code><em>denominator</em></code> values of  the  proportion are expressed, in terms of number  of decimal places. The value 0 implies an integral quantity. The value -1 implies no limit, i.e. any number of decimal places.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1<br>
+(redefined)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>normal_range</strong>: <code><a href="#_dv_interval_class">DV_INTERVAL</a>&lt;<a href="#_dv_proportion_class">DV_PROPORTION</a>&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Optional normal range.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1<br>
+(redefined)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>other_reference_ranges</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_list_class" target="_blank" rel="noopener">List</a>&lt;<a href="#_reference_range_class">REFERENCE_RANGE</a>&lt;<a href="#_dv_proportion_class">DV_PROPORTION</a>&gt;&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Optional tagged other reference ranges for this value in its particular measurement context.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Functions</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(effected)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>magnitude</strong> (): <code><a href="/releases/BASE/latest/foundation_types.html#_real_class" target="_blank" rel="noopener">Real</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Effective magnitude represented by ratio.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_integral</strong> (): <code><a href="/releases/BASE/latest/foundation_types.html#_boolean_class" target="_blank" rel="noopener">Boolean</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>True if the <code><em>numerator</em></code> and <code><em>denominator</em></code> values are integers, i.e. if <code><em>precision</em></code> is 0.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(redefined)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>add</strong> <em>alias</em> "+" (<br>
+other: <code><a href="#_dv_proportion_class">DV_PROPORTION</a>[1]</code><br>
+): <code><a href="#_dv_proportion_class">DV_PROPORTION</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Sum of two strictly comparable proportions.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(redefined)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>subtract</strong> <em>alias</em> "-" (<br>
+other: <code><a href="#_dv_proportion_class">DV_PROPORTION</a>[1]</code><br>
+): <code><a href="#_dv_proportion_class">DV_PROPORTION</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Difference between two strictly comparable proportions.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(effected)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_equal</strong> (<br>
+other: <code><a href="#_dv_proportion_class">DV_PROPORTION</a>[1]</code><br>
+): <code><a href="/releases/BASE/latest/foundation_types.html#_boolean_class" target="_blank" rel="noopener">Boolean</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Return True if this <code>DV_AMOUNT</code> is considered equal to <code><em>other</em></code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(redefined)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>multiply</strong> <em>alias</em> "&#42;" (<br>
+factor: <code><a href="/releases/BASE/latest/foundation_types.html#_real_class" target="_blank" rel="noopener">Real</a>[1]</code><br>
+): <code><a href="#_dv_proportion_class">DV_PROPORTION</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Product of this Proportion and <code><em>factor</em></code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(effected)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>less_than</strong> <em>alias</em> "&lt;" (<br>
+other: <code><a href="#_dv_proportion_class">DV_PROPORTION</a>[1]</code><br>
+): <code><a href="/releases/BASE/latest/foundation_types.html#_boolean_class" target="_blank" rel="noopener">Boolean</a></code><br>
+<br>
+<em>Post_result</em>: <code>Result = magnitude &lt; other.magnitude</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>True if this Proportion is less than  <code><em>other</em></code>. Only valid if <code><em>is_strictly_comparable_to()</em></code> is True.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(effected)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_strictly_comparable_to</strong> (<br>
+other: <code><a href="#_dv_ordered_class">DV_ORDERED</a>[1]</code><br>
+): <code><a href="/releases/BASE/latest/foundation_types.html#_boolean_class" target="_blank" rel="noopener">Boolean</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Return True if the <code><em>type</em></code> of this proportion is the same as the <code><em>type</em></code> of <code><em>other</em></code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Invariants</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Type_validity</em>: <code>valid_proportion_kind (type)</code></p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Precision_validity</em>: <code>precision = 0 implies is_integral</code></p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Is_integral_validity</em>: <code>is_integral implies (numerator.floor = numerator and denominator.floor = denominator)</code></p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Fraction_validity</em>: <code>(type = pk_fraction or type = pk_integer_fraction) implies is_integral</code></p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Unitary_validity</em>: <code>type = pk_unitary implies denominator = 1</code></p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Percent_validity</em>: <code>type = pk_percent implies denominator = 100</code></p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Valid_denominator</em>: <code>denominator /= 0.0</code></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_proportion_kind_class"><a class="anchor" href="#_proportion_kind_class"></a><a class="link" href="#_proportion_kind_class">PROPORTION_KIND Class</a></h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>PROPORTION_KIND</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Class of enumeration constants defining types of proportion for the <code>DV_PROPORTION</code> class.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Constants</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>pk_ratio</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_integer_class" target="_blank" rel="noopener">Integer</a>&#160;=&#160;0</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Ratio type. Numerator and denominator may be any value.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>pk_unitary</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_integer_class" target="_blank" rel="noopener">Integer</a>&#160;=&#160;1</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Denominator must be 1.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>pk_percent</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_integer_class" target="_blank" rel="noopener">Integer</a>&#160;=&#160;2</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Denominator is 100, numerator is understood as a percentage value.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>pk_fraction</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_integer_class" target="_blank" rel="noopener">Integer</a>&#160;=&#160;3</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Numerator and denominator are integral, and the presentation method uses a slash, e.g.  1/2 .</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>pk_integer_fraction</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_integer_class" target="_blank" rel="noopener">Integer</a>&#160;=&#160;4</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Numerator and denominator are integral, and the presentation method uses a slash, e.g.  1/2 ; if the numerator is greater than the denominator, e.g. n=3, d=2, the presentation is  1 1/2 .</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Functions</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>valid_proportion_kind</strong> (<br>
+nq: <code><a href="/releases/BASE/latest/foundation_types.html#_integer_class" target="_blank" rel="noopener">Integer</a>[1]</code><br>
+): <code><a href="/releases/BASE/latest/foundation_types.html#_boolean_class" target="_blank" rel="noopener">Boolean</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>True if n is one of the defined types.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_dv_absolute_quantity_class"><a class="anchor" href="#_dv_absolute_quantity_class"></a><a class="link" href="#_dv_absolute_quantity_class">DV_ABSOLUTE_QUANTITY Class</a></h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong><em>DV_ABSOLUTE_QUANTITY (abstract)</em></strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Abstract class defining the concept of quantified entities whose values are absolute with respect to an origin. Dates and Times are the main example.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="#_dv_quantified_class">DV_QUANTIFIED</a></code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1<br>
+(redefined)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>accuracy</strong>: <code><a href="#_dv_amount_class">DV_AMOUNT</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Functions</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(abstract)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>add</strong> <em>alias</em> "+" (<br>
+a_diff: <code><a href="#_dv_amount_class">DV_AMOUNT</a>[1]</code><br>
+): <code><a href="#_dv_absolute_quantity_class">DV_ABSOLUTE_QUANTITY</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Addition of a differential amount to this quantity.</p>
+</div>
+<div class="paragraph">
+<p>The value of accuracy in the result is either:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>the sum of the accuracies of the operands, if both present, or;</p>
+</li>
+<li>
+<p>unknown, if either or both operand accuracies are unknown.</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(abstract)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>subtract</strong> <em>alias</em> "-" (<br>
+a_diff: <code><a href="#_dv_amount_class">DV_AMOUNT</a>[1]</code><br>
+): <code><a href="#_dv_absolute_quantity_class">DV_ABSOLUTE_QUANTITY</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Result of subtracting a differential amount from this quantity.</p>
+</div>
+<div class="paragraph">
+<p>The value of <code><em>accuracy</em></code> in the result is either:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>the sum of the accuracies of the operands, if both present, or;</p>
+</li>
+<li>
+<p>unknown, if either or both operand accuracies are unknown.</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(abstract)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>diff</strong> <em>alias</em> "-" (<br>
+other: <code><a href="#_dv_absolute_quantity_class">DV_ABSOLUTE_QUANTITY</a>[1]</code><br>
+): <code><a href="#_dv_amount_class">DV_AMOUNT</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Difference of two quantities.</p>
+</div>
+<div class="paragraph">
+<p>The value of accuracy in the result is either:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>the sum of the accuracies of the operands, if both present, or;</p>
+</li>
+<li>
+<p>unknown, if either or both operand accuracies are unknown.</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_syntaxes"><a class="anchor" href="#_syntaxes"></a><a class="link" href="#_syntaxes">Syntaxes</a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_units_syntax"><a class="anchor" href="#_units_syntax"></a><a class="link" href="#_units_syntax">Units Syntax</a></h3>
+<div class="paragraph">
+<p>The BNF syntax specification of the units string, adapted from <a href="http://unitsofmeasure.org/ucum.html">UCUM</a> (case-sensitive form) is as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-ebnf" data-lang="ebnf">units = '/' exp_units | units '.' exp_units | units '/' exp_units | exp_units ;
+exp_units = unit_group exponent | unit_group ;
+unit_group = PREFIX annot_unit | annot_unit | '(' exp_units ')' | factor ;
+annot_unit = unit_name [ '{' ANNOTATION '}' ] | '{' ANNOTATION '}' ;
+factor = Integer ;
+exponent = [ SIGN ] Integer ;
+
+PREFIX = 'Y' |'Z' | 'E' | 'P' | 'T' | 'G' | 'M' | 'k' | 'h' | 'da' | 'd' | 'c' | 'm' | 'μ' | 'n' | 'p' | 'f' | 'a' | 'z' | 'y' ;
+UNIT_NAME = ? [a-zA-Z_%]+ ?;   (* replace regex with values from unit tables *)
+ANNOTATION = ? [a-zA-Z'.]+ ?;  (* replace regex with values from unit tables *)
+SUFFIX = ? [a-zA-Z0-9'_]+ ?;   (* replace regex with values from unit tables *)
+SIGN = '+' | '-' ;
+Integer = ? [0-9]+ ?;          (* regex *)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This proposal is comprehensive, covering all useful unit systems, including SI, various imperial, customary mesaures, and some obscure measures, as well as clinically specific additions. Metric prefixes, meaning-changing textual suffixes (e.g. "[Hg]" in "mm[Hg]") and non-meaning-changing annotations (e.g. "kg {total}") are recognised. With this syntax, units can be simply expressed in strings such as:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>"kg/m^2", "m.s^-1", "km/h", "mm[Hg]"</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>and so on.</p>
+</div>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="../text_package/">Text Package</a></span>
+  <span class="next"><a href="../date_time_package/">Date Time Package</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>
+    Copyright: © 2003+
+    <a href="https://www.openehr.org"
+        alt="is an independent, non-profit foundation, facilitating the sharing of health
+           records by consumers and clinicians via open specifications, clinical models
+           and open platform implementations.">The openEHR Foundation</a>
+  </p>
+
+  <p>
+    License:
+    <img src="/_/img/cc-by-nd-88x31.png"
+        alt="Creative Commons Attribution-NoDerivs 3.0 Unported."
+        style="vertical-align:middle;margin:0 0.25rem 0 0;">
+    <a href="https://creativecommons.org/licenses/by-nd/3.0/">
+      Creative Commons Attribution-NoDerivs 3.0 Unported.
+    </a>
+  </p>
+
+  <p>
+    <strong>Links: <strong>
+    <a href="https://www.openehr.org/terms-of-use" class="mr-1">Terms of use</a> |
+    <a href="https://www.openehr.org/privacy-policy" class="mx-1">Privacy policy</a> |
+    <a href="https://www.openehr.org/privacy-policy" class="mx-1">Logos &amp; Trademarks</a> |
+    <a href="https://www.openehr.org/contact-us" class="mx-1">Contact</a>
+  </p>
+</footer>
+
+<script id="site-script" src="../../../../_/js/site.js" data-ui-root-path="../../../../_"></script>
+<script async src="../../../../_/js/vendor/highlight.js"></script>
+<script src="../../../../_/js/vendor/lunr.js"></script>
+<script src="../../../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../../../.." data-snippet-length="80" data-stylesheet="../../../../_/css/search.css"></script>
+<script async src="../../../../search-index.js"></script>
+<script src="../../../../_/js/medium-zoom.min.js"></script>
+<script src="../../../../_/js/zoom.js"></script>
+  </body>
+</html>

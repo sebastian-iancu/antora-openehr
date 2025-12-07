@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+    <title>Templates :: openEHR Specifications (Local Build)</title>
+    <link rel="canonical" href="https://sebastian-iancu.github.io/antora-openehr/AM/latest/ADL2/templates/">
+    <link rel="prev" href="../master09.10-spec_bindings/">
+    <link rel="next" href="../other_formalisms/">
+    <meta name="description" content="openEHR Archetype Definition Language 2 (ADL2)">
+    <meta name="keywords" content="EHR, ADL, AOM, health records, archetypes, constraint language, ISO 13606, openehr">
+    <meta name="generator" content="Antora 3.1.14">
+    <link rel="stylesheet" href="../../../../_/css/site.css">
+    <link rel="stylesheet" href="../../../../_/css/antora-openehr.css">
+    <link rel="stylesheet" href="../../../../_/css/openehr.css">
+<link rel="icon" href="../../../../_/img/favicon.ico" type="image/x-icon">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://sebastian-iancu.github.io/antora-openehr">openEHR Specifications (Local Build)</a>
+
+      <div class="navbar-item search hide-for-print">
+        <div id="search-field" class="field has-filter">
+          <input id="search-input" type="text" placeholder="Search the docs">
+          <label class="filter checkbox">
+            <input type="checkbox" data-facet-filter="component:AM"> Archetype Model only
+          </label>
+        </div>
+      </div>
+
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">Specifications</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://specifications.openehr.org/" target="_blank">
+              openEHR specification
+            </a>
+            <a class="navbar-item" href="https://specifications.openehr.org/releases/UML/development/index.html" target="_blank">
+              openEHR portal
+            </a>
+            <a class="navbar-item" href="https://ckm.openehr.org/ckm/" target="_blank">
+              openEHR CKM
+            </a>
+          </div>
+        </div>
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">Community</a>
+          <div class="navbar-dropdown is-right">
+            <a class="navbar-item" href="https://openehr.atlassian.net/secure/Dashboard.jspa?selectPageId=10190" target="_blank">
+              Issue trackers
+            </a>
+            <a class="navbar-item" href="https://discourse.openehr.org/" target="_blank">
+              Discourse Forum
+            </a>
+            <a class="navbar-item" href="https://specifications.openehr.org/wiki/display/spec/Specifications+Home" target="_blank">
+              Wiki
+            </a>
+            <a class="navbar-item" href="https://github.com/openEHR" target="_blank">
+              GitHub
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="AM" data-version="Release-2.3.0">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="../../">Archetype Model</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../">Overview</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../ADL1.4/">{spec_title}</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL1.4/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../">{spec_title}</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../overview/">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../file_encoding/">File Encoding and Character Quoting</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../master04.1-cadl_overview/">cADL - Constraint ADL</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../master04.2-cadl_basics/">Master04.2-Cadl Basics</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../master04.3-cadl_complex_types/">Master04.3-Cadl Complex Types</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../master04.4-cadl_second_order/">Master04.4-Cadl Second Order</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../master04.5-cadl_primitive_types/">Master04.5-Cadl Primitive Types</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../master04.6-cadl_validity_rules/">Master04.6-Cadl Validity Rules</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../paths/">ADL Paths</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../default_values/">Default Values</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../master07.01-adl_introduction/">ADL - Archetype Definition Language</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../master07.02-adl_conventions/">Master07.02-Adl Conventions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../master07.03-adl_artefacts/">Master07.03-Adl Artefacts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../master07.04-adl_basics/">Master07.04-Adl Basics</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../master07.05-adl_identification/">Master07.05-Adl Identification</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../master07.06-adl_specialise/">Master07.06-Adl Specialise</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../master07.07-adl_language/">Master07.07-Adl Language</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../master07.08-adl_description/">Master07.08-Adl Description</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../master07.09-adl_deprecated/">Master07.09-Adl Deprecated</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../master07.10-adl_definition/">Master07.10-Adl Definition</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../master07.11-adl_rules/">Master07.11-Adl Rules</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../master07.12-adl_rm_overlay/">Master07.12-Adl Rm Overlay</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../master07.13-adl_terminology/">Master07.13-Adl Terminology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../master07.14-adl_annotations/">Master07.14-Adl Annotations</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../terminology_integration/">Terminology Integration</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../master09.01-spec_overview/">Specialisation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../master09.02-spec_concepts/">Master09.02-Spec Concepts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../master09.03-spec_examples/">Master09.03-Spec Examples</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../master09.04-spec_attrib_redef/">Master09.04-Spec Attrib Redef</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../master09.05-spec_object_redef/">Master09.05-Spec Object Redef</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../master09.06-spec_rules/">Master09.06-Spec Rules</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../master09.07-spec_languages/">Master09.07-Spec Languages</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../master09.08-spec_description/">Master09.08-Spec Description</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../master09.09-spec_terminology/">Master09.09-Spec Terminology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../master09.10-spec_bindings/">Master09.10-Spec Bindings</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="./">Templates</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../other_formalisms/">Relationship of ADL to Other Formalisms</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../masterAppB-syntax_spec/">Syntax Specification</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../AOM1.4/">{spec_title}</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM1.4/preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM1.4/model_overview/">The Archetype Object Model</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM1.4/archetype_package/">The Archetype Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM1.4/constraint_model_package/">Constraint Model Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM1.4/assertion_package/">The Assertion Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM1.4/primitive_package/">Primitive Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM1.4/ontology_package/">Terminology Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM1.4/domain_extension/">Domain-specific Extension Example</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM1.4/masterAppB-diverse_reference_models/">Using Archetypes with Diverse Reference Models</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM1.4/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../AOM2/">{spec_title}</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM2/preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM2/model_overview/">Model Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM2/archetype_package/">The Archetype Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM2/master04.1-constraint_model-overview/">Constraint Model Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM2/master04.2-constraint_model-semantics/">Master04.2-Constraint Model-Semantics</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM2/master04.3-constraint_model-second_order/">Master04.3-Constraint Model-Second Order</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM2/master04.4-constraint_model-AOM_type_subs/">Master04.4-Constraint Model-AOM Type Subs</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM2/master04.5-constraint_model-class_definitions/">Master04.5-Constraint Model-Class Definitions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM2/rules_package/">The Rules Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM2/rm_overlay/">The RM Overlay Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM2/terminology_package/">Terminology Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM2/validation/">Validation and Transformation Semantics</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM2/serialisation_model/">Serialisation Model</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM2/templates/">Templates</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM2/rm_adaptation/">Reference Model Adaptation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM2/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../Identification/">{spec_title}</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../Identification/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="#index.adoc">Language Design</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../OPT2/">{spec_title}</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../OPT2/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../Overview/">{spec_title}</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../Overview/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Archetype Model</span>
+    <span class="version">Release-2.3.0</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <div class="title"><a href="../../">Archetype Model</a></div>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../../">Release-2.3.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../Release-2.2.0/">Release-2.2.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../BASE/latest/">Base Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../BASE/latest/">Release-1.2.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../BASE/Release-1.1.0/">Release-1.1.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../BASE/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../RM/latest/">Reference Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../RM/latest/">Release-1.1.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../RM/Release-1.0.4/">Release-1.0.4</a>
+        </li>
+        <li class="version">
+          <a href="../../../../RM/development/">development</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../../BASE/latest/" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../../">Archetype Model</a></li>
+    <li><a href="../">{spec_title}</a></li>
+    <li><a href="./">Templates</a></li>
+  </ul>
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">Release-2.3.0</button>
+  <div class="version-menu">
+    <a class="version is-current" href="./">Release-2.3.0</a>
+    <a class="version" href="../../../Release-2.2.0/ADL2/templates/">Release-2.2.0</a>
+    <a class="version" href="../../../development/ADL2/templates/">development</a>
+  </div>
+</div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Templates</h1>
+<div class="sect1">
+<h2 id="_overview"><a class="anchor" href="#_overview"></a><a class="link" href="#_overview">Overview</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>In ADL2, a template is a kind of specialised archetype that uses one feature of ADL in particular to express composition of archetypes: the ability to state 'slot fillers'. This is achieved by redefinition of a slot node, where the latter alters the slot by specifying one or more filler archetypes that match the slot specification.</p>
+</div>
+<div class="paragraph">
+<p>It is worth emphasising this point, since 'slot-filling' is usually thought of as a compositional relationship (joining archetypes), rather than a specialisation relationship. However, ADL considers a filled or partly filled slot as a kind of slot, i.e. a specialisation of an initially empty slot. The consequence of this is that no special relationship or operation is required to achieve slot-filling in ADL - normal node redefinition is sufficient.</p>
+</div>
+<div class="paragraph">
+<p>All of the other constraints used in templates typically occur in normal archetypes, with one exception: multiplicity reduction to <code>{0}</code> of existences, cardinalities and occurrences. This particular constraint can be used in archetypes, but is generally only useful in templates, since one of the main functions of a template is to select specific data items from archetypes composed in a structure.</p>
+</div>
+<div class="paragraph">
+<p>ADL provides one other special feature specific to templates: the ability to define 'overlays'. An overlay is just a specialised archetype that is local to the template, rather than being a self-standing archetype. It is used to enable a template to fill a slot not only with an available normal archetype, but with a locally constrained version of an archetype. This feature enables a template to express constraints on a filler archetype without need to create new independent archetype.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_example"><a class="anchor" href="#_example"></a><a class="link" href="#_example">Example</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>By way of illustrating ADL&#8217;s template-related ADL features, an example is useful. The following is the openEHR archetype <code>openEHR-EHR-COMPOSITION.discharge.v1</code> for the generic concept 'discharge summary' followed by a template representing a full patient clinical information discharge summary, consisting of <code>COMPOSITION</code>, <code>SECTION</code> and various <code>ENTRY</code> archetypes.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-adl" data-lang="adl">archetype (adl_version=2.0.5; rm_release=1.0.2)
+    openEHR-EHR-COMPOSITION.discharge.v1.0.0
+
+language
+    original_language = &lt;[ISO_639-1::en]&gt;
+
+description
+    lifecycle_state = &lt;"unmanaged"&gt;
+    original_author = &lt;
+        ["name"] = &lt;"Heather Leslie"&gt;
+        ["organisation"] = &lt;"Ocean Informatics"&gt;
+        ["email"] = &lt;"heather.leslie@oceaninformatics.com"&gt;
+        ["date"] = &lt;"14/11/2007"&gt;
+    &gt;
+    details = &lt;
+        ["en"] = &lt;
+            language = &lt;[ISO_639-1::en]&gt;
+            purpose = &lt;"For communication at the time of discharge from an episode of care or an institution."&gt;
+        &gt;
+    &gt;
+
+definition
+    COMPOSITION[id1] matches {    -- Discharge
+        category matches {
+            DV_CODED_TEXT[id29] matches {
+                defining_code matches {[at10]}
+            }
+        }
+        content matches {
+            allow_archetype CONTENT_ITEM[id2] matches {
+                include
+                    archetype_id/value ∈ {/openEHR-EHR-(SECTION|EVALUATION)/}
+            }
+        }
+        context matches {
+            EVENT_CONTEXT[id30] matches {
+                other_context matches {
+                    ...
+                }
+            }
+        }
+    }
+
+terminology
+    term_definitions = &lt;
+        ["en"] = &lt;
+            ["id1"] = &lt;
+                text = &lt;"Discharge"&gt;
+                description = &lt;"A summarising communication about at the time of discharge from an institution or an episode of care"&gt;
+            &gt;
+            ["id2"] = &lt;
+                text = &lt;"Cinical discharge notes"&gt;
+                description = &lt;"*"&gt;
+            &gt;
+        &gt;
+    &gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Below is the template definition. The root artefact is a self-standing template <code>openEHR-EHR-COMPOSITION.t_clinical_info_ds_sf.v1.0.0</code> that specialises the archetype . The declaration of being a 'template' is primarily to signal to tools the intended use of the artefact - it doesn&#8217;t have any formal implications. The job of the template is to define the specific clinical information required in a discharge summary (note that not all the usual items are included, in order to reduce the size of the template as shown here - clinical synopsis and medications list are left out).</p>
+</div>
+<div class="paragraph">
+<p>In the root template, the <code>definition</code> section contains a number of <code>use_archetype</code> statements that specify archetypes to be used as fillers for the <code>id2</code> slot of the parent archetype. Each of the slot-fillers is a template overlay, rather than being an independent archetype or template. As a result, each overlay includes no descriptive meta-data of its own, and appears within the template artefact, separated by a long comment line. This simple mechanism enables the overlays, which are in all other respects formal archetypes, to be treated as local additions to the template, not visible externally. The template, if saved as a file, contains all its overlays in one file.</p>
+</div>
+<div class="paragraph">
+<p>Each of the filler archetypes can have its occurrences individually constrained in the normal way.</p>
+</div>
+<div class="paragraph">
+<p>Each overlay can be seen to be a specialisation of an archetype (it could also have been a template). The overlays also do not include any <code>languages</code> or <code>description</code> sections, since as parts of the parent template, they inherit these sections from the root template.</p>
+</div>
+<div class="paragraph">
+<p>Additionally, some overlays contain element removal constraints (<code>occurrences matches {0}</code>), used to reduce the data set to the intended final result for the purpose of this template. Clearly other templates could make quite different selections of data items from the same archetypes.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-adl" data-lang="adl">template (adl_version=2.0.5; rm_release=1.0.2)
+    openEHR-EHR-COMPOSITION.t_clinical_info_ds_sf.v1.0.0
+
+specialize
+    openEHR-EHR-COMPOSITION.discharge.v1
+
+language
+    original_language = &lt;[ISO_639-1::en]&gt;
+
+description
+    lifecycle_state = &lt;"unmanaged"&gt;
+    original_author = &lt;
+        ["name"] = &lt;"Ian McNicoll"&gt;
+        ["organisation"] = &lt;"openEHR Foundation"&gt;
+        ["email"] = &lt;"ian.mcnicoll@openehr.org"&gt;
+        ["date"] = &lt;"01/04/2011"&gt;
+    &gt;
+    copyright = &lt;"copyright (c) 2011 openEHR Foundation"&gt;
+    details = &lt;
+        ["en"] = &lt;
+            language = &lt;[ISO_639-1::en]&gt;
+            purpose = &lt;"Templated clinical COMPOSITION for Simple discharge summary"&gt;
+        &gt;
+    &gt;
+
+definition
+    COMPOSITION[id1.1] ∈ {    -- Clinical detail
+        context existence ∈ {0}
+        content ∈ {
+            use_archetype SECTION[id0.1, openEHR-EHR-SECTION.t_patient_event_info_ds_sf.v1] occurrences ∈ {1}
+            use_archetype EVALUATION[id0.2, openEHR-EHR-EVALUATION.t_clinical_info_ds_sf-1.v1] occurrences ∈ {0..1}
+            use_archetype EVALUATION[id0.3, openEHR-EHR-EVALUATION.t_clinical_info_ds_sf-2.v1]
+            use_archetype EVALUATION[id0.5, openEHR-EHR-EVALUATION.t_clinical_info_ds_sf-4.v1] occurrences ∈ {1..*}
+            use_archetype EVALUATION[id0.6, openEHR-EHR-EVALUATION.t_clinical_info_ds_sf-5.v1] occurrences ∈ {0..1}
+            use_archetype EVALUATION[id0.8, openEHR-EHR-EVALUATION.t_clinical_info_ds_sf-7.v1] occurrences ∈ {0..*}
+            use_archetype EVALUATION[id0.9, openEHR-EHR-EVALUATION.t_clinical_info_ds_sf-8.v1]
+        }
+    }
+
+terminology
+    term_definitions = &lt;
+        ["en"] = &lt;
+            ["id1.1"] = &lt;
+                text = &lt;"Clinical detail"&gt;
+                description = &lt;"Clinical detail of Simple discharge summary"&gt;
+            &gt;
+            ["id0.1"] = &lt;
+                text = &lt;"Event data"&gt;
+                description = &lt;"Event data"&gt;
+            &gt;
+            ["id0.2"] = &lt;
+                text = &lt;"Allergies &amp; adverse reactions"&gt;
+                description = &lt;"Allergies &amp; adverse reactions"&gt;
+            &gt;
+            ["id0.3"] = &lt;
+                text = &lt;"Alerts"&gt;
+                description = &lt;"Alerts"&gt;
+            &gt;
+            ["id0.5"] = &lt;
+                text = &lt;"Diagnosis"&gt;
+                description = &lt;"Diagnosis"&gt;
+            &gt;
+            ["id0.6"] = &lt;
+                text = &lt;"Investigations"&gt;
+                description = &lt;"Investigations"&gt;
+            &gt;
+            ["id0.8"] = &lt;
+                text = &lt;"Procedures"&gt;
+                description = &lt;"Procedures"&gt;
+            &gt;
+            ["id0.9"] = &lt;
+                text = &lt;"Medical certificate"&gt;
+                description = &lt;"Medical certificate"&gt;
+            &gt;
+        &gt;
+    &gt;
+-------------------------------------------------------------
+template_overlay
+    openEHR-EHR-EVALUATION.t_clinical_info_ds_sf-1.v1.0.0
+
+specialize
+    openEHR-EHR-EVALUATION.adverse.v1
+
+definition
+    EVALUATION[id1.1] ∈ {    -- Adverse reaction details for episode of care
+        /data[id3]/items ∈ {
+            ELEMENT[id11] occurrences ∈ {0}
+        }
+        /data[id3]/items[id20]/items ∈ {
+            ELEMENT[id33] occurrences ∈ {0}
+            ELEMENT[id16] occurrences ∈ {0}
+            ELEMENT[id5] occurrences ∈ {0}
+            ELEMENT[id21] occurrences ∈ {0}
+        }
+    }
+
+terminology
+    term_definitions = &lt;
+        ["en"] = &lt;
+            ["id1.1"] = &lt;
+                text = &lt;"Adverse reaction details for episode of care"&gt;
+                description = &lt;"Adverse reaction details for episode of care"&gt;
+            &gt;
+        &gt;
+    &gt;
+-------------- etc ------------------------------------------
+
+-------------------------------------------------------------
+template_overlay
+    openEHR-EHR-EVALUATION.t_clinical_info_ds_sf-8.v1.0.0
+
+specialize
+    openEHR-EHR-EVALUATION.medical_certificate.v1
+
+
+definition
+    EVALUATION[id1.1] ∈ {    -- Simple Discharge Summary Medical Certificate
+        /data[id2]/items ∈ {
+            ELEMENT[id3] occurrences ∈ {0}
+            ELEMENT[id4] occurrences ∈ {0}
+            ELEMENT[id5] occurrences ∈ {0}
+        }
+    }
+
+terminology
+    term_definitions = &lt;
+        ["en"] = &lt;
+            ["id1.1"] = &lt;
+                text = &lt;"Simple Discharge Summary Medical Certificate"&gt;
+                description = &lt;"Only used for Discharge Summary Document"&gt;
+            &gt;
+        &gt;
+    &gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>When the above is flattened, with all overlays, slot fillers and external references being inlined, a single operational template results, as shown below. Note the <code>component_terminologies</code> section at the end, which contains the terminology of every constituent overlay and archetype.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-adl" data-lang="adl">operational_template (adl_version=2.0.6; rm_release=1.0.2; generated)
+	openEHR-EHR-COMPOSITION.t_clinical_info_ds_sf.v1.0.0
+
+specialize
+	openEHR-EHR-COMPOSITION.discharge.v1
+
+language
+	original_language = &lt;[ISO_639-1::en]&gt;
+
+description
+	lifecycle_state = &lt;"unmanaged"&gt;
+	original_author = &lt;
+		["name"] = &lt;"Ian McNicoll"&gt;
+		["organisation"] = &lt;"Ocean Informatics"&gt;
+		["email"] = &lt;"ian.mcnicoll@oceaninformatics.com"&gt;
+		["date"] = &lt;"01/04/2011"&gt;
+	&gt;
+	copyright = &lt;"copyright (c) 2011 openEHR Foundation"&gt;
+	details = &lt;
+		["en"] = &lt;
+			language = &lt;[ISO_639-1::en]&gt;
+			purpose = &lt;"Templated clinical COMPOSITION for Simple discharge summary"&gt;
+		&gt;
+	&gt;
+
+definition
+	COMPOSITION[id1.1] matches {	-- Clinical detail
+		category matches {
+			DV_CODED_TEXT[id29] matches {
+				defining_code matches {[at10]}
+			}
+		}
+		context existence matches {0}
+		content matches {
+			SECTION[id0.1, openEHR-EHR-SECTION.t_patient_event_info_ds_sf.v1.0.0] occurrences matches {1} matches {	-- Event start
+				items matches {
+					ADMIN_ENTRY[id0.1, openEHR-EHR-ADMIN_ENTRY.t_patient_event_info_ds_sf-1.v1.0.0] occurrences matches {1} matches {
+						other_participations existence matches {0}
+                    }
+                    --- etc ---
+                }
+            }
+            --- etc ---
+        }
+    }
+
+terminology
+	term_definitions = &lt;
+		["en"] = &lt;
+			["id1"] = &lt;
+				text = &lt;"Discharge"&gt;
+				description = &lt;"A summarising communication about at the time of discharge from an institution or an episode of care"&gt;
+			&gt;
+			["id4"] = &lt;
+				text = &lt;"Report identifier"&gt;
+				description = &lt;"Identification information about the report"&gt;
+			&gt;
+            ------- etc ---------
+        &gt;
+    &gt;
+	term_bindings = &lt;
+		["openehr"] = &lt;
+			["at10"] = &lt;http://openehr.org/id/433&gt;
+		&gt;
+	&gt;
+	value_sets = &lt;
+		["ac1"] = &lt;
+			id = &lt;"ac1"&gt;
+			members = &lt;"at6", "at7", "at8", "at9"&gt;
+		&gt;
+	&gt;
+
+component_terminologies
+	["openEHR-EHR-SECTION.t_patient_event_info_ds_sf.v1.0.0"] = &lt;
+		term_definitions = &lt;
+			["en"] = &lt;
+				["id1"] = &lt;
+					text = &lt;"Adhoc heading"&gt;
+					description = &lt;"A generic section header."&gt;
+				&gt;
+                ------- etc ---------
+			&gt;
+		&gt;
+	&gt;
+	["openEHR-EHR-ADMIN_ENTRY.t_patient_event_info_ds_sf-1.v1.0.0"] = &lt;
+		term_definitions = &lt;
+			["en"] = &lt;
+				["id1"] = &lt;
+					text = &lt;"Admission Short Singapore"&gt;
+					description = &lt;"Administrative information for the admission of a patient to the care of a hospital/institution"&gt;
+				&gt;
+                ------- etc ---------
+			&gt;
+		&gt;
+	&gt;</code></pre>
+</div>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="../master09.10-spec_bindings/">Master09.10-Spec Bindings</a></span>
+  <span class="next"><a href="../other_formalisms/">Relationship of ADL to Other Formalisms</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>
+    Copyright: © 2003+
+    <a href="https://www.openehr.org"
+        alt="is an independent, non-profit foundation, facilitating the sharing of health
+           records by consumers and clinicians via open specifications, clinical models
+           and open platform implementations.">The openEHR Foundation</a>
+  </p>
+
+  <p>
+    License:
+    <img src="/_/img/cc-by-nd-88x31.png"
+        alt="Creative Commons Attribution-NoDerivs 3.0 Unported."
+        style="vertical-align:middle;margin:0 0.25rem 0 0;">
+    <a href="https://creativecommons.org/licenses/by-nd/3.0/">
+      Creative Commons Attribution-NoDerivs 3.0 Unported.
+    </a>
+  </p>
+
+  <p>
+    <strong>Links: <strong>
+    <a href="https://www.openehr.org/terms-of-use" class="mr-1">Terms of use</a> |
+    <a href="https://www.openehr.org/privacy-policy" class="mx-1">Privacy policy</a> |
+    <a href="https://www.openehr.org/privacy-policy" class="mx-1">Logos &amp; Trademarks</a> |
+    <a href="https://www.openehr.org/contact-us" class="mx-1">Contact</a>
+  </p>
+</footer>
+
+<script id="site-script" src="../../../../_/js/site.js" data-ui-root-path="../../../../_"></script>
+<script async src="../../../../_/js/vendor/highlight.js"></script>
+<script src="../../../../_/js/vendor/lunr.js"></script>
+<script src="../../../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../../../.." data-snippet-length="80" data-stylesheet="../../../../_/css/search.css"></script>
+<script async src="../../../../search-index.js"></script>
+<script src="../../../../_/js/medium-zoom.min.js"></script>
+<script src="../../../../_/js/zoom.js"></script>
+  </body>
+</html>

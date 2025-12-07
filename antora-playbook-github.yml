@@ -1,0 +1,81 @@
+antora:
+  extensions:
+    - require: '@antora/lunr-extension'
+      index_latest_only: true
+      index_by_heading: true
+      snippet_length: 80
+    - require: './src/extensions/load-global-vars.js'
+      var_files: ['./resources/global-vars.yml']
+
+site:
+  title: openEHR Specifications (Local Build)
+  url: https://sebastian-iancu.github.io/antora-openehr/
+  start_page: BASE::index.adoc
+
+content:
+  sources:
+    # BASE Component - Foundation specifications
+    - url: repos/specifications-BASE
+      branches:
+        - master
+        - 'release/1.1.0'
+        - 'release/1.2.0'
+      version:
+        release/(?<version>+({0..9}).+({0..9}).+({0..9})): Release-$<version>
+        master: development
+
+    # RM Component - Reference Model
+    - url: repos/specifications-RM
+      branches:
+        - master
+        - 'release/1.0.4'
+        - 'release/1.1.0'
+      version:
+        release/(?<version>+({0..9}).+({0..9}).+({0..9})): Release-$<version>
+        master: development
+
+    # AM Component - Archetype Model
+    - url: repos/specifications-AM
+      branches:
+        - master
+        - 'release/2.2.0'
+        - 'release/2.3.0'
+      version:
+        release/(?<version>+({0..9}).+({0..9}).+({0..9})): Release-$<version>
+        master: development
+
+ui:
+  bundle:
+    url: ./src/ui-bundle.zip
+    snapshot: true
+  supplemental_files: ./src/supplemental-ui
+  output_dir: _
+
+asciidoc:
+  attributes:
+    page-pagination: true
+    experimental: ''
+    idprefix: '_'
+    idseparator: '_'
+    sectanchors: ''
+    sectlinks: ''
+    linkattrs: ''
+    source-highlighter: rouge
+    rouge-style: github
+  extensions:
+    - asciidoctor-kroki
+    - '@asciidoctor/tabs'
+
+runtime:
+  fetch: true
+  cache_dir: ./.cache/antora
+  
+output:
+  dir: ./build
+  clean: true
+
+urls:
+  html_extension_style: indexify
+  latest_version_segment_strategy: redirect:to
+  latest_version_segment: latest
+  latest_prerelease_version_segment: development

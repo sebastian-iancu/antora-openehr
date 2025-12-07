@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+    <title>Extract.common Package :: openEHR Specifications (Local Build)</title>
+    <link rel="canonical" href="https://sebastian-iancu.github.io/antora-openehr/RM/latest/ehr_extract/common_package/">
+    <link rel="prev" href="../design_overview/">
+    <link rel="next" href="../openehr_extract_package/">
+    <meta name="description" content="openEHR EHR Extract Information Model specification">
+    <meta name="keywords" content="EHR, extract, openehr">
+    <meta name="generator" content="Antora 3.1.14">
+    <link rel="stylesheet" href="../../../../_/css/site.css">
+    <link rel="stylesheet" href="../../../../_/css/antora-openehr.css">
+    <link rel="stylesheet" href="../../../../_/css/openehr.css">
+<link rel="icon" href="../../../../_/img/favicon.ico" type="image/x-icon">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://sebastian-iancu.github.io/antora-openehr">openEHR Specifications (Local Build)</a>
+
+      <div class="navbar-item search hide-for-print">
+        <div id="search-field" class="field has-filter">
+          <input id="search-input" type="text" placeholder="Search the docs">
+          <label class="filter checkbox">
+            <input type="checkbox" data-facet-filter="component:RM"> Reference Model only
+          </label>
+        </div>
+      </div>
+
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">Specifications</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://specifications.openehr.org/" target="_blank">
+              openEHR specification
+            </a>
+            <a class="navbar-item" href="https://specifications.openehr.org/releases/UML/development/index.html" target="_blank">
+              openEHR portal
+            </a>
+            <a class="navbar-item" href="https://ckm.openehr.org/ckm/" target="_blank">
+              openEHR CKM
+            </a>
+          </div>
+        </div>
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">Community</a>
+          <div class="navbar-dropdown is-right">
+            <a class="navbar-item" href="https://openehr.atlassian.net/secure/Dashboard.jspa?selectPageId=10190" target="_blank">
+              Issue trackers
+            </a>
+            <a class="navbar-item" href="https://discourse.openehr.org/" target="_blank">
+              Discourse Forum
+            </a>
+            <a class="navbar-item" href="https://specifications.openehr.org/wiki/display/spec/Specifications+Home" target="_blank">
+              Wiki
+            </a>
+            <a class="navbar-item" href="https://github.com/openEHR" target="_blank">
+              GitHub
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="RM" data-version="development">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="../../">Reference Model</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../">Overview</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../common/">{spec_title}</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../common/preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../common/overview/">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../common/archetyped_package/">Archetyped Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../common/generic_package/">Generic Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../common/directory_package/">Directory Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../common/change_control_package/">Change Control Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../common/tags/">Tags Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../common/resource_package/">Resource Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../common/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../data_structures/">{spec_title}</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_structures/preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_structures/background/">Background</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_structures/overview/">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_structures/item_structure_package/">Item Structure Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_structures/representation_package/">Representation Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_structures/history_package/">History Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_structures/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../data_types/">{spec_title}</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_types/preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_types/background/">Background</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_types/introduction/">Introduction</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_types/basic_package/">Basic Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_types/text_package/">Text Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_types/quantity_package/">Quantity Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_types/date_time_package/">Date Time Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_types/time_specification_package/">Time_specification Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_types/encapsulated_package/">Encapsulated Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_types/uri_package/">Uri Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_types/implem_strategies/">Implementation Strategies</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_types/comparison_HL7/">Comparison with HL7v3 Types</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_types/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../demographic/">{spec_title}</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../demographic/preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../demographic/demographic_package/">Demographic package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../demographic/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../ehr/">{spec_title}</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr/preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr/background/">Background</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr/ehr_information_model/">The EHR Information Model</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr/ehr_package/">EHR Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr/composition_package/">Composition Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr/content_package/">Content Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr/navigation_package/">Navigation Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr/entry_package/">Entry Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr/glossary/">Glossary</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../">{spec_title}</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../requirements/">Requirements</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../design_overview/">Design Overview</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="./">Extract.common Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../openehr_extract_package/">The openehr_extract Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../generic_extract_package/">Generic_extract Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../synchronisation_package/">Synchronisation Extracts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../message_package/">The Message package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../semantics/">Semantics of openEHR and ISO 13606 extracts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../entity/">{spec_title}</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entity/preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entity/overview/">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entity/entity/">Upper Entity Model</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entity/physical_entity/">Physical Entity Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entity/social_entity/">Social Entity Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entity/social_entity-party/">Party Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entity/social_entity-asset/">Asset Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entity/resource/">Resource Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entity/registry/">Registry Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../entity/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../integration/">{spec_title}</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../integration/preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../integration/integration_package/">Integration Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../integration/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../support/">{spec_title}</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../support/preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../support/support_package/">Support Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../support/assumed_types/">Assumed Types</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../support/identification_package/">Identification Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../support/terminology_package/">Terminology Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../support/measurement_package/">Measurement Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../support/definition_package/">Definition Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../support/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Reference Model</span>
+    <span class="version">development</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <div class="title"><a href="../../../../AM/latest/">Archetype Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../AM/latest/">Release-2.3.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../AM/Release-2.2.0/">Release-2.2.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../AM/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../BASE/latest/">Base Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../BASE/latest/">Release-1.2.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../BASE/Release-1.1.0/">Release-1.1.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../BASE/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <div class="title"><a href="../../../latest/">Reference Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../latest/">Release-1.1.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../Release-1.0.4/">Release-1.0.4</a>
+        </li>
+        <li class="version is-current">
+          <a href="../../">development</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../../BASE/latest/" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../../">Reference Model</a></li>
+    <li><a href="../">{spec_title}</a></li>
+    <li><a href="./">Extract.common Package</a></li>
+  </ul>
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">development</button>
+  <div class="version-menu">
+    <a class="version" href="../../../latest/ehr_extract/common_package/">Release-1.1.0</a>
+    <a class="version" href="../../../Release-1.0.4/ehr_extract/common_package/">Release-1.0.4</a>
+    <a class="version is-current" href="./">development</a>
+  </div>
+</div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Extract.common Package</h1>
+<div class="sect1">
+<h2 id="_overview"><a class="anchor" href="#_overview"></a><a class="link" href="#_overview">Overview</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The <code>rm.extract.common</code> package defines the semantics common to all kinds of Extract requests
+and Extracts. Requests and Extracts can be implemented as messages, or used as types in a webservice
+environment. In the latter, the Extract request semantics would most likely be replaced by equivalent
+service function definitions.</p>
+</div>
+<div class="paragraph">
+<p>The Request contains a detailed specification of the repository content required in the Extract. A
+Request is not always needed, and an Extract may be sent unsolicited. Requests can be made persistent
+and/or event-driven, supporting various periodic and continuous update scenarios. Each request
+may specify the data from one or more entities, e.g. EHRs or subjects.</p>
+</div>
+<div class="paragraph">
+<p>The Extract reply may optionally include a copy of the request. Its main content is in the form of
+<em>chapters</em>, under which folders and content items contain the requested content, or as much of it as was
+possible to retrieve. Specific types of content item, including openEHR content, generic EMR content,
+and demographic content are defined in various sub-packages, How the content is arranged
+within folders in each chapter, and across chapters is managed by the use of archetypes and templates
+for the Extract/chapter structure. The following uML diagram illustrates the <code>rm.extract.common</code> package.</p>
+</div>
+<div id="rm_ehr_extract_common" class="imageblock text-center text-center">
+<div class="content">
+<img src="../../_images/uml/RM-ehr_extract.common.svg" alt="RM ehr extract.common">
+</div>
+<div class="title">Figure 1. rm.extract.common Package</div>
+</div>
+<div class="paragraph">
+<p>The typical instance structure of the <code>EXTRACT_REQUEST</code> and <code>EXTRACT</code> types is illustrated below.</p>
+</div>
+<div id="abstract_request_extract" class="imageblock text-center text-center">
+<div class="content">
+<img src="../_images/diagrams/abstract_request_extract.png" alt="abstract request extract" width="70%">
+</div>
+<div class="title">Figure 2. Abstract Request and Extract structure</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_design"><a class="anchor" href="#_design"></a><a class="link" href="#_design">Design</a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_extract_request"><a class="anchor" href="#_extract_request"></a><a class="link" href="#_extract_request">Extract Request</a></h3>
+<div class="paragraph">
+<p>The <code>EXTRACT_REQUEST</code> class consists of an update_spec specifying rules for update (one-off, periodic,
+event-driven etc), and an <code><em>extract_spec</em></code>, indicating what information from the target repository is
+required. The latter consists of an optional <code><em>version_spec</em></code>, indicating which versions (default is latest)
+and a <code><em>manifest</em></code>, specifying which entities (records or subjects, and optionally which items from those
+entities should be included.</p>
+</div>
+<div class="sect3">
+<h4 id="_content_criteria_specification"><a class="anchor" href="#_content_criteria_specification"></a><a class="link" href="#_content_criteria_specification">Content Criteria Specification</a></h4>
+<div class="paragraph">
+<p>The <code>extract_spec</code> part of the Request applies to all content in the Extract. The attributes are as follows:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><em>extract_type</em>: what kind of Extract this is, e.g. <code>|openehr-ehr|</code>, <code>|openehr-demographic|</code>, <code>|openehr-synchronisation|</code>, <code>|openehr-generic|</code>, <code>|generic-emr|</code>, etc;</p>
+</li>
+<li>
+<p><em>include_multimedia</em>: a flag indicating whether inline binary objects are included or not;</p>
+</li>
+<li>
+<p><em>link_depth</em>: value indicating how many levels of link to follow when constructing the content of the Extract; the default is 0, meaning 'don&#8217;t follow';</p>
+</li>
+<li>
+<p><em>criteria</em>: specifyies queries defining the required content of each entity record;</p>
+</li>
+<li>
+<p><em>other_details</em>: an archetypable structure including further extract details.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The <code><em>criteria</em></code> attribute defines in the form of generic queries (i.e. queries that apply sensibly to any
+record) which items are to be retrieved from each entity&#8217;s record. Each query is expressed as a
+<code>DV_PARSABLE</code> instance, enabling any formalism to be used. The openEHR archetype query formalisms
+(AQL) could be used for example. Query expressions use variables such as $ehr to mean the current
+EHR from the <code><em>manifest</em></code> list. Queries may be as simple as the following:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-sql" data-lang="sql">SELECT * FROM $ehr              -- get all items in the record
+SELECT /ehr_access FROM $ehr    -- retrieve the EHR_ACCESS object in an EHR
+SELECT /ehr_status FROM $ehr    -- retrieve the EHR_STATUS object in an EHR</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>More sophisticated queries can be used to obtain items corresponding to a specific criteria, e.g.:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-sql" data-lang="sql">SELECT ....     -- retrieve last 6 months' worth of blood glucose measurements
+...             -- retrieve ongoing medications list
+......          -- retrieve items relating to active pregnancy
+.....           -- retrieve all GP encounter notes since 12-03-2005</code></pre>
+</div>
+</div>
+<div class="paragraph tbd">
+<p>To Be Continued:</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_update_specification"><a class="anchor" href="#_update_specification"></a><a class="link" href="#_update_specification">Update Specification</a></h4>
+<div class="paragraph">
+<p>The update_spec part of the Request specifies how the Request is to be processed by the server. The
+default situation, requiring no update_spec at all, is a one-off request. Other alternatives include:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>repeat Request with a defined period and/or trigger events;</p>
+</li>
+<li>
+<p>persisting the Request in the server so that the requestor can make later repeat requests by referring to a previously stored request by its identifier.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>An ad hoc repeat of a request persisted earlier is made using an <code>EXTRACT_ACTION_REQUEST</code> with
+action set to |repeat|. This specifies only the identifier of a request previously specified using an
+<code>EXTRACT_REQUEST</code>. Since requests are uniquely identified for all time, there can be no error in the
+identification.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_the_manifest"><a class="anchor" href="#_the_manifest"></a><a class="link" href="#_the_manifest">The Manifest</a></h4>
+<div class="paragraph">
+<p>The <code><em>manifest</em></code> specifies the scope of records to be retrieved in an Extract. In the simplest case, only a single
+entity (e.g. patient) and no specific items will be identified (the content will be determined by the criteria in the
+<code>EXTRACT_SPEC</code> object); this will be used in the vast majority of single-patient request scenarios.
+However, some scenarios will be of a batch update nature, including pathology lab result update and
+situations where patient records are requested corresponding to a list of referrals received by a hospital
+since the last such update. In these cases, the request manifest may identify a number of entities
+(i.e. records or patients), each of which will be allocated a separate chapter in the resulting Extract.</p>
+</div>
+<div class="paragraph">
+<p>The <code><em>item_list</em></code> of each entity manifest identifies individual items using <code>OBJECT_REF</code> instances each
+containing the <code>HIER_OBJECT_ID</code> identifier of a particular top-level object such as a Composition, or
+Party. This mechanism for identifying contents of an Extract is only expected to be used when a specific
+identifier is known, rather than when items corresponding to filtering criteria are requested. The
+latter are specified using the criteria attribute.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_version_specification"><a class="anchor" href="#_version_specification"></a><a class="link" href="#_version_specification">Version Specification</a></h4>
+<div class="paragraph">
+<p>An Extract request in its simplest form has no version specification, corresponding to the assumption
+of 'latest available version' for each matched item. However, in some situations there is a need to retrieve
+previous versions, or information about versions. The version specification part of the Extract
+request allows this to be done. The possibilities available are as follows.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><em>include_all_versions</em>: the whole version 'stack' of each item matched by the manifest and
+retrieval criteria should be returned. Note that the result of this will be all available versions
+from the repository in question, which is in general not the same as all versions that have
+ever been created, since versions in the same logical version tree may exist at other
+repositories due to local modifications that have not been propagated to the target repository
+of the Extract Request.</p>
+</li>
+<li>
+<p><em>include_revision_history</em>: this flag indicates whether the revision_history of a
+<code>VERSIONED_OBJECT</code> is to be included in the Extract form of the version</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_extract"><a class="anchor" href="#_extract"></a><a class="link" href="#_extract">Extract</a></h3>
+<div class="sect3">
+<h4 id="_content_specification"><a class="anchor" href="#_content_specification"></a><a class="link" href="#_content_specification">Content Specification</a></h4>
+<div class="paragraph">
+<p>The <code>EXTRACT</code> consists of a <code><em>request_id</em></code>, an optional <code><em>participations</em></code> list, an optional <code><em>specification</em></code> and a
+set of chapters, containing the retrieved content. The <code><em>participations</em></code> attribute denotes parties that were
+responsible for creating the Extract. The <code><em>specification</em></code> takes the same form as the extract_spec of the
+<code>EXTRACT_REQUEST</code>, but in an <code>EXTRACT</code> instance, indicates the actual contents of the Extract. This
+will usually differ in from the request specification in that it will list in the manifest section the actual
+entities (and the identifiers they are known by in the receiver system) retrieved, whereas the request
+may not specify any entities (it may rely on query criteria), or it may specify a different set of entities
+than were retrievable in the receiver system.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_content"><a class="anchor" href="#_content"></a><a class="link" href="#_content">Content</a></h4>
+<div class="paragraph">
+<p>The content of an Extract is contained within the chapters attribute, in the form of one of more
+instances of the <code>EXTRACT_CHAPTER</code> class or its subtype <code>EXTRACT_ENTITY_CHAPTER</code>. Within an
+<code>EXTRACT_CHAPTER</code> the content attribute contains a folder structure made of <code>EXTRACT_FOLDER</code>
+objects which in turn contain the content items. The folder structure is defined by archetypes, and can
+be used to separate the parts of a health record, or group items according to some other scheme e.g.
+episode. A specific kind of chapter, the <code>EXTRACT_ENTITY_CHAPTER</code>, is used to carry content associated
+with a single entity, i.e. patient. This means that an Extract may contain data relating to multiple
+entities, i.e. multiple patients.</p>
+</div>
+<div class="paragraph">
+<p>The <code>EXTRACT_CONTENT_ITEM</code> class is subtyped in later sections of this specification to define metadata
+for specific kinds of content.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_participations_and_demographic_referencing"><a class="anchor" href="#_participations_and_demographic_referencing"></a><a class="link" href="#_participations_and_demographic_referencing">Participations and Demographic Referencing</a></h3>
+<div class="paragraph">
+<p>A key difference between an 'extract' or in fact any kind of message carrying information out of a
+system environment is that the Extract combines in one place information typically found in multiple
+services in the original environment. Two kinds of information routinely included in Extracts are clinical
+(i.e. EHR / EMR or similar) and demographic data regarding participations of the subject and
+other parties in the activities documented in the clinical information.</p>
+</div>
+<div class="paragraph">
+<p>Within the openEHR EHR model, a 'participation' is defined by the <code>PARTICIPATION</code> class in the
+<code>rm.common.generic</code> package. Actual participation instances include a performer object (a subtype
+of <code>PARTY_PROXY</code>), and optionally an external reference object (type <code>PARTY_REF</code>). The latter contains
+a reference to the demographic entity within a demographic service, provider registry or similar.
+Within the Extract, participations occur in two places. In the <code>EHR_EXTRACT</code> class, participations are
+used to provide information about parties related to the Extract. These are created new with each
+Extract (i.e. they are not EHR data that is part of the Extract content. Accordingly, a simplified form
+of the <code>PARTICIPATION</code> class is used: <code>EXTRACT_PARTICIPATION</code>. The only difference is that the
+performer reference is a simple string, allowing it to contain a GUID reference to a demographic
+party included elsewhere in the same Extract.</p>
+</div>
+<div class="paragraph">
+<p>Participations also occur in the actual content of the EHR, and in this case, they original structures are
+copied faithfully, including any in-line performer information. If there was an <code><em>external_ref</em></code> present,
+pointing to a demographic entity that is also to be included in the Extract, this reference is rewritten to
+point to a local copy of the demographic entity (using a GUID), within the Entity chapter of the
+Extract.</p>
+</div>
+<div class="paragraph">
+<p>The result of this is that for source data whose original external references are to external demographic
+entities, the logical structure is completely preserved within the Extract, with just the reference
+being rewritten to the GUID values used in the Extract (which may well come from the original
+demographic database or service).</p>
+</div>
+<div class="paragraph">
+<p>A typical arrangement is to dedicate a single chapter to all demographic entities referenced within the
+Extract, optionally with an internal Folder structure. Some example arrangements are illustrated in
+the EHR and generic Extract sections below.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_class_descriptions"><a class="anchor" href="#_class_descriptions"></a><a class="link" href="#_class_descriptions">Class Descriptions</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Unresolved directive in common_package.adoc - include::ROOT:partial$uml/{pkg}extract_request.adoc[]</p>
+</div>
+<div class="paragraph">
+<p>Unresolved directive in common_package.adoc - include::ROOT:partial$uml/{pkg}extract_action_request.adoc[]</p>
+</div>
+<div class="paragraph">
+<p>Unresolved directive in common_package.adoc - include::ROOT:partial$uml/{pkg}extract_spec.adoc[]</p>
+</div>
+<div class="paragraph">
+<p>Unresolved directive in common_package.adoc - include::ROOT:partial$uml/{pkg}extract_manifest.adoc[]</p>
+</div>
+<div class="paragraph">
+<p>Unresolved directive in common_package.adoc - include::ROOT:partial$uml/{pkg}extract_entity_manifest.adoc[]</p>
+</div>
+<div class="paragraph">
+<p>Unresolved directive in common_package.adoc - include::ROOT:partial$uml/{pkg}extract_version_spec.adoc[]</p>
+</div>
+<div class="paragraph">
+<p>Unresolved directive in common_package.adoc - include::ROOT:partial$uml/{pkg}extract_update_spec.adoc[]</p>
+</div>
+<div class="paragraph">
+<p>Unresolved directive in common_package.adoc - include::ROOT:partial$uml/{pkg}extract.adoc[]</p>
+</div>
+<div class="paragraph">
+<p>Unresolved directive in common_package.adoc - include::ROOT:partial$uml/{pkg}extract_chapter.adoc[]</p>
+</div>
+<div class="paragraph">
+<p>Unresolved directive in common_package.adoc - include::ROOT:partial$uml/{pkg}extract_entity_chapter.adoc[]</p>
+</div>
+<div class="paragraph">
+<p>Unresolved directive in common_package.adoc - include::ROOT:partial$uml/{pkg}extract_item.adoc[]</p>
+</div>
+<div class="paragraph">
+<p>Unresolved directive in common_package.adoc - include::ROOT:partial$uml/{pkg}extract_folder.adoc[]</p>
+</div>
+<div class="paragraph">
+<p>Unresolved directive in common_package.adoc - include::ROOT:partial$uml/{pkg}extract_content_item.adoc[]</p>
+</div>
+<div class="paragraph">
+<p>Unresolved directive in common_package.adoc - include::ROOT:partial$uml/{pkg}extract_participation.adoc[]</p>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="../design_overview/">Design Overview</a></span>
+  <span class="next"><a href="../openehr_extract_package/">The openehr_extract Package</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>
+    Copyright: © 2003+
+    <a href="https://www.openehr.org"
+        alt="is an independent, non-profit foundation, facilitating the sharing of health
+           records by consumers and clinicians via open specifications, clinical models
+           and open platform implementations.">The openEHR Foundation</a>
+  </p>
+
+  <p>
+    License:
+    <img src="/_/img/cc-by-nd-88x31.png"
+        alt="Creative Commons Attribution-NoDerivs 3.0 Unported."
+        style="vertical-align:middle;margin:0 0.25rem 0 0;">
+    <a href="https://creativecommons.org/licenses/by-nd/3.0/">
+      Creative Commons Attribution-NoDerivs 3.0 Unported.
+    </a>
+  </p>
+
+  <p>
+    <strong>Links: <strong>
+    <a href="https://www.openehr.org/terms-of-use" class="mr-1">Terms of use</a> |
+    <a href="https://www.openehr.org/privacy-policy" class="mx-1">Privacy policy</a> |
+    <a href="https://www.openehr.org/privacy-policy" class="mx-1">Logos &amp; Trademarks</a> |
+    <a href="https://www.openehr.org/contact-us" class="mx-1">Contact</a>
+  </p>
+</footer>
+
+<script id="site-script" src="../../../../_/js/site.js" data-ui-root-path="../../../../_"></script>
+<script async src="../../../../_/js/vendor/highlight.js"></script>
+<script src="../../../../_/js/vendor/lunr.js"></script>
+<script src="../../../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../../../.." data-snippet-length="80" data-stylesheet="../../../../_/css/search.css"></script>
+<script async src="../../../../search-index.js"></script>
+<script src="../../../../_/js/medium-zoom.min.js"></script>
+<script src="../../../../_/js/zoom.js"></script>
+  </body>
+</html>

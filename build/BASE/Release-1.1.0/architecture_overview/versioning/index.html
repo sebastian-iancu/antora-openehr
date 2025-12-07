@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+    <title>Versioning :: openEHR Specifications (Local Build)</title>
+    <link rel="canonical" href="https://sebastian-iancu.github.io/antora-openehr/BASE/latest/architecture_overview/versioning/">
+    <link rel="prev" href="../security/">
+    <link rel="next" href="../identification/">
+    <meta name="description" content="openEHR Architecture Overview">
+    <meta name="keywords" content="EHR, openehr, architecture">
+    <meta name="generator" content="Antora 3.1.14">
+    <link rel="stylesheet" href="../../../../_/css/site.css">
+    <link rel="stylesheet" href="../../../../_/css/antora-openehr.css">
+    <link rel="stylesheet" href="../../../../_/css/openehr.css">
+<link rel="icon" href="../../../../_/img/favicon.ico" type="image/x-icon">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://sebastian-iancu.github.io/antora-openehr">openEHR Specifications (Local Build)</a>
+
+      <div class="navbar-item search hide-for-print">
+        <div id="search-field" class="field has-filter">
+          <input id="search-input" type="text" placeholder="Search the docs">
+          <label class="filter checkbox">
+            <input type="checkbox" data-facet-filter="component:BASE"> Base Model only
+          </label>
+        </div>
+      </div>
+
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">Specifications</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://specifications.openehr.org/" target="_blank">
+              openEHR specification
+            </a>
+            <a class="navbar-item" href="https://specifications.openehr.org/releases/UML/development/index.html" target="_blank">
+              openEHR portal
+            </a>
+            <a class="navbar-item" href="https://ckm.openehr.org/ckm/" target="_blank">
+              openEHR CKM
+            </a>
+          </div>
+        </div>
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">Community</a>
+          <div class="navbar-dropdown is-right">
+            <a class="navbar-item" href="https://openehr.atlassian.net/secure/Dashboard.jspa?selectPageId=10190" target="_blank">
+              Issue trackers
+            </a>
+            <a class="navbar-item" href="https://discourse.openehr.org/" target="_blank">
+              Discourse Forum
+            </a>
+            <a class="navbar-item" href="https://specifications.openehr.org/wiki/display/spec/Specifications+Home" target="_blank">
+              Wiki
+            </a>
+            <a class="navbar-item" href="https://github.com/openEHR" target="_blank">
+              GitHub
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="BASE" data-version="Release-1.1.0">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="../../">Base Model</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../">Overview</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../">openEHR Architecture Overview</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../overview/">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../aims/">Aims of the openEHR Architecture</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../design_principles/">Design Principles</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../package_structure/">openEHR Specification Structure</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../design_of_the_ehr/">Design of the openEHR EHR</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../security/">Security and Confidentiality</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="./">Versioning</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../identification/">Identification</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../archetypes/">Archetypes and Templates</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../paths/">Paths and Locators</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../terminology/">Terminology in openEHR</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../deployment/">Deployment</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../integration/">Integrating openEHR with other Systems</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../standards/">Relationship to Standards</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../implementation/">Implementation Technology Specifications</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../base_types/">openEHR Base Types specification</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../base_types/preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../base_types/overview/">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../base_types/definitions_package/">Definitions Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../base_types/identification_package/">Identification Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../base_types/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../foundation_types/">openEHR Foundation Types specification</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../foundation_types/preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../foundation_types/overview/">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../foundation_types/primitive_types/">Primitive Types</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../foundation_types/structure_types/">Structure Types</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../foundation_types/interval/">Interval</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../foundation_types/time_types/">Time Types</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../foundation_types/terminology/">Terminology Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../foundation_types/functional/">Functional Meta-types</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../foundation_types/type_cross_ref/">Type Cross-Reference</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../foundation_types/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../resource/">Resource Model Specification</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../resource/preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../resource/resource_package/">Resource Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../resource/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Base Model</span>
+    <span class="version">Release-1.1.0</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <div class="title"><a href="../../../../AM/latest/">Archetype Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../AM/latest/">Release-2.3.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../AM/Release-2.2.0/">Release-2.2.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../AM/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <div class="title"><a href="../../../latest/">Base Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../latest/">Release-1.2.0</a>
+        </li>
+        <li class="version is-current">
+          <a href="../../">Release-1.1.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../RM/latest/">Reference Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../RM/latest/">Release-1.1.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../RM/Release-1.0.4/">Release-1.0.4</a>
+        </li>
+        <li class="version">
+          <a href="../../../../RM/development/">development</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../latest/" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../../">Base Model</a></li>
+    <li><a href="../">openEHR Architecture Overview</a></li>
+    <li><a href="./">Versioning</a></li>
+  </ul>
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">Release-1.1.0</button>
+  <div class="version-menu">
+    <a class="version" href="../../../latest/architecture_overview/versioning/">Release-1.2.0</a>
+    <a class="version is-current" href="./">Release-1.1.0</a>
+    <a class="version" href="../../../development/architecture_overview/versioning/">development</a>
+  </div>
+</div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Versioning</h1>
+<div class="sect1">
+<h2 id="_overview"><a class="anchor" href="#_overview"></a><a class="link" href="#_overview">Overview</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Version control is an integral part of the openEHR architecture. An openEHR repository for EHR or
+demographic information is managed as a change-controlled collection of "version containers" (modelled
+by the <code>VERSIONED_OBJECT&lt;T&gt;</code> class in the <code>common.change_control</code> package), each containing
+the versions of a top-level content structure (such as a Composition or Party) as it changes
+over time. A version-controlled top-level content structure is visualised below.</p>
+</div>
+<div id="version_control_structures" class="imageblock text-center text-center">
+<div class="content">
+<img src="../_images/diagrams/version_control_structures.png" alt="version control structures" width="80%">
+</div>
+<div class="title">Figure 1. Version Signature</div>
+</div>
+<div class="paragraph">
+<p>Versioning of single top-level structures is a necessary, but not sufficient requirement for a repository
+that must provide coherence, traceability, indelibility, rollback, and support for forensic examination
+of past states of the data. Features supporting "change control" are also required. Under a disciplined
+change control scheme, changes are not made arbitrarily to single top-level structures, but to the
+repository itself. Changes take the form of change-sets, called "Contributions", that consist of new or
+changed versions of the controlled items in the repository. The key feature of a change-set is that it
+acts like a transaction, and takes the repository from one consistent state to another, whereas arbitrary
+combinations of changes to single controlled items could easily be inconsistent, and even dangerously
+wrong where clinical data are concerned.</p>
+</div>
+<div class="paragraph">
+<p>These concepts are well-known in configuration management (CM), and are used as the basis for
+most software and other change management systems, including numerous free and commercial
+products available today. They are a central design feature of openEHR architecture. The following
+sections provide more details</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_the_configuration_management_paradigm"><a class="anchor" href="#_the_configuration_management_paradigm"></a><a class="link" href="#_the_configuration_management_paradigm">The Configuration Management Paradigm</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The "configuration management" (CM) paradigm is well-known in software engineering, and has its
+own IEEE standard <a href="#IEEE_828">[IEEE_828]</a>. CM is about managed control of changes to a repository of items (formally
+called "configuration items" or CIs), and is relevant to any logical repository of distinct information
+items which changes in time. In health information systems, at least two types of information require
+such management: electronic health records, and demographic information. In most analyses in the
+past, the need for change management has been expressed in terms of specific requirements for audit
+trailing of changes, availability of previous states of the repository and so on. In openEHR, the aim is
+to provide a formal, general-purpose model for change control, and show how it applies to health
+information.</p>
+</div>
+<div class="sect2">
+<h3 id="_organisation_of_the_repository"><a class="anchor" href="#_organisation_of_the_repository"></a><a class="link" href="#_organisation_of_the_repository">Organisation of the Repository</a></h3>
+<div class="paragraph">
+<p>The general organisation of a repository of complex information items such as a software repository,
+or the EHR consists of the following:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>a number of distinct information items, or configuration items, each of which is uniquely identified, and may have any amount of internal complexity;</p>
+</li>
+<li>
+<p>optionally, a directory system of some kind, in which the configurations items are organised;</p>
+</li>
+<li>
+<p>other environmental information which may be relevant to correctly interpreting the primary versioned items, e.g. versions of tools used to create them.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>In a software or document repository, the CIs are files arranged in the directories of the file system; in
+an EHR based on openEHR, they are Compositions, the optional Folder structure, Parties in the
+demographic service and so on. Contributions are made to the repository by users. This general
+abstraction is visualised as follows.</p>
+</div>
+<div id="controlled_repository" class="imageblock text-center text-center">
+<div class="content">
+<img src="../_images/diagrams/controlled_repository.png" alt="controlled repository" width="55%">
+</div>
+<div class="title">Figure 2. General Structure of a Controlled Repository</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_change_management"><a class="anchor" href="#_change_management"></a><a class="link" href="#_change_management">Change Management</a></h3>
+<div class="paragraph">
+<p>Change doesn’t occur to Configuration Items in isolation, but to the repository as a whole. Possible types of change include:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>creation of a new CI;</p>
+</li>
+<li>
+<p>removal of a CI;</p>
+</li>
+<li>
+<p>modification of a CI;</p>
+</li>
+<li>
+<p>creation of, change to or deletion of part of the directory structure;</p>
+</li>
+<li>
+<p>moving of a CI to another location in the directory structure;</p>
+</li>
+<li>
+<p>attestation of an existing CI.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The goal of configuration management is to ensure the following:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>the repository is always in a valid state;</p>
+</li>
+<li>
+<p>any previous state of the repository can be reconstructed;</p>
+</li>
+<li>
+<p>all changes are audit-trailed.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_managing_changes_in_time"><a class="anchor" href="#_managing_changes_in_time"></a><a class="link" href="#_managing_changes_in_time">Managing Changes in Time</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Properly managing changes to the repository requires two mechanisms. The first, version control, is
+used to manage versions of each CI, and of the directory structure if there is one. The second is the
+concept of the "change-set", known as a contribution in openEHR. This is the set of changes to individual
+CIs (and other top-level structures in the EHR) made by a user as part of some logical change.
+For example, in a document repository, the logical change might be an update to a document that consists
+of multiple files (CIs). There is one Contribution, consisting of changes to the document file CIs,
+to the repository. In the EHR, a Contribution might consist of changes to more than one Composition,
+and possibly to the organising Folder structure. Any change to the EHR requires a Contribution. The
+kinds of changes that can occur to items affected in a Contribution are:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><em>addition of new item</em>: a new Version container is created and a first Version added to it;</p>
+</li>
+<li>
+<p><em>deletion of item</em>: a new Version whose data attribute is set to Void is added to an existing Version container;</p>
+</li>
+<li>
+<p><em>modification of item</em>: a new Version whose data contains the updated form of the item content is added to an existing Version container (this may be done for a logical update or correction);</p>
+</li>
+<li>
+<p><em>import of item</em>: a new ‘import’ Version is created, incorporating the received Version;</p>
+</li>
+<li>
+<p><em>attestation of item</em>: a new Attestation is added to the attestations list of an existing Version.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>A typical sequence of changes to a repository is illustrated in the following figure.</p>
+</div>
+<div id="contribution_deltas" class="imageblock text-center text-center">
+<div class="content">
+<img src="../_images/diagrams/contribution_deltas.png" alt="contribution deltas" width="80%">
+</div>
+<div class="title">Figure 3. Contributions to the Repository (delta form)</div>
+</div>
+<div class="paragraph">
+<p>This shows the effect of four Contributions (indicated by blue ovals on the left hand side) to a repository
+containing a number of CIs (the directory tree is not shown for the sake of simplicity). As each
+Contribution is made, the repository is changed in some way. The first brings into existing a new CI,
+and modifies three others (changes indicated by the ‘C’ triangles). The second Contribution causes
+the creation of a new CI only. The third causes a creation as well as two changes, while the fourth
+causes only a change. (Changes to the folder structure are not shown here).</p>
+</div>
+<div class="paragraph">
+<p>One nuance which should be pointed out is that in the figure above Contributions are shown as if they are
+literally a set of deltas, i.e. exactly the changes which occur to the record. Thus, the first Contribution
+is the set {CI<sub>w</sub>, C<sub>a1</sub>, C<sub>c1</sub>, C<sub>d1</sub>} and so on. Whether this is literally true depends on the construction of
+the persistence solution. In some situations, some CIs may be updated by the user viewing the current
+list and entering just the changes - the situation shown above; in others, the system may provide
+the current state of these CIs for editing by the user, and submit the updated versions, as shown
+in the next figure. Some applications may do both, depending on which CI is being updated. The internal
+versioning implementation may or may not generate deltas as a way of efficient storage.</p>
+</div>
+<div id="contributions_non_delta" class="imageblock text-center text-center">
+<div class="content">
+<img src="../_images/diagrams/contributions_non_delta.png" alt="contributions non delta" width="80%">
+</div>
+<div class="title">Figure 4. Contributions to the Repository (non-delta form)</div>
+</div>
+<div class="paragraph">
+<p>For the purposes of openEHR, a Contribution is considered as being the set of Versions created or
+attested at one time, as implied by the figure above.</p>
+</div>
+<div class="sect2">
+<h3 id="_general_model_of_a_change_controlled_repository"><a class="anchor" href="#_general_model_of_a_change_controlled_repository"></a><a class="link" href="#_general_model_of_a_change_controlled_repository">General Model of a Change-controlled Repository</a></h3>
+<div class="paragraph">
+<p>The following figure shows an abstract model of a change-controlled repository.</p>
+</div>
+<div id="abstract_model_repository" class="imageblock text-center text-center">
+<div class="content">
+<img src="../_images/diagrams/abstract_model_repository.png" alt="abstract model repository" width="60%">
+</div>
+<div class="title">Figure 5. Abstract Model of Change-controlled Repository</div>
+</div>
+<div class="paragraph">
+<p>This consists of:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>version-controlled configuration items - instances of <code>VERSIONED_OBJECT&lt;T&gt;</code>;</p>
+</li>
+<li>
+<p><code>CONTRIBUTIONs</code>;</p>
+</li>
+<li>
+<p>an optional directory system of folders. If folders are used, the folder structure must also be versioned as a unit.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The actual type of links between the controlled repository and the other entities might vary - in some
+cases it might be association, in others aggregation; cardinalities might also vary. The figure above therefore provides a guide to the definition of actual controlled repositories, such as an EHR, rather than a
+formal specification for them.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_the_virtual_version_tree"><a class="anchor" href="#_the_virtual_version_tree"></a><a class="link" href="#_the_virtual_version_tree">The Virtual Version Tree</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>An underlying design concept of the versioning model defined in openEHR is known as a "virtual version tree".
+The idea is simple in the abstract. Information is committed to a repository (such as an
+EHR) in lumps, each lump being the "data" of one Version. Each Version has its place within a version
+tree, which in turn is maintained inside a Versioned object (or "version container"). The virtual
+version tree concept means that any given Versioned object may have numerous copies in various
+systems, and that the creation of versions in each is done in such a way that all versions so created are
+in fact compatible with the "virtual" version tree resulting from the superimposition of the version
+trees of all copies. This is achieved using simple rules for version identification and is done to facilitate
+data sharing. Two very common scenarios are served by the virtual version tree concept:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>longitudinal data that stands as a proxy for the state or situation of the patient such as "Medications" or "Problem list" (persistent Compositions in openEHR) is created and maintained in one or more care delivery organisations, and shared across a larger number of organisations;</p>
+</li>
+<li>
+<p>some EHRs in an EHR server in one location are mirrored into one or more other EHR servers (e.g. at care providers where the relevant patients are also treated); the mirroring process requires asynchronous synchronisation between servers to work seamlessly, regardless of the location, time, or author of any data created.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The versioning scheme used in openEHR guarantees that no matter where data are created or copied,
+there are no inconsistencies due to sharing, and that logical copies are explicitly represented. It therefore
+provides direct support for shared data in a shared care context.</p>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="../security/">Security and Confidentiality</a></span>
+  <span class="next"><a href="../identification/">Identification</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>
+    Copyright: © 2003+
+    <a href="https://www.openehr.org"
+        alt="is an independent, non-profit foundation, facilitating the sharing of health
+           records by consumers and clinicians via open specifications, clinical models
+           and open platform implementations.">The openEHR Foundation</a>
+  </p>
+
+  <p>
+    License:
+    <img src="/_/img/cc-by-nd-88x31.png"
+        alt="Creative Commons Attribution-NoDerivs 3.0 Unported."
+        style="vertical-align:middle;margin:0 0.25rem 0 0;">
+    <a href="https://creativecommons.org/licenses/by-nd/3.0/">
+      Creative Commons Attribution-NoDerivs 3.0 Unported.
+    </a>
+  </p>
+
+  <p>
+    <strong>Links: <strong>
+    <a href="https://www.openehr.org/terms-of-use" class="mr-1">Terms of use</a> |
+    <a href="https://www.openehr.org/privacy-policy" class="mx-1">Privacy policy</a> |
+    <a href="https://www.openehr.org/privacy-policy" class="mx-1">Logos &amp; Trademarks</a> |
+    <a href="https://www.openehr.org/contact-us" class="mx-1">Contact</a>
+  </p>
+</footer>
+
+<script id="site-script" src="../../../../_/js/site.js" data-ui-root-path="../../../../_"></script>
+<script async src="../../../../_/js/vendor/highlight.js"></script>
+<script src="../../../../_/js/vendor/lunr.js"></script>
+<script src="../../../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../../../.." data-snippet-length="80" data-stylesheet="../../../../_/css/search.css"></script>
+<script async src="../../../../search-index.js"></script>
+<script src="../../../../_/js/medium-zoom.min.js"></script>
+<script src="../../../../_/js/zoom.js"></script>
+  </body>
+</html>

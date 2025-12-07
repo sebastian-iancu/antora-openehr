@@ -1,0 +1,995 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+    <title>Paths and Locators :: openEHR Specifications (Local Build)</title>
+    <link rel="canonical" href="https://sebastian-iancu.github.io/antora-openehr/BASE/latest/architecture_overview/paths/">
+    <link rel="prev" href="../archetypes/">
+    <link rel="next" href="../terminology/">
+    <meta name="description" content="openEHR Architecture Overview">
+    <meta name="keywords" content="EHR, openehr, architecture">
+    <meta name="generator" content="Antora 3.1.14">
+    <link rel="stylesheet" href="../../../../_/css/site.css">
+    <link rel="stylesheet" href="../../../../_/css/antora-openehr.css">
+    <link rel="stylesheet" href="../../../../_/css/openehr.css">
+<link rel="icon" href="../../../../_/img/favicon.ico" type="image/x-icon">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://sebastian-iancu.github.io/antora-openehr">openEHR Specifications (Local Build)</a>
+
+      <div class="navbar-item search hide-for-print">
+        <div id="search-field" class="field has-filter">
+          <input id="search-input" type="text" placeholder="Search the docs">
+          <label class="filter checkbox">
+            <input type="checkbox" data-facet-filter="component:BASE"> Base Model only
+          </label>
+        </div>
+      </div>
+
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">Specifications</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://specifications.openehr.org/" target="_blank">
+              openEHR specification
+            </a>
+            <a class="navbar-item" href="https://specifications.openehr.org/releases/UML/development/index.html" target="_blank">
+              openEHR portal
+            </a>
+            <a class="navbar-item" href="https://ckm.openehr.org/ckm/" target="_blank">
+              openEHR CKM
+            </a>
+          </div>
+        </div>
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">Community</a>
+          <div class="navbar-dropdown is-right">
+            <a class="navbar-item" href="https://openehr.atlassian.net/secure/Dashboard.jspa?selectPageId=10190" target="_blank">
+              Issue trackers
+            </a>
+            <a class="navbar-item" href="https://discourse.openehr.org/" target="_blank">
+              Discourse Forum
+            </a>
+            <a class="navbar-item" href="https://specifications.openehr.org/wiki/display/spec/Specifications+Home" target="_blank">
+              Wiki
+            </a>
+            <a class="navbar-item" href="https://github.com/openEHR" target="_blank">
+              GitHub
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="BASE" data-version="development">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="../../">Base Model</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../">Overview</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../">{spec_title}</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../overview/">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../aims/">Aims of the openEHR Architecture</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../design_principles/">Design Principles</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../package_structure/">openEHR Specification Structure</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../design_of_the_ehr/">Design of the openEHR EHR</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../security/">Security and Confidentiality</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../versioning/">Versioning</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../identification/">Identification</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../archetypes/">Archetypes and Templates</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="./">Paths and Locators</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../terminology/">Terminology in openEHR</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../deployment/">Deployment</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../integration/">Integrating openEHR with other Systems</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../standards/">Relationship to Standards</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../implementation/">Implementation Technology Specifications</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../base_types/">{spec_title}</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../base_types/preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../base_types/overview/">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../base_types/definitions_package/">Definitions Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../base_types/builtins_package/">Builtins Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../base_types/identification_package/">Identification Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../base_types/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../foundation_types/">{spec_title}</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../foundation_types/preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../foundation_types/overview/">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../foundation_types/primitive_types/">Primitive Types</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../foundation_types/structure_types/">Structure Types</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../foundation_types/interval/">Interval</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../foundation_types/time_types/">Time Types</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../foundation_types/terminology/">Terminology Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../foundation_types/functional/">Functional Meta-types</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../foundation_types/type_cross_ref/">Type Cross-Reference</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../foundation_types/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../resource/">{spec_title}</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../resource/preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../resource/resource_package/">Resource Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../resource/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Base Model</span>
+    <span class="version">development</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <div class="title"><a href="../../../../AM/latest/">Archetype Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../AM/latest/">Release-2.3.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../AM/Release-2.2.0/">Release-2.2.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../AM/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <div class="title"><a href="../../../latest/">Base Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../latest/">Release-1.2.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../Release-1.1.0/">Release-1.1.0</a>
+        </li>
+        <li class="version is-current">
+          <a href="../../">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../RM/latest/">Reference Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../RM/latest/">Release-1.1.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../RM/Release-1.0.4/">Release-1.0.4</a>
+        </li>
+        <li class="version">
+          <a href="../../../../RM/development/">development</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../latest/" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../../">Base Model</a></li>
+    <li><a href="../">{spec_title}</a></li>
+    <li><a href="./">Paths and Locators</a></li>
+  </ul>
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">development</button>
+  <div class="version-menu">
+    <a class="version" href="../../../latest/architecture_overview/paths/">Release-1.2.0</a>
+    <a class="version" href="../../../Release-1.1.0/architecture_overview/paths/">Release-1.1.0</a>
+    <a class="version is-current" href="./">development</a>
+  </div>
+</div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Paths and Locators</h1>
+<div class="sect1">
+<h2 id="_overview"><a class="anchor" href="#_overview"></a><a class="link" href="#_overview">Overview</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The openEHR architecture includes a path mechanism that enables any node within a top level structure
+to be specified from the top of the structure using a "semantic" (i.e. archetype-based) X-path
+compatible path. The availability of such paths radically changes the available querying possibilities
+with health information, and is one of the major distinguishing features of openEHR.</p>
+</div>
+<div class="paragraph">
+<p>Technically, the combination of a path and a Version identifier such as <code>OBJECT_VERSION_ID</code> forms
+a 'globally qualified node reference' which can be expressed using <code>LOCATABLE_REF</code>. It can also be
+expressed in portable URI form as a <code>DV_EHR_URI</code>, known as a 'globally qualified node locator'.
+Either representation enables any openEHR data node to be referred to from anywhere. This section
+describes the syntax and semantics of paths, and of the URI form of reference. In the following, the
+term 'archetype path' means a path extracted from an archetype, while "data path" means one that
+identifies an item in data. They are no different formally, and this terminology is only used to indicate
+where they are used.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_paths"><a class="anchor" href="#_paths"></a><a class="link" href="#_paths">Paths</a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_basic_syntax"><a class="anchor" href="#_basic_syntax"></a><a class="link" href="#_basic_syntax">Basic Syntax</a></h3>
+<div class="paragraph">
+<p>Paths in openEHR are defined in an Xpath1-compatible syntax which is a superset of the path syntax
+described in the Archetype Definition Language (ADL). The syntax is designed to be easily mappable
+to <a href="https://www.w3.org/TR/xpath-31/" target="_blank" rel="noopener">W3C Xpath expressions</a>, for use with openEHR-based XML.</p>
+</div>
+<div class="paragraph">
+<p>The data path syntax used in locator expressions follows the general pattern of a path consisting of
+segments each consisting of an attribute name, and separated by the slash ('/') character, i.e.:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>attribute_name / attribute_name / ... / attribute_name</pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+In all openEHR documentation, the term 'attribute' is used in the object-oriented sense of 'property of an object', not in the XML sense of named values appearing within a tag. The syntax described here should not be considered to necessarily have a literal mapping to XML instance, but rather to have a logical mapping to object-oriented data structures.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Paths select the object which is the value of the final attribute name in the path, when going from
+some starting point in the tree and following attribute names given in the path. The starting point is
+indicated by the initial part of the path, and can be specified in two ways:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><em>relative path</em>: path starts with an attribute name, and the starting point is the current point in the tree (given by some previous operation or knowledge);</p>
+</li>
+<li>
+<p><em>absolute path</em>: path starts with a <code>/</code>; the starting point is the top of the structure.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>In addition, the <code>//</code> notation from Xpath can be used to define a path pattern:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><em>path pattern</em>: path starts with or contains the symbol '//' and is taken to be a pattern which can match any number of path segments in the data; the pattern is matched if an actual path can be found anywhere in the structure for which part of the path matches the path section before the <code>//</code> symbol, and a later section matches the section appearing after the <code>//</code>.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_predicate_expressions"><a class="anchor" href="#_predicate_expressions"></a><a class="link" href="#_predicate_expressions">Predicate Expressions</a></h3>
+<div class="sect3">
+<h4 id="_overview_2"><a class="anchor" href="#_overview_2"></a><a class="link" href="#_overview_2">Overview</a></h4>
+<div class="paragraph">
+<p>Paths specified solely with attribute names are limited in two ways. Firstly, they can only locate objects in structures in which there are no containers such as lists or sets. However, in any realistic data, including most openEHR data, list, set and hash structures are common. Additional syntax is needed to match a particular object from among the siblings referred to by a container attribute. This takes the form of a predicate expression enclosed in brackets ('[]') after the relevant attribute in a segment, i.e.:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>attribute_name [predicate expression]</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The general form of a path then resembles the following:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>attribute_name / attribute_name [predicate expression] / ...</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Here, predicate expressions are used optionally on those attributes defined in the reference model to be of a container type (i.e. having a cardinality of &gt; 1). If a predicate expression is not used on a container attribute, the whole container is selected. Note that predicate expressions are often possible even on single-valued attributes, and can be used (e.g. if generic path-processing software can&#8217;t tell the difference) but are not required.</p>
+</div>
+<div class="paragraph">
+<p>The second limitation of basic paths is that they cannot locate objects based on other conditions, such as the object having a child node with a particular value. To address this, predicate expressions can be used to select an object on the basis of other conditions relative to the object, by including boolean expressions including paths, operators, values and parentheses. The syntax of predicate expressions used in openEHR is a subset of the Xpath syntax for predicates with a small number of short-cuts.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_archetype_path_predicate"><a class="anchor" href="#_archetype_path_predicate"></a><a class="link" href="#_archetype_path_predicate">Archetype path Predicate</a></h4>
+<div class="paragraph">
+<p>The most important predicate uses the archetype_node_id value (inherited from <code>LOCATABLE</code>) to limit the items returned from a container, such as to certain <code>ELEMENTs</code> within a <code>CLUSTER</code>. The shortcut form allows the archetype code to be included on its own as the predicate, e.g. <code>[at0003]</code>. This shortcut corresponds to using an archetype path against the runtime data. A typical archetype-derived path is the following (applied to an Observation instance):</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>/data/events[at0003]/data/items[at0025]/value/magnitude</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This path refers to the magnitude of a 1-minute Apgar total in an Observation containing a full Apgar result structure. In this path, the <code>[atNNNN]</code> predicates are a shortcut for <code>[@archetype_node_id = 'atNNNN']</code> in standard Xpath.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+while an archetype path is always unique in an archetype, it can correspond to more than one item in runtime data, due to the repeated use of the same archetype node within a container.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_name_based_predicate"><a class="anchor" href="#_name_based_predicate"></a><a class="link" href="#_name_based_predicate">Name-based Predicate</a></h4>
+<div class="paragraph">
+<p>If the <code>LOCATABLE.<em>name</em></code> value in certain data is populated with meaningful values, a useful predicate can be formed using a combination of <code>name.value</code> (which takes the Xpath-like form <code>name/value</code> in a predicate) and the <code><em>archetype_node_id</em></code> value. The standard Xpath form of this expression is exemplified by the following:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>/data/events[@archetype_node_id = 'at0001' and name/value='standing']</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>with the openEHR equivalent being:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>/data/events[at0001 and name/value='standing']</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Since the combination of an archetype node identifier and a <code><em>name</em></code> value is very common in archetyped databases, a shortcut is also available for the <code><em>name/value</em></code> expression, which is to simply include the value after a comma as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>/data/events[at0001, 'standing']</pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_other_predicates"><a class="anchor" href="#_other_predicates"></a><a class="link" href="#_other_predicates">Other Predicates</a></h4>
+<div class="paragraph">
+<p>Other predicates can be used, based on the value of other attributes such as <code>ELEMENT.<em>name</em></code> or
+<code>EVENT.<em>time</em></code>. Combinations of the archetype_node_id and other such values are commonly used in
+querying, such as the following path fragment (applied to an <code>OBSERVATION</code> instance):</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>/data/events[at0007 AND time &gt;= '24-06-2005T09:30:00']</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This path would choose Events in <code>OBSERVATION.<em>data</em></code> whose <code><em>archetype_node_id</em></code> meaning is 'summary
+event' (<code>at0007</code> in some archetype) and which occurred at or after the given time. The following
+example would choose an Evaluation containing a diagnosis (<code>at0002.1</code>) of 'other bacterial intestinal
+infections' (ICD10 code <code>A04</code>):</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>/data/items[at0002.1
+    AND value/defining_code/terminology_id/value = 'ICD10AM'
+    AND value/defining_code/code_string = 'A04']</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_paths_within_top_level_structures"><a class="anchor" href="#_paths_within_top_level_structures"></a><a class="link" href="#_paths_within_top_level_structures">Paths within Top-level Structures</a></h3>
+<div class="paragraph">
+<p>Paths within top-level structures strictly adhere to attribute and function names in the relevant parts of the reference model. Predicate expressions are needed to distinguish multiple siblings in various points in paths into these structures, but particularly at archetype "chaining" points. A chaining point is where one archetype takes over from another as illustrated in figure <a href="#archetypes_and_data">[archetypes_and_data]</a>. Chaining points in Compositions occur between the Composition and a Section structure, potentially between a Section structure and other sub-Section structures (constrained by a different Section archetype), and between either Compositions or Section structures, and Entries. Chaining might also occur inside an Entry, if archetyping is used on lower level structures such as Item_lists etc. Most chaining points correspond to container types such as <code>List&lt;T&gt;</code> etc., e.g. <code>COMPOSITION.<em>content</em></code> is defined to be a <code>List&lt;CONTENT_ITEM&gt;</code>, meaning that in real data, the content of a Composition could be a List of Section structures. To distinguish between such sibling structures, predicate expressions are used, based on the archetype_id. At the root point of an archetype in data (e.g. top of a Section structure), the archetype_id carries the identifier of the archetype used to create that structure, in the same manner as any interior point in an archetyped structure has an <code><em>archetype_node_id</em></code> attribute carrying archetype <code><em>node_id</em></code> values. The chaining point between Sections and Entries works in the same manner, and since multiple Entries can occur under a single Section, <code><em>archetype_id</em></code> predicates are also used to distinguish them. The same shorthand is used for <code><em>archetype_id</em></code> predicate expressions as for <code><em>archetype_node_ids</em></code>, i.e. instead of using <code>[@archetype_id = "xxxxx"]</code>, <code>[xxxx]</code> can be used instead.</p>
+</div>
+<div class="paragraph">
+<p>The following paths are examples of referring to items within a Composition:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>/content[openEHR-EHR-SECTION.vital_signs.v1 and name/value='Vital signs']/items[openEHR-EHR-OBSERVATION.heart_rate-pulse.v1 and name/value='Pulse']/data/events[at0003 and name/value='Any event']/data/items[at1005]
+
+/content[openEHR-EHR-SECTION.vital_signs.v1 and name/value='Vital signs']/items[openEHR-EHR-OBSERVATION.blood_pressure.v1 and name/value='Blood pressure']/data/events[at0006 and name/value='any event']/data/items[at0004]
+
+/content[openEHR-EHR-SECTION.vital_signs.v1, 'Vital signs']/items[openEHR-EHR-OBSERVATION.blood_pressure.v1, 'Blood pressure']/data/events[at0006, 'any event']/data/items[at0005]</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Paths within the other top level types follow the same general approach, i.e. are created by following
+the required attributes down the hierarchy.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_data_paths_and_uniqueness"><a class="anchor" href="#_data_paths_and_uniqueness"></a><a class="link" href="#_data_paths_and_uniqueness">Data Paths and Uniqueness</a></h3>
+<div class="paragraph">
+<p>Archetype paths are not guaranteed to uniquely identify items in data, due to the fact that one archetype
+node may correspond to multiple instances in the data. However it is often useful to be able
+to construct a unique path to an item in real data. This can be done by using attributes other than
+<code><em>archetype_node_id</em></code> in path predicates.</p>
+</div>
+<div class="sect3">
+<h4 id="_using_a_uid_based_predicate"><a class="anchor" href="#_using_a_uid_based_predicate"></a><a class="link" href="#_using_a_uid_based_predicate">Using a Uid-based Predicate</a></h4>
+<div class="paragraph">
+<p>The most reliable way to obtain unique path for run-time nodes in data is is by populating the inherited <code>LOCATABLE.<em>uid</em></code> field with UUIDs. A predicate can be formed from just the <code><em>uid</em></code> value, or the combination of  <code><em>uid</em></code> value and the <code><em>archetype_node_id</em></code> value, which although technically speaking is redundant, is more informative (e.g. it can be displayed with the <code><em>archetype_node_id</em></code> meaning visible for the user). This is the preferred method to achieve runtime unique node identification. The standard Xpath form of this expression is exemplified by the following:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>/data/events[@uid='25f2f224-64f0-41ec-a5c7-c31c040c77ce']   &lt;!-- assumes 'uid' is an XML attribute in XSD --&gt;
+/data/events[@archetype_node_id = 'at0001' and @uid='25f2f224-64f0-41ec-a5c7-c31c040c77ce']</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>with the openEHR equivalent being:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>/data/events[uid='25f2f224-64f0-41ec-a5c7-c31c040c77ce']
+/data/events[at0001 and uid='25f2f224-64f0-41ec-a5c7-c31c040c77ce']</pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_using_a_name_based_predicate"><a class="anchor" href="#_using_a_name_based_predicate"></a><a class="link" href="#_using_a_name_based_predicate">Using a Name-based Predicate</a></h4>
+<div class="paragraph">
+<p>If the <code>LOCATABLE.<em>name</em></code> value in certain data is known to be reliably populated with unique values across immediate siblings, the <code>name/value</code> term may be used as described above to form a uniquely identifying predicate for a node. Consider as an example the following <code>OBSERVATION</code> archetype (expressed in <a href="https://specifications.openehr.org/releases/LANG/latest/odin.html" target="_blank" rel="noopener">ODIN syntax</a>):</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-cadl" data-lang="cadl">OBSERVATION[at0000] matches {                               -- blood pressure measurement
+    data matches {
+        HISTORY matches {
+            events {1..*} matches {
+                EVENT[at0006] {0..1} matches {              -- any event
+                    name matches {
+                        DV_TEXT matches {...}
+                    }
+                    data matches {
+                        ITEM_LIST[at0003] matches {         -- systemic arterial BP
+                            count matches {|&gt;=2|}
+                            items matches {
+                                ELEMENT[at0004] matches {   -- systolic BP
+                                    name matches {
+                                        DV_TEXT matches {...}
+                                    }
+                                    value matches {
+                                        magnitude matches {...}
+                                    }
+                                }
+                                ELEMENT[at0005] matches {   -- diastolic BP
+                                    name matches {
+                                        DV_TEXT matches {...}
+                                    }
+                                    value matches {
+                                        magnitude matches {...}
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The following path extracted from the archetype refers to the systolic blood pressure magnitude:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>/data/events[at0006]/data/items[at0004]/value/magnitude</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The codes <code>[atnnnn]</code> at each node of the archetype become the <code><em>archetype_node_id</em></code> found in each node in the data.</p>
+</div>
+<div class="paragraph">
+<p>Now consider an <code>OBSERVATION</code> instance (expressed here in <a href="https://specifications.openehr.org/releases/LANG/latest/odin.html" target="_blank" rel="noopener">ODIN syntax</a>), in which a history of two blood pressures has been recorded using this archetype:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-odin" data-lang="odin">&lt;                                                       -- OBSERVATION - blood pressure measurement
+    archetype_node_id = &lt;"openEHR-EHR-OBSERVATION.blood_pressure.v1"&gt;
+    name = &lt;value = &lt;"BP measurement"&gt;&gt;
+    data = &lt;                                            -- HISTORY
+        archetype_node_id = &lt;"at0001"&gt;
+        origin = &lt;2005-12-03T09:22:00&gt;
+        events = &lt;                                      -- List &lt;EVENT&gt;
+            [1] = &lt;                                     -- EVENT
+                archetype_node_id = &lt;"at0006"&gt;
+                name = &lt;value = &lt;"sitting"&gt;&gt;
+                time = &lt;2005-12-03T09:22:00&gt;
+                data = &lt;                                -- ITEM_LIST
+                    archetype_node_id = &lt;"at0003"&gt;
+                    items = &lt;                           -- List&lt;ELEMENT&gt;
+                        [1] = &lt;
+                            name = &lt;value = &lt;"systolic"&gt;&gt;
+                            archetype_node_id = &lt;"at0004"&gt;
+                            value = &lt;magnitude = &lt;120.0&gt; ...&gt;
+                        &gt;
+                        [2] = &lt;
+                            name = &lt;value = &lt;"diastolic"&gt;&gt;
+                            archetype_node_id = &lt;"at0005"&gt;
+                            value = &lt;magnitude = &lt;80.0&gt; ...&gt;
+                        &gt;
+                    &gt;
+                &gt;
+            &gt;
+            [2] = &lt;                                     -- EVENT
+                archetype_node_id = &lt;"at0006"&gt;
+                name = &lt;value = &lt;"standing"&gt;&gt;
+                time = &lt;2005-12-03T09:27:00&gt;
+                data = &lt;                                -- ITEM_LIST
+                    archetype_node_id = &lt;"at0003"&gt;
+                    items = &lt;                           -- List&lt;ELEMENT&gt;
+                        [1] = &lt;
+                            name = &lt;value = &lt;"systolic"&gt;&gt;
+                            archetype_node_id = &lt;"at0004"&gt;
+                            value = &lt;magnitude = &lt;105.0&gt; ...&gt;
+                        &gt;
+                        [2] = &lt;
+                            name = &lt;value = &lt;"diastolic"&gt;&gt;
+                            archetype_node_id = &lt;"at0005"&gt;
+                            value = &lt;magnitude = &lt;70.0&gt; ...&gt;
+                        &gt;
+                    &gt;
+                &gt;
+            &gt;
+        &gt;
+    &gt;
+&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The same data are shown in JSON syntax:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+    "_type": "OBSERVATION",
+    "archetype_node_id": "openEHR-EHR-OBSERVATION.blood_pressure.v1",
+    "name": {
+        "value": "BP measurement"
+    },
+    "data": {
+        "archetype_node_id": "at0001",
+        "origin": "2005-12-03T09:22:00",
+        "events": [
+            {
+                "_type": "POINT_EVENT",
+                "archetype_node_id": "at0006",
+                "name": {
+                    "value": "sitting"
+                },
+                "time": "2005-12-03T09:22:00",
+                "data": {
+                    "_type": "ITEM_LIST",
+                    "archetype_node_id": "at0003",
+                    "items": [
+                        {
+                            "name": {
+                                "value": "systolic"
+                            },
+                            "archetype_node_id": "at0004",
+                            "value": {
+                                "magnitude": 120.0
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "diastolic"
+                            },
+                            "archetype_node_id": "at0005",
+                            "value": {
+                                "magnitude": 80.0
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "_type": "POINT_EVENT",
+                "archetype_node_id": "at0006",
+                "name": {
+                    "value": "standing"
+                },
+                "time": "2005-12-03T09:27:00",
+                "data": {
+                    "_type": "ITEM_LIST",
+                    "archetype_node_id": "at0003",
+                    "items": [
+                        {
+                            "name": {
+                                "value": "systolic"
+                            },
+                            "archetype_node_id": "at0004",
+                            "value": {
+                                "magnitude": 105.0
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "diastolic"
+                            },
+                            "archetype_node_id": "at0005",
+                            "value": {
+                                "magnitude": 70.0
+                            }
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+}</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+in the above example, <code><em>name</em></code> values are shown as if they were all <code>DV_TEXTs</code>, whereas in reality in openEHR they more likely to be <code>DV_CODED_TEXT</code> instances; either is allowed by the archetype. This has been done to reduce the size of the example, and makes no difference to the paths shown below.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The archetype path mentioned above matches both systolic pressures in the recording. In many querying situations, this may be the intention. However, to uniquely match each of the systolic pressure nodes, paths would need to be created that are based not only on the <code><em>archetype_node_id</em></code> but also on another attribute. In the case above, the <code><em>name</em></code> attribute may be used, if it is known to have been reliably populated with unique values across sets of immediate siblings under container attributes. The paths are created using the openEHR shortcut form of the `name/value' predicate described earlier, as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>/data/events[at0006, 'sitting']/data/items[at0004]/value/magnitude
+/data/events[at0006, 'sitting']/data/items[at0005]/value/magnitude
+/data/events[at0006, 'standing']/data/items[at0004]/value/magnitude
+/data/events[at0006, 'standing']/data/items[at0005]/value/magnitude</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Each of these paths has an Xpath equivalent of the following form:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>/data/events[@archetype_node_id='at0006' and name/value='standing']/data/items[@archetype_node_id='at0004']/value/magnitude</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>To achieve unique paths based on the <code>LOCATABLE.<em>name</em></code> attribute, the system has to specifically ensure uniqueness of <code><em>name</em></code> for sibling nodes, e.g. by systematically being set to a copy of one or more other attribute values. For example, in an <code>EVENT</code> object, <code><em>name</em></code> could be a string copy of the <code><em>time</em></code> attribute.</p>
+</div>
+<div class="paragraph">
+<p>In general, uniqueness of property values of sibling nodes is not required, and the only guaranteed unique paths are those based on positional predicates.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_using_positional_parameters"><a class="anchor" href="#_using_positional_parameters"></a><a class="link" href="#_using_positional_parameters">Using Positional Parameters</a></h4>
+<div class="paragraph">
+<p>If it is known within a system that the order of items in container attributes in the data is always preserved across storage, transformation etc., guaranteed unique paths can be created using the Xpath positional parameter. Using the above example, unique to the systolic and diastolic pressures of each event (sitting and standing measurements) can be constructed using the following expressions (identical in openEHR and Xpath):</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>/data/events[1]/data/items[1]/value/magnitude
+/data/events[1]/data/items[2]/value/magnitude
+/data/events[2]/data/items[1]/value/magnitude
+/data/events[2]/data/items[2]/value/magnitude</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_ehr_uris"><a class="anchor" href="#_ehr_uris"></a><a class="link" href="#_ehr_uris">EHR URIs</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>There are two broad categories of URIs that can be used with any resource: direct references, and queries. The first kind are usually generated by the system containing the referred-to item, and passed to other systems as definitive references, while the second are queries from the requesting system in the form of a URI.</p>
+</div>
+<div class="paragraph">
+<p>Query-oriented URIs are not formally defined here, since the expectation is that a query service will be used, and that URI formats for querying will dependent on the type of service (for example REST URIs are usually based on served resources).</p>
+</div>
+<div class="paragraph">
+<p>A dedicated type <code>DV_EHR_URI</code> is defined within the RM <code>data_types</code> package to carry the URIs described here. A <code>DV_EHR_URI</code> instance can only refer to an entity within an openEHR EHR (i.e. not some other kind of resource).</p>
+</div>
+<div class="paragraph">
+<p>The following guiding principles have been used to inform the design of EHR URIs.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>It is assumed that one URI 'scheme' (i.e. what precedes the ':' in an <a href="https://tools.ietf.org/html/rfc3986" target="_blank" rel="noopener">IETF RFC3986</a> URI) is used for each major category of data, i.e. EHR, demographics, etc. Thus, the <code>ehr</code> scheme corresponds to EHR content.</p>
+</li>
+<li>
+<p>URIs described here refer to information items within <code>VERSION.<em>data</em></code>, i.e. to objects such as <code>COMPOSITION</code> or <code>FOLDER</code>;</p>
+</li>
+<li>
+<p>Versions are identified within URIs either via the relevant <code>VERSIONED_OBJECT.<em>uid</em></code> (i.e. a GUID)  or the <code>VERSION.<em>uid</em></code> (a 3-part <code>OBJECT_VERSION_ID</code>).</p>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="_ehr_reference_uris"><a class="anchor" href="#_ehr_reference_uris"></a><a class="link" href="#_ehr_reference_uris">EHR Reference URIs</a></h3>
+<div class="paragraph">
+<p>To create a reference to a node in an EHR in the form of a URI (uniform resource identifier), three elements are needed: the path within a top-level structure, a reference to a top-level structure within an EHR, a reference to an EHR, and an optional reference to an EHR system (i.e. repository). These can be combined to form a URI in an 'ehr' scheme-space which conforms to the following model:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-uri" data-lang="uri">ehr://system_id/ehr_id/top_level_structure_locator/path_inside_top_level_structure
+
+// ----------- variations -----------
+ehr://system_id/ehr_id                // refer to an EHR within a specific EHR system/service
+ehr:/ehr_id	                          // refer to an EHR within the 'current' (i.e. local) EHR system
+ehr:/ehr_id/top_level_structure_locator // a specific COMPOSITION, FOLDER etc
+ehr:/ehr_id/top_level_structure_locator/path_inside_top_level_structure
+                                      // a sub-item of a specific COMPOSITION, FOLDER etc</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The possible values for <code>top_level_structure_locator</code> come from attribute names of the class <code>EHR</code>, visible in the <a href="https://specifications.openehr.org/releases/RM/latest/ehr.html#_ehr_package" target="_blank" rel="noopener">ehr package</a>, namely <code><em>compositions</em></code>, <code><em>directory</em></code> etc.</p>
+</div>
+<div class="paragraph">
+<p>In this way, any object in any openEHR EHR is addressable via a URI. Within <code>ehr</code> space, URL-style references to particular servers, hosts etc. are not used, due to not being reliable in the long term. Instead, logical identifiers for EHRs and/or subjects are used, ensuring that URIs remain correct for the lifetime of the resources to which they refer. The openEHR data type <code>DV_EHR_URI</code> is designed to carry URIs of this form, enabling URIs to be constructed for use within <code>LINKs</code> and elsewhere in the openEHR EHR.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+So-called 'plain-text URIs' that contain RFC-3986 forbidden characters such as spaces etc., are allowed on the basis of human readability, but must be RFC-3986 encoded prior to use in e.g. REST APIs or other contexts relying on machine-level conformance.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>See <a href="https://tools.ietf.org/html/rfc3986" target="_blank" rel="noopener">RFC-3986, Universal Resource Identifiers in WWW</a> by Tim Berners-Lee. See W3C document <a href="http://www.w3.org/Addressing" target="_blank" rel="noopener">Naming and Addressing: URIs, URLs, &#8230;&#8203;</a> for a starting point on URIs.</p>
+</div>
+<div class="paragraph">
+<p>An <code>ehr:</code> URI implies the availability of a name resolution mechanism in ehr-space, similar to the DNS, which provides such services for http-, ftp- and other well-known URI schemes. Until such services are established, ad hoc means of dealing with <code>ehr:</code> URIs are likely to be used, as well as more traditional <code>http://</code> style references. The subsections below describe how URIs of both kinds can be constructed.</p>
+</div>
+<div class="sect3">
+<h4 id="_ehr_location"><a class="anchor" href="#_ehr_location"></a><a class="link" href="#_ehr_location">EHR Location</a></h4>
+<div class="paragraph">
+<p>In ehr-space, a direct locator for an EHR is an EHR identifier (i.e. <code>EHR.<em>ehr_id</em></code>) as distinct from a subject or patient identifier. Normally the copy in the 'local system' is the one required, and a majority of the time, may be the only one in existence. In this case, the required EHR can be identified simply by an unqualified identifier, giving a URI of the form:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-uri" data-lang="uri">ehr:/347a5490-55ee-4da9-b91a-9bba710f730e/</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>However, due to copying / synchronising of the EHR for one subject among multiple EHR systems, a given EHR identifier may exist at more than one location. It is not guaranteed that each such EHR is a completely identical copy of the others, since partial copying is allowed. Therefore, in an environment where EHR copies exist, and there is a need to identify exactly which EHR instance is required, a system identifier is also required, giving a URI of the form:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-uri" data-lang="uri">ehr://uk.nhs.ehr1/347a5490-55ee-4da9-b91a-9bba710f730e/</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_top_level_structure_locator"><a class="anchor" href="#_top_level_structure_locator"></a><a class="link" href="#_top_level_structure_locator">Top-level Structure Locator</a></h4>
+<div class="paragraph">
+<p>There are two logical ways to identify a top-level structure in an openEHR EHR. The first is via the identifier of the required top-level object (i.e. <code>VERSIONED_OBJECT.<em>uid</em></code>). When a URI uses the object identifier, the latest trunk version is always assumed. This leads to URIs like the following:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-uri" data-lang="uri">ehr:/347a5490-55ee-4da9-b91a-9bba710f730e/compositions/87284370-2D4B-4e3d-A3F3-F303D2F4F34B
+ehr:/347a5490-55ee-4da9-b91a-9bba710f730e/directory</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The second way to identify a top-level structure is by using an exact Version identifier, which takes the form <code>object_id::creating_system_id::version_tree_id</code>. This leads to URIs like the following:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-uri" data-lang="uri">ehr:/347a5490-55ee-4da9-b91a-9bba710f730e/compositions/87284370-2D4B-4e3d-A3F3-F303D2F4F34B::uk.nhs.ehr1::2</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This URI identifies a top-level item whose version identifier is <code>87284370-2D4B-4e3d-A3F3-F303D2F4F34B::uk.nhs.ehr1::2</code>, i.e. the second trunk version of the Versioned Object identified by the GUID, created at an EHR system identified by <code>net.nhs.rmh</code>. Note that the mention of a system in the version identifier does not imply that the requested EHR is at that system, only that the top-level object being sought was created at that system.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_item_uris"><a class="anchor" href="#_item_uris"></a><a class="link" href="#_item_uris">Item URIs</a></h4>
+<div class="paragraph">
+<p>With the addition of path expressions as described earlier, URIs can be constructed that refer to the finest grained items in the openEHR EHR, such as the following:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-uri" data-lang="uri">ehr:/347a5490-55ee-4da9-b91a-9bba710f730e/compositions/87284370-2D4B-4e3d-A3F3-F303D2F4F34B/content[openEHR-EHR-SECTION.vital_signs.v1]/items[openEHR-EHR-OBSERVATION.heart_rate-pulse.v1]/data/events[at0006, 'any event']/data/items[at0004]</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_relative_uris"><a class="anchor" href="#_relative_uris"></a><a class="link" href="#_relative_uris">Relative URIs</a></h4>
+<div class="paragraph">
+<p>URIs can also be constructed relative to the current EHR, in which case they do not mention the EHR id, as in the following example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-uri" data-lang="uri">ehr:compositions/87284370-2D4B-4e3d-A3F3-F303D2F4F34B/content[openEHR-EHR-SECTION.vital_signs.v1]/items[openEHR-EHR-OBSERVATION.blood_pressure.v1]/data/events[at0006, 'any event']/data/items[at0004]
+ehr:directory</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="../archetypes/">Archetypes and Templates</a></span>
+  <span class="next"><a href="../terminology/">Terminology in openEHR</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>
+    Copyright: © 2003+
+    <a href="https://www.openehr.org"
+        alt="is an independent, non-profit foundation, facilitating the sharing of health
+           records by consumers and clinicians via open specifications, clinical models
+           and open platform implementations.">The openEHR Foundation</a>
+  </p>
+
+  <p>
+    License:
+    <img src="/_/img/cc-by-nd-88x31.png"
+        alt="Creative Commons Attribution-NoDerivs 3.0 Unported."
+        style="vertical-align:middle;margin:0 0.25rem 0 0;">
+    <a href="https://creativecommons.org/licenses/by-nd/3.0/">
+      Creative Commons Attribution-NoDerivs 3.0 Unported.
+    </a>
+  </p>
+
+  <p>
+    <strong>Links: <strong>
+    <a href="https://www.openehr.org/terms-of-use" class="mr-1">Terms of use</a> |
+    <a href="https://www.openehr.org/privacy-policy" class="mx-1">Privacy policy</a> |
+    <a href="https://www.openehr.org/privacy-policy" class="mx-1">Logos &amp; Trademarks</a> |
+    <a href="https://www.openehr.org/contact-us" class="mx-1">Contact</a>
+  </p>
+</footer>
+
+<script id="site-script" src="../../../../_/js/site.js" data-ui-root-path="../../../../_"></script>
+<script async src="../../../../_/js/vendor/highlight.js"></script>
+<script src="../../../../_/js/vendor/lunr.js"></script>
+<script src="../../../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../../../.." data-snippet-length="80" data-stylesheet="../../../../_/css/search.css"></script>
+<script async src="../../../../search-index.js"></script>
+<script src="../../../../_/js/medium-zoom.min.js"></script>
+<script src="../../../../_/js/zoom.js"></script>
+  </body>
+</html>

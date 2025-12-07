@@ -1,0 +1,1122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+    <title>Amendment Record :: openEHR Specifications (Local Build)</title>
+    <link rel="canonical" href="https://sebastian-iancu.github.io/antora-openehr/AM/latest/ADL2/amendment_record/">
+    <link rel="prev" href="../masterAppB-syntax_spec/">
+    <link rel="next" href="../../AOM1.4/">
+    <meta name="description" content="openEHR Archetype Definition Language 2 (ADL2)">
+    <meta name="keywords" content="EHR, ADL, AOM, health records, archetypes, constraint language, ISO 13606, openehr">
+    <meta name="generator" content="Antora 3.1.14">
+    <link rel="stylesheet" href="../../../../_/css/site.css">
+    <link rel="stylesheet" href="../../../../_/css/antora-openehr.css">
+    <link rel="stylesheet" href="../../../../_/css/openehr.css">
+<link rel="icon" href="../../../../_/img/favicon.ico" type="image/x-icon">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://sebastian-iancu.github.io/antora-openehr">openEHR Specifications (Local Build)</a>
+
+      <div class="navbar-item search hide-for-print">
+        <div id="search-field" class="field has-filter">
+          <input id="search-input" type="text" placeholder="Search the docs">
+          <label class="filter checkbox">
+            <input type="checkbox" data-facet-filter="component:AM"> Archetype Model only
+          </label>
+        </div>
+      </div>
+
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">Specifications</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://specifications.openehr.org/" target="_blank">
+              openEHR specification
+            </a>
+            <a class="navbar-item" href="https://specifications.openehr.org/releases/UML/development/index.html" target="_blank">
+              openEHR portal
+            </a>
+            <a class="navbar-item" href="https://ckm.openehr.org/ckm/" target="_blank">
+              openEHR CKM
+            </a>
+          </div>
+        </div>
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">Community</a>
+          <div class="navbar-dropdown is-right">
+            <a class="navbar-item" href="https://openehr.atlassian.net/secure/Dashboard.jspa?selectPageId=10190" target="_blank">
+              Issue trackers
+            </a>
+            <a class="navbar-item" href="https://discourse.openehr.org/" target="_blank">
+              Discourse Forum
+            </a>
+            <a class="navbar-item" href="https://specifications.openehr.org/wiki/display/spec/Specifications+Home" target="_blank">
+              Wiki
+            </a>
+            <a class="navbar-item" href="https://github.com/openEHR" target="_blank">
+              GitHub
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="AM" data-version="development">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="../../">Archetype Model</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../">Overview</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../ADL1.4/">{spec_title}</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL1.4/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../">{spec_title}</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../overview/">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../file_encoding/">File Encoding and Character Quoting</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../master04.1-cadl_overview/">cADL - Constraint ADL</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../master04.2-cadl_basics/">Master04.2-Cadl Basics</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../master04.3-cadl_complex_types/">Master04.3-Cadl Complex Types</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../master04.4-cadl_second_order/">Master04.4-Cadl Second Order</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../master04.5-cadl_primitive_types/">Master04.5-Cadl Primitive Types</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../master04.6-cadl_validity_rules/">Master04.6-Cadl Validity Rules</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../paths/">ADL Paths</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../default_values/">Default Values</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../master07.01-adl_introduction/">ADL - Archetype Definition Language</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../master07.02-adl_conventions/">Master07.02-Adl Conventions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../master07.03-adl_artefacts/">Master07.03-Adl Artefacts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../master07.04-adl_basics/">Master07.04-Adl Basics</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../master07.05-adl_identification/">Master07.05-Adl Identification</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../master07.06-adl_specialise/">Master07.06-Adl Specialise</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../master07.07-adl_language/">Master07.07-Adl Language</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../master07.08-adl_description/">Master07.08-Adl Description</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../master07.09-adl_deprecated/">Master07.09-Adl Deprecated</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../master07.10-adl_definition/">Master07.10-Adl Definition</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../master07.11-adl_rules/">Master07.11-Adl Rules</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../master07.12-adl_rm_overlay/">Master07.12-Adl Rm Overlay</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../master07.13-adl_terminology/">Master07.13-Adl Terminology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../master07.14-adl_annotations/">Master07.14-Adl Annotations</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../terminology_integration/">Terminology Integration</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../master09.01-spec_overview/">Specialisation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../master09.02-spec_concepts/">Master09.02-Spec Concepts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../master09.03-spec_examples/">Master09.03-Spec Examples</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../master09.04-spec_attrib_redef/">Master09.04-Spec Attrib Redef</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../master09.05-spec_object_redef/">Master09.05-Spec Object Redef</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../master09.06-spec_rules/">Master09.06-Spec Rules</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../master09.07-spec_languages/">Master09.07-Spec Languages</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../master09.08-spec_description/">Master09.08-Spec Description</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../master09.09-spec_terminology/">Master09.09-Spec Terminology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../master09.10-spec_bindings/">Master09.10-Spec Bindings</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../templates/">Templates</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../other_formalisms/">Relationship of ADL to Other Formalisms</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../masterAppB-syntax_spec/">Syntax Specification</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="./">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../AOM1.4/">{spec_title}</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM1.4/preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM1.4/model_overview/">The Archetype Object Model</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM1.4/archetype_package/">The Archetype Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM1.4/constraint_model_package/">Constraint Model Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM1.4/assertion_package/">The Assertion Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM1.4/primitive_package/">Primitive Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM1.4/ontology_package/">Terminology Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM1.4/domain_extension/">Domain-specific Extension Example</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM1.4/masterAppB-diverse_reference_models/">Using Archetypes with Diverse Reference Models</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM1.4/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../AOM2/">{spec_title}</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM2/preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM2/model_overview/">Model Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM2/archetype_package/">The Archetype Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM2/master04.1-constraint_model-overview/">Constraint Model Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM2/master04.2-constraint_model-semantics/">Master04.2-Constraint Model-Semantics</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM2/master04.3-constraint_model-second_order/">Master04.3-Constraint Model-Second Order</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM2/master04.4-constraint_model-AOM_type_subs/">Master04.4-Constraint Model-AOM Type Subs</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM2/master04.5-constraint_model-class_definitions/">Master04.5-Constraint Model-Class Definitions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM2/rules_package/">The Rules Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM2/rm_overlay/">The RM Overlay Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM2/terminology_package/">Terminology Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM2/validation/">Validation and Transformation Semantics</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM2/serialisation_model/">Serialisation Model</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM2/templates/">Templates</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM2/rm_adaptation/">Reference Model Adaptation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM2/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../Identification/">{spec_title}</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../Identification/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="#index.adoc">Language Design</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../OPT2/">{spec_title}</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../OPT2/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../Overview/">{spec_title}</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../Overview/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Archetype Model</span>
+    <span class="version">development</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <div class="title"><a href="../../../latest/">Archetype Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../latest/">Release-2.3.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../Release-2.2.0/">Release-2.2.0</a>
+        </li>
+        <li class="version is-current">
+          <a href="../../">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../BASE/latest/">Base Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../BASE/latest/">Release-1.2.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../BASE/Release-1.1.0/">Release-1.1.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../BASE/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../RM/latest/">Reference Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../RM/latest/">Release-1.1.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../RM/Release-1.0.4/">Release-1.0.4</a>
+        </li>
+        <li class="version">
+          <a href="../../../../RM/development/">development</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../../BASE/latest/" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../../">Archetype Model</a></li>
+    <li><a href="../">{spec_title}</a></li>
+    <li><a href="./">Amendment Record</a></li>
+  </ul>
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">development</button>
+  <div class="version-menu">
+    <a class="version" href="../../../latest/ADL2/amendment_record/">Release-2.3.0</a>
+    <a class="version" href="../../../Release-2.2.0/ADL2/amendment_record/">Release-2.2.0</a>
+    <a class="version is-current" href="./">development</a>
+  </div>
+</div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Amendment Record</h1>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 9.0909%;">
+<col style="width: 54.5454%;">
+<col style="width: 18.1818%;">
+<col style="width: 18.1819%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Issue</th>
+<th class="tableblock halign-left valign-top">Details</th>
+<th class="tableblock halign-left valign-top">Raiser, Implementer</th>
+<th class="tableblock halign-left valign-top">Completed</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top" colspan="4"><p class="tableblock"><strong>AM Release 2.4.0 (unreleased)</strong></p></th>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a id="latest_issue"></a>2.4.0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://specifications.openehr.org/tickets/SPECAM-90" target="_blank" rel="noopener">SPECAM-90</a>. Add support for at-code coding system in addition to id-code coding system. Make the at-code coding system a requirement for openEHR RM compliant implementations.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">B Lah,<br>
+I McNicoll,<br>
+J Holslag,<br>
+S Iancu,<br>
+T Beale</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a id="latest_issue_date"></a>14 Mar 2024</p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top" colspan="4"><p class="tableblock"><strong>AM Release 2.3.0</strong></p></th>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2.3.0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://specifications.openehr.org/tickets/SPECAM-75" target="_blank" rel="noopener">SPECAM-75</a>. Improve specification of constraint patterns (addresses problem <a href="https://specifications.openehr.org/tickets/SPECPR-374" target="_blank" rel="noopener">SPECPR-374</a>). Modified <a href="#date_time_constraint_patterns">[date_time_constraint_patterns]</a> to include timezone constraints.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">P Pazos,<br>
+T Beale</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">20 Dec 2022</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://specifications.openehr.org/tickets/SPECAM-76" target="_blank" rel="noopener">SPECAM-76</a>. Correct VSONCO rule for redefinition of nodes with multiple occurrences; improve text in <a href="#Redefinition Concepts">[Redefinition Concepts]</a> and <a href="#Occurrences Redefinition">[Occurrences Redefinition]</a> (addresses problem <a href="https://specifications.openehr.org/tickets/SPECPR-374" target="_blank" rel="noopener">SPECPR-374</a>).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">P Bos,<br>
+S Garde,<br>
+I McNicoll,<br>
+P Pazos,<br>
+J Holslag,<br>
+T Beale</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">05 Aug 2022</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://specifications.openehr.org/tickets/SPECAM-74" target="_blank" rel="noopener">SPECAM-74</a>. Replace reference to VCOC with reference to VACMCU, VACMCO validity rules.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">P Pazos,<br>
+ T Beale</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">15 Aug 2021</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://specifications.openehr.org/tickets/SPECAM-69" target="_blank" rel="noopener">SPECAM-69</a>. Support negative durations (see also <a href="https://specifications.openehr.org/tickets/SPECRM-96" target="_blank" rel="noopener">SPECRM-96</a>); add examples in <a href="#_duration_constraints">[_duration_constraints]</a>.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">P Bos,<br>
+ S Garde</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">09 Sep 2020</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://specifications.openehr.org/tickets/SPECAM-68" target="_blank" rel="noopener">SPECAM-68</a>. Add flexible <code><em>constraint_status</em></code> indicator to <code>C_TERMINOLOGY_CODE</code>; add related keywords to terminology constraints; see sections <a href="#_soft_terminology_constraint">[_soft_terminology_constraint]</a> and <a href="#_terminology_constraint_redefinition">[_terminology_constraint_redefinition]</a>.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">B Fabjan,<br>
+ I McNicoll,<br>
+ S Garde,<br>
+ P Bos</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">07 Sep 2020</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://specifications.openehr.org/tickets/SPECAM-66" target="_blank" rel="noopener">SPECAM-66</a>: Improve specification of default values, including support for other syntaxes.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">P Bos,<br>
+ T Beale</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">20 May 2020</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://specifications.openehr.org/tickets/SPECPUB-7" target="_blank" rel="noopener">SPECPUB-7</a>: Convert citations to bibtex form.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T Beale</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">15 Dec 2019</p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top" colspan="4"><p class="tableblock"><strong>AM Release 2.2.0</strong></p></th>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2.2.0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://specifications.openehr.org/tickets/SPECAM-63" target="_blank" rel="noopener">SPECAM-63</a>. Add <code>rm_overlay</code> top-level section with <code>rm_visibility</code> sub-section to state hide/show and RM attribute aliasing.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">I McNicoll,<br>
+ S L Bakke,<br>
+ B Fabjan,<br>
+ T Beale</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">17 Apr 2019</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://specifications.openehr.org/tickets/SPECAM-61" target="_blank" rel="noopener">SPECAM-61</a>. Remove <code>revision_history</code> from ADL2 specification.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">D Bosca,<br>
+ P Bos,<br>
+ T Beale</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">04 Apr 2019</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://specifications.openehr.org/tickets/SPECAM-60" target="_blank" rel="noopener">SPECAM-60</a>. Improve documentation for constraints on lists and intervals.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">B Fabjan,<br>
+ M Pipan,<br>
+ T Beale</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">21 Jan 2019</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://specifications.openehr.org/tickets/SPECAM-58" target="_blank" rel="noopener">SPECAM-58</a>. Correct errors and improve examples - S Garde review Nov 2018.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">S Garde</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">18 Nov 2018</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Update link for <code>ARCHETYPE_ID</code> syntax from ADL2 spec to link directly to BASE. (Fixes <a href="https://specifications.openehr.org/tickets/SPECPR-267" target="_blank" rel="noopener">SPECPR-267</a>).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">S Garde</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">03 Nov 2018</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Correct node identifier typos in section 9.5.1.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">M Kramer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">28 Oct 2018</p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top" colspan="4"><p class="tableblock"><strong>AM Release 2.1.0</strong></p></th>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2.1.0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://specifications.openehr.org/tickets/SPECAM-56" target="_blank" rel="noopener">SPECAM-56</a>. Correct ordering in flattening example in section 9.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">P Bos</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">24 Aug 2018</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://specifications.openehr.org/tickets/SPECAM-53" target="_blank" rel="noopener">SPECAM-53</a>. Remove statement requiring node-id redefinition in case of occurrences redefinition (corrects <a href="https://specifications.openehr.org/tickets/SPECPR-269" target="_blank" rel="noopener">SPECPR-269</a>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">P Bos</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">26 May 2018</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://specifications.openehr.org/tickets/SPECAM-50" target="_blank" rel="noopener">SPECAM-50</a>. Improve documentation of ADL2 templates (section 10).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T Beale</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">31 Jan 2018</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://specifications.openehr.org/tickets/SPECAM-47" target="_blank" rel="noopener">SPECAM-47</a>. Allow regularly structured primitive objects.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">J Coyle,<br>
+ T Beale</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">07 Jan 2018</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://specifications.openehr.org/tickets/SPECAM-45" target="_blank" rel="noopener">SPECAM-45</a>. Correct specification details to do with <code><em>sibling_order</em></code> anchor node id. (Corrects <a href="https://specifications.openehr.org/tickets/SPECPR-245" target="_blank" rel="noopener">SPECPR-245</a>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">P Bos,<br>
+ T Beale</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">21 Nov 2017</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Fix types in identifiers in redefinition example (section 9.5.5). (<a href="https://specifications.openehr.org/tickets/SPECPR-238" target="_blank" rel="noopener">SPECPR-238</a>);<br>
+ Minor inconsistencies in ADL2 spec specialisation section (section 9.2.5, 9.3.1, 9.3.2)(<a href="https://specifications.openehr.org/tickets/SPECPR-239" target="_blank" rel="noopener">SPECPR-239</a>).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">P Bos</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">04 Oct 2017</p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top" colspan="4"><p class="tableblock"><strong>AM Release 2.0.6</strong></p></th>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2.0.6</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Correct ambiguity between ADL and AOM specs concerning duration fractional seconds - add comment in 'Duration Constraints' section to cover fractional seconds. (<a href="https://specifications.openehr.org/tickets/SPECPR-188" target="_blank" rel="noopener">SPECPR-188</a>).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">B Verhees</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">10 Jun 2016</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Fix typos in ADL grammar: <code>meta_data_tag_is_controlled</code> value corrected to <code>'controlled'</code> and <code>meta_data_tag_is_generated</code> corrected to <code>'generated'</code>; adjust <code>meta_data_item</code> rule slightly for clarity.<br>
+ Add reference in section `Reference Model Type Matching' to more precise specification of type matching in AOM2 spec.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">C Nanjo</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">08 Jun 2016</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Rename <code>archetype</code> rule in grammar to <code>authored_archetype</code> to match AOM2 class (<a href="https://specifications.openehr.org/tickets/SPECPR-190" target="_blank" rel="noopener">SPECPR-190</a>).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">B Verhees</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">18 May 2016</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Change Rules section to document re-use of new openEHR Expression Language.<br>
+ Re-order sub-sections under 9.5 to be more logical;<br>
+ Add a new sub-section in the Specialisation section 'Single and Multiple Specialisation - When does Cloning Occur?';<br>
+ Improve explanation of cloning.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T Beale</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">11 May 2016</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2.0.5</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Re-order Specialisation section subsections 10.2 and 10.3 (examples and concepts);<br>
+ Correct <code>C_TEMPORAL.<em>pattern_constraint</em></code> to optional. (<a href="https://specifications.openehr.org/tickets/SPECPR-175" target="_blank" rel="noopener">SPECPR-175</a>);<br>
+ Correct multiplicity on <code><em>constraint</em></code> to <code>0..*</code> except for <code>C_INTEGER</code> and <code>C_REAL</code>.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T Beale</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">21 Mar 2016</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Rewrite Terminology Integration section. Add template section.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T Beale</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">10 Jan 2016</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Upgrade specification to ADL 2.x level. Reduce overview text.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">openEHR</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">12 Nov 2014</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Change <code>use_archetype</code> syntax to include id-code.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T Beale,<br>
+ P Langford</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">17 July 2014</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Corrections on semantics of node id redefinition in Specialisation section; correct further typos.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">H Solbrig</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">25 June 2014</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Add support for constraints on enumeration types.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T Beale,<br>
+ CIMI</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">20 June 2014</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Move terminology value set constraints to <code>terminology</code> section;<br>
+ <a href="https://specifications.openehr.org/tickets/SPECAM-28" target="_blank" rel="noopener">SPECAM-28</a>. Add IHTSDO standard terminology URIs to ADL and AOM.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T Beale,<br>
+ H Solbrig</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">17 May 2014</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2.0.0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">New format term codes &amp; mandatory node ids.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T Beale</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">7 Jan 2014</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Convert 'placeholder' (ac-code) constraint to primitive terminology type constraint.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">H Solbrig</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Add archetype id namespacing.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T Beale,<br>
+ I McNicoll</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">24 Nov 2014</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Add tuple construct.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T Beale</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">20 Aug 2013</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Remove dADL syntax description to new ODIN specification.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T Beale</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">22 Apr 2013</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://specifications.openehr.org/tickets/SPECAM-20" target="_blank" rel="noopener">SPECAM-20</a>: Allow <code>cardinality</code> keyword on its own to indicate container attributes, even if no other constraints required.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">D Moner</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">21 Mar 2012</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://specifications.openehr.org/tickets/SPECAM-8" target="_blank" rel="noopener">SPECAM-8</a>: Add specialisation semantics to ADL and AOM.<br>
+ Improve explanation of node identifiers.<br>
+ Correct typographical errors.<br>
+ Make concept optional.<br>
+ Refine slot include/exclude rules.<br>
+ Review of text &amp; validity rules.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">S Heard<br>
+ O Pishev<br>
+ T Beale</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Deprecate <code>terminologies_available</code> statement in <code>terminology</code> section.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T Beale</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Add fractional seconds to dADL grammar.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">S Arikan</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://specifications.openehr.org/tickets/SPECAM-7" target="_blank" rel="noopener">SPECAM-7</a>. Make <code>existence</code>, <code>occurrences</code> and <code>cardinality</code> optional in AOM.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">S Garde<br>
+ S Heard</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://specifications.openehr.org/tickets/SPECAM-5" target="_blank" rel="noopener">SPECAM-5</a>. Archetype slot regular expressions should cover whole identifier. Added <code>C_STRING</code>.<em>is_pattern</em>.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A Flinton</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top" colspan="4"><p class="tableblock"><strong>Release 1.0.2</strong></p></th>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1.4.1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://specifications.openehr.org/tickets/SPEC-268" target="_blank" rel="noopener">SPEC-268</a>: Correct missing parentheses in dADL type identifiers. dADL grammar and cADL scanner rules updated.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">R Chen</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">12 Dec 2008</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://specifications.openehr.org/tickets/SPEC-284" target="_blank" rel="noopener">SPEC-284</a>: Correct inconsistencies in naming of <code>term_definitions</code>, <code>constraint_definitions</code>, <code>term_bindings</code>, <code>constraint_bindings</code> attributes in XML-schema and specifications.<br>
+ Improved explanatory text for composite identifiers, including statement on case-sensitivity. Warning on <code>.v1draft</code> non-conformance</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A Torrisi</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://specifications.openehr.org/tickets/SPEC-260" target="_blank" rel="noopener">SPEC-260</a>: Correct the regex published for the ARCHETYPE_ID type. Update ADL grammar <code>ARCHEYTPE_ID</code> definition.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">P Gummer,<br>
+ J Arnett,<br>
+ E Browne</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top" colspan="4"><p class="tableblock"><strong>Release 1.0.1</strong></p></th>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1.4.0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://specifications.openehr.org/tickets/SPEC-203" target="_blank" rel="noopener">SPEC-203</a>: Release 1.0 explanatory text improvements. Improve Archetype slot explanation.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T Beale</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">13 Mar 2007</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://specifications.openehr.org/tickets/SPEC-208" target="_blank" rel="noopener">SPEC-208</a>: Improve ADL grammar for assertion expressions.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T Beale</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://specifications.openehr.org/tickets/SPEC-160" target="_blank" rel="noopener">SPEC-160</a>: Duration constraints. Added ISO 8601 patterns for duration in cADL.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">S Heard</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://specifications.openehr.org/tickets/SPEC-213" target="_blank" rel="noopener">SPEC-213</a>: Correct ADL grammar for date/times to be properly ISO 8601-compliant. Include 'T' in cADL patterns and dADL and cADL Date/time, Time and Duration values.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T Beale</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://specifications.openehr.org/tickets/SPEC-216" target="_blank" rel="noopener">SPEC-216</a>: Allow mixture of W, D etc in ISO 8601 Duration (deviation from standard).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">S Heard</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://specifications.openehr.org/tickets/SPEC-200" target="_blank" rel="noopener">SPEC-200</a>: Correct Release 1.0 typographical errors.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A Patterson<br>
+ R Chen<br>
+ S Garde<br>
+ T Beale</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://specifications.openehr.org/tickets/SPEC-225" target="_blank" rel="noopener">SPEC-225</a>: Allow generic type names in ADL.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">M Forss</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://specifications.openehr.org/tickets/SPEC-226" target="_blank" rel="noopener">SPEC-226</a>: Rename <code>C_CODED_TEXT</code> to <code>C_CODE_PHRASE</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T Beale</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://specifications.openehr.org/tickets/SPEC-233" target="_blank" rel="noopener">SPEC-233</a>: Define semantics for <code>occurrences</code> on <code>ARCHETYPE_INTERNAL_REF</code>.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">K Atalag</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://specifications.openehr.org/tickets/SPEC-241" target="_blank" rel="noopener">SPEC-241</a>: Correct cADL grammar for archeype slot match expressions</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">S Heard</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://specifications.openehr.org/tickets/SPEC-223" target="_blank" rel="noopener">SPEC-223</a>: Clarify quoting rules in ADL</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A Patterson</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://specifications.openehr.org/tickets/SPEC-242" target="_blank" rel="noopener">SPEC-242</a>: Allow non-inclusive two-sided ranges in ADL.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">S Heard</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://specifications.openehr.org/tickets/SPEC-245" target="_blank" rel="noopener">SPEC-245</a>: Allow term bindings to paths in archetypes.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">S Heard</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top" colspan="4"><p class="tableblock"><strong>Release 1.0</strong></p></th>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1.3.1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://specifications.openehr.org/tickets/SPEC-136" target="_blank" rel="noopener">SPEC-136</a>. Add validity rules to ADL document.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T Beale</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">18 Jan 2006</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://specifications.openehr.org/tickets/SPEC-171" target="_blank" rel="noopener">SPEC-171</a>. Add validity check for cardinality &amp; occurrences</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A Maldondo</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1.3.0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://specifications.openehr.org/tickets/SPEC-141" target="_blank" rel="noopener">SPEC-141</a>. Allow point intervals in ADL. Updated atomic types part of cADL section and dADL grammar section.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">S Heard</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">18 Jun 2005</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://specifications.openehr.org/tickets/SPEC-142" target="_blank" rel="noopener">SPEC-142</a>. Update dADL grammar to support assumed values.<br>
+ <a href="https://specifications.openehr.org/tickets/SPEC-143" target="_blank" rel="noopener">SPEC-143</a>. Add partial date/time values to dADL syntax.<br>
+ <a href="https://specifications.openehr.org/tickets/SPEC-149" target="_blank" rel="noopener">SPEC-149</a>. Add URIs to dADL and remove query() syntax.<br>
+ <a href="https://specifications.openehr.org/tickets/SPEC-153" target="_blank" rel="noopener">SPEC-153</a>. Synchronise ADL and AOM for language attributes<br>
+ <a href="https://specifications.openehr.org/tickets/SPEC-156" target="_blank" rel="noopener">SPEC-156</a>. Update documentation of container types.<br>
+ <a href="https://specifications.openehr.org/tickets/SPEC-138" target="_blank" rel="noopener">SPEC-138</a>. Archetype-level assertions.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T Beale</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top" colspan="4"><p class="tableblock"><strong>Release 0.95</strong></p></th>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1.2.1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://specifications.openehr.org/tickets/SPEC-125" target="_blank" rel="noopener">SPEC-125</a>. <code>C_QUANTITY</code> example in ADL manual uses old dADL syntax.<br>
+ <a href="https://specifications.openehr.org/tickets/SPEC-115" target="_blank" rel="noopener">SPEC-115</a>. Correct "/[xxx]" path grammar error in ADL.<br>
+ Create new section describing ADL path syntax.<br>
+ <a href="https://specifications.openehr.org/tickets/SPEC-127" target="_blank" rel="noopener">SPEC-127</a>. Restructure archetype specifications. Remove clinical constraint types section of document.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T Beale</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">11 Feb 2005</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1.2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://specifications.openehr.org/tickets/SPEC-110" target="_blank" rel="noopener">SPEC-110</a>. Update ADL document and create AOM document.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T Beale</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">15 Nov 2004</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Added explanatory material; added domain type support; rewrote of most dADL sections. Added section on assumed values, "controlled" flag, nested container structures. Change language handling.<br>
+ Rewrote OWL section based on input from: University of Manchester, UK; University Seville, Spain.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A Rector<br>
+ R Qamar<br>
+ I Román Martínez</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Various changes to assertions due to input from the DSTC.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A Goodchild<br>
+ Z Z Tun</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Detailed review from Clinical Information Project, Australia.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">E Browne</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Remove UML models to "Archetype Object Model" document.</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T Beale</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Detailed review from CHIME, UCL.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T Austin</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://specifications.openehr.org/tickets/SPEC-103" target="_blank" rel="noopener">SPEC-103</a>. Redevelop archetype UML model, add new keywords: <code>allow_archetype</code>, <code>include</code>, <code>exclude</code>.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T Beale</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://specifications.openehr.org/tickets/SPEC-104" target="_blank" rel="noopener">SPEC-104</a>. Fix ordering bug when <code>use_node</code> used. Required parser rules for identifiers to make class and attribute identifiers distinct.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">K Atalag</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Added grammars for all parts of ADL, as well as new UML diagrams.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T Beale</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top" colspan="4"><p class="tableblock"><strong>Release 0.9</strong></p></th>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1.1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://specifications.openehr.org/tickets/SPEC-79" target="_blank" rel="noopener">SPEC-79</a>. Change interval syntax in ADL.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T Beale</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">24 Jan 2004</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1.0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://specifications.openehr.org/tickets/SPEC-77" target="_blank" rel="noopener">SPEC-77</a>. Add cADL date/time pattern constraints.<br>
+ <a href="https://specifications.openehr.org/tickets/SPEC-78" target="_blank" rel="noopener">SPEC-78</a>. Add predefined clinical types.
+ Better explanation of cardinality, occurrences and existence.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">S Heard,<br>
+ T Beale</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">14 Jan 2004</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0.9.9</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://specifications.openehr.org/tickets/SPEC-73" target="_blank" rel="noopener">SPEC-73</a>. Allow lists of Reals and Integers in cADL.<br>
+ <a href="https://specifications.openehr.org/tickets/SPEC-75" target="_blank" rel="noopener">SPEC-75</a>. Add predefined clinical types library to ADL.<br>
+ Added cADL and dADL object models.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T Beale,<br>
+ S Heard</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">28 Dec 2003</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0.9.8</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://specifications.openehr.org/tickets/SPEC-70" target="_blank" rel="noopener">SPEC-70</a>. Create Archetype System Description.
+ Moved Archetype Identification Section to new Archetype System document.  Copyright Assgined by Ocean Informatics P/L Australia to The openEHR Foundation.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T Beale,<br>
+ S Heard</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">29 Nov 2003</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0.9.7</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Added simple value list continuation (",&#8230;&#8203;"). Changed path syntax so that trailing '/' required for object paths.<br>
+ Remove ranges with excluded limits.<br>
+ Added terms and term lists to dADL leaf types.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T Beale</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">01 Nov 2003</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0.9.6</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Additions during HL7 WGM Memphis Sept 2003</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T Beale</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">09 Sep 2003</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0.9.5</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Added comparison to other formalisms. Renamed CDL to cADL and dDL to dADL. Changed path syntax to conform (nearly) to Xpath. Numerous small changes.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T Beale</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">03 Sep 2003</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0.9</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Rewritten with sections on cADL and dDL.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T Beale</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">28 July 2003</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0.8.1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Added basic type constraints, re-arranged sections.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T Beale</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">15 July 2003</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0.8</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Initial Writing</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">T Beale</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">10 July 2003</p></td>
+</tr>
+</tbody>
+</table>
+<nav class="pagination">
+  <span class="prev"><a href="../masterAppB-syntax_spec/">Syntax Specification</a></span>
+  <span class="next"><a href="../../AOM1.4/">{spec_title}</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>
+    Copyright: © 2003+
+    <a href="https://www.openehr.org"
+        alt="is an independent, non-profit foundation, facilitating the sharing of health
+           records by consumers and clinicians via open specifications, clinical models
+           and open platform implementations.">The openEHR Foundation</a>
+  </p>
+
+  <p>
+    License:
+    <img src="/_/img/cc-by-nd-88x31.png"
+        alt="Creative Commons Attribution-NoDerivs 3.0 Unported."
+        style="vertical-align:middle;margin:0 0.25rem 0 0;">
+    <a href="https://creativecommons.org/licenses/by-nd/3.0/">
+      Creative Commons Attribution-NoDerivs 3.0 Unported.
+    </a>
+  </p>
+
+  <p>
+    <strong>Links: <strong>
+    <a href="https://www.openehr.org/terms-of-use" class="mr-1">Terms of use</a> |
+    <a href="https://www.openehr.org/privacy-policy" class="mx-1">Privacy policy</a> |
+    <a href="https://www.openehr.org/privacy-policy" class="mx-1">Logos &amp; Trademarks</a> |
+    <a href="https://www.openehr.org/contact-us" class="mx-1">Contact</a>
+  </p>
+</footer>
+
+<script id="site-script" src="../../../../_/js/site.js" data-ui-root-path="../../../../_"></script>
+<script async src="../../../../_/js/vendor/highlight.js"></script>
+<script src="../../../../_/js/vendor/lunr.js"></script>
+<script src="../../../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../../../.." data-snippet-length="80" data-stylesheet="../../../../_/css/search.css"></script>
+<script async src="../../../../search-index.js"></script>
+<script src="../../../../_/js/medium-zoom.min.js"></script>
+<script src="../../../../_/js/zoom.js"></script>
+  </body>
+</html>

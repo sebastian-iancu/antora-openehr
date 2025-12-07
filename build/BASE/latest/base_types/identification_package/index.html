@@ -1,0 +1,1635 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+    <title>Identification Package :: openEHR Specifications (Local Build)</title>
+    <link rel="canonical" href="https://sebastian-iancu.github.io/antora-openehr/BASE/latest/base_types/identification_package/">
+    <link rel="prev" href="../builtins_package/">
+    <link rel="next" href="../amendment_record/">
+    <meta name="description" content="openEHR Base Types specification">
+    <meta name="keywords" content="openehr, identifiers, types">
+    <meta name="generator" content="Antora 3.1.14">
+    <link rel="stylesheet" href="../../../../_/css/site.css">
+    <link rel="stylesheet" href="../../../../_/css/antora-openehr.css">
+    <link rel="stylesheet" href="../../../../_/css/openehr.css">
+<link rel="icon" href="../../../../_/img/favicon.ico" type="image/x-icon">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://sebastian-iancu.github.io/antora-openehr">openEHR Specifications (Local Build)</a>
+
+      <div class="navbar-item search hide-for-print">
+        <div id="search-field" class="field has-filter">
+          <input id="search-input" type="text" placeholder="Search the docs">
+          <label class="filter checkbox">
+            <input type="checkbox" data-facet-filter="component:BASE"> Base Model only
+          </label>
+        </div>
+      </div>
+
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">Specifications</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://specifications.openehr.org/" target="_blank">
+              openEHR specification
+            </a>
+            <a class="navbar-item" href="https://specifications.openehr.org/releases/UML/development/index.html" target="_blank">
+              openEHR portal
+            </a>
+            <a class="navbar-item" href="https://ckm.openehr.org/ckm/" target="_blank">
+              openEHR CKM
+            </a>
+          </div>
+        </div>
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">Community</a>
+          <div class="navbar-dropdown is-right">
+            <a class="navbar-item" href="https://openehr.atlassian.net/secure/Dashboard.jspa?selectPageId=10190" target="_blank">
+              Issue trackers
+            </a>
+            <a class="navbar-item" href="https://discourse.openehr.org/" target="_blank">
+              Discourse Forum
+            </a>
+            <a class="navbar-item" href="https://specifications.openehr.org/wiki/display/spec/Specifications+Home" target="_blank">
+              Wiki
+            </a>
+            <a class="navbar-item" href="https://github.com/openEHR" target="_blank">
+              GitHub
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="BASE" data-version="Release-1.2.0">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="../../">Base Model</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../">Overview</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../architecture_overview/">{spec_title}</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../architecture_overview/preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../architecture_overview/overview/">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../architecture_overview/aims/">Aims of the openEHR Architecture</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../architecture_overview/design_principles/">Design Principles</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../architecture_overview/package_structure/">openEHR Specification Structure</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../architecture_overview/design_of_the_ehr/">Design of the openEHR EHR</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../architecture_overview/security/">Security and Confidentiality</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../architecture_overview/versioning/">Versioning</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../architecture_overview/identification/">Identification</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../architecture_overview/archetypes/">Archetypes and Templates</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../architecture_overview/paths/">Paths and Locators</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../architecture_overview/terminology/">Terminology in openEHR</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../architecture_overview/deployment/">Deployment</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../architecture_overview/integration/">Integrating openEHR with other Systems</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../architecture_overview/standards/">Relationship to Standards</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../architecture_overview/implementation/">Implementation Technology Specifications</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../architecture_overview/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../">{spec_title}</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../overview/">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../definitions_package/">Definitions Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../builtins_package/">Builtins Package</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="./">Identification Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../foundation_types/">{spec_title}</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../foundation_types/preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../foundation_types/overview/">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../foundation_types/primitive_types/">Primitive Types</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../foundation_types/structure_types/">Structure Types</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../foundation_types/interval/">Interval</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../foundation_types/time_types/">Time Types</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../foundation_types/terminology/">Terminology Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../foundation_types/functional/">Functional Meta-types</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../foundation_types/type_cross_ref/">Type Cross-Reference</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../foundation_types/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../resource/">{spec_title}</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../resource/preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../resource/resource_package/">Resource Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../resource/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Base Model</span>
+    <span class="version">Release-1.2.0</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <div class="title"><a href="../../../../AM/latest/">Archetype Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../AM/latest/">Release-2.3.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../AM/Release-2.2.0/">Release-2.2.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../AM/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <div class="title"><a href="../../">Base Model</a></div>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../../">Release-1.2.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../Release-1.1.0/">Release-1.1.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../RM/latest/">Reference Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../RM/latest/">Release-1.1.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../RM/Release-1.0.4/">Release-1.0.4</a>
+        </li>
+        <li class="version">
+          <a href="../../../../RM/development/">development</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../../">Base Model</a></li>
+    <li><a href="../">{spec_title}</a></li>
+    <li><a href="./">Identification Package</a></li>
+  </ul>
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">Release-1.2.0</button>
+  <div class="version-menu">
+    <a class="version is-current" href="./">Release-1.2.0</a>
+    <a class="version" href="../../../Release-1.1.0/base_types/identification_package/">Release-1.1.0</a>
+    <a class="version" href="../../../development/base_types/identification_package/">development</a>
+  </div>
+</div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Identification Package</h1>
+<div class="sect1">
+<h2 id="_overview"><a class="anchor" href="#_overview"></a><a class="link" href="#_overview">Overview</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The <code>BASE.base_types.identification</code> package describes a model of references and identifiers for information entities and is illustrated below.</p>
+</div>
+<div id="base_identification_types" class="imageblock text-center text-center">
+<div class="content">
+<img src="../../_images/uml/BASE-base_types.identification.svg" alt="BASE base types.identification">
+</div>
+<div class="title">Figure 1. base.base_types.identification Package</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_requirements"><a class="anchor" href="#_requirements"></a><a class="link" href="#_requirements">Requirements</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Identification of entities both in the real world and in information systems is a non-trivial problem. The needs for identification across systems in a health information environment include the following:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>real world identifiers such as social security numbers, veterans affairs ids etc can be recorded as required by health care facilities, enterprise policies, or legislation;</p>
+</li>
+<li>
+<p>identifiers for informational entities which represent real world entities or processes should be unique;</p>
+</li>
+<li>
+<p>it should be possible to determine if two identifiers refer to information entities that represent the same real world entity, even if instances of the information entities are maintained in different systems;</p>
+</li>
+<li>
+<p>versions or changes to real-world entity-linked informational entities (which may create new information instances) should be accounted for in two ways:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>it should be possible to tell if two identifiers refer to distinct versions of the same informational entity in the same version tree;</p>
+</li>
+<li>
+<p>it should not be possible to confuse same-named versions of informational entities maintained in multiple systems which purport to represent the same real world
+entity. E.g. there is no guarantee that two systems' "latest" version of the Person "Dr Jones" is the same.</p>
+</li>
+<li>
+<p>Medico-legal use of information relies on previous states of information being distinguishable from other previous states and the current state.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>It should be possible for an entity in one system or service (such as the EHR) to refer to an entity in another system or service in such a way that:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>the target of the reference is easily finable within the shared environment, and</p>
+</li>
+<li>
+<p>the reference does is valid regardless of the physical architecture of servers and applications.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The following subsections describe some of the features and challenges of identification.</p>
+</div>
+<div class="sect2">
+<h3 id="_identification_of_real_world_entities_rwes"><a class="anchor" href="#_identification_of_real_world_entities_rwes"></a><a class="link" href="#_identification_of_real_world_entities_rwes">Identification of Real World Entities (RWEs)</a></h3>
+<div class="paragraph">
+<p>Real world entities such as people, car engines, invoices, and appointments can all be assigned identifiers. Although many of these are designed to be unique within a jurisdiction, they are often not, due to data entry errors, bad design (ids that are too small or incorporate some non-unique characteristic of the identified entities), bad process (e.g. non-synchronised id issuing points); identity theft (e.g. via theft of documents of proof or hacking). In general, while some real world identifiers (RWIs) are "nearly unique", none can be guaranteed so. It should also be the case that if two RWE identifiers are equal, they refer to the same RWE, but this is often not the case. For practical purposes, RWIs cannot be regarded as computationally safe for making the inferences described here.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_identification_of_informational_entities_ies"><a class="anchor" href="#_identification_of_informational_entities_ies"></a><a class="link" href="#_identification_of_informational_entities_ies">Identification of Informational Entities (IEs)</a></h3>
+<div class="paragraph">
+<p>As soon as information systems are used to record facts about RWEs, the situation becomes more complex because of the intangible nature of information. In particular:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>the same RWE can be represented simultaneously on more than one system ('spatial multiplicity');</p>
+</li>
+<li>
+<p>the same RWE may be represented by more than one "version" of the same IE in a system ('temporal multiplicity').</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>At first sight, it appears that there can also be <em>purely</em> informational entities, i.e. IEs which do not refer to any RWE, such as books, online-only documents and software. However, as soon as one considers an example it becomes clear that there is always a notional 'definitive' or 'authoritative' (i.e. trusted) version of every such entity. These entities can better be understood as 'virtual RWEs'. Thus it can still be said that multiple IEs may refer to any given RWE.</p>
+</div>
+<div class="paragraph">
+<p>The underlying reason for the multiplicity of IEs is that 'reality' - time and space - in computer systems is not continuous but discrete, and each 'entity' is in fact just a snapshot of certain attribute values of a RWE, at a point in time, in a particular system. If identifiers are assigned to IEs without regard to versions or duplicates, then no assertion can be made about the identified RWE when two IE ids are compared.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_identification_of_versions"><a class="anchor" href="#_identification_of_versions"></a><a class="link" href="#_identification_of_versions">Identification of Versions</a></h3>
+<div class="paragraph">
+<p>The notion of 'versioning' applies only to informational entities, i.e. distinct instances of content each representing a snapshot of some logical entity. Where such instances are stored and managed in versioned containers within a versioning system of some kind, explicit identification of the versions is required. The requirements are discussed in detail in the <a href="https://specifications.openehr.org/releases/RM/latest/common.html#_change_control_package">Common IM, <code>change_control</code> package</a>.</p>
+</div>
+<div class="paragraph">
+<p>They can be summarised as follows:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>it must be possible to distinguish two versions of the same logical entity, i.e. know from the identifier if they are the same or different versions of the same thing;</p>
+</li>
+<li>
+<p>it must be possible to distinguish two versions of the same logical entity created in two distinct systems;</p>
+</li>
+<li>
+<p>it must be possible to tell the relationship between the items in a versioned lineage, from the version identifiers.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_referencing_of_informational_entities"><a class="anchor" href="#_referencing_of_informational_entities"></a><a class="link" href="#_referencing_of_informational_entities">Referencing of Informational Entities</a></h3>
+<div class="paragraph">
+<p>Within a distributed information environment, there is a need for entities not connected by direct references in the same memory space to be able to refer to each other. There are two competing requirements:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>that the separation of objects in a distributed computing environment not compromise the semantics of the model;</p>
+</li>
+<li>
+<p>that different types of information can be managed relatively independently; for example EHR and demographic information can be managed by different groups in an organisation or community, each with at least some freedom to change implementation and model details.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_design"><a class="anchor" href="#_design"></a><a class="link" href="#_design">Design</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This package models only informational identifiers, i.e. transparent identifiers understood by openEHR or related computational systems. Real World Entity Identifiers such as driver&#8217;s license numbers are modelled using the data type <code>DV_IDENTIFIER</code>. This is not to imply that such identifiers are any less systematic or well-managed than the system identifiers defined here, only that from the point of view of openEHR, they have the same status as other informational attributes such as name, address etc of a Person.</p>
+</div>
+<div class="paragraph">
+<p>A key design decision has been to choose a string representation for all identifiers, with subparts being made available by appropriate functions which perform simple parsing on the string. This ensures that the data representation of identifiers (e.g. in XML) is as small as possible, while not losing object-oriented typing.</p>
+</div>
+<div class="sect2">
+<h3 id="_primitive_identifiers"><a class="anchor" href="#_primitive_identifiers"></a><a class="link" href="#_primitive_identifiers">Primitive Identifiers</a></h3>
+<div class="paragraph">
+<p>Three kinds of types are defined in this package. The abstract UID type and its subtypes correspond to permanent, computationally reliable, primitive identifiers. Such identifiers are regarded as 'primitive' because they are treated as having no further internal structure, in the sense that part of such an identifier is not in general meaningful. The three subtypes <code>UUID</code>, <code>ISO_OID</code> and <code>INTERNET_ID</code> all have these properties, and are commonly accepted ways of uniquely identifying entities in computer systems. In openEHR (and generally in health informatics) they are usually used as parts of other identifiers.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+UUIDs are also commonly known as GUIDs, which may be used as a synonym within implementations.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>A consequence of the string representation approach used in these classes is that to set an attribute of type UID from a string value, as would be done when reading from a database, deserialising from XML or another text form, a piece of code that inspects the string structure has to be used in order to decide which of the subtypes of <code>UID</code> it is. This is a safe thing to do, since all three subtypes have mutually exclusive string patterns, and can easily be distinguished.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_composite_identifiers"><a class="anchor" href="#_composite_identifiers"></a><a class="link" href="#_composite_identifiers">Composite Identifiers</a></h3>
+<div class="paragraph">
+<p>The <code>OBJECT_ID</code> type and its hierarchy of subtypes define all of the identifier types used within openEHR systems. Most of these have a multi-part structure, and some are 'meaningful' i.e. human readable. The identifier types can be used to represent identifier values that fall into two groups semantically: those defined by openEHR (which may incorporate generic standard identifiers, such as ISO Oids etc) and those defined by external organisations. The groups are as shown in the following table. Identifiers whose form is defined by the <code>HIER_OBJECT_ID</code> type are used both by openEHR and many other organisations.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">openEHR-defined identifiers</th>
+<th class="tableblock halign-left valign-top">Externally defined identifiers</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>OBJECT_VERSION_ID</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>TERMINOLOGY_ID</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ARCHEYTPE_ID</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>GENERIC_ID</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>HIER_OBJECT_ID</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>HIER_OBJECT_ID</code></p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect3">
+<h4 id="_uid_based_identifiers"><a class="anchor" href="#_uid_based_identifiers"></a><a class="link" href="#_uid_based_identifiers">UID-based Identifiers</a></h4>
+<div class="paragraph">
+<p>The abstract type <code>UID_BASED_ID</code> and its two subtypes <code>HIER_OBJECT_ID</code> and <code>OBJECT_VERSION_ID</code> provide respectively, UID-based identifiers for non-versioned and versioned items. The design of the latter subtype is explained in the openEHR Common IM, change_control package.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_archetype_identifiers"><a class="anchor" href="#_archetype_identifiers"></a><a class="link" href="#_archetype_identifiers">Archetype Identifiers</a></h4>
+<div class="paragraph">
+<p>The <code>ARCHETYPE_ID</code> subtype defines a multi-axial identifier for archetypes, meaning that each identifier instance denotes a single archetype within a multi-dimensional space. The space is can be thought of as 3-dimensional, or as a versioned 2-dimensional space, consisting of the following axes:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>reference model entity, i.e. target of archetype, defined as:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>name of model issuer;</p>
+</li>
+<li>
+<p>name of model (there may be more than one from the same issuer);</p>
+</li>
+<li>
+<p>name of concept in model, i.e. class name</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>domain concept;</p>
+</li>
+<li>
+<p>version.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The three outer sections are delimited by '.' characters, while the parts of the first section are delimited by <code>-</code> characters. As with any multi-axial identifier, the underlying principle of an archetype identifier is that all parts of the identifier must be able to be considered immutable. This means that no variable characteristic of an archetype (e.g. accrediting authority, which might change due to later accreditation by another authority, or may be multiple) can be included in its identifier. The explicit inclusion of version as part of the identifier means that two 'versions' of an archetype are actually two distinct archetypes. (The rules for archetype versions, revisions and other variants are given in the <a href="https://specifications.openehr.org/releases/AM/latest/Identification.html">openEHR Archetype Identification specification</a>.)</p>
+</div>
+<div class="paragraph">
+<p>Examples of archetype identifiers include:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>openEHR-EHR-SECTION.physical_examination.v2</code></p>
+</li>
+<li>
+<p><code>openEHR-EHR-SECTION.physical_examination-prenatal.v1</code></p>
+</li>
+<li>
+<p><code>Hl7-RIM-Act.progress_note.v1</code></p>
+</li>
+<li>
+<p><code>openEHR-EHR-OBSERVATION.progress_note-naturopathy.v2</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The grammar of archetype identifiers is given below in <a href="#_syntaxes">Syntaxes</a>.</p>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+some archetype authoring tools have historically allowed a nonconforming version part within archetype identifiers which included the lifecycle status. This has led to some archetypes having an identifier whose version part is of the form <code>.v1draft</code> or similar. The openEHR Foundation will publish guidelines and a timeline on its website for dealing with this problem. New and existing archetype tools may have to support this exception, depending on where they are to be used, and it is recommended that it at least be supported via a command line switch or option. Where such non-conforming archetypes are re-used within a new environment, the identifier should be corrected.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_terminology_identifiers"><a class="anchor" href="#_terminology_identifiers"></a><a class="link" href="#_terminology_identifiers">Terminology Identifiers</a></h4>
+<div class="paragraph">
+<p>The <code>TERMINOLOGY_ID</code> subtype defines a globally unique single string identifier for terminologies. Terminology identifier values may include a version, either as part of the name, and/or according to the syntax defined in section 4.3.12 below. Examples of terminology identifiers include:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>"SNOMED-CT"</p>
+</li>
+<li>
+<p>"ICD9(1999)"</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Currently the best authoritative source for the name part of the identifier (i.e. the part excluding the optional version part in parentheses) is the <a href="https://www.nlm.nih.gov/research/umls/sourcereleasedocs/index.html">US National Library of Medicine UMLS identifiers for included terminologies</a>.</p>
+</div>
+<div class="paragraph">
+<p>The scheme defined by the <code>TERMINOLOGY_ID</code> class provides for the situation where major 'versions' of a terminology such as the World Health Organisation&#8217;s 'ICD10' and 'ICD10AM' (AM = 'Australian modifications') can accommodate a finer grain of versioning or revisioning, e.g.:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>"ICD10AM(3rd_ed)"</p>
+</li>
+<li>
+<p>"ICD10AM(4th_ed)"</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The version part of a terminology identifier is in theory only absolutely necessary for those terminologies which break the rule that the concept being identified with a code loses or changes its meaning over versions of the terminology. This should not be the case for modern terminologies and ontologies, particularly those designed since the publication of Cimino&#8217;s 'desiderata' cite:[Cimino1997] of which the principle of 'concept permanance' is applicable here - "A concept&#8217;s meaning cannot change and it cannot be deleted from the vocabulary". However, there may be older terminologies, or specialised terminologies which may not have obeyed these rules, but which are still used; version ids should always be used for these. At a practical level, versions may be included routinely in some systems to support the potential medico-legal need to prove that a) a given code was in fact defined in the terminology (it may not have existed in an earlier edition) and b) that the meaning assmued in the system
+was indeed the one assigned to it in the particular version or edition.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_equivalence"><a class="anchor" href="#_equivalence"></a><a class="link" href="#_equivalence">Equivalence</a></h4>
+<div class="paragraph">
+<p>Although there are anomalies in some published terminologies and between some versions or editions of the same terminology, two terminology identifiers that are the same, disregarding the version part, can usually be considered as semantic equivalents in the terminology world. However, depending on which source of strings have been chosen for the name part of the identifier, two different identifiers may also indicate the same terminology, e.g. "ICD10AM_2000" (NLM identifier used in UMLS) and "ICD10AM(2nd_ed)" refer to the same thing.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_identifying_versions_within_openehr_versioned_containers"><a class="anchor" href="#_identifying_versions_within_openehr_versioned_containers"></a><a class="link" href="#_identifying_versions_within_openehr_versioned_containers">Identifying Versions within openEHR Versioned Containers</a></h4>
+<div class="paragraph">
+<p>The <code>OBJECT_VERSION_ID</code> defines the semantics of the scheme used in openEHR for identifying versions within a versioned container, and uses a three-part identifier, consisting of:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code><em>object_id</em></code>: the identifier of the version container, in the form of a UID, typically a UUID;</p>
+</li>
+<li>
+<p><code><em>creating_system_id</em></code>: the identifier of the system in which this version was created, of type UID, typically a reverse domain identifier;</p>
+</li>
+<li>
+<p><code><em>version_tree_id</em></code>: the location in the version tree, as a 1- or 3-part numeric identifier, where the latter variant expresses branching; this is modelled using the <code>VERSION_TREE_ID</code> type.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The following provides a typical example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>87284370-2D4B-4e3d-A3F3-F303D2F4F34B::uk.nhs.ehr1::2</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Under this scheme, multiple versions in the same container all have the same value for <code><em>object_id</em></code>, whilst their location in the version tree is given by the combination of the version tree identifier and the identifier of the creating system.</p>
+</div>
+<div class="paragraph">
+<p>The requirements on the <code><em>creating_system_id</em></code> part of the identifier are that it be unique per system, and that it be easy to obtain or generate. It is also helpful if it is a meaningful identifier. The two most practical candidates appear to be UUIDs (which are not meaningful, but are easy to generate) and reverse internet domain identifiers (these are easy to determine if the system has an internet address, and are meaningful and directly processible, however unconnected systems pose a problem). ISO Oids might also be used. All of these identifier types are accommodated via the use of UID. A full explanation of the version identification scheme and its capabilities is given in the <a href="https://specifications.openehr.org/releases/RM/latest/common.html#_change_control_package">Common IM, <code>change_control</code> package</a>.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_generic_and_external_identifiers"><a class="anchor" href="#_generic_and_external_identifiers"></a><a class="link" href="#_generic_and_external_identifiers">Generic and External Identifiers</a></h4>
+<div class="paragraph">
+<p>The <code>GENERIC_ID</code> type provides for identifiers of schemes other than defined concretely in the <code>BASE.base_types.identification</code> package. It has a single method scheme, which may be used to record the identifier type. The names of schemes are not currently controlled.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_hierarchical_identifiers"><a class="anchor" href="#_hierarchical_identifiers"></a><a class="link" href="#_hierarchical_identifiers">Hierarchical Identifiers</a></h4>
+<div class="paragraph">
+<p>The <code>HIER_OBJECT_ID</code> type is defined to support hierarchical identifiers, often based on UUIDs or other similar machine-readable and -resolvable schemes.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_composite_identifiers_and_case"><a class="anchor" href="#_composite_identifiers_and_case"></a><a class="link" href="#_composite_identifiers_and_case">Composite Identifiers and Case</a></h4>
+<div class="paragraph">
+<p>All composite identifiers should follow two rules with regard to case, namely:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>to be case-preserving - not change case due to persistence, copying, transfer or other computation processes;</p>
+</li>
+<li>
+<p>to be case-insensitive - two identifiers identical apart from case are considered to be identical, and therefore to identify the same thing.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The practical consequences of these rules are as follows:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>mixed-case identifiers may be used, such as archetype identifiers, mixed-case reverse domain identifiers (the <code>INTERNET_ID</code> type);</p>
+</li>
+<li>
+<p>the original case chosen in the letters of identifiers on creation within an openEHR system should be as published by the relevant issuing organisation (e.g. NLM UMLS terminology names are all upper case);</p>
+</li>
+<li>
+<p>if identifiers are used as part of filenames within computer file systems, care must be taken to create and preserve filenames correctly. For this reason, software usually has to handle filename creation and modification differently on Unix-style operating systems, which are case-sensitive (and therefore case-preserving), and Windows-style operating systems, which are case-insensitive but usually case-preserving.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>These rules do not apply to any identifier constructed in a language in which case does not exist as a concept. For this reason, for identifiers translated in and out of the Turkish language (and possibly in smaller related languages), care must be taken with the 'I/i' characters.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_composite_identifiers_and_language"><a class="anchor" href="#_composite_identifiers_and_language"></a><a class="link" href="#_composite_identifiers_and_language">Composite Identifiers and Language</a></h4>
+<div class="paragraph">
+<p>In all of the 'meaningful' identifier types above, with the posible exception of <code>GENERIC_ID</code>, the human-readable identifier sections are assumed to use only the basic latin character set, possibly with the addition of other special characters as allowed by the production rules defined below for each identifier. In most cases, the textual parts of these identifiers will be words from the English language, or else they will be recognisable words from other languages, where necessary alliterated into the latin alphabet. Accented and other diacritical letter variants are not allowed. This limitation is made in the interests of practical computability of identifiers, and is in common with class and attribute naming in shared UML models in the standards world, and also with internet domain names and internet URIs.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_references"><a class="anchor" href="#_references"></a><a class="link" href="#_references">References</a></h3>
+<div class="paragraph">
+<p>All <code>OBJECT_IDs</code> are used as identifier attributes within the thing they identify, in the same way as a database primary key. To refer to an identified object from another object, an instance of the class <code>OBJECT_REF</code> should generally be used, in the same way as a database foreign key. The class <code>OBJECT_REF</code> is provided as a means of distributed referencing, and includes the object namespace (typically 1:1 with some service, such as "terminology") and type. The general principle of object references is to be able to refer to an object available in a particular namespace or service. Usually they are used to refer to objects in other services, such as a demographic entity from within an EHR, but they may be used to refer to local objects as well. The type may be the concrete type of the referred-to object (e.g. "GP") or any proper ancestor (e.g. <code>PARTY</code>).</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_class_descriptions"><a class="anchor" href="#_class_descriptions"></a><a class="link" href="#_class_descriptions">Class Descriptions</a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_uid_class"><a class="anchor" href="#_uid_class"></a><a class="link" href="#_uid_class">UID Class</a></h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong><em>UID (abstract)</em></strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Abstract parent of classes representing unique identifiers which identify information entities in a durable way. UIDs only ever identify one IE in time or space and are never re-used.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>value</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>The value of the id.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Invariants</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Value_valid</em>: <code>not value.empty</code></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_iso_oid_class"><a class="anchor" href="#_iso_oid_class"></a><a class="link" href="#_iso_oid_class">ISO_OID Class</a></h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>ISO_OID</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Model of ISO&#8217;s Object Identifier (oid) as defined by the standard ISO/IEC 8824. Oids are formed from integers separated by dots. Each non-leaf node in an Oid starting from the left corresponds to an assigning authority, and identifies that authority&#8217;s namespace, inside which the remaining part of the identifier is locally unique.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="#_uid_class">UID</a></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_uuid_class"><a class="anchor" href="#_uuid_class"></a><a class="link" href="#_uuid_class">UUID Class</a></h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>UUID</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Model of the DCE Universal Unique Identifier or UUID which takes the form of hexadecimal integers separated by hyphens, following the pattern 8-4-4-4-12 as defined by the Open Group, CDE 1.1 Remote Procedure Call specification, Appendix A. Also known as a GUID.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="#_uid_class">UID</a></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_internet_id_class"><a class="anchor" href="#_internet_id_class"></a><a class="link" href="#_internet_id_class">INTERNET_ID Class</a></h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>INTERNET_ID</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Model of a reverse internet domain, as used to uniquely identify an internet domain. In the form of a dot-separated string in the reverse order of a domain name, specified by <a href="https://www.rfc-editor.org/info/rfc1034" target="_blank" rel="noopener">IETF RFC 1034</a>.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="#_uid_class">UID</a></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_object_id_class"><a class="anchor" href="#_object_id_class"></a><a class="link" href="#_object_id_class">OBJECT_ID Class</a></h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong><em>OBJECT_ID (abstract)</em></strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Ancestor class of identifiers of informational objects. Ids may be completely meaningless, in which case their only job is to refer to something, or may carry some information to do with the identified object.</p>
+</div>
+<div class="paragraph">
+<p>Object ids are used inside an object to identify that object. To identify another object in another service, use an <code>OBJECT_REF</code>, or else use a UID for local objects identified by UID. If none of the subtypes is suitable, direct instances of this class may be used.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>value</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>The value of the id in the form defined below.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_uid_based_id_class"><a class="anchor" href="#_uid_based_id_class"></a><a class="link" href="#_uid_based_id_class">UID_BASED_ID Class</a></h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong><em>UID_BASED_ID (abstract)</em></strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Abstract model of UID-based identifiers consisting of a root part and an optional extension; lexical form: <code>root '::' extension</code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="#_object_id_class">OBJECT_ID</a></code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Functions</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>root</strong> (): <code><a href="#_uid_class">UID</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>The identifier of the conceptual namespace in which the object exists, within the identification scheme. Returns the part to the left of the first '::' separator, if any, or else the whole string.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>extension</strong> (): <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Optional local identifier of the object within the context of the root identifier. Returns the part to the right of the first '::' separator if any, or else any empty String.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>has_extension</strong> (): <code><a href="/releases/BASE/latest/foundation_types.html#_boolean_class" target="_blank" rel="noopener">Boolean</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>True if not <code><em>extension</em>.is_empty()</code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Invariants</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Has_extension_valid</em>: <code>extension.is_empty xor has_extension</code></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_hier_object_id_class"><a class="anchor" href="#_hier_object_id_class"></a><a class="link" href="#_hier_object_id_class">HIER_OBJECT_ID Class</a></h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>HIER_OBJECT_ID</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Concrete type corresponding to hierarchical identifiers of the form defined by <code>UID_BASED_ID</code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="#_uid_based_id_class">UID_BASED_ID</a></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_object_version_id_class"><a class="anchor" href="#_object_version_id_class"></a><a class="link" href="#_object_version_id_class">OBJECT_VERSION_ID Class</a></h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>OBJECT_VERSION_ID</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Globally unique identifier for one version of a versioned object; lexical form: <code>object_id  '::' creating_system_id  '::' version_tree_id</code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="#_uid_based_id_class">UID_BASED_ID</a></code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Functions</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>object_id</strong> (): <code><a href="#_uid_class">UID</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Unique identifier for logical object of which this identifier identifies one version; normally the <code><em>object_id</em></code> will be the unique identifier of the version container containing the version referred to by this <code>OBJECT_VERSION_ID</code> instance.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>creating_system_id</strong> (): <code><a href="#_uid_class">UID</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Identifier of the system that created the Version corresponding to this Object version id.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>version_tree_id</strong> (): <code><a href="#_version_tree_id_class">VERSION_TREE_ID</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Tree identifier of this version with respect to other versions in the same version tree, as either 1 or 3 part dot-separated numbers, e.g.  1 ,  2.1.4 .</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_branch</strong> (): <code><a href="/releases/BASE/latest/foundation_types.html#_boolean_class" target="_blank" rel="noopener">Boolean</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>True if this version identifier represents a branch.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_version_tree_id_class"><a class="anchor" href="#_version_tree_id_class"></a><a class="link" href="#_version_tree_id_class">VERSION_TREE_ID Class</a></h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>VERSION_TREE_ID</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Version tree identifier for one version. Lexical form:</p>
+</div>
+<div class="paragraph">
+<p><code>trunk_version [  '.' branch_number  '.' branch_version ]</code></p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>value</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>String form of this identifier.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Functions</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>trunk_version</strong> (): <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Trunk version number; numbering starts at 1.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_branch</strong> (): <code><a href="/releases/BASE/latest/foundation_types.html#_boolean_class" target="_blank" rel="noopener">Boolean</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>True if this version identifier represents a branch, i.e. has branch_number and branch_version parts.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>branch_number</strong> (): <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Number of branch from the trunk point; numbering starts at 1.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>branch_version</strong> (): <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Version of the branch; numbering starts at 1.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Invariants</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Value_valid</em>: <code>not value.is_empty</code></p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Trunk_version_valid</em>: <code>trunk_version /= Void and then trunk_version.is_integer and then trunk_version.as_integer &gt;= 1</code></p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Branch_number_valid</em>: <code>branch_number /= Void implies branch_number.is_integer and then branch_number.as_integer &gt;= 1</code></p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Branch_version_valid</em>: <code>branch_version /= Void implies branch_version.is_integer and then branch_version.as_integer &gt;= 1</code></p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Branch_validity</em>: <code>(branch_number = Void and branch_version = Void ) xor (branch_number /= Void and branch_version /= Void )</code></p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Is_branch_validity</em>: <code>is_branch xor branch_number = Void</code></p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Is_first_validity</em>: <code>not is_first xor trunk_version.is_equal(“1”)</code></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_archetype_id_class"><a class="anchor" href="#_archetype_id_class"></a><a class="link" href="#_archetype_id_class">ARCHETYPE_ID Class</a></h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>ARCHETYPE_ID</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Identifier for archetypes. Ideally these would identify globally unique archetypes.</p>
+</div>
+<div class="paragraph">
+<p>Lexical form: <code>rm_originator  '-' rm_name  '-' rm_entity  '.' concept_name {  '-' specialisation }*  '.v' number</code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="#_object_id_class">OBJECT_ID</a></code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Functions</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>qualified_rm_entity</strong> (): <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Globally qualified reference model entity, e.g.  <code>openehr-EHR-OBSERVATION</code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>domain_concept</strong> (): <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Name of the concept represented by this archetype, including specialisation, e.g. <code>Biochemistry_result-cholesterol</code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>rm_originator</strong> (): <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Organisation originating the reference model on which this archetype is based, e.g. openehr,  cen,  hl7 .</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>rm_name</strong> (): <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Name of the reference model, e.g. rim,  ehr_rm,  en13606 .</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>rm_entity</strong> (): <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Name of the ontological level within the reference model to which this archetype is targeted, e.g. for openEHR,  folder ,  composition ,  section ,  entry .</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>specialisation</strong> (): <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Name of specialisation of concept, if this archetype is a specialisation of another archetype, e.g.  cholesterol .</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>version_id</strong> (): <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Version of this archetype.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_template_id_class"><a class="anchor" href="#_template_id_class"></a><a class="link" href="#_template_id_class">TEMPLATE_ID Class</a></h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>TEMPLATE_ID</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Identifier for templates. Lexical form to be determined.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="#_object_id_class">OBJECT_ID</a></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_terminology_id_class"><a class="anchor" href="#_terminology_id_class"></a><a class="link" href="#_terminology_id_class">TERMINOLOGY_ID Class</a></h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>TERMINOLOGY_ID</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Identifier for terminologies such as accessed via a terminology query service. In this class, the value attribute identifies the Terminology in the terminology service, e.g.  SNOMED-CT . A terminology is assumed to be in a particular language, which must be explicitly specified.</p>
+</div>
+<div class="paragraph">
+<p>The value if the id attribute is the precise terminology id identifier, including actual release (i.e. actual  version), local modifications etc; e.g. ICPC2.</p>
+</div>
+<div class="paragraph">
+<p>Lexical form: <code>name [  '(' version  ')' ]</code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="#_object_id_class">OBJECT_ID</a></code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Functions</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>name</strong> (): <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Return the terminology id (which includes the  version  in some cases). Distinct names correspond to distinct (i.e. non-compatible) terminologies. Thus the names  ICD10AM  and  ICD10  refer to distinct terminologies.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>version_id</strong> (): <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Version of this terminology, if versioning supported, else the empty string.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_generic_id_class"><a class="anchor" href="#_generic_id_class"></a><a class="link" href="#_generic_id_class">GENERIC_ID Class</a></h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>GENERIC_ID</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Generic identifier type for identifiers whose format is otherwise unknown to openEHR. Includes an attribute for naming the identification scheme (which may well be local).</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="#_object_id_class">OBJECT_ID</a></code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>scheme</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Name of the scheme to which this identifier conforms. Ideally this name will be recognisable globally but realistically it may be a local ad hoc scheme whose name is not controlled or standardised in any way.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_object_ref_class"><a class="anchor" href="#_object_ref_class"></a><a class="link" href="#_object_ref_class">OBJECT_REF Class</a></h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>OBJECT_REF</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Class describing a reference to another object, which may exist locally or be maintained outside the current namespace, e.g. in another service. Services are usually external, e.g. available in a LAN (including on the same host) or the internet via Corba, SOAP, or some other distributed protocol. However, in small systems they may be part of the same executable as the data containing the Id.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>namespace</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Namespace to which this identifier belongs in the local system context (and possibly in any other openEHR compliant environment) e.g.  terminology ,  demographic . These names are not yet standardised. Legal values for <code><em>namespace</em></code> are:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>"local"</code></p>
+</li>
+<li>
+<p><code>"unknown"</code></p>
+</li>
+<li>
+<p>a string matching the standard regex <code>[a-zA-Z][a-zA-Z0-9_.:\/&amp;?=+-]*</code>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Note that the first two are just special values of the regex, and will be matched by it.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>type</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Name of the  class (concrete or abstract) of object to which this identifier type refers, e.g. <code>PARTY</code>, <code>PERSON</code>,  <code>GUIDELINE</code>  etc. These class names are from the relevant reference model. The type name <code>ANY</code> can be used to indicate that any type is accepted (e.g. if the type is unknown).</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>id</strong>: <code><a href="#_object_id_class">OBJECT_ID</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Globally unique id of an object, regardless of where it is stored.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_party_ref_class"><a class="anchor" href="#_party_ref_class"></a><a class="link" href="#_party_ref_class">PARTY_REF Class</a></h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>PARTY_REF</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Identifier for parties in a demographic or identity service. There are typically a number of subtypes of the <code>PARTY</code> class, including <code>PERSON</code>, <code>ORGANISATION</code>, etc. Abstract supertypes are allowed if the referenced object is of a type not known by the current implementation of this class (in other words, if the demographic model is changed by the addition of a new <code>PARTY</code> or <code>ACTOR</code> subtypes, valid <code>PARTY_REFs</code> can still be constructed to them).</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="#_object_ref_class">OBJECT_REF</a></code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Invariants</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Type_validity</em>: <code>type.is_equal(“PERSON”) or type.is_equal(“ORGANISATION”) or type.is_equal(“GROUP”) or type.is_equal(“AGENT”)or type.is_equal(“ROLE”) or type.is_equal(“PARTY”) or type.is_equal(“ACTOR”)</code></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_locatable_ref_class"><a class="anchor" href="#_locatable_ref_class"></a><a class="link" href="#_locatable_ref_class">LOCATABLE_REF Class</a></h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>LOCATABLE_REF</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Purpose Reference to a <code>LOCATABLE</code> instance inside the top-level content structure inside a <code>VERSION&lt;T&gt;</code>; the path attribute is applied to the object that <code>VERSION.<em>data</em></code> points to.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="#_object_ref_class">OBJECT_REF</a></code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>path</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>The path to an instance in question, as an absolute path with respect to the object found at <code>VERSION.<em>data</em></code>. An empty path means that the object referred to by id being specified.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(redefined)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>id</strong>: <code><a href="#_uid_based_id_class">UID_BASED_ID</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Globally unique id of an object, regardless of where it is stored.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Functions</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>as_uri</strong> (): <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>A URI form of the reference, created by concatenating the following:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>scheme, e.g. <code>ehr:</code>, derived from <code><em>namespace</em></code></p>
+</li>
+<li>
+<p><code><em>id.value</em></code></p>
+</li>
+<li>
+<p><code>/</code> + <code><em>path</em></code>, where <code><em>path</em></code> is non-empty</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_syntaxes"><a class="anchor" href="#_syntaxes"></a><a class="link" href="#_syntaxes">Syntaxes</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The identifiers defined above are defined in their string form by the following EBNF grammar rules.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-ebnf" data-lang="ebnf">(* ------------------------- UID, OID, UUID -------------------------- *)
+uid     = iso_oid | uuid | internet_id ;
+iso_oid = number, { '.', number } ;
+uuid    = hex-number, '-', hex-number, '-', hex-number, '-', hex-number, '-', hex-number ;
+
+(* --------------------------- INTERNET_ID --------------------------- *)
+(* According to IETF http://tools.ietf.org/html/rfc1034[RFC 1034] and  *)
+(* http://tools.ietf.org/html/rfc1035[RFC 1035], as clarified by       *)
+(* http://tools.ietf.org/html/rfc2181[RFC 2181] (section 11),          *)
+(* and relaxation of https://tools.ietf.org/html/rfc1123[RFC 1123]     *)
+(* The syntax of a domain name follows the grammar below. Slightly     *)
+(* reduced for the purpose here, plus allows underscores.              *)
+internet_id      = subdomain ;
+subdomain        = label | subdomain, '.', label ;
+label            = alphanum | alphanum-ext-str, alphanum ;
+
+(* -------------------- HIER_BASED_ID, UID_BASED_ID ------------------ *)
+hier_object_id = uid_based_id ;
+uid_based_id   = root, [ '::', extension ] ;
+root           = uid ;
+extension      = ? any string ? ; (* any string *)
+
+(* ------------------------- OBJECT_VERSION_ID ----------------------- *)
+object_version_id  = object_id, '::', creating_system_id, '::', version_tree_id ;
+object_id          = uid ;
+creating_system_id = uid ;
+
+(* ------------------------- VERSION_TREE_ID ------------------------- *)
+version_tree_id = trunk_version, [ '.', branch_number, '.', branch_version ] ;
+trunk_version   = number ;
+branch_number   = number ;
+branch_version  = number ;
+
+(* -------------------------- ARCHETYPE_ID --------------------------- *)
+archetype_id        = qualified_rm_entity, '.', domain_concept, '.', version_id ;
+qualified-rm-entity = rm_originator, '-', rm_name, '-', rm_entity ;
+rm-originator       = alphanum-str ;     (* id of org originating the RM on which this archetype is based *)
+rm-name             = alphanum-str ;                      (* id of the RM on which the archetype is based *)
+rm-entity           = alphanum-str ;                                       (* ontological level in the RM *)
+domain-concept      = concept-name, { '-', specialisation } ;
+concept-name        = alphanum-str ;
+specialisation      = alphanum-str ;
+version-id          = 'v', ( '0' | non-zero-digit, [ number ] ) ;            (* numeric version identifier *)
+
+(* ------------------------- TERMINOLOGY_ID -------------------------- *)
+terminology_id = name-str, [ '(', name-str, ')' ] ;
+
+(* -------------------------- generic rules -------------------------- *)
+alphanum     = letter | digit ;
+name-str     = letter, { letter | digit | '_' | '-' | '/' | '+' } ;
+alphanum-str = letter, { letter | digit | '_' } ;
+alphanum-ext-str = letter, { letter | digit | '_' | '-' } ;
+letter       = 'A' | 'B' | 'C' | 'D' | 'E' | 'F' | 'G'
+             | 'H' | 'I' | 'J' | 'K' | 'L' | 'M' | 'N'
+             | 'O' | 'P' | 'Q' | 'R' | 'S' | 'T' | 'U'
+             | 'V' | 'W' | 'X' | 'Y' | 'Z' | 'a' | 'b'
+             | 'c' | 'd' | 'e' | 'f' | 'g' | 'h' | 'i'
+             | 'j' | 'k' | 'l' | 'm' | 'n' | 'o' | 'p'
+             | 'q' | 'r' | 's' | 't' | 'u' | 'v' | 'w'
+             | 'x' | 'y' | 'z' ;
+
+number         = digit, { digit } ;
+hex-number     = hex-digit, { hex-digit } ;
+digit          = '0' | non-zero-digit ;
+non-zero-digit = '1' | '2' | '3' | '4' | '5' | '6' | '7'| '8' | '9' ;
+hex-digit      = digit | 'A' | 'B' | 'C' | 'D' | 'E' | 'F' | 'a' | 'b' | 'c' | 'd' | 'e' | 'f' ;</code></pre>
+</div>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="../builtins_package/">Builtins Package</a></span>
+  <span class="next"><a href="../amendment_record/">Amendment Record</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>
+    Copyright: © 2003+
+    <a href="https://www.openehr.org"
+        alt="is an independent, non-profit foundation, facilitating the sharing of health
+           records by consumers and clinicians via open specifications, clinical models
+           and open platform implementations.">The openEHR Foundation</a>
+  </p>
+
+  <p>
+    License:
+    <img src="/_/img/cc-by-nd-88x31.png"
+        alt="Creative Commons Attribution-NoDerivs 3.0 Unported."
+        style="vertical-align:middle;margin:0 0.25rem 0 0;">
+    <a href="https://creativecommons.org/licenses/by-nd/3.0/">
+      Creative Commons Attribution-NoDerivs 3.0 Unported.
+    </a>
+  </p>
+
+  <p>
+    <strong>Links: <strong>
+    <a href="https://www.openehr.org/terms-of-use" class="mr-1">Terms of use</a> |
+    <a href="https://www.openehr.org/privacy-policy" class="mx-1">Privacy policy</a> |
+    <a href="https://www.openehr.org/privacy-policy" class="mx-1">Logos &amp; Trademarks</a> |
+    <a href="https://www.openehr.org/contact-us" class="mx-1">Contact</a>
+  </p>
+</footer>
+
+<script id="site-script" src="../../../../_/js/site.js" data-ui-root-path="../../../../_"></script>
+<script async src="../../../../_/js/vendor/highlight.js"></script>
+<script src="../../../../_/js/vendor/lunr.js"></script>
+<script src="../../../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../../../.." data-snippet-length="80" data-stylesheet="../../../../_/css/search.css"></script>
+<script async src="../../../../search-index.js"></script>
+<script src="../../../../_/js/medium-zoom.min.js"></script>
+<script src="../../../../_/js/zoom.js"></script>
+  </body>
+</html>

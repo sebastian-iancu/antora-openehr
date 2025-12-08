@@ -24,15 +24,16 @@ copy_master_numbered() {
   local module="$1"
 
   # Copy all masterNN-* and masterAppA-* files, stripping the prefix
-  find "docs/$module" \( -name "master[0-9][0-9]-*.adoc" -o -name "masterAppA-*.adoc" \) 2>/dev/null \
+  find "docs/$module" \( -name "master[0-9][0-9]-*.adoc" -o -name "master[0-9][0-9].[0-9]-*.adoc" -o -name "master[0-9][0-9].[0-9][0-9]-*.adoc" -o -name "masterApp[A-Z]-*.adoc" \) 2>/dev/null \
     | while read -r src; do
         local base new
 
         base="$(basename "$src")"
         # Strip prefixes:
         #   masterNN-something.adoc   -> something.adoc
+        #   masterNN.NN-something.adoc   -> something.adoc
         #   masterAppA-something.adoc -> something.adoc
-        new="$(echo "$base" | sed -E 's/^master[0-9][0-9]-//; s/^masterAppA-//')"
+        new="$(echo "$base" | sed -E 's/^master[0-9.]+-//; s/^masterApp[A-Z]-//')"
 
         echo "  • $base → pages/$new"
         cp "$src" "modules/$module/pages/$new"
@@ -44,8 +45,8 @@ copy_included_non_master() {
   local master_file="docs/$module/master.adoc"
 
   [ -f "$master_file" ] || return 0
-
-  awk 'found {print} /:sectnums|sectanchors:/{found=1}' "$master_file" \
+  # find all 'include::' lines after ':sectnums:' or ':sectanchors:' or '-- CHAPTERS --'
+  awk 'found {print} /:sectnums:|:sectanchors:|-- CHAPTERS --/{found=1}' "$master_file" \
     | grep '^include::' 2>/dev/null \
     | sed -E 's/^include::([^[]+)\[.*/\1/' \
     | while read -r target; do
@@ -60,7 +61,9 @@ copy_included_non_master() {
         case "$target" in
           manifest_vars.adoc) continue ;;
           master[0-9][0-9]-*.adoc) continue ;;
-          masterAppA-*.adoc) continue ;;
+          master[0-9][0-9].[0-9]-*.adoc) continue ;;
+          master[0-9][0-9].[0-9][0-9]-*.adoc) continue ;;
+          masterApp[A-Z]-*.adoc) continue ;;
           *-amendment_record.adoc|amendment_record.adoc) continue ;;
         esac
 

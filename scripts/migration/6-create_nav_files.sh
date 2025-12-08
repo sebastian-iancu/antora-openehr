@@ -70,8 +70,8 @@ generate_nav_entries_from_master() {
   local master_file="docs/$module/master.adoc"
 
   [ -f "$master_file" ] || return 0
-
-  awk 'found {print} /:sectnums|sectanchors:/{found=1}' "$master_file" \
+  # find all 'include::' lines after ':sectnums:' or ':sectanchors:' or '-- CHAPTERS --'
+  awk 'found {print} /:sectnums:|:sectanchors:|-- CHAPTERS --/{found=1}' "$master_file" \
     | grep '^include::' 2>/dev/null \
     | sed -E 's/^include::([^[]+)\[.*/\1/' \
     | while read -r target; do
@@ -93,8 +93,9 @@ generate_nav_entries_from_master() {
 
         # REMOVE ALL MASTER PREFIX PATTERNS
         # masterNN-something -> something
+        # masterNN.NN-something -> something
         # masterAppA-glossary -> glossary
-        base="$(echo "$base" | sed -E 's/^master[0-9][0-9]-//; s/^masterAppA-//')"
+        base="$(echo "$base" | sed -E 's/^master[0-9.]+-//; s/^masterApp[A-Z]-//')"
 
         local page_file="modules/$module/pages/${base}.adoc"
         local title
@@ -128,6 +129,7 @@ create_module_nav() {
   # 3) Prettified module name
   # ------------------------------------------------------------------
   local module_title
+  local spec_title_literal="{spec_title}"
 
   module_title="$(get_spec_title_from_module_vars "$module")"
 
@@ -140,6 +142,11 @@ create_module_nav() {
   fi
 
   {
+    SPEC_TITLE_PLACEHOLDER="{spec_title}"
+    if [ "${module_title}" = "${spec_title_literal}" ]; then
+      echo "include::partial\$module_vars.adoc[]"
+      echo
+    fi
     echo "* xref:index.adoc[${module_title}]"
     generate_nav_entries_from_master "$module"
   } > "$nav_file"

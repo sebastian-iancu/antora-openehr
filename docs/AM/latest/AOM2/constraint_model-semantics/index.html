@@ -1,0 +1,1108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+    <title>Untitled :: openEHR Specifications (Local Build)</title>
+    <link rel="canonical" href="https://sebastian-iancu.github.io/antora-openehr/AM/latest/AOM2/constraint_model-semantics/">
+    <link rel="prev" href="../constraint_model-overview/">
+    <link rel="next" href="../constraint_model-second_order/">
+    <meta name="description" content="openEHR Archetype Object Model 2 (AOM2) (ISO 13606-2:2019)">
+    <meta name="keywords" content="EHR, ADL, AOM, health records, archetypes, constraint language, ISO 13606, openehr">
+    <meta name="generator" content="Antora 3.1.14">
+    <link rel="stylesheet" href="../../../../ui/css/site.css">
+    <link rel="stylesheet" href="../../../../ui/css/antora-openehr.css">
+    <link rel="stylesheet" href="../../../../ui/css/openehr.css">
+<link rel="icon" href="../../../../ui/img/favicon.ico" type="image/x-icon">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://sebastian-iancu.github.io/antora-openehr">openEHR Specifications (Local Build)</a>
+
+      <div class="navbar-item search hide-for-print">
+        <div id="search-field" class="field has-filter">
+          <input id="search-input" type="text" placeholder="Search the docs">
+          <label class="filter checkbox">
+            <input type="checkbox" data-facet-filter="component:AM"> Archetype Model only
+          </label>
+        </div>
+      </div>
+
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">Specifications</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://specifications.openehr.org/" target="_blank">
+              openEHR specification
+            </a>
+            <a class="navbar-item" href="https://specifications.openehr.org/releases/UML/development/index.html" target="_blank">
+              openEHR portal
+            </a>
+            <a class="navbar-item" href="https://ckm.openehr.org/ckm/" target="_blank">
+              openEHR CKM
+            </a>
+          </div>
+        </div>
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">Community</a>
+          <div class="navbar-dropdown is-right">
+            <a class="navbar-item" href="https://openehr.atlassian.net/secure/Dashboard.jspa?selectPageId=10190" target="_blank">
+              Issue trackers
+            </a>
+            <a class="navbar-item" href="https://discourse.openehr.org/" target="_blank">
+              Discourse Forum
+            </a>
+            <a class="navbar-item" href="https://specifications.openehr.org/wiki/display/spec/Specifications+Home" target="_blank">
+              Wiki
+            </a>
+            <a class="navbar-item" href="https://github.com/openEHR" target="_blank">
+              GitHub
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="AM" data-version="Release-2.3.0">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="../../">Archetype Model</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../">Overview</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../ADL1.4/">Archetype Definition Language 1.4 (ADL1.4)</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL1.4/preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL1.4/overview/">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL1.4/file_encoding/">File Encoding and Character Quoting</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL1.4/dadl/">dADL - Data ADL</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL1.4/cadl/">cADL - Constraint ADL</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL1.4/assertions/">Assertions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL1.4/paths/">ADL Paths</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL1.4/adl/">ADL - Archetype Definition Language</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL1.4/customising_adl/">Customising ADL</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL1.4/other_formalisms/">Relationship of ADL to Other Formalisms</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL1.4/extended_metadata/">Extended Meta-data Guide</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL1.4/syntax_spec/">Syntax Specification</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL1.4/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../ADL2/">Archetype Definition Language 2 (ADL2)</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/overview/">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/file_encoding/">File Encoding and Character Quoting</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/cadl_overview/">cADL - Constraint ADL</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/cadl_basics/">Cadl Basics</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/cadl_complex_types/">Cadl Complex Types</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/cadl_second_order/">Cadl Second Order</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/cadl_primitive_types/">Cadl Primitive Types</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/cadl_validity_rules/">Cadl Validity Rules</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/paths/">ADL Paths</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/default_values/">Default Values</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/adl_introduction/">ADL - Archetype Definition Language</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/adl_conventions/">Adl Conventions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/adl_artefacts/">Adl Artefacts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/adl_basics/">Adl Basics</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/adl_identification/">Adl Identification</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/adl_specialise/">Adl Specialise</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/adl_language/">Adl Language</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/adl_description/">Adl Description</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/adl_deprecated/">Adl Deprecated</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/adl_definition/">Adl Definition</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/adl_rules/">Adl Rules</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/adl_rm_overlay/">Adl Rm Overlay</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/adl_terminology/">Adl Terminology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/adl_annotations/">Adl Annotations</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/terminology_integration/">Terminology Integration</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/spec_overview/">Specialisation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/spec_concepts/">Spec Concepts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/spec_examples/">Spec Examples</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/spec_attrib_redef/">Spec Attrib Redef</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/spec_object_redef/">Spec Object Redef</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/spec_rules/">Spec Rules</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/spec_languages/">Spec Languages</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/spec_description/">Spec Description</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/spec_terminology/">Spec Terminology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/spec_bindings/">Spec Bindings</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/templates/">Templates</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/other_formalisms/">Relationship of ADL to Other Formalisms</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/syntax_spec/">Syntax Specification</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../AOM1.4/">Archetype Object Model 1.4 (AOM1.4)</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM1.4/preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM1.4/model_overview/">The Archetype Object Model</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM1.4/archetype_package/">The Archetype Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM1.4/constraint_model_package/">Constraint Model Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM1.4/assertion_package/">The Assertion Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM1.4/primitive_package/">Primitive Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM1.4/ontology_package/">Terminology Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM1.4/domain_extension/">Domain-specific Extension Example</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM1.4/diverse_reference_models/">Using Archetypes with Diverse Reference Models</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM1.4/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../">Archetype Object Model 2 (AOM2)</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../model_overview/">Model Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../archetype_package/">The Archetype Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../constraint_model-overview/">Constraint Model Package</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="./">Constraint Model-Semantics</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../constraint_model-second_order/">Constraint Model-Second Order</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../constraint_model-AOM_type_subs/">Constraint Model-AOM Type Subs</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../constraint_model-class_definitions/">Constraint Model-Class Definitions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../rules_package/">The Rules Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../rm_overlay/">The RM Overlay Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../terminology_package/">Terminology Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../validation/">Validation and Transformation Semantics</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../serialisation_model/">Serialisation Model</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../templates/">Templates</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../rm_adaptation/">Reference Model Adaptation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../Identification/">Archetype Identification</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../Identification/preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../Identification/overview/">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../Identification/artefact_source_id/">Source Artefact Identification</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../Identification/versioning/">Versioning</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../Identification/lifecycle_mgt/">Lifecycle Model</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../Identification/distributed_governance/">Distributed Governance</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../Identification/referencing/">Referencing</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../Identification/uris/">A Reliable URI for Knowledge Resources</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../Identification/artefact_authentication/">Artefact Authentication</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../Identification/scenarios/">Scenarios</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../Identification/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="#index.adoc">Language Design</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../OPT2/">Operational Template 2 (OPT2)</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../OPT2/preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../OPT2/overview/">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../OPT2/opt_raw/">The Raw Operational Template</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../OPT2/opt_profiled/">The Profiled Operational Template</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../OPT2/file_formats/">File Formats</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../OPT2/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../Overview/">Archetype Technology Overview</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../Overview/introduction/">Business Purpose of Archetypes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../Overview/formalism_overview/">Archetype Formalism Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../Overview/the_specifications/">The Specifications</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../Overview/semantic_overview/">Semantic Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../Overview/artefacts/">Artefacts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../Overview/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Archetype Model</span>
+    <span class="version">Release-2.3.0</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <div class="title"><a href="../../">Archetype Model</a></div>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../../">Release-2.3.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../Release-2.2.0/">Release-2.2.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../BASE/latest/">Base Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../BASE/latest/">Release-1.2.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../BASE/Release-1.1.0/">Release-1.1.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../BASE/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../RM/latest/">Reference Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../RM/latest/">Release-1.1.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../RM/Release-1.0.4/">Release-1.0.4</a>
+        </li>
+        <li class="version">
+          <a href="../../../../RM/development/">development</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../../BASE/latest/" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../../">Archetype Model</a></li>
+    <li><a href="../">Archetype Object Model 2 (AOM2)</a></li>
+    <li><a href="./">Constraint Model-Semantics</a></li>
+  </ul>
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">Release-2.3.0</button>
+  <div class="version-menu">
+    <a class="version is-current" href="./">Release-2.3.0</a>
+    <a class="version is-missing" href="../../../Release-2.2.0/">Release-2.2.0</a>
+    <a class="version" href="../../../development/AOM2/constraint_model-semantics/">development</a>
+  </div>
+</div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<div class="sect1">
+<h2 id="_semantics"><a class="anchor" href="#_semantics"></a><a class="link" href="#_semantics">Semantics</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The effect of the model is to create archetype definition structures that are a hierarchical alternation of object and attribute constraints. This structure can be seen by inspecting an ADL archetype, or by viewing an archetype in an AOM-based tool such as the openEHR <a href="https://www.openehr.org/downloads/ADLworkbench" target="_blank" rel="noopener">ADL workbench</a>, and is a direct consequence of the object-oriented principle that classes consist of properties, which in turn have types that are classes. (To be completely correct, types do not always correspond to classes in an object model, but it does not make any difference here). The repeated object/attribute hierarchical structure of an archetype provides the basis for using paths to reference any node in an archetype. Archetype paths follow a syntax that is a directly convertible in and out of the W3C Xpath syntax.</p>
+</div>
+<div class="sect2">
+<h3 id="_all_node_types"><a class="anchor" href="#_all_node_types"></a><a class="link" href="#_all_node_types">All Node Types</a></h3>
+<div class="paragraph">
+<p>Some properties are defined for all node types, described in the following sections.</p>
+</div>
+<div class="sect3">
+<h4 id="_path_functions"><a class="anchor" href="#_path_functions"></a><a class="link" href="#_path_functions">Path Functions</a></h4>
+<div class="paragraph">
+<p>The path feature computes the path to the current node from the root of the archetype, while the has_path function indicates whether a given path can be found in an archetype.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_conformance_functions"><a class="anchor" href="#_conformance_functions"></a><a class="link" href="#_conformance_functions">Conformance Functions</a></h4>
+<div class="paragraph">
+<p>All node types include two functions that formalise the notion of conformance of a specialised archetype to a parent archetype. Both functions take an argument which must be a corresponding node in a parent archetype, not necessarily the immediate parent. A 'corresponding' node is one found at the same or a congruent path. A congruent path is one in which one or more at-codes have been redefined in the specialised archetype.</p>
+</div>
+<div class="paragraph">
+<p>The <code><em>c_conforms_to</em></code> function returns True if the node on which it is called is a valid specialisation of the 'other' node. The <code><em>c_congruent_to</em></code> function returns True if the node on which it is called is the same as the other node, with the possible exception of a redefined at-code. The latter may happen due to the need to restrict the domain meaning of node to a meaning narrower than that of the same node in the parent. The formal semantics of both functions are given in the class definitions, <a href="#_class_definitions_2">[_class_definitions_2]</a>.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_any_allowed"><a class="anchor" href="#_any_allowed"></a><a class="link" href="#_any_allowed">Any_allowed</a></h4>
+<div class="paragraph">
+<p>The <code><em>any_allowed</em></code> function defined on some node types indicates that any value permitted by the reference model for the attribute or type in question is allowed by the archetype; its use permits the logical idea of a completely "open" constraint to be simply expressed, avoiding the need for any further substructure.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_attribute_nodes"><a class="anchor" href="#_attribute_nodes"></a><a class="link" href="#_attribute_nodes">Attribute Nodes</a></h3>
+<div class="paragraph">
+<p>Constraints on reference model attributes, including computed attributes (represented by functions with no arguments in most programming languages), are represented by instances of <code>C_ATTRIBUTE</code>. The expressible constraints include:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code><em>is_multiple</em></code>: a flag that indicates whether the <code>C_ATTRIBUTE</code> is constraining a multiply-valued (i.e. container) RM attribute or a single-valued one;</p>
+</li>
+<li>
+<p><code><em>existence</em></code>: whether the corresponding instance (defined by the <code><em>rm_attribute_name</em></code> attribute) must exist;</p>
+</li>
+<li>
+<p>child objects: representing allowable values of the object value(s) of the attribute.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>In the case of single-valued attributes (such as Person.date_of_birth) the children represent one or more alternative object constraints for the attribute value.</p>
+</div>
+<div class="paragraph">
+<p>For multiply-valued attributes (such as <code>Person</code>.<code><em>contacts</em></code>: <code>List&lt;Contact&gt;</code>), a cardinality constraint on the container can be defined. The constraint on child objects is essentially the same except that more than one of the alternatives can co-exist in the data. <a href="#c_attributes">C_ATTRIBUTE variants</a> illustrates the two possibilities.</p>
+</div>
+<div class="paragraph">
+<p>The appearance of both <code><em>existence</em></code> and <code><em>cardinality</em></code> constraints in <code>C_ATTRIBUTE</code> deserves some explanation, especially as the meanings of these notions are often confused in object-oriented literature. An existence constraint indicates whether an object will be found in a given attribute field, while a cardinality constraint indicates what the valid membership of a container object is. <code><em>Cardinality</em></code> is only required for container objects such as <code>List&lt;T&gt;</code> , <code>Set&lt;T&gt;</code> and so on, whereas <code><em>existence</em></code> is always possible. If both are used, the meaning is as follows: the existence constraint says whether the container object will be there (at all), while the cardinality constraint says how many items must be in the container, and whether it acts logically as a list, set or bag. Both existence and cardinality are optional in the model, since they are only needed to override the settings from the reference model.</p>
+</div>
+<div id="c_attributes" class="imageblock text-center text-center">
+<div class="content">
+<img src="../_images/diagrams/c_attributes.png" alt="c attributes" width="70%">
+</div>
+<div class="title">Figure 1. C_ATTRIBUTE variants</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_object_node_types"><a class="anchor" href="#_object_node_types"></a><a class="link" href="#_object_node_types">Object Node Types</a></h3>
+<div class="paragraph">
+<p>The following sections apply to all object nodes in an archetype, i.e. instances of any descendant of <code>C_OBJECT</code>.</p>
+</div>
+<div class="sect3">
+<h4 id="_rm_type_name_and_reference_model_type_matching"><a class="anchor" href="#_rm_type_name_and_reference_model_type_matching"></a><a class="link" href="#_rm_type_name_and_reference_model_type_matching">Rm_type_name and Reference Model Type Matching</a></h4>
+<div class="paragraph">
+<p>Every object node has an <code><em>rm_type_name</em></code> attribute that states the RM type to be matched by that node in the archetype. The value of <code><em>rm_type_name</em></code> is understood as a constraint on the dynamic type of data <em>instances</em> of the stated Reference Model type. It is either a class name from the RM, or a generic type constructed from RM class names, as described in the <a href="https://specifications.openehr.org/releases/AM/latest/ADL2.html#_reference_model_type_matching" target="_blank" rel="noopener">Reference model type matching</a> section of the ADL2 specification.</p>
+</div>
+<div class="paragraph">
+<p>The RM type stated in an archetype object node is understood to be a <em>static</em> type constraint. Accordingly, it will match an instance of any RM <em>subtype</em> of the stated type, as long as the inheritance relationship is stated in the RM definition. This holds both for sub-classes, and subtypes of generic types, in a covariant fashion. The following matching will thus succeed:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code><em>rm_type_name</em></code> = <code>"PARTY"</code> matches <code>PERSON</code>, where <code>PERSON</code> inherits from <code>PARTY</code> in the relevant RM;</p>
+</li>
+<li>
+<p><code><em>rm_type_name</em></code> = <code>"Interval&lt;Ordered&gt;"</code> matches a dynamic type of data items of <code>Interval&lt;Quantity&gt;</code>, <code>SimpleInterval&lt;Ordered&gt;</code> and <code>SimpleInterval&lt;Quantity&gt;</code> where <code>Quantity</code> inherits from <code>Ordered</code> and <code>SimpleInterval</code> inherits from <code>Interval</code> in the relevant RM.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>There are some special rules that apply to primitive type matching that enable 'logical' primitive type names in archetypes to match multiple 'concrete' variants that occur in some reference models and programming type systems. These are described in detail below.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_node_id_and_paths"><a class="anchor" href="#_node_id_and_paths"></a><a class="link" href="#_node_id_and_paths">Node_id and Paths</a></h4>
+<div class="paragraph">
+<p>The <code><em>node_id</em></code> attribute in the class <code>C_OBJECT</code>, inherited by all subtypes, is of key importance in the archetype constraint model. It has two functions:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>it allows archetype object constraint nodes to be individually identified, and in particular, guarantees sibling node unique identification;</p>
+</li>
+<li>
+<p>it provides a code to which a human-understanding terminology definition can be attached, as well as potentially a terminology binding.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The existence of <code><em>node_ids</em></code> in an archetype allows archetype paths to be created, which refer to each node. Every node in the archetype needs a <code><em>node_id</em></code> , but only <code><em>node_ids</em></code> for nodes under container attributes must have a terminology definition. For nodes under single-valued attributes, the terminology definition is optional (and typically not supplied), since the meaning is given by the reference model attribute definition.</p>
+</div>
+<div class="paragraph">
+<p>Note that instances of <code>C_PRIMITIVE_OBJECT</code> have a constant <code><em>node_id</em></code> (see below) and thus do not require node identifiers to be supplied in syntax or serial forms that are converted to AOM structural form.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_sibling_ordering"><a class="anchor" href="#_sibling_ordering"></a><a class="link" href="#_sibling_ordering">Sibling Ordering</a></h4>
+<div class="paragraph">
+<p>Within a specialised archetype, redefined or added object nodes may be defined under a container attribute. Since specialised archetypes are in differential form, i.e. only redefined or added nodes are expressed, not nodes inherited unchanged, the relative ordering of siblings can&#8217;t be stated simply by the ordering of such items within the relevant list within the differential form of the archetype. An explicit ordering indicator is required if indeed order is specific. The <code>C_OBJECT.<em>sibling_order</em></code> attribute provides this capability. It can only be set on a <code>C_OBJECT</code> descendant within a multiply-valued attribute, i.e. an instance of <code>C_ATTRIBUTE</code> for which the <code><em>cardinality</em></code> is ordered.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_node_deprecation"><a class="anchor" href="#_node_deprecation"></a><a class="link" href="#_node_deprecation">Node Deprecation</a></h4>
+<div class="paragraph">
+<p>It is possible to mark an instance of any defined node type as deprecated, meaning that by preference it should not be used, and that there is an alternative solution for recording the same information. Rules or recommendations for how deprecation should be handled are outside the scope of the archetype proper, and should be provided by the governance framework under which the archetype is managed.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_reference_objects"><a class="anchor" href="#_reference_objects"></a><a class="link" href="#_reference_objects">Reference Objects</a></h3>
+<div class="paragraph">
+<p>Two subtypes of <code>C_OBJECT</code>, namely <code>ARCHETYPE_SLOT</code> and <code>C_COMPLEX_OBJECT_PROXY</code> are used to express constraints in the form of references to other constraints, rather than directly.</p>
+</div>
+<div class="paragraph">
+<p>An <code>ARCHETYPE_SLOT</code> defines a 'slot' specifying other archetypes that can be plugged in at that point, in terms of constraints on archetype identifiers. These are expressed as instances of the <code>ARCHETYPE_ID_CONSTRAINT</code> class, a specialised version of the ELOM <code>EL_CONSTRAINT_EXPRESSION</code> class.</p>
+</div>
+<div class="paragraph">
+<p>The type <code>C_COMPLEX_OBJECT_PROXY</code> represents a reference to another part of the current archetype that expresses exactly the same constraints needed at the  point where the proxy appears.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_defined_object_nodes_c_defined_object"><a class="anchor" href="#_defined_object_nodes_c_defined_object"></a><a class="link" href="#_defined_object_nodes_c_defined_object">Defined Object Nodes (C_DEFINED_OBJECT)</a></h3>
+<div class="paragraph">
+<p>The <code>C_DEFINED_OBJECT</code> subtype corresponds to the category of <code>C_OBJECTs</code> that are defined in an archetype by value, i.e. by inline definition. Four properties characterise <code>C_DEFINED_OBJECTs</code> as follows.</p>
+</div>
+<div class="sect3">
+<h4 id="_valid_value"><a class="anchor" href="#_valid_value"></a><a class="link" href="#_valid_value">Valid_value</a></h4>
+<div class="paragraph">
+<p>The <code><em>valid_value</em></code> function tests a reference model object for conformance to the archetype. It is designed for recursive implementation in which a call to the function at the top of the archetype definition would cause a cascade of calls down the tree. This function is the key function of an 'archetype-enabled kernel' component that can perform runtime data validation based on an archetype definition.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_prototype_value"><a class="anchor" href="#_prototype_value"></a><a class="link" href="#_prototype_value">Prototype_value</a></h4>
+<div class="paragraph">
+<p>This function is used to generate a reasonable default value of the reference object being constrained by a given node. This allows archetype-based software to build a 'prototype' object from an archetype which can serve as the initial version of the object being constrained, assuming it is being created new by user activity (e.g. via a GUI application). Implementation of this function will usually involve use of reflection libraries or similar.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_default_value"><a class="anchor" href="#_default_value"></a><a class="link" href="#_default_value">Default_value</a></h4>
+<div class="paragraph">
+<p>This attribute allows a user-specified default value to be defined within an archetype. The <code><em>default_value</em></code> object must be of the same type as defined by the <code><em>prototype_value</em></code> function, pass the <code><em>valid_value</em></code> test. Where defined, the <code><em>prototype_value</em></code> function would return this value instead of a synthesised value.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_complex_objects_c_complex_object"><a class="anchor" href="#_complex_objects_c_complex_object"></a><a class="link" href="#_complex_objects_c_complex_object">Complex Objects (C_COMPLEX_OBJECT)</a></h3>
+<div class="paragraph">
+<p>Along with <code>C_ATTRIBUTE</code>, <code>C_COMPLEX_OBJECT</code> is the key structuring type of the <code>constraint_model</code> package, and consists of attributes of type <code>C_ATTRIBUTE</code>, which are constraints on the attributes (i.e. any property, including relationships) of the reference model type. Accordingly, each <code>C_ATTRIBUTE</code> records the name of the constrained attribute (in <code><em>rm_attr_name</em></code>) , the existence and cardinality expressed by the constraint (depending on whether the attribute it constrains is a multiple or single relationship), and the constraint on the object to which this <code>C_ATTRIBUTE</code> refers via its <code><em>children</em></code> attribute (according to its reference model) in the form of further <code>C_OBJECTs</code>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_primitive_types_c_primitive_object_descendants"><a class="anchor" href="#_primitive_types_c_primitive_object_descendants"></a><a class="link" href="#_primitive_types_c_primitive_object_descendants">Primitive Types (C_PRIMITIVE_OBJECT descendants)</a></h3>
+<div class="paragraph">
+<p>Constraints on primitive types are defined by the descendants of <code>C_PRIMITIVE_OBJECT</code>, i.e. <code>C_STRING</code> , <code>C_INTEGER</code> and so on. The primitive constraint types are represented in such a way as to accommodate both 'tuple' constraints and logically unary constraints, using a tuple array (<code>C_PRIMITIVE_TUPLE.<em>members</em></code>) whose members are each a primitive constraint corresponding to each primitive type in the tuple. Tuple constraints are second order constraints, described below, enabling co-varying constraints to be stated. In the unary case, the constraint is the first member of a tuple array.</p>
+</div>
+<div class="paragraph">
+<p><code>C_PRIMITIVE_OBJECT</code> instances represented in <a href="https://specifications.openehr.org/releases/AM/latest/ADL2.html" target="_blank" rel="noopener">ADL 'short' form</a> are created with a fixed id-code <code>ADL_CODE_DEFINITIONS.<em>primitive_node_id</em></code> as the value of <code><em>node_id</em></code> (see <a href="#ADL_CODE_DEFINITIONS Class">[ADL_CODE_DEFINITIONS Class]</a>). For regularly structured <code>C_PRIMITIVE_OBJECT</code> instances, a normal node identifier is required.</p>
+</div>
+<div class="paragraph">
+<p>The primitive constraint for each primitive type may itself be complex. Its formal type is the type of the <code><em>constraint</em></code> accessor in each <code>C_PRIMITIVE_OBJECT</code> descendant. The use of constrainer types for each assumed primitive RM type is summarised in the following table.</p>
+</div>
+<table id="primitive-types" class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 14.2857%;">
+<col style="width: 14.2857%;">
+<col style="width: 28.5714%;">
+<col style="width: 42.8572%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">RM Primitive type</th>
+<th class="tableblock halign-left valign-top">AOM type</th>
+<th class="tableblock halign-left valign-top">AOM Primitive constrainer type</th>
+<th class="tableblock halign-left valign-top">Constraint description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Boolean</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>C_BOOLEAN</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>List &lt;Boolean&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">One or two Boolean values, enabling the logical constraints
+                                                                                'true', 'false' and 'true or false' to be expressed.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>C_STRING</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>List &lt;String&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A list of possible string values, which may include regular expressions,
+                                                                                which are delimited by '/' characters.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Terminology_code</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>C_TERMINOLOGY_CODE</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Terminology constraint -<br>
+                                                <code>[acN]</code> or <code>[atN]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A string containing either a single at-code or a single ac-code. In the
+                                                                                latter case, the constraint refers to either a locally defined value set
+                                                                                or (via a binding) an external value set.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Descendants of<br>
+ <code>Ordered</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>C_ORDERED</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>List &lt;Interval&lt;T:Ordered&gt;&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A single value (which is a point interval), a list of values
+                                                                                (list of point intervals), a list of intervals, which may be mixed proper
+                                                                                and point intervals.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Integer</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>C_INTEGER</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>List &lt;Interval&lt;Integer&gt;&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">As for Ordered type, with T = <code>Integer</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Real</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>C_REAL</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>List &lt;Interval&lt;Real&gt;&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">As for Ordered type, with T = <code>Real</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Descendants of<br>
+<code>Temporal</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>C_TEMPORAL</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>List &lt;Interval&lt;T:Temporal&gt;&gt;</code><br>
+                                                OR<br>
+                                                <code>String</code> (ADL pattern)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">As for ordered types, with T being an sub-type type of <code>Temporal</code>, an
+                                                                                ancestor of the assumed Date/time primitive types., with the addition of a
+                                                                                second type constraint -                                                                                                                             <a href="https://specifications.openehr.org/releases/AM/latest/ADL2.html#_constraints_on_dates_times_and_durations" target="_blank" rel="noopener">a pattern based on ISO 8601 syntax</a>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Date</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>C_DATE</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>List &lt;Interval&lt;Date&gt;&gt;</code><br>
+                                                OR<br>
+                                                <code>String</code> (ADL pattern)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">As for Temporal types with T = <code>Date</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Time</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>C_TIME</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>List &lt;Interval&lt;Time&gt;&gt;</code><br>
+                                                OR<br>
+                                                <code>String</code> (ADL pattern)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">As for Temporal types with T = <code>Time</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Date_time</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>C_DATE_TIME</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>List &lt;Interval&lt;Date_time&gt;&gt;</code><br>
+                                                OR<br>
+                                                 <code>String</code> (ADL pattern)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">As for Temporal types with T = <code>Date_time</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Duration</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>C_DURATION</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>List &lt;Interval&lt;Duration&gt;&gt;</code><br>
+                                                OR<br>
+                                                <code>String</code> (ADL pattern)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">As for Temporal types with T = <code>Duration</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>List&lt;T&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>C_PRIMITIVE_OBJECT</code><br>
+                       descendant appropriate<br>
+                       to RM type</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>List&lt;T&gt;</code> or <code>List&lt;Interval&lt;T&gt;&gt;</code><br>
+                                                for Ordered types</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Members of List value match any value in constraint list</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Interval&lt;T:Ordered&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>C_PRIMITIVE_ORDERED</code><br>
+                       descendant appropriate<br>
+                       to RM type</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>List&lt;Interval&lt;T&gt;&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Interval value matches any (Interval) value in constraint list</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>The RM primitive types listed above are assumed to exist (possibly with different names) within any RM used as the basis for creating archetypes. Where any do not exist - e.g. if there are no date/time types in a particular RM - no archetype constraints can be defined for such nodes. Where the types have different names, name mapping can be performed as described in <a href="#RM Primitive Type Equivalences">[RM Primitive Type Equivalences]</a> below.</p>
+</div>
+<div class="paragraph">
+<p>This facility can be used to effect the following mappings from <code>C_PRIMITIVE_OBJECT</code> descendants (<code>C_STRING</code>, <code>C_INTEGER</code> etc) to the types found in any particular RM.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>String</code> variants: in addition to matching <code>String</code>, <code>C_STRING</code> should match <code>StringN</code> and <code>String_N</code> instances, to accommodate RM types such as <code>String8</code>, <code>String_32</code> etc;</p>
+</li>
+<li>
+<p><code>Integer</code> variants: in addition to matching <code>Integer</code>, <code>C_INTEGER</code> should match <code>IntegerN</code> and <code>Integer_N</code>, to accommodate RM types such as <code>Integer_16</code>, <code>Integer64</code> etc;</p>
+</li>
+<li>
+<p><code>Real</code> variants: in addition to matching <code>Real</code>, <code>C_REAL</code> should match <code>RealN</code> and <code>Real_N</code> and <code>Double</code>, to accommodate RM types such as <code>Real_32</code>, <code>Real64</code> and <code>Double</code>;</p>
+</li>
+<li>
+<p><code>Date_time</code> variants: typical names for <code>Date_time</code> such as <code>DateTime</code>, <code>TimeStamp</code> etc should be mapped to <code>C_DATE</code>.</p>
+</li>
+</ul>
+</div>
+<div class="sect3">
+<h4 id="_assumed_value"><a class="anchor" href="#_assumed_value"></a><a class="link" href="#_assumed_value">Assumed_value</a></h4>
+<div class="paragraph">
+<p>The <code><em>assumed_value</em></code> attribute is useful for archetypes containing any optional constraint. and provides an ability to define a value that can be assumed for a data item for which no data is found at execution time. If populated, it can contain a single at-code that must be in the local value set referred to by the ac-code in the <code><em>constraint</em></code> attribute.</p>
+</div>
+<div class="paragraph">
+<p>For example, an archetype for the concept 'blood pressure measurement' might contain an optional protocol section containing a data point for patient position, with choices 'lying', 'sitting' and 'standing'. Since the section is optional, data could be created according to the archetype which does not contain the protocol section. However, a blood pressure cannot be taken without the patient in some position, so clearly there is an implied value for patient position. Amongst clinicians, basic assumptions are nearly always made for such things: in general practice, the position could always safely be assumed to be 'sitting' if not otherwise stated; in the hospital setting, 'lying' would be the normal assumption. The <code><em>assumed_value</em></code> feature of archetypes allows such assumptions to be explicitly stated so that all users/systems know what value to assume when optional items are not included in the data.</p>
+</div>
+<div class="paragraph">
+<p>Note that the notion of assumed values is distinct from that of 'default values'. The latter notion is that of a default 'pre-filled' value that is provided (normally in a local context by a template) for a data item that is to be filled in by the user, but which is typically the same in many cases. Default values are thus simply an efficiency mechanism for users. As a result, default values do appear in data, while assumed values don&#8217;t.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_terminology_constraints"><a class="anchor" href="#_terminology_constraints"></a><a class="link" href="#_terminology_constraints">Terminology Constraints</a></h3>
+<div class="sect3">
+<h4 id="_formal_definition"><a class="anchor" href="#_formal_definition"></a><a class="link" href="#_formal_definition">Formal Definition</a></h4>
+<div class="paragraph">
+<p>The <code>C_TERMINOLOGY_CODE</code> type entails some complexity and merits further explanation. This is the only constrainer type whose constraint semantics are not self-contained, but located in the archetype terminology and/or in external terminologies.</p>
+</div>
+<div class="paragraph">
+<p>A <code>C_TERMINOLOGY_CODE</code> instance in an archetype is structurally simple: it can only be one of the following constraints:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>a single ac-code, referring to either a value-set defined in the archetype terminology or bound to an external value set or ref set;</p>
+<div class="ulist">
+<ul>
+<li>
+<p>in this case, an additional at-code may be included as an assumed value; the at-code must come from the locally defined value set;</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>a single at-code, representing a single possible value.</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The second case in theory could be done using an ac-code referring to a value set containing a single value, but there seems little value in this extra verbiage, and little cost in providing the single-member value set short cut.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="constraint_strengths"><a class="anchor" href="#constraint_strengths"></a><a class="link" href="#constraint_strengths">Constraint Strengths</a></h4>
+<div class="paragraph">
+<p>Uniquely in the AOM, a Terminology code constraint may not be required, and may instead be considered informal. This is achieved via the attribute <code><em>constraint_status</em></code> which indicates either that the constraint is <code>required (0)</code> (i.e. the data item must formally conform to the constraint), or three levels of informal constraint, namely <code>extensible (1) | preferred (2) | example (3)</code>. This particular model of constraint 'strength' follows the <a href="https://www.hl7.org/fhir/terminologies.html#strength" target="_blank" rel="noopener">HL7 FHIR 'binding strengths' model</a>. The convenience function <code><em>constraint_required</em>()</code> can be used to determine if the constraint is formal, i.e. if <code><em>constraint_status</em></code> has the value <code>required (0)</code> or else is not set.</p>
+</div>
+<div class="paragraph">
+<p>The informal constraint feature in <code>C_TERMINOLOGY_CODE</code> is provided to address the common real-world mismatch between local terminology use and more centrally defined archetypes. The enumeration values of 0 - 3 are designed such that the <code>required</code> constraint status (value = 0) is considered the default. Additionally, the <code><em>constraint_status</em></code> attribute is optional, and will not be present in archetypes authored with tools not including this feature. Accordingly, the <code><em>constraint_required</em>()</code> function returns <code>True</code> if <code><em>constraint_status</em></code> is Void. This means that in all archetypes containing <code>C_TERMINOLOGY_CODE</code> nodes with no <code><em>constraint_status</em></code>, such nodes are considered to express a formally required constraint.</p>
+</div>
+<div class="paragraph">
+<p>For the non-required settings of <code><em>constraint_status</em></code>, a data instance value may be a non-matching terminology code, including from another terminology. It might also be a plain text (i.e. not coded), in which case it will not be matched by a <code>C_TERMINOLOGY_CODE</code> archetype node, but an archetype node corresponding to the relevant RM type. In openEHR, this would usually be <code>DV_TEXT</code>. To allow for coded text or text matching therefore, at least 2 sibling archetype nodes are required, with one containing the appropriately configured <code>C_TERMINOLOGY_CODE</code>, and another representing a text-only constraint.</p>
+</div>
+<div class="paragraph">
+<p>With respect to redefinition in specialised archetypes, the constraint strength may be redefined to be stronger, i.e. the enumeration value must be lower. Thus, a term constraint with strength of <code>preferred (2)</code> can be redefined to a strength of <code>required (0)</code>.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_terminology_code_resolution"><a class="anchor" href="#_terminology_code_resolution"></a><a class="link" href="#_terminology_code_resolution">Terminology Code Resolution</a></h4>
+<div class="paragraph">
+<p>When an archetype is deployed in the form of an operational template, the internally defined value sets, and any bindings are processed in stages in order to obtain the final terminology codes from which the user should choose. The <code>C_TERMINOLOGY_CODE</code> class provides a number of functions to formalise this as follows.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code><em>value_set_expanded</em>: List&lt;String&gt;</code>: this function converts an ac-code to its corresponding set of at-codes, as defined in the <code>value_sets</code> section of the archetype.</p>
+</li>
+<li>
+<p><code><em>value_set_substituted</em>: List&lt;URI&gt;</code>: where bindings exist to he value set at-codes, this function converts each code to its corresponding binding target, i.e. a URI.</p>
+</li>
+<li>
+<p><code><em>value_set_resolved</em>: List&lt;TERMINOLOGY_CODE&gt;</code>: this function converts the list of URIs to final terms, including with textual rubrics, i.e. a list of <code>TERMINOLOGY_CODEs</code>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>These functions would normally be implemented as 'lambdas' or 'agents', in order to obtain access to the target terminologies.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Since an archetype might not contain external terminology bindings for all (or even any) of its terminological constraints, a 'resolved' archetype will usually contain at-codes in its cADL definition. These at-codes would be treated as real coded terms in any implementation that was creating data, and as a consequence, archetype at-codes could occur in real data, as described in the Terminology Integration section of the ADL specification.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="date_time_constraints"><a class="anchor" href="#date_time_constraints"></a><a class="link" href="#date_time_constraints">Date/Time Constraints</a></h3>
+<div class="paragraph">
+<p>The openEHR architecture assumes that primitive types representing 'date', 'time' and 'date_time' exist within every development environment, however such types or classes may be named. Within openEHR, these primitive types are named <code>Iso8601_date</code> etc., and are defined in the <a href="https://specifications.openehr.org/releases/BASE/latest/foundation_types.html" target="_blank" rel="noopener">openEHR Foundation Types Specification</a>.</p>
+</div>
+<div class="paragraph">
+<p>As described in the <a href="https://specifications.openehr.org/releases/AM/latest/ADL2.html#_constraints_on_dates_times_and_durations" target="_blank" rel="noopener">openEHR ADL2 specification</a>, these types are constrained using either value intervals or patterns. Both kinds of constraint are formally represented by the classes <a href="#_c_date_class"><code>C_DATE</code></a>, <a href="#_c_time_class"><code>C_TIME</code></a> and <a href="#_c_date_time_class"><code>C_DATE_TIME</code></a>. (A fourth time-related type, 'Duration' is constrained somewhat differently by the AOM class <code>C_DURATION</code>).</p>
+</div>
+<div class="paragraph">
+<p>ADL2 value range constraints, such as the date range <code>|2004-05-20..2005-05-19|</code> are represented in the relevant constrainer meta-class (in this case <code>C_DATE</code>) by an attribute of the form <code>constraint: List&lt;Interval&lt;Iso8601_date&gt;&gt;</code>. Similarly, an ADL2 date/time range constraint such as <code>|&lt;2005-05-19T23:59:59|</code> is represented by <code>C_DATE_TIME.constraint</code> of type <code>List&lt;Interval&lt;Iso8601_date_time&gt;&gt;</code>. The <code>List&lt;&gt;</code> structure allows such constraints to include more than one disjoint range.</p>
+</div>
+<div class="paragraph">
+<p>The other means of expressing constraints in ADL2 is via patterns based on the <a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank" rel="noopener">ISO 8601</a> extended syntax form (i.e. the form that uses '-' and ':' characters in dates and times, respectively). These allow partial dates and times to be stated. Thus, the time constraint <code>hh:??:XX</code> means: any time consisting of hours, optional minutes, and no seconds. A full table of such constraint patterns is provided in the <a href="https://specifications.openehr.org/releases/AM/latest/ADL2.html#_patterns" target="_blank" rel="noopener">ADL2 specification</a>.</p>
+</div>
+<div class="paragraph">
+<p>Pattern constraints are represented within the AOM classes <code>C_DATE</code> etc. via the attribute <code>pattern_constraint: String</code>, inherited from the abstract class <code>C_TEMPORAL</code>. Validity may be checked using features defined on the class <a href="#_c_temporal_definitions_class"><code>C_TEMPORAL_DEFINITIONS</code></a>, such as <code>valid_date_constraint_patterns</code>, and also <code>valid_date_constraint_replacements</code>, for checking redefinitions within specialised archetypes.</p>
+</div>
+<div class="paragraph">
+<p>Date/time pattern constraints are computationally represented via functions like <code>month_validity(): VALIDITY_KIND</code>, defined on <a href="#_c_date_class"><code>C_DATE</code></a>, <a href="#_c_time_class"><code>C_TIME</code></a> and <a href="#_c_date_time_class"><code>C_DATE_TIME</code></a>, where <code>VALIDITY_KIND</code> is an enumeration type defined in the <a href="https://specifications.openehr.org/releases/BASE/latest/base_types.html" target="_blank" rel="noopener">openEHR Base Types</a>. The lexical elements of the patterns are mapped to the values of <code>VALIDITY_KIND</code> as follows:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>yyyy</code> , <code>mm</code>, <code>dd</code> &#8594; <code>VALIDITY_KIND.mandatory</code></p>
+</li>
+<li>
+<p><code>hh</code> , <code>mm</code>, <code>ss</code> &#8594; <code>VALIDITY_KIND.mandatory</code></p>
+</li>
+<li>
+<p><code>??</code> &#8594; <code>VALIDITY_KIND.optional</code></p>
+</li>
+<li>
+<p><code>XX</code> &#8594; <code>VALIDITY_KIND.prohibited</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Accordingly, the '??' within the date constrainer pattern <code>yyyy-??-XX</code> maps to the result <code>optional</code> of the function <code>C_DATE.month_validity()</code>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="duration_constraints"><a class="anchor" href="#duration_constraints"></a><a class="link" href="#duration_constraints">Duration Constraints</a></h3>
+<div class="paragraph">
+<p>Duration constraints follow the same general approach as Date/time constraints, such that the <a href="#_c_duration_class"><code>C_DURATION</code></a> meta-class provides a range constraint attribute <code>constraint: List&lt;Interval&lt;Iso8601_duration&gt;&gt;</code> as well as the inherited attribute <code>pattern_constraint: String</code> to represent pattern constraints. These are described in <a href="https://specifications.openehr.org/releases/AM/latest/ADL2.html#_duration_constraints" target="_blank" rel="noopener">openEHR ADL2 specification</a>.</p>
+</div>
+<div class="paragraph">
+<p>However, the pattern constraints are of a simpler form, and do not use the <code>??</code> or <code>XX</code> lexical elements. The pattern interpretation functions defined on <a href="#_c_duration_class"><code>C_DURATION</code></a> are therefore of the form <code>years_allowed: (): Boolean</code>, <code>months_allowed: (): Boolean</code>. Validity of duration pattern constraints may be checked using relevant functions defined on <a href="#_c_temporal_definitions_class"><code>C_TEMPORAL_DEFINITIONS</code></a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_constraints_on_enumeration_types"><a class="anchor" href="#_constraints_on_enumeration_types"></a><a class="link" href="#_constraints_on_enumeration_types">Constraints on Enumeration Types</a></h3>
+<div class="paragraph">
+<p>Enumeration types in the reference model are assumed to have semantics expected in UML, and mainstream programming languages, i.e. to be a distinct type based on a primitive type, normally Integer or String. Each such type consists of a set of values from the domain of its underlying type, thus, a set of Integer, String or other primitive values. Each of these values is assumed to be named in the manner of a symbolic constant. Although strictly speaking UML doesn&#8217;t require an enumerated type to be based on an underlying primitive type, programming languages do, hence the assumption here that values from the domain of such a type are involved.</p>
+</div>
+<div class="paragraph">
+<p>A constraint on an enumerated type therefore consists of an AOM instance of a <code>C_PRIMITIVE</code> descendant, almost always <code>C_INTEGER</code> or <code>C_STRING</code> . The flag <code><em>is_enumerated_type_constraint</em></code> defined on <code>C_PRIMITIVE</code> indicates that a given <code>C_PRIMITIVE</code> is a constrainer for an enumerated type.</p>
+</div>
+<div class="paragraph">
+<p>Since <code>C_PRIMITIVEs</code> don&#8217;t have type names in ADL, the type name is inferred by any parser or compiler tool that deserialises an archetype from ADL, and stored in the <code><em>rm_type</em></code> attribute inherited from <code>C_OBJECT</code> . An example is shown below of a type enumeration.</p>
+</div>
+<div id="enumerated_constraint" class="imageblock text-center text-center">
+<div class="content">
+<img src="../_images/diagrams/enumerated_type_constraint.png" alt="enumerated type constraint" width="70%">
+</div>
+<div class="title">Figure 2. Enumerated Constraint</div>
+</div>
+<div class="paragraph">
+<p>A parser that deserialises from an object dump format such as ODIN, JSON or XML will not need to do this.</p>
+</div>
+<div class="paragraph">
+<p>The form of the constraint itself is simply a series of Integer, String or other primitive values, or an equivalent range or ranges. In the above example, the ADL equivalent of the pk_percent, pk_fraction constraint on a field of type <code>PROPORTION_KIND</code> is in fact just <em>\{2, 3}</em>, and it is visualised by lookup to show the relevant symbolic names.</p>
+</div>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="../constraint_model-overview/">Constraint Model Package</a></span>
+  <span class="next"><a href="../constraint_model-second_order/">Constraint Model-Second Order</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>
+    Copyright: © 2003+
+    <a href="https://www.openehr.org"
+        alt="is an independent, non-profit foundation, facilitating the sharing of health
+           records by consumers and clinicians via open specifications, clinical models
+           and open platform implementations.">The openEHR Foundation</a>
+  </p>
+
+  <p>
+    License:
+    <img src="/ui/img/cc-by-nd-88x31.png"
+        alt="Creative Commons Attribution-NoDerivs 3.0 Unported."
+        style="vertical-align:middle;margin:0 0.25rem 0 0;">
+    <a href="https://creativecommons.org/licenses/by-nd/3.0/">
+      Creative Commons Attribution-NoDerivs 3.0 Unported.
+    </a>
+  </p>
+
+  <p>
+    <strong>Links: <strong>
+    <a href="https://www.openehr.org/terms-of-use" class="mr-1">Terms of use</a> |
+    <a href="https://www.openehr.org/privacy-policy" class="mx-1">Privacy policy</a> |
+    <a href="https://www.openehr.org/privacy-policy" class="mx-1">Logos &amp; Trademarks</a> |
+    <a href="https://www.openehr.org/contact-us" class="mx-1">Contact</a>
+  </p>
+</footer>
+
+<script id="site-script" src="../../../../ui/js/site.js" data-ui-root-path="../../../../ui"></script>
+<script async src="../../../../ui/js/vendor/highlight.js"></script>
+<script src="../../../../ui/js/vendor/lunr.js"></script>
+<script src="../../../../ui/js/search-ui.js" id="search-ui-script" data-site-root-path="../../../.." data-snippet-length="80" data-stylesheet="../../../../ui/css/search.css"></script>
+<script async src="../../../../search-index.js"></script>
+<script src="../../../../ui/js/medium-zoom.min.js"></script>
+<script src="../../../../ui/js/zoom.js"></script>
+  </body>
+</html>

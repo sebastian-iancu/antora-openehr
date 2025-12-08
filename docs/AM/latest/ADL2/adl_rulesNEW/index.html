@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+    <title>Untitled :: openEHR Specifications (Local Build)</title>
+    <link rel="canonical" href="https://sebastian-iancu.github.io/antora-openehr/AM/latest/ADL2/adl_rulesNEW/">
+    <meta name="description" content="openEHR Archetype Definition Language 2 (ADL2)">
+    <meta name="keywords" content="EHR, ADL, AOM, health records, archetypes, constraint language, ISO 13606, openehr">
+    <meta name="generator" content="Antora 3.1.14">
+    <link rel="stylesheet" href="../../../../ui/css/site.css">
+    <link rel="stylesheet" href="../../../../ui/css/antora-openehr.css">
+    <link rel="stylesheet" href="../../../../ui/css/openehr.css">
+<link rel="icon" href="../../../../ui/img/favicon.ico" type="image/x-icon">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://sebastian-iancu.github.io/antora-openehr">openEHR Specifications (Local Build)</a>
+
+      <div class="navbar-item search hide-for-print">
+        <div id="search-field" class="field has-filter">
+          <input id="search-input" type="text" placeholder="Search the docs">
+          <label class="filter checkbox">
+            <input type="checkbox" data-facet-filter="component:AM"> Archetype Model only
+          </label>
+        </div>
+      </div>
+
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">Specifications</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://specifications.openehr.org/" target="_blank">
+              openEHR specification
+            </a>
+            <a class="navbar-item" href="https://specifications.openehr.org/releases/UML/development/index.html" target="_blank">
+              openEHR portal
+            </a>
+            <a class="navbar-item" href="https://ckm.openehr.org/ckm/" target="_blank">
+              openEHR CKM
+            </a>
+          </div>
+        </div>
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">Community</a>
+          <div class="navbar-dropdown is-right">
+            <a class="navbar-item" href="https://openehr.atlassian.net/secure/Dashboard.jspa?selectPageId=10190" target="_blank">
+              Issue trackers
+            </a>
+            <a class="navbar-item" href="https://discourse.openehr.org/" target="_blank">
+              Discourse Forum
+            </a>
+            <a class="navbar-item" href="https://specifications.openehr.org/wiki/display/spec/Specifications+Home" target="_blank">
+              Wiki
+            </a>
+            <a class="navbar-item" href="https://github.com/openEHR" target="_blank">
+              GitHub
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="AM" data-version="Release-2.3.0">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="../../">Archetype Model</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../">Overview</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../ADL1.4/">Archetype Definition Language 1.4 (ADL1.4)</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL1.4/preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL1.4/overview/">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL1.4/file_encoding/">File Encoding and Character Quoting</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL1.4/dadl/">dADL - Data ADL</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL1.4/cadl/">cADL - Constraint ADL</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL1.4/assertions/">Assertions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL1.4/paths/">ADL Paths</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL1.4/adl/">ADL - Archetype Definition Language</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL1.4/customising_adl/">Customising ADL</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL1.4/other_formalisms/">Relationship of ADL to Other Formalisms</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL1.4/extended_metadata/">Extended Meta-data Guide</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL1.4/syntax_spec/">Syntax Specification</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL1.4/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../">Archetype Definition Language 2 (ADL2)</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../overview/">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../file_encoding/">File Encoding and Character Quoting</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../cadl_overview/">cADL - Constraint ADL</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../cadl_basics/">Cadl Basics</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../cadl_complex_types/">Cadl Complex Types</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../cadl_second_order/">Cadl Second Order</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../cadl_primitive_types/">Cadl Primitive Types</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../cadl_validity_rules/">Cadl Validity Rules</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../paths/">ADL Paths</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../default_values/">Default Values</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../adl_introduction/">ADL - Archetype Definition Language</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../adl_conventions/">Adl Conventions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../adl_artefacts/">Adl Artefacts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../adl_basics/">Adl Basics</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../adl_identification/">Adl Identification</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../adl_specialise/">Adl Specialise</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../adl_language/">Adl Language</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../adl_description/">Adl Description</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../adl_deprecated/">Adl Deprecated</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../adl_definition/">Adl Definition</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../adl_rules/">Adl Rules</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../adl_rm_overlay/">Adl Rm Overlay</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../adl_terminology/">Adl Terminology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../adl_annotations/">Adl Annotations</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../terminology_integration/">Terminology Integration</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../spec_overview/">Specialisation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../spec_concepts/">Spec Concepts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../spec_examples/">Spec Examples</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../spec_attrib_redef/">Spec Attrib Redef</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../spec_object_redef/">Spec Object Redef</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../spec_rules/">Spec Rules</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../spec_languages/">Spec Languages</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../spec_description/">Spec Description</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../spec_terminology/">Spec Terminology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../spec_bindings/">Spec Bindings</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../templates/">Templates</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../other_formalisms/">Relationship of ADL to Other Formalisms</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../syntax_spec/">Syntax Specification</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../AOM1.4/">Archetype Object Model 1.4 (AOM1.4)</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM1.4/preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM1.4/model_overview/">The Archetype Object Model</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM1.4/archetype_package/">The Archetype Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM1.4/constraint_model_package/">Constraint Model Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM1.4/assertion_package/">The Assertion Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM1.4/primitive_package/">Primitive Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM1.4/ontology_package/">Terminology Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM1.4/domain_extension/">Domain-specific Extension Example</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM1.4/diverse_reference_models/">Using Archetypes with Diverse Reference Models</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM1.4/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../AOM2/">Archetype Object Model 2 (AOM2)</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM2/preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM2/model_overview/">Model Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM2/archetype_package/">The Archetype Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM2/constraint_model-overview/">Constraint Model Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM2/constraint_model-semantics/">Constraint Model-Semantics</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM2/constraint_model-second_order/">Constraint Model-Second Order</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM2/constraint_model-AOM_type_subs/">Constraint Model-AOM Type Subs</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM2/constraint_model-class_definitions/">Constraint Model-Class Definitions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM2/rules_package/">The Rules Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM2/rm_overlay/">The RM Overlay Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM2/terminology_package/">Terminology Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM2/validation/">Validation and Transformation Semantics</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM2/serialisation_model/">Serialisation Model</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM2/templates/">Templates</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM2/rm_adaptation/">Reference Model Adaptation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM2/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../Identification/">Archetype Identification</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../Identification/preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../Identification/overview/">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../Identification/artefact_source_id/">Source Artefact Identification</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../Identification/versioning/">Versioning</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../Identification/lifecycle_mgt/">Lifecycle Model</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../Identification/distributed_governance/">Distributed Governance</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../Identification/referencing/">Referencing</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../Identification/uris/">A Reliable URI for Knowledge Resources</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../Identification/artefact_authentication/">Artefact Authentication</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../Identification/scenarios/">Scenarios</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../Identification/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="#index.adoc">Language Design</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../OPT2/">Operational Template 2 (OPT2)</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../OPT2/preface/">Preface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../OPT2/overview/">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../OPT2/opt_raw/">The Raw Operational Template</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../OPT2/opt_profiled/">The Profiled Operational Template</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../OPT2/file_formats/">File Formats</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../OPT2/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../Overview/">Archetype Technology Overview</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../Overview/introduction/">Business Purpose of Archetypes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../Overview/formalism_overview/">Archetype Formalism Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../Overview/the_specifications/">The Specifications</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../Overview/semantic_overview/">Semantic Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../Overview/artefacts/">Artefacts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../Overview/amendment_record/">Amendment Record</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Archetype Model</span>
+    <span class="version">Release-2.3.0</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <div class="title"><a href="../../">Archetype Model</a></div>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../../">Release-2.3.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../Release-2.2.0/">Release-2.2.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../BASE/latest/">Base Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../BASE/latest/">Release-1.2.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../BASE/Release-1.1.0/">Release-1.1.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../BASE/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../RM/latest/">Reference Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../RM/latest/">Release-1.1.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../RM/Release-1.0.4/">Release-1.0.4</a>
+        </li>
+        <li class="version">
+          <a href="../../../../RM/development/">development</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../../BASE/latest/" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">Release-2.3.0</button>
+  <div class="version-menu">
+    <a class="version is-current" href="./">Release-2.3.0</a>
+    <a class="version is-missing" href="../../../Release-2.2.0/">Release-2.2.0</a>
+    <a class="version" href="../../../development/ADL2/adl_rulesNEW/">development</a>
+  </div>
+</div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<div class="sect1">
+<h2 id="_rules_section"><a class="anchor" href="#_rules_section"></a><a class="link" href="#_rules_section">Rules Section</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The <code>rules</code> section in an ADL archetype contains <em>statements</em> which relate to the entire archetype, and can be used to express rules that are not possible within the block structure of the <code>definition</code> section. Any constraint that references more than one property is in this category, including constraints containing mathematical or logical formulae.</p>
+</div>
+<div class="paragraph">
+<p>Archetype rules are expressed in a subset of the statement types from the <a href="https://specifications.openehr.org/releases/LANG/latest/bmm.html" target="_blank" rel="noopener">Basic Meta-Model (BMM)</a>, specifically, assertions and assignments. These both contain expressions using operators, defined by the <a href="https://specifications.openehr.org/releases/LANG/latest/EL.html" target="_blank" rel="noopener">openEHR Expression Language (EL)</a>. An example is the assertion <code>check map_bp_value = diastolic_bp_value + 0.33 * (systolic_bp_value - diastolic_bp_value)</code> in which each of the symbols <code>map_bp_value</code> ('map' = mean arterial pressure in medicine), <code>diastolic_bp_value</code> etc refer to values found within a data instance created according to the archetype containing the assertion.</p>
+</div>
+<div class="paragraph">
+<p>Archetype rules are defined at design time and consist of expressions whose symbols are mapped to archetype paths. They have data-instance semantics, and are evaluated at run time against data created according to the archetype supplying the values, i.e. the rules do not literally apply to elements of the archetype, but to data instances generated by these elements. Implementing evaluation requires a way of defining the mapping from archetype path to instance-level symbol in a rule, which is achieved by <em>symbol bindings</em>, described below.</p>
+</div>
+<div class="paragraph">
+<p>Since multiple data instances may conform to a single archetype structure or sub-structure, an important consequence of the symbol/path mapping is that a rule that applies to a single archetype constraint structure may be executed multiple times, on multiple conforming instance structures. The rules for determining runtime data binding resolution bindings stated in the archetype are described below.</p>
+</div>
+<div class="sect2">
+<h3 id="_symbol_specification"><a class="anchor" href="#_symbol_specification"></a><a class="link" href="#_symbol_specification">Symbol Specification</a></h3>
+<div class="paragraph">
+<p>The symbols used in rule expressions are defined in two sub-sections under a dedicated archetype <code>symbols</code> section: <code>symbol_definitions</code> (optional) and <code>symbol_bindings</code> (mandatory). The definitions are of the same form as the archetype term definitions and serve the same purpose, i.e. to provide multi-lingual natural language definitions that may be used in tool user interfaces. In each term, a <code>symbol</code> attribute may be used to define a translation of the symbol itseld, which may be used They are optional since they are not needed to perform either path mapping or runtime execution.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-adl" data-lang="adl">symbols
+    symbol_definitions = &lt;
+        ["en"] = &lt;
+           ["apgar_respiratory_value"] = &lt;
+               text = &lt;"Apgar score respiratory value"&gt;
+           &gt;
+        &gt;
+        ["nl"] = &lt;
+           ["apgar_respiratory_value"] = &lt;
+               text = &lt;"Apgar score ademhalingswaarde"&gt;
+               symbol = &lt;"apgar_score_ademhalingswaarde"&gt;
+           &gt;
+        &gt;
+    &gt;
+    symbol_bindings = &lt;
+        ["apgar_respiratory_value"] = &lt;"/data[id3]/events/data[id2]/items[id10]/value[id43]/value"&gt;
+    &gt;</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_rule_categories"><a class="anchor" href="#_rule_categories"></a><a class="link" href="#_rule_categories">Rule Categories</a></h3>
+<div class="paragraph">
+<p>The following sub-sections describe common categories of rule used in archetypes. They also provide a basis for explanation of the rule semantics, including binding resolution.</p>
+</div>
+<div class="sect3">
+<h4 id="_arithmetic_relationship"><a class="anchor" href="#_arithmetic_relationship"></a><a class="link" href="#_arithmetic_relationship">Arithmetic Relationship</a></h4>
+<div class="paragraph">
+<p>A common need is to assert an arithmetic relationship among various values located at different paths within an archetype. The following example specifies the summation of an Apgar score total from its parts, each defined as distinct nodes within the archetype. The <code>apgar_total_value</code>, <code>apgar_heartrate_value</code> etc are EL variables bound to the relevant paths within the main archetype definition.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-adl" data-lang="adl">archetype (adl_version=2.0.6; rm_release=1.0.3; generated; uid=f27fac48-3acb-4061-9619-c783fd8346ab)
+  openEHR-EHR-OBSERVATION.apgar.v1.0.1
+
+description
+  lifecycle_state = &lt;"unmanaged"&gt;
+  original_author = &lt;...&gt;
+  details = &lt;...&gt;
+
+definition
+  OBSERVATION[id1] ∈ {  -- Apgar score
+    data ∈ {
+      HISTORY[id3] ∈ {
+        events ∈ {
+          POINT_EVENT[id4] occurrences ∈ {0..1} ∈ { -- 2 minutes
+            offset ∈ {
+              DV_DURATION[id42] ∈ {
+                value ∈ {PT1M}
+              }
+            }
+            data ∈ {
+              ITEM_LIST[id2] ∈ {
+                items ∈ {
+                  ELEMENT[id10] occurrences ∈ {0..1} ∈ {
+                    value ∈ {
+                      DV_ORDINAL[id43] ∈ {
+                        [value, symbol] ∈ { -- apgar_respiratory_value
+                          [{0}, {[at11]}],
+                          [{1}, {[at12]}],
+                          [{2}, {[at13]}]
+                        }
+                      }
+                    }
+                  }
+                  ELEMENT[id6] occurrences ∈ {0..1} ∈ {...} -- apgar_heartrate_value
+                  ELEMENT[id14] occurrences ∈ {0..1} ∈ {...} -- apgar_muscle_tone_value
+                  ELEMENT[id18] occurrences ∈ {0..1} ∈ {...} -- apgar_reflex_value
+                  ELEMENT[id22] occurrences ∈ {0..1} ∈ {...} -- apgar_skin_colour_value
+                  ELEMENT[id26] occurrences ∈ {0..1} ∈ {
+                    value ∈ {
+                      DV_COUNT[id48] ∈ {
+                        magnitude ∈ {|0..10|} -- apgar_total_value
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+          POINT_EVENT[id27] occurrences ∈ {0..1} ∈ { -- 2 minutes
+            offset ∈ {
+              DV_DURATION[id49] ∈ {
+                value ∈ {PT2M}
+              }
+            }
+            data ∈ {
+              use_node ITEM_LIST[id50] /data[id3]/events[id4]/data[id2]
+            }
+          }
+          POINT_EVENT[id28] occurrences matches {0..1} matches {...}  -- 3 minutes
+          POINT_EVENT[id29] occurrences matches {0..1} matches {...}  -- 5 minutes
+          POINT_EVENT[id32] occurrences matches {0..1} matches {...}  -- 10 minuten
+                }
+            }
+        }
+    }
+
+rules
+  check apgar_total_value = apgar_heartrate_value + apgar_respiratory_value +
+        apgar_reflex_value + apgar_muscle_tone_value + apgar_skin_colour_value
+
+symbols
+  symbol_definitions = &lt;
+    ["en"] = &lt;
+       ["apgar_respiratory_value"] = &lt;
+           text = &lt;"Apgar score respiratory value"&gt;
+       &gt;
+       ["apgar_heartrate_value"] = &lt;
+           text = &lt;"Apgar score heartrate value"&gt;
+       &gt;
+       ["apgar_muscle_tone_value"] = &lt;
+           text = &lt;"Apgar score muscle tone value"&gt;
+       &gt;
+       ["apgar_reflex_value"] = &lt;
+           text = &lt;"Apgar score reflex value"&gt;
+       &gt;
+       ["apgar_skin_colour_value"] = &lt;
+           text = &lt;"Apgar score skin_colour value"&gt;
+       &gt;
+       ["apgar_total_value"] = &lt;
+           text = &lt;"Apgar score total value"&gt;
+       &gt;
+    &gt;
+
+    symbol_bindings = &lt;
+      ["apgar_respiratory_value"] =   &lt;"/data[id3]/events/data[id2]/items[id10]/value[id43]/value"&gt;
+      ["apgar_heartrate_value"] =     &lt;"/data[id3]/events/data[id2]/items[id6]/value[id44]/value"&gt;
+      ["apgar_muscle_tone_value"] =   &lt;"/data[id3]/events/data[id2]/items[id14]/value[id45]/value"&gt;
+      ["apgar_reflex_value"] =        &lt;"/data[id3]/events/data[id2]/items[id18]/value[id46]/value"&gt;
+      ["apgar_skin_colour_value"] =   &lt;"/data[id3]/events/data[id2]/items[id22]/value[id47]/value"&gt;
+      ["apgar_total_value"] =         &lt;"/data[id3]/events/data[id2]/items[id26]/value[id48]/magnitude"&gt;
+    &gt;
+  &gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The statement above assumes that the data element specified by the <code>apgar_total_value</code> location is being set externally, i.e. the above <em>does not set</em> the total value, it just checks that whatever value is there correlates properly to its inputs.</p>
+</div>
+<div class="paragraph">
+<p>The following example specifies the relationship between systolic, diastolic and mean arterial pressure (MAP), and also between pulse pressure and the systolic and diastolic values.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-adl" data-lang="adl">rules
+    check map_bp_value = diastolic_bp_value + 0.33 * (systolic_bp_value - diastolic_bp_value)
+
+    check pulse_pressure_bp_value = systolic_bp_value - diastolic_bp_value</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>As for the previous example, the variables are mapped to the relevant archetype paths in the <code>data_bindings</code> section. These statements can be visualised in tools, e.g. as follows in the <a href="https://www.openehr.org/downloads/ADLworkbench" target="_blank" rel="noopener">ADL Workbench</a>.</p>
+</div>
+<div id="assertions_bp_map_pp.png" class="imageblock text-center unresolved text-center">
+<div class="content">
+<img src="{images_uri}/assertions_bp_map_pp.png" alt="assertions bp map pp" width="70%">
+</div>
+<div class="title">Figure 1. ADL assertion examples</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_value_dependent_existence"><a class="anchor" href="#_value_dependent_existence"></a><a class="link" href="#_value_dependent_existence">Value-dependent Existence</a></h4>
+<div class="paragraph">
+<p>A useful kind of statement is to assert that a particular part of an archetype exists if a related element is defined and has a certain value. For example, the need might be to require a sub-tree of details to do with tobacco use be filled out at runtime if the data element representing smoking status is <code>True</code>. To do this, the following construct can be used:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-adl" data-lang="adl">rules
+    check is_smoker = True implies defined (smoking_details)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This makes used of both the EL <code>check</code> statement and the <code>defined()</code> predicate (a type of expression).</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_execution_semantics"><a class="anchor" href="#_execution_semantics"></a><a class="link" href="#_execution_semantics">Execution Semantics</a></h3>
+<div class="paragraph">
+<p>The Apgar archetype above provides a good example of multiplicity and how path-binding works. The data generated from this archetype will have at least 2 distinct instances of the <code>POINT_EVENT</code> structures, i.e. instances of <code>POINT_EVENT[id4]</code>, <code>POINT_EVENT[id28]</code>, <code>POINT_EVENT[id29]</code>, and <code>POINT_EVENT[id32]</code>. The paths specified in the <code>symbol_bindings</code> section are of the form <code>&#8230;&#8203;/events/&#8230;&#8203;</code>, i.e. they do not specify any particular <code>POINT_EVENT</code> structure in the archetype. Since all the paths identify nodes inside the structure of one <code>POINT_EVENT</code> structure, they are bound in turn at runtime to the set of paths found in each instance of <code>POINT_EVENT</code> in the data. If there are 3 such instances in the data, the assertion will be evaluated 3 times, each time using the data points from within the <code>POINT_EVENT</code> instance being evaluated.</p>
+</div>
+<div class="paragraph">
+<p>It should be noted that although in this archetype each <code>POINT_EVENT</code> structure has singular <code>occurrences</code>, this need not be so, and it could easily be the case that <code>POINT_EVENT[id4]</code> had <code>occurrences matches {*}</code>. The data then could contain two or more instances of the <code>POINT_EVENT[id4]</code> structure. The rule would then have been executed <em>for each one of these</em> instances, with the same runtime binding rule, i.e. all paths mapped in each iteration to nodes within the <em>same instance structure</em>. Indeed, had the paths been of the form <code>&#8230;&#8203;/events[id4]/&#8230;&#8203;</code>, this could have occurred.</p>
+</div>
+<div class="paragraph">
+<p>An alternative to the above mapping is to bind paths to symbols according to all possible permutations of each path across all the instances of the <code>POINT_EVENT</code> structure found in the data. This is clearly not the intention of the rule, and would generate nonsense results.</p>
+</div>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>
+    Copyright: © 2003+
+    <a href="https://www.openehr.org"
+        alt="is an independent, non-profit foundation, facilitating the sharing of health
+           records by consumers and clinicians via open specifications, clinical models
+           and open platform implementations.">The openEHR Foundation</a>
+  </p>
+
+  <p>
+    License:
+    <img src="/ui/img/cc-by-nd-88x31.png"
+        alt="Creative Commons Attribution-NoDerivs 3.0 Unported."
+        style="vertical-align:middle;margin:0 0.25rem 0 0;">
+    <a href="https://creativecommons.org/licenses/by-nd/3.0/">
+      Creative Commons Attribution-NoDerivs 3.0 Unported.
+    </a>
+  </p>
+
+  <p>
+    <strong>Links: <strong>
+    <a href="https://www.openehr.org/terms-of-use" class="mr-1">Terms of use</a> |
+    <a href="https://www.openehr.org/privacy-policy" class="mx-1">Privacy policy</a> |
+    <a href="https://www.openehr.org/privacy-policy" class="mx-1">Logos &amp; Trademarks</a> |
+    <a href="https://www.openehr.org/contact-us" class="mx-1">Contact</a>
+  </p>
+</footer>
+
+<script id="site-script" src="../../../../ui/js/site.js" data-ui-root-path="../../../../ui"></script>
+<script async src="../../../../ui/js/vendor/highlight.js"></script>
+<script src="../../../../ui/js/vendor/lunr.js"></script>
+<script src="../../../../ui/js/search-ui.js" id="search-ui-script" data-site-root-path="../../../.." data-snippet-length="80" data-stylesheet="../../../../ui/css/search.css"></script>
+<script async src="../../../../search-index.js"></script>
+<script src="../../../../ui/js/medium-zoom.min.js"></script>
+<script src="../../../../ui/js/zoom.js"></script>
+  </body>
+</html>

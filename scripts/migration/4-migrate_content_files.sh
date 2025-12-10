@@ -114,6 +114,27 @@ replace_diagram_attr() {
   done
 }
 
+function add_bibliography() {
+  local module="$1"
+  local pages_dir="modules/$module/pages"
+
+  [ -d "$pages_dir" ] || return 0
+
+  for f in "$pages_dir"/*.adoc; do
+    [ -f "$f" ] || continue
+    if grep -q 'cite:\[[^]]\+\]' "$f"; then
+      # Check if bibliography already exists
+      if ! grep -q '^bibliography::\[\]' "$f"; then
+        echo "  • Adding bibliography to $f"
+        # Append the references section
+        echo "" >> "$f"
+        echo "== References" >> "$f"
+        echo "bibliography::[]" >> "$f"
+      fi
+    fi
+  done
+}
+
 # -------------------------------------------------------------------
 # Module processor
 # -------------------------------------------------------------------
@@ -130,6 +151,7 @@ process_module() {
   copy_included_non_master "$module"
 
   replace_diagram_attr "$module"
+  add_bibliography "$module"
 
   copy_images "$module"
   copy_diagrams "$module"

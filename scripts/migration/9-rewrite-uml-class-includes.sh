@@ -17,8 +17,9 @@ rewrite_uml_class_includes_for_module() {
     #
     # CLASS DEFINITIONS
     # include::{uml_export_dir}/classes/X.adoc[]
+    #     → partial::ROOT:classes/NAME.svg[]
     #
-    sed -i 's|{uml_export_dir}/classes/|ROOT:partial$uml/|g' "$f"
+    sed -i 's|{uml_export_dir}/classes/{pkg}|ROOT:partial$classes/|g' "$f"
 
     #
     # UML DIAGRAMS

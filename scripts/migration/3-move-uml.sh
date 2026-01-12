@@ -13,15 +13,15 @@ if [ -d "docs/UML" ] || [ -d "docs/uml" ]; then
 
     # Move UML classes to ROOT partials
     if [ -d "$UML_DIR/classes" ]; then
-        echo "→ Moving UML classes to ROOT/partials/uml"
-        mkdir -p modules/ROOT/partials/uml/
-        find "$UML_DIR/classes" -name "*.adoc" -exec cp {} modules/ROOT/partials/uml/ \;
+        echo "→ Moving UML classes to ROOT/partials/classes"
+        mkdir -p modules/ROOT/partials/classes/
+        find "$UML_DIR/classes" -name "*.adoc" -exec cp {} modules/ROOT/partials/classes/ \;
         echo "✓ Moved UML classes"
     fi
 
     # Move UML diagrams to ROOT images
     if [ -d "$UML_DIR/diagrams" ]; then
-        echo "→ Moving UML diagrams to ROOT/images/uml/diagrams/"
+        echo "→ Moving UML diagrams to ROOT/images/uml/"
         mkdir -p modules/ROOT/images/uml
         find "$UML_DIR/diagrams" \( -name "*.svg" -o -name "*.png" -o -name "*.jpg" \) \
             -exec cp {} modules/ROOT/images/uml/ \;

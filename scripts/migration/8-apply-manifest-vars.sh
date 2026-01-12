@@ -1,6 +1,9 @@
 #!/bin/bash
 set -euo pipefail
 
+COMPONENT_NAME="$1"
+shift
+
 # Usage: 8-apply-manifest-vars.sh <module1> <module2> ...
 MODULES="$@"
 
@@ -107,6 +110,22 @@ include_module_vars_to_pages() {
   done
 }
 
+
+install_pkg_var() {
+  local module="$1"
+  local module_vars="modules/$module/partials/module_vars.adoc"
+
+  [ -f "$module_vars" ] || return 0
+
+  # Construct package name
+  local component_lower=$(echo "$COMPONENT_NAME" | tr '[:upper:]' '[:lower:]')
+  local pkg_value="org.openehr.${component_lower}.${module}."
+  echo "  • Setting :pkg: value as '${pkg_value}' in ${module_vars}"
+
+  # Append the pkg variable to module_vars.adoc
+  echo ":pkg: ${pkg_value}" >> "$module_vars"
+}
+
 # -------------------------------------------------------------------
 # Orchestrator for a single module
 # -------------------------------------------------------------------
@@ -131,6 +150,7 @@ apply_manifest_vars() {
   install_component_vars
   install_module_vars "$module" "$manifest_src"
   include_module_vars_to_pages "$module"
+#  install_pkg_var "$module"
 }
 
 # -------------------------------------------------------------------

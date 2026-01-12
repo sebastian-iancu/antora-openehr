@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="../../../../ui/css/site.css">
     <link rel="stylesheet" href="../../../../ui/css/antora-openehr.css">
     <link rel="stylesheet" href="../../../../ui/css/openehr.css">
+    <link rel="stylesheet" href="../../../../ui/css/tabs.css">
 <link rel="icon" href="../../../../ui/img/favicon.ico" type="image/x-icon">
   </head>
   <body class="article">
@@ -294,7 +295,7 @@
     <a class="nav-link" href="../../ehr_extract/generic_extract_package/">Generic_extract Package</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../../ehr_extract/synchronisation_package/">Synchronisation Extracts</a>
+    <a class="nav-link" href="../../ehr_extract/synchronisation_package/">Synchronisation Extract</a>
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../../ehr_extract/message_package/">The Message package</a>
@@ -411,20 +412,6 @@
     <span class="version">development</span>
   </div>
   <ul class="components">
-    <li class="component">
-      <div class="title"><a href="../../../../AM/latest/">Archetype Model</a></div>
-      <ul class="versions">
-        <li class="version is-latest">
-          <a href="../../../../AM/latest/">Release-2.3.0</a>
-        </li>
-        <li class="version">
-          <a href="../../../../AM/Release-2.2.0/">Release-2.2.0</a>
-        </li>
-        <li class="version">
-          <a href="../../../../AM/development/">development</a>
-        </li>
-      </ul>
-    </li>
     <li class="component">
       <div class="title"><a href="../../../../BASE/latest/">Base Model</a></div>
       <ul class="versions">
@@ -577,14 +564,417 @@ using a syntax which is equivalet to a series of <code>IVL&lt;TS&gt;</code> (i.e
 <div class="sect1">
 <h2 id="_class_descriptions"><a class="anchor" href="#_class_descriptions"></a><a class="link" href="#_class_descriptions">Class Descriptions</a></h2>
 <div class="sectionbody">
-<div class="paragraph">
-<p>Unresolved directive in time_specification_package.adoc - include::ROOT:partial$uml/{pkg}dv_time_specification.adoc[]</p>
+<div class="sect2">
+<h3 id="_dv_time_specification_class"><a class="anchor" href="#_dv_time_specification_class"></a><a class="link" href="#_dv_time_specification_class">DV_TIME_SPECIFICATION Class</a></h3>
+<div id="_tabs_1" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="_tabs_1_definition" class="tab">
+<p>Definition</p>
+</li>
+<li id="_tabs_1_bmm" class="tab">
+<p>BMM</p>
+</li>
+<li id="_tabs_1_uml" class="tab">
+<p>UML</p>
+</li>
+</ul>
+</div>
+<div id="_tabs_1_definition--panel" class="tabpanel" aria-labelledby="_tabs_1_definition">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong><em>DV_TIME_SPECIFICATION (abstract)</em></strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>This is an abstract class of which all timing specifications are specialisations. Specifies points in time, possibly linked to the calendar, or a real world repeating event, such as  breakfast.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="../../../latest/data_types/basic_package/#_data_value_class" class="xref page">DATA_VALUE</a></code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>value</strong>: <code><a href="../../../latest/data_types/encapsulated_package/#_dv_parsable_class" class="xref page">DV_PARSABLE</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>The specification, in the HL7v3 syntax for <code>PIVL</code> or <code>EIVL</code> types.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Functions</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(abstract)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>calendar_alignment</strong> (): <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_string_class" class="xref page">String</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Indicates what prototypical point in the calendar the specification is aligned to, e.g.  5th of the month . Empty if not aligned. Extracted from the  value' attribute.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(abstract)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>event_alignment</strong> (): <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_string_class" class="xref page">String</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Indicates what real-world event the specification is aligned to if any. Extracted from the  value' attribute.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(abstract)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>institution_specified</strong> (): <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Indicates if the specification is aligned with institution schedules, e.g. a hospital nursing changeover or meal serving times. Extracted from the  value' attribute.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="_tabs_1_bmm--panel" class="tabpanel" aria-labelledby="_tabs_1_bmm">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+    "name": "DV_TIME_SPECIFICATION",
+    "documentation": "This is an abstract class of which all timing specifications are specialisations. Specifies points in time, possibly linked to the calendar, or a real world repeating event, such as  breakfast. ",
+    "is_abstract": true,
+    "ancestors": [
+        "DATA_VALUE"
+    ],
+    "properties": {
+        "value": {
+            "_type": "P_BMM_SINGLE_PROPERTY",
+            "name": "value",
+            "documentation": "The specification, in the HL7v3 syntax for `PIVL` or `EIVL` types.",
+            "is_mandatory": true,
+            "type": "DV_PARSABLE"
+        }
+    },
+    "functions": {
+        "calendar_alignment": {
+            "name": "calendar_alignment",
+            "documentation": "Indicates what prototypical point in the calendar the specification is aligned to, e.g.  5th of the month . Empty if not aligned. Extracted from the  value' attribute.",
+            "is_abstract": true,
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "String"
+            }
+        },
+        "event_alignment": {
+            "name": "event_alignment",
+            "documentation": "Indicates what real-world event the specification is aligned to if any. Extracted from the  value' attribute. ",
+            "is_abstract": true,
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "String"
+            }
+        },
+        "institution_specified": {
+            "name": "institution_specified",
+            "documentation": "Indicates if the specification is aligned with institution schedules, e.g. a hospital nursing changeover or meal serving times. Extracted from the  value' attribute.",
+            "is_abstract": true,
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Boolean"
+            }
+        }
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="_tabs_1_uml--panel" class="tabpanel" aria-labelledby="_tabs_1_uml">
+<div class="imageblock kroki">
+<div class="content">
+<img src="https://kroki.io/plantuml/svg/eNqNkMFqAkEMhu_zFAEvLaLQq_Yy6hYWbCvd1UuRIe6ma3CcKTvRKuq7uw4URDx4C8n3_fBH4SJIjYVAYTEEGM1Mnr4nJpskw_QtHeo8_fyAgwJowxbthqB3YSb6K9ODcQLfL_N4O_znnKBAS67E2qDlyq3JydNzY2VSs6vuCbRtmIdpdkFYNsLemfBLBf8wldEZeG8JXZROSt0207k2Mz2eJgCtvyULhbVfUd-yo15V4z5O3dKLUNkX2kncNt2brCv59djp3H-TOgO97Gyq?svg-type=inline" alt="DV_TIME_SPECIFICATION">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_dv_periodic_time_specification_class"><a class="anchor" href="#_dv_periodic_time_specification_class"></a><a class="link" href="#_dv_periodic_time_specification_class">DV_PERIODIC_TIME_SPECIFICATION Class</a></h3>
+<div id="_tabs_2" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="_tabs_2_definition" class="tab">
+<p>Definition</p>
+</li>
+<li id="_tabs_2_bmm" class="tab">
+<p>BMM</p>
+</li>
+<li id="_tabs_2_uml" class="tab">
+<p>UML</p>
+</li>
+</ul>
+</div>
+<div id="_tabs_2_definition--panel" class="tabpanel" aria-labelledby="_tabs_2_definition">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>DV_PERIODIC_TIME_SPECIFICATION</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Specifies periodic points in time, linked to the calendar (phase-linked), or a real world repeating event, such as  breakfast  (event-linked). Based on the HL7v3 data types <code>PIVL&lt;T&gt;</code> and <code>EIVL&lt;T&gt;</code>.</p>
 </div>
 <div class="paragraph">
-<p>Unresolved directive in time_specification_package.adoc - include::ROOT:partial$uml/{pkg}dv_periodic_time_specification.adoc[]</p>
+<p>Used in therapeutic prescriptions, expressed as <code>INSTRUCTIONs</code> in the openEHR model.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="../../../latest/data_types/time_specification_package/#_dv_time_specification_class" class="xref page">DV_TIME_SPECIFICATION</a></code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Functions</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>period</strong> (): <code><a href="../../../latest/data_types/quantity_package/#_dv_duration_class" class="xref page">DV_DURATION</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>The period of the repetition, computationally derived from the syntax representation. Extracted from the  value' attribute.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(effected)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>calendar_alignment</strong> (): <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_string_class" class="xref page">String</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Calendar alignment extracted from value.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(effected)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>event_alignment</strong> (): <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_string_class" class="xref page">String</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Event alignment extracted from value.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(effected)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>institution_specified</strong> (): <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Extracted from value.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Invariants</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Value_valid</em>: <code>value.formalism.is_equal (“HL7:PIVL”) or value.formalism. is_equal (“HL7:EIVL”)</code></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
 </div>
-<div class="paragraph">
-<p>Unresolved directive in time_specification_package.adoc - include::ROOT:partial$uml/{pkg}dv_general_time_specification.adoc[]</p>
+<div id="_tabs_2_bmm--panel" class="tabpanel" aria-labelledby="_tabs_2_bmm">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+    "name": "DV_PERIODIC_TIME_SPECIFICATION",
+    "documentation": "Specifies periodic points in time, linked to the calendar (phase-linked), or a real world repeating event, such as  breakfast  (event-linked). Based on the HL7v3 data types `PIVL&lt;T&gt;` and `EIVL&lt;T&gt;`. \n\nUsed in therapeutic prescriptions, expressed as `INSTRUCTIONs` in the openEHR model. ",
+    "ancestors": [
+        "DV_TIME_SPECIFICATION"
+    ],
+    "functions": {
+        "period": {
+            "name": "period",
+            "documentation": "The period of the repetition, computationally derived from the syntax representation. Extracted from the  value' attribute.",
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "DV_DURATION"
+            }
+        },
+        "calendar_alignment": {
+            "name": "calendar_alignment",
+            "documentation": "Calendar alignment extracted from value. ",
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "String"
+            }
+        },
+        "event_alignment": {
+            "name": "event_alignment",
+            "documentation": "Event alignment extracted from value. ",
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "String"
+            }
+        },
+        "institution_specified": {
+            "name": "institution_specified",
+            "documentation": "Extracted from value.",
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Boolean"
+            }
+        }
+    },
+    "invariants": {
+        "Value_valid": "value.formalism.is_equal (“HL7:PIVL”) or value.formalism. is_equal (“HL7:EIVL”)"
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="_tabs_2_uml--panel" class="tabpanel" aria-labelledby="_tabs_2_uml">
+<div class="imageblock kroki">
+<div class="content">
+<img src="https://kroki.io/plantuml/svg/eNqdklFLwzAUhd_zKwK-KDLB182XrK0QmK603V5EQmyvNZglI7mbytx_t6Zb6UMZ07eQ853cew4hpZbe03gp0iTj85hHouAPicjTJOL3PGIFnz_SHaH0mq7BKVtdXtHxLx8vslZ8un0Ocik1mEo6IbWqzQoMBjRHp0zdUbBthNOIMh4VblBZI_waSvWqoB07tVaDNIHcEyJfPDpZIu1CDOxOLz7eFIJf2XeYaGVgXDv5FU43lUWEaoLwieH2EHQr9QbalCnLcjadJd1yu-PQ_ZmBe4Yzsvfof9fACiaWbLZI_pq9eatnvvsejYY7bbDBqo-OE1-J_ADLwMhG?svg-type=inline" alt="DV_PERIODIC_TIME_SPECIFICATION">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_dv_general_time_specification_class"><a class="anchor" href="#_dv_general_time_specification_class"></a><a class="link" href="#_dv_general_time_specification_class">DV_GENERAL_TIME_SPECIFICATION Class</a></h3>
+<div id="_tabs_3" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="_tabs_3_definition" class="tab">
+<p>Definition</p>
+</li>
+<li id="_tabs_3_bmm" class="tab">
+<p>BMM</p>
+</li>
+<li id="_tabs_3_uml" class="tab">
+<p>UML</p>
+</li>
+</ul>
+</div>
+<div id="_tabs_3_definition--panel" class="tabpanel" aria-labelledby="_tabs_3_definition">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>DV_GENERAL_TIME_SPECIFICATION</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Specifies points in time in a general syntax. Based on the HL7v3 GTS data type.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="../../../latest/data_types/time_specification_package/#_dv_time_specification_class" class="xref page">DV_TIME_SPECIFICATION</a></code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Functions</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(effected)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>calendar_alignment</strong> (): <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_string_class" class="xref page">String</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Calendar alignment extracted from value.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(effected)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>event_alignment</strong> (): <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_string_class" class="xref page">String</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Event alignment extracted from value.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(effected)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>institution_specified</strong> (): <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Extracted from value.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="_tabs_3_bmm--panel" class="tabpanel" aria-labelledby="_tabs_3_bmm">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+    "name": "DV_GENERAL_TIME_SPECIFICATION",
+    "documentation": "Specifies points in time in a general syntax. Based on the HL7v3 GTS data type.",
+    "ancestors": [
+        "DV_TIME_SPECIFICATION"
+    ],
+    "functions": {
+        "calendar_alignment": {
+            "name": "calendar_alignment",
+            "documentation": "Calendar alignment extracted from value.",
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "String"
+            }
+        },
+        "event_alignment": {
+            "name": "event_alignment",
+            "documentation": "Event alignment extracted from value. ",
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "String"
+            }
+        },
+        "institution_specified": {
+            "name": "institution_specified",
+            "documentation": "Extracted from value.",
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Boolean"
+            }
+        }
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="_tabs_3_uml--panel" class="tabpanel" aria-labelledby="_tabs_3_uml">
+<div class="imageblock kroki">
+<div class="content">
+<img src="https://kroki.io/plantuml/svg/eNqdkkFLAzEQhe_5FQNeFKngtfWS1igLay3dtReREHfHdTBNZDOtSu1_NwRb9rBK9RaS782894iorAkBLhf6Wk3VXOa6zG6ULmZqkl1lE1lmt1PYCIBTqIxFV5tWG0uNW6Lj4xMYQsEtuQbuzx8Shev48DtCLjDxisk7HV6xoifCOoFj7y0al8itEOYxcGsqhr3JHnNw9PZMjGHpX3BkyeGwac1HOp3VnhnrEeM7p9vvJGtjVxjXxYEzOS_kOFd7c5vd0u2BgTuCA7J36H_XIEupFzK_U3_NHmd1xBefg0F_pxHrrXqn-PmriC9mhr9Z?svg-type=inline" alt="DV_GENERAL_TIME_SPECIFICATION">
+</div>
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -716,5 +1106,6 @@ factor = interval | phase_linked_time_spec | event_linked_time_spec | "(" genera
 <script async src="../../../../search-index.js"></script>
 <script src="../../../../ui/js/medium-zoom.min.js"></script>
 <script src="../../../../ui/js/zoom.js"></script>
+<script async src="../../../../ui/js/tabs.js"></script>
   </body>
 </html>

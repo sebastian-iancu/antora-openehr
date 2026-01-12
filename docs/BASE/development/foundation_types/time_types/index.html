@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="../../../../ui/css/site.css">
     <link rel="stylesheet" href="../../../../ui/css/antora-openehr.css">
     <link rel="stylesheet" href="../../../../ui/css/openehr.css">
+    <link rel="stylesheet" href="../../../../ui/css/tabs.css">
 <link rel="icon" href="../../../../ui/img/favicon.ico" type="image/x-icon">
   </head>
   <body class="article">
@@ -250,20 +251,6 @@
     <span class="version">development</span>
   </div>
   <ul class="components">
-    <li class="component">
-      <div class="title"><a href="../../../../AM/latest/">Archetype Model</a></div>
-      <ul class="versions">
-        <li class="version is-latest">
-          <a href="../../../../AM/latest/">Release-2.3.0</a>
-        </li>
-        <li class="version">
-          <a href="../../../../AM/Release-2.2.0/">Release-2.2.0</a>
-        </li>
-        <li class="version">
-          <a href="../../../../AM/development/">development</a>
-        </li>
-      </ul>
-    </li>
     <li class="component is-current">
       <div class="title"><a href="../../../latest/">Base Model</a></div>
       <ul class="versions">
@@ -470,29 +457,3087 @@ For reasons of readability in data, it is strongly recommended that the 'extende
 <div class="sect1">
 <h2 id="_class_definitions"><a class="anchor" href="#_class_definitions"></a><a class="link" href="#_class_definitions">Class Definitions</a></h2>
 <div class="sectionbody">
-<div class="paragraph">
-<p>Unresolved directive in time_types.adoc - include::ROOT:partial$uml/{pkg}time_definitions.adoc[]</p>
+<div class="sect2">
+<h3 id="_time_definitions_class"><a class="anchor" href="#_time_definitions_class"></a><a class="link" href="#_time_definitions_class">Time_Definitions Class</a></h3>
+<div id="_tabs_1" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="_tabs_1_definition" class="tab">
+<p>Definition</p>
+</li>
+<li id="_tabs_1_bmm" class="tab">
+<p>BMM</p>
+</li>
+<li id="_tabs_1_uml" class="tab">
+<p>UML</p>
+</li>
+</ul>
+</div>
+<div id="_tabs_1_definition--panel" class="tabpanel" aria-labelledby="_tabs_1_definition">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>Time_Definitions</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Definitions for date/time classes. Note that the timezone limits are set by where the international dateline is. Thus, time in New Zealand is quoted using <code>+12:00</code>, not <code>-12:00</code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Constants</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Seconds_in_minute</strong>: <code><a href="../../../latest/foundation_types/primitive_types/#_integer_class" class="xref page">Integer</a>&#160;=&#160;60</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Number of seconds in a minute.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Minutes_in_hour</strong>: <code><a href="../../../latest/foundation_types/primitive_types/#_integer_class" class="xref page">Integer</a>&#160;=&#160;60</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Number of minutes in an hour.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Hours_in_day</strong>: <code><a href="../../../latest/foundation_types/primitive_types/#_integer_class" class="xref page">Integer</a>&#160;=&#160;24</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Number of clock hours in a day, i.e. 24.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Average_days_in_month</strong>: <code><a href="../../../latest/foundation_types/primitive_types/#_real_class" class="xref page">Real</a>&#160;=&#160;30.42</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Used for conversions of durations containing months to days and / or seconds.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Max_days_in_month</strong>: <code><a href="../../../latest/foundation_types/primitive_types/#_integer_class" class="xref page">Integer</a>&#160;=&#160;31</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Maximum number of days in any month.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Days_in_year</strong>: <code><a href="../../../latest/foundation_types/primitive_types/#_integer_class" class="xref page">Integer</a>&#160;=&#160;365</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Calendar days in a normal year, i.e. 365.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Average_days_in_year</strong>: <code><a href="../../../latest/foundation_types/primitive_types/#_real_class" class="xref page">Real</a>&#160;=&#160;365.24</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Used for conversions of durations containing years to days and / or seconds.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Days_in_leap_year</strong>: <code><a href="../../../latest/foundation_types/primitive_types/#_integer_class" class="xref page">Integer</a>&#160;=&#160;366</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Calendar days in a standard leap year, i.e. 366.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Max_days_in_year</strong>: <code><a href="../../../latest/foundation_types/primitive_types/#_integer_class" class="xref page">Integer</a>&#160;=&#160;Days_in_leap_year</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Maximum number of days in a year, i.e. accounting for leap years.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Days_in_week</strong>: <code><a href="../../../latest/foundation_types/primitive_types/#_integer_class" class="xref page">Integer</a>&#160;=&#160;7</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Number of days in a week.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Months_in_year</strong>: <code><a href="../../../latest/foundation_types/primitive_types/#_integer_class" class="xref page">Integer</a>&#160;=&#160;12</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Number of months in a year.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Min_timezone_hour</strong>: <code><a href="../../../latest/foundation_types/primitive_types/#_integer_class" class="xref page">Integer</a>&#160;=&#160;12</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Minimum hour value of a timezone  according to ISO 8601 (note that the -ve sign is supplied in the <code>ISO8601_TIMEZONE</code> class).</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Max_timezone_hour</strong>: <code><a href="../../../latest/foundation_types/primitive_types/#_integer_class" class="xref page">Integer</a>&#160;=&#160;14</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Maximum hour value of a timezone according to ISO 8601.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Nominal_days_in_month</strong>: <code><a href="../../../latest/foundation_types/primitive_types/#_real_class" class="xref page">Real</a>&#160;=&#160;30.42</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Used for conversions of durations containing months to days and / or seconds.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Nominal_days_in_year</strong>: <code><a href="../../../latest/foundation_types/primitive_types/#_real_class" class="xref page">Real</a>&#160;=&#160;365.24</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Used for conversions of durations containing years to days and / or seconds.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Functions</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>valid_year</strong> (<br>
+y: <code><a href="../../../latest/foundation_types/primitive_types/#_integer_class" class="xref page">Integer</a>[1]</code><br>
+): <code><a href="../../../latest/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a></code><br>
+<br>
+<em>Post</em>: <code>Result = y &gt;= 0</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>True if <code>y &gt;= 0</code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>valid_month</strong> (<br>
+m: <code><a href="../../../latest/foundation_types/primitive_types/#_integer_class" class="xref page">Integer</a>[1]</code><br>
+): <code><a href="../../../latest/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a></code><br>
+<br>
+<em>Post</em>: <code>Result = m &gt;= 1 and m &lt;= Months_in_year</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>True if <code>m &gt;= 1 and m &lt;= months_in_year</code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>valid_day</strong> (<br>
+y: <code><a href="../../../latest/foundation_types/primitive_types/#_integer_class" class="xref page">Integer</a>[1]</code>,<br>
+m: <code><a href="../../../latest/foundation_types/primitive_types/#_integer_class" class="xref page">Integer</a>[1]</code>,<br>
+d: <code><a href="../../../latest/foundation_types/primitive_types/#_integer_class" class="xref page">Integer</a>[1]</code><br>
+): <code><a href="../../../latest/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a></code><br>
+<br>
+<em>Post</em>: <code>Result = d &gt;= 1 and d &lt;= days_in_month (m, y)</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>True if <code>d &gt;= 1 and d &lt;= days_in_month (m, y)</code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>valid_hour</strong> (<br>
+h: <code><a href="../../../latest/foundation_types/primitive_types/#_integer_class" class="xref page">Integer</a>[1]</code>,<br>
+m: <code><a href="../../../latest/foundation_types/primitive_types/#_integer_class" class="xref page">Integer</a>[1]</code>,<br>
+s: <code><a href="../../../latest/foundation_types/primitive_types/#_integer_class" class="xref page">Integer</a>[1]</code><br>
+): <code><a href="../../../latest/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a></code><br>
+<br>
+<em>Post</em>: <code>Result = (h &gt;= 0 and h &lt; Hours_in_day) or (h = Hours_in_day and m = 0 and s = 0)</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>True if <code>(h &gt;= 0 and h &lt; Hours_in_day) or (h = Hours_in_day and m = 0 and s = 0)</code> .</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>valid_minute</strong> (<br>
+m: <code><a href="../../../latest/foundation_types/primitive_types/#_integer_class" class="xref page">Integer</a>[1]</code><br>
+): <code><a href="../../../latest/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a></code><br>
+<br>
+<em>Post</em>: <code>Result = m &gt;= 0 and m &lt; Minutes_in_hour</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>True if <code>m &gt;= 0 and m &lt; Minutes_in_hour</code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>valid_second</strong> (<br>
+s: <code><a href="../../../latest/foundation_types/primitive_types/#_integer_class" class="xref page">Integer</a>[1]</code><br>
+): <code><a href="../../../latest/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a></code><br>
+<br>
+<em>Post</em>: <code>Result = s &gt;= 0 and s &lt; Seconds_in_minute</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>True if <code>s &gt;= 0 and s &lt; Seconds_in_minute</code> .</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>valid_fractional_second</strong> (<br>
+fs: <code><a href="../../../latest/foundation_types/primitive_types/#_double_class" class="xref page">Double</a>[1]</code><br>
+): <code><a href="../../../latest/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a></code><br>
+<br>
+<em>Post</em>: <code>Result = fs &gt;= 0.0 and fs &lt; 1.0</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>True if <code>fs &gt;= 0.0</code> and <code>fs &lt; 1.0</code> .</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>valid_iso8601_date</strong> (<br>
+s: <code><a href="../../../latest/foundation_types/primitive_types/#_string_class" class="xref page">String</a>[1]</code><br>
+): <code><a href="../../../latest/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>String is a valid ISO 8601 date, i.e. takes the complete form:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>YYYY-MM-DD</code> (extended, preferred) or one of the partial forms <code>YYYY-MM</code> or <code>YYYY</code></p>
+</li>
+<li>
+<p><code>YYYYMMDD</code> (compact) or a partial variant <code>YYYYMM</code>.</p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
-<p>Unresolved directive in time_types.adoc - include::ROOT:partial$uml/{pkg}temporal.adoc[]</p>
+<p>Where:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>YYYY</code> is the string form of any positive number in the range <code>0000</code> - <code>9999</code> (zero-filled to four digits)</p>
+</li>
+<li>
+<p><code>MM</code> is <code>01</code> - <code>12</code> (zero-filled to two digits)</p>
+</li>
+<li>
+<p><code>DD</code> is <code>01</code> - <code>31</code> (zero-filled to two digits)</p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
-<p>Unresolved directive in time_types.adoc - include::ROOT:partial$uml/{pkg}iso8601_type.adoc[]</p>
+<p>The combinations of <code>YYYY</code>, <code>MM</code>, <code>DD</code> numbers must be correct with respect to the Gregorian calendar.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>valid_iso8601_time</strong> (<br>
+s: <code><a href="../../../latest/foundation_types/primitive_types/#_string_class" class="xref page">String</a>[1]</code><br>
+): <code><a href="../../../latest/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>String is a valid ISO 8601 date, i.e. takes the form:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>hh:mm:ss[(,&#124;.)s+][Z&#124;±hh[:mm]]</code> (extended)</p>
+</li>
+<li>
+<p><code>hhmmss[(,&#124;.)s+][Z&#124;±hh[mm]]</code> (compact)</p>
+</li>
+<li>
+<p>or one of the partial forms:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>hh:mm</code> (extended)</p>
+</li>
+<li>
+<p><code>hhmm</code> or <code>hh</code> (compact)</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
 </div>
 <div class="paragraph">
-<p>Unresolved directive in time_types.adoc - include::ROOT:partial$uml/{pkg}iso8601_date.adoc[]</p>
+<p>with an additional optional timezone indicator of:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Z</code> or <code>±hh[:mm]</code> (extended)  <code>±hh[mm]</code> (compact)</p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
-<p>Unresolved directive in time_types.adoc - include::ROOT:partial$uml/{pkg}iso8601_time.adoc[]</p>
+<p>Where:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>hh</code> is "00" - "23" (0-filled to two digits)</p>
+</li>
+<li>
+<p><code>mm</code> is "00" - "59" (0-filled to two digits)</p>
+</li>
+<li>
+<p><code>ss</code> is "00" - "60" (0-filled to two digits)</p>
+</li>
+<li>
+<p><code>[(,&#124;.)s+]</code> is an optional string consisting of a comma or decimal point followed by numeric string of 1 or more digits, representing a fractional second</p>
+</li>
+<li>
+<p><code>Z</code> is a literal meaning UTC (modern replacement for GMT), i.e. timezone <code>+0000</code></p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>valid_iso8601_date_time</strong> (<br>
+s: <code><a href="../../../latest/foundation_types/primitive_types/#_string_class" class="xref page">String</a>[1]</code><br>
+): <code><a href="../../../latest/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>String is a valid ISO 8601 date-time, i.e. takes the form:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>YYYY-MM-DDThh:mm:ss[(,&#124;.)s+][Z&#124;±hh[:mm]]</code> (extended)</p>
+</li>
+<li>
+<p><code>YYYYMMDDThhmmss[(,&#124;.)s+][Z&#124;±hh[mm]]</code> (compact)</p>
+</li>
+<li>
+<p>or one of the partial forms:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>YYYY-MM-DDThh:mm</code> or <code>YYYY-MM-DDThh</code> (extended)</p>
+</li>
+<li>
+<p><code>YYYYMMDDThhmm</code> or <code>YYYYMMDDThh</code> (compact)</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>valid_iso8601_duration</strong> (<br>
+s: <code><a href="../../../latest/foundation_types/primitive_types/#_string_class" class="xref page">String</a>[1]</code><br>
+): <code><a href="../../../latest/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>String is a valid ISO 8601 duration, i.e. takes the form:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>P[nnY][nnM][nnW][nnD][T[nnH][nnM][nnS]]</code></p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
-<p>Unresolved directive in time_types.adoc - include::ROOT:partial$uml/{pkg}iso8601_date_time.adoc[]</p>
+<p>Where each nn represents a number of years, months, etc. <code>nnW</code> represents a number of 7-day weeks.</p>
 </div>
 <div class="paragraph">
-<p>Unresolved directive in time_types.adoc - include::ROOT:partial$uml/{pkg}iso8601_duration.adoc[]</p>
+<p>Note: allowing the <code>W</code> designator in the same expression as other designators is an exception to the published standard, but necessary in clinical information (typically for representing pregnancy duration).</p>
+</div>
+<div class="hdlist">
+<div class="title">Parameters<br></div>
+<table>
+<tr>
+<td class="hdlist1">
+<code><em>s</em></code>
+</td>
+<td class="hdlist2">
+<p>String is a valid ISO 8601 duration, i.e. takes the form:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>P[nnY][nnM][nnW][nnD][T[nnH][nnM][nnS]]</code></p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
-<p>Unresolved directive in time_types.adoc - include::ROOT:partial$uml/{pkg}iso8601_timezone.adoc[]</p>
+<p>Where each <code>nn</code> represents a number of years, months, etc. <code>nnW</code> represents a number of 7- day weeks.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+allowing the <code>W</code> designator in the same expression as other designators is an exception to the published standard, but necessary in clinical information (typically for representing pregnancy duration).
+</td>
+</tr>
+</table>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="_tabs_1_bmm--panel" class="tabpanel" aria-labelledby="_tabs_1_bmm">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+    "name": "Time_Definitions",
+    "documentation": "Definitions for date/time classes. Note that the timezone limits are set by where the international dateline is. Thus, time in New Zealand is quoted using `+12:00`, not `-12:00`.",
+    "constants": {
+        "Seconds_in_minute": {
+            "name": "Seconds_in_minute",
+            "documentation": "Number of seconds in a minute.",
+            "type": "Integer",
+            "value": 60
+        },
+        "Minutes_in_hour": {
+            "name": "Minutes_in_hour",
+            "documentation": "Number of minutes in an hour.",
+            "type": "Integer",
+            "value": 60
+        },
+        "Hours_in_day": {
+            "name": "Hours_in_day",
+            "documentation": "Number of clock hours in a day, i.e. 24.",
+            "type": "Integer",
+            "value": 24
+        },
+        "Average_days_in_month": {
+            "name": "Average_days_in_month",
+            "documentation": "Used for conversions of durations containing months to days and / or seconds.",
+            "type": "Real",
+            "value": 30.42
+        },
+        "Max_days_in_month": {
+            "name": "Max_days_in_month",
+            "documentation": "Maximum number of days in any month.",
+            "type": "Integer",
+            "value": 31
+        },
+        "Days_in_year": {
+            "name": "Days_in_year",
+            "documentation": "Calendar days in a normal year, i.e. 365.",
+            "type": "Integer",
+            "value": 365
+        },
+        "Average_days_in_year": {
+            "name": "Average_days_in_year",
+            "documentation": "Used for conversions of durations containing years to days and / or seconds.",
+            "type": "Real",
+            "value": 365.24
+        },
+        "Days_in_leap_year": {
+            "name": "Days_in_leap_year",
+            "documentation": "Calendar days in a standard leap year, i.e. 366.",
+            "type": "Integer",
+            "value": 366
+        },
+        "Max_days_in_year": {
+            "name": "Max_days_in_year",
+            "documentation": "Maximum number of days in a year, i.e. accounting for leap years.",
+            "type": "Integer",
+            "value": "Days_in_leap_year"
+        },
+        "Days_in_week": {
+            "name": "Days_in_week",
+            "documentation": "Number of days in a week.",
+            "type": "Integer",
+            "value": 7
+        },
+        "Months_in_year": {
+            "name": "Months_in_year",
+            "documentation": "Number of months in a year.",
+            "type": "Integer",
+            "value": 12
+        },
+        "Min_timezone_hour": {
+            "name": "Min_timezone_hour",
+            "documentation": "Minimum hour value of a timezone  according to ISO 8601 (note that the -ve sign is supplied in the `ISO8601_TIMEZONE` class).",
+            "type": "Integer",
+            "value": 12
+        },
+        "Max_timezone_hour": {
+            "name": "Max_timezone_hour",
+            "documentation": "Maximum hour value of a timezone according to ISO 8601.",
+            "type": "Integer",
+            "value": 14
+        },
+        "Nominal_days_in_month": {
+            "name": "Nominal_days_in_month",
+            "documentation": "Used for conversions of durations containing months to days and / or seconds.",
+            "type": "Real",
+            "value": 30.42
+        },
+        "Nominal_days_in_year": {
+            "name": "Nominal_days_in_year",
+            "documentation": "Used for conversions of durations containing years to days and / or seconds.",
+            "type": "Real",
+            "value": 365.24
+        }
+    },
+    "functions": {
+        "valid_year": {
+            "name": "valid_year",
+            "documentation": "True if `y &gt;= 0`.",
+            "parameters": {
+                "y": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "y",
+                    "type": "Integer"
+                }
+            },
+            "post_conditions": {
+                "Post": "Result = y &gt;= 0"
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Boolean"
+            }
+        },
+        "valid_month": {
+            "name": "valid_month",
+            "documentation": "True if `m &gt;= 1 and m &lt;= months_in_year`.",
+            "parameters": {
+                "m": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "m",
+                    "type": "Integer"
+                }
+            },
+            "post_conditions": {
+                "Post": "Result = m &gt;= 1 and m &lt;= Months_in_year"
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Boolean"
+            }
+        },
+        "valid_day": {
+            "name": "valid_day",
+            "documentation": "True if `d &gt;= 1 and d &lt;= days_in_month (m, y)`.",
+            "parameters": {
+                "y": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "y",
+                    "type": "Integer"
+                },
+                "m": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "m",
+                    "type": "Integer"
+                },
+                "d": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "d",
+                    "type": "Integer"
+                }
+            },
+            "post_conditions": {
+                "Post": "Result = d &gt;= 1 and d &lt;= days_in_month (m, y)"
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Boolean"
+            }
+        },
+        "valid_hour": {
+            "name": "valid_hour",
+            "documentation": "True if `(h &gt;= 0 and h &lt; Hours_in_day) or (h = Hours_in_day and m = 0 and s = 0)` .",
+            "parameters": {
+                "h": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "h",
+                    "type": "Integer"
+                },
+                "m": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "m",
+                    "type": "Integer"
+                },
+                "s": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "s",
+                    "type": "Integer"
+                }
+            },
+            "post_conditions": {
+                "Post": "Result = (h &gt;= 0 and h &lt; Hours_in_day) or (h = Hours_in_day and m = 0 and s = 0)"
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Boolean"
+            }
+        },
+        "valid_minute": {
+            "name": "valid_minute",
+            "documentation": "True if `m &gt;= 0 and m &lt; Minutes_in_hour`.",
+            "parameters": {
+                "m": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "m",
+                    "type": "Integer"
+                }
+            },
+            "post_conditions": {
+                "Post": "Result = m &gt;= 0 and m &lt; Minutes_in_hour"
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Boolean"
+            }
+        },
+        "valid_second": {
+            "name": "valid_second",
+            "documentation": "True if `s &gt;= 0 and s &lt; Seconds_in_minute` .",
+            "parameters": {
+                "s": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "s",
+                    "type": "Integer"
+                }
+            },
+            "post_conditions": {
+                "Post": "Result = s &gt;= 0 and s &lt; Seconds_in_minute"
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Boolean"
+            }
+        },
+        "valid_fractional_second": {
+            "name": "valid_fractional_second",
+            "documentation": "True if `fs &gt;= 0.0` and `fs &lt; 1.0` .",
+            "parameters": {
+                "fs": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "fs",
+                    "type": "Double"
+                }
+            },
+            "post_conditions": {
+                "Post": "Result = fs &gt;= 0.0 and fs &lt; 1.0"
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Boolean"
+            }
+        },
+        "valid_iso8601_date": {
+            "name": "valid_iso8601_date",
+            "documentation": "String is a valid ISO 8601 date, i.e. takes the complete form:\n\n* `YYYY-MM-DD` (extended, preferred) or one of the partial forms `YYYY-MM` or `YYYY`\n* `YYYYMMDD` (compact) or a partial variant `YYYYMM`.\n\nWhere:\n\n* `YYYY` is the string form of any positive number in the range `0000` - `9999` (zero-filled to four digits)\n* `MM` is `01` - `12` (zero-filled to two digits)\n* `DD` is `01` - `31` (zero-filled to two digits)\n\nThe combinations of `YYYY`, `MM`, `DD` numbers must be correct with respect to the Gregorian calendar.",
+            "parameters": {
+                "s": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "s",
+                    "type": "String"
+                }
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Boolean"
+            }
+        },
+        "valid_iso8601_time": {
+            "name": "valid_iso8601_time",
+            "documentation": "String is a valid ISO 8601 date, i.e. takes the form:\n\n* `hh:mm:ss[(,|.)s+][Z|±hh[:mm]]` (extended)\n* `hhmmss[(,|.)s+][Z|±hh[mm]]` (compact)\n* or one of the partial forms:\n** `hh:mm` (extended)\n** `hhmm` or `hh` (compact)\n\nwith an additional optional timezone indicator of:\n\n* `Z` or `±hh[:mm]` (extended)  `±hh[mm]` (compact)\n\nWhere:\n\n* `hh` is \"00\" - \"23\" (0-filled to two digits)\n* `mm` is \"00\" - \"59\" (0-filled to two digits)\n* `ss` is \"00\" - \"60\" (0-filled to two digits)\n* `[(,|.)s+]` is an optional string consisting of a comma or decimal point followed by numeric string of 1 or more digits, representing a fractional second\n* `Z` is a literal meaning UTC (modern replacement for GMT), i.e. timezone `+0000`\n",
+            "parameters": {
+                "s": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "s",
+                    "type": "String"
+                }
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Boolean"
+            }
+        },
+        "valid_iso8601_date_time": {
+            "name": "valid_iso8601_date_time",
+            "documentation": "String is a valid ISO 8601 date-time, i.e. takes the form:\n\n* `YYYY-MM-DDThh:mm:ss[(,|.)s+][Z|±hh[:mm]]` (extended)\n* `YYYYMMDDThhmmss[(,|.)s+][Z|±hh[mm]]` (compact)\n* or one of the partial forms:\n** `YYYY-MM-DDThh:mm` or `YYYY-MM-DDThh` (extended)\n** `YYYYMMDDThhmm` or `YYYYMMDDThh` (compact)",
+            "parameters": {
+                "s": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "s",
+                    "type": "String"
+                }
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Boolean"
+            }
+        },
+        "valid_iso8601_duration": {
+            "name": "valid_iso8601_duration",
+            "documentation": "String is a valid ISO 8601 duration, i.e. takes the form:\n\n* `P[nnY][nnM][nnW][nnD][T[nnH][nnM][nnS]]`\n\nWhere each nn represents a number of years, months, etc. `nnW` represents a number of 7-day weeks.\n\nNote: allowing the `W` designator in the same expression as other designators is an exception to the published standard, but necessary in clinical information (typically for representing pregnancy duration).",
+            "parameters": {
+                "s": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "s",
+                    "documentation": "String is a valid ISO 8601 duration, i.e. takes the form:\n\n* `P[nnY][nnM][nnW][nnD][T[nnH][nnM][nnS]]`\n\nWhere each `nn` represents a number of years, months, etc. `nnW` represents a number of 7- day weeks.\n\nNOTE: allowing the `W` designator in the same expression as other designators is an exception to the published standard, but necessary in clinical information (typically for representing pregnancy duration).",
+                    "type": "String"
+                }
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Boolean"
+            }
+        }
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="_tabs_1_uml--panel" class="tabpanel" aria-labelledby="_tabs_1_uml">
+<div class="imageblock kroki">
+<div class="content">
+<img src="https://kroki.io/plantuml/svg/eNqd0j0LwjAQBuC9v-LGih3sIuIoXZx1EymxvbYH6R3kQyjifzdZRHRo7HiQ570PkjVaWQtnGrGusCMmR8IWHhnAGu5KU1tPqEwOE-zhyA57NHApr7AK9UFEo-JYf7wfhd2Qw5gMWjX95BffvoA2OXAQHyYeZhNt-k7E3uE_S1lshNv8jx6dUU28vtJv3EVdib9pnMFkZbfdlOGWcczITs4Q94nMhQ-wgMVui603Kq47S5_ZC6mtzl4=?svg-type=inline" alt="Time_Definitions">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_temporal_class"><a class="anchor" href="#_temporal_class"></a><a class="link" href="#_temporal_class">Temporal Class</a></h3>
+<div id="_tabs_2" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="_tabs_2_definition" class="tab">
+<p>Definition</p>
+</li>
+<li id="_tabs_2_bmm" class="tab">
+<p>BMM</p>
+</li>
+<li id="_tabs_2_uml" class="tab">
+<p>UML</p>
+</li>
+</ul>
+</div>
+<div id="_tabs_2_definition--panel" class="tabpanel" aria-labelledby="_tabs_2_definition">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong><em>Temporal (abstract)</em></strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Abstract ancestor of time-related classes.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="../../../latest/foundation_types/primitive_types/#_ordered_class" class="xref page">Ordered</a></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="_tabs_2_bmm--panel" class="tabpanel" aria-labelledby="_tabs_2_bmm">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+    "name": "Temporal",
+    "documentation": "Abstract ancestor of time-related classes.",
+    "is_abstract": true,
+    "ancestors": [
+        "Ordered"
+    ]
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="_tabs_2_uml--panel" class="tabpanel" aria-labelledby="_tabs_2_uml">
+<div class="imageblock kroki">
+<div class="content">
+<img src="https://kroki.io/plantuml/svg/eNqVkLEKwkAQRPv7igUbRSLYJlb-gI2dSFhzQxK85HRvRSXm342BBLEy3c4ObwbG8CmocKaUOQ6B9qguXthRY1pjfsydWAgs0exelIpQ-TMSV9aIc-Fnf62sV4VNFA_tv10Q0ZKaIaolhxBSLbiek9cCQvEYfFgfadHprfcOXH90T49I6iXF9cbufzYXsEImNn5TE0u73QZ784qicVLzBpAFeL4=?svg-type=inline" alt="Temporal">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_iso8601_type_class"><a class="anchor" href="#_iso8601_type_class"></a><a class="link" href="#_iso8601_type_class">Iso8601_type Class</a></h3>
+<div id="_tabs_3" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="_tabs_3_definition" class="tab">
+<p>Definition</p>
+</li>
+<li id="_tabs_3_bmm" class="tab">
+<p>BMM</p>
+</li>
+<li id="_tabs_3_uml" class="tab">
+<p>UML</p>
+</li>
+</ul>
+</div>
+<div id="_tabs_3_definition--panel" class="tabpanel" aria-labelledby="_tabs_3_definition">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong><em>Iso8601_type (abstract)</em></strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Abstract ancestor type of ISO 8601 types, defining interface for 'extended' and 'partial' concepts from ISO 8601.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="../../../latest/foundation_types/time_types/#_temporal_class" class="xref page">Temporal</a></code>, <code><a href="../../../latest/foundation_types/time_types/#_time_definitions_class" class="xref page">Time_Definitions</a></code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>value</strong>: <code><a href="../../../latest/foundation_types/primitive_types/#_string_class" class="xref page">String</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Representation of all descendants is a single String.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Functions</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(abstract)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_partial</strong> (): <code><a href="../../../latest/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>True if this date time is partial, i.e. if trailing end (right hand) value(s) is/are missing.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(abstract)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_extended</strong> (): <code><a href="../../../latest/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>True if this ISO8601 string is in the 'extended' form, i.e. uses <code>'-'</code> and / or <code>':'</code> separators. This is the preferred format.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="_tabs_3_bmm--panel" class="tabpanel" aria-labelledby="_tabs_3_bmm">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+    "name": "Iso8601_type",
+    "documentation": "Abstract ancestor type of ISO 8601 types, defining interface for 'extended' and 'partial' concepts from ISO 8601.",
+    "is_abstract": true,
+    "ancestors": [
+        "Temporal",
+        "Time_Definitions"
+    ],
+    "properties": {
+        "value": {
+            "_type": "P_BMM_SINGLE_PROPERTY",
+            "name": "value",
+            "documentation": "Representation of all descendants is a single String.",
+            "is_mandatory": true,
+            "type": "String"
+        }
+    },
+    "functions": {
+        "is_partial": {
+            "name": "is_partial",
+            "documentation": "True if this date time is partial, i.e. if trailing end (right hand) value(s) is/are missing.",
+            "is_abstract": true,
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Boolean"
+            }
+        },
+        "is_extended": {
+            "name": "is_extended",
+            "documentation": "True if this ISO8601 string is in the 'extended' form, i.e. uses `'-'` and / or `':'` separators. This is the preferred format.",
+            "is_abstract": true,
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Boolean"
+            }
+        }
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="_tabs_3_uml--panel" class="tabpanel" aria-labelledby="_tabs_3_uml">
+<div class="imageblock kroki">
+<div class="content">
+<img src="https://kroki.io/plantuml/svg/eNqdVMFOwkAQve9XTOKlRjByMQY8GS6cPOjNmM3ADu3G7S7uTtUG-Xe3FRqkElpuzXTem_dmXitwHtjjgmFhMASYBXd3ezOSXK4I1gLgCj7QFARjeGKvbQovo9e6vN4hN6CDXKFnjSa5jI0PzhlCe6STvpisItVq3QhxIOaZ8pXzaAAuPjPNFHL3RhOjLY1Tj2X9dK0cM6kJR966GlW3mR69Ik-qL9GBekMhSM7QJuA4Ix8N7IijAfjPewORzkt6L-KKOmNTT8jke07cR_UcGve2e33_PRw2-xeiuURd3w-JENtb6ZzklJbaatbOhnNWHZOmlSwJfQJl1DazTGlUfczqb3_uLGcJ5J0BCssW_-AQPwDVmTBzRVScnWQM3T1pWzD1MRVo4axKesxYVqGOp0LTgJcVeuqKuaETYL2NgMJKZvjze-gA45iWM2DVtLOxhcfK7klo_ApaYW7H_gfOnKtJ?svg-type=inline" alt="Iso8601_type">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_iso8601_date_class"><a class="anchor" href="#_iso8601_date_class"></a><a class="link" href="#_iso8601_date_class">Iso8601_date Class</a></h3>
+<div id="_tabs_4" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="_tabs_4_definition" class="tab">
+<p>Definition</p>
+</li>
+<li id="_tabs_4_bmm" class="tab">
+<p>BMM</p>
+</li>
+<li id="_tabs_4_uml" class="tab">
+<p>UML</p>
+</li>
+</ul>
+</div>
+<div id="_tabs_4_definition--panel" class="tabpanel" aria-labelledby="_tabs_4_definition">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>Iso8601_date</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Represents an ISO 8601 date, including partial and extended forms. Value may be:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>YYYY-MM-DD</code> (extended, preferred)</p>
+</li>
+<li>
+<p><code>YYYYMMDD</code> (compact)</p>
+</li>
+<li>
+<p>a partial invariant.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>See <code>Time_definitions.<em>valid_iso8601_date()</em></code> for validity.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="../../../latest/foundation_types/time_types/#_iso8601_type_class" class="xref page">Iso8601_type</a></code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Functions</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>year</strong> (): <code><a href="../../../latest/foundation_types/primitive_types/#_integer_class" class="xref page">Integer</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Extract the year part of the date as an Integer.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>month</strong> (): <code><a href="../../../latest/foundation_types/primitive_types/#_integer_class" class="xref page">Integer</a></code><br>
+<br>
+<em>Pre</em>: <code>not month_unknown</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Extract the month part of the date as an Integer, or return 0 if not present.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>day</strong> (): <code><a href="../../../latest/foundation_types/primitive_types/#_integer_class" class="xref page">Integer</a></code><br>
+<br>
+<em>Pre</em>: <code>not day_unknown</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Extract the day part of the date as an Integer, or return 0 if not present.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>timezone</strong> (): <code><a href="../../../latest/foundation_types/time_types/#_iso8601_timezone_class" class="xref page">Iso8601_timezone</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Timezone; may be Void.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>month_unknown</strong> (): <code><a href="../../../latest/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Indicates whether month in year is unknown. If so, the date is of the form <code>"YYYY"</code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>day_unknown</strong> (): <code><a href="../../../latest/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Indicates whether day in month is unknown. If so, and month is known, the date is of the form <code>"YYYY-MM"</code> or <code>"YYYYMM"</code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(effected)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_partial</strong> (): <code><a href="../../../latest/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>True if this date is partial, i.e. if days or more is missing.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(effected)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_extended</strong> (): <code><a href="../../../latest/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>True if this date uses <code>'-'</code> separators.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>as_string</strong> (): <code><a href="../../../latest/foundation_types/primitive_types/#_string_class" class="xref page">String</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Return string value in extended format.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>add</strong> <em>alias</em> "+" (<br>
+a_diff: <code><a href="../../../latest/foundation_types/time_types/#_iso8601_duration_class" class="xref page">Iso8601_duration</a>[1]</code><br>
+): <code><a href="../../../latest/foundation_types/time_types/#_iso8601_date_class" class="xref page">Iso8601_date</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Arithmetic addition of a duration to a date.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>subtract</strong> <em>alias</em> "-" (<br>
+a_diff: <code><a href="../../../latest/foundation_types/time_types/#_iso8601_duration_class" class="xref page">Iso8601_duration</a>[1]</code><br>
+): <code><a href="../../../latest/foundation_types/time_types/#_iso8601_date_class" class="xref page">Iso8601_date</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Arithmetic subtraction of a duration from a date.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>diff</strong> <em>alias</em> "-" (<br>
+a_date: <code><a href="../../../latest/foundation_types/time_types/#_iso8601_date_class" class="xref page">Iso8601_date</a>[1]</code><br>
+): <code><a href="../../../latest/foundation_types/time_types/#_iso8601_duration_class" class="xref page">Iso8601_duration</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Difference of two dates.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>add_nominal</strong> <em>alias</em> "++" (<br>
+a_diff: <code><a href="../../../latest/foundation_types/time_types/#_iso8601_duration_class" class="xref page">Iso8601_duration</a>[1]</code><br>
+): <code><a href="../../../latest/foundation_types/time_types/#_iso8601_date_class" class="xref page">Iso8601_date</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Addition of nominal duration represented by <code><em>a_diff</em></code>. For example, a duration of <code>'P1Y'</code> means advance to the same date next year, with the exception of the date 29 February in a leap year, to which the addition of a nominal year will result in 28 February of the following year. Similarly, <code>'P1M'</code> is understood here as a nominal month, the addition of which will result in one of:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>the same day in the following month, if it exists, or;</p>
+</li>
+<li>
+<p>one or two days less where the following month is shorter, or;</p>
+</li>
+<li>
+<p>in the case of adding a month to the date 31 Jan, the result will be 28 Feb in a non-leap year (i.e. three less) and 29 Feb in a leap year (i.e. two less).</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>subtract_nominal</strong> <em>alias</em> "--" (<br>
+a_diff: <code><a href="../../../latest/foundation_types/time_types/#_iso8601_duration_class" class="xref page">Iso8601_duration</a>[1]</code><br>
+): <code><a href="../../../latest/foundation_types/time_types/#_iso8601_date_class" class="xref page">Iso8601_date</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Subtraction of nominal duration represented by <code><em>a_diff</em></code>. See <code><em>add_nominal</em>()</code> for semantics.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Invariants</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Year_valid</em>: <code>valid_year (year)</code></p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Month_valid</em>: <code>not month_unknown implies valid_month (month)</code></p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Day_valid</em>: <code>not day_unknown implies valid_day (year, month, day)</code></p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Partial_validity</em>: <code>month_unknown implies day_unknown</code></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="_tabs_4_bmm--panel" class="tabpanel" aria-labelledby="_tabs_4_bmm">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+    "name": "Iso8601_date",
+    "documentation": "Represents an ISO 8601 date, including partial and extended forms. Value may be:\n\n* `YYYY-MM-DD` (extended, preferred)\n* `YYYYMMDD` (compact)\n* a partial invariant.\n\nSee `Time_definitions._valid_iso8601_date()_` for validity.",
+    "ancestors": [
+        "Iso8601_type"
+    ],
+    "functions": {
+        "year": {
+            "name": "year",
+            "documentation": "Extract the year part of the date as an Integer.",
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Integer"
+            }
+        },
+        "month": {
+            "name": "month",
+            "documentation": "Extract the month part of the date as an Integer, or return 0 if not present.",
+            "pre_conditions": {
+                "Pre": "not month_unknown"
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Integer"
+            }
+        },
+        "day": {
+            "name": "day",
+            "documentation": "Extract the day part of the date as an Integer, or return 0 if not present.",
+            "pre_conditions": {
+                "Pre": "not day_unknown"
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Integer"
+            }
+        },
+        "timezone": {
+            "name": "timezone",
+            "documentation": "Timezone; may be Void.",
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Iso8601_timezone"
+            }
+        },
+        "month_unknown": {
+            "name": "month_unknown",
+            "documentation": "Indicates whether month in year is unknown. If so, the date is of the form `\"YYYY\"`.",
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Boolean"
+            }
+        },
+        "day_unknown": {
+            "name": "day_unknown",
+            "documentation": "Indicates whether day in month is unknown. If so, and month is known, the date is of the form `\"YYYY-MM\"` or `\"YYYYMM\"`.",
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Boolean"
+            }
+        },
+        "is_partial": {
+            "name": "is_partial",
+            "documentation": "True if this date is partial, i.e. if days or more is missing.",
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Boolean"
+            }
+        },
+        "is_extended": {
+            "name": "is_extended",
+            "documentation": "True if this date uses `'-'` separators.",
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Boolean"
+            }
+        },
+        "as_string": {
+            "name": "as_string",
+            "documentation": "Return string value in extended format.",
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "String"
+            }
+        },
+        "add": {
+            "name": "add",
+            "aliases": [
+                "+"
+            ],
+            "documentation": "Arithmetic addition of a duration to a date.",
+            "parameters": {
+                "a_diff": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "a_diff",
+                    "type": "Iso8601_duration"
+                }
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Iso8601_date"
+            }
+        },
+        "subtract": {
+            "name": "subtract",
+            "aliases": [
+                "-"
+            ],
+            "documentation": "Arithmetic subtraction of a duration from a date.",
+            "parameters": {
+                "a_diff": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "a_diff",
+                    "type": "Iso8601_duration"
+                }
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Iso8601_date"
+            }
+        },
+        "diff": {
+            "name": "diff",
+            "aliases": [
+                "-"
+            ],
+            "documentation": "Difference of two dates.",
+            "parameters": {
+                "a_date": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "a_date",
+                    "type": "Iso8601_date"
+                }
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Iso8601_duration"
+            }
+        },
+        "add_nominal": {
+            "name": "add_nominal",
+            "aliases": [
+                "++"
+            ],
+            "documentation": "Addition of nominal duration represented by `_a_diff_`. For example, a duration of `'P1Y'` means advance to the same date next year, with the exception of the date 29 February in a leap year, to which the addition of a nominal year will result in 28 February of the following year. Similarly, `'P1M'` is understood here as a nominal month, the addition of which will result in one of:\n\n* the same day in the following month, if it exists, or;\n* one or two days less where the following month is shorter, or;\n* in the case of adding a month to the date 31 Jan, the result will be 28 Feb in a non-leap year (i.e. three less) and 29 Feb in a leap year (i.e. two less).",
+            "parameters": {
+                "a_diff": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "a_diff",
+                    "type": "Iso8601_duration"
+                }
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Iso8601_date"
+            }
+        },
+        "subtract_nominal": {
+            "name": "subtract_nominal",
+            "aliases": [
+                "--"
+            ],
+            "documentation": "Subtraction of nominal duration represented by `_a_diff_`. See `_add_nominal_()` for semantics.",
+            "parameters": {
+                "a_diff": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "a_diff",
+                    "type": "Iso8601_duration"
+                }
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Iso8601_date"
+            }
+        }
+    },
+    "invariants": {
+        "Year_valid": "valid_year (year)",
+        "Month_valid": "not month_unknown implies valid_month (month)",
+        "Day_valid": "not day_unknown implies valid_day (year, month, day)",
+        "Partial_validity": "month_unknown implies day_unknown"
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="_tabs_4_uml--panel" class="tabpanel" aria-labelledby="_tabs_4_uml">
+<div class="imageblock kroki">
+<div class="content">
+<img src="https://kroki.io/plantuml/svg/eNqlVcFO4zAQvfsrRtpL0cIKLggVTogLpz0sN7Sy3HrSWDh2154AWeDfsd0mJE2gabhF8_zezHieJ2yphfdw6-3F-ekZl4IQXhjAT6hQuNkRzOHWEK7Qwf3Z3wQU1lA-iEhRDcZJFfjfGtyA21R1sKvLS_Ng7JNJR6-t1ShMW_9LXHm-Fo6U0J_B-ExoJMpBXHjuySmzSuif9PkBSjkDwaXKslYTsnSClE0a0O4uXWTN9eWCnFjSZIFISuQY7J_pEluKdeXc2EKZcC3f7eBbQm-MiYVPOtC1HVVrBPjxlCtCX9gHvNTK4HzlRJW-fklLhPKSwvxSdOvRR6FL7M_qpU7zts8S3ZOfuqNf-R0Wa-uEPrTqvtJvJ9GhnNJ-q3qN3nPKhZmBpTy8vXkjXM9jt_eGwq3j-K-MUx3LXTkMU3UHZmyzDkwa7q2Gr15PTpr7Z6yZRIq3HcXYdlZh0_AbzJRR0aB-otOU5GknQtVdcYOtbs5vViUUowlxg-7qH-_yj0GOFsxtGSrO9yr68T0pUxIe0pTHpTVhe47PkUVTh1EJ3ZCzyL6x5ULjHrJq7Z1N0o_1MIIW_0sTaDHbZO52de6lhlfQM_OA7TtrtYPHKtk7ai-APw==?svg-type=inline" alt="Iso8601_date">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_iso8601_time_class"><a class="anchor" href="#_iso8601_time_class"></a><a class="link" href="#_iso8601_time_class">Iso8601_time Class</a></h3>
+<div id="_tabs_5" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="_tabs_5_definition" class="tab">
+<p>Definition</p>
+</li>
+<li id="_tabs_5_bmm" class="tab">
+<p>BMM</p>
+</li>
+<li id="_tabs_5_uml" class="tab">
+<p>UML</p>
+</li>
+</ul>
+</div>
+<div id="_tabs_5_definition--panel" class="tabpanel" aria-labelledby="_tabs_5_definition">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>Iso8601_time</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Represents an ISO 8601 time, including partial and extended forms. Value may be:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>hh:mm:ss[(,&#124;.)sss][Z&#124;±hh[:mm]]</code> (extended, preferred) or</p>
+</li>
+<li>
+<p><code>hhmmss[(,&#124;.)sss][Z&#124;±hh[mm]]</code> (compact)</p>
+</li>
+<li>
+<p>or a partial invariant.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>See <code><em>valid_iso8601_time()</em></code> for validity.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+A small deviation to the ISO 8601:2004 standard in this class is that the time <code>24:00:00</code> is not allowed, for consistency with <code>Iso8601_date_time</code>.
+</td>
+</tr>
+</table>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="../../../latest/foundation_types/time_types/#_iso8601_type_class" class="xref page">Iso8601_type</a></code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Functions</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>hour</strong> (): <code><a href="../../../latest/foundation_types/primitive_types/#_integer_class" class="xref page">Integer</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Extract the hour part of the date/time as an Integer.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>minute</strong> (): <code><a href="../../../latest/foundation_types/primitive_types/#_integer_class" class="xref page">Integer</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Extract the minute part of the time as an Integer, or return 0 if not present.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>second</strong> (): <code><a href="../../../latest/foundation_types/primitive_types/#_integer_class" class="xref page">Integer</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Extract the integral seconds part of the time (i.e. prior to any decimal sign) as an Integer, or return 0 if not present.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>fractional_second</strong> (): <code><a href="../../../latest/foundation_types/primitive_types/#_real_class" class="xref page">Real</a></code><br>
+<br>
+<em>Pre</em>: <code>not second_unknown</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Extract the fractional seconds part of the time (i.e. following to any decimal sign) as a Real, or return 0.0 if not present.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>timezone</strong> (): <code><a href="../../../latest/foundation_types/time_types/#_iso8601_timezone_class" class="xref page">Iso8601_timezone</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Timezone; may be Void.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>minute_unknown</strong> (): <code><a href="../../../latest/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Indicates whether minute is unknown. If so, the time is of the form “hh”.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>second_unknown</strong> (): <code><a href="../../../latest/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Indicates whether second is unknown. If so and month is known, the time is of the form <code>"hh:mm"</code> or <code>"hhmm"</code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_decimal_sign_comma</strong> (): <code><a href="../../../latest/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>True if this time has a decimal part indicated by <code>','</code> (comma) rather than <code>'.'</code> (period).</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(effected)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_partial</strong> (): <code><a href="../../../latest/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>True if this time is partial, i.e. if seconds or more is missing.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(effected)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_extended</strong> (): <code><a href="../../../latest/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>True if this time uses <code>'-'</code>, <code>':'</code> separators.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>has_fractional_second</strong> (): <code><a href="../../../latest/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>True if the <code><em>fractional_second</em></code> part is significant (i.e. even if = 0.0).</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>as_string</strong> (): <code><a href="../../../latest/foundation_types/primitive_types/#_string_class" class="xref page">String</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Return string value in extended format.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>add</strong> <em>alias</em> "+" (<br>
+a_diff: <code><a href="../../../latest/foundation_types/time_types/#_iso8601_duration_class" class="xref page">Iso8601_duration</a>[1]</code><br>
+): <code><a href="../../../latest/foundation_types/time_types/#_iso8601_time_class" class="xref page">Iso8601_time</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Arithmetic addition of a duration to a time.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>subtract</strong> <em>alias</em> "-" (<br>
+a_diff: <code><a href="../../../latest/foundation_types/time_types/#_iso8601_duration_class" class="xref page">Iso8601_duration</a>[1]</code><br>
+): <code><a href="../../../latest/foundation_types/time_types/#_iso8601_time_class" class="xref page">Iso8601_time</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Arithmetic subtraction of a duration from a time.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>diff</strong> <em>alias</em> "-" (<br>
+a_time: <code><a href="../../../latest/foundation_types/time_types/#_iso8601_time_class" class="xref page">Iso8601_time</a>[1]</code><br>
+): <code><a href="../../../latest/foundation_types/time_types/#_iso8601_duration_class" class="xref page">Iso8601_duration</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Difference of two times.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Invariants</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Hour_valid</em>: <code>valid_hour(hour, minute, second)</code></p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Minute_valid</em>: <code>not minute_unknown implies valid_minute (minute)</code></p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Second_valid</em>: <code>not second_unknown implies valid_second (second)</code></p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Fractional_second_valid</em>: <code>has_fractional_second implies (not second_unknown and valid_fractional_second (fractional_second))</code></p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Partial_validity</em>: <code>minute_unknown implies second_unknown</code></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="_tabs_5_bmm--panel" class="tabpanel" aria-labelledby="_tabs_5_bmm">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+    "name": "Iso8601_time",
+    "documentation": "Represents an ISO 8601 time, including partial and extended forms. Value may be:\n\n* `hh:mm:ss[(,|.)sss][Z|±hh[:mm]]` (extended, preferred) or\n* `hhmmss[(,|.)sss][Z|±hh[mm]]` (compact)\n* or a partial invariant.\n\nSee `_valid_iso8601_time()_` for validity.\n\nNOTE: A small deviation to the ISO 8601:2004 standard in this class is that the time `24:00:00` is not allowed, for consistency with `Iso8601_date_time`.",
+    "ancestors": [
+        "Iso8601_type"
+    ],
+    "functions": {
+        "hour": {
+            "name": "hour",
+            "documentation": "Extract the hour part of the date/time as an Integer.",
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Integer"
+            }
+        },
+        "minute": {
+            "name": "minute",
+            "documentation": "Extract the minute part of the time as an Integer, or return 0 if not present.",
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Integer"
+            }
+        },
+        "second": {
+            "name": "second",
+            "documentation": "Extract the integral seconds part of the time (i.e. prior to any decimal sign) as an Integer, or return 0 if not present.",
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Integer"
+            }
+        },
+        "fractional_second": {
+            "name": "fractional_second",
+            "documentation": "Extract the fractional seconds part of the time (i.e. following to any decimal sign) as a Real, or return 0.0 if not present.",
+            "pre_conditions": {
+                "Pre": "not second_unknown"
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Real"
+            }
+        },
+        "timezone": {
+            "name": "timezone",
+            "documentation": "Timezone; may be Void.",
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Iso8601_timezone"
+            }
+        },
+        "minute_unknown": {
+            "name": "minute_unknown",
+            "documentation": "Indicates whether minute is unknown. If so, the time is of the form “hh”.",
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Boolean"
+            }
+        },
+        "second_unknown": {
+            "name": "second_unknown",
+            "documentation": "Indicates whether second is unknown. If so and month is known, the time is of the form `\"hh:mm\"` or `\"hhmm\"`.",
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Boolean"
+            }
+        },
+        "is_decimal_sign_comma": {
+            "name": "is_decimal_sign_comma",
+            "documentation": "True if this time has a decimal part indicated by `','` (comma) rather than `'.'` (period).",
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Boolean"
+            }
+        },
+        "is_partial": {
+            "name": "is_partial",
+            "documentation": "True if this time is partial, i.e. if seconds or more is missing.",
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Boolean"
+            }
+        },
+        "is_extended": {
+            "name": "is_extended",
+            "documentation": "True if this time uses `'-'`, `':'` separators.",
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Boolean"
+            }
+        },
+        "has_fractional_second": {
+            "name": "has_fractional_second",
+            "documentation": "True if the `_fractional_second_` part is significant (i.e. even if = 0.0).",
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Boolean"
+            }
+        },
+        "as_string": {
+            "name": "as_string",
+            "documentation": "Return string value in extended format.",
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "String"
+            }
+        },
+        "add": {
+            "name": "add",
+            "aliases": [
+                "+"
+            ],
+            "documentation": "Arithmetic addition of a duration to a time.",
+            "parameters": {
+                "a_diff": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "a_diff",
+                    "type": "Iso8601_duration"
+                }
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Iso8601_time"
+            }
+        },
+        "subtract": {
+            "name": "subtract",
+            "aliases": [
+                "-"
+            ],
+            "documentation": "Arithmetic subtraction of a duration from a time.",
+            "parameters": {
+                "a_diff": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "a_diff",
+                    "type": "Iso8601_duration"
+                }
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Iso8601_time"
+            }
+        },
+        "diff": {
+            "name": "diff",
+            "aliases": [
+                "-"
+            ],
+            "documentation": "Difference of two times.",
+            "parameters": {
+                "a_time": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "a_time",
+                    "type": "Iso8601_time"
+                }
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Iso8601_duration"
+            }
+        }
+    },
+    "invariants": {
+        "Hour_valid": "valid_hour(hour, minute, second)",
+        "Minute_valid": "not minute_unknown implies valid_minute (minute)",
+        "Second_valid": "not second_unknown implies valid_second (second)",
+        "Fractional_second_valid": "has_fractional_second implies (not second_unknown and valid_fractional_second (fractional_second))",
+        "Partial_validity": "minute_unknown implies second_unknown"
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="_tabs_5_uml--panel" class="tabpanel" aria-labelledby="_tabs_5_uml">
+<div class="imageblock kroki">
+<div class="content">
+<img src="https://kroki.io/plantuml/svg/eNqdVE1v1DAQvftXjMQliBbRC0JbTqiXnioBN4Ss2XiSWE3sre1QQul_x3azab6WTXKLPO_N58tjaYnWwq3Vnz5-uOJOVgRPDOAdFLo2yVvYwa1ylJOBH1c_Y6CSqnY0G7KUaiVmQ5nB1EmtsOQ91FfCsoOE4n-0alP3OgqPo_K8VvdKP6qI_aJ1SahGbfwXIi0XlMoqtCNzxVNdVXgKeUDjJJanwvTbkRIkZuMFWj4_-xjpgdYZqfIY_RY_X4NCJIBcyCzrLUfUBkPiAIPx1l7XUe9d6GBzgkAK5Pg4xQyI_YzsmTHc21gcRkJrDgTw5rGQjmyl7-m6lIp2ucEmfr0X2jkS184vN762qvyFZU3T9Twdyzyfu9cQefJ0086_U3XQxst1ZdfTTHdGkCGxZfxe9yVZy12BKgHtCv-n7brEx5uMZ-8oXBtOD7Vf0WJubggdmZUV-6yVRf3ejuHPfy8vu_0z1l0ivvcVxVh7K69MfkOZVDJo0W5UmhS8ITQJNENDmx31BV9p5YoEqsUEgc0k_8WYfwFiccLo21CczWiXz_Ri-CuGal1uRY2pRUIW2De63pd0hiyP3oOhTTuwhwW04GMbaKHaZm7rkmep_i-YiHlG9gNbHcY9m_0DBid-wQ==?svg-type=inline" alt="Iso8601_time">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_iso8601_date_time_class"><a class="anchor" href="#_iso8601_date_time_class"></a><a class="link" href="#_iso8601_date_time_class">Iso8601_date_time Class</a></h3>
+<div id="_tabs_6" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="_tabs_6_definition" class="tab">
+<p>Definition</p>
+</li>
+<li id="_tabs_6_bmm" class="tab">
+<p>BMM</p>
+</li>
+<li id="_tabs_6_uml" class="tab">
+<p>UML</p>
+</li>
+</ul>
+</div>
+<div id="_tabs_6_definition--panel" class="tabpanel" aria-labelledby="_tabs_6_definition">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>Iso8601_date_time</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Represents an ISO 8601 date/time, including partial and extended forms. Value may be:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>YYYY-MM-DDThh:mm:ss[(,&#124;.)sss][Z &#124; ±hh[:mm]]</code> (extended, preferred) or</p>
+</li>
+<li>
+<p><code>YYYYMMDDThhmmss[(,&#124;.)sss][Z &#124; ±hh[mm]]</code> (compact)</p>
+</li>
+<li>
+<p>or a partial variant.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>See <code><em>valid_iso8601_date_time()</em></code> for validity.</p>
+</div>
+<div class="paragraph">
+<p>Note that this class includes 2 deviations from ISO 8601:2004:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>for partial date/times, any part of the date/time up to the month may be missing, not just seconds and minutes as in the standard;</p>
+</li>
+<li>
+<p>the time <code>24:00:00</code> is not allowed, since it would mean the date was really on the next day.</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="../../../latest/foundation_types/time_types/#_iso8601_type_class" class="xref page">Iso8601_type</a></code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Functions</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>year</strong> (): <code><a href="../../../latest/foundation_types/primitive_types/#_integer_class" class="xref page">Integer</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Extract the year part of the date as an Integer.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>month</strong> (): <code><a href="../../../latest/foundation_types/primitive_types/#_integer_class" class="xref page">Integer</a></code><br>
+<br>
+<em>Pre</em>: <code>not month_unknown</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Extract the month part of the date/time as an Integer, or return 0 if not present.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>day</strong> (): <code><a href="../../../latest/foundation_types/primitive_types/#_integer_class" class="xref page">Integer</a></code><br>
+<br>
+<em>Pre</em>: <code>not day_unknown</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Extract the day part of the date/time as an Integer, or return 0 if not present.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>hour</strong> (): <code><a href="../../../latest/foundation_types/primitive_types/#_integer_class" class="xref page">Integer</a></code><br>
+<br>
+<em>Pre</em>: <code>not hour_unknown</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Extract the hour part of the date/time as an Integer, or return 0 if not present.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>minute</strong> (): <code><a href="../../../latest/foundation_types/primitive_types/#_integer_class" class="xref page">Integer</a></code><br>
+<br>
+<em>Pre</em>: <code>not minute_unknown</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Extract the minute part of the date/time as an Integer, or return 0 if not present.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>second</strong> (): <code><a href="../../../latest/foundation_types/primitive_types/#_integer_class" class="xref page">Integer</a></code><br>
+<br>
+<em>Pre</em>: <code>not second_unknown</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Extract the integral seconds part of the date/time (i.e. prior to any decimal sign) as an Integer, or return 0 if not present.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>fractional_second</strong> (): <code><a href="../../../latest/foundation_types/primitive_types/#_real_class" class="xref page">Real</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Extract the fractional seconds part of the date/time (i.e. following to any decimal sign) as a Real, or return 0.0 if not present.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>timezone</strong> (): <code><a href="../../../latest/foundation_types/time_types/#_iso8601_timezone_class" class="xref page">Iso8601_timezone</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Timezone; may be Void.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>month_unknown</strong> (): <code><a href="../../../latest/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Indicates whether month in year is unknown.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>day_unknown</strong> (): <code><a href="../../../latest/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Indicates whether day in month is unknown.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>minute_unknown</strong> (): <code><a href="../../../latest/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Indicates whether minute in hour is known.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>second_unknown</strong> (): <code><a href="../../../latest/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Indicates whether minute in hour is known.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_decimal_sign_comma</strong> (): <code><a href="../../../latest/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>True if this time has a decimal part indicated by <code>','</code> (comma) rather than <code>'.'</code> (period).</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(effected)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_partial</strong> (): <code><a href="../../../latest/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>True if this date time is partial, i.e. if seconds or more is missing.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(effected)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_extended</strong> (): <code><a href="../../../latest/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>True if this date/time uses <code>'-'</code>, <code>':'</code> separators.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>has_fractional_second</strong> (): <code><a href="../../../latest/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>True if the <code><em>fractional_second</em></code> part is significant (i.e. even if = 0.0).</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>as_string</strong> (): <code><a href="../../../latest/foundation_types/primitive_types/#_string_class" class="xref page">String</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Return the string value in extended format.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>add</strong> <em>alias</em> "+" (<br>
+a_diff: <code><a href="../../../latest/foundation_types/time_types/#_iso8601_duration_class" class="xref page">Iso8601_duration</a>[1]</code><br>
+): <code><a href="../../../latest/foundation_types/time_types/#_iso8601_date_time_class" class="xref page">Iso8601_date_time</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Arithmetic addition of a duration to a date/time.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>subtract</strong> <em>alias</em> "-" (<br>
+a_diff: <code><a href="../../../latest/foundation_types/time_types/#_iso8601_duration_class" class="xref page">Iso8601_duration</a>[1]</code><br>
+): <code><a href="../../../latest/foundation_types/time_types/#_iso8601_date_time_class" class="xref page">Iso8601_date_time</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Arithmetic subtraction of a duration from a date/time.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>diff</strong> <em>alias</em> "-" (<br>
+a_date_time: <code><a href="../../../latest/foundation_types/time_types/#_iso8601_date_time_class" class="xref page">Iso8601_date_time</a>[1]</code><br>
+): <code><a href="../../../latest/foundation_types/time_types/#_iso8601_duration_class" class="xref page">Iso8601_duration</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Difference of two date/times.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>add_nominal</strong> <em>alias</em> "++" (<br>
+a_diff: <code><a href="../../../latest/foundation_types/time_types/#_iso8601_duration_class" class="xref page">Iso8601_duration</a>[1]</code><br>
+): <code><a href="../../../latest/foundation_types/time_types/#_iso8601_date_class" class="xref page">Iso8601_date</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Addition of nominal duration represented by <code><em>a_diff</em></code>. See <code>Iso8601_date.<em>add_nominal</em>()</code> for semantics.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>subtract_nominal</strong> <em>alias</em> "--" (<br>
+a_diff: <code><a href="../../../latest/foundation_types/time_types/#_iso8601_duration_class" class="xref page">Iso8601_duration</a>[1]</code><br>
+): <code><a href="../../../latest/foundation_types/time_types/#_iso8601_date_class" class="xref page">Iso8601_date</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Subtraction of nominal duration represented by <code><em>a_diff</em></code>. See <code><em>add_nominal</em>()</code> for semantics.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Invariants</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Year_valid</em>: <code>valid_year (year)</code></p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Month_valid</em>: <code>valid_month (month)</code></p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Day_valid</em>: <code>valid_day(year, month, day)</code></p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Hour_valid</em>: <code>valid_hour (hour, minute, second)</code></p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Minute_valid</em>: <code>not minute_unknown implies valid_minute(minute)</code></p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Second_valid</em>: <code>not second_unknown implies valid_second (second)</code></p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Fractional_second_valid</em>: <code>has_fractional_second implies (not second_unknown and valid_fractional_second (fractional_second))</code></p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Partial_validity_year</em>: <code>not month_unknown</code></p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Partial_validity_month</em>: <code>not month_unknown</code></p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Partial_validity_day</em>: <code>not day_unknown</code></p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Partial_validity_hour</em>: <code>not hour_unknown</code></p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Partial_validity_minute</em>: <code>minute_unknown implies second_unknown</code></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="_tabs_6_bmm--panel" class="tabpanel" aria-labelledby="_tabs_6_bmm">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+    "name": "Iso8601_date_time",
+    "documentation": "Represents an ISO 8601 date/time, including partial and extended forms. Value may be:\n\n* `YYYY-MM-DDThh:mm:ss[(,|.)sss][Z | ±hh[:mm]]` (extended, preferred) or\n* `YYYYMMDDThhmmss[(,|.)sss][Z | ±hh[mm]]` (compact)\n* or a partial variant.\n\nSee `_valid_iso8601_date_time()_` for validity.\n\nNote that this class includes 2 deviations from ISO 8601:2004:\n\n* for partial date/times, any part of the date/time up to the month may be missing, not just seconds and minutes as in the standard;\n* the time `24:00:00` is not allowed, since it would mean the date was really on the next day.",
+    "ancestors": [
+        "Iso8601_type"
+    ],
+    "functions": {
+        "year": {
+            "name": "year",
+            "documentation": "Extract the year part of the date as an Integer.",
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Integer"
+            }
+        },
+        "month": {
+            "name": "month",
+            "documentation": "Extract the month part of the date/time as an Integer, or return 0 if not present.",
+            "pre_conditions": {
+                "Pre": "not month_unknown"
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Integer"
+            }
+        },
+        "day": {
+            "name": "day",
+            "documentation": "Extract the day part of the date/time as an Integer, or return 0 if not present.",
+            "pre_conditions": {
+                "Pre": "not day_unknown"
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Integer"
+            }
+        },
+        "hour": {
+            "name": "hour",
+            "documentation": "Extract the hour part of the date/time as an Integer, or return 0 if not present.",
+            "pre_conditions": {
+                "Pre": "not hour_unknown"
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Integer"
+            }
+        },
+        "minute": {
+            "name": "minute",
+            "documentation": "Extract the minute part of the date/time as an Integer, or return 0 if not present.",
+            "pre_conditions": {
+                "Pre": "not minute_unknown"
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Integer"
+            }
+        },
+        "second": {
+            "name": "second",
+            "documentation": "Extract the integral seconds part of the date/time (i.e. prior to any decimal sign) as an Integer, or return 0 if not present.",
+            "pre_conditions": {
+                "Pre": "not second_unknown"
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Integer"
+            }
+        },
+        "fractional_second": {
+            "name": "fractional_second",
+            "documentation": "Extract the fractional seconds part of the date/time (i.e. following to any decimal sign) as a Real, or return 0.0 if not present.",
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Real"
+            }
+        },
+        "timezone": {
+            "name": "timezone",
+            "documentation": "Timezone; may be Void.",
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Iso8601_timezone"
+            }
+        },
+        "month_unknown": {
+            "name": "month_unknown",
+            "documentation": "Indicates whether month in year is unknown.",
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Boolean"
+            }
+        },
+        "day_unknown": {
+            "name": "day_unknown",
+            "documentation": "Indicates whether day in month is unknown.",
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Boolean"
+            }
+        },
+        "minute_unknown": {
+            "name": "minute_unknown",
+            "documentation": "Indicates whether minute in hour is known.",
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Boolean"
+            }
+        },
+        "second_unknown": {
+            "name": "second_unknown",
+            "documentation": "Indicates whether minute in hour is known.",
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Boolean"
+            }
+        },
+        "is_decimal_sign_comma": {
+            "name": "is_decimal_sign_comma",
+            "documentation": "True if this time has a decimal part indicated by `','` (comma) rather than `'.'` (period).",
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Boolean"
+            }
+        },
+        "is_partial": {
+            "name": "is_partial",
+            "documentation": "True if this date time is partial, i.e. if seconds or more is missing.",
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Boolean"
+            }
+        },
+        "is_extended": {
+            "name": "is_extended",
+            "documentation": "True if this date/time uses `'-'`, `':'` separators.",
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Boolean"
+            }
+        },
+        "has_fractional_second": {
+            "name": "has_fractional_second",
+            "documentation": "True if the `_fractional_second_` part is significant (i.e. even if = 0.0).",
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Boolean"
+            }
+        },
+        "as_string": {
+            "name": "as_string",
+            "documentation": "Return the string value in extended format.",
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "String"
+            }
+        },
+        "add": {
+            "name": "add",
+            "aliases": [
+                "+"
+            ],
+            "documentation": "Arithmetic addition of a duration to a date/time.",
+            "parameters": {
+                "a_diff": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "a_diff",
+                    "type": "Iso8601_duration"
+                }
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Iso8601_date_time"
+            }
+        },
+        "subtract": {
+            "name": "subtract",
+            "aliases": [
+                "-"
+            ],
+            "documentation": "Arithmetic subtraction of a duration from a date/time.",
+            "parameters": {
+                "a_diff": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "a_diff",
+                    "type": "Iso8601_duration"
+                }
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Iso8601_date_time"
+            }
+        },
+        "diff": {
+            "name": "diff",
+            "aliases": [
+                "-"
+            ],
+            "documentation": "Difference of two date/times.",
+            "parameters": {
+                "a_date_time": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "a_date_time",
+                    "type": "Iso8601_date_time"
+                }
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Iso8601_duration"
+            }
+        },
+        "add_nominal": {
+            "name": "add_nominal",
+            "aliases": [
+                "++"
+            ],
+            "documentation": "Addition of nominal duration represented by `_a_diff_`. See `Iso8601_date._add_nominal_()` for semantics.",
+            "parameters": {
+                "a_diff": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "a_diff",
+                    "type": "Iso8601_duration"
+                }
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Iso8601_date"
+            }
+        },
+        "subtract_nominal": {
+            "name": "subtract_nominal",
+            "aliases": [
+                "--"
+            ],
+            "documentation": "Subtraction of nominal duration represented by `_a_diff_`. See `_add_nominal_()` for semantics.",
+            "parameters": {
+                "a_diff": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "a_diff",
+                    "type": "Iso8601_duration"
+                }
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Iso8601_date"
+            }
+        }
+    },
+    "invariants": {
+        "Year_valid": "valid_year (year)",
+        "Month_valid": "valid_month (month)",
+        "Day_valid": "valid_day(year, month, day)",
+        "Hour_valid": "valid_hour (hour, minute, second)",
+        "Minute_valid": "not minute_unknown implies valid_minute(minute)",
+        "Second_valid": "not second_unknown implies valid_second (second)",
+        "Fractional_second_valid": "has_fractional_second implies (not second_unknown and valid_fractional_second (fractional_second))",
+        "Partial_validity_year": "not month_unknown",
+        "Partial_validity_month": "not month_unknown",
+        "Partial_validity_day": "not day_unknown",
+        "Partial_validity_hour": "not hour_unknown",
+        "Partial_validity_minute": "minute_unknown implies second_unknown"
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="_tabs_6_uml--panel" class="tabpanel" aria-labelledby="_tabs_6_uml">
+<div class="imageblock kroki">
+<div class="content">
+<img src="https://kroki.io/plantuml/svg/eNqlVU1v1DAQvftXjMRlES2iF4S2PaFeekICbghZ3niSWE3sxXYoofS_Yzsf62yS3WR7szxv3sybGY9JUjBj4MGoTx8_3FDOLFIrSoRnAvAOamR68xa28CAtZqjhx83PYCiVtPmkhbN68j5X1QyVkJXFSZPBREk-aUo1S6xQkhU0Qn1FVvQQr-Ovki11q7C7HCqhlXyU6kkG6GelCmQyVnTS3gg4CWlSPAkRhnJMROkFiUzSRJUlm0PumbaCFXNm_GNRcuST9pwZOl29Y6QDGquFzIL1WzgejJxvgFEu0jQqL68088QeBnHdD5PV16TaWZ_G61i8Z2DoLTPoIU8UoFNDpXKddEVdmc9I0KuIXghhOxN4YPg2bb1HgDdPubBoSvWIt4WQuM00q8PpPVfWIr-1rvvhtn3Dv1lR4bh_z12Yl3MDNUTOztY48-9Y7pV2L3Jl1mOmL5qjRn6J_Cj7Ao2hNmdyA8rmbplse-KuH8faexeqNMVfle_qUt9Mo-uqXhkx9loZ1NWtM9_9u77u609I34lwH08UIW2v3DOh95gKKfyAmgsnTXAa_gyohzt7UmqDb74SKBc7-B_mmP_q2P8K-GLC8DVBfpbRLNfU_GkrRLVreEWM8Q6H1Hvfq2pX4BlnEe2dJuhhPSxw80v1Ard-IV_i267Os67uFYyGeWLsB2t1YO-zJP8BVjrfng==?svg-type=inline" alt="Iso8601_date_time">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_iso8601_duration_class"><a class="anchor" href="#_iso8601_duration_class"></a><a class="link" href="#_iso8601_duration_class">Iso8601_duration Class</a></h3>
+<div id="_tabs_7" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="_tabs_7_definition" class="tab">
+<p>Definition</p>
+</li>
+<li id="_tabs_7_bmm" class="tab">
+<p>BMM</p>
+</li>
+<li id="_tabs_7_uml" class="tab">
+<p>UML</p>
+</li>
+</ul>
+</div>
+<div id="_tabs_7_definition--panel" class="tabpanel" aria-labelledby="_tabs_7_definition">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>Iso8601_duration</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Represents an ISO 8601 duration, which may have multiple parts from years down to seconds. The <code><em>value</em></code> attribute is a String in the format:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>P[nnY][nnM][nnW][nnD][T[nnH][nnM][nnS]]</code></p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+two deviations from ISO 8601 are supported, the first, to allow a negative sign, and the second allowing the 'W' designator to be mixed with other designators.
+</td>
+</tr>
+</table>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="../../../latest/foundation_types/time_types/#_iso8601_type_class" class="xref page">Iso8601_type</a></code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Functions</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(effected)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_extended</strong> (): <code><a href="../../../latest/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Returns True.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(effected)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_partial</strong> (): <code><a href="../../../latest/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Returns False.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>years</strong> (): <code><a href="../../../latest/foundation_types/primitive_types/#_integer_class" class="xref page">Integer</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Number of years in the <code><em>value</em></code>, i.e. the number preceding the <code>'Y'</code> in the <code>'YMD'</code> part, if one exists.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>months</strong> (): <code><a href="../../../latest/foundation_types/primitive_types/#_integer_class" class="xref page">Integer</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Number of months in the <code><em>value</em></code>, i.e. the value preceding the <code>'M'</code> in the <code>'YMD'</code> part, if one exists.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>days</strong> (): <code><a href="../../../latest/foundation_types/primitive_types/#_integer_class" class="xref page">Integer</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Number of days in the <code><em>value</em></code>, i.e. the number preceding the <code>'D'</code> in the <code>'YMD'</code> part, if one exists.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>hours</strong> (): <code><a href="../../../latest/foundation_types/primitive_types/#_integer_class" class="xref page">Integer</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Number of hours in the <code><em>value</em></code>, i.e. the number preceding the <code>'H'</code> in the <code>'HMS'</code> part, if one exists.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>minutes</strong> (): <code><a href="../../../latest/foundation_types/primitive_types/#_integer_class" class="xref page">Integer</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Number of minutes in the <code><em>value</em></code>, i.e. the number preceding the <code>'M'</code> in the <code>'HMS'</code> part, if one exists.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>seconds</strong> (): <code><a href="../../../latest/foundation_types/primitive_types/#_integer_class" class="xref page">Integer</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Number of seconds in the <code><em>value</em></code>, i.e. the integer number preceding the <code>'S'</code> in the <code>'HMS'</code> part, if one exists.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>fractional_seconds</strong> (): <code><a href="../../../latest/foundation_types/primitive_types/#_real_class" class="xref page">Real</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Fractional seconds in the <code><em>value</em></code>, i.e. the decimal part of the number preceding the <code>'S'</code> in the <code>'HMS'</code> part, if one exists.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>weeks</strong> (): <code><a href="../../../latest/foundation_types/primitive_types/#_integer_class" class="xref page">Integer</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Number of weeks in the <code><em>value</em></code>, i.e. the value preceding the <code>W</code>, if one exists.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_decimal_sign_comma</strong> (): <code><a href="../../../latest/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>True if this time has a decimal part indicated by ',' (comma) rather than '.' (period).</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>to_seconds</strong> (): <code><a href="../../../latest/foundation_types/primitive_types/#_real_class" class="xref page">Real</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Total number of seconds equivalent (including fractional) of entire duration. Where non-definite elements such as year and month (i.e. 'Y' and 'M') are included, the corresponding 'average' durations from <code>Time_definitions</code> are used to compute the result.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>as_string</strong> (): <code><a href="../../../latest/foundation_types/primitive_types/#_string_class" class="xref page">String</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Return the duration string value.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>add</strong> <em>alias</em> "+" (<br>
+a_val: <code><a href="../../../latest/foundation_types/time_types/#_iso8601_duration_class" class="xref page">Iso8601_duration</a>[1]</code><br>
+): <code><a href="../../../latest/foundation_types/time_types/#_iso8601_duration_class" class="xref page">Iso8601_duration</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Arithmetic addition of a duration to a duration, via conversion to seconds, using <code>Time_definitions.<em>Average_days_in_year</em></code> and <code>Time_definitions.<em>Average_days_in_month</em></code></p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>subtract</strong> <em>alias</em> "-" (<br>
+a_val: <code><a href="../../../latest/foundation_types/time_types/#_iso8601_duration_class" class="xref page">Iso8601_duration</a>[1]</code><br>
+): <code><a href="../../../latest/foundation_types/time_types/#_iso8601_duration_class" class="xref page">Iso8601_duration</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Arithmetic subtraction of a duration from a duration, via conversion to seconds, using <code>Time_definitions.<em>Average_days_in_year</em></code> and <code>Time_definitions.<em>Average_days_in_month</em></code></p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>multiply</strong> <em>alias</em> "&#42;" (<br>
+a_val: <code><a href="../../../latest/foundation_types/primitive_types/#_real_class" class="xref page">Real</a>[1]</code><br>
+): <code><a href="../../../latest/foundation_types/time_types/#_iso8601_duration_class" class="xref page">Iso8601_duration</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Arithmetic multiplication a duration by a number.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>divide</strong> <em>alias</em> "/" (<br>
+a_val: <code><a href="../../../latest/foundation_types/primitive_types/#_real_class" class="xref page">Real</a>[1]</code><br>
+): <code><a href="../../../latest/foundation_types/time_types/#_iso8601_duration_class" class="xref page">Iso8601_duration</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Arithmetic division of a duration by a number.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>negative</strong> <em>alias</em> "-" (): <code><a href="../../../latest/foundation_types/time_types/#_iso8601_duration_class" class="xref page">Iso8601_duration</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Generate negative of current duration value.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Invariants</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Years_valid</em>: <code>years &gt;= 0</code></p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Months_valid</em>: <code>months &gt;= 0</code></p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Weeks_valid</em>: <code>weeks &gt;= 0</code></p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Days_valid</em>: <code>days &gt;= 0</code></p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Hours_valid</em>: <code>hours &gt;= 0</code></p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Minutes_valid</em>: <code>minutes &gt;= 0</code></p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Seconds_valid</em>: <code>seconds &gt;= 0</code></p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Fractional_second_valid</em>: <code>fractional_second &gt;= 0.0 and fractional_second &lt; 1.0</code></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="_tabs_7_bmm--panel" class="tabpanel" aria-labelledby="_tabs_7_bmm">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+    "name": "Iso8601_duration",
+    "documentation": "Represents an ISO 8601 duration, which may have multiple parts from years down to seconds. The `_value_` attribute is a String in the format:\n\n* `P[nnY][nnM][nnW][nnD][T[nnH][nnM][nnS]]`\n\nNOTE: two deviations from ISO 8601 are supported, the first, to allow a negative sign, and the second allowing the 'W' designator to be mixed with other designators.",
+    "ancestors": [
+        "Iso8601_type"
+    ],
+    "functions": {
+        "is_extended": {
+            "name": "is_extended",
+            "documentation": "Returns True.",
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Boolean"
+            }
+        },
+        "is_partial": {
+            "name": "is_partial",
+            "documentation": "Returns False.",
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Boolean"
+            }
+        },
+        "years": {
+            "name": "years",
+            "documentation": "Number of years in the `_value_`, i.e. the number preceding the `'Y'` in the `'YMD'` part, if one exists.",
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Integer"
+            }
+        },
+        "months": {
+            "name": "months",
+            "documentation": "Number of months in the `_value_`, i.e. the value preceding the `'M'` in the `'YMD'` part, if one exists.",
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Integer"
+            }
+        },
+        "days": {
+            "name": "days",
+            "documentation": "Number of days in the `_value_`, i.e. the number preceding the `'D'` in the `'YMD'` part, if one exists.",
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Integer"
+            }
+        },
+        "hours": {
+            "name": "hours",
+            "documentation": "Number of hours in the `_value_`, i.e. the number preceding the `'H'` in the `'HMS'` part, if one exists.",
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Integer"
+            }
+        },
+        "minutes": {
+            "name": "minutes",
+            "documentation": "Number of minutes in the `_value_`, i.e. the number preceding the `'M'` in the `'HMS'` part, if one exists.",
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Integer"
+            }
+        },
+        "seconds": {
+            "name": "seconds",
+            "documentation": "Number of seconds in the `_value_`, i.e. the integer number preceding the `'S'` in the `'HMS'` part, if one exists.",
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Integer"
+            }
+        },
+        "fractional_seconds": {
+            "name": "fractional_seconds",
+            "documentation": "Fractional seconds in the `_value_`, i.e. the decimal part of the number preceding the `'S'` in the `'HMS'` part, if one exists.",
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Real"
+            }
+        },
+        "weeks": {
+            "name": "weeks",
+            "documentation": "Number of weeks in the `_value_`, i.e. the value preceding the `W`, if one exists.",
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Integer"
+            }
+        },
+        "is_decimal_sign_comma": {
+            "name": "is_decimal_sign_comma",
+            "documentation": "True if this time has a decimal part indicated by ',' (comma) rather than '.' (period).",
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Boolean"
+            }
+        },
+        "to_seconds": {
+            "name": "to_seconds",
+            "documentation": "Total number of seconds equivalent (including fractional) of entire duration. Where non-definite elements such as year and month (i.e. 'Y' and 'M') are included, the corresponding 'average' durations from `Time_definitions` are used to compute the result.",
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Real"
+            }
+        },
+        "as_string": {
+            "name": "as_string",
+            "documentation": "Return the duration string value.",
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "String"
+            }
+        },
+        "add": {
+            "name": "add",
+            "aliases": [
+                "+"
+            ],
+            "documentation": "Arithmetic addition of a duration to a duration, via conversion to seconds, using `Time_definitions._Average_days_in_year_` and `Time_definitions._Average_days_in_month_`",
+            "parameters": {
+                "a_val": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "a_val",
+                    "type": "Iso8601_duration"
+                }
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Iso8601_duration"
+            }
+        },
+        "subtract": {
+            "name": "subtract",
+            "aliases": [
+                "-"
+            ],
+            "documentation": "Arithmetic subtraction of a duration from a duration, via conversion to seconds, using `Time_definitions._Average_days_in_year_` and `Time_definitions._Average_days_in_month_`",
+            "parameters": {
+                "a_val": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "a_val",
+                    "type": "Iso8601_duration"
+                }
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Iso8601_duration"
+            }
+        },
+        "multiply": {
+            "name": "multiply",
+            "aliases": [
+                "&amp;#42;"
+            ],
+            "documentation": "Arithmetic multiplication a duration by a number.",
+            "parameters": {
+                "a_val": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "a_val",
+                    "type": "Real"
+                }
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Iso8601_duration"
+            }
+        },
+        "divide": {
+            "name": "divide",
+            "aliases": [
+                "/"
+            ],
+            "documentation": "Arithmetic division of a duration by a number.",
+            "parameters": {
+                "a_val": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "a_val",
+                    "type": "Real"
+                }
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Iso8601_duration"
+            }
+        },
+        "negative": {
+            "name": "negative",
+            "aliases": [
+                "-"
+            ],
+            "documentation": "Generate negative of current duration value.",
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Iso8601_duration"
+            }
+        }
+    },
+    "invariants": {
+        "Years_valid": "years &gt;= 0",
+        "Months_valid": "months &gt;= 0",
+        "Weeks_valid": "weeks &gt;= 0",
+        "Days_valid": "days &gt;= 0",
+        "Hours_valid": "hours &gt;= 0",
+        "Minutes_valid": "minutes &gt;= 0",
+        "Seconds_valid": "seconds &gt;= 0",
+        "Fractional_second_valid": "fractional_second &gt;= 0.0 and fractional_second &lt; 1.0"
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="_tabs_7_uml--panel" class="tabpanel" aria-labelledby="_tabs_7_uml">
+<div class="imageblock kroki">
+<div class="content">
+<img src="https://kroki.io/plantuml/svg/eNqlVMtu2zAQvPMrFuiFQZOguRSF01ORS04B2t6KgqDFtUSED5eknApp_r0UbSlWRNWSeyM4O_vicEihuPdw7-2njx9umKgdD9IaeCYA70F6hr8DGoGCXsAKvlirkBv4cfOzw7fcBclVFm6QO5-QexOwRNcj2ppQ5SHBmzxQ2XoqmzR1wDzmsbBG5LGN40U7LVfsOOwrctXHPCE-5tlxeIGF1C1bloYVVmue3UOw0_m5Zz44acoEfUvHV1AICpztYvxq_EYxCi4mgP3s9Tq0I_5PDl2rILeqec3Rtf9vnpA7KXApy2AZL3ZIJ6NeCOFrn8aCoXZDs0WAd0-VjFrQ9hFvlTS4Kh1v0ula2BBQ3IYo6XR7EHnsr8bx7p-7Mi-nZD6MnPww486_o95aF_eysOtxpgcn0KE4Z_yj7hV6z0LFDQUbqij1VZ-4e7m3s_cUZh3DX3Vc0Wxu6ZAHdAsrHrMWFo176-DPf66u-v0T0r9Euj9WFCGHt5Ia2R1upJGtFv2ZSpOCta5IoRk6SnbUfXzySgp6NiE66Cj_5Vv-JYjZCVvnpVCdzOjnz5Qce8lQewOlC2qM3J3CpmXf2Xqt8ARZdt7D2zb9wB5m0EJUyxm0ttrZ3INLnqTGXzASc0b2A1sd4F0l8hdpu5cF?svg-type=inline" alt="Iso8601_duration">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_iso8601_timezone_class"><a class="anchor" href="#_iso8601_timezone_class"></a><a class="link" href="#_iso8601_timezone_class">Iso8601_timezone Class</a></h3>
+<div id="_tabs_8" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="_tabs_8_definition" class="tab">
+<p>Definition</p>
+</li>
+<li id="_tabs_8_bmm" class="tab">
+<p>BMM</p>
+</li>
+<li id="_tabs_8_uml" class="tab">
+<p>UML</p>
+</li>
+</ul>
+</div>
+<div id="_tabs_8_definition--panel" class="tabpanel" aria-labelledby="_tabs_8_definition">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>Iso8601_timezone</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>ISO8601 timezone string, in format:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Z &#124; ±hh[mm]</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>where:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>hh</code> is "00" - "23" (0-filled to two digits)</p>
+</li>
+<li>
+<p><code>mm</code> is "00" - "59" (0-filled to two digits)</p>
+</li>
+<li>
+<p><code>Z</code> is a literal meaning UTC (modern replacement for GMT), i.e. timezone <code>+0000</code></p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="../../../latest/foundation_types/time_types/#_iso8601_type_class" class="xref page">Iso8601_type</a></code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Functions</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>hour</strong> (): <code><a href="../../../latest/foundation_types/primitive_types/#_integer_class" class="xref page">Integer</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Extract the hour part of timezone, as an Integer in the range <code>00 - 14</code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>minute</strong> (): <code><a href="../../../latest/foundation_types/primitive_types/#_integer_class" class="xref page">Integer</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Extract the hour part of timezone, as an Integer, usually either 0 or 30.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>sign</strong> (): <code><a href="../../../latest/foundation_types/primitive_types/#_integer_class" class="xref page">Integer</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Direction of timezone expresssed as +1 or -1.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>minute_unknown</strong> (): <code><a href="../../../latest/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Indicates whether minute part known.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(effected)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_partial</strong> (): <code><a href="../../../latest/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>True if this time zone is partial, i.e. if minutes is missing.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(effected)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_extended</strong> (): <code><a href="../../../latest/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>True if this time-zone uses ‘:’ separators.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_gmt</strong> (): <code><a href="../../../latest/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>True if timezone is UTC, i.e. <code>+0000</code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>as_string</strong> (): <code><a href="../../../latest/foundation_types/primitive_types/#_string_class" class="xref page">String</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Return timezone string in extended format.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Invariants</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Min_hour_valid</em>: <code>sign = -1 implies hour &gt; 0 and hour &lt;= Min_timezone_hour</code></p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Max_hour_valid</em>: <code>sign = 1 implies hour &gt; 0 and hour &lt;= Max_timezone_hour</code></p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Minute_valid</em>: <code>not minute_unknown implies valid_minute (minute)</code></p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Sign_valid</em>: <code>sign = 1 or sign = -1</code></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="_tabs_8_bmm--panel" class="tabpanel" aria-labelledby="_tabs_8_bmm">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+    "name": "Iso8601_timezone",
+    "documentation": "ISO8601 timezone string, in format:\n\n* `Z | ±hh[mm]`\n\nwhere:\n\n* `hh` is \"00\" - \"23\" (0-filled to two digits)\n* `mm` is \"00\" - \"59\" (0-filled to two digits)\n* `Z` is a literal meaning UTC (modern replacement for GMT), i.e. timezone `+0000`\n",
+    "ancestors": [
+        "Iso8601_type"
+    ],
+    "functions": {
+        "hour": {
+            "name": "hour",
+            "documentation": "Extract the hour part of timezone, as an Integer in the range `00 - 14`.",
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Integer"
+            }
+        },
+        "minute": {
+            "name": "minute",
+            "documentation": "Extract the hour part of timezone, as an Integer, usually either 0 or 30.",
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Integer"
+            }
+        },
+        "sign": {
+            "name": "sign",
+            "documentation": "Direction of timezone expresssed as +1 or -1.",
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Integer"
+            }
+        },
+        "minute_unknown": {
+            "name": "minute_unknown",
+            "documentation": "Indicates whether minute part known.",
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Boolean"
+            }
+        },
+        "is_partial": {
+            "name": "is_partial",
+            "documentation": "True if this time zone is partial, i.e. if minutes is missing.",
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Boolean"
+            }
+        },
+        "is_extended": {
+            "name": "is_extended",
+            "documentation": "True if this time-zone uses ‘:’ separators.",
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Boolean"
+            }
+        },
+        "is_gmt": {
+            "name": "is_gmt",
+            "documentation": "True if timezone is UTC, i.e. `+0000`.",
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Boolean"
+            }
+        },
+        "as_string": {
+            "name": "as_string",
+            "documentation": "Return timezone string in extended format.",
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "String"
+            }
+        }
+    },
+    "invariants": {
+        "Min_hour_valid": "sign = -1 implies hour &gt; 0 and hour &lt;= Min_timezone_hour",
+        "Max_hour_valid": "sign = 1 implies hour &gt; 0 and hour &lt;= Max_timezone_hour",
+        "Minute_valid": "not minute_unknown implies valid_minute (minute)",
+        "Sign_valid": "sign = 1 or sign = -1"
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="_tabs_8_uml--panel" class="tabpanel" aria-labelledby="_tabs_8_uml">
+<div class="imageblock kroki">
+<div class="content">
+<img src="https://kroki.io/plantuml/svg/eNqdVcFOwzAMvecrLHEpgiG4IDQ4IS6cOMANocgsXhuRJiNxGWXw76TdqNatY-1uVZ6f7ee8uGJiMAS4D-7q8vxCss7py1mChQA4gcwVPjmGMdxbppQ8PF-81ECubcHUCQWd2n84srBv1s2XIbfOGULbhOggZ-hZo9kF0yeTVaR24WnOnRAGGdhrm9boY_1Zgz9C4GuEcMKwMYtyRgBH80wzhdy90bXRlsapx7L-OlOOmdQ1x57q09XQPtAU1C5SHS_-yvzsk9mO3Kl4u_MnymfOoxna9XamB6_IkzpE_lr3hkKQnKFNwHEWrTBuEkcB0KW9oUjnJb0XcUS9uaknZPIDK66zBhaNc_uDb75Ho2b-QjQ3UZ-vO0qI1V3FlybvaKqtZu1sONBpWsmS0CdQtl9cp9RlfO4sZwnkvQkKy638p5v8U1C9E9ZrBbK9GUN_Tct9NEBUoImzKhlQY1qZOl4VmoY8rdh3rng1tIesVxZQWLUZWuuhB63aywfQqmoHcwuPldy91PgKtszcYfvWWm3jq5-O-AUQahTu?svg-type=inline" alt="Iso8601_timezone">
+</div>
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -539,5 +3584,6 @@ For reasons of readability in data, it is strongly recommended that the 'extende
 <script async src="../../../../search-index.js"></script>
 <script src="../../../../ui/js/medium-zoom.min.js"></script>
 <script src="../../../../ui/js/zoom.js"></script>
+<script async src="../../../../ui/js/tabs.js"></script>
   </body>
 </html>

@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="../../../../ui/css/site.css">
     <link rel="stylesheet" href="../../../../ui/css/antora-openehr.css">
     <link rel="stylesheet" href="../../../../ui/css/openehr.css">
+    <link rel="stylesheet" href="../../../../ui/css/tabs.css">
 <link rel="icon" href="../../../../ui/img/favicon.ico" type="image/x-icon">
   </head>
   <body class="article">
@@ -294,7 +295,7 @@
     <a class="nav-link" href="../../ehr_extract/generic_extract_package/">Generic_extract Package</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../../ehr_extract/synchronisation_package/">Synchronisation Extracts</a>
+    <a class="nav-link" href="../../ehr_extract/synchronisation_package/">Synchronisation Extract</a>
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../../ehr_extract/message_package/">The Message package</a>
@@ -411,20 +412,6 @@
     <span class="version">development</span>
   </div>
   <ul class="components">
-    <li class="component">
-      <div class="title"><a href="../../../../AM/latest/">Archetype Model</a></div>
-      <ul class="versions">
-        <li class="version is-latest">
-          <a href="../../../../AM/latest/">Release-2.3.0</a>
-        </li>
-        <li class="version">
-          <a href="../../../../AM/Release-2.2.0/">Release-2.2.0</a>
-        </li>
-        <li class="version">
-          <a href="../../../../AM/development/">development</a>
-        </li>
-      </ul>
-    </li>
     <li class="component">
       <div class="title"><a href="../../../../BASE/latest/">Base Model</a></div>
       <ul class="versions">
@@ -568,7 +555,7 @@
 <div class="sect2">
 <h3 id="_compositions"><a class="anchor" href="#_compositions"></a><a class="link" href="#_compositions">Compositions</a></h3>
 <div class="paragraph">
-<p>The main data of the EHR is found in its Compositions, i.e. instances of the <code>COMPOSITION</code> class in the RM. Composition is based on the notion of a unit of information resulting from the interaction of a healthcare agent (subject or healthcare professional) with the EHR. It is designed to satisfy the following needs, which include the well-known ACID characteristics of transactions cite:[Gray_Reuter1993].</p>
+<p>The main data of the EHR is found in its Compositions, i.e. instances of the <code>COMPOSITION</code> class in the RM. Composition is based on the notion of a unit of information resulting from the interaction of a healthcare agent (subject or healthcare professional) with the EHR. It is designed to satisfy the following needs, which include the well-known ACID characteristics of transactions <span class="citation"><a href="#bibliography_entry_Gray_Reuter1993">[1]</a></span>.</p>
 </div>
 <div class="ulist">
 <ul>
@@ -596,10 +583,10 @@
 </ul>
 </div>
 <div class="paragraph">
-<p>The Composition concept originated from the 'Transaction' concept of the GEHR project cite:[GEHR_Del_4], cite:[GEHR_Del_7], cite:[GEHR_Del_8], cite:[GEHR1995]. In openEHR, it was renamed to 'Composition' (the name of the equivalent concept in <a href="https://www.iso.org/standard/40784.html" target="_blank" rel="noopener">ISO 13606-1</a>), and it has been expanded and more formally defined in openEHR in two ways. Firstly, the idea of a unit of committal has been formalised by the openEHR model of change control (see the <a href="https://specifications.openehr.org/releases/RM/latest/common.html">openEHR Common Information Model</a>); how this applies to the EHR and Compositions is described below.</p>
+<p>The Composition concept originated from the 'Transaction' concept of the GEHR project <span class="citation"><a href="#bibliography_entry_GEHR_Del_4">[2]</a></span>, <span class="citation"><a href="#bibliography_entry_GEHR_Del_7">[3]</a></span>, <span class="citation"><a href="#bibliography_entry_GEHR_Del_8">[4]</a></span>, <span class="citation"><a href="#bibliography_entry_GEHR1995">[5]</a></span>. In openEHR, it was renamed to 'Composition' (the name of the equivalent concept in <a href="https://www.iso.org/standard/40784.html" target="_blank" rel="noopener">ISO 13606-1</a>), and it has been expanded and more formally defined in openEHR in two ways. Firstly, the idea of a unit of committal has been formalised by the openEHR model of change control (see the <a href="https://specifications.openehr.org/releases/RM/latest/common.html">openEHR Common Information Model</a>); how this applies to the EHR and Compositions is described below.</p>
 </div>
 <div class="paragraph">
-<p>Secondly, the informational purpose of a Composition is not just to capture data from a passing clinical event such as a patient contact, but also to track longitudinal significant patient state, such as problems, allergies and medications. Accordingly, openEHR Compositions are temporally classified using a small number of broad categories recorded in the <code>COMPOSITION.<em>category</em></code> attribute. Categories include <em>event</em>, <em>episodic</em> and <em>persistent</em>. From a scientific realist ontological point of view, the kind of information recorded in a persistent Composition approximates a description of some <em>continuant</em> aspect of the patient (see citenp:[BFO_Arp_Smith_Spear], citenp:[Sowa2000]). This is in contrast with event Compositions, which record <em>occurrents</em>, i.e. events or states that occurred or were true at some moment in time. The episodic category corresponds to information that is relevant for the period of time of a care episode.</p>
+<p>Secondly, the informational purpose of a Composition is not just to capture data from a passing clinical event such as a patient contact, but also to track longitudinal significant patient state, such as problems, allergies and medications. Accordingly, openEHR Compositions are temporally classified using a small number of broad categories recorded in the <code>COMPOSITION.<em>category</em></code> attribute. Categories include <em>event</em>, <em>episodic</em> and <em>persistent</em>. From a scientific realist ontological point of view, the kind of information recorded in a persistent Composition approximates a description of some <em>continuant</em> aspect of the patient (see <span class="citation"><a href="#bibliography_entry_BFO_Arp_Smith_Spear">[6]</a></span>, <span class="citation"><a href="#bibliography_entry_Sowa2000">[7]</a></span>). This is in contrast with event Compositions, which record <em>occurrents</em>, i.e. events or states that occurred or were true at some moment in time. The episodic category corresponds to information that is relevant for the period of time of a care episode.</p>
 </div>
 <div id="event_persistent_ehr" class="imageblock text-center text-center">
 <div class="content">
@@ -1068,26 +1055,910 @@ is is strongly recommended that a UUID always be used for the <code><em>ehr_id</
 <div class="sect1">
 <h2 id="_class_descriptions"><a class="anchor" href="#_class_descriptions"></a><a class="link" href="#_class_descriptions">Class Descriptions</a></h2>
 <div class="sectionbody">
-<div class="paragraph">
-<p>Unresolved directive in ehr_package.adoc - include::ROOT:partial$uml/{pkg}ehr.adoc[]</p>
+<div class="sect2">
+<h3 id="_ehr_class"><a class="anchor" href="#_ehr_class"></a><a class="link" href="#_ehr_class">EHR Class</a></h3>
+<div id="_tabs_1" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="_tabs_1_definition" class="tab">
+<p>Definition</p>
+</li>
+<li id="_tabs_1_bmm" class="tab">
+<p>BMM</p>
+</li>
+<li id="_tabs_1_uml" class="tab">
+<p>UML</p>
+</li>
+</ul>
 </div>
-<div class="paragraph">
-<p>Unresolved directive in ehr_package.adoc - include::ROOT:partial$uml/{pkg}versioned_ehr_access.adoc[]</p>
+<div id="_tabs_1_definition--panel" class="tabpanel" aria-labelledby="_tabs_1_definition">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>EHR</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>The EHR object is the root object and access point of an EHR for a subject of care.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>system_id</strong>: <code><a href="../../../../BASE/latest/base_types/identification_package/#_hier_object_id_class" class="xref page">HIER_OBJECT_ID</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>The identifier of the logical EHR management system in which this EHR was created.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>ehr_id</strong>: <code><a href="../../../../BASE/latest/base_types/identification_package/#_hier_object_id_class" class="xref page">HIER_OBJECT_ID</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>The unique identifier of this EHR.</p>
 </div>
-<div class="paragraph">
-<p>Unresolved directive in ehr_package.adoc - include::ROOT:partial$uml/{pkg}ehr_access.adoc[]</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+is is strongly recommended that a UUID always be used for this field.
+</td>
+</tr>
+</table>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>contributions</strong>: <code><a href="../../../../BASE/latest/foundation_types/structure_types/#_list_class" class="xref page">List</a>&lt;<a href="../../../../BASE/latest/base_types/identification_package/#_object_ref_class" class="xref page">OBJECT_REF</a>&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>List of contributions causing changes to this EHR. Each contribution contains a list of versions, which may include references to any number of <code>VERSION</code> instances, i.e. items of type <code>VERSIONED_COMPOSITION</code> and <code>VERSIONED_FOLDER</code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>ehr_status</strong>: <code><a href="../../../../BASE/latest/base_types/identification_package/#_object_ref_class" class="xref page">OBJECT_REF</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Reference to <code>EHR_STATUS</code> object for this EHR.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>ehr_access</strong>: <code><a href="../../../../BASE/latest/base_types/identification_package/#_object_ref_class" class="xref page">OBJECT_REF</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Reference to <code>EHR_ACCESS</code> object for this EHR.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>compositions</strong>: <code><a href="../../../../BASE/latest/foundation_types/structure_types/#_list_class" class="xref page">List</a>&lt;<a href="../../../../BASE/latest/base_types/identification_package/#_object_ref_class" class="xref page">OBJECT_REF</a>&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Master list of all Versioned Composition references in this EHR.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>directory</strong>: <code><a href="../../../../BASE/latest/base_types/identification_package/#_object_ref_class" class="xref page">OBJECT_REF</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Optional directory structure for this EHR. If present, this is a reference to the first member of <code><em>folders</em></code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>time_created</strong>: <code><a href="../../../latest/data_types/quantity_package/#_dv_date_time_class" class="xref page">DV_DATE_TIME</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Time of creation of the EHR.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>folders</strong>: <code><a href="../../../../BASE/latest/foundation_types/structure_types/#_list_class" class="xref page">List</a>&lt;<a href="../../../../BASE/latest/base_types/identification_package/#_object_ref_class" class="xref page">OBJECT_REF</a>&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Optional additional Folder structures for this EHR. If set, the <code><em>directory</em></code> attribute refers to the first member.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>tags</strong>: <code><a href="../../../../BASE/latest/foundation_types/structure_types/#_list_class" class="xref page">List</a>&lt;<a href="../../../../BASE/latest/base_types/identification_package/#_object_ref_class" class="xref page">OBJECT_REF</a>&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Optional list of tags associated with this EHR. Tag <code><em>target</em></code> values can only be within the same EHR.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Invariants</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Contributions_valid</em>: <code>for_all c in contributions &#124; c.type.is_equal("CONTRIBUTION")</code></p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Ehr_access_valid</em>: <code>ehr_access.type.is_equal ("VERSIONED_EHR_ACCESS")</code></p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Ehr_status_valid</em>: <code>ehr_status.type.is_equal("VERSIONED_EHR_STATUS")</code></p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Compositions_valid</em>: <code>for_all c in compositions &#124; c.type.is_equal ("VERSIONED_COMPOSITION")</code></p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Directory_valid</em>: <code>directory /= Void implies directory.type.is_equal ("VERSIONED_FOLDER")</code></p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Folders_valid</em>: <code>folders /= Void implies for_all f in folders &#124; f.type.is_equal("VERSIONED_FOLDER")</code></p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Directory_in_folders</em>: <code>folders /= Void implies folders.item(1) = directory</code></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
 </div>
-<div class="paragraph">
-<p>Unresolved directive in ehr_package.adoc - include::ROOT:partial$uml/{pkg}access_control_settings.adoc[]</p>
+<div id="_tabs_1_bmm--panel" class="tabpanel" aria-labelledby="_tabs_1_bmm">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+    "name": "EHR",
+    "documentation": "The EHR object is the root object and access point of an EHR for a subject of care. ",
+    "properties": {
+        "system_id": {
+            "_type": "P_BMM_SINGLE_PROPERTY",
+            "name": "system_id",
+            "documentation": "The identifier of the logical EHR management system in which this EHR was created. \n",
+            "is_mandatory": true,
+            "type": "HIER_OBJECT_ID"
+        },
+        "ehr_id": {
+            "_type": "P_BMM_SINGLE_PROPERTY",
+            "name": "ehr_id",
+            "documentation": "The unique identifier of this EHR.\n\nNOTE: is is strongly recommended that a UUID always be used for this field.",
+            "is_mandatory": true,
+            "type": "HIER_OBJECT_ID"
+        },
+        "contributions": {
+            "_type": "P_BMM_CONTAINER_PROPERTY",
+            "name": "contributions",
+            "documentation": "List of contributions causing changes to this EHR. Each contribution contains a list of versions, which may include references to any number of `VERSION` instances, i.e. items of type `VERSIONED_COMPOSITION` and `VERSIONED_FOLDER`. ",
+            "type_def": {
+                "container_type": "List",
+                "type": "OBJECT_REF"
+            },
+            "cardinality": {
+                "lower": 0,
+                "upper_unbounded": true
+            }
+        },
+        "ehr_status": {
+            "_type": "P_BMM_SINGLE_PROPERTY",
+            "name": "ehr_status",
+            "documentation": "Reference to `EHR_STATUS` object for this EHR.",
+            "is_mandatory": true,
+            "type": "OBJECT_REF"
+        },
+        "ehr_access": {
+            "_type": "P_BMM_SINGLE_PROPERTY",
+            "name": "ehr_access",
+            "documentation": "Reference to `EHR_ACCESS` object for this EHR.",
+            "is_mandatory": true,
+            "type": "OBJECT_REF"
+        },
+        "compositions": {
+            "_type": "P_BMM_CONTAINER_PROPERTY",
+            "name": "compositions",
+            "documentation": "Master list of all Versioned Composition references in this EHR.",
+            "type_def": {
+                "container_type": "List",
+                "type": "OBJECT_REF"
+            },
+            "cardinality": {
+                "lower": 0,
+                "upper_unbounded": true
+            }
+        },
+        "directory": {
+            "_type": "P_BMM_SINGLE_PROPERTY",
+            "name": "directory",
+            "documentation": "Optional directory structure for this EHR. If present, this is a reference to the first member of `_folders_`.",
+            "type": "OBJECT_REF"
+        },
+        "time_created": {
+            "_type": "P_BMM_SINGLE_PROPERTY",
+            "name": "time_created",
+            "documentation": "Time of creation of the EHR.",
+            "is_mandatory": true,
+            "type": "DV_DATE_TIME"
+        },
+        "folders": {
+            "_type": "P_BMM_CONTAINER_PROPERTY",
+            "name": "folders",
+            "documentation": "Optional additional Folder structures for this EHR. If set, the `_directory_` attribute refers to the first member.",
+            "type_def": {
+                "container_type": "List",
+                "type": "OBJECT_REF"
+            },
+            "cardinality": {
+                "lower": 0,
+                "upper_unbounded": true
+            }
+        },
+        "tags": {
+            "_type": "P_BMM_CONTAINER_PROPERTY",
+            "name": "tags",
+            "documentation": "Optional list of tags associated with this EHR. Tag `_target_` values can only be within the same EHR.",
+            "type_def": {
+                "container_type": "List",
+                "type": "OBJECT_REF"
+            },
+            "cardinality": {
+                "lower": 0,
+                "upper_unbounded": true
+            }
+        }
+    },
+    "invariants": {
+        "Contributions_valid": "for_all c in contributions | c.type.is_equal(\"CONTRIBUTION\")",
+        "Ehr_access_valid": "ehr_access.type.is_equal (\"VERSIONED_EHR_ACCESS\")",
+        "Ehr_status_valid": "ehr_status.type.is_equal(\"VERSIONED_EHR_STATUS\")",
+        "Compositions_valid": "for_all c in compositions | c.type.is_equal (\"VERSIONED_COMPOSITION\")",
+        "Directory_valid": "directory /= Void implies directory.type.is_equal (\"VERSIONED_FOLDER\")",
+        "Folders_valid": "folders /= Void implies for_all f in folders | f.type.is_equal(\"VERSIONED_FOLDER\")",
+        "Directory_in_folders": "folders /= Void implies folders.item(1) = directory"
+    }
+}</code></pre>
 </div>
-<div class="paragraph">
-<p>Unresolved directive in ehr_package.adoc - include::ROOT:partial$uml/{pkg}versioned_ehr_status.adoc[]</p>
 </div>
-<div class="paragraph">
-<p>Unresolved directive in ehr_package.adoc - include::ROOT:partial$uml/{pkg}ehr_status.adoc[]</p>
 </div>
-<div class="paragraph">
-<p>Unresolved directive in ehr_package.adoc - include::ROOT:partial$uml/{pkg}versioned_composition.adoc[]</p>
+<div id="_tabs_1_uml--panel" class="tabpanel" aria-labelledby="_tabs_1_uml">
+<div class="imageblock kroki">
+<div class="content">
+<img src="https://kroki.io/plantuml/svg/eNqFj8EKgkAURfd-xVsXSG0jgsoJjSIQaSMxTOOrBtSJec-FRP9ehiQF1voc7uF6OldEIMIYbh7AEKgmxkKaDCYQRiKWu8VaLBMZBZCODy8FL-4n17ZkZ44VG1vSU9sY4mmrxWI1g3TQDRErrhqrEz5CSmukHq5tcbVk_nYy41CzdfXXzMj32yU2BUrtUDE2x4K9DOaJkEm0Fe_ayeYZup8hVudefvcemRJpQw==?svg-type=inline" alt="EHR">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_versioned_ehr_access_class"><a class="anchor" href="#_versioned_ehr_access_class"></a><a class="link" href="#_versioned_ehr_access_class">VERSIONED_EHR_ACCESS Class</a></h3>
+<div id="_tabs_2" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="_tabs_2_definition" class="tab">
+<p>Definition</p>
+</li>
+<li id="_tabs_2_bmm" class="tab">
+<p>BMM</p>
+</li>
+<li id="_tabs_2_uml" class="tab">
+<p>UML</p>
+</li>
+</ul>
+</div>
+<div id="_tabs_2_definition--panel" class="tabpanel" aria-labelledby="_tabs_2_definition">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>VERSIONED_EHR_ACCESS</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Version container for <code>EHR_ACCESS</code> instance.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="../../../latest/common/change_control_package/#_versioned_object_class" class="xref page">VERSIONED_OBJECT</a></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="_tabs_2_bmm--panel" class="tabpanel" aria-labelledby="_tabs_2_bmm">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+    "name": "VERSIONED_EHR_ACCESS",
+    "documentation": "Version container for `EHR_ACCESS` instance.",
+    "ancestors": [
+        "VERSIONED_OBJECT"
+    ]
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="_tabs_2_uml--panel" class="tabpanel" aria-labelledby="_tabs_2_uml">
+<div class="imageblock kroki">
+<div class="content">
+<img src="https://kroki.io/plantuml/svg/eNrdlV2PEyEYhe_7K0i8WT-2ibe7m01mO2gxdZvMYKMxhuAMTklnoIF3Whv1vwuzFMd-2TVeedUCz3s4HGAYFDW3Fs1wlpPpPU4ZHmcsGY1wnqNvgx-Dwe749O4NHlF0Q28RerKeSxC20QtxXUslrirDN92_YakBRHkN4it0vU4MoeeolSW6QmOCsyDESIo-vvzUDeq1EoZ1RBjM8Ks4CrIRrDCCO11HpDOWJhQzSt7iyKyEsVIrVuhWwcVThxEFohImEryu2ZaSpe2YibRwE2YMC3W2bl3NcPhsr6xXE2CXxW_wnNs4BwfmjV8g3v0eMI683J3WteAq2uxLyNJXb1ttP59fbo8qbevWEuaPlApdUUpapo2spOIxjH_h7MyIdt0YsZJd_dxthTabblsyPCPdvGOS02n2IdK1OzYWou1DggEB06rFSfCBqOUXUWyKWjALrrIjnfHRNHW3hOL3NPKFbhoJB7MrtAIjP7fg2nvH_oUDlFifE7BHl0YUopSq6p2cE7wLvi0lOCJ5lxLKUkwTMsm3ajvLO7Q4j5UcuBsLbSsr5Q0sxMZ15m5pqoobuNLOz7FMGmEqUf7H0ThRDXP_fVPLFrxhe_LT8zdpymapDTwuxj-sNSj5yoy8JvfJhPWuw1EnHPxd4vBgQvXbfiZKcU4TGlTCPCf35Lws3Hu1_1J9v7w8-L4NfgISxjL6?svg-type=inline" alt="VERSIONED_EHR_ACCESS">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_ehr_access_class"><a class="anchor" href="#_ehr_access_class"></a><a class="link" href="#_ehr_access_class">EHR_ACCESS Class</a></h3>
+<div id="_tabs_3" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="_tabs_3_definition" class="tab">
+<p>Definition</p>
+</li>
+<li id="_tabs_3_bmm" class="tab">
+<p>BMM</p>
+</li>
+<li id="_tabs_3_uml" class="tab">
+<p>UML</p>
+</li>
+</ul>
+</div>
+<div id="_tabs_3_definition--panel" class="tabpanel" aria-labelledby="_tabs_3_definition">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>EHR_ACCESS</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>EHR-wide access control object. All access decisions to data in the EHR must be made in accordance with the policies and rules in this object.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+It is strongly recommended that the inherited attribute <code><em>uid</em></code> be populated in <code>EHR_ACCESS</code> objects, using the UID copied from the <code><em>object_id()</em></code> of the <code><em>uid</em></code> field of the enclosing <code>VERSION</code> object.<br>
+For example, the <code>ORIGINAL_VERSION.uid</code> <code>87284370-2D4B-4e3d-A3F3-F303D2F4F34B::uk.nhs.ehr1::2</code> would be copied to the <code><em>uid</em></code> field of the <code>EHR_ACCESS</code> object.
+</td>
+</tr>
+</table>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="../../../latest/common/archetyped_package/#_locatable_class" class="xref page">LOCATABLE</a></code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>settings</strong>: <code><a href="#RM:ehr.adoc#_access_control_settings_class" class="xref unresolved">ACCESS_CONTROL_SETTINGS</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Access control settings for the EHR. Instance is a subtype of the type <code>ACCESS_CONTROL_SETTINGS</code>, allowing for the use of different access control schemes.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Functions</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>scheme</strong> (): <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_string_class" class="xref page">String</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>The name of the access control scheme in use; corresponds to the concrete instance of the settings attribute.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Invariants</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Scheme_valid</em>: <code>not scheme.is_empty</code></p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Is_archetype_root</em>: <code>is_archetype_root</code></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="_tabs_3_bmm--panel" class="tabpanel" aria-labelledby="_tabs_3_bmm">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+    "name": "EHR_ACCESS",
+    "documentation": "EHR-wide access control object. All access decisions to data in the EHR must be made in accordance with the policies and rules in this object.\n\nNOTE: It is strongly recommended that the inherited attribute `_uid_` be populated in `EHR_ACCESS` objects, using the UID copied from the `_object_id()_` of the `_uid_` field of the enclosing `VERSION` object. +\nFor example, the `ORIGINAL_VERSION.uid` `87284370-2D4B-4e3d-A3F3-F303D2F4F34B::uk.nhs.ehr1::2` would be copied to the `_uid_` field of the `EHR_ACCESS` object.",
+    "ancestors": [
+        "LOCATABLE"
+    ],
+    "properties": {
+        "settings": {
+            "_type": "P_BMM_SINGLE_PROPERTY",
+            "name": "settings",
+            "documentation": "Access control settings for the EHR. Instance is a subtype of the type `ACCESS_CONTROL_SETTINGS`, allowing for the use of different access control schemes. ",
+            "type": "ACCESS_CONTROL_SETTINGS"
+        }
+    },
+    "functions": {
+        "scheme": {
+            "name": "scheme",
+            "documentation": "The name of the access control scheme in use; corresponds to the concrete instance of the settings attribute. ",
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "String"
+            }
+        }
+    },
+    "invariants": {
+        "Scheme_valid": "not scheme.is_empty",
+        "Is_archetype_root": "is_archetype_root"
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="_tabs_3_uml--panel" class="tabpanel" aria-labelledby="_tabs_3_uml">
+<div class="imageblock kroki">
+<div class="content">
+<img src="https://kroki.io/plantuml/svg/eNqdU11Lw0AQfM-vOPDFDyz6akVIk9MGQ1uaU5Qix5ls28Pkrua2aFH_u5eLJE1FRJ9y7M7szA4bL82FMYQOp9wPApok5M0j5IgYQJRqYcgZqes8GI_YdBzzhDIWja4SMjvp9U4fanS6hAL2Dyw6wdLyyMx2PjxPPBosRYqklonHgc_8QUwJ2XtZSgRT6Cfo51LB2aIUG_fqZRoRsj7CK7rqlyUlCrAC4S1n9I45haosSiuOmxVwpTPgMuuaqCBrV7yJQj7wExryKNw2bzWfqj1jafA8jkbXF2R2uDs7AxQyd3FMgyFl9xPaGTIHyKDkYp1JtKBLSkNqI70JI7YNS7VKYYUuqd1FpOGtXql1jRponYNQPwQ68dnwv3muRAmqFmnGNF4QCi6QrwQu94lw306upKL5atNhmN8pLmTLazOucBxebd38TNtOoSGtlXxewx9Jes4rqxUr1-nO7uT7BTft8_fj4_aAPa-9Zddp_yDvE9MbAPk=?svg-type=inline" alt="EHR_ACCESS">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_access_control_settings_class"><a class="anchor" href="#_access_control_settings_class"></a><a class="link" href="#_access_control_settings_class">ACCESS_CONTROL_SETTINGS Class</a></h3>
+<div id="_tabs_4" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="_tabs_4_definition" class="tab">
+<p>Definition</p>
+</li>
+<li id="_tabs_4_bmm" class="tab">
+<p>BMM</p>
+</li>
+<li id="_tabs_4_uml" class="tab">
+<p>UML</p>
+</li>
+</ul>
+</div>
+<div id="_tabs_4_definition--panel" class="tabpanel" aria-labelledby="_tabs_4_definition">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong><em>ACCESS_CONTROL_SETTINGS (abstract)</em></strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Access Control Settings for the EHR and components. Intended to support multiple access control schemes. Currently implementation dependent.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="_tabs_4_bmm--panel" class="tabpanel" aria-labelledby="_tabs_4_bmm">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+    "name": "ACCESS_CONTROL_SETTINGS",
+    "documentation": "Access Control Settings for the EHR and components. Intended to support multiple access control schemes. Currently implementation dependent.",
+    "is_abstract": true
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="_tabs_4_uml--panel" class="tabpanel" aria-labelledby="_tabs_4_uml">
+<div class="imageblock kroki">
+<div class="content">
+<img src="https://kroki.io/plantuml/svg/eNrjSkwqLilKTC5RSM5JLC5WcHR2dg0Ojnf29wsJ8veJD3YNCfH0cw9WqOaq5QIASUYN4w==?svg-type=inline" alt="ACCESS_CONTROL_SETTINGS">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_versioned_ehr_status_class"><a class="anchor" href="#_versioned_ehr_status_class"></a><a class="link" href="#_versioned_ehr_status_class">VERSIONED_EHR_STATUS Class</a></h3>
+<div id="_tabs_5" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="_tabs_5_definition" class="tab">
+<p>Definition</p>
+</li>
+<li id="_tabs_5_bmm" class="tab">
+<p>BMM</p>
+</li>
+<li id="_tabs_5_uml" class="tab">
+<p>UML</p>
+</li>
+</ul>
+</div>
+<div id="_tabs_5_definition--panel" class="tabpanel" aria-labelledby="_tabs_5_definition">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>VERSIONED_EHR_STATUS</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Version container for <code>EHR_STATUS</code> instance.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="../../../latest/common/change_control_package/#_versioned_object_class" class="xref page">VERSIONED_OBJECT</a></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="_tabs_5_bmm--panel" class="tabpanel" aria-labelledby="_tabs_5_bmm">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+    "name": "VERSIONED_EHR_STATUS",
+    "documentation": "Version container for `EHR_STATUS` instance.",
+    "ancestors": [
+        "VERSIONED_OBJECT"
+    ]
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="_tabs_5_uml--panel" class="tabpanel" aria-labelledby="_tabs_5_uml">
+<div class="imageblock kroki">
+<div class="content">
+<img src="https://kroki.io/plantuml/svg/eNrdlV1v2yAYhe_zK5B203000m7bqpJbs4UpaySbRpumCTGbOSg2RPA6WbTuvw9cwrx8LZ12tasEeN7D4QBmUNTcWjTFWU4mdzhleJSxnCb0PkffBz8Gg-3xyc07fEvRFb1G6NlqJkHYRs_FZS2VuKgMX3f_hqUGEOUliG_Q9ToxhF6iVpboAo0IzoIQIyn69PpzN6hXShjWEWEww2_iKMhGsMII7nQdkU5ZmlDMKHmPI7MUxkqtWKFbBWfPHUYUiEqYSPC6ZhtKlrZjxtLCVZgxLNTZunY1w-GLnbJeTYBdFr_BM27jHByYN36GePe7xzjycjda14KraLMvIUtfvWm1_Xx-uT2otKlbSZg9USp0RSlpmTaykorHMP6FsxMj2nZjxFJ29TO3Fdqsu23J8JR0845ITifZx0jX7thYiLb3CQYETKvmR8FHopZfRbEuasEsuMqOdMZvJ6m7JRR_oJEvdNNI2JtdoRUY-aUF19459q8coMTqlIA9ujCiEKVUVe_kHOFd8G0pwRHJfUooSzFNyDjfqG0tb9_iPFZy4G4stK2slDcwF2vXmbulqSpu4FI7P4cyaYSpRPkfR-NENcz8900tWvCG7dFPz9-kKZuFNvC0GP-w1qDkKzPyltwlY9a7DgedcPB3icOjCdVv-5koxf6NCSphnqN7cloW7r3afakezs_3vm-Dn2zNM14=?svg-type=inline" alt="VERSIONED_EHR_STATUS">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_ehr_status_class"><a class="anchor" href="#_ehr_status_class"></a><a class="link" href="#_ehr_status_class">EHR_STATUS Class</a></h3>
+<div id="_tabs_6" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="_tabs_6_definition" class="tab">
+<p>Definition</p>
+</li>
+<li id="_tabs_6_bmm" class="tab">
+<p>BMM</p>
+</li>
+<li id="_tabs_6_uml" class="tab">
+<p>UML</p>
+</li>
+</ul>
+</div>
+<div id="_tabs_6_definition--panel" class="tabpanel" aria-labelledby="_tabs_6_definition">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>EHR_STATUS</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Single object per EHR containing various EHR-wide status flags and settings, including whether this EHR can be queried, modified etc. This object is always modifiable, in order to change the status of the EHR as a whole.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+It is strongly recommended that the inherited attribute <code><em>uid</em></code> be populated in <code>EHR_STATUS</code> objects, using the UID copied from the <code><em>object_id()</em></code> of the <code><em>uid</em></code> field of the enclosing <code>VERSION</code> object.<br>
+For example, the <code>ORIGINAL_VERSION.uid</code> <code>87284370-2D4B-4e3d-A3F3-F303D2F4F34B::uk.nhs.ehr1::2</code>  would be copied to the <code><em>uid</em></code> field of the <code>EHR_STATUS</code> object.
+</td>
+</tr>
+</table>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="../../../latest/common/archetyped_package/#_locatable_class" class="xref page">LOCATABLE</a></code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>subject</strong>: <code><a href="../../../latest/common/generic_package/#_party_self_class" class="xref page">PARTY_SELF</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>The subject of this EHR. The <code><em>external_ref</em></code> attribute can be used to contain a direct reference to the subject in a demographic or identity service. Alternatively, the association between patients and their records may be done elsewhere for security reasons.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_queryable</strong>: <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>True if this EHR should be included in population queries, i.e. if this EHR is considered active in the population.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_modifiable</strong>: <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>True if the EHR, other than the <code>EHR_STATUS</code> object, is allowed to be written to. The <code>EHR_STATUS</code> object itself can always be written to.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>other_details</strong>: <code><a href="#RM:data_structures:item_structure.adoc#_item_structure_class" class="xref unresolved">ITEM_STRUCTURE</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Any other details of the EHR summary object, in the form of an archetyped <code>ITEM_STRUCTURE</code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Invariants</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Is_archetype_root</em>: <code>is_archetype_root</code></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="_tabs_6_bmm--panel" class="tabpanel" aria-labelledby="_tabs_6_bmm">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+    "name": "EHR_STATUS",
+    "documentation": "Single object per EHR containing various EHR-wide status flags and settings, including whether this EHR can be queried, modified etc. This object is always modifiable, in order to change the status of the EHR as a whole.\n\nNOTE: It is strongly recommended that the inherited attribute `_uid_` be populated in `EHR_STATUS` objects, using the UID copied from the `_object_id()_` of the `_uid_` field of the enclosing `VERSION` object. +\nFor example, the `ORIGINAL_VERSION.uid` `87284370-2D4B-4e3d-A3F3-F303D2F4F34B::uk.nhs.ehr1::2`  would be copied to the `_uid_` field of the `EHR_STATUS` object.",
+    "ancestors": [
+        "LOCATABLE"
+    ],
+    "properties": {
+        "subject": {
+            "_type": "P_BMM_SINGLE_PROPERTY",
+            "name": "subject",
+            "documentation": "The subject of this EHR. The `_external_ref_` attribute can be used to contain a direct reference to the subject in a demographic or identity service. Alternatively, the association between patients and their records may be done elsewhere for security reasons. ",
+            "is_mandatory": true,
+            "type": "PARTY_SELF"
+        },
+        "is_queryable": {
+            "_type": "P_BMM_SINGLE_PROPERTY",
+            "name": "is_queryable",
+            "documentation": "True if this EHR should be included in population queries, i.e. if this EHR is considered active in the population.",
+            "is_mandatory": true,
+            "type": "Boolean"
+        },
+        "is_modifiable": {
+            "_type": "P_BMM_SINGLE_PROPERTY",
+            "name": "is_modifiable",
+            "documentation": "True if the EHR, other than the `EHR_STATUS` object, is allowed to be written to. The `EHR_STATUS` object itself can always be written to.",
+            "is_mandatory": true,
+            "type": "Boolean"
+        },
+        "other_details": {
+            "_type": "P_BMM_SINGLE_PROPERTY",
+            "name": "other_details",
+            "documentation": "Any other details of the EHR summary object, in the form of an archetyped `ITEM_STRUCTURE`.",
+            "type": "ITEM_STRUCTURE"
+        }
+    },
+    "invariants": {
+        "Is_archetype_root": "is_archetype_root"
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="_tabs_6_uml--panel" class="tabpanel" aria-labelledby="_tabs_6_uml">
+<div class="imageblock kroki">
+<div class="content">
+<img src="https://kroki.io/plantuml/svg/eNqdU11PwjAUfd-vaOKLH4HoKxKTwmpYnEq2zmiIacp2kepoce0iRP3vdkU3QInRpzX3nHPvuSd3XppzrREZRCymmCYxevUQOkK6HD9CalAHDXFE71hMwnM0Orl3oNDsuYRiycc5WEZPqRy4XIdnKhMTsQNXZgoFy8BwkWuLB5Rc2ulR0qdJRNDouN22zHfP42NtCm5drEyG131McS8kCO29TIUBPVNPcJoLCZ2Hgi_dq50pYyA7NbAwrvq5kOSzyot_wyi5pbUXXqRTMMs5MKkyYCKznNgUQj7UlNIVk8BnPRwTnwX-l8UKtTOfqiVCoU03DK4uztDocLt3syuO-gNC74Zko8kEILOR8DITVeTnhPgkYjjxA7pOS5VMYW72D35YxIbezCuUWrHWo_8e6BDTwX_znPMC5GpI3ab2YmDGuGFzbqb7iLvvRq6okmG53FDo3yUuZKtrMq54DBa2rnfLtg_QiUop7BH_UaQmrLJaqXKVbu3uZGvHYwOv4e5bq9UcsOc1t-yQ5v_zPgBi2hV4?svg-type=inline" alt="EHR_STATUS">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_versioned_composition_class"><a class="anchor" href="#_versioned_composition_class"></a><a class="link" href="#_versioned_composition_class">VERSIONED_COMPOSITION Class</a></h3>
+<div id="_tabs_7" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="_tabs_7_definition" class="tab">
+<p>Definition</p>
+</li>
+<li id="_tabs_7_bmm" class="tab">
+<p>BMM</p>
+</li>
+<li id="_tabs_7_uml" class="tab">
+<p>UML</p>
+</li>
+</ul>
+</div>
+<div id="_tabs_7_definition--panel" class="tabpanel" aria-labelledby="_tabs_7_definition">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>VERSIONED_COMPOSITION</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Version-controlled composition abstraction, defined by inheriting <code>VERSIONED_OBJECT&lt;COMPOSITION&gt;</code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="../../../latest/common/change_control_package/#_versioned_object_class" class="xref page">VERSIONED_OBJECT</a></code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Functions</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_persistent</strong> (): <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Indicates whether this composition set is persistent; derived from first version.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Invariants</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Archetype_node_id_valid</em>: <code>for_all v in all_versions &#124; v.archetype_node_id.is_equal (all_versions.first.archetype_node_id)</code></p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Persistent_validity</em>: <code>for_all v in all_versions &#124; v.is_persistent = all_versions.first.data.is_persistent</code></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="_tabs_7_bmm--panel" class="tabpanel" aria-labelledby="_tabs_7_bmm">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+    "name": "VERSIONED_COMPOSITION",
+    "documentation": "Version-controlled composition abstraction, defined by inheriting `VERSIONED_OBJECT&lt;COMPOSITION&gt;`. ",
+    "ancestors": [
+        "VERSIONED_OBJECT"
+    ],
+    "functions": {
+        "is_persistent": {
+            "name": "is_persistent",
+            "documentation": "Indicates whether this composition set is persistent; derived from first version.",
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Boolean"
+            }
+        }
+    },
+    "invariants": {
+        "Archetype_node_id_valid": "for_all v in all_versions | v.archetype_node_id.is_equal (all_versions.first.archetype_node_id)",
+        "Persistent_validity": "for_all v in all_versions | v.is_persistent = all_versions.first.data.is_persistent"
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="_tabs_7_uml--panel" class="tabpanel" aria-labelledby="_tabs_7_uml">
+<div class="imageblock kroki">
+<div class="content">
+<img src="https://kroki.io/plantuml/svg/eNrdVV1v0zAUfc-vsMTL-FglXrdpUtcEZtQtKDEVCCHLJCa1mtiVfdNSAf-d68wNpV90iCeekmufe-65x19RUQvnyCTJcpreJzEfpXdv05wyjMi3iJDnRDk-l9YpB1LD2VNyQW6MqaXQ5OPLT9GPKNqmSG_eJCNGrtg1IU-WUwXSNWYmL2ul5UVlxar7G5QGQJaXIL9CNxrKtarEErc0yQIRp3FXyU-apZaWd4gwmSWv-llQjeSFlQJ5ERFPeDxkCWf0LukxC9-K0bwwbeiGapCVtD1C1DVfo1TpOswYu78KFUOjKOsacwaDZztpGzkBjF78Bp4K19cQwL3wMyK67x7hZNv0bQpV-ux11G7680vtQaZ13lLB9JFUYainwr1irKqUFr0Z_0LZiRZtq7Fyobr8KS6FsatuWbJkQru6tzRnafahR9e4bRz0svcRBgjYVs-OAh8Qtfoii1VRS-4AMzskCh-lMZ4SlrxnPb4wTaNgr3eF0WDV5xYw3tn2LxCg5fIUgz10bmUhS6WrjZ1zBI_Gt6UCRAzfxZTxOGFDOs7XbFvt7WvOw0oBAudC7FSlvYCZXOFgjq3pql_AhUE9hzxppK1k-R9bg6QGpv5-0_MWvGB39Or5GzdVMzcWHmfjH3oNTD4zo6_p_XDMN47DQSUC_FkS8CBCb8a-EmNJzoYssIQ6R9fkNC_wvdp9qb6fn-9_AqOfkBU-dw==?svg-type=inline" alt="VERSIONED_COMPOSITION">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_references"><a class="anchor" href="#_references"></a><a class="link" href="#_references">References</a></h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>[1] J. Gray and A. Reuter, Transaction Processing Concepts and Techniques. Morgan Kaufmann, 1993.
+</p>
+</li>
+<li>
+<p>[2] D. Lloyd, “Deliverable 4: GEHR Requirements for Clinical Comprehensiveness,” European Commission AIM, Brussels, techreport, 1992. [Online]. Available: <a href="https://www.openehr.org/resources/related_projects/gehr_deliverable-4.pdf" class="bare">https://www.openehr.org/resources/related_projects/gehr_deliverable-4.pdf</a>
+</p>
+</li>
+<li>
+<p>[3] D. Lloyd, “Deliverable 7: Clinical Functional Specifications,” European Commission AIM, Brussels, techreport, 1993.
+</p>
+</li>
+<li>
+<p>[4] S. Heard, D. Kalra, and D. Ingram, “Deliverable 8: Ethical and legal Requirements of GEHR Architecture and Systems,” European Commission AIM, Brussels, techreport, 1994. [Online]. Available: <a href="https://www.openehr.org/resources/related_projects/gehr_deliverable-8.pdf" class="bare">https://www.openehr.org/resources/related_projects/gehr_deliverable-8.pdf</a>
+</p>
+</li>
+<li>
+<p>[5] T. Beale, D. Lloyd, S. Heard, D. Kalra, and D. Ingram, “Deliverable 19,20,24: GEHR Architecture,” European Commission AIM, Brussels, techreport, 1995. [Online]. Available: <a href="https://www.openehr.org/resources/related_projects/gehr_deliverable-19_20_24.pdf" class="bare">https://www.openehr.org/resources/related_projects/gehr_deliverable-19_20_24.pdf</a>
+</p>
+</li>
+<li>
+<p>[6] R. Arp, B. Smith, and A. D. Spear, Building Ontologies with Basic Formal Ontology. The MIT Press, 2015. [Online]. Available: <a href="https://mitpress.mit.edu/books/building-ontologies-basic-formal-ontology" class="bare">https://mitpress.mit.edu/books/building-ontologies-basic-formal-ontology</a>
+</p>
+</li>
+<li>
+<p>[7] J. F. Sowa, Knowledge Representation: Logical, philosophical and Computational Foundations. California: Brooks/Cole, 2000.
+</p>
+</li>
+</ul>
 </div>
 </div>
 </div>
@@ -1134,5 +2005,6 @@ is is strongly recommended that a UUID always be used for the <code><em>ehr_id</
 <script async src="../../../../search-index.js"></script>
 <script src="../../../../ui/js/medium-zoom.min.js"></script>
 <script src="../../../../ui/js/zoom.js"></script>
+<script async src="../../../../ui/js/tabs.js"></script>
   </body>
 </html>

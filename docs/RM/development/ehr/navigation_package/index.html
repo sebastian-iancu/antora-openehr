@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="../../../../ui/css/site.css">
     <link rel="stylesheet" href="../../../../ui/css/antora-openehr.css">
     <link rel="stylesheet" href="../../../../ui/css/openehr.css">
+    <link rel="stylesheet" href="../../../../ui/css/tabs.css">
 <link rel="icon" href="../../../../ui/img/favicon.ico" type="image/x-icon">
   </head>
   <body class="article">
@@ -294,7 +295,7 @@
     <a class="nav-link" href="../../ehr_extract/generic_extract_package/">Generic_extract Package</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../../ehr_extract/synchronisation_package/">Synchronisation Extracts</a>
+    <a class="nav-link" href="../../ehr_extract/synchronisation_package/">Synchronisation Extract</a>
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../../ehr_extract/message_package/">The Message package</a>
@@ -412,20 +413,6 @@
   </div>
   <ul class="components">
     <li class="component">
-      <div class="title"><a href="../../../../AM/latest/">Archetype Model</a></div>
-      <ul class="versions">
-        <li class="version is-latest">
-          <a href="../../../../AM/latest/">Release-2.3.0</a>
-        </li>
-        <li class="version">
-          <a href="../../../../AM/Release-2.2.0/">Release-2.2.0</a>
-        </li>
-        <li class="version">
-          <a href="../../../../AM/development/">development</a>
-        </li>
-      </ul>
-    </li>
-    <li class="component">
       <div class="title"><a href="../../../../BASE/latest/">Base Model</a></div>
       <ul class="versions">
         <li class="version is-latest">
@@ -513,8 +500,116 @@
 <div class="sect1">
 <h2 id="_class_descriptions"><a class="anchor" href="#_class_descriptions"></a><a class="link" href="#_class_descriptions">Class Descriptions</a></h2>
 <div class="sectionbody">
-<div class="paragraph">
-<p>Unresolved directive in navigation_package.adoc - include::ROOT:partial$uml/{pkg}section.adoc[]</p>
+<div class="sect2">
+<h3 id="_section_class"><a class="anchor" href="#_section_class"></a><a class="link" href="#_section_class">SECTION Class</a></h3>
+<div id="_tabs_1" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="_tabs_1_definition" class="tab">
+<p>Definition</p>
+</li>
+<li id="_tabs_1_bmm" class="tab">
+<p>BMM</p>
+</li>
+<li id="_tabs_1_uml" class="tab">
+<p>UML</p>
+</li>
+</ul>
+</div>
+<div id="_tabs_1_definition--panel" class="tabpanel" aria-labelledby="_tabs_1_definition">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>SECTION</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Represents a heading in a heading structure, or  section tree.  Created according to archetyped structures for typical headings such as SOAP,  physical examination, but also pathology result heading structures.  Should not be used instead of <code>ENTRY</code> hierarchical structures.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="#RM:composition:content.adoc#_content_item_class" class="xref unresolved">CONTENT_ITEM</a></code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>items</strong>: <code><a href="../../../../BASE/latest/foundation_types/structure_types/#_list_class" class="xref page">List</a>&lt;<a href="#RM:composition:content.adoc#_content_item_class" class="xref unresolved">CONTENT_ITEM</a>&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Ordered list of content items under this section, which may include:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>more <code>SECTIONs</code>;</p>
+</li>
+<li>
+<p><code>ENTRYs</code>.</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Invariants</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Items_valid</em>: <code>items /= Void implies not items.is_empty</code></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="_tabs_1_bmm--panel" class="tabpanel" aria-labelledby="_tabs_1_bmm">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+    "name": "SECTION",
+    "documentation": "Represents a heading in a heading structure, or  section tree.  Created according to archetyped structures for typical headings such as SOAP,  physical examination, but also pathology result heading structures.  Should not be used instead of `ENTRY` hierarchical structures. \n",
+    "ancestors": [
+        "CONTENT_ITEM"
+    ],
+    "properties": {
+        "items": {
+            "_type": "P_BMM_CONTAINER_PROPERTY",
+            "name": "items",
+            "documentation": "Ordered list of content items under this section, which may include:\n\n* more `SECTIONs`;\n* `ENTRYs`.",
+            "type_def": {
+                "container_type": "List",
+                "type": "CONTENT_ITEM"
+            },
+            "cardinality": {
+                "lower": 0,
+                "upper_unbounded": true
+            }
+        }
+    },
+    "invariants": {
+        "Items_valid": "items /= Void implies not items.is_empty"
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="_tabs_1_uml--panel" class="tabpanel" aria-labelledby="_tabs_1_uml">
+<div class="imageblock kroki">
+<div class="content">
+<img src="https://kroki.io/plantuml/svg/eNqdU1FPwjAQfu-vaOILaiD6CsRksBoWJxAoRkNIU7cDGkaLaxch6n-3K2RsojH61Obu-767-3KHooRrjcekS4NBH78hjC-xMLDWuIlDoU27O-hT0qcsoOT-Bk8vZugDIf6sTcojg_f0Mgbjs9elVdBrtYJWIiQ0FynfuV8jVsZA3DKwNS5qC56qhYOuR71OSP4qlfcu-Rps6_4Do-SR4un1zIV5Gi3B7DbApIqBidhixiYVclFAMhecBD7reGPis8DH06tG45C1NVeFJ2HQv9t7UdWOwXCR5DBv1O0R-jQkFZE5QAwp41ksjAXdEuKTEfMmfkDLsEjJCDamdv7NIEKzY71UqT2qo1QCXDrUqaFDj_b-6-eGpyD3RQqZohe7J4wbtuFmWcPcvRVfcU7z5K7C0L9TnMmWd_Q4xzHY2rj-mVZ2oSBlUrxk8EeSmrO81ZyVqOjL7I5WWh5reJFuv9frxwVG6LjLLlM-FIQqZ-PyhztEn6XMGP8=?svg-type=inline" alt="SECTION">
+</div>
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -578,5 +673,6 @@
 <script async src="../../../../search-index.js"></script>
 <script src="../../../../ui/js/medium-zoom.min.js"></script>
 <script src="../../../../ui/js/zoom.js"></script>
+<script async src="../../../../ui/js/tabs.js"></script>
   </body>
 </html>

@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="../../../../ui/css/site.css">
     <link rel="stylesheet" href="../../../../ui/css/antora-openehr.css">
     <link rel="stylesheet" href="../../../../ui/css/openehr.css">
+    <link rel="stylesheet" href="../../../../ui/css/tabs.css">
 <link rel="icon" href="../../../../ui/img/favicon.ico" type="image/x-icon">
   </head>
   <body class="article">
@@ -368,20 +369,6 @@
     <span class="version">Release-1.1.0</span>
   </div>
   <ul class="components">
-    <li class="component">
-      <div class="title"><a href="../../../../AM/latest/">Archetype Model</a></div>
-      <ul class="versions">
-        <li class="version is-latest">
-          <a href="../../../../AM/latest/">Release-2.3.0</a>
-        </li>
-        <li class="version">
-          <a href="../../../../AM/Release-2.2.0/">Release-2.2.0</a>
-        </li>
-        <li class="version">
-          <a href="../../../../AM/development/">development</a>
-        </li>
-      </ul>
-    </li>
     <li class="component">
       <div class="title"><a href="../../../../BASE/latest/">Base Model</a></div>
       <ul class="versions">
@@ -839,7 +826,7 @@ match attribute is '&lt;'.</p>
 <div class="sect3">
 <h4 id="_the_unified_medical_language_system_umls"><a class="anchor" href="#_the_unified_medical_language_system_umls"></a><a class="link" href="#_the_unified_medical_language_system_umls">The Unified Medical Language System (UMLS)</a></h4>
 <div class="paragraph">
-<p>It has been argued in GEHR cite:[GeHR_Aus2001] that UMLS reference terms should also be supplied with occurrences
+<p>It has been argued in GEHR <span class="citation"><a href="#bibliography_entry_GeHR_Aus2001">[1]</a></span> that UMLS reference terms should also be supplied with occurrences
 of coded terms, in the form of the UMLS concept unique identifier, or "CUI". UMLS is a way
 of encoding terms developed at the National Library of Medicine in the United States, and consists of
 a meta-thesaurus, in which terms from any extant term set (such as <a href="http://www.who.int/classifications/icd/en/" target="_blank" rel="noopener">ICDx</a>, <a href="http://www.snomed.org" target="_blank" rel="noopener">SNOMED CT</a>, READ) can be
@@ -1081,423 +1068,33 @@ Additionally, the <code><em>value</em></code> field was assumed to contain no ne
 <div class="sect1">
 <h2 id="_class_descriptions"><a class="anchor" href="#_class_descriptions"></a><a class="link" href="#_class_descriptions">Class Descriptions</a></h2>
 <div class="sectionbody">
-<div class="sect2">
-<h3 id="_dv_text_class"><a class="anchor" href="#_dv_text_class"></a><a class="link" href="#_dv_text_class">DV_TEXT Class</a></h3>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 11.1111%;">
-<col style="width: 33.3333%;">
-<col style="width: 55.5556%;">
-</colgroup>
-<tbody>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
-<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>DV_TEXT</strong></p></th>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
-<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
-<p>A text item, which may contain any amount of legal characters arranged as e.g. words, sentences etc (i.e. one <code>DV_TEXT</code> may be more than one word). Visual formatting and hyperlinks may be included via markdown.</p>
+<div class="paragraph">
+<p>Unresolved include directive in modules/data_types/pages/text_package.adoc - include::../UML/classes/dv_text.adoc[]</p>
 </div>
 <div class="paragraph">
-<p>If the <code><em>formatting</em></code> field is set, the <code><em>value</em></code> field is affected as follows:</p>
+<p>Unresolved include directive in modules/data_types/pages/text_package.adoc - include::../UML/classes/term_mapping.adoc[]</p>
 </div>
+<div class="paragraph">
+<p>Unresolved include directive in modules/data_types/pages/text_package.adoc - include::../UML/classes/code_phrase.adoc[]</p>
+</div>
+<div class="paragraph">
+<p>Unresolved include directive in modules/data_types/pages/text_package.adoc - include::../UML/classes/dv_coded_text.adoc[]</p>
+</div>
+<div class="paragraph">
+<p>Unresolved include directive in modules/data_types/pages/text_package.adoc - include::../UML/classes/dv_paragraph.adoc[]</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_references"><a class="anchor" href="#_references"></a><a class="link" href="#_references">References</a></h2>
+<div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
-<p><code><em>formatting</em> = "plain"</code>: plain text, may contain newlines;</p>
-</li>
-<li>
-<p><code><em>formatting</em> = "plain_no_newlines"</code>: plain text with no newlines;</p>
-</li>
-<li>
-<p><code><em>formatting</em> = "markdown"</code>: text in markdown format; use of CommonMark strongly recommended.</p>
+<p>[1] T. Beale and S. Heard, “GEHR Technical Requirements,” GEHR Foundation, Australia, techreport, 2000. [Online]. Available: <a href="https://www.openehr.org/resources/related_projects/gehr_requirements.pdf" class="bare">https://www.openehr.org/resources/related_projects/gehr_requirements.pdf</a>
+</p>
 </li>
 </ul>
-</div>
-<div class="paragraph">
-<p>A <code>DV_TEXT</code> can be coded by adding mappings to it.</p>
-</div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
-<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="#_data_value_class">DATA_VALUE</a></code></p></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>value</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a></code></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Displayable rendition of the item, regardless of its underlying structure. For <code>DV_CODED_TEXT</code>, this is the rubric of the complete term as provided by the terminology service.</p>
-</div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>hyperlink</strong>: <code><a href="#_dv_uri_class">DV_URI</a></code></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>DEPRECATED: this field is deprecated; use markdown link/text in the <code><em>value</em></code> attribute, and <code>"markdown"</code> as the value of the <code><em>formatting</em></code> field.</p>
-</div>
-<div class="paragraph">
-<p>Original usage, prior to RM Release 1.0.4: Optional link sitting behind a section of plain text or coded term item.</p>
-</div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>formatting</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a></code></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>If set, contains one of the following values:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>"plain"</code>: use for plain text, possibly containing newlines, but otherwise unformatted (same as Void);</p>
-</li>
-<li>
-<p><code>"plain_no_newlines"</code>: use for text containing no newlines or other formatting;</p>
-</li>
-<li>
-<p><code>"markdown"</code>: use for markdown formatted text, strongly recommended in the format of the CommonMark specification.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>DEPRECATED usage: contains a string of the form <code>"name:value; name:value&#8230;&#8203;"</code> , e.g. <code>"font-weight : bold; font-family : Arial; font-size : 12pt;"</code>. Values taken from W3C CSS2 properties lists for background and font .</p>
-</div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>mappings</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_list_class" target="_blank" rel="noopener">List</a>&lt;<a href="#_term_mapping_class">TERM_MAPPING</a>&gt;</code></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Terms from other terminologies most closely matching this term, typically used where the originator (e.g. pathology lab) of information uses a local terminology but also supplies one or more equivalents from well known terminologies (e.g. LOINC).</p>
-</div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>language</strong>: <code><a href="#_code_phrase_class">CODE_PHRASE</a></code></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Optional indicator of the localised language in which the value is written. Coded from openEHR Code Set  languages . Only used when either the text object is in a different language from the enclosing <code>ENTRY</code>, or else the text object is being used outside of an <code>ENTRY</code> or other enclosing structure which indicates the language.</p>
-</div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>encoding</strong>: <code><a href="#_code_phrase_class">CODE_PHRASE</a></code></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Name of character encoding scheme in which this value is encoded. Coded from openEHR Code Set  character sets . Unicode is the default assumption in openEHR, with UTF-8 being the assumed encoding. This attribute allows for variations from these assumptions.</p>
-</div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Invariants</strong></p></th>
-<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
-<p><em>Language_valid</em>: <code>language /= Void implies code_set (Code_set_id_languages).has_code (language)</code></p>
-</div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"></th>
-<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
-<p><em>Encoding_valid</em>: <code>encoding /= Void implies code_set (Code_set_id_character_sets).has_code (encoding)</code></p>
-</div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"></th>
-<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
-<p><em>Mappings_valid</em>: <code>mappings /= void implies not mappings.is_empty</code></p>
-</div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"></th>
-<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
-<p><em>Formatting_valid</em>: <code>formatting /= void implies not formatting.is_empty</code></p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect2">
-<h3 id="_term_mapping_class"><a class="anchor" href="#_term_mapping_class"></a><a class="link" href="#_term_mapping_class">TERM_MAPPING Class</a></h3>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 11.1111%;">
-<col style="width: 33.3333%;">
-<col style="width: 55.5556%;">
-</colgroup>
-<tbody>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
-<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>TERM_MAPPING</strong></p></th>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
-<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
-<p>Represents a coded term mapped to a <code>DV_TEXT</code>, and the relative match of the target term with respect to the mapped item. Plain or coded text items may appear in the EHR for which one or mappings in alternative terminologies are required. Mappings are only used to enable computer processing, so they can only be instances of <code>DV_CODED_TEXT</code>.</p>
-</div>
-<div class="paragraph">
-<p>Used for adding classification terms (e.g. adding ICD classifiers to SNOMED descriptive terms), or mapping into equivalents in other terminologies (e.g. across nursing vocabularies).</p>
-</div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>match</strong>: <code>char</code></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>The relative match of the target term with respect to the mapped text item. Result meanings:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>'&gt;'</code>: the mapping is to a broader term e.g. orginal text =  arbovirus infection , target =  viral infection</p>
-</li>
-<li>
-<p><code>'='</code>: the mapping is to a (supposedly) equivalent to the original item</p>
-</li>
-<li>
-<p><code>'&lt;'</code>: the mapping is to a narrower term. e.g. original text =  diabetes , mapping =  diabetes mellitus .</p>
-</li>
-<li>
-<p><code>'?'</code>: the kind of mapping is unknown.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>The first three values are taken from the ISO standards 2788 ( Guide to Establishment and development of monolingual thesauri) and 5964 (Guide to Establishment and development of multilingual thesauri).</p>
-</div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>purpose</strong>: <code><a href="#_dv_coded_text_class">DV_CODED_TEXT</a></code></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Purpose of the mapping e.g. 'automated data mining', 'billing', 'interoperability'.</p>
-</div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>target</strong>: <code><a href="#_code_phrase_class">CODE_PHRASE</a></code></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>The target term of the mapping.</p>
-</div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Functions</strong></p></th>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>narrower</strong> (): <code><a href="/releases/BASE/latest/foundation_types.html#_boolean_class" target="_blank" rel="noopener">Boolean</a></code><br>
-<br>
-<em>Post</em>: <code>match = ‘&lt;’ implies Result</code></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>The mapping is to a narrower term.</p>
-</div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>broader</strong> (): <code><a href="/releases/BASE/latest/foundation_types.html#_boolean_class" target="_blank" rel="noopener">Boolean</a></code><br>
-<br>
-<em>Post</em>: <code>match = ‘&gt;’ implies Result</code></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>The mapping is to a broader term.</p>
-</div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>equivalent</strong> (): <code><a href="/releases/BASE/latest/foundation_types.html#_boolean_class" target="_blank" rel="noopener">Boolean</a></code></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>The mapping is to an equivalent term.</p>
-</div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>unknown</strong> (): <code><a href="/releases/BASE/latest/foundation_types.html#_boolean_class" target="_blank" rel="noopener">Boolean</a></code><br>
-<br>
-<em>Post</em>: <code>match = ‘?’ implies Result</code></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>The kind of mapping is unknown.</p>
-</div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_valid_match_code</strong> (<br>
-c: <code>char[1]</code><br>
-): <code><a href="/releases/BASE/latest/foundation_types.html#_boolean_class" target="_blank" rel="noopener">Boolean</a></code><br>
-<br>
-<em>Post</em>: <code>Result := c = ‘&gt;’ or c = ‘=’ or c = ‘&lt;’ or c = ‘?’</code></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>True if match valid.</p>
-</div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Invariants</strong></p></th>
-<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
-<p><em>Purpose_valid</em>: <code>purpose /= Void implies terminology (Terminology_id_openehr).has_code_for_group_id (Group_id_term_mapping_purpose, purpose.defining_code)</code></p>
-</div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"></th>
-<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
-<p><em>Match_valid</em>: <code>is_valid_match_code (match)</code></p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect2">
-<h3 id="_code_phrase_class"><a class="anchor" href="#_code_phrase_class"></a><a class="link" href="#_code_phrase_class">CODE_PHRASE Class</a></h3>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 11.1111%;">
-<col style="width: 33.3333%;">
-<col style="width: 55.5556%;">
-</colgroup>
-<tbody>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
-<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>CODE_PHRASE</strong></p></th>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
-<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
-<p>A fully coordinated (i.e. all coordination has been performed) term from a terminology service (as distinct from a particular terminology).</p>
-</div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>terminology_id</strong>: <code><a href="/releases/BASE/latest/base_types.html#_terminology_id_class" target="_blank" rel="noopener">TERMINOLOGY_ID</a></code></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Identifier of the distinct terminology from which the code_string (or its elements) was extracted.</p>
-</div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>code_string</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a></code></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>The key used by the terminology service to identify a concept or coordination of concepts. This string is most likely parsable inside the terminology service, but nothing can be assumed about its syntax outside that context.</p>
-</div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>preferred_term</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a></code></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Optional attribute to carry preferred term corresponding to the code or expression in <code><em>code_string</em></code>. Typical use in integration situations which create mappings, and representing data for which both a (non-preferred) actual term and a preferred term are both required.</p>
-</div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Invariants</strong></p></th>
-<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
-<p><em>Code_string_valid</em>: <code>not code_string.is_empty</code></p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect2">
-<h3 id="_dv_coded_text_class"><a class="anchor" href="#_dv_coded_text_class"></a><a class="link" href="#_dv_coded_text_class">DV_CODED_TEXT Class</a></h3>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 11.1111%;">
-<col style="width: 33.3333%;">
-<col style="width: 55.5556%;">
-</colgroup>
-<tbody>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
-<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>DV_CODED_TEXT</strong></p></th>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
-<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
-<p>A text item whose value must be the rubric from a controlled terminology, the key (i.e. the 'code') of which is the <code><em>defining_code</em></code> attribute. In other words: a <code>DV_CODED_TEXT</code> is a combination of a <code>CODE_PHRASE</code> (effectively a code) and the rubric of that term, from a terminology service, in the language in which the data were authored.</p>
-</div>
-<div class="paragraph">
-<p>Since <code>DV_CODED_TEXT</code> is a subtype of <code>DV_TEXT</code>, it can be used in place of it, effectively allowing the type <code>DV_TEXT</code> to mean  a text item, which may optionally be coded.</p>
-</div>
-<div class="paragraph">
-<p>Misuse: If the intention is to represent a term code attached in some way to a fragment of plain text, <code>DV_CODED_TEXT</code> should not be used; instead use a <code>DV_TEXT</code> and a <code>TERM_MAPPING</code> to a <code>CODE_PHRASE</code>.</p>
-</div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
-<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="#_dv_text_class">DV_TEXT</a></code></p></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>defining_code</strong>: <code><a href="#_code_phrase_class">CODE_PHRASE</a></code></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>The term of which the  <code><em>value</em></code> attribute is the textual rendition (i.e. rubric).</p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect2">
-<h3 id="_dv_paragraph_class"><a class="anchor" href="#_dv_paragraph_class"></a><a class="link" href="#_dv_paragraph_class">DV_PARAGRAPH Class</a></h3>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 11.1111%;">
-<col style="width: 33.3333%;">
-<col style="width: 55.5556%;">
-</colgroup>
-<tbody>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
-<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>DV_PARAGRAPH</strong></p></th>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
-<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
-<p>DEPRECATED: use markdown formatted <code>DV_TEXT</code> instead.</p>
-</div>
-<div class="paragraph">
-<p>Original definition:</p>
-</div>
-<div class="paragraph">
-<p>A logical composite text value consisting of a series of <code>DV_TEXTs</code>, i.e. plain text (optionally coded) potentially with simple formatting, to form a larger tract of prose, which may be interpreted for display purposes as a paragraph.</p>
-</div>
-<div class="paragraph">
-<p><code>DV_PARAGRAPH</code> is the standard way for constructing longer text items in summaries, reports and so on.</p>
-</div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
-<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="#_data_value_class">DATA_VALUE</a></code></p></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>items</strong>: <code><a href="/releases/BASE/latest/foundation_types.html#_list_class" target="_blank" rel="noopener">List</a>&lt;<a href="#_dv_text_class">DV_TEXT</a>&gt;</code></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Items making up the paragraph, each of which is a text item (which may have its own formatting, and/or have hyperlinks).</p>
-</div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Invariants</strong></p></th>
-<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
-<p><em>Items_valid</em>: <code>not items.is_empty</code></p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
 </div>
 </div>
 </div>
@@ -1544,5 +1141,6 @@ c: <code>char[1]</code><br>
 <script async src="../../../../search-index.js"></script>
 <script src="../../../../ui/js/medium-zoom.min.js"></script>
 <script src="../../../../ui/js/zoom.js"></script>
+<script async src="../../../../ui/js/tabs.js"></script>
   </body>
 </html>

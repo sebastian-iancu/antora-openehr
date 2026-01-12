@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="../../../../ui/css/site.css">
     <link rel="stylesheet" href="../../../../ui/css/antora-openehr.css">
     <link rel="stylesheet" href="../../../../ui/css/openehr.css">
+    <link rel="stylesheet" href="../../../../ui/css/tabs.css">
 <link rel="icon" href="../../../../ui/img/favicon.ico" type="image/x-icon">
   </head>
   <body class="article">
@@ -250,20 +251,6 @@
     <span class="version">development</span>
   </div>
   <ul class="components">
-    <li class="component">
-      <div class="title"><a href="../../../../AM/latest/">Archetype Model</a></div>
-      <ul class="versions">
-        <li class="version is-latest">
-          <a href="../../../../AM/latest/">Release-2.3.0</a>
-        </li>
-        <li class="version">
-          <a href="../../../../AM/Release-2.2.0/">Release-2.2.0</a>
-        </li>
-        <li class="version">
-          <a href="../../../../AM/development/">development</a>
-        </li>
-      </ul>
-    </li>
     <li class="component is-current">
       <div class="title"><a href="../../../latest/">Base Model</a></div>
       <ul class="versions">
@@ -402,41 +389,2672 @@
 <div class="sect1">
 <h2 id="_class_definitions"><a class="anchor" href="#_class_definitions"></a><a class="link" href="#_class_definitions">Class Definitions</a></h2>
 <div class="sectionbody">
-<div class="paragraph">
-<p>Unresolved directive in primitive_types.adoc - include::ROOT:partial$uml/{pkg}boolean.adoc[]</p>
+<div class="sect2">
+<h3 id="_boolean_class"><a class="anchor" href="#_boolean_class"></a><a class="link" href="#_boolean_class">Boolean Class</a></h3>
+<div id="_tabs_1" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="_tabs_1_definition" class="tab">
+<p>Definition</p>
+</li>
+<li id="_tabs_1_bmm" class="tab">
+<p>BMM</p>
+</li>
+<li id="_tabs_1_uml" class="tab">
+<p>UML</p>
+</li>
+</ul>
+</div>
+<div id="_tabs_1_definition--panel" class="tabpanel" aria-labelledby="_tabs_1_definition">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>Boolean</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Type representing minimal interface of built-in Boolean type.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="../../../latest/foundation_types/overview/#_any_class" class="xref page">Any</a></code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Functions</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>conjunction</strong> <em>alias</em> "and", "∧", "&amp;" (<br>
+other: <code><a href="../../../latest/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a>[1]</code><br>
+): <code><a href="../../../latest/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a></code><br>
+<br>
+<em>Post_de_Morgan</em>: <code>Result = not (not self or not other)</code><br>
+<em>Post_commutative</em>: <code>Result = (other and self)</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Logical conjunction of this with <code><em>other</em></code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>semistrict_conjunction</strong> <em>alias</em> "and then", "&amp;&amp;" (<br>
+other: <code><a href="../../../latest/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a>[1]</code><br>
+): <code><a href="../../../latest/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a></code><br>
+<br>
+<em>Post_de_Morgan</em>: <code>Result = not (not self or else not other)</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Boolean semi-strict conjunction with <code><em>other</em></code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>disjunction</strong> <em>alias</em> "or", "∨", "&#124;" (<br>
+other: <code><a href="../../../latest/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a>[1]</code><br>
+): <code><a href="../../../latest/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a></code><br>
+<br>
+<em>Post_de_Morgan</em>: <code>Result = not (not self and not other)</code><br>
+<em>Post_commutative</em>: <code>Result = (other or Current)</code><br>
+<em>Post_consistent_with_semi_strict</em>: <code>Result implies (self or else other)</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Boolean disjunction with <code><em>other</em></code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>semistrict_disjunction</strong> <em>alias</em> "or else", "&#124;&#124;" (<br>
+other: <code><a href="../../../latest/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a>[1]</code><br>
+): <code><a href="../../../latest/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a></code><br>
+<br>
+<em>Post_de_Morgan</em>: <code>Result = not (not self and then not other)</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Boolean semi-strict disjunction with <code><em>other</em></code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>exclusive_disjunction</strong> <em>alias</em> "xor", "⊻" (<br>
+other: <code><a href="../../../latest/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a>[1]</code><br>
+): <code><a href="../../../latest/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a></code><br>
+<br>
+<em>Post_definition</em>: <code>Result = self or other) and not (self and other</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Boolean exclusive or with <code><em>other</em></code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>implication</strong> <em>alias</em> "implies", "⇒" (<br>
+other: <code><a href="../../../latest/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a>[1]</code><br>
+): <code><a href="../../../latest/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a></code><br>
+<br>
+<em>Post_definition</em>: <code>Result = (not self or else other)</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Boolean implication of <code><em>other</em></code> (semi-strict)</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>negation</strong> <em>alias</em> "not", "¬", "!" (): <code><a href="../../../latest/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Boolean negation of the current value.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Invariants</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Involutive_negation</em>: <code>is_equal (not (not self))</code></p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Non_contradiction</em>: <code>not (self and (not self))</code></p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Completeness</em>: <code>self or else (not self)</code></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="_tabs_1_bmm--panel" class="tabpanel" aria-labelledby="_tabs_1_bmm">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+    "name": "Boolean",
+    "documentation": "Type representing minimal interface of built-in Boolean type.",
+    "ancestors": [
+        "Any"
+    ],
+    "functions": {
+        "conjunction": {
+            "name": "conjunction",
+            "aliases": [
+                "and",
+                "∧",
+                "&amp;"
+            ],
+            "documentation": "Logical conjunction of this with `_other_`.",
+            "parameters": {
+                "other": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "other",
+                    "type": "Boolean"
+                }
+            },
+            "post_conditions": {
+                "Post_de_Morgan": "Result = not (not self or not other)",
+                "Post_commutative": "Result = (other and self)"
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Boolean"
+            }
+        },
+        "semistrict_conjunction": {
+            "name": "semistrict_conjunction",
+            "aliases": [
+                "and then",
+                "&amp;&amp;"
+            ],
+            "documentation": "Boolean semi-strict conjunction with `_other_`.",
+            "parameters": {
+                "other": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "other",
+                    "type": "Boolean"
+                }
+            },
+            "post_conditions": {
+                "Post_de_Morgan": "Result = not (not self or else not other)"
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Boolean"
+            }
+        },
+        "disjunction": {
+            "name": "disjunction",
+            "aliases": [
+                "or",
+                "∨",
+                "&amp;#124;"
+            ],
+            "documentation": "Boolean disjunction with `_other_`.",
+            "parameters": {
+                "other": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "other",
+                    "type": "Boolean"
+                }
+            },
+            "post_conditions": {
+                "Post_de_Morgan": "Result = not (not self and not other)",
+                "Post_commutative": "Result = (other or Current)",
+                "Post_consistent_with_semi_strict": "Result implies (self or else other)"
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Boolean"
+            }
+        },
+        "semistrict_disjunction": {
+            "name": "semistrict_disjunction",
+            "aliases": [
+                "or else",
+                "&amp;#124;&amp;#124;"
+            ],
+            "documentation": "Boolean semi-strict disjunction with `_other_`.",
+            "parameters": {
+                "other": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "other",
+                    "type": "Boolean"
+                }
+            },
+            "post_conditions": {
+                "Post_de_Morgan": "Result = not (not self and then not other)"
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Boolean"
+            }
+        },
+        "exclusive_disjunction": {
+            "name": "exclusive_disjunction",
+            "aliases": [
+                "xor",
+                "⊻"
+            ],
+            "documentation": "Boolean exclusive or with `_other_`.",
+            "parameters": {
+                "other": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "other",
+                    "type": "Boolean"
+                }
+            },
+            "post_conditions": {
+                "Post_definition": "Result = ((self or other) and not (self and other))"
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Boolean"
+            }
+        },
+        "implication": {
+            "name": "implication",
+            "aliases": [
+                "implies",
+                "⇒"
+            ],
+            "documentation": "Boolean implication of `_other_` (semi-strict)",
+            "parameters": {
+                "other": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "other",
+                    "type": "Boolean"
+                }
+            },
+            "post_conditions": {
+                "Post_definition": "Result = (not self or else other)"
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Boolean"
+            }
+        },
+        "negation": {
+            "name": "negation",
+            "aliases": [
+                "not",
+                "¬",
+                "!"
+            ],
+            "documentation": "Boolean negation of the current value.",
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Boolean"
+            }
+        }
+    },
+    "invariants": {
+        "Involutive_negation": "is_equal (not (not self))",
+        "Non_contradiction": "not (self and (not self))",
+        "Completeness": "self or else (not self)"
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="_tabs_1_uml--panel" class="tabpanel" aria-labelledby="_tabs_1_uml">
+<div class="imageblock kroki">
+<div class="content">
+<img src="https://kroki.io/plantuml/svg/eNrjSs5JLC5WcMrPz0lNzFOo5lJQ0FZIzs_LKs1LLsnMz9NQyC_JSC1SsIIriTaMVdBE5YM1FafmZhaXFGUml8STpT8ls5giS8nSn1qRnFNanFmWSp72zNyCnMzkRNI05aWmQ3SgS9ZyAQA6XH7t?svg-type=inline" alt="Boolean">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_ordered_class"><a class="anchor" href="#_ordered_class"></a><a class="link" href="#_ordered_class">Ordered Class</a></h3>
+<div id="_tabs_2" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="_tabs_2_definition" class="tab">
+<p>Definition</p>
+</li>
+<li id="_tabs_2_bmm" class="tab">
+<p>BMM</p>
+</li>
+<li id="_tabs_2_uml" class="tab">
+<p>UML</p>
+</li>
+</ul>
+</div>
+<div id="_tabs_2_definition--panel" class="tabpanel" aria-labelledby="_tabs_2_definition">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong><em>Ordered (abstract)</em></strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Abstract parent class of ordered types i.e. types on which the '&lt;' operator is defined.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="../../../latest/foundation_types/overview/#_any_class" class="xref page">Any</a></code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Functions</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(abstract)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>less_than</strong> <em>alias</em> "&lt;" (<br>
+other: <code><a href="../../../latest/foundation_types/primitive_types/#_ordered_class" class="xref page">Ordered</a>[1]</code><br>
+): <code><a href="../../../latest/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Arithmetic value comparison. Returns True if current object is less than <code><em>other</em></code>. This operator is effected and/or redefined in descendants to provide the appropriate ordering semantics for concrete types.</p>
 </div>
 <div class="paragraph">
-<p>Unresolved directive in primitive_types.adoc - include::ROOT:partial$uml/{pkg}ordered.adoc[]</p>
+<p>In conjunction with <code>=</code>, enables the definition of the related functions <code><em>greater_than</em>()</code> etc.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>less_than_or_equal</strong> <em>alias</em> "&#8656;", "≤" (<br>
+other: <code><a href="../../../latest/foundation_types/primitive_types/#_ordered_class" class="xref page">Ordered</a>[1]</code><br>
+): <code><a href="../../../latest/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a></code><br>
+<br>
+<em>Post_result</em>: <code>not (other &lt; self)</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>True if current object less than or equal to <code><em>other</em></code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>greater_than</strong> <em>alias</em> "&gt;" (<br>
+other: <code><a href="../../../latest/foundation_types/primitive_types/#_ordered_class" class="xref page">Ordered</a>[1]</code><br>
+): <code><a href="../../../latest/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a></code><br>
+<br>
+<em>Post_result</em>: <code>Result = (other &lt; self)</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>True if current object greater than <code><em>other</em></code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>greater_than_or_equal</strong> <em>alias</em> "&gt;=", "≥" (<br>
+other: <code><a href="../../../latest/foundation_types/primitive_types/#_ordered_class" class="xref page">Ordered</a>[1]</code><br>
+): <code><a href="../../../latest/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a></code><br>
+<br>
+<em>Post_result</em>: <code>Result = (other &lt;= self)</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>True if current object greater than or equal to <code><em>other</em></code>.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
 </div>
-<div class="paragraph">
-<p>Unresolved directive in primitive_types.adoc - include::ROOT:partial$uml/{pkg}character.adoc[]</p>
+<div id="_tabs_2_bmm--panel" class="tabpanel" aria-labelledby="_tabs_2_bmm">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+    "name": "Ordered",
+    "documentation": "Abstract parent class of ordered types i.e. types on which the '&lt;' operator is defined.",
+    "is_abstract": true,
+    "ancestors": [
+        "Any"
+    ],
+    "functions": {
+        "less_than": {
+            "name": "less_than",
+            "aliases": [
+                "&lt;"
+            ],
+            "documentation": "Arithmetic value comparison. Returns True if current object is less than `_other_`. This operator is effected and/or redefined in descendants to provide the appropriate ordering semantics for concrete types.\n\nIn conjunction with `=`, enables the definition of the related functions `_greater_than_()` etc.",
+            "is_abstract": true,
+            "parameters": {
+                "other": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "other",
+                    "type": "Ordered"
+                }
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Boolean"
+            }
+        },
+        "less_than_or_equal": {
+            "name": "less_than_or_equal",
+            "aliases": [
+                "&lt;=",
+                "≤"
+            ],
+            "documentation": "True if current object less than or equal to `_other_`.",
+            "parameters": {
+                "other": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "other",
+                    "type": "Ordered"
+                }
+            },
+            "post_conditions": {
+                "Post_result": "not (other &lt; self)"
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Boolean"
+            }
+        },
+        "greater_than": {
+            "name": "greater_than",
+            "aliases": [
+                "&gt;"
+            ],
+            "documentation": "True if current object greater than `_other_`.",
+            "parameters": {
+                "other": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "other",
+                    "type": "Ordered"
+                }
+            },
+            "post_conditions": {
+                "Post_result": "Result = (other &lt; self)"
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Boolean"
+            }
+        },
+        "greater_than_or_equal": {
+            "name": "greater_than_or_equal",
+            "aliases": [
+                "&gt;=",
+                "≥"
+            ],
+            "documentation": "True if current object greater than or equal to `_other_`.",
+            "parameters": {
+                "other": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "other",
+                    "type": "Ordered"
+                }
+            },
+            "post_conditions": {
+                "Post_result": "Result = (other &lt;= self)"
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Boolean"
+            }
+        }
+    }
+}</code></pre>
 </div>
-<div class="paragraph">
-<p>Unresolved directive in primitive_types.adoc - include::ROOT:partial$uml/{pkg}octet.adoc[]</p>
 </div>
-<div class="paragraph">
-<p>Unresolved directive in primitive_types.adoc - include::ROOT:partial$uml/{pkg}string.adoc[]</p>
 </div>
-<div class="paragraph">
-<p>Unresolved directive in primitive_types.adoc - include::ROOT:partial$uml/{pkg}uri.adoc[]</p>
+<div id="_tabs_2_uml--panel" class="tabpanel" aria-labelledby="_tabs_2_uml">
+<div class="imageblock kroki">
+<div class="content">
+<img src="https://kroki.io/plantuml/svg/eNqVjTsKgEAMBfs9xSsVK1tLL-ABRJaoQYvFxSRW4t39gGKp5fDeMI5aNaHO0AVSRSU9C_dYHZBhvdcNgVW9jTQliDayoHi-dd4gPbiMMTBNJ1_2o_gonueFwnd3ECZj-Vl8Wz-jm9sB8GBWNg==?svg-type=inline" alt="Ordered">
 </div>
-<div class="paragraph">
-<p>Unresolved directive in primitive_types.adoc - include::ROOT:partial$uml/{pkg}numeric.adoc[]</p>
 </div>
-<div class="paragraph">
-<p>Unresolved directive in primitive_types.adoc - include::ROOT:partial$uml/{pkg}ordered_numeric.adoc[]</p>
 </div>
-<div class="paragraph">
-<p>Unresolved directive in primitive_types.adoc - include::ROOT:partial$uml/{pkg}integer.adoc[]</p>
 </div>
-<div class="paragraph">
-<p>Unresolved directive in primitive_types.adoc - include::ROOT:partial$uml/{pkg}integer64.adoc[]</p>
 </div>
-<div class="paragraph">
-<p>Unresolved directive in primitive_types.adoc - include::ROOT:partial$uml/{pkg}real.adoc[]</p>
 </div>
-<div class="paragraph">
-<p>Unresolved directive in primitive_types.adoc - include::ROOT:partial$uml/{pkg}double.adoc[]</p>
+<div class="sect2">
+<h3 id="_character_class"><a class="anchor" href="#_character_class"></a><a class="link" href="#_character_class">Character Class</a></h3>
+<div id="_tabs_3" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="_tabs_3_definition" class="tab">
+<p>Definition</p>
+</li>
+<li id="_tabs_3_bmm" class="tab">
+<p>BMM</p>
+</li>
+<li id="_tabs_3_uml" class="tab">
+<p>UML</p>
+</li>
+</ul>
+</div>
+<div id="_tabs_3_definition--panel" class="tabpanel" aria-labelledby="_tabs_3_definition">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>Character</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Type representing minimal interface of built-in Character type.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="../../../latest/foundation_types/primitive_types/#_ordered_class" class="xref page">Ordered</a></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="_tabs_3_bmm--panel" class="tabpanel" aria-labelledby="_tabs_3_bmm">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+    "name": "Character",
+    "documentation": "Type representing minimal interface of built-in Character type.",
+    "ancestors": [
+        "Ordered"
+    ]
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="_tabs_3_uml--panel" class="tabpanel" aria-labelledby="_tabs_3_uml">
+<div class="imageblock kroki">
+<div class="content">
+<img src="https://kroki.io/plantuml/svg/eNqVkEEKwjAQRfc5xYAbRSq4bV3pATyASBiboSnGBicjKrV3N420urS7-fN5_zOjSochwM4iYynE0KpOKTwF6TV83D0bYjIAs7uthcLFn6lwdUN5xfhM08p4ETKF0EPSNgYBLKEdojpwFIIWi80cvNhYlY_Bh_URFlFvvXeETa8TPSLas6brDd3_bMWE8aCJjb_UxNL4t8HevLLs-1P1BpGoddw=?svg-type=inline" alt="Character">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_octet_class"><a class="anchor" href="#_octet_class"></a><a class="link" href="#_octet_class">Octet Class</a></h3>
+<div id="_tabs_4" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="_tabs_4_definition" class="tab">
+<p>Definition</p>
+</li>
+<li id="_tabs_4_bmm" class="tab">
+<p>BMM</p>
+</li>
+<li id="_tabs_4_uml" class="tab">
+<p>UML</p>
+</li>
+</ul>
+</div>
+<div id="_tabs_4_definition--panel" class="tabpanel" aria-labelledby="_tabs_4_definition">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>Octet</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Type representing minimal interface of built-in Octet type.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="../../../latest/foundation_types/primitive_types/#_ordered_class" class="xref page">Ordered</a></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="_tabs_4_bmm--panel" class="tabpanel" aria-labelledby="_tabs_4_bmm">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+    "name": "Octet",
+    "documentation": "Type representing minimal interface of built-in Octet type.",
+    "ancestors": [
+        "Ordered"
+    ]
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="_tabs_4_uml--panel" class="tabpanel" aria-labelledby="_tabs_4_uml">
+<div class="imageblock kroki">
+<div class="content">
+<img src="https://kroki.io/plantuml/svg/eNqVkMEKwkAMRO_7FQEvilTw2nryB_wAkSV2h7a4djEbUan9d2u1xaO9ZTK8GRiTe46RdrlCqTGtMXyMKpwrfR1xEDii2a2sFPEcTsh8VSMthB_9tXJBFS5T3LX_dkFES2qGqJY8YrRacj2noCWE0jF4vz7QotPbEDy4fuueHhEbxOJyZf8_WwhYIRMbf6mJpd1ug715JslnT_MCm0xywA==?svg-type=inline" alt="Octet">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_string_class"><a class="anchor" href="#_string_class"></a><a class="link" href="#_string_class">String Class</a></h3>
+<div id="_tabs_5" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="_tabs_5_definition" class="tab">
+<p>Definition</p>
+</li>
+<li id="_tabs_5_bmm" class="tab">
+<p>BMM</p>
+</li>
+<li id="_tabs_5_uml" class="tab">
+<p>UML</p>
+</li>
+</ul>
+</div>
+<div id="_tabs_5_definition--panel" class="tabpanel" aria-labelledby="_tabs_5_definition">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>String</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Type representing minimal interface of built-in String type, as used to represent textual data in any natural or formal language.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="../../../latest/foundation_types/primitive_types/#_ordered_class" class="xref page">Ordered</a></code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Functions</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_empty</strong> (): <code><a href="../../../latest/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>True if string is empty, i.e. equal to "".</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_integer</strong> (): <code><a href="../../../latest/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>True if string can be parsed as an integer.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>as_integer</strong> (): <code><a href="../../../latest/foundation_types/primitive_types/#_integer_class" class="xref page">Integer</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Return the integer corresponding to the integer value represented in this string.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>append</strong> <em>alias</em> "+" (<br>
+other: <code><a href="../../../latest/foundation_types/primitive_types/#_string_class" class="xref page">String</a>[1]</code><br>
+): <code><a href="../../../latest/foundation_types/primitive_types/#_string_class" class="xref page">String</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Concatenation operator - causes <code><em>other</em></code> to be appended to this string.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(effected)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>less_than</strong> (<br>
+other: <code><a href="../../../latest/foundation_types/primitive_types/#_string_class" class="xref page">String</a>[1]</code><br>
+): <code><a href="../../../latest/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Lexical comparison of string content based on ordering in relevant character set.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>contains</strong> (<br>
+other: <code><a href="../../../latest/foundation_types/primitive_types/#_string_class" class="xref page">String</a>[1]</code><br>
+): <code><a href="../../../latest/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Return True if this String contains <code><em>other</em></code> (case-sensitive).</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="_tabs_5_bmm--panel" class="tabpanel" aria-labelledby="_tabs_5_bmm">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+    "name": "String",
+    "documentation": "Type representing minimal interface of built-in String type, as used to represent textual data in any natural or formal language.",
+    "ancestors": [
+        "Ordered"
+    ],
+    "functions": {
+        "is_empty": {
+            "name": "is_empty",
+            "documentation": "True if string is empty, i.e. equal to \"\".",
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Boolean"
+            }
+        },
+        "is_integer": {
+            "name": "is_integer",
+            "documentation": "True if string can be parsed as an integer.",
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Boolean"
+            }
+        },
+        "as_integer": {
+            "name": "as_integer",
+            "documentation": "Return the integer corresponding to the integer value represented in this string.",
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Integer"
+            }
+        },
+        "append": {
+            "name": "append",
+            "aliases": [
+                "+"
+            ],
+            "documentation": "Concatenation operator - causes `_other_` to be appended to this string.",
+            "parameters": {
+                "other": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "other",
+                    "type": "String"
+                }
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "String"
+            }
+        },
+        "less_than": {
+            "name": "less_than",
+            "documentation": "Lexical comparison of string content based on ordering in relevant character set.",
+            "parameters": {
+                "other": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "other",
+                    "type": "String"
+                }
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Boolean"
+            }
+        },
+        "contains": {
+            "name": "contains",
+            "documentation": "Return True if this String contains `_other_` (case-sensitive).",
+            "parameters": {
+                "other": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "other",
+                    "type": "String"
+                }
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Boolean"
+            }
+        }
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="_tabs_5_uml--panel" class="tabpanel" aria-labelledby="_tabs_5_uml">
+<div class="imageblock kroki">
+<div class="content">
+<img src="https://kroki.io/plantuml/svg/eNqVkD8LwkAMxff7FAEXiyi4tk5uTg6OIiX2Qnt43tVcREX97pbq-Q8F3ZL88vLCU4XFEGAmbFwJRwXQAxNyWtdy6CaQwth7S-hgPlxEaJxQSfwR4yueXOsHrmtyugteqmaaRt8GQ_LSttuWQsilQvdV8G5feCdoXPhJcFYKl0EYC4FrDFPWxKQBOrvKCIW1X1FmjaO0ZDy01UB7EdKZ0F7a6S20Yzx1_vR2PPzt77sk95zTZov2d23JhEL8p-Oz6k_TJreIR6d-_xaxugCLVrrL?svg-type=inline" alt="String">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_uri_class"><a class="anchor" href="#_uri_class"></a><a class="link" href="#_uri_class">Uri Class</a></h3>
+<div id="_tabs_6" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="_tabs_6_definition" class="tab">
+<p>Definition</p>
+</li>
+<li id="_tabs_6_bmm" class="tab">
+<p>BMM</p>
+</li>
+<li id="_tabs_6_uml" class="tab">
+<p>UML</p>
+</li>
+</ul>
+</div>
+<div id="_tabs_6_definition--panel" class="tabpanel" aria-labelledby="_tabs_6_definition">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>Uri</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>A kind of String constrained to obey the syntax of RFC 3986.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="../../../latest/foundation_types/primitive_types/#_string_class" class="xref page">String</a></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="_tabs_6_bmm--panel" class="tabpanel" aria-labelledby="_tabs_6_bmm">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+    "name": "Uri",
+    "documentation": "A kind of String constrained to obey the syntax of RFC 3986.",
+    "ancestors": [
+        "String"
+    ]
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="_tabs_6_uml--panel" class="tabpanel" aria-labelledby="_tabs_6_uml">
+<div class="imageblock kroki">
+<div class="content">
+<img src="https://kroki.io/plantuml/svg/eNqdUsuKAjEQvOcrGryMiMJeR0_ePHmQPYkMvZNmJhiT2U7Lrrj--4YZ4wsF9dZdleoqiqjSYgjwyQb26qBUty6EjasAej-1EQobv6axNY7yinHXTiPtRUiPhX6lRaMcYAAmFLRpZJf1IYep95bQwfJjlUjjhCriuzRe07NuPtNNQ05n4KWOaJ5CRhr6V2v72lIIhdToHgpu7UvvBI0LTwliVfgVhLEU6DqbsyYm_U5p-3TqcC92Ovwo90lSeC7oe4v2eW3FhEL8ouOl6kXT2FuiJ3_D4bFipY5Vt1j8jOofbgTVaQ==?svg-type=inline" alt="Uri">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_numeric_class"><a class="anchor" href="#_numeric_class"></a><a class="link" href="#_numeric_class">Numeric Class</a></h3>
+<div id="_tabs_7" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="_tabs_7_definition" class="tab">
+<p>Definition</p>
+</li>
+<li id="_tabs_7_bmm" class="tab">
+<p>BMM</p>
+</li>
+<li id="_tabs_7_uml" class="tab">
+<p>UML</p>
+</li>
+</ul>
+</div>
+<div id="_tabs_7_definition--panel" class="tabpanel" aria-labelledby="_tabs_7_definition">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong><em>Numeric (abstract)</em></strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Abstract parent class of numeric types, which are types which have various arithmetic and comparison operators defined.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="../../../latest/foundation_types/overview/#_any_class" class="xref page">Any</a></code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Functions</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(abstract)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>add</strong> <em>alias</em> "+" (<br>
+other: <code><a href="../../../latest/foundation_types/primitive_types/#_numeric_class" class="xref page">Numeric</a>[1]</code><br>
+): <code><a href="../../../latest/foundation_types/primitive_types/#_numeric_class" class="xref page">Numeric</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Sum with <code><em>other</em></code> (commutative). Actual type of result depends on arithmetic balancing rules.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(abstract)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>subtract</strong> <em>alias</em> "-" (<br>
+other: <code><a href="../../../latest/foundation_types/primitive_types/#_numeric_class" class="xref page">Numeric</a>[1]</code><br>
+): <code><a href="../../../latest/foundation_types/primitive_types/#_numeric_class" class="xref page">Numeric</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Result of subtracting <code><em>other</em></code>. Actual type of result depends on arithmetic balancing rules.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(abstract)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>multiply</strong> <em>alias</em> "&#42;" (<br>
+other: <code><a href="../../../latest/foundation_types/primitive_types/#_numeric_class" class="xref page">Numeric</a>[1]</code><br>
+): <code><a href="../../../latest/foundation_types/primitive_types/#_numeric_class" class="xref page">Numeric</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Product by <code><em>other</em></code>. Actual type of result depends on arithmetic balancing rules.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(abstract)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>divide</strong> <em>alias</em> "/" (<br>
+other: <code><a href="../../../latest/foundation_types/primitive_types/#_numeric_class" class="xref page">Numeric</a>[1]</code><br>
+): <code><a href="../../../latest/foundation_types/primitive_types/#_numeric_class" class="xref page">Numeric</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Divide by`<em>other</em>`. Actual type of result depends on arithmetic balancing rules.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(abstract)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>exponent</strong> <em>alias</em> "^" (<br>
+other: <code><a href="../../../latest/foundation_types/primitive_types/#_numeric_class" class="xref page">Numeric</a>[1]</code><br>
+): <code><a href="../../../latest/foundation_types/primitive_types/#_numeric_class" class="xref page">Numeric</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Expontiation of this by <code><em>other</em></code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(abstract)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>negative</strong> <em>alias</em> "-" (): <code><a href="../../../latest/foundation_types/primitive_types/#_numeric_class" class="xref page">Numeric</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Generate negative of current value.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="_tabs_7_bmm--panel" class="tabpanel" aria-labelledby="_tabs_7_bmm">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+    "name": "Numeric",
+    "documentation": "Abstract parent class of numeric types, which are types which have various arithmetic and comparison operators defined.",
+    "is_abstract": true,
+    "ancestors": [
+        "Any"
+    ],
+    "functions": {
+        "add": {
+            "name": "add",
+            "aliases": [
+                "+"
+            ],
+            "documentation": "Sum with `_other_` (commutative). Actual type of result depends on arithmetic balancing rules.",
+            "is_abstract": true,
+            "parameters": {
+                "other": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "other",
+                    "type": "Numeric"
+                }
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Numeric"
+            }
+        },
+        "subtract": {
+            "name": "subtract",
+            "aliases": [
+                "-"
+            ],
+            "documentation": "Result of subtracting `_other_`. Actual type of result depends on arithmetic balancing rules.",
+            "is_abstract": true,
+            "parameters": {
+                "other": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "other",
+                    "type": "Numeric"
+                }
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Numeric"
+            }
+        },
+        "multiply": {
+            "name": "multiply",
+            "aliases": [
+                "&amp;#42;"
+            ],
+            "documentation": "Product by `_other_`. Actual type of result depends on arithmetic balancing rules.",
+            "is_abstract": true,
+            "parameters": {
+                "other": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "other",
+                    "type": "Numeric"
+                }
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Numeric"
+            }
+        },
+        "divide": {
+            "name": "divide",
+            "aliases": [
+                "/"
+            ],
+            "documentation": "Divide by`_other_`. Actual type of result depends on arithmetic balancing rules.",
+            "is_abstract": true,
+            "parameters": {
+                "other": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "other",
+                    "type": "Numeric"
+                }
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Numeric"
+            }
+        },
+        "exponent": {
+            "name": "exponent",
+            "aliases": [
+                "^"
+            ],
+            "documentation": "Expontiation of this by `_other_`.",
+            "is_abstract": true,
+            "parameters": {
+                "other": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "other",
+                    "type": "Numeric"
+                }
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Numeric"
+            }
+        },
+        "negative": {
+            "name": "negative",
+            "aliases": [
+                "-"
+            ],
+            "documentation": "Generate negative of current value.",
+            "is_abstract": true,
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Numeric"
+            }
+        }
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="_tabs_7_uml--panel" class="tabpanel" aria-labelledby="_tabs_7_uml">
+<div class="imageblock kroki">
+<div class="content">
+<img src="https://kroki.io/plantuml/svg/eNrjSkwqLilKTC5RSM5JLC5W8CvNTS3KTFao5lJQ0FaohsnWKiSmpGgo5JdkpBYpWMFVRRvGKmii8tH1FZcmgVlkac4tzSnJLMipJEtzSmZZZkoqWVpTKwry81LzyHN0Xmp6YklmWaoGurpaLgC123aG?svg-type=inline" alt="Numeric">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_ordered_numeric_class"><a class="anchor" href="#_ordered_numeric_class"></a><a class="link" href="#_ordered_numeric_class">Ordered_Numeric Class</a></h3>
+<div id="_tabs_8" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="_tabs_8_definition" class="tab">
+<p>Definition</p>
+</li>
+<li id="_tabs_8_bmm" class="tab">
+<p>BMM</p>
+</li>
+<li id="_tabs_8_uml" class="tab">
+<p>UML</p>
+</li>
+</ul>
+</div>
+<div id="_tabs_8_definition--panel" class="tabpanel" aria-labelledby="_tabs_8_definition">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong><em>Ordered_Numeric (abstract)</em></strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Abstract notional parent class of ordered, numeric types, which are types with both the <code><em>less_than</em>()</code> and arithmetic functions defined.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="../../../latest/foundation_types/primitive_types/#_ordered_class" class="xref page">Ordered</a></code>, <code><a href="../../../latest/foundation_types/primitive_types/#_numeric_class" class="xref page">Numeric</a></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="_tabs_8_bmm--panel" class="tabpanel" aria-labelledby="_tabs_8_bmm">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+    "name": "Ordered_Numeric",
+    "documentation": "Abstract notional parent class of ordered, numeric types, which are types with both the `_less_than_()` and arithmetic functions defined.",
+    "is_abstract": true,
+    "ancestors": [
+        "Ordered",
+        "Numeric"
+    ]
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="_tabs_8_uml--panel" class="tabpanel" aria-labelledby="_tabs_8_uml">
+<div class="imageblock kroki">
+<div class="content">
+<img src="https://kroki.io/plantuml/svg/eNqlkU1uwkAMhfc5haVuqBBIbKErDtAeoKoik3lKRkxmwOPwI-DuTSMNRSkLSHd-M_6ereeMV1GFC6XCcYz0IQYCk783NcQWdMouWXa_h-hlX1lFrMMaC2c95qXwsaumJqjCLBQH7V5bI6IxnZLVhRxizLViP6KgFYTmV-PP2Re9tnoZggP7H93RVyQPkmPbsHucLQWskCcn3lJPDm1zS99v58mkn-yfVFPi_0uVjfldL1mm9W50n4vNqqsGwXXj1G7ccRBs7M4aDEJx2AQPP2xpj5LV7jDq97WHS_Lu4b4BFLcP3Q==?svg-type=inline" alt="Ordered_Numeric">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_integer_class"><a class="anchor" href="#_integer_class"></a><a class="link" href="#_integer_class">Integer Class</a></h3>
+<div id="_tabs_9" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="_tabs_9_definition" class="tab">
+<p>Definition</p>
+</li>
+<li id="_tabs_9_bmm" class="tab">
+<p>BMM</p>
+</li>
+<li id="_tabs_9_uml" class="tab">
+<p>UML</p>
+</li>
+</ul>
+</div>
+<div id="_tabs_9_definition--panel" class="tabpanel" aria-labelledby="_tabs_9_definition">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>Integer</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Type representing minimal interface of built-in Integer type.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="../../../latest/foundation_types/primitive_types/#_ordered_numeric_class" class="xref page">Ordered_Numeric</a></code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Functions</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(effected)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>add</strong> <em>alias</em> "+" (<br>
+other: <code><a href="../../../latest/foundation_types/primitive_types/#_integer_class" class="xref page">Integer</a>[1]</code><br>
+): <code><a href="../../../latest/foundation_types/primitive_types/#_integer_class" class="xref page">Integer</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Integer addition.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(effected)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>subtract</strong> <em>alias</em> "-" (<br>
+other: <code><a href="../../../latest/foundation_types/primitive_types/#_integer_class" class="xref page">Integer</a>[1]</code><br>
+): <code><a href="../../../latest/foundation_types/primitive_types/#_integer_class" class="xref page">Integer</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Integer subtraction.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(effected)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>multiply</strong> <em>alias</em> "&#42;" (<br>
+other: <code><a href="../../../latest/foundation_types/primitive_types/#_integer_class" class="xref page">Integer</a>[1]</code><br>
+): <code><a href="../../../latest/foundation_types/primitive_types/#_integer_class" class="xref page">Integer</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Integer multiplication.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(effected)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>divide</strong> <em>alias</em> "/" (<br>
+other: <code><a href="../../../latest/foundation_types/primitive_types/#_integer_class" class="xref page">Integer</a>[1]</code><br>
+): <code><a href="../../../latest/foundation_types/primitive_types/#_double_class" class="xref page">Double</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Integer division.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(effected)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>exponent</strong> <em>alias</em> "^" (<br>
+other: <code><a href="../../../latest/foundation_types/primitive_types/#_double_class" class="xref page">Double</a>[1]</code><br>
+): <code><a href="../../../latest/foundation_types/primitive_types/#_double_class" class="xref page">Double</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Integer exponentiation.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>modulo</strong> <em>alias</em> "mod", "\\" (<br>
+mod: <code><a href="../../../latest/foundation_types/primitive_types/#_integer_class" class="xref page">Integer</a>[1]</code><br>
+): <code><a href="../../../latest/foundation_types/primitive_types/#_integer_class" class="xref page">Integer</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Return self modulo other.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(effected)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>less_than</strong> <em>alias</em> "&lt;" (<br>
+other: <code><a href="../../../latest/foundation_types/primitive_types/#_integer_class" class="xref page">Integer</a>[1]</code><br>
+): <code><a href="../../../latest/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Returns True if current Integer is less than <code><em>other</em></code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(effected)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>negative</strong> <em>alias</em> "-" (): <code><a href="../../../latest/foundation_types/primitive_types/#_integer_class" class="xref page">Integer</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Generate negative of current Integer value.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(effected)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_equal</strong> (<br>
+other: <code><a href="../../../latest/foundation_types/primitive_types/#_integer_class" class="xref page">Integer</a>[1]</code><br>
+): <code><a href="../../../latest/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Value equality: return True if <code>this</code> and <code><em>other</em></code> are attached to objects considered to be equal in value.</p>
+</div>
+<div class="hdlist">
+<div class="title">Parameters<br></div>
+<table>
+<tr>
+<td class="hdlist1">
+<code><em>other</em></code>
+</td>
+<td class="hdlist2">
+<p>Other object for comparison.</p>
+</td>
+</tr>
+</table>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(redefined)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>equal</strong> <em>alias</em> "=", "==" (<br>
+other: <code><a href="../../../latest/foundation_types/primitive_types/#_integer_class" class="xref page">Integer</a>[1]</code><br>
+): <code><a href="../../../latest/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Reference equality for reference types, value equality for value types.</p>
+</div>
+<div class="hdlist">
+<div class="title">Parameters<br></div>
+<table>
+<tr>
+<td class="hdlist1">
+<code><em>other</em></code>
+</td>
+<td class="hdlist2">
+<p>Other object for comparison.</p>
+</td>
+</tr>
+</table>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="_tabs_9_bmm--panel" class="tabpanel" aria-labelledby="_tabs_9_bmm">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+    "name": "Integer",
+    "documentation": "Type representing minimal interface of built-in Integer type.",
+    "ancestors": [
+        "Ordered_Numeric"
+    ],
+    "functions": {
+        "add": {
+            "name": "add",
+            "aliases": [
+                "+"
+            ],
+            "documentation": "Integer addition.",
+            "parameters": {
+                "other": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "other",
+                    "type": "Integer"
+                }
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Integer"
+            }
+        },
+        "subtract": {
+            "name": "subtract",
+            "aliases": [
+                "-"
+            ],
+            "documentation": "Integer subtraction.",
+            "parameters": {
+                "other": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "other",
+                    "type": "Integer"
+                }
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Integer"
+            }
+        },
+        "multiply": {
+            "name": "multiply",
+            "aliases": [
+                "&amp;#42;"
+            ],
+            "documentation": "Integer multiplication.",
+            "parameters": {
+                "other": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "other",
+                    "type": "Integer"
+                }
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Integer"
+            }
+        },
+        "divide": {
+            "name": "divide",
+            "aliases": [
+                "/"
+            ],
+            "documentation": "Integer division.",
+            "parameters": {
+                "other": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "other",
+                    "type": "Integer"
+                }
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Double"
+            }
+        },
+        "exponent": {
+            "name": "exponent",
+            "aliases": [
+                "^"
+            ],
+            "documentation": "Integer exponentiation.",
+            "parameters": {
+                "other": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "other",
+                    "type": "Double"
+                }
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Double"
+            }
+        },
+        "modulo": {
+            "name": "modulo",
+            "aliases": [
+                "mod",
+                "\\\\"
+            ],
+            "documentation": "Return self modulo other.",
+            "parameters": {
+                "mod": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "mod",
+                    "type": "Integer"
+                }
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Integer"
+            }
+        },
+        "less_than": {
+            "name": "less_than",
+            "aliases": [
+                "&lt;"
+            ],
+            "documentation": "Returns True if current Integer is less than `_other_`.",
+            "parameters": {
+                "other": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "other",
+                    "type": "Integer"
+                }
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Boolean"
+            }
+        },
+        "negative": {
+            "name": "negative",
+            "aliases": [
+                "-"
+            ],
+            "documentation": "Generate negative of current Integer value.",
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Integer"
+            }
+        },
+        "is_equal": {
+            "name": "is_equal",
+            "documentation": "Value equality: return True if `this` and `_other_` are attached to objects considered to be equal in value.",
+            "parameters": {
+                "other": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "other",
+                    "documentation": "Other object for comparison.",
+                    "type": "Integer"
+                }
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Boolean"
+            }
+        },
+        "equal": {
+            "name": "equal",
+            "aliases": [
+                "=",
+                "=="
+            ],
+            "documentation": "Reference equality for reference types, value equality for value types.",
+            "parameters": {
+                "other": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "other",
+                    "documentation": "Other object for comparison.",
+                    "type": "Integer"
+                }
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Boolean"
+            }
+        }
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="_tabs_9_uml--panel" class="tabpanel" aria-labelledby="_tabs_9_uml">
+<div class="imageblock kroki">
+<div class="content">
+<img src="https://kroki.io/plantuml/svg/eNqdU8FOxCAUvPMVJF5qzJp43fVkvHjRDzCmoeWlJVJY4bHuZt1_t4tSW9rGsqcWmBleZzqklMxa-qQQKjD0SCi9oYzzjGqs2411d_R690avh2sPtq5Aw0pczmicRLGVh-UMLnaCwzz-UbtCQgeH_VYrUL2R_gBT-EZzJ3V2fi4YRoK1OdZMzc_zoLUEpjqKgoqh2EE2pSdsDh-OyeVyCfATIaywPiD6E_WL4WCA58-uASNKSq8-a4FgG_0OGykUrCvDDv7tlmtE4BuEPfrd9v-YFUwVOn_IMUidplwNwnM2dJRcm9jC_7iVAYZgEm_ssxIvbX0Lx_dfq1Ucw8jVC-OJXB00OUiG8XrrmDcudQJ53O8Eclz1BOq49gnkQUX7uDa4sJwOLi6UR_12knwDsA68SQ==?svg-type=inline" alt="Integer">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_integer64_class"><a class="anchor" href="#_integer64_class"></a><a class="link" href="#_integer64_class">Integer64 Class</a></h3>
+<div id="_tabs_10" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="_tabs_10_definition" class="tab">
+<p>Definition</p>
+</li>
+<li id="_tabs_10_bmm" class="tab">
+<p>BMM</p>
+</li>
+<li id="_tabs_10_uml" class="tab">
+<p>UML</p>
+</li>
+</ul>
+</div>
+<div id="_tabs_10_definition--panel" class="tabpanel" aria-labelledby="_tabs_10_definition">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>Integer64</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Type representing minimal interface of built-in Integer64 type.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="../../../latest/foundation_types/primitive_types/#_ordered_numeric_class" class="xref page">Ordered_Numeric</a></code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Functions</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(effected)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>add</strong> <em>alias</em> "+" (<br>
+other: <code><a href="../../../latest/foundation_types/primitive_types/#_integer_class" class="xref page">Integer</a>[1]</code><br>
+): <code><a href="../../../latest/foundation_types/primitive_types/#_integer64_class" class="xref page">Integer64</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Large integer addition.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(effected)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>subtract</strong> <em>alias</em> "-" (<br>
+other: <code><a href="../../../latest/foundation_types/primitive_types/#_integer_class" class="xref page">Integer</a>[1]</code><br>
+): <code><a href="../../../latest/foundation_types/primitive_types/#_integer64_class" class="xref page">Integer64</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Large integer subtraction.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(effected)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>multiply</strong> <em>alias</em> "&#42;" (<br>
+other: <code><a href="../../../latest/foundation_types/primitive_types/#_integer_class" class="xref page">Integer</a>[1]</code><br>
+): <code><a href="../../../latest/foundation_types/primitive_types/#_integer64_class" class="xref page">Integer64</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Large integer multiplication.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(effected)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>divide</strong> <em>alias</em> "/" (<br>
+other: <code><a href="../../../latest/foundation_types/primitive_types/#_integer_class" class="xref page">Integer</a>[1]</code><br>
+): <code><a href="../../../latest/foundation_types/primitive_types/#_double_class" class="xref page">Double</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Large integer division.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(effected)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>exponent</strong> <em>alias</em> "^" (<br>
+other: <code><a href="../../../latest/foundation_types/primitive_types/#_double_class" class="xref page">Double</a>[1]</code><br>
+): <code><a href="../../../latest/foundation_types/primitive_types/#_double_class" class="xref page">Double</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Large integer exponentiation.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>modulo</strong> <em>alias</em> "mod", "\\" (<br>
+mod: <code><a href="../../../latest/foundation_types/primitive_types/#_integer_class" class="xref page">Integer</a>[1]</code><br>
+): <code><a href="../../../latest/foundation_types/primitive_types/#_integer64_class" class="xref page">Integer64</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Large integer modulus.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(effected)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>less_than</strong> <em>alias</em> "&lt;" (<br>
+other: <code><a href="../../../latest/foundation_types/primitive_types/#_integer64_class" class="xref page">Integer64</a>[1]</code><br>
+): <code><a href="../../../latest/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Returns True if current Integer is less than <code><em>other</em></code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(effected)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>negative</strong> <em>alias</em> "-" (): <code><a href="../../../latest/foundation_types/primitive_types/#_integer64_class" class="xref page">Integer64</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Generate negative of current Integer value.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(effected)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_equal</strong> (<br>
+other: <code><a href="../../../latest/foundation_types/primitive_types/#_integer64_class" class="xref page">Integer64</a>[1]</code><br>
+): <code><a href="../../../latest/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Value equality: return True if <code>this</code> and <code><em>other</em></code> are attached to objects considered to be equal in value.</p>
+</div>
+<div class="hdlist">
+<div class="title">Parameters<br></div>
+<table>
+<tr>
+<td class="hdlist1">
+<code><em>other</em></code>
+</td>
+<td class="hdlist2">
+<p>Other object for comparison.</p>
+</td>
+</tr>
+</table>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(redefined)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>equal</strong> <em>alias</em> "=", "==" (<br>
+other: <code><a href="../../../latest/foundation_types/primitive_types/#_integer64_class" class="xref page">Integer64</a>[1]</code><br>
+): <code><a href="../../../latest/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Reference equality for reference types, value equality for value types.</p>
+</div>
+<div class="hdlist">
+<div class="title">Parameters<br></div>
+<table>
+<tr>
+<td class="hdlist1">
+<code><em>other</em></code>
+</td>
+<td class="hdlist2">
+<p>Other object for comparison.</p>
+</td>
+</tr>
+</table>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="_tabs_10_bmm--panel" class="tabpanel" aria-labelledby="_tabs_10_bmm">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+    "name": "Integer64",
+    "documentation": "Type representing minimal interface of built-in Integer64 type.",
+    "ancestors": [
+        "Ordered_Numeric"
+    ],
+    "functions": {
+        "add": {
+            "name": "add",
+            "aliases": [
+                "+"
+            ],
+            "documentation": "Large integer addition.",
+            "parameters": {
+                "other": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "other",
+                    "type": "Integer"
+                }
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Integer64"
+            }
+        },
+        "subtract": {
+            "name": "subtract",
+            "aliases": [
+                "-"
+            ],
+            "documentation": "Large integer subtraction.",
+            "parameters": {
+                "other": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "other",
+                    "type": "Integer"
+                }
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Integer64"
+            }
+        },
+        "multiply": {
+            "name": "multiply",
+            "aliases": [
+                "&amp;#42;"
+            ],
+            "documentation": "Large integer multiplication.",
+            "parameters": {
+                "other": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "other",
+                    "type": "Integer"
+                }
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Integer64"
+            }
+        },
+        "divide": {
+            "name": "divide",
+            "aliases": [
+                "/"
+            ],
+            "documentation": "Large integer division.",
+            "parameters": {
+                "other": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "other",
+                    "type": "Integer"
+                }
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Double"
+            }
+        },
+        "exponent": {
+            "name": "exponent",
+            "aliases": [
+                "^"
+            ],
+            "documentation": "Large integer exponentiation.",
+            "parameters": {
+                "other": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "other",
+                    "type": "Double"
+                }
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Double"
+            }
+        },
+        "modulo": {
+            "name": "modulo",
+            "aliases": [
+                "mod",
+                "\\\\"
+            ],
+            "documentation": "Large integer modulus.",
+            "parameters": {
+                "mod": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "mod",
+                    "type": "Integer"
+                }
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Integer64"
+            }
+        },
+        "less_than": {
+            "name": "less_than",
+            "aliases": [
+                "&lt;"
+            ],
+            "documentation": "Returns True if current Integer is less than `_other_`.",
+            "parameters": {
+                "other": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "other",
+                    "type": "Integer64"
+                }
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Boolean"
+            }
+        },
+        "negative": {
+            "name": "negative",
+            "aliases": [
+                "-"
+            ],
+            "documentation": "Generate negative of current Integer value.",
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Integer64"
+            }
+        },
+        "is_equal": {
+            "name": "is_equal",
+            "documentation": "Value equality: return True if `this` and `_other_` are attached to objects considered to be equal in value.",
+            "parameters": {
+                "other": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "other",
+                    "documentation": "Other object for comparison.",
+                    "type": "Integer64"
+                }
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Boolean"
+            }
+        },
+        "equal": {
+            "name": "equal",
+            "aliases": [
+                "=",
+                "=="
+            ],
+            "documentation": "Reference equality for reference types, value equality for value types.",
+            "parameters": {
+                "other": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "other",
+                    "documentation": "Other object for comparison.",
+                    "type": "Integer64"
+                }
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Boolean"
+            }
+        }
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="_tabs_10_uml--panel" class="tabpanel" aria-labelledby="_tabs_10_uml">
+<div class="imageblock kroki">
+<div class="content">
+<img src="https://kroki.io/plantuml/svg/eNqdlEFOwzAQRfc5xUhsglCRkBCLlhViwwYOgFDkxKPEwrGLPS6tSu9O6spp6qSiZpXY-e97MpOfrJLMWnhRhDWah3vYZgA3wDjPQVODBubhIbzffcD1cd2Jux0vt64kwypKYVonSSzlJoXhYiU4nieetSsl9nJcL7VCNSjrKJjSt5o7qfP99aJyJFpbUMPUqKKDyGNPWktkqocU1ozECvNpT2EL_HJMplgmAbssY6X144LD8N8MR4O8eHUtGlEBXH03gtC2-hMXUiic14Zt_N0t10TIF4Rr8rvd93LWMNVo_yrbYLWb6m4wPteIHim0idv4F1sbZIQm8cQhlXho17fw-PFnNovHMOrqP8cTdfUk2cEylDdYx9w44gnwOOsJcBz6BHT8A0iAT4I61HWDC8vpwcWB8qo-ldkvDojAbQ==?svg-type=inline" alt="Integer64">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_real_class"><a class="anchor" href="#_real_class"></a><a class="link" href="#_real_class">Real Class</a></h3>
+<div id="_tabs_11" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="_tabs_11_definition" class="tab">
+<p>Definition</p>
+</li>
+<li id="_tabs_11_bmm" class="tab">
+<p>BMM</p>
+</li>
+<li id="_tabs_11_uml" class="tab">
+<p>UML</p>
+</li>
+</ul>
+</div>
+<div id="_tabs_11_definition--panel" class="tabpanel" aria-labelledby="_tabs_11_definition">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>Real</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Type used to represent decimal numbers. Corresponds to a single-precision floating point value in most languages.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="../../../latest/foundation_types/primitive_types/#_ordered_numeric_class" class="xref page">Ordered_Numeric</a></code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Functions</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>floor</strong> (): <code><a href="../../../latest/foundation_types/primitive_types/#_integer_class" class="xref page">Integer</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Return the greatest integer no greater than the value of this object.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(effected)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>add</strong> <em>alias</em> "+" (<br>
+other: <code><a href="../../../latest/foundation_types/primitive_types/#_real_class" class="xref page">Real</a>[1]</code><br>
+): <code><a href="../../../latest/foundation_types/primitive_types/#_real_class" class="xref page">Real</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Real number addition.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(effected)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>subtract</strong> <em>alias</em> "-" (<br>
+other: <code><a href="../../../latest/foundation_types/primitive_types/#_real_class" class="xref page">Real</a>[1]</code><br>
+): <code><a href="../../../latest/foundation_types/primitive_types/#_real_class" class="xref page">Real</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Real number subtraction.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(effected)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>multiply</strong> <em>alias</em> "&#42;" (<br>
+other: <code><a href="../../../latest/foundation_types/primitive_types/#_real_class" class="xref page">Real</a>[1]</code><br>
+): <code><a href="../../../latest/foundation_types/primitive_types/#_real_class" class="xref page">Real</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Real number multiplication.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(effected)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>divide</strong> <em>alias</em> "/" (<br>
+other: <code><a href="../../../latest/foundation_types/primitive_types/#_real_class" class="xref page">Real</a>[1]</code><br>
+): <code><a href="../../../latest/foundation_types/primitive_types/#_double_class" class="xref page">Double</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Real number division.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(effected)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>exponent</strong> <em>alias</em> "^" (<br>
+other: <code><a href="../../../latest/foundation_types/primitive_types/#_double_class" class="xref page">Double</a>[1]</code><br>
+): <code><a href="../../../latest/foundation_types/primitive_types/#_double_class" class="xref page">Double</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Real number exponentiation.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(effected)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>less_than</strong> <em>alias</em> "&lt;" (<br>
+other: <code><a href="../../../latest/foundation_types/primitive_types/#_real_class" class="xref page">Real</a>[1]</code><br>
+): <code><a href="../../../latest/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Returns True if current Real is less than <code><em>other</em></code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(effected)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>negative</strong> <em>alias</em> "-" (): <code><a href="../../../latest/foundation_types/primitive_types/#_real_class" class="xref page">Real</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Generate negative of current Real value.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(effected)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_equal</strong> (<br>
+other: <code><a href="../../../latest/foundation_types/primitive_types/#_real_class" class="xref page">Real</a>[1]</code><br>
+): <code><a href="../../../latest/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Value equality: return True if <code>this</code> and <code><em>other</em></code> are attached to objects considered to be equal in value.</p>
+</div>
+<div class="hdlist">
+<div class="title">Parameters<br></div>
+<table>
+<tr>
+<td class="hdlist1">
+<code><em>other</em></code>
+</td>
+<td class="hdlist2">
+<p>Other object for comparison.</p>
+</td>
+</tr>
+</table>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(redefined)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>equal</strong> <em>alias</em> "=", "==" (<br>
+other: <code><a href="../../../latest/foundation_types/primitive_types/#_real_class" class="xref page">Real</a>[1]</code><br>
+): <code><a href="../../../latest/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Reference equality for reference types, value equality for value types.</p>
+</div>
+<div class="hdlist">
+<div class="title">Parameters<br></div>
+<table>
+<tr>
+<td class="hdlist1">
+<code><em>other</em></code>
+</td>
+<td class="hdlist2">
+<p>Other object for comparison.</p>
+</td>
+</tr>
+</table>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="_tabs_11_bmm--panel" class="tabpanel" aria-labelledby="_tabs_11_bmm">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+    "name": "Real",
+    "documentation": "Type used to represent decimal numbers. Corresponds to a single-precision floating point value in most languages.",
+    "ancestors": [
+        "Ordered_Numeric"
+    ],
+    "functions": {
+        "floor": {
+            "name": "floor",
+            "documentation": "Return the greatest integer no greater than the value of this object.",
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Integer"
+            }
+        },
+        "add": {
+            "name": "add",
+            "aliases": [
+                "+"
+            ],
+            "documentation": "Real number addition.",
+            "parameters": {
+                "other": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "other",
+                    "type": "Real"
+                }
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Real"
+            }
+        },
+        "subtract": {
+            "name": "subtract",
+            "aliases": [
+                "-"
+            ],
+            "documentation": "Real number subtraction.",
+            "parameters": {
+                "other": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "other",
+                    "type": "Real"
+                }
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Real"
+            }
+        },
+        "multiply": {
+            "name": "multiply",
+            "aliases": [
+                "&amp;#42;"
+            ],
+            "documentation": "Real number multiplication.",
+            "parameters": {
+                "other": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "other",
+                    "type": "Real"
+                }
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Real"
+            }
+        },
+        "divide": {
+            "name": "divide",
+            "aliases": [
+                "/"
+            ],
+            "documentation": "Real number division.",
+            "parameters": {
+                "other": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "other",
+                    "type": "Real"
+                }
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Double"
+            }
+        },
+        "exponent": {
+            "name": "exponent",
+            "aliases": [
+                "^"
+            ],
+            "documentation": "Real number exponentiation.",
+            "parameters": {
+                "other": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "other",
+                    "type": "Double"
+                }
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Double"
+            }
+        },
+        "less_than": {
+            "name": "less_than",
+            "aliases": [
+                "&lt;"
+            ],
+            "documentation": "Returns True if current Real is less than `_other_`.",
+            "parameters": {
+                "other": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "other",
+                    "type": "Real"
+                }
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Boolean"
+            }
+        },
+        "negative": {
+            "name": "negative",
+            "aliases": [
+                "-"
+            ],
+            "documentation": "Generate negative of current Real value.",
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Real"
+            }
+        },
+        "is_equal": {
+            "name": "is_equal",
+            "documentation": "Value equality: return True if `this` and `_other_` are attached to objects considered to be equal in value.",
+            "parameters": {
+                "other": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "other",
+                    "documentation": "Other object for comparison.",
+                    "type": "Real"
+                }
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Boolean"
+            }
+        },
+        "equal": {
+            "name": "equal",
+            "aliases": [
+                "=",
+                "=="
+            ],
+            "documentation": "Reference equality for reference types, value equality for value types.",
+            "parameters": {
+                "other": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "other",
+                    "documentation": "Other object for comparison.",
+                    "type": "Real"
+                }
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Boolean"
+            }
+        }
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="_tabs_11_uml--panel" class="tabpanel" aria-labelledby="_tabs_11_uml">
+<div class="imageblock kroki">
+<div class="content">
+<img src="https://kroki.io/plantuml/svg/eNqdU7FOwzAU3PMVT2JJhYrEmjIhFhaQWBGKnPiRWLh2sV9Kq9J_J3XlkDqJiNliv7vzy50uKSWzFl6QSTgkANfwLrU26QIyeFSEFRp4vX1zE8Z5Cprq9io7M9oJLHoHB7NNQYaVNAe7biSJjdzPwXKxFRwnkA-6KSR2WNxttELV2-EXMIaXaG1ONVMT8vdaS2SqwyusGIktpoMthc3xs2FyptBc7DFJWGGdr3CO7NlwNMjzp2aNRpQAV1-1ILRr_YErKRRmlWF793XDNRHyFeGO3G0b9aRgrNDpLw5e6jjmpBee8qCj5NqE5v3FrQwyQhP5Yp8V-Wjrmx_ffS-XYQwDV_8ZT-DqRfW8pF-vdw55wy5GkIfljCCHbY2gDssbQb5oZh_XBueP48GFhXKoUyGTH-SCpUg=?svg-type=inline" alt="Real">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_double_class"><a class="anchor" href="#_double_class"></a><a class="link" href="#_double_class">Double Class</a></h3>
+<div id="_tabs_12" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="_tabs_12_definition" class="tab">
+<p>Definition</p>
+</li>
+<li id="_tabs_12_bmm" class="tab">
+<p>BMM</p>
+</li>
+<li id="_tabs_12_uml" class="tab">
+<p>UML</p>
+</li>
+</ul>
+</div>
+<div id="_tabs_12_definition--panel" class="tabpanel" aria-labelledby="_tabs_12_definition">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>Double</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Type used to represent double-precision decimal numbers. Corresponds to a double-precision floating point value in most languages.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="../../../latest/foundation_types/primitive_types/#_ordered_numeric_class" class="xref page">Ordered_Numeric</a></code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Functions</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>floor</strong> (): <code><a href="../../../latest/foundation_types/primitive_types/#_integer_class" class="xref page">Integer</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Return the greatest integer no greater than the value of this object.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(effected)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>add</strong> <em>alias</em> "+" (<br>
+other: <code><a href="../../../latest/foundation_types/primitive_types/#_double_class" class="xref page">Double</a>[1]</code><br>
+): <code><a href="../../../latest/foundation_types/primitive_types/#_double_class" class="xref page">Double</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Double-precision real number addition.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(effected)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>subtract</strong> <em>alias</em> "-" (<br>
+other: <code><a href="../../../latest/foundation_types/primitive_types/#_double_class" class="xref page">Double</a>[1]</code><br>
+): <code><a href="../../../latest/foundation_types/primitive_types/#_double_class" class="xref page">Double</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Double-precision real number subtraction.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(effected)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>multiply</strong> <em>alias</em> "&#42;" (<br>
+other: <code><a href="../../../latest/foundation_types/primitive_types/#_double_class" class="xref page">Double</a>[1]</code><br>
+): <code><a href="../../../latest/foundation_types/primitive_types/#_double_class" class="xref page">Double</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Double-precision real number multiplication.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(effected)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>divide</strong> <em>alias</em> "/" (<br>
+other: <code><a href="../../../latest/foundation_types/primitive_types/#_double_class" class="xref page">Double</a>[1]</code><br>
+): <code><a href="../../../latest/foundation_types/primitive_types/#_double_class" class="xref page">Double</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Double-precision real number division.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(effected)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>exponent</strong> <em>alias</em> "^" (<br>
+other: <code><a href="../../../latest/foundation_types/primitive_types/#_double_class" class="xref page">Double</a>[1]</code><br>
+): <code><a href="../../../latest/foundation_types/primitive_types/#_double_class" class="xref page">Double</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Double-precision real number exponentiation.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(effected)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>less_than</strong> <em>alias</em> "&lt;" (<br>
+other: <code><a href="../../../latest/foundation_types/primitive_types/#_double_class" class="xref page">Double</a>[1]</code><br>
+): <code><a href="../../../latest/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Returns True if current Double is less than <code><em>other</em></code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(effected)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>negative</strong> <em>alias</em> "-" (): <code><a href="../../../latest/foundation_types/primitive_types/#_double_class" class="xref page">Double</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Generate negative of current Double value.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(effected)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_equal</strong> (<br>
+other: <code><a href="../../../latest/foundation_types/primitive_types/#_double_class" class="xref page">Double</a>[1]</code><br>
+): <code><a href="../../../latest/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Value equality: return True if <code>this</code> and <code><em>other</em></code> are attached to objects considered to be equal in value.</p>
+</div>
+<div class="hdlist">
+<div class="title">Parameters<br></div>
+<table>
+<tr>
+<td class="hdlist1">
+<code><em>other</em></code>
+</td>
+<td class="hdlist2">
+<p>Other object for comparison.</p>
+</td>
+</tr>
+</table>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(redefined)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>equal</strong> <em>alias</em> "=", "==" (<br>
+other: <code><a href="../../../latest/foundation_types/primitive_types/#_double_class" class="xref page">Double</a>[1]</code><br>
+): <code><a href="../../../latest/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Reference equality for reference types, value equality for value types.</p>
+</div>
+<div class="hdlist">
+<div class="title">Parameters<br></div>
+<table>
+<tr>
+<td class="hdlist1">
+<code><em>other</em></code>
+</td>
+<td class="hdlist2">
+<p>Other object for comparison.</p>
+</td>
+</tr>
+</table>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="_tabs_12_bmm--panel" class="tabpanel" aria-labelledby="_tabs_12_bmm">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+    "name": "Double",
+    "documentation": "Type used to represent double-precision decimal numbers. Corresponds to a double-precision floating point value in most languages.",
+    "ancestors": [
+        "Ordered_Numeric"
+    ],
+    "functions": {
+        "floor": {
+            "name": "floor",
+            "documentation": "Return the greatest integer no greater than the value of this object.",
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Integer"
+            }
+        },
+        "add": {
+            "name": "add",
+            "aliases": [
+                "+"
+            ],
+            "documentation": "Double-precision real number addition.",
+            "parameters": {
+                "other": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "other",
+                    "type": "Double"
+                }
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Double"
+            }
+        },
+        "subtract": {
+            "name": "subtract",
+            "aliases": [
+                "-"
+            ],
+            "documentation": "Double-precision real number subtraction.",
+            "parameters": {
+                "other": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "other",
+                    "type": "Double"
+                }
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Double"
+            }
+        },
+        "multiply": {
+            "name": "multiply",
+            "aliases": [
+                "&amp;#42;"
+            ],
+            "documentation": "Double-precision real number multiplication.",
+            "parameters": {
+                "other": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "other",
+                    "type": "Double"
+                }
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Double"
+            }
+        },
+        "divide": {
+            "name": "divide",
+            "aliases": [
+                "/"
+            ],
+            "documentation": "Double-precision real number division.",
+            "parameters": {
+                "other": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "other",
+                    "type": "Double"
+                }
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Double"
+            }
+        },
+        "exponent": {
+            "name": "exponent",
+            "aliases": [
+                "^"
+            ],
+            "documentation": "Double-precision real number exponentiation.",
+            "parameters": {
+                "other": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "other",
+                    "type": "Double"
+                }
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Double"
+            }
+        },
+        "less_than": {
+            "name": "less_than",
+            "aliases": [
+                "&lt;"
+            ],
+            "documentation": "Returns True if current Double is less than `_other_`.",
+            "parameters": {
+                "other": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "other",
+                    "type": "Double"
+                }
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Boolean"
+            }
+        },
+        "negative": {
+            "name": "negative",
+            "aliases": [
+                "-"
+            ],
+            "documentation": "Generate negative of current Double value.",
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Double"
+            }
+        },
+        "is_equal": {
+            "name": "is_equal",
+            "documentation": "Value equality: return True if `this` and `_other_` are attached to objects considered to be equal in value.",
+            "parameters": {
+                "other": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "other",
+                    "documentation": "Other object for comparison.",
+                    "type": "Double"
+                }
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Boolean"
+            }
+        },
+        "equal": {
+            "name": "equal",
+            "aliases": [
+                "=",
+                "=="
+            ],
+            "documentation": "Reference equality for reference types, value equality for value types.",
+            "parameters": {
+                "other": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "other",
+                    "documentation": "Other object for comparison.",
+                    "type": "Double"
+                }
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Boolean"
+            }
+        }
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="_tabs_12_uml--panel" class="tabpanel" aria-labelledby="_tabs_12_uml">
+<div class="imageblock kroki">
+<div class="content">
+<img src="https://kroki.io/plantuml/svg/eNqdU0FOwzAQvOcVK3FJhYrENeWEuHCBByAUOfGSWDh2sTelVenfCa5cJU4i4t683pmxPetJSsmshSfdFhLhmADcwofU2qQryOBZEVZo4O3-3XUY5yloqrutzHO6HqwGpYPatiDDSlqKb1pJYisPS_Fc7ATHpWjcb7VCtfg2Eq3NqWZqlvCotUSmLgyFFSOxw3RCTdgcv1omF4stR5-ShBXWOQ3nUb4ajgZ5_tI2aEQJcPNdC0Lb6E_cSKEwqww7uNUd10TIN4R7crvdB5gVjBX6e8fRS52mHPXCcy5cKLk2oYH_cSuDjNBEnthnRR7a-ebbDz_rdTiGkatXjidwdRBIL-mv16tD3jidEeRxVCPIYW4jqOMQR5AH-ezjusH5cnpwYaAc6hzJ5Bdcu7Az?svg-type=inline" alt="Double">
+</div>
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -483,5 +3101,6 @@
 <script async src="../../../../search-index.js"></script>
 <script src="../../../../ui/js/medium-zoom.min.js"></script>
 <script src="../../../../ui/js/zoom.js"></script>
+<script async src="../../../../ui/js/tabs.js"></script>
   </body>
 </html>

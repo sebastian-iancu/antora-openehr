@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="../../../../ui/css/site.css">
     <link rel="stylesheet" href="../../../../ui/css/antora-openehr.css">
     <link rel="stylesheet" href="../../../../ui/css/openehr.css">
+    <link rel="stylesheet" href="../../../../ui/css/tabs.css">
 <link rel="icon" href="../../../../ui/img/favicon.ico" type="image/x-icon">
   </head>
   <body class="article">
@@ -294,7 +295,7 @@
     <a class="nav-link" href="../../ehr_extract/generic_extract_package/">Generic_extract Package</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../../ehr_extract/synchronisation_package/">Synchronisation Extracts</a>
+    <a class="nav-link" href="../../ehr_extract/synchronisation_package/">Synchronisation Extract</a>
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../../ehr_extract/message_package/">The Message package</a>
@@ -411,20 +412,6 @@
     <span class="version">development</span>
   </div>
   <ul class="components">
-    <li class="component">
-      <div class="title"><a href="../../../../AM/latest/">Archetype Model</a></div>
-      <ul class="versions">
-        <li class="version is-latest">
-          <a href="../../../../AM/latest/">Release-2.3.0</a>
-        </li>
-        <li class="version">
-          <a href="../../../../AM/Release-2.2.0/">Release-2.2.0</a>
-        </li>
-        <li class="version">
-          <a href="../../../../AM/development/">development</a>
-        </li>
-      </ul>
-    </li>
     <li class="component">
       <div class="title"><a href="../../../../BASE/latest/">Base Model</a></div>
       <ul class="versions">
@@ -765,17 +752,592 @@ second, an <code>ITEM_SINGLE</code> object containing a image within a <code>DV_
 <div class="sect1">
 <h2 id="_class_descriptions"><a class="anchor" href="#_class_descriptions"></a><a class="link" href="#_class_descriptions">Class Descriptions</a></h2>
 <div class="sectionbody">
-<div class="paragraph">
-<p>Unresolved directive in history_package.adoc - include::ROOT:partial$uml/{pkg}history.adoc[]</p>
+<div class="sect2">
+<h3 id="_history_class"><a class="anchor" href="#_history_class"></a><a class="link" href="#_history_class">HISTORY Class</a></h3>
+<div id="_tabs_1" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="_tabs_1_definition" class="tab">
+<p>Definition</p>
+</li>
+<li id="_tabs_1_bmm" class="tab">
+<p>BMM</p>
+</li>
+<li id="_tabs_1_uml" class="tab">
+<p>UML</p>
+</li>
+</ul>
+</div>
+<div id="_tabs_1_definition--panel" class="tabpanel" aria-labelledby="_tabs_1_definition">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>HISTORY&lt;T&gt;</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Root object of a linear history, i.e. time series structure. This is a generic class whose type parameter must be a descendant of <code>ITEM_STRUCTURE</code>, ensuring that each Event in the <code><em>events</em></code> of a given instance is of the same structural type, i.e. <code>ITEM_TREE</code>, <code>ITEM_LIST</code> etc.</p>
 </div>
 <div class="paragraph">
-<p>Unresolved directive in history_package.adoc - include::ROOT:partial$uml/{pkg}event.adoc[]</p>
+<p>For a periodic series of events, period will be set, and the time of each Event in the History must correspond; i.e. the <code>EVENT.<em>offset</em></code> must be a multiple of period for each Event. Missing events in a period History are however allowed.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="#RM:data_structures.adoc#_data_structure_class" class="xref unresolved">DATA_STRUCTURE</a></code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>origin</strong>: <code><a href="../../../latest/data_types/quantity_package/#_dv_date_time_class" class="xref page">DV_DATE_TIME</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Time origin of this event history. The first event is not necessarily at the origin point.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>period</strong>: <code><a href="../../../latest/data_types/quantity_package/#_dv_duration_class" class="xref page">DV_DURATION</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Period between samples in this segment if periodic.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>duration</strong>: <code><a href="../../../latest/data_types/quantity_package/#_dv_duration_class" class="xref page">DV_DURATION</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Duration of the entire History; either corresponds to the duration of all the events, and/or the duration represented by the summary, if it exists.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>summary</strong>: <code><a href="#RM:data_structures:item_structure.adoc#_item_structure_class" class="xref unresolved">ITEM_STRUCTURE</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Optional summary data that aggregates, organizes, reduces and transforms the event series. This may be a text or image that presents a graphical presentation, or some data that assists with the interpretation of the data.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>events</strong>: <code><a href="../../../../BASE/latest/foundation_types/structure_types/#_list_class" class="xref page">List</a>&lt;<a href="#RM:data_structures:history.adoc#_event_class" class="xref unresolved">EVENT</a>&lt;T&gt;&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>The events in the series. This attribute is of a generic type whose parameter must be a descendant of <code>ITEM_SUTRUCTURE</code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Functions</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_periodic</strong> (): <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Indicates whether history is periodic.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Invariants</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Events_valid</em>: <code>(events /= Void and then not events.is_empty) or summary /= Void</code></p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Periodic_validity</em>: <code>is_periodic xor period = Void</code></p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Period_consistency</em>: <code>is_periodic implies events.for_all (e: EVENT &#124; e.offset. to_seconds.mod(period.to_seconds) = 0)</code></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
 </div>
-<div class="paragraph">
-<p>Unresolved directive in history_package.adoc - include::ROOT:partial$uml/{pkg}point_event.adoc[]</p>
+<div id="_tabs_1_bmm--panel" class="tabpanel" aria-labelledby="_tabs_1_bmm">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+    "name": "HISTORY",
+    "documentation": "Root object of a linear history, i.e. time series structure. This is a generic class whose type parameter must be a descendant of `ITEM_STRUCTURE`, ensuring that each Event in the `_events_` of a given instance is of the same structural type, i.e. `ITEM_TREE`, `ITEM_LIST` etc.\n\nFor a periodic series of events, period will be set, and the time of each Event in the History must correspond; i.e. the `EVENT._offset_` must be a multiple of period for each Event. Missing events in a period History are however allowed. ",
+    "ancestors": [
+        "DATA_STRUCTURE"
+    ],
+    "generic_parameter_defs": {
+        "T": {
+            "name": "T",
+            "conforms_to_type": "ITEM_STRUCTURE"
+        }
+    },
+    "properties": {
+        "origin": {
+            "_type": "P_BMM_SINGLE_PROPERTY",
+            "name": "origin",
+            "documentation": "Time origin of this event history. The first event is not necessarily at the origin point. ",
+            "is_mandatory": true,
+            "type": "DV_DATE_TIME"
+        },
+        "period": {
+            "_type": "P_BMM_SINGLE_PROPERTY",
+            "name": "period",
+            "documentation": "Period between samples in this segment if periodic.",
+            "type": "DV_DURATION"
+        },
+        "duration": {
+            "_type": "P_BMM_SINGLE_PROPERTY",
+            "name": "duration",
+            "documentation": "Duration of the entire History; either corresponds to the duration of all the events, and/or the duration represented by the summary, if it exists. ",
+            "type": "DV_DURATION"
+        },
+        "summary": {
+            "_type": "P_BMM_SINGLE_PROPERTY",
+            "name": "summary",
+            "documentation": "Optional summary data that aggregates, organizes, reduces and transforms the event series. This may be a text or image that presents a graphical presentation, or some data that assists with the interpretation of the data.",
+            "type": "ITEM_STRUCTURE"
+        },
+        "events": {
+            "_type": "P_BMM_CONTAINER_PROPERTY",
+            "name": "events",
+            "documentation": "The events in the series. This attribute is of a generic type whose parameter must be a descendant of `ITEM_SUTRUCTURE`.",
+            "type_def": {
+                "container_type": "List",
+                "type_def": {
+                    "_type": "P_BMM_GENERIC_TYPE",
+                    "root_type": "EVENT",
+                    "generic_parameters": [
+                        "T"
+                    ]
+                }
+            },
+            "cardinality": {
+                "lower": 0,
+                "upper_unbounded": true
+            }
+        }
+    },
+    "functions": {
+        "is_periodic": {
+            "name": "is_periodic",
+            "documentation": "Indicates whether history is periodic. \n",
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Boolean"
+            }
+        }
+    },
+    "invariants": {
+        "Events_valid": "(events /= Void and then not events.is_empty) or summary /= Void",
+        "Periodic_validity": "is_periodic xor period = Void",
+        "Period_consistency": "is_periodic implies events.for_all (e: EVENT | e.offset. to_seconds.mod(period.to_seconds) = 0)"
+    }
+}</code></pre>
 </div>
-<div class="paragraph">
-<p>Unresolved directive in history_package.adoc - include::ROOT:partial$uml/{pkg}interval_event.adoc[]</p>
+</div>
+</div>
+<div id="_tabs_1_uml--panel" class="tabpanel" aria-labelledby="_tabs_1_uml">
+<div class="imageblock kroki">
+<div class="content">
+<img src="https://kroki.io/plantuml/svg/eNqdVFFr2zAQfvevEOyl22jYXttQcGKNmKZJceSyEobQ7GsiakuudN5q2v73yUqwnUDY1icL3ffdd_fdyUFWCGvJLF6xZXJPxuyKvASEfCbayI1U5IJEdzwKGeUsvqFk_fWHj1ZgpM730TQJWbxckPWX0Wgfz2sjUGp1GmHrshSmcYCY0Ru-Ykk6ZWlChxj4BQqtg8ylxTG9owvmCrwi60-7uLR8V4jMzj462ETrAoTyVb4Fgfhp0YgMya5H10U40CEffm8lgi31I1wWUsHFxojGn0a5RoT8EuEZ_e3eE2H5VoIRJts2XrAt_YTafDl1epP5u4SUKGFnHaPfWed6KwzYVMCVzoHLdgArNFJtOkjtL9M44pNwRSMeR0NDneZj5-c8Xlz3Xva5c0AhixYWJtMZZfe39CDJA0AOhos6l-hA3yiNaMLDNIrZEJZplUGF3qfjRtzgej2jNf7D-G5DNnuvn5UwbpO8SJemqwWh5AJ5JXB7RoT_HvhKWlqomgOG_TvFm-x4vcctjsOzu7enaUMXOlKt5FMN_0nSD7wttWUVOjvq3dMGy-MM78Lj1_PzfoGDoN9lHzl8SEFw9LA8Zv9DCf4ARXdRpg==?svg-type=inline" alt="HISTORY">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_event_class"><a class="anchor" href="#_event_class"></a><a class="link" href="#_event_class">EVENT Class</a></h3>
+<div id="_tabs_2" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="_tabs_2_definition" class="tab">
+<p>Definition</p>
+</li>
+<li id="_tabs_2_bmm" class="tab">
+<p>BMM</p>
+</li>
+<li id="_tabs_2_uml" class="tab">
+<p>UML</p>
+</li>
+</ul>
+</div>
+<div id="_tabs_2_definition--panel" class="tabpanel" aria-labelledby="_tabs_2_definition">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong><em>EVENT&lt;T&gt; (abstract)</em></strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Defines the abstract notion of a single event in a series. This class is generic, allowing types to be generated which are locked to particular spatial types, such as <code>EVENT&lt;ITEM_LIST&gt;</code>. Subtypes express point or intveral data.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="../../../latest/common/archetyped_package/#_locatable_class" class="xref page">LOCATABLE</a></code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>time</strong>: <code><a href="../../../latest/data_types/quantity_package/#_dv_date_time_class" class="xref page">DV_DATE_TIME</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Time of this event. If the width is non-zero, it is the time point of the trailing edge of the event.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>state</strong>: <code><a href="#RM:data_structures:item_structure.adoc#_item_structure_class" class="xref unresolved">ITEM_STRUCTURE</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Optional state data for this event.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>data</strong>: <code>T</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>The data of this event.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Functions</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>offset</strong> (): <code><a href="../../../latest/data_types/quantity_package/#_dv_duration_class" class="xref page">DV_DURATION</a></code><br>
+<br>
+<em>Post_condition</em>: <code>Result = time.diff(parent.origin)</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Offset of this event from origin, computed as time.diff(parent.origin).</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Invariants</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Offset_validity1</em>: <code>offset /= Void and then offset = time.diff (parent.origin)</code></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="_tabs_2_bmm--panel" class="tabpanel" aria-labelledby="_tabs_2_bmm">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+    "name": "EVENT",
+    "documentation": "Defines the abstract notion of a single event in a series. This class is generic, allowing types to be generated which are locked to particular spatial types, such as `EVENT&lt;ITEM_LIST&gt;`. Subtypes express point or intveral data. ",
+    "is_abstract": true,
+    "ancestors": [
+        "LOCATABLE"
+    ],
+    "generic_parameter_defs": {
+        "T": {
+            "name": "T",
+            "conforms_to_type": "ITEM_STRUCTURE"
+        }
+    },
+    "properties": {
+        "time": {
+            "_type": "P_BMM_SINGLE_PROPERTY",
+            "name": "time",
+            "documentation": "Time of this event. If the width is non-zero, it is the time point of the trailing edge of the event. ",
+            "is_mandatory": true,
+            "type": "DV_DATE_TIME"
+        },
+        "state": {
+            "_type": "P_BMM_SINGLE_PROPERTY",
+            "name": "state",
+            "documentation": "Optional state data for this event.",
+            "type": "ITEM_STRUCTURE"
+        },
+        "data": {
+            "_type": "P_BMM_SINGLE_PROPERTY_OPEN",
+            "name": "data",
+            "documentation": "The data of this event.",
+            "is_mandatory": true,
+            "type": "T"
+        }
+    },
+    "functions": {
+        "offset": {
+            "name": "offset",
+            "documentation": "Offset of this event from origin, computed as time.diff(parent.origin).",
+            "post_conditions": {
+                "Post_condition": "Result = time.diff(parent.origin)"
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "DV_DURATION"
+            }
+        }
+    },
+    "invariants": {
+        "Offset_validity1": "offset /= Void and then offset = time.diff (parent.origin)"
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="_tabs_2_uml--panel" class="tabpanel" aria-labelledby="_tabs_2_uml">
+<div class="imageblock kroki">
+<div class="content">
+<img src="https://kroki.io/plantuml/svg/eNqdU11LwzAUfe-vCPjiBw59dWOQrRGL-6JLhyISYnvngl0ymzvcUP-7aTbbbSCiTw33nHPvuYfbQD5ZLGSKJM2ltYRN2ICTFm-T94CQM4JqDuSKhBMRUs4Ej_qMPFw-esyixBKMOOuLMY-TLk9iB180GltGJlE6Aq8kZjq1gMcn25ZJTHk0HHj4MwgOvPSGXcppp8cIOXqbKQQ7Ny_QzJWGq-dCrv2rkRlEyJoIK_TVrXEtv41zdlcbkEU6A1wvQGiTgVCZ44yxUPq5oix9MYlC0aFjFooo3F3JzXyxDu8pi61eNLhtk4fTw94ZoFR5SaNx94bx-xHbazIFyKAQcpkpdKRrxkIWC5qEEd-lpUansKji2ltEWVHPK4zZsDrG5CD1D4GOKL_5b54LWYDeDKnaVF4Q5kKiWEicHRPpv3u5klJG9XpPYX-X-JCdrs645AlYubr9WbabQiVaavW6hD-KzFSUVktVbtKD3b1s53hc4BXc-jg_rw84COpb9oj_zYIvSe4K-A==?svg-type=inline" alt="EVENT">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_point_event_class"><a class="anchor" href="#_point_event_class"></a><a class="link" href="#_point_event_class">POINT_EVENT Class</a></h3>
+<div id="_tabs_3" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="_tabs_3_definition" class="tab">
+<p>Definition</p>
+</li>
+<li id="_tabs_3_bmm" class="tab">
+<p>BMM</p>
+</li>
+<li id="_tabs_3_uml" class="tab">
+<p>UML</p>
+</li>
+</ul>
+</div>
+<div id="_tabs_3_definition--panel" class="tabpanel" aria-labelledby="_tabs_3_definition">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>POINT_EVENT&lt;T&gt;</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Defines a single point event in a series.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="#RM:data_structures:history.adoc#_event_class" class="xref unresolved">EVENT</a></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="_tabs_3_bmm--panel" class="tabpanel" aria-labelledby="_tabs_3_bmm">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+    "name": "POINT_EVENT",
+    "documentation": "Defines a single point event in a series.",
+    "ancestors": [
+        "EVENT"
+    ],
+    "generic_parameter_defs": {
+        "T": {
+            "name": "T"
+        }
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="_tabs_3_uml--panel" class="tabpanel" aria-labelledby="_tabs_3_uml">
+<div class="imageblock kroki">
+<div class="content">
+<img src="https://kroki.io/plantuml/svg/eNqdU11v2jAUffevsNSXfgi0vlJUyRBPjUoBBafahCbLSy7FItg0vmhF2_77HMOSwISq9SnRPefce-7RNckK5RydTuKxkPyZjwXti3v6k_wmRH13WKoM6Z7ToPTix1IjuLVdwV2hDfReSrULf93cIkJ-h_CGoepbUXpDUa-B9mj0LCMmuBTxE6fz228Bc6iwAmPBn-RMJOlQpImHP3W7B0auUHmCqCV2sXCAl1eHlmnCRDwZB_hf46PJkAk2GPGPGDfqr3HBvzQGVJktAXcbkMbmIHXuOTMstXmpKdtQTONIDtiMRzKO2iv5mSvn8ZF22B_F48d7Or8-7Z0DKl1UNJYMH7j4OuVHTRYAOZRSbXONnvSZ84gnkqVRLNq0zJoMNnVcR4toJ5t5pbV71sDaApQ5E-iUiYeP5rlRJZj9kLpN7QVhLRXKjcLlJVXhe5QrrWTM7I4U7n1JCNnrmowrnoQ3X3fnZe0UatHW6Nct_KfILmRltVIVNjvZPchax-MDr-H-r06nOWBCmlsOSHiThByeZlVpvWTyB0WCKgU=?svg-type=inline" alt="POINT_EVENT">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_interval_event_class"><a class="anchor" href="#_interval_event_class"></a><a class="link" href="#_interval_event_class">INTERVAL_EVENT Class</a></h3>
+<div id="_tabs_4" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="_tabs_4_definition" class="tab">
+<p>Definition</p>
+</li>
+<li id="_tabs_4_bmm" class="tab">
+<p>BMM</p>
+</li>
+<li id="_tabs_4_uml" class="tab">
+<p>UML</p>
+</li>
+</ul>
+</div>
+<div id="_tabs_4_definition--panel" class="tabpanel" aria-labelledby="_tabs_4_definition">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>INTERVAL_EVENT&lt;T&gt;</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Defines a single interval event in a series.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="#RM:data_structures:history.adoc#_event_class" class="xref unresolved">EVENT</a></code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>width</strong>: <code><a href="../../../latest/data_types/quantity_package/#_dv_duration_class" class="xref page">DV_DURATION</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Duration of the time interval during which the values recorded under <code>data</code> are true and, if set, the values recorded under <code>state</code> are true. Void if an instantaneous event.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>sample_count</strong>: <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_integer_class" class="xref page">Integer</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Optional count of original samples to which this event corresponds.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>math_function</strong>: <code><a href="../../../latest/data_types/text_package/#_dv_coded_text_class" class="xref page">DV_CODED_TEXT</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Mathematical function of the data of this event, e.g.  maximum, mean etc. Coded using <a href="https://github.com/openEHR/terminology/blob/master/openEHR_RM/en/openehr_terminology.xml">openEHR vocabulary <code>event math function</code></a>. Default value <code>640&#124;actual&#124;</code>, meaning 'actual value'.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Functions</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>interval_start_time</strong> (): <code><a href="../../../latest/data_types/quantity_package/#_dv_date_time_class" class="xref page">DV_DATE_TIME</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Start time of the interval of this event.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Invariants</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Math_function_validity</em>: <code>terminology (Terminology_id_openehr).has_code_for_group_id (Group_id_event_math_function, math_function.defining_code)</code></p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Interval_start_time_valid</em>: <code>interval_start_time = time - width</code></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="_tabs_4_bmm--panel" class="tabpanel" aria-labelledby="_tabs_4_bmm">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+    "name": "INTERVAL_EVENT",
+    "documentation": "Defines a single interval event in a series. ",
+    "ancestors": [
+        "EVENT"
+    ],
+    "generic_parameter_defs": {
+        "T": {
+            "name": "T"
+        }
+    },
+    "properties": {
+        "width": {
+            "_type": "P_BMM_SINGLE_PROPERTY",
+            "name": "width",
+            "documentation": "Duration of the time interval during which the values recorded under `data` are true and, if set, the values recorded under `state` are true. Void if an instantaneous event.",
+            "is_mandatory": true,
+            "type": "DV_DURATION"
+        },
+        "sample_count": {
+            "_type": "P_BMM_SINGLE_PROPERTY",
+            "name": "sample_count",
+            "documentation": "Optional count of original samples to which this event corresponds.",
+            "type": "Integer"
+        },
+        "math_function": {
+            "_type": "P_BMM_SINGLE_PROPERTY",
+            "name": "math_function",
+            "documentation": "Mathematical function of the data of this event, e.g.  maximum, mean etc. Coded using https://github.com/openEHR/terminology/blob/master/openEHR_RM/en/openehr_terminology.xml[openEHR vocabulary `event math function`]. Default value `640|actual|`, meaning 'actual value'.",
+            "is_mandatory": true,
+            "type": "DV_CODED_TEXT"
+        }
+    },
+    "functions": {
+        "interval_start_time": {
+            "name": "interval_start_time",
+            "documentation": "Start time of the interval of this event.",
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "DV_DATE_TIME"
+            }
+        }
+    },
+    "invariants": {
+        "Math_function_validity": "terminology (Terminology_id_openehr).has_code_for_group_id (Group_id_event_math_function, math_function.defining_code)",
+        "Interval_start_time_valid": "interval_start_time = time - width"
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="_tabs_4_uml--panel" class="tabpanel" aria-labelledby="_tabs_4_uml">
+<div class="imageblock kroki">
+<div class="content">
+<img src="https://kroki.io/plantuml/svg/eNqdVO9v0zAQ_Z6_whJfBmgVfN2qSW5jtIisnVKnAlXIMsmltZbYJb6wVYP_Hcct-TGYEPvk6O69u3cvZwdZKa0l0YKzZE1jwdZswcmUX5HHgJC35F7luCMXJFyLME0oj5YLsnn_xeesrPYliMw0Gh0k0ghbqMnm3WRyQlQSd6JodIbK6GOV-TJkoeDsE-_qKEesv8tSWJQ1ClQVnL0-9aScCR7dMA_-GQTyq8VaZkiOunu55NX9TiHYytzBZak0XGxrefBfk9wgQn6J8IA-epqtbfS3Nn42lNgmI85uxIon6ZynCRvOlkuUDtCPYYrCAnbKh279KTxezimns5i9RLiWv4WPfJR1tgM87EFok4NQucOssFZ620EaH0yjUMzoyv2HKByO5HreWZePlcVpHC0-XpHNm6e1c0CpyhZGk_k1459v2ahIAZBDLWSTq3YrPjAWskTQNIz4EJYZncG-s2u8EFb0_WpjjqiZMSVI_Yyht5Rfv9TPvaxBH5t0ZTotCJWQKPZulc-I9OfIV9LSqD6MGPbfFG-y4_UetzgBDy5un6cNXehIjVbfGvhPkilEK7VllSZ7MrunDZbHGd6lpz_Oz_sFDoJ-l33G38kgOF3NNjJ-XYJf4GtXXw==?svg-type=inline" alt="INTERVAL_EVENT">
+</div>
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -853,5 +1415,6 @@ which in this case is simply the time of measurement (the origin).</p>
 <script async src="../../../../search-index.js"></script>
 <script src="../../../../ui/js/medium-zoom.min.js"></script>
 <script src="../../../../ui/js/zoom.js"></script>
+<script async src="../../../../ui/js/tabs.js"></script>
   </body>
 </html>

@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="../../../../ui/css/site.css">
     <link rel="stylesheet" href="../../../../ui/css/antora-openehr.css">
     <link rel="stylesheet" href="../../../../ui/css/openehr.css">
+    <link rel="stylesheet" href="../../../../ui/css/tabs.css">
 <link rel="icon" href="../../../../ui/img/favicon.ico" type="image/x-icon">
   </head>
   <body class="article">
@@ -294,7 +295,7 @@
     <a class="nav-link" href="../../ehr_extract/generic_extract_package/">Generic_extract Package</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../../ehr_extract/synchronisation_package/">Synchronisation Extracts</a>
+    <a class="nav-link" href="../../ehr_extract/synchronisation_package/">Synchronisation Extract</a>
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../../ehr_extract/message_package/">The Message package</a>
@@ -411,20 +412,6 @@
     <span class="version">development</span>
   </div>
   <ul class="components">
-    <li class="component">
-      <div class="title"><a href="../../../../AM/latest/">Archetype Model</a></div>
-      <ul class="versions">
-        <li class="version is-latest">
-          <a href="../../../../AM/latest/">Release-2.3.0</a>
-        </li>
-        <li class="version">
-          <a href="../../../../AM/Release-2.2.0/">Release-2.2.0</a>
-        </li>
-        <li class="version">
-          <a href="../../../../AM/development/">development</a>
-        </li>
-      </ul>
-    </li>
     <li class="component">
       <div class="title"><a href="../../../../BASE/latest/">Base Model</a></div>
       <ul class="versions">
@@ -1134,20 +1121,1041 @@ list. A definitive list may be found on the <a href="https://www.nlm.nih.gov/res
 <div class="sect1">
 <h2 id="_class_definitions"><a class="anchor" href="#_class_definitions"></a><a class="link" href="#_class_definitions">Class Definitions</a></h2>
 <div class="sectionbody">
-<div class="paragraph">
-<p>Unresolved directive in terminology_package.adoc - include::ROOT:partial$uml/{pkg}terminology_service.adoc[]</p>
+<div class="sect2">
+<h3 id="_terminology_service_class"><a class="anchor" href="#_terminology_service_class"></a><a class="link" href="#_terminology_service_class">TERMINOLOGY_SERVICE Class</a></h3>
+<div id="_tabs_1" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="_tabs_1_definition" class="tab">
+<p>Definition</p>
+</li>
+<li id="_tabs_1_bmm" class="tab">
+<p>BMM</p>
+</li>
+<li id="_tabs_1_uml" class="tab">
+<p>UML</p>
+</li>
+</ul>
 </div>
-<div class="paragraph">
-<p>Unresolved directive in terminology_package.adoc - include::ROOT:partial$uml/{pkg}terminology_access.adoc[]</p>
+<div id="_tabs_1_definition--panel" class="tabpanel" aria-labelledby="_tabs_1_definition">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>TERMINOLOGY_SERVICE</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Defines an object providing proxy access to a terminology service.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="#RM:support:terminology:terminology_package.adoc#_openehr_terminology_group_identifiers_class" class="xref unresolved">OPENEHR_TERMINOLOGY_GROUP_IDENTIFIERS</a></code>, <code><a href="#RM:support:terminology:terminology_package.adoc#_openehr_code_set_identifiers_class" class="xref unresolved">OPENEHR_CODE_SET_IDENTIFIERS</a></code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Functions</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>terminology</strong> (<br>
+name: <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_string_class" class="xref page">String</a>[1]</code><br>
+): <code><a href="#RM:support:terminology:terminology_package.adoc#_terminology_access_interface" class="xref unresolved">TERMINOLOGY_ACCESS</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Return an interface to the terminology named name. Allowable names include:-</p>
 </div>
-<div class="paragraph">
-<p>Unresolved directive in terminology_package.adoc - include::ROOT:partial$uml/{pkg}code_set_access.adoc[]</p>
+<div class="ulist">
+<ul>
+<li>
+<p>openehr,</p>
+</li>
+<li>
+<p>centc251,</p>
+</li>
+<li>
+<p>any name from are taken from the US NLM UMLS meta-data list at <a href="http://www.nlm.nih.gov/research/umls/metaa1.html" class="bare">http://www.nlm.nih.gov/research/umls/metaa1.html</a></p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>code_set</strong> (<br>
+name: <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_string_class" class="xref page">String</a>[1]</code><br>
+): <code><a href="#RM:support:terminology:terminology_package.adoc#_code_set_access_interface" class="xref unresolved">CODE_SET_ACCESS</a></code><br>
+<br>
+<em>Pre</em>: <code>has_code_set (name)</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Return an interface to the code_set identified by the external identifier name (e.g.  ISO_639-1).</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>code_set_for_id</strong> (<br>
+id: <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_string_class" class="xref page">String</a>[1]</code><br>
+): <code><a href="#RM:support:terminology:terminology_package.adoc#_code_set_access_interface" class="xref unresolved">CODE_SET_ACCESS</a></code><br>
+<br>
+<em>Pre</em>: <code>valid_code_set_id (id)</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Return an interface to the code_set identified internally in openEHR by id.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>has_terminology</strong> (<br>
+name: <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_string_class" class="xref page">String</a>[1]</code><br>
+): <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>True if terminology named name known by this service. Allowable names include:-</p>
 </div>
-<div class="paragraph">
-<p>Unresolved directive in terminology_package.adoc - include::ROOT:partial$uml/{pkg}openehr_terminology_group_identifiers.adoc[]</p>
+<div class="ulist">
+<ul>
+<li>
+<p>openehr</p>
+</li>
+<li>
+<p>centc251</p>
+</li>
+<li>
+<p>any name from are taken from the US NLM UMLS meta-data list at       <a href="http://www.nlm.nih.gov/research/umls/metaa1.html" class="bare">http://www.nlm.nih.gov/research/umls/metaa1.html</a></p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>has_code_set</strong> (<br>
+name: <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_string_class" class="xref page">String</a>[1]</code><br>
+): <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>True if code_set linked to internal name (e.g. languages ) is available.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>terminology_identifiers</strong> (): <code><a href="../../../../BASE/latest/foundation_types/structure_types/#_list_class" class="xref page">List</a>&lt;<a href="../../../../BASE/latest/foundation_types/primitive_types/#_string_class" class="xref page">String</a>&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Set of all terminology identifiers known in the terminology service. Values from the US NLM UMLS meta-data list at:- <a href="http://www.nlm.nih.gov/research/umls/metaa1.html" class="bare">http://www.nlm.nih.gov/research/umls/metaa1.html</a></p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>openehr_code_sets</strong> (): <code><a href="../../../../BASE/latest/foundation_types/structure_types/#_hash_class" class="xref page">Hash</a>&lt;<a href="../../../../BASE/latest/foundation_types/primitive_types/#_string_class" class="xref page">String</a>,<a href="../../../../BASE/latest/foundation_types/primitive_types/#_string_class" class="xref page">String</a>&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Set of all code set identifiers known in the terminology service.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>code_set_identifiers</strong> (): <code><a href="../../../../BASE/latest/foundation_types/structure_types/#_list_class" class="xref page">List</a>&lt;<a href="../../../../BASE/latest/foundation_types/primitive_types/#_string_class" class="xref page">String</a>&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Set of all code sets identifiers for which there is an internal openEHR name; returned as a Map of ids keyed by internal name.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
 </div>
-<div class="paragraph">
-<p>Unresolved directive in terminology_package.adoc - include::ROOT:partial$uml/{pkg}openehr_code_set_identifiers.adoc[]</p>
+<div id="_tabs_1_bmm--panel" class="tabpanel" aria-labelledby="_tabs_1_bmm">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+    "name": "TERMINOLOGY_SERVICE",
+    "documentation": "Defines an object providing proxy access to a terminology service. ",
+    "ancestors": [
+        "OPENEHR_TERMINOLOGY_GROUP_IDENTIFIERS",
+        "OPENEHR_CODE_SET_IDENTIFIERS"
+    ],
+    "functions": {
+        "terminology": {
+            "name": "terminology",
+            "documentation": "Return an interface to the terminology named name. Allowable names include:-\n\n* openehr, \n* centc251,\n* any name from are taken from the US NLM UMLS meta-data list at http://www.nlm.nih.gov/research/umls/metaa1.html ",
+            "parameters": {
+                "name": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "name",
+                    "type": "String"
+                }
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "TERMINOLOGY_ACCESS"
+            }
+        },
+        "code_set": {
+            "name": "code_set",
+            "documentation": "Return an interface to the code_set identified by the external identifier name (e.g.  ISO_639-1). ",
+            "parameters": {
+                "name": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "name",
+                    "type": "String"
+                }
+            },
+            "pre_conditions": {
+                "Pre": "has_code_set (name)"
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "CODE_SET_ACCESS"
+            }
+        },
+        "code_set_for_id": {
+            "name": "code_set_for_id",
+            "documentation": "Return an interface to the code_set identified internally in openEHR by id. \n",
+            "parameters": {
+                "id": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "id",
+                    "type": "String"
+                }
+            },
+            "pre_conditions": {
+                "Pre": "valid_code_set_id (id)"
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "CODE_SET_ACCESS"
+            }
+        },
+        "has_terminology": {
+            "name": "has_terminology",
+            "documentation": "True if terminology named name known by this service. Allowable names include:-\n\n*  openehr  \n* centc251  \n* any name from are taken from the US NLM UMLS meta-data list at       http://www.nlm.nih.gov/research/umls/metaa1.html",
+            "parameters": {
+                "name": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "name",
+                    "type": "String"
+                }
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Boolean"
+            }
+        },
+        "has_code_set": {
+            "name": "has_code_set",
+            "documentation": "True if code_set linked to internal name (e.g. languages ) is available. ",
+            "parameters": {
+                "name": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "name",
+                    "type": "String"
+                }
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Boolean"
+            }
+        },
+        "terminology_identifiers": {
+            "name": "terminology_identifiers",
+            "documentation": "Set of all terminology identifiers known in the terminology service. Values from the US NLM UMLS meta-data list at:- http://www.nlm.nih.gov/research/umls/metaa1.html ",
+            "result": {
+                "_type": "P_BMM_CONTAINER_TYPE",
+                "container_type": "List",
+                "type": "String"
+            },
+            "is_nullable": true
+        },
+        "openehr_code_sets": {
+            "name": "openehr_code_sets",
+            "documentation": "Set of all code set identifiers known in the terminology service. \n",
+            "result": {
+                "_type": "P_BMM_GENERIC_TYPE",
+                "root_type": "Hash",
+                "generic_parameters": [
+                    "String",
+                    "String"
+                ]
+            }
+        },
+        "code_set_identifiers": {
+            "name": "code_set_identifiers",
+            "documentation": "Set of all code sets identifiers for which there is an internal openEHR name; returned as a Map of ids keyed by internal name. ",
+            "result": {
+                "_type": "P_BMM_CONTAINER_TYPE",
+                "container_type": "List",
+                "type": "String"
+            },
+            "is_nullable": true
+        }
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="_tabs_1_uml--panel" class="tabpanel" aria-labelledby="_tabs_1_uml">
+<div class="imageblock kroki">
+<div class="content">
+<img src="https://kroki.io/plantuml/svg/eNqtkl1LwzAUhu_7Kw54Uz8meLsNQbu4FeY62irIkBDWszbYJiOJH0P973btqLFubhfeNc15ct73PceZ50xriEl460-CcTB8oBEJ732PwLsDcAoGVcGFzGW6ckGwAqELkVFcpDC7eITj8mjDV55Homh9VdFzmSDVaHahXjAgZcN4F0cXUlGeuMCTw-GMaXqA7Gspc2TiB7ZPb5ux2pQyURi-4Ki0u64dc236NX8Js5MakEsUmKmmUV06YjrblJ41RDuKve9_Ok49zWBKJmQUUnswwzC4m1J_QCaxf-OTMAI4es24QV3IJ-zlXGA3VWxVfZ0n0hhMegbfTPV3swwvLOeJnS1NlXxeVhNiglZDsiL6FVmp8DBt_Y9OZ9tSth02K_Avxqyov_38sQGWna1Cdrr4AlceFoo=?svg-type=inline" alt="TERMINOLOGY_SERVICE">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_terminology_access_class"><a class="anchor" href="#_terminology_access_class"></a><a class="link" href="#_terminology_access_class">TERMINOLOGY_ACCESS Class</a></h3>
+<div id="_tabs_2" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="_tabs_2_definition" class="tab">
+<p>Definition</p>
+</li>
+<li id="_tabs_2_bmm" class="tab">
+<p>BMM</p>
+</li>
+<li id="_tabs_2_uml" class="tab">
+<p>UML</p>
+</li>
+</ul>
+</div>
+<div id="_tabs_2_definition--panel" class="tabpanel" aria-labelledby="_tabs_2_definition">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Interface</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>TERMINOLOGY_ACCESS</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Defines an object providing proxy access to a terminology.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Functions</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>id</strong> (): <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_string_class" class="xref page">String</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Identification of this Terminology.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>all_codes</strong> (): <code><a href="../../../latest/data_types/text_package/#_code_phrase_class" class="xref page">CODE_PHRASE</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Return all codes known in this terminology.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>codes_for_group_id</strong> (<br>
+a_group_id: <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_string_class" class="xref page">String</a>[1]</code><br>
+): <code><a href="../../../../BASE/latest/foundation_types/structure_types/#_list_class" class="xref page">List</a>&lt;<a href="../../../latest/data_types/text_package/#_code_phrase_class" class="xref page">CODE_PHRASE</a>&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Return all codes under grouper 'a_group_id' from this terminology.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>codes_for_group_name</strong> (<br>
+a_lang: <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_string_class" class="xref page">String</a>[1]</code>,<br>
+a_name: <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_string_class" class="xref page">String</a>[1]</code><br>
+): <code><a href="../../../../BASE/latest/foundation_types/structure_types/#_list_class" class="xref page">List</a>&lt;<a href="../../../latest/data_types/text_package/#_code_phrase_class" class="xref page">CODE_PHRASE</a>&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Return all codes under grouper whose name in 'a_lang' is 'a_name' from this terminology.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>has_code_for_group_id</strong> (): <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>True if  a_code' is known in group  group_id' in the openEHR terminology.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>rubric_for_code</strong> (<br>
+a_code: <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_string_class" class="xref page">String</a>[1]</code><br>
+): <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_string_class" class="xref page">String</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Return all rubric of code  code' in language  lang'.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="_tabs_2_bmm--panel" class="tabpanel" aria-labelledby="_tabs_2_bmm">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+    "_type": "P_BMM_INTERFACE",
+    "name": "TERMINOLOGY_ACCESS",
+    "documentation": "Defines an object providing proxy access to a terminology. ",
+    "functions": {
+        "id": {
+            "name": "id",
+            "documentation": "Identification of this Terminology.",
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "String"
+            }
+        },
+        "all_codes": {
+            "name": "all_codes",
+            "documentation": "Return all codes known in this terminology.",
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "CODE_PHRASE"
+            }
+        },
+        "codes_for_group_id": {
+            "name": "codes_for_group_id",
+            "documentation": "Return all codes under grouper 'a_group_id' from this terminology.",
+            "parameters": {
+                "a_group_id": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "a_group_id",
+                    "type": "String"
+                }
+            },
+            "result": {
+                "_type": "P_BMM_CONTAINER_TYPE",
+                "container_type": "List",
+                "type": "CODE_PHRASE"
+            },
+            "is_nullable": true
+        },
+        "codes_for_group_name": {
+            "name": "codes_for_group_name",
+            "documentation": "Return all codes under grouper whose name in 'a_lang' is 'a_name' from this terminology.",
+            "parameters": {
+                "a_lang": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "a_lang",
+                    "type": "String"
+                },
+                "a_name": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "a_name",
+                    "type": "String"
+                }
+            },
+            "result": {
+                "_type": "P_BMM_CONTAINER_TYPE",
+                "container_type": "List",
+                "type": "CODE_PHRASE"
+            },
+            "is_nullable": true
+        },
+        "has_code_for_group_id": {
+            "name": "has_code_for_group_id",
+            "documentation": "True if  a_code' is known in group  group_id' in the openEHR terminology.",
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Boolean"
+            }
+        },
+        "rubric_for_code": {
+            "name": "rubric_for_code",
+            "documentation": "Return all rubric of code  code' in language  lang'.",
+            "parameters": {
+                "a_code": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "a_code",
+                    "type": "String"
+                }
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "String"
+            }
+        }
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="_tabs_2_uml--panel" class="tabpanel" aria-labelledby="_tabs_2_uml">
+<div class="imageblock kroki">
+<div class="content">
+<img src="https://kroki.io/plantuml/svg/eNrjyswrSS1KS0xOVQhxDfL19PP38XePjHd0dnYNDlao5lJQ0FbITNHQVLBSCC4pysxLV4g2jAWLJubkxCfnp6QWgyWd_V1c4wM8ghyDXeEqwLLxaflF8elF-aUF8UBzFBLhbBQTFUBm-GQWl9ggGWSnEK2F3aS8xNxUkFk5iUDtyOboAAVBkqQYnpFYDPYIqktBepzy83NSE_PgHioqTSrKTAarA2kAuQBEY1qGFFS1XABLjW1w?svg-type=inline" alt="TERMINOLOGY_ACCESS">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_code_set_access_class"><a class="anchor" href="#_code_set_access_class"></a><a class="link" href="#_code_set_access_class">CODE_SET_ACCESS Class</a></h3>
+<div id="_tabs_3" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="_tabs_3_definition" class="tab">
+<p>Definition</p>
+</li>
+<li id="_tabs_3_bmm" class="tab">
+<p>BMM</p>
+</li>
+<li id="_tabs_3_uml" class="tab">
+<p>UML</p>
+</li>
+</ul>
+</div>
+<div id="_tabs_3_definition--panel" class="tabpanel" aria-labelledby="_tabs_3_definition">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Interface</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>CODE_SET_ACCESS</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Defines an object providing proxy access to a code_set.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Functions</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>id</strong> (): <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_string_class" class="xref page">String</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>External identifier of this code set.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>all_codes</strong> (): <code><a href="../../../../BASE/latest/foundation_types/structure_types/#_list_class" class="xref page">List</a>&lt;<a href="../../../latest/data_types/text_package/#_code_phrase_class" class="xref page">CODE_PHRASE</a>&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Return all codes known in this code set.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>has_lang</strong> (<br>
+a_lang: <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_string_class" class="xref page">String</a>[1]</code><br>
+): <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>True if code set knows about 'a_lang' .</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>has_code</strong> (<br>
+a_code: <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_string_class" class="xref page">String</a>[1]</code><br>
+): <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>True if code set knows about  'a_code'.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="_tabs_3_bmm--panel" class="tabpanel" aria-labelledby="_tabs_3_bmm">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+    "_type": "P_BMM_INTERFACE",
+    "name": "CODE_SET_ACCESS",
+    "documentation": "Defines an object providing proxy access to a code_set.",
+    "functions": {
+        "id": {
+            "name": "id",
+            "documentation": "External identifier of this code set.",
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "String"
+            }
+        },
+        "all_codes": {
+            "name": "all_codes",
+            "documentation": "Return all codes known in this code set.",
+            "result": {
+                "_type": "P_BMM_CONTAINER_TYPE",
+                "container_type": "List",
+                "type": "CODE_PHRASE"
+            },
+            "is_nullable": true
+        },
+        "has_lang": {
+            "name": "has_lang",
+            "documentation": "True if code set knows about 'a_lang' .",
+            "parameters": {
+                "a_lang": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "a_lang",
+                    "type": "String"
+                }
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Boolean"
+            }
+        },
+        "has_code": {
+            "name": "has_code",
+            "documentation": "True if code set knows about  'a_code'.",
+            "parameters": {
+                "a_code": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "a_code",
+                    "type": "String"
+                }
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Boolean"
+            }
+        }
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="_tabs_3_uml--panel" class="tabpanel" aria-labelledby="_tabs_3_uml">
+<div class="imageblock kroki">
+<div class="content">
+<img src="https://kroki.io/plantuml/svg/eNrjyswrSS1KS0xOVXD2d3GND3YNiXd0dnYNDlao5lJQ0FbITNHQVLBSCC4pysxLV4g2jAWLJubkxCfnp6QWgyV9MotLbMDaAzyCHINd7RSitSDqMhKL43MS89I1FBLBNIpJCiC9Tvn5OamJeXCTQTpAJoN0gGj8Omq5AFVHOH0=?svg-type=inline" alt="CODE_SET_ACCESS">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_openehr_terminology_group_identifiers_class"><a class="anchor" href="#_openehr_terminology_group_identifiers_class"></a><a class="link" href="#_openehr_terminology_group_identifiers_class">OPENEHR_TERMINOLOGY_GROUP_IDENTIFIERS Class</a></h3>
+<div id="_tabs_4" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="_tabs_4_definition" class="tab">
+<p>Definition</p>
+</li>
+<li id="_tabs_4_bmm" class="tab">
+<p>BMM</p>
+</li>
+<li id="_tabs_4_uml" class="tab">
+<p>UML</p>
+</li>
+</ul>
+</div>
+<div id="_tabs_4_definition--panel" class="tabpanel" aria-labelledby="_tabs_4_definition">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>OPENEHR_TERMINOLOGY_GROUP_IDENTIFIERS</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>List of identifiers for groups in the openEHR terminology.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Constants</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Terminology_id_openehr</strong>: <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_string_class" class="xref page">String</a>&#160;=&#160;"openehr"</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Name of openEHR&#8217;s own terminology.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Group_id_audit_change_type</strong>: <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_string_class" class="xref page">String</a>&#160;=&#160;"audit change type"</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Group_id_attestation_reason</strong>: <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_string_class" class="xref page">String</a>&#160;=&#160;"attestation reason"</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Group_id_composition_category</strong>: <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_string_class" class="xref page">String</a>&#160;=&#160;"composition category"</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Group_id_event_math_function</strong>: <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_string_class" class="xref page">String</a>&#160;=&#160;"event math function"</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Group_id_instruction_states</strong>: <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_string_class" class="xref page">String</a>&#160;=&#160;"instruction states"</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Group_id_instruction_transitions</strong>: <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_string_class" class="xref page">String</a>&#160;=&#160;"instruction transitions"</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Group_id_null_flavours</strong>: <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_string_class" class="xref page">String</a>&#160;=&#160;"null flavours"</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Group_id_property</strong>: <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_string_class" class="xref page">String</a>&#160;=&#160;"property"</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Group_id_participation_function</strong>: <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_string_class" class="xref page">String</a>&#160;=&#160;"participation function"</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Group_id_participation_mode</strong>: <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_string_class" class="xref page">String</a>&#160;=&#160;"participation mode"</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Group_id_setting</strong>: <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_string_class" class="xref page">String</a>&#160;=&#160;"setting"</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Group_id_term_mapping_purpose</strong>: <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_string_class" class="xref page">String</a>&#160;=&#160;"term mapping purpose"</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Group_id_subject_relationship</strong>: <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_string_class" class="xref page">String</a>&#160;=&#160;"subject relationship"</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Group_id_version_life_cycle_state</strong>: <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_string_class" class="xref page">String</a>&#160;=&#160;"version lifecycle state"</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Functions</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>valid_terminology_group_id</strong> (<br>
+an_id: <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a>[1]</code><br>
+): <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Validity function to test if an identifier is in the set defined by this class.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="_tabs_4_bmm--panel" class="tabpanel" aria-labelledby="_tabs_4_bmm">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+    "name": "OPENEHR_TERMINOLOGY_GROUP_IDENTIFIERS",
+    "documentation": "List of identifiers for groups in the openEHR terminology. ",
+    "constants": {
+        "Terminology_id_openehr": {
+            "name": "Terminology_id_openehr",
+            "documentation": "Name of openEHR's own terminology.",
+            "type": "String",
+            "value": "\"openehr\""
+        },
+        "Group_id_audit_change_type": {
+            "name": "Group_id_audit_change_type",
+            "type": "String",
+            "value": "\"audit change type\""
+        },
+        "Group_id_attestation_reason": {
+            "name": "Group_id_attestation_reason",
+            "type": "String",
+            "value": "\"attestation reason\""
+        },
+        "Group_id_composition_category": {
+            "name": "Group_id_composition_category",
+            "type": "String",
+            "value": "\"composition category\""
+        },
+        "Group_id_event_math_function": {
+            "name": "Group_id_event_math_function",
+            "type": "String",
+            "value": "\"event math function\""
+        },
+        "Group_id_instruction_states": {
+            "name": "Group_id_instruction_states",
+            "type": "String",
+            "value": "\"instruction states\""
+        },
+        "Group_id_instruction_transitions": {
+            "name": "Group_id_instruction_transitions",
+            "type": "String",
+            "value": "\"instruction transitions\""
+        },
+        "Group_id_null_flavours": {
+            "name": "Group_id_null_flavours",
+            "type": "String",
+            "value": "\"null flavours\""
+        },
+        "Group_id_property": {
+            "name": "Group_id_property",
+            "type": "String",
+            "value": "\"property\""
+        },
+        "Group_id_participation_function": {
+            "name": "Group_id_participation_function",
+            "type": "String",
+            "value": "\"participation function\""
+        },
+        "Group_id_participation_mode": {
+            "name": "Group_id_participation_mode",
+            "type": "String",
+            "value": "\"participation mode\""
+        },
+        "Group_id_setting": {
+            "name": "Group_id_setting",
+            "type": "String",
+            "value": "\"setting\""
+        },
+        "Group_id_term_mapping_purpose": {
+            "name": "Group_id_term_mapping_purpose",
+            "type": "String",
+            "value": "\"term mapping purpose\""
+        },
+        "Group_id_subject_relationship": {
+            "name": "Group_id_subject_relationship",
+            "type": "String",
+            "value": "\"subject relationship\""
+        },
+        "Group_id_version_life_cycle_state": {
+            "name": "Group_id_version_life_cycle_state",
+            "type": "String",
+            "value": "\"version lifecycle state\""
+        }
+    },
+    "functions": {
+        "valid_terminology_group_id": {
+            "name": "valid_terminology_group_id",
+            "documentation": "Validity function to test if an identifier is in the set defined by this class. ",
+            "parameters": {
+                "an_id": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "an_id",
+                    "type": "Boolean"
+                }
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Boolean"
+            }
+        }
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="_tabs_4_uml--panel" class="tabpanel" aria-labelledby="_tabs_4_uml">
+<div class="imageblock kroki">
+<div class="content">
+<img src="https://kroki.io/plantuml/svg/eNrjSs5JLC5W8A9w9XP1CIoPcQ3y9fTz9_F3j4x3D_IPDYj3dHH1C_F083QNClao5lJQ0FYoS8zJTIkvSS3KzczLz8lPr4xPL8ovLYjPTNFQSMwDUgpWCk75-TmpiXkK0YaxCpqofK5aLgCcTyU-?svg-type=inline" alt="OPENEHR_TERMINOLOGY_GROUP_IDENTIFIERS">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_openehr_code_set_identifiers_class"><a class="anchor" href="#_openehr_code_set_identifiers_class"></a><a class="link" href="#_openehr_code_set_identifiers_class">OPENEHR_CODE_SET_IDENTIFIERS Class</a></h3>
+<div id="_tabs_5" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="_tabs_5_definition" class="tab">
+<p>Definition</p>
+</li>
+<li id="_tabs_5_bmm" class="tab">
+<p>BMM</p>
+</li>
+<li id="_tabs_5_uml" class="tab">
+<p>UML</p>
+</li>
+</ul>
+</div>
+<div id="_tabs_5_definition--panel" class="tabpanel" aria-labelledby="_tabs_5_definition">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>OPENEHR_CODE_SET_IDENTIFIERS</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>List of identifiers for code sets in the openEHR terminology.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Constants</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Code_set_id_character_sets</strong>: <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_string_class" class="xref page">String</a>&#160;=&#160;"character sets"</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Code_set_id_compression_algorithms</strong>: <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_string_class" class="xref page">String</a>&#160;=&#160;"compression algorithms"</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Code_set_id_countries</strong>: <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_string_class" class="xref page">String</a>&#160;=&#160;"countries"</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Code_set_integrity_check_algorithms</strong>: <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_string_class" class="xref page">String</a>&#160;=&#160;"integrity check algorithms"</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Code_set_id_languages</strong>: <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_string_class" class="xref page">String</a>&#160;=&#160;"languages"</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Code_set_id_media_types</strong>: <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_string_class" class="xref page">String</a>&#160;=&#160;"media types"</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Code_set_id_normal_statuses</strong>: <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_string_class" class="xref page">String</a>&#160;=&#160;"normal statuses"</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Functions</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>valid_code_set_id</strong> (<br>
+an_id: <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_string_class" class="xref page">String</a>[1]</code><br>
+): <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Validity function to test if an identifier is in the set defined by this class.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="_tabs_5_bmm--panel" class="tabpanel" aria-labelledby="_tabs_5_bmm">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+    "name": "OPENEHR_CODE_SET_IDENTIFIERS",
+    "documentation": "List of identifiers for code sets in the openEHR terminology. ",
+    "constants": {
+        "Code_set_id_character_sets": {
+            "name": "Code_set_id_character_sets",
+            "type": "String",
+            "value": "\"character sets\""
+        },
+        "Code_set_id_compression_algorithms": {
+            "name": "Code_set_id_compression_algorithms",
+            "type": "String",
+            "value": "\"compression algorithms\""
+        },
+        "Code_set_id_countries": {
+            "name": "Code_set_id_countries",
+            "type": "String",
+            "value": "\"countries\""
+        },
+        "Code_set_integrity_check_algorithms": {
+            "name": "Code_set_integrity_check_algorithms",
+            "type": "String",
+            "value": "\"integrity check algorithms\""
+        },
+        "Code_set_id_languages": {
+            "name": "Code_set_id_languages",
+            "type": "String",
+            "value": "\"languages\""
+        },
+        "Code_set_id_media_types": {
+            "name": "Code_set_id_media_types",
+            "type": "String",
+            "value": "\"media types\""
+        },
+        "Code_set_id_normal_statuses": {
+            "name": "Code_set_id_normal_statuses",
+            "type": "String",
+            "value": "\"normal statuses\""
+        }
+    },
+    "functions": {
+        "valid_code_set_id": {
+            "name": "valid_code_set_id",
+            "documentation": "Validity function to test if an identifier is in the set defined by this class.",
+            "parameters": {
+                "an_id": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "an_id",
+                    "type": "String"
+                }
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Boolean"
+            }
+        }
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="_tabs_5_uml--panel" class="tabpanel" aria-labelledby="_tabs_5_uml">
+<div class="imageblock kroki">
+<div class="content">
+<img src="https://kroki.io/plantuml/svg/eNrjSs5JLC5W8A9w9XP1CIp39ndxjQ92DYn3dHH1C_F083QNClao5lJQ0FYoS8zJTIlPzk9JjS9OLYnPTNFQSMwDUgpWCsElRZl56QrRhrEKmkCuU35-TmpiHojPVcsFANwpHhc=?svg-type=inline" alt="OPENEHR_CODE_SET_IDENTIFIERS">
+</div>
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -1194,5 +2202,6 @@ list. A definitive list may be found on the <a href="https://www.nlm.nih.gov/res
 <script async src="../../../../search-index.js"></script>
 <script src="../../../../ui/js/medium-zoom.min.js"></script>
 <script src="../../../../ui/js/zoom.js"></script>
+<script async src="../../../../ui/js/tabs.js"></script>
   </body>
 </html>

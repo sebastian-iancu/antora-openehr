@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="../../../../ui/css/site.css">
     <link rel="stylesheet" href="../../../../ui/css/antora-openehr.css">
     <link rel="stylesheet" href="../../../../ui/css/openehr.css">
+    <link rel="stylesheet" href="../../../../ui/css/tabs.css">
 <link rel="icon" href="../../../../ui/img/favicon.ico" type="image/x-icon">
   </head>
   <body class="article">
@@ -294,7 +295,7 @@
     <a class="nav-link" href="../../ehr_extract/generic_extract_package/">Generic_extract Package</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../../ehr_extract/synchronisation_package/">Synchronisation Extracts</a>
+    <a class="nav-link" href="../../ehr_extract/synchronisation_package/">Synchronisation Extract</a>
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../../ehr_extract/message_package/">The Message package</a>
@@ -412,20 +413,6 @@
   </div>
   <ul class="components">
     <li class="component">
-      <div class="title"><a href="../../../../AM/latest/">Archetype Model</a></div>
-      <ul class="versions">
-        <li class="version is-latest">
-          <a href="../../../../AM/latest/">Release-2.3.0</a>
-        </li>
-        <li class="version">
-          <a href="../../../../AM/Release-2.2.0/">Release-2.2.0</a>
-        </li>
-        <li class="version">
-          <a href="../../../../AM/development/">development</a>
-        </li>
-      </ul>
-    </li>
-    <li class="component">
       <div class="title"><a href="../../../../BASE/latest/">Base Model</a></div>
       <ul class="versions">
         <li class="version is-latest">
@@ -498,7 +485,7 @@ to an existing service.</p>
 <div class="title">Figure 1. rm.demographic package</div>
 </div>
 <div class="paragraph">
-<p>The general design is based on the scheme of party and accountability described by cite:[Fowler1997], and is influenced by clinical adaptations including work done in Australia and <a href="https://www.hl7.org/implement/standards/product_brief.cfm?product_id=186" target="_blank" rel="noopener">HL7v3</a> (itself influenced by the Fowler models).</p>
+<p>The general design is based on the scheme of party and accountability described by <span class="citation"><a href="#bibliography_entry_Fowler1997">[1]</a></span>, and is influenced by clinical adaptations including work done in Australia and <a href="https://www.hl7.org/implement/standards/product_brief.cfm?product_id=186" target="_blank" rel="noopener">HL7v3</a> (itself influenced by the Fowler models).</p>
 </div>
 <div class="paragraph">
 <p>One of the main design criteria of the model is that it expresses attributes and relationships of demographic entities which exist regardless of particular clinical involvements or participations in particular events. Participations are meaningful only within the context of the health record or other relevant model where they record context-specific relationships between demographic entities and events in the real world.</p>
@@ -539,7 +526,7 @@ to an existing service.</p>
 <div class="title">Figure 2. General Relationship Model</div>
 </div>
 <div class="paragraph">
-<p>Relationships are considered directional, hence the use of the attribute names source and target, however, these names are otherwise neutral, and give no indication as to the meaning of the relationships, such as which party is responsible and which accountable (for comparison, see the demographic models of Fowler cite:[Fowler1997]). Accordingly, each Party involved in a relationship includes it in its relationships list, if it is at the source end, or in the <code><em>reverse_relationships</em></code> list, if at the target end.</p>
+<p>Relationships are considered directional, hence the use of the attribute names source and target, however, these names are otherwise neutral, and give no indication as to the meaning of the relationships, such as which party is responsible and which accountable (for comparison, see the demographic models of Fowler <span class="citation"><a href="#bibliography_entry_Fowler1997">[1]</a></span>). Accordingly, each Party involved in a relationship includes it in its relationships list, if it is at the source end, or in the <code><em>reverse_relationships</em></code> list, if at the target end.</p>
 </div>
 <div class="paragraph">
 <p>The usual way to determine the directionality of a relationship between two Parties is usually by which Party’s actions caused the relationship to come into being. For example, a relationship representing the concept "patient", between a health consumer and a health care organisation would have the consumer as source and the organisation as target.</p>
@@ -559,44 +546,1501 @@ to an existing service.</p>
 <div class="sect1">
 <h2 id="_class_definitions"><a class="anchor" href="#_class_definitions"></a><a class="link" href="#_class_definitions">Class Definitions</a></h2>
 <div class="sectionbody">
-<div class="paragraph">
-<p>Unresolved directive in demographic_package.adoc - include::ROOT:partial$uml/{pkg}party.adoc[]</p>
+<div class="sect2">
+<h3 id="_party_class"><a class="anchor" href="#_party_class"></a><a class="link" href="#_party_class">PARTY Class</a></h3>
+<div id="_tabs_1" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="_tabs_1_definition" class="tab">
+<p>Definition</p>
+</li>
+<li id="_tabs_1_bmm" class="tab">
+<p>BMM</p>
+</li>
+<li id="_tabs_1_uml" class="tab">
+<p>UML</p>
+</li>
+</ul>
 </div>
-<div class="paragraph">
-<p>Unresolved directive in demographic_package.adoc - include::ROOT:partial$uml/{pkg}versioned_party.adoc[]</p>
+<div id="_tabs_1_definition--panel" class="tabpanel" aria-labelledby="_tabs_1_definition">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong><em>PARTY (abstract)</em></strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Ancestor of all Party types, including real world entities and their roles. A Party is any entity which can participate in an activity. The <code><em>name</em></code> attribute inherited from <code>LOCATABLE</code> is used to indicate the actual type of party (note that the actual names, i.e. identities of parties are indicated in the <code><em>identities</em></code> attribute, not the <code><em>name</em></code> attribute).</p>
 </div>
-<div class="paragraph">
-<p>Unresolved directive in demographic_package.adoc - include::ROOT:partial$uml/{pkg}role.adoc[]</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+It is strongly recommended that the inherited attribute <code><em>uid</em></code> be populated in <code>PARTY</code> objects, using the UID copied from the <code><em>object_id()</em></code> of the <code><em>uid</em></code> field of the enclosing <code>VERSION</code> object.<br>
+For example, the <code>ORIGINAL_VERSION.uid</code> <code>87284370-2D4B-4e3d-A3F3-F303D2F4F34B::uk.nhs.ehr1::2</code>  would be copied to the <code><em>uid</em></code> field of the <code>PARTY</code> object.
+</td>
+</tr>
+</table>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="../../../latest/common/archetyped_package/#_locatable_class" class="xref page">LOCATABLE</a></code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>identities</strong>: <code><a href="../../../../BASE/latest/foundation_types/structure_types/#_list_class" class="xref page">List</a>&lt;<a href="#RM:demographic.adoc#_party_identity_class" class="xref unresolved">PARTY_IDENTITY</a>&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Identities used by the party to identify itself, such as legal name, stage names, aliases, nicknames and so on.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>contacts</strong>: <code><a href="../../../../BASE/latest/foundation_types/structure_types/#_list_class" class="xref page">List</a>&lt;<a href="#RM:demographic.adoc#_contact_class" class="xref unresolved">CONTACT</a>&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Contacts for this party.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>details</strong>: <code><a href="#RM:data_structures:item_structure.adoc#_item_structure_class" class="xref unresolved">ITEM_STRUCTURE</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>All other details for this Party.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>reverse_relationships</strong>: <code><a href="../../../../BASE/latest/foundation_types/structure_types/#_list_class" class="xref page">List</a>&lt;<a href="../../../../BASE/latest/base_types/identification_package/#_locatable_ref_class" class="xref page">LOCATABLE_REF</a>&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>References to relationships in which this Party takes part as target.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>relationships</strong>: <code><a href="../../../../BASE/latest/foundation_types/structure_types/#_list_class" class="xref page">List</a>&lt;<a href="#RM:demographic.adoc#_party_relationship_class" class="xref unresolved">PARTY_RELATIONSHIP</a>&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Relationships in which this Party takes part as source.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Functions</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>type</strong> (): <code><a href="../../../latest/data_types/text_package/#_dv_text_class" class="xref page">DV_TEXT</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Type of party, such as  <code>PERSON</code>,  <code>ORGANISATION</code>, etc. Role name, e.g.  general practitioner ,  nurse ,  private citizen . Taken from inherited <code><em>name</em></code> attribute.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Invariants</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Type_valid</em>: <code>type = name</code></p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Identities_valid</em>: <code>not identities.is_empty</code></p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Contacts_valid</em>: <code>contacts /= Void implies not contacts.is_empty</code></p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Relationships_validity</em>: <code>relationships /= Void implies (not relationships.is_empty and then relationships.for_all (r &#124; r.source = self)</code></p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Reverse_relationships_validity</em>: <code>reverse_relationships /= Void implies (not reverse_relationships.empty and then reverse_relationships.for_all (item &#124; repository ("demographics").all_party_relationships.has_object (item) and then repository("demographics").all_party_relationships.object (item).target = self))</code></p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Is_archetype_root</em>: <code>is_archetype_root</code></p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Uid_mandatory</em>: <code>uid /= Void</code></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
 </div>
-<div class="paragraph">
-<p>Unresolved directive in demographic_package.adoc - include::ROOT:partial$uml/{pkg}party_relationship.adoc[]</p>
+<div id="_tabs_1_bmm--panel" class="tabpanel" aria-labelledby="_tabs_1_bmm">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+    "name": "PARTY",
+    "documentation": "Ancestor of all Party types, including real world entities and their roles. A Party is any entity which can participate in an activity. The `_name_` attribute inherited from `LOCATABLE` is used to indicate the actual type of party (note that the actual names, i.e. identities of parties are indicated in the `_identities_` attribute, not the `_name_` attribute).\n\nNOTE: It is strongly recommended that the inherited attribute `_uid_` be populated in `PARTY` objects, using the UID copied from the `_object_id()_` of the `_uid_` field of the enclosing `VERSION` object. +\nFor example, the `ORIGINAL_VERSION.uid` `87284370-2D4B-4e3d-A3F3-F303D2F4F34B::uk.nhs.ehr1::2`  would be copied to the `_uid_` field of the `PARTY` object.",
+    "is_abstract": true,
+    "ancestors": [
+        "LOCATABLE"
+    ],
+    "properties": {
+        "identities": {
+            "_type": "P_BMM_CONTAINER_PROPERTY",
+            "name": "identities",
+            "documentation": "Identities used by the party to identify itself, such as legal name, stage names, aliases, nicknames and so on.",
+            "is_mandatory": true,
+            "type_def": {
+                "container_type": "List",
+                "type": "PARTY_IDENTITY"
+            },
+            "cardinality": {
+                "lower": 1,
+                "upper_unbounded": true
+            }
+        },
+        "contacts": {
+            "_type": "P_BMM_CONTAINER_PROPERTY",
+            "name": "contacts",
+            "documentation": "Contacts for this party.",
+            "type_def": {
+                "container_type": "List",
+                "type": "CONTACT"
+            },
+            "cardinality": {
+                "lower": 0,
+                "upper_unbounded": true
+            }
+        },
+        "details": {
+            "_type": "P_BMM_SINGLE_PROPERTY",
+            "name": "details",
+            "documentation": "All other details for this Party.",
+            "type": "ITEM_STRUCTURE"
+        },
+        "reverse_relationships": {
+            "_type": "P_BMM_CONTAINER_PROPERTY",
+            "name": "reverse_relationships",
+            "documentation": "References to relationships in which this Party takes part as target.",
+            "type_def": {
+                "container_type": "List",
+                "type": "LOCATABLE_REF"
+            },
+            "cardinality": {
+                "lower": 0,
+                "upper_unbounded": true
+            }
+        },
+        "relationships": {
+            "_type": "P_BMM_CONTAINER_PROPERTY",
+            "name": "relationships",
+            "documentation": "Relationships in which this Party takes part as source.",
+            "type_def": {
+                "container_type": "List",
+                "type": "PARTY_RELATIONSHIP"
+            },
+            "cardinality": {
+                "lower": 0,
+                "upper_unbounded": true
+            }
+        }
+    },
+    "functions": {
+        "type": {
+            "name": "type",
+            "documentation": "Type of party, such as  `PERSON`,  `ORGANISATION`, etc. Role name, e.g.  general practitioner ,  nurse ,  private citizen . Taken from inherited `_name_` attribute.",
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "DV_TEXT"
+            }
+        }
+    },
+    "invariants": {
+        "Type_valid": "type = name",
+        "Identities_valid": "not identities.is_empty",
+        "Contacts_valid": "contacts /= Void implies not contacts.is_empty",
+        "Relationships_validity": "relationships /= Void implies (not relationships.is_empty and then relationships.for_all (r | r.source = self)",
+        "Reverse_relationships_validity": "reverse_relationships /= Void implies (not reverse_relationships.empty and then reverse_relationships.for_all (item | repository (\"demographics\").all_party_relationships.has_object (item) and then repository(\"demographics\").all_party_relationships.object (item).target = self))",
+        "Is_archetype_root": "is_archetype_root",
+        "Uid_mandatory": "uid /= Void"
+    }
+}</code></pre>
 </div>
-<div class="paragraph">
-<p>Unresolved directive in demographic_package.adoc - include::ROOT:partial$uml/{pkg}party_identity.adoc[]</p>
 </div>
-<div class="paragraph">
-<p>Unresolved directive in demographic_package.adoc - include::ROOT:partial$uml/{pkg}contact.adoc[]</p>
 </div>
-<div class="paragraph">
-<p>Unresolved directive in demographic_package.adoc - include::ROOT:partial$uml/{pkg}address.adoc[]</p>
+<div id="_tabs_1_uml--panel" class="tabpanel" aria-labelledby="_tabs_1_uml">
+<div class="imageblock kroki">
+<div class="content">
+<img src="https://kroki.io/plantuml/svg/eNqdk11P2zAUhu_zKyzthm0igltAk9zEqNG6tkrdiQohyyQHapHamX26UQH_fY6L4rYMTdtVonPe93w8OUnkrUMrKyRVI50jU1ryBXlKCPlMVA0aFSpw5IyMlMOLkBVFzsa84Isv5Po0TT_dBHFlNPoyvTSbjDnNuNe8CmpAqZouX3D2Tcx4Oc_4vGTk-iRNT7caCz_BOhAWGonKaLdUbV9xNMkop4MREyW7jHX_qN0OWrIR5cVkPBsW02jATQtHH70y_y44u-J-i5vkJUkOSPTtCPnwa6kQ3Mo8wHmjNJzdW7kJb2ltEKE-R3jEEH1Fp-UKDjp0YWmrJXT9hTY1CFV7zQyt0ve9ZB2C8yIXAzpjuYe9C8j3fIhAivHXuFasHUnTMhsyvpiyvSJ3ADVYIde1Qi-6ZCxnpaDzvOC7Mv9FK2jxDapwGk7EftaYrWpgTANSvwN0Svnwf3m20vpbDE36Mv0sCCshUbQSl0dEhuceV9LZqN7sOdzfLQGy90XGnU7Ao4-79227FHrTWqsfa_hHk7kT3aidqzHVwe7BtnM8Hnifvng-Po4HnCTxlkMm_B3JbyUENFs=?svg-type=inline" alt="PARTY">
 </div>
-<div class="paragraph">
-<p>Unresolved directive in demographic_package.adoc - include::ROOT:partial$uml/{pkg}capability.adoc[]</p>
 </div>
-<div class="paragraph">
-<p>Unresolved directive in demographic_package.adoc - include::ROOT:partial$uml/{pkg}actor.adoc[]</p>
 </div>
-<div class="paragraph">
-<p>Unresolved directive in demographic_package.adoc - include::ROOT:partial$uml/{pkg}person.adoc[]</p>
 </div>
-<div class="paragraph">
-<p>Unresolved directive in demographic_package.adoc - include::ROOT:partial$uml/{pkg}organisation.adoc[]</p>
 </div>
-<div class="paragraph">
-<p>Unresolved directive in demographic_package.adoc - include::ROOT:partial$uml/{pkg}group.adoc[]</p>
 </div>
-<div class="paragraph">
-<p>Unresolved directive in demographic_package.adoc - include::ROOT:partial$uml/{pkg}agent.adoc[]</p>
+<div class="sect2">
+<h3 id="_versioned_party_class"><a class="anchor" href="#_versioned_party_class"></a><a class="link" href="#_versioned_party_class">VERSIONED_PARTY Class</a></h3>
+<div id="_tabs_2" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="_tabs_2_definition" class="tab">
+<p>Definition</p>
+</li>
+<li id="_tabs_2_bmm" class="tab">
+<p>BMM</p>
+</li>
+<li id="_tabs_2_uml" class="tab">
+<p>UML</p>
+</li>
+</ul>
+</div>
+<div id="_tabs_2_definition--panel" class="tabpanel" aria-labelledby="_tabs_2_definition">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>VERSIONED_PARTY</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Static type formed by binding generic parameter of <code>VERSIONED_OBJECT&lt;T&gt;</code> to <code>PARTY</code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="../../../latest/common/change_control_package/#_versioned_object_class" class="xref page">VERSIONED_OBJECT</a></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="_tabs_2_bmm--panel" class="tabpanel" aria-labelledby="_tabs_2_bmm">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+    "name": "VERSIONED_PARTY",
+    "documentation": "Static type formed by binding generic parameter of `VERSIONED_OBJECT&lt;T&gt;` to `PARTY`. ",
+    "ancestors": [
+        "VERSIONED_OBJECT"
+    ]
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="_tabs_2_uml--panel" class="tabpanel" aria-labelledby="_tabs_2_uml">
+<div class="imageblock kroki">
+<div class="content">
+<img src="https://kroki.io/plantuml/svg/eNrdlV1v0zAUhu_7KyxxMz5WidttmpQtgRmVFaWmYkLIMolJrSZ2ZZ-sVMB_5zhzTegXHeKKq9b2c16_fm3Hg6IWzpFplk_o-DZL-bskZ3fk2-DHYLA5NL56k10zcsEuCXmynCmQrjFzeV4rLc8qK1bdv2FpAGR5DvIrdL0oRshz0qqSnJEbmuVBiNOUfHz5qRs0Sy0t74gwmGev4iioRvLCSoG6SKRTniYs44y-zSJzL61TRvPCtBpOniJGNchK2kiIuuZrSpWuY0bKwUWYMSwUbV1izXD4bKusVxNgzOI3eCZcnEMA98ZPiOh-dxgnXu7KmFoKHW32JVTpq9ettp_PL7d7ldZ1SwWzR0qFriilHDdWVUqLGMa_cHZkRJturLxXXf0Mt8LYVbcteTal3bw3dMLG-V2kazw2DqLtXYIBAdvq-UHwgajVF1msilpyB1jZkWj8epziLWHZBxb5wjSNgp3ZFUaDVZ9bwPbWsX-BgJbLYwL26MLKQpZKV72Tc4DH4NtSARLJ-5QynmYsoaPJWm1jebsW57FSgMCx0Haq0t7AXK6wc4JL01XcwHuDfvZl0khbyfI_jgZFDcz8900vWvCG3cFPz9-kqZqFsfC4GP-w1qDkK3P6mt4mI967DnudCPB3ScCDCd1v-5kYyyYsYUElzHNwT47LAt-r7Zfq--np5tM2-AmAtDA6?svg-type=inline" alt="VERSIONED_PARTY">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_role_class"><a class="anchor" href="#_role_class"></a><a class="link" href="#_role_class">ROLE Class</a></h3>
+<div id="_tabs_3" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="_tabs_3_definition" class="tab">
+<p>Definition</p>
+</li>
+<li id="_tabs_3_bmm" class="tab">
+<p>BMM</p>
+</li>
+<li id="_tabs_3_uml" class="tab">
+<p>UML</p>
+</li>
+</ul>
+</div>
+<div id="_tabs_3_definition--panel" class="tabpanel" aria-labelledby="_tabs_3_definition">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>ROLE</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Generic description of a role performed by an Actor. The role corresponds to a competency of the Party. Roles are used to define the responsibilities undertaken by a Party for a purpose. Roles should have credentials qualifying the performer to perform the role.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="#RM:demographic.adoc#_party_class" class="xref unresolved">PARTY</a></code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>time_validity</strong>: <code><a href="../../../latest/data_types/quantity_package/#_dv_interval_class" class="xref page">DV_INTERVAL</a>&lt;<a href="../../../latest/data_types/quantity_package/#_dv_date_class" class="xref page">DV_DATE</a>&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Valid time interval for this role.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>performer</strong>: <code><a href="../../../../BASE/latest/base_types/identification_package/#_party_ref_class" class="xref page">PARTY_REF</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Reference to Version container of Actor playing the role.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>capabilities</strong>: <code><a href="../../../../BASE/latest/foundation_types/structure_types/#_list_class" class="xref page">List</a>&lt;<a href="#RM:demographic.adoc#_capability_class" class="xref unresolved">CAPABILITY</a>&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>The capabilities of this role.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Invariants</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Capabilities_valid</em>: <code>capabilities /= Void implies not capabilities.empty</code></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="_tabs_3_bmm--panel" class="tabpanel" aria-labelledby="_tabs_3_bmm">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+    "name": "ROLE",
+    "documentation": "Generic description of a role performed by an Actor. The role corresponds to a competency of the Party. Roles are used to define the responsibilities undertaken by a Party for a purpose. Roles should have credentials qualifying the performer to perform the role.",
+    "ancestors": [
+        "PARTY"
+    ],
+    "properties": {
+        "time_validity": {
+            "_type": "P_BMM_GENERIC_PROPERTY",
+            "name": "time_validity",
+            "documentation": "Valid time interval for this role.",
+            "type_def": {
+                "root_type": "DV_INTERVAL",
+                "generic_parameters": [
+                    "DV_DATE"
+                ]
+            }
+        },
+        "performer": {
+            "_type": "P_BMM_SINGLE_PROPERTY",
+            "name": "performer",
+            "documentation": "Reference to Version container of Actor playing the role.",
+            "is_mandatory": true,
+            "type": "PARTY_REF"
+        },
+        "capabilities": {
+            "_type": "P_BMM_CONTAINER_PROPERTY",
+            "name": "capabilities",
+            "documentation": "The capabilities of this role.",
+            "type_def": {
+                "container_type": "List",
+                "type": "CAPABILITY"
+            },
+            "cardinality": {
+                "lower": 0,
+                "upper_unbounded": true
+            }
+        }
+    },
+    "invariants": {
+        "Capabilities_valid": "capabilities /= Void implies not capabilities.empty"
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="_tabs_3_uml--panel" class="tabpanel" aria-labelledby="_tabs_3_uml">
+<div class="imageblock kroki">
+<div class="content">
+<img src="https://kroki.io/plantuml/svg/eNqdlFFr2zAUhd_9KwR76Tpq1tc2DJRYJWZeEhylLJQiVPumEbUtT1K6hm3_fZKcWU67MtanmKtz7rn6fOOoqLjWKJ9nBP2IEPqAjKiBPfJKlMLs0QVKrlk6oyS_xtnIPieYkk_o5mMcn996fQtqI1UNymoXOKdrlpMrdHM4LXjL70QljABtBZnQZjTBCzxOs5SubaPT2-hXFPE7bRQvDOrG8X0Qevd9KwzoWj7AZSUauLhXfO-f4lIaA-WlgSfjq4fhRQmNOQrrRkoTMqNd4Hkcnx5mk42xmWGu-YziCe2GcoISDBeVO08p-cKWNF9N6Conw-sreASlgSmouBGy0VvR9h2z-QRTPM6IYxL6_lX7h12GaTqfLafpIhjMvoWT993LoOQr9XhfYuvj3oKu4TU8S3BlrootuHzWyBKYKK1maZRo7nvJzhdXacLGeEkSC3sIyGY-BCDp7HO4VugdSON8MiV0vSBHTTYAJSjGd3YpreiKkITkDK-SlA5l9o0W0JoXqPxqaBbylJSdaixlBbx5BegC0-lbebZc2V30IX2bfhYDNeOGtdxsTxD3v0dckbPhZn_k0P-2eMjWFxg7HYMnW9ev24YUetOuEd928J8muWFuVOeqZPHs7t42WB4LvD8e_Tw7CwscRWGX_Yn_dzi5-zD4ivtkRb8BQD9wxg==?svg-type=inline" alt="ROLE">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_party_relationship_class"><a class="anchor" href="#_party_relationship_class"></a><a class="link" href="#_party_relationship_class">PARTY_RELATIONSHIP Class</a></h3>
+<div id="_tabs_4" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="_tabs_4_definition" class="tab">
+<p>Definition</p>
+</li>
+<li id="_tabs_4_bmm" class="tab">
+<p>BMM</p>
+</li>
+<li id="_tabs_4_uml" class="tab">
+<p>UML</p>
+</li>
+</ul>
+</div>
+<div id="_tabs_4_definition--panel" class="tabpanel" aria-labelledby="_tabs_4_definition">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>PARTY_RELATIONSHIP</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Generic description of a relationship between parties.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="../../../latest/common/archetyped_package/#_locatable_class" class="xref page">LOCATABLE</a></code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>details</strong>: <code><a href="#RM:data_structures:item_structure.adoc#_item_structure_class" class="xref unresolved">ITEM_STRUCTURE</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>The detailed description of the relationship.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>target</strong>: <code><a href="../../../../BASE/latest/base_types/identification_package/#_party_ref_class" class="xref page">PARTY_REF</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Target of relationship.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>time_validity</strong>: <code><a href="../../../latest/data_types/quantity_package/#_dv_interval_class" class="xref page">DV_INTERVAL</a>&lt;<a href="../../../latest/data_types/quantity_package/#_dv_date_class" class="xref page">DV_DATE</a>&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Valid time interval for this relationship.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>source</strong>: <code><a href="../../../../BASE/latest/base_types/identification_package/#_party_ref_class" class="xref page">PARTY_REF</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Source of relationship.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Functions</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>type</strong> (): <code><a href="../../../latest/data_types/text_package/#_dv_text_class" class="xref page">DV_TEXT</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Type of relationship, such as  employment,  authority,  health provision</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Invariants</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Source_valid</em>: <code>source /= Void and then source.relationships.has (self)</code></p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Target_valid</em>: <code>target /= Void and then not target.reverse_relationships.has (self)</code></p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Type_validity</em>: <code>type = name</code></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="_tabs_4_bmm--panel" class="tabpanel" aria-labelledby="_tabs_4_bmm">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+    "name": "PARTY_RELATIONSHIP",
+    "documentation": "Generic description of a relationship between parties.",
+    "ancestors": [
+        "LOCATABLE"
+    ],
+    "properties": {
+        "details": {
+            "_type": "P_BMM_SINGLE_PROPERTY",
+            "name": "details",
+            "documentation": "The detailed description of the relationship.",
+            "type": "ITEM_STRUCTURE"
+        },
+        "target": {
+            "_type": "P_BMM_SINGLE_PROPERTY",
+            "name": "target",
+            "documentation": "Target of relationship.",
+            "is_mandatory": true,
+            "type": "PARTY_REF"
+        },
+        "time_validity": {
+            "_type": "P_BMM_GENERIC_PROPERTY",
+            "name": "time_validity",
+            "documentation": "Valid time interval for this relationship.",
+            "type_def": {
+                "root_type": "DV_INTERVAL",
+                "generic_parameters": [
+                    "DV_DATE"
+                ]
+            }
+        },
+        "source": {
+            "_type": "P_BMM_SINGLE_PROPERTY",
+            "name": "source",
+            "documentation": "Source of relationship.",
+            "is_mandatory": true,
+            "type": "PARTY_REF"
+        }
+    },
+    "functions": {
+        "type": {
+            "name": "type",
+            "documentation": "Type of relationship, such as  employment,  authority,  health provision ",
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "DV_TEXT"
+            }
+        }
+    },
+    "invariants": {
+        "Source_valid": "source /= Void and then source.relationships.has (self)",
+        "Target_valid": "target /= Void and then not target.reverse_relationships.has (self)",
+        "Type_validity": "type = name"
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="_tabs_4_uml--panel" class="tabpanel" aria-labelledby="_tabs_4_uml">
+<div class="imageblock kroki">
+<div class="content">
+<img src="https://kroki.io/plantuml/svg/eNqdk0FP4zAQhe_5FZb2AruigitUSG5j1IhQqtRFixCyTDK0FqndtSdAtbv_fR13SdICQnCKNfPeG88nJ8pL6RyZ0Ixfi4yllCeX4-komZDfESE_SAEoVenIMUk4uxBTns2GfJYxcnPY6x3dBg1KOwf0kpeUM3Lz0lJLEI-yVIXCtVfEVyIZc5Zd0bTvzzHl7LQb5Uxlc3g7ar2Cvf1NBmc_eWj8jSJ559DKHMlmk_RySDkdpIyQb08LheCW5gFOSqXheG7lOpx6hUGE4gThGUP1_7ZaLmFnQl2WNl9APV9oU4BQhddM0So9byRVKM6SWAzolMUiibtr-ZkPNcNUOeynyfjcL_19N7tFTbPhiPHrCdsKuQcowApZeZZedMZYzDJBZ3HCu7Lc6BxW-ApV3VNOtPOsMRvVwJgSpH4H6ITy0Vd5rqQFvRnSxDR3QVgKiWIlcbFHZPhucSW1jer1lsN9bAmQva9lXOsEPPu6e9_WpdCYKq1-VfBJk7kX9VVrV2nynd2DrfN4PPCm3f9zcNA-4Chq33LovP5Jo3-96B7o?svg-type=inline" alt="PARTY_RELATIONSHIP">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_party_identity_class"><a class="anchor" href="#_party_identity_class"></a><a class="link" href="#_party_identity_class">PARTY_IDENTITY Class</a></h3>
+<div id="_tabs_5" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="_tabs_5_definition" class="tab">
+<p>Definition</p>
+</li>
+<li id="_tabs_5_bmm" class="tab">
+<p>BMM</p>
+</li>
+<li id="_tabs_5_uml" class="tab">
+<p>UML</p>
+</li>
+</ul>
+</div>
+<div id="_tabs_5_definition--panel" class="tabpanel" aria-labelledby="_tabs_5_definition">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>PARTY_IDENTITY</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>An identity  owned  by a Party, such as a person name or company name, and which is used by the Party to identify itself. Actual structure is archetyped.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="../../../latest/common/archetyped_package/#_locatable_class" class="xref page">LOCATABLE</a></code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>details</strong>: <code><a href="#RM:data_structures:item_structure.adoc#_item_structure_class" class="xref unresolved">ITEM_STRUCTURE</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>The value of the identity. This will often taken the form of a parseable string or a small structure of strings.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Functions</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>purpose</strong> (): <code><a href="../../../latest/data_types/text_package/#_dv_text_class" class="xref page">DV_TEXT</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Purpose of identity, e.g. legal ,  stagename,  nickname,  tribal name,  trading name. Taken from value of inherited <code><em>name</em></code> attribute.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Invariants</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Purpose_valid</em>: <code>purpose = name</code></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="_tabs_5_bmm--panel" class="tabpanel" aria-labelledby="_tabs_5_bmm">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+    "name": "PARTY_IDENTITY",
+    "documentation": "An identity  owned  by a Party, such as a person name or company name, and which is used by the Party to identify itself. Actual structure is archetyped.",
+    "ancestors": [
+        "LOCATABLE"
+    ],
+    "properties": {
+        "details": {
+            "_type": "P_BMM_SINGLE_PROPERTY",
+            "name": "details",
+            "documentation": "The value of the identity. This will often taken the form of a parseable string or a small structure of strings.",
+            "is_mandatory": true,
+            "type": "ITEM_STRUCTURE"
+        }
+    },
+    "functions": {
+        "purpose": {
+            "name": "purpose",
+            "documentation": "Purpose of identity, e.g. legal ,  stagename,  nickname,  tribal name,  trading name. Taken from value of inherited `_name_` attribute.",
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "DV_TEXT"
+            }
+        }
+    },
+    "invariants": {
+        "Purpose_valid": "purpose = name"
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="_tabs_5_uml--panel" class="tabpanel" aria-labelledby="_tabs_5_uml">
+<div class="imageblock kroki">
+<div class="content">
+<img src="https://kroki.io/plantuml/svg/eNqdU9FOwjAUfd9XNPEFNRB9BWIyWA2LE8nojISYpm4XaBjtXLsoUf_drpCNYYjRpzX3nHPPvSd3TpwypdDEDcmM-h4eE5_M0IeD0CVKQDOeKtRFPsH3dErCaEiiEKP59bMlZEWeSQWtc0PxHinBT8RiX47DXpTOWazRrn_wMHSJOwgwQmdvK65BbeQaeikX0F3mbGtfnURqDUlPw7u21f0cgm3gyKEsszxegd5mQIVMgPLEcKY652JZUQpbjHyPDtwp9syCaH7V6exR47kutwu40v3AH9_doPnFce86BDccjjCZTXCjyQIggZyyIuHakG4x9nBI3cjzySEtliKGTP-IqsS4orVfLuWONZAyBSZOBDpxyei_eWYsB7EzqdpUs2jYUKZpxvSqhZj9NnJFpcwV24ZC_S6xIRtdnXHJo_Bu6uq07DCFSlQI_lrAH0VyQctRS1Uq46PdrezgeEzgFdz_bLfrA3ac-pYt0vx1nG9pkABx?svg-type=inline" alt="PARTY_IDENTITY">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_contact_class"><a class="anchor" href="#_contact_class"></a><a class="link" href="#_contact_class">CONTACT Class</a></h3>
+<div id="_tabs_6" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="_tabs_6_definition" class="tab">
+<p>Definition</p>
+</li>
+<li id="_tabs_6_bmm" class="tab">
+<p>BMM</p>
+</li>
+<li id="_tabs_6_uml" class="tab">
+<p>UML</p>
+</li>
+</ul>
+</div>
+<div id="_tabs_6_definition--panel" class="tabpanel" aria-labelledby="_tabs_6_definition">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>CONTACT</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Description of a means of contact of a Party. Actual structure is archetyped.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="../../../latest/common/archetyped_package/#_locatable_class" class="xref page">LOCATABLE</a></code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>addresses</strong>: <code><a href="../../../../BASE/latest/foundation_types/structure_types/#_list_class" class="xref page">List</a>&lt;<a href="#RM:demographic.adoc#_address_class" class="xref unresolved">ADDRESS</a>&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>A set of address alternatives for this contact purpose and time validity combination.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>time_validity</strong>: <code><a href="../../../latest/data_types/quantity_package/#_dv_interval_class" class="xref page">DV_INTERVAL</a>&lt;<a href="../../../latest/data_types/quantity_package/#_dv_date_class" class="xref page">DV_DATE</a>&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Valid time interval for this contact descriptor.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Functions</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>purpose</strong> (): <code><a href="../../../latest/data_types/text_package/#_dv_text_class" class="xref page">DV_TEXT</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Purpose for which this contact is used, e.g. mail,  daytime phone, etc. Taken from value of inherited <code><em>name</em></code> attribute.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Invariants</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Purpose_valid</em>: <code>purpose = name</code></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="_tabs_6_bmm--panel" class="tabpanel" aria-labelledby="_tabs_6_bmm">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+    "name": "CONTACT",
+    "documentation": "Description of a means of contact of a Party. Actual structure is archetyped.",
+    "ancestors": [
+        "LOCATABLE"
+    ],
+    "properties": {
+        "addresses": {
+            "_type": "P_BMM_CONTAINER_PROPERTY",
+            "name": "addresses",
+            "documentation": "A set of address alternatives for this contact purpose and time validity combination.",
+            "is_mandatory": true,
+            "type_def": {
+                "container_type": "List",
+                "type": "ADDRESS"
+            },
+            "cardinality": {
+                "lower": 1,
+                "upper_unbounded": true
+            }
+        },
+        "time_validity": {
+            "_type": "P_BMM_GENERIC_PROPERTY",
+            "name": "time_validity",
+            "documentation": "Valid time interval for this contact descriptor.",
+            "type_def": {
+                "root_type": "DV_INTERVAL",
+                "generic_parameters": [
+                    "DV_DATE"
+                ]
+            }
+        }
+    },
+    "functions": {
+        "purpose": {
+            "name": "purpose",
+            "documentation": "Purpose for which this contact is used, e.g. mail,  daytime phone, etc. Taken from value of inherited `_name_` attribute.",
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "DV_TEXT"
+            }
+        }
+    },
+    "invariants": {
+        "Purpose_valid": "purpose = name"
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="_tabs_6_uml--panel" class="tabpanel" aria-labelledby="_tabs_6_uml">
+<div class="imageblock kroki">
+<div class="content">
+<img src="https://kroki.io/plantuml/svg/eNqdk11L5DAUhu_7KwLe-IFlvdVByEyyWCyjzERxWSRkm6MT7CQ1OXUtq__dtJXOh4i4Vw3nPO_5eDlNilKFQCYXU0EngvxLCDkgSmsPIUAgxyQ3AUeUsRmfz0_J76M03b_tIDRLkE-qNNpgE0F2LbOp4LNrmo_im1HBI_8jTY96vqp95QLs7vWs4DcilrtNXpNE_QnoVYGkHya_mFBBxzknZOfvwiCEpXuAk9JYOL73quleqXaIoE8QnrGLvs9u1RK2OnQr-WIB2FQgrdMgjY7MHL2x9wNSd8GrjMkxnXMmM7Y-fuz5MPiRZ9PzuNz-dm0NqEzZYnQ2OePi1yXfKHIHoMFLVUfPIvSTc8Znkl6xTKxjhbMFVPjBqjZnglz188711Ni5EpT9xNBLKs7-189KebB9k6HMMAvCUiqUlcLFLlHdd8NX0sqobTYU4WtJf3S2WXncchKeYzx8Llt3YRDV1jzW8E2Ru5PtqK2qdMXW7p1s7Xii4UN69HJ4uDrgJFndcpd5_8-SN-EACvk=?svg-type=inline" alt="CONTACT">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_address_class"><a class="anchor" href="#_address_class"></a><a class="link" href="#_address_class">ADDRESS Class</a></h3>
+<div id="_tabs_7" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="_tabs_7_definition" class="tab">
+<p>Definition</p>
+</li>
+<li id="_tabs_7_bmm" class="tab">
+<p>BMM</p>
+</li>
+<li id="_tabs_7_uml" class="tab">
+<p>UML</p>
+</li>
+</ul>
+</div>
+<div id="_tabs_7_definition--panel" class="tabpanel" aria-labelledby="_tabs_7_definition">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>ADDRESS</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Address of contact, which may be electronic or geographic.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="../../../latest/common/archetyped_package/#_locatable_class" class="xref page">LOCATABLE</a></code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>details</strong>: <code><a href="#RM:data_structures:item_structure.adoc#_item_structure_class" class="xref unresolved">ITEM_STRUCTURE</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Archetypable structured address.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Functions</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>type</strong> (): <code><a href="../../../latest/data_types/text_package/#_dv_text_class" class="xref page">DV_TEXT</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Type of address, e.g. electronic,  locality. Taken from value of inherited <code><em>name</em></code> attribute.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Invariants</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Type_valid</em>: <code>type = name</code></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="_tabs_7_bmm--panel" class="tabpanel" aria-labelledby="_tabs_7_bmm">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+    "name": "ADDRESS",
+    "documentation": "Address of contact, which may be electronic or geographic.",
+    "ancestors": [
+        "LOCATABLE"
+    ],
+    "properties": {
+        "details": {
+            "_type": "P_BMM_SINGLE_PROPERTY",
+            "name": "details",
+            "documentation": "Archetypable structured address.",
+            "is_mandatory": true,
+            "type": "ITEM_STRUCTURE"
+        }
+    },
+    "functions": {
+        "type": {
+            "name": "type",
+            "documentation": "Type of address, e.g. electronic,  locality. Taken from value of inherited `_name_` attribute.",
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "DV_TEXT"
+            }
+        }
+    },
+    "invariants": {
+        "Type_valid": "type = name"
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="_tabs_7_uml--panel" class="tabpanel" aria-labelledby="_tabs_7_uml">
+<div class="imageblock kroki">
+<div class="content">
+<img src="https://kroki.io/plantuml/svg/eNqdU9FKwzAUfe9XBHyZyoa-bkPIlsiKVUebijIkxPZuC-uS2mToUP_dNhvtNhmiTwn3nHPPzeHGSzJhDMKEhDSK0IeH0DlKwQqZGdRFPqO3PGJhPGRxSNHk8tkR7DqH1mmJkwfO6CNzwJfniRdjC5FYtOka3A8xw4OAInTyNpcWzFIvoJdJBd1ZIdbu1km1tZD2LLxbV90OocQSDhyqsiiSOVT-XOkUuExLTmQLqWY1ZeWKsU_4AEeUcJ-gyUWns0VLz0X1tEAa2w_8u5srNDk77N0kgMPhiLKnMd1rMgVIoeBilUpbkq4pJTTkOCY-26UlWiWQ2x9RVZg0vPErtN6wBlpnINSRQMeYjf6bZy4KUBuTuk09i4UlF5bnws5bSLhzL1dUybBa7ynM7xIXcqlrMq54HN7Lujku202hFq2UfF3BH0V6yqtRK1Wmk4O3O9nO8pSB13D_s91uFtjzml12yPbDeN-sx_pw?svg-type=inline" alt="ADDRESS">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_capability_class"><a class="anchor" href="#_capability_class"></a><a class="link" href="#_capability_class">CAPABILITY Class</a></h3>
+<div id="_tabs_8" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="_tabs_8_definition" class="tab">
+<p>Definition</p>
+</li>
+<li id="_tabs_8_bmm" class="tab">
+<p>BMM</p>
+</li>
+<li id="_tabs_8_uml" class="tab">
+<p>UML</p>
+</li>
+</ul>
+</div>
+<div id="_tabs_8_definition--panel" class="tabpanel" aria-labelledby="_tabs_8_definition">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>CAPABILITY</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Capability of a role, such as  ehr modifier,  health care provider. Capability should be backed up by credentials.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="../../../latest/common/archetyped_package/#_locatable_class" class="xref page">LOCATABLE</a></code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>credentials</strong>: <code><a href="#RM:data_structures:item_structure.adoc#_item_structure_class" class="xref unresolved">ITEM_STRUCTURE</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>The qualifications of the performer of the role for this capability. This might include professional qualifications and official identifications such as provider numbers etc.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>time_validity</strong>: <code><a href="../../../latest/data_types/quantity_package/#_dv_interval_class" class="xref page">DV_INTERVAL</a>&lt;<a href="../../../latest/data_types/quantity_package/#_dv_date_class" class="xref page">DV_DATE</a>&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Valid time interval for the credentials of this capability.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="_tabs_8_bmm--panel" class="tabpanel" aria-labelledby="_tabs_8_bmm">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+    "name": "CAPABILITY",
+    "documentation": "Capability of a role, such as  ehr modifier,  health care provider. Capability should be backed up by credentials.",
+    "ancestors": [
+        "LOCATABLE"
+    ],
+    "properties": {
+        "credentials": {
+            "_type": "P_BMM_SINGLE_PROPERTY",
+            "name": "credentials",
+            "documentation": "The qualifications of the performer of the role for this capability. This might include professional qualifications and official identifications such as provider numbers etc.",
+            "is_mandatory": true,
+            "type": "ITEM_STRUCTURE"
+        },
+        "time_validity": {
+            "_type": "P_BMM_GENERIC_PROPERTY",
+            "name": "time_validity",
+            "documentation": "Valid time interval for the credentials of this capability.",
+            "type_def": {
+                "root_type": "DV_INTERVAL",
+                "generic_parameters": [
+                    "DV_DATE"
+                ]
+            }
+        }
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="_tabs_8_uml--panel" class="tabpanel" aria-labelledby="_tabs_8_uml">
+<div class="imageblock kroki">
+<div class="content">
+<img src="https://kroki.io/plantuml/svg/eNqdU99LwzAQfu9fEfDFHzj01Q0hayMW6xxdNpQhIbanC3bJbG7qUP9300zbbSqiTwl333ff3ZdLkBXSWhLSPu3GScyvyEtAyB7JSshBo5KFJUck5uxcDHg6DPkwZWR8eO1BqKYgHmWhcoULB4tGIu5xlo5o0nH3iHJ2TMYHrZbDvwWBvLFYygzJUjO5CCmn3YQRsvU0UQh2au6hXSgNR3elXPhbKzeIkLcRntFHP_rTcgpLRc4ued2RLLMJ4GIGQpschModZoCl0nc1ZO6DwzgSXTpgkYijzxarrNO8ryZOlMVOEvfO3AC7m7VzQKm8MTQNTxm_6rO1IrfgzCuFnDtfHOiEsYilgg6jmK_CMqMzmOH2zjeDKCsavdKYJaprTAFSe9RXQ_uUn_7Xz5ks3XN7kbpM3QvCVEgUM4mTbSL9ueYrqWhUL9YY9neKN9nxGo8rnIBnF7c_01ZdqElzrR7m8EeSuRVVqxWrMNnG7J62sjzO8Drded3fbxY4CJpd9pnmOwXvC9EFfQ==?svg-type=inline" alt="CAPABILITY">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_actor_class"><a class="anchor" href="#_actor_class"></a><a class="link" href="#_actor_class">ACTOR Class</a></h3>
+<div id="_tabs_9" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="_tabs_9_definition" class="tab">
+<p>Definition</p>
+</li>
+<li id="_tabs_9_bmm" class="tab">
+<p>BMM</p>
+</li>
+<li id="_tabs_9_uml" class="tab">
+<p>UML</p>
+</li>
+</ul>
+</div>
+<div id="_tabs_9_definition--panel" class="tabpanel" aria-labelledby="_tabs_9_definition">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong><em>ACTOR (abstract)</em></strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Ancestor of all real-world types, including people and organisations. An actor is any real-world entity capable of taking on a role.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="#RM:demographic.adoc#_party_class" class="xref unresolved">PARTY</a></code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>languages</strong>: <code><a href="../../../../BASE/latest/foundation_types/structure_types/#_list_class" class="xref page">List</a>&lt;<a href="../../../latest/data_types/text_package/#_dv_text_class" class="xref page">DV_TEXT</a>&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Languages which can be used to communicate with this actor, in preferred order of use (if known, else order irrelevant).</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>roles</strong>: <code><a href="../../../../BASE/latest/foundation_types/structure_types/#_list_class" class="xref page">List</a>&lt;<a href="../../../../BASE/latest/base_types/identification_package/#_party_ref_class" class="xref page">PARTY_REF</a>&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Identifiers of the Version container for each Role played by this Party.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Invariants</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Roles_valid</em>: <code>roles /= Void implies not roles.is_empty</code></p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Legal_identity_exists</em>: <code>has_legal_identity</code></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="_tabs_9_bmm--panel" class="tabpanel" aria-labelledby="_tabs_9_bmm">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+    "name": "ACTOR",
+    "documentation": "Ancestor of all real-world types, including people and organisations. An actor is any real-world entity capable of taking on a role.",
+    "is_abstract": true,
+    "ancestors": [
+        "PARTY"
+    ],
+    "properties": {
+        "languages": {
+            "_type": "P_BMM_CONTAINER_PROPERTY",
+            "name": "languages",
+            "documentation": "Languages which can be used to communicate with this actor, in preferred order of use (if known, else order irrelevant).",
+            "type_def": {
+                "container_type": "List",
+                "type": "DV_TEXT"
+            },
+            "cardinality": {
+                "lower": 0,
+                "upper_unbounded": true
+            }
+        },
+        "roles": {
+            "_type": "P_BMM_CONTAINER_PROPERTY",
+            "name": "roles",
+            "documentation": "Identifiers of the Version container for each Role played by this Party.",
+            "type_def": {
+                "container_type": "List",
+                "type": "PARTY_REF"
+            },
+            "cardinality": {
+                "lower": 0,
+                "upper_unbounded": true
+            }
+        }
+    },
+    "invariants": {
+        "Roles_valid": "roles /= Void implies not roles.is_empty",
+        "Legal_identity_exists": "has_legal_identity"
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="_tabs_9_uml--panel" class="tabpanel" aria-labelledby="_tabs_9_uml">
+<div class="imageblock kroki">
+<div class="content">
+<img src="https://kroki.io/plantuml/svg/eNqdlF1v0zAUhu_zKyxxM0CL2O02IbmNp0aUtkpdRDUhyyRnrbXUDvYJrBr8dxy3xG3ZhNhVqnPe93w8PUkivzq0skRS1tI5Qod8WpDHhJC3pJZ61coVOHJJxsrhdfZJcPaZvye3b74EhTV1zM5owZeiYDe7_K8kOakdBIS8-rFWCG5j7uGqVhouV1Zuw6-0MohQXSE8YIjuB1EVaFSoTnvlGZvwnC99w4s03c9UGo2-Zy8dTifcbxWHrgClqrt8ztlHMefFYsgXBSO379L0Yr8YfAfrQFioJSqj3Vo1fcXxdEg5HYxZXHbneUL7B8qY8nw6mY_yWTTgtoGz11655-q3eApb3-4l6LTcwEmHLixtuYauv9CmAqEqr5mjVXrVS9oQXOSZGNA5yzzsQ0C-530Ekk8-xLVi7UiaFsMR48sZOypyB1CBFbKtFHrRDWMZKwRdZDk_lPl_tIQG_0IVTsOJ2M8as1MNjD9MqZ8BOqN89FKejbT-FkOTvkw_C8JGSBSNxPUZkeF5xJV0Nqq3Rw73b0uA7H2RcacT8ODj7nnbIYXe1Gr1rYX_NJk70Y3auWpTnuwebAfH44H36euf5-fxgJMk3nLIhLejk3cfhhAJ35_kN7lOZUw=?svg-type=inline" alt="ACTOR">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_person_class"><a class="anchor" href="#_person_class"></a><a class="link" href="#_person_class">PERSON Class</a></h3>
+<div id="_tabs_10" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="_tabs_10_definition" class="tab">
+<p>Definition</p>
+</li>
+<li id="_tabs_10_bmm" class="tab">
+<p>BMM</p>
+</li>
+<li id="_tabs_10_uml" class="tab">
+<p>UML</p>
+</li>
+</ul>
+</div>
+<div id="_tabs_10_definition--panel" class="tabpanel" aria-labelledby="_tabs_10_definition">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>PERSON</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Generic description of persons. Provides a dedicated type to which Person archetypes can be targeted.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="#RM:demographic.adoc#_actor_class" class="xref unresolved">ACTOR</a></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="_tabs_10_bmm--panel" class="tabpanel" aria-labelledby="_tabs_10_bmm">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+    "name": "PERSON",
+    "documentation": "Generic description of persons. Provides a dedicated type to which Person archetypes can be targeted.",
+    "ancestors": [
+        "ACTOR"
+    ]
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="_tabs_10_uml--panel" class="tabpanel" aria-labelledby="_tabs_10_uml">
+<div class="imageblock kroki">
+<div class="content">
+<img src="https://kroki.io/plantuml/svg/eNqdVFFvmzAQfudXWNpLt6lofW2rSQRcBS0DRJxpUVVZHlwTq8RmttkabfvvMybFSdpqWp5Ad993393HcUHVMK1Rgct5nqFfwZ8gYN-0UawyaEhFMclLhN78XHMDeiMf4KrhAi5Xim3dW1hLY6C-MvBoXNSWQeg9aphYdWwFGl2iGdfmOvlCCf5KPqLbd3cOoWTjs0VUkiUt8c2Qf96IA5zSCK9BGG74sVaa4IykZGkFL8Jw11MlhbGaIzTOM2It8E3XYBhv-nxK8Gc6J-UiJosSo9sPYXixGwx-gNJAFTTMcCn0mrdjxVkeRySazLAfduC8gH0yZRaRNM_m07TwBLNt4eytRe58tVO8ZNsod4p1gm3gSKEPM1WtodenQtZAeW0xc6O4WI2QzgUXaUIn0Rwn1ux9g6zmgzckzT75sXxt73RUxlNMlgU-KHIPUIOirKu5saAbjBNc0miRpGQfZr9oBa15ZpVbDU29npJyQE2kXUwmXjG0iMj0VD9bpuwuOpGxzNiLgQ1lhrbMrM8Qc88DX1FPi8T2gKH_TXEmW573uMdReLRx_Tpt34WR1An-vYP_JMl72rfasxpZHc3uaHvLYw0f09e_z8_9AgeB32WXcX9HD-8Pg4u4YxUEw80aMO6yBX8Bdm2AOg==?svg-type=inline" alt="PERSON">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_organisation_class"><a class="anchor" href="#_organisation_class"></a><a class="link" href="#_organisation_class">ORGANISATION Class</a></h3>
+<div id="_tabs_11" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="_tabs_11_definition" class="tab">
+<p>Definition</p>
+</li>
+<li id="_tabs_11_bmm" class="tab">
+<p>BMM</p>
+</li>
+<li id="_tabs_11_uml" class="tab">
+<p>UML</p>
+</li>
+</ul>
+</div>
+<div id="_tabs_11_definition--panel" class="tabpanel" aria-labelledby="_tabs_11_definition">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>ORGANISATION</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Generic description of organisations. An organisation is a legally constituted body whose existence (in general) outlives the existence of parties considered to be part of it.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="#RM:demographic.adoc#_actor_class" class="xref unresolved">ACTOR</a></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="_tabs_11_bmm--panel" class="tabpanel" aria-labelledby="_tabs_11_bmm">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+    "name": "ORGANISATION",
+    "documentation": "Generic description of organisations. An organisation is a legally constituted body whose existence (in general) outlives the existence of parties considered to be part of it.",
+    "ancestors": [
+        "ACTOR"
+    ]
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="_tabs_11_uml--panel" class="tabpanel" aria-labelledby="_tabs_11_uml">
+<div class="imageblock kroki">
+<div class="content">
+<img src="https://kroki.io/plantuml/svg/eNqdVFFvmzAQfudXWNpLt6lofW2rSQ64C1pGInCmRdVkeXBNrBKbYbM16vbfZ0yGSdpqWp5Ad993393HcUFRca3RPPuA0yTHNJmn6DH4HQT8mzYNLwzqATii8wyhVz83woDeqnu4qoSEy3XDd-4tLJUxUF4ZeDAuassg9BZVXK5bvgaNLtFMaHMdf2aUfKHv0e2brw7RqMpnFzijK5aRmz7_tBEHOKURUYI0wohjrSQmKU3oygpehOG-p0JJYzUHaDRPqbXAN12C4aLq8gkln1hOs2VElxlBt-_C8GI_GPyARgNroOJGKKk3oh4qzuYRpngyI37YnvMM9q8pM_d98mmy8ASzq-HstUXufbVTPGfbIHeKdZJv4UihC_Om2ECnz6QqgYnSYnLTCLkeIK0LLpOYTXBOYmv22CCree8NSdKPfixf2zuNs2hK6GpBDorcAZTQMN6WwljQDSExyRhexgkdw-wXLaA2T6xyq6GZ12uU6lETZReTyxcMXWA6PdXPmjd2F53IUGboxcCWccNqbjZniLvnga-oo2G5O2Dof1OcyZbnPe5wDB5sXL9MG7swkFopvrfwnyR1x7pWO1aliqPZHW20PNbwIX396_zcL3AQ-F12Gfd3dPDuMLiIO1ZB0N8sFxnft-AP-3yDqA==?svg-type=inline" alt="ORGANISATION">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_group_class"><a class="anchor" href="#_group_class"></a><a class="link" href="#_group_class">GROUP Class</a></h3>
+<div id="_tabs_12" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="_tabs_12_definition" class="tab">
+<p>Definition</p>
+</li>
+<li id="_tabs_12_bmm" class="tab">
+<p>BMM</p>
+</li>
+<li id="_tabs_12_uml" class="tab">
+<p>UML</p>
+</li>
+</ul>
+</div>
+<div id="_tabs_12_definition--panel" class="tabpanel" aria-labelledby="_tabs_12_definition">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>GROUP</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>A group is a real world group of parties which is created by another party, usually an organisation, for some specific purpose. A typical clinical example is that of the specialist care team, e.g.  cardiology team . The members of the group usually work together.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="#RM:demographic.adoc#_actor_class" class="xref unresolved">ACTOR</a></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="_tabs_12_bmm--panel" class="tabpanel" aria-labelledby="_tabs_12_bmm">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+    "name": "GROUP",
+    "documentation": "A group is a real world group of parties which is created by another party, usually an organisation, for some specific purpose. A typical clinical example is that of the specialist care team, e.g.  cardiology team . The members of the group usually work together.",
+    "ancestors": [
+        "ACTOR"
+    ]
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="_tabs_12_uml--panel" class="tabpanel" aria-labelledby="_tabs_12_uml">
+<div class="imageblock kroki">
+<div class="content">
+<img src="https://kroki.io/plantuml/svg/eNqdVFFvmzAQfudXWNpLt6lofW2rSQ64C1oWEDHTomqyPLgmVonNsNkadfvvMybDSdpqWp5Ad993393HcUFZc63RhzwtMvQY_A4C_k2blpcGDRkc0TRH6NXPtTCgN-oermoh4XLV8q17CytlDFRXBh6Mi9oyCL1FNZerjq9Ao0s0E9pcx58ZJV_oe3T75qtDtKr22QzndMlycjPknzbiAKc0IiqQRhhxrJXEZE4TurSCF2G466lU0ljNERqlc2ot8E1XYLio-3xCySe2oHkR0SIn6PZdGF7sBoMf0GpgLdTcCCX1WjRjxVkaYYonM-KHHTjPYP-aMsM0SeeLaZJ5gtk2cPbaIne-2imes22UO8U6yTdwpNCHeVuuoddnUlXARGUxC9MKuRohnQsWScwmeEFia_a-QVbz3huSzD_6sXxt7zTOoymhy4wcFLkDqKBlvKuEsaAbQmKSM1zECd2H2S9aQmOeWOVWQzOv1yo1oCbKLiaXLxiaYTo91c-Gt3YXnchYZuzFwIZxwxpu1meIu-eBr6inYbk9YOh_U5zJluc97nEMHmxcv0zbd2EkdVJ87-A_SeqO9a32rFqVR7M72t7yWMPH9PWv83O_wEHgd9ll3N_Rw_vD4CLuWAXBcLNcxB224A-Kv3-m?svg-type=inline" alt="GROUP">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_agent_class"><a class="anchor" href="#_agent_class"></a><a class="link" href="#_agent_class">AGENT Class</a></h3>
+<div id="_tabs_13" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="_tabs_13_definition" class="tab">
+<p>Definition</p>
+</li>
+<li id="_tabs_13_bmm" class="tab">
+<p>BMM</p>
+</li>
+<li id="_tabs_13_uml" class="tab">
+<p>UML</p>
+</li>
+</ul>
+</div>
+<div id="_tabs_13_definition--panel" class="tabpanel" aria-labelledby="_tabs_13_definition">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>AGENT</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Generic concept of any kind of agent, including devices, software systems, but not humans or organisations.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="#RM:demographic.adoc#_actor_class" class="xref unresolved">ACTOR</a></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="_tabs_13_bmm--panel" class="tabpanel" aria-labelledby="_tabs_13_bmm">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+    "name": "AGENT",
+    "documentation": "Generic concept of any kind of agent, including devices, software systems, but not humans or organisations.",
+    "ancestors": [
+        "ACTOR"
+    ]
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="_tabs_13_uml--panel" class="tabpanel" aria-labelledby="_tabs_13_uml">
+<div class="imageblock kroki">
+<div class="content">
+<img src="https://kroki.io/plantuml/svg/eNqdVFFv0zAQfs-vsMTLAC1ir9uE5DYejShtlbqIakKWSW6ttdQOtgOrBv8d2ylx221C9CnR3ffdd_flcklZc2MQ_kAmFD0mv5OEfzNW89KiXWZIpwVCr36uhQWzUfdwVQsJlyvNt-EtrZS1UF1ZeLAh6sog9BbVXK5avgKDLtFYGHudfWaUfKHv0e2brwGhVR2zM1zQJSvITZd_2kgAnNKIqEBaYcWxVp65mXO6dIIXabrrqVTSOs0eOpxOqLMgNl2B5aL2-ZyST2xOi8WQLgqCbt-l6cVuMPgB2gDTUHMrlDRr0fQVx9MhpngwJnHYjvMM9q8pY0zz6WQ-ymeRYLcNnL12yJ2vbornbOvlTrFO8g0cKfgw1-UavD6TqgImKoeZWy3kqoe0IbjIMzbAc5I5s_cNcpr30ZB88jGOFWtHp3ExHBG6nJGDIncAFWjG20pYB7ohJCMFw4ssp_sw90VLaOwTq8JqGBb1tFIdaqDcYnL5gqEzTEen-tlw7XYxiPRl-l4sbBi3rOF2fYZ4eB74ijwNy-0Bw_ybEkx2vOixxzF4cHHzMm3fhZ7USvG9hf8kqTvmW_WsWpVHswfa3vI4w_v09a_z87jASRJ3OWTC3-Hh_jCESDhWSdLdrC7iD1vyB_gif2o=?svg-type=inline" alt="AGENT">
+</div>
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -680,6 +2124,19 @@ care organisation.</p>
 </div>
 </div>
 </div>
+<div class="sect1">
+<h2 id="_references"><a class="anchor" href="#_references"></a><a class="link" href="#_references">References</a></h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>[1] M. Fowler, Analysis Patterns: Reusable Object Models. Addison Wesley, 1997.
+</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
 <nav class="pagination">
   <span class="prev"><a href="../preface/">Preface</a></span>
   <span class="next"><a href="../amendment_record/">Amendment Record</a></span>
@@ -723,5 +2180,6 @@ care organisation.</p>
 <script async src="../../../../search-index.js"></script>
 <script src="../../../../ui/js/medium-zoom.min.js"></script>
 <script src="../../../../ui/js/zoom.js"></script>
+<script async src="../../../../ui/js/tabs.js"></script>
   </body>
 </html>

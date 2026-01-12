@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
-    <title>Synchronisation Extracts :: openEHR Specifications (Local Build)</title>
+    <title>Synchronisation Extract :: openEHR Specifications (Local Build)</title>
     <link rel="canonical" href="https://sebastian-iancu.github.io/antora-openehr/RM/latest/ehr_extract/synchronisation_package/">
     <link rel="prev" href="../generic_extract_package/">
     <link rel="next" href="../message_package/">
@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="../../../../ui/css/site.css">
     <link rel="stylesheet" href="../../../../ui/css/antora-openehr.css">
     <link rel="stylesheet" href="../../../../ui/css/openehr.css">
+    <link rel="stylesheet" href="../../../../ui/css/tabs.css">
 <link rel="icon" href="../../../../ui/img/favicon.ico" type="image/x-icon">
   </head>
   <body class="article">
@@ -294,7 +295,7 @@
     <a class="nav-link" href="../generic_extract_package/">Generic_extract Package</a>
   </li>
   <li class="nav-item is-current-page" data-depth="2">
-    <a class="nav-link" href="./">Synchronisation Extracts</a>
+    <a class="nav-link" href="./">Synchronisation Extract</a>
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../message_package/">The Message package</a>
@@ -412,20 +413,6 @@
   </div>
   <ul class="components">
     <li class="component">
-      <div class="title"><a href="../../../../AM/latest/">Archetype Model</a></div>
-      <ul class="versions">
-        <li class="version is-latest">
-          <a href="../../../../AM/latest/">Release-2.3.0</a>
-        </li>
-        <li class="version">
-          <a href="../../../../AM/Release-2.2.0/">Release-2.2.0</a>
-        </li>
-        <li class="version">
-          <a href="../../../../AM/development/">development</a>
-        </li>
-      </ul>
-    </li>
-    <li class="component">
       <div class="title"><a href="../../../../BASE/latest/">Base Model</a></div>
       <ul class="versions">
         <li class="version is-latest">
@@ -466,7 +453,7 @@
   <ul>
     <li><a href="../../">Reference Model</a></li>
     <li><a href="../">EHR Extract Information Model</a></li>
-    <li><a href="./">Synchronisation Extracts</a></li>
+    <li><a href="./">Synchronisation Extract</a></li>
   </ul>
 </nav>
 <div class="page-versions">
@@ -483,7 +470,7 @@
   <div class="toc-menu"></div>
 </aside>
 <article class="doc">
-<h1 class="page">Synchronisation Extracts</h1>
+<h1 class="page">Synchronisation Extract</h1>
 <div class="sect1">
 <h2 id="_overview"><a class="anchor" href="#_overview"></a><a class="link" href="#_overview">Overview</a></h2>
 <div class="sectionbody">
@@ -491,7 +478,7 @@
 <p>The UML diagram below illustrates an Extract variant designed for synchronising two openEHR systems. The
 specification only allows for a list of Contributions, or Contributions since a certain Contribution; it
 also allows the actual versions to be included or excluded. If they are excluded, you can get just Contributions
-on their own - i..e find out what the other system has got.</p>
+on their own - i.e. find out what the other system has got.</p>
 </div>
 <div id="rm_sync_extract" class="imageblock text-center text-center">
 <div class="content">
@@ -504,17 +491,434 @@ on their own - i..e find out what the other system has got.</p>
 <div class="sect1">
 <h2 id="_class_descriptions"><a class="anchor" href="#_class_descriptions"></a><a class="link" href="#_class_descriptions">Class Descriptions</a></h2>
 <div class="sectionbody">
-<div class="paragraph">
-<p>Unresolved directive in synchronisation_package.adoc - include::ROOT:partial$uml/{pkg}sync_extract_request.adoc[]</p>
+<div class="sect2">
+<h3 id="_sync_extract_request_class"><a class="anchor" href="#_sync_extract_request_class"></a><a class="link" href="#_sync_extract_request_class">SYNC_EXTRACT_REQUEST Class</a></h3>
+<div id="_tabs_1" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="_tabs_1_definition" class="tab">
+<p>Definition</p>
+</li>
+<li id="_tabs_1_bmm" class="tab">
+<p>BMM</p>
+</li>
+<li id="_tabs_1_uml" class="tab">
+<p>UML</p>
+</li>
+</ul>
 </div>
-<div class="paragraph">
-<p>Unresolved directive in synchronisation_package.adoc - include::ROOT:partial$uml/{pkg}sync_extract.adoc[]</p>
+<div id="_tabs_1_definition--panel" class="tabpanel" aria-labelledby="_tabs_1_definition">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>SYNC_EXTRACT_REQUEST</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Type of request designed for synchronisation of Contributions between openEHR servers.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="#RM:ehr_extract:message.adoc#_message_content_class" class="xref unresolved">MESSAGE_CONTENT</a></code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>specification</strong>: <code><a href="#RM:ehr_extract:sync_extract.adoc#_sync_extract_spec_class" class="xref unresolved">SYNC_EXTRACT_SPEC</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Details of specification of synchronisation request.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
 </div>
-<div class="paragraph">
-<p>Unresolved directive in synchronisation_package.adoc - include::ROOT:partial$uml/{pkg}sync_extract_spec.adoc[]</p>
+<div id="_tabs_1_bmm--panel" class="tabpanel" aria-labelledby="_tabs_1_bmm">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+    "name": "SYNC_EXTRACT_REQUEST",
+    "documentation": "Type of request designed for synchronisation of Contributions between openEHR servers.",
+    "ancestors": [
+        "MESSAGE_CONTENT"
+    ],
+    "properties": {
+        "specification": {
+            "_type": "P_BMM_SINGLE_PROPERTY",
+            "name": "specification",
+            "documentation": "Details of specification of synchronisation request.",
+            "is_mandatory": true,
+            "type": "SYNC_EXTRACT_SPEC"
+        }
+    }
+}</code></pre>
 </div>
-<div class="paragraph">
-<p>Unresolved directive in synchronisation_package.adoc - include::ROOT:partial$uml/{pkg}x_contribution.adoc[]</p>
+</div>
+</div>
+<div id="_tabs_1_uml--panel" class="tabpanel" aria-labelledby="_tabs_1_uml">
+<div class="imageblock kroki">
+<div class="content">
+<img src="https://kroki.io/plantuml/svg/eNrjSs5JLC5WCI70c453jQgJcnQOiQ9yDQx1DQ5RqOZSUNBWKC5ITc5My0xOLMnMz1OwQlUaHODqrBBtGMtVy8WVmFRcUpSYXKIAMdLXNTjY0d013tnfL8TVL0RBQbk8I7MktTg3PzvVOiczL9UqvSixEszSS8kvKUlNsS5JrSgBiwKtBhqIboJNja4uVpdyAQB2Ez7e?svg-type=inline" alt="SYNC_EXTRACT_REQUEST">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_sync_extract_class"><a class="anchor" href="#_sync_extract_class"></a><a class="link" href="#_sync_extract_class">SYNC_EXTRACT Class</a></h3>
+<div id="_tabs_2" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="_tabs_2_definition" class="tab">
+<p>Definition</p>
+</li>
+<li id="_tabs_2_bmm" class="tab">
+<p>BMM</p>
+</li>
+<li id="_tabs_2_uml" class="tab">
+<p>UML</p>
+</li>
+</ul>
+</div>
+<div id="_tabs_2_definition--panel" class="tabpanel" aria-labelledby="_tabs_2_definition">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>SYNC_EXTRACT</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="#RM:ehr_extract:message.adoc#_message_content_class" class="xref unresolved">MESSAGE_CONTENT</a></code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>specification</strong>: <code><a href="#RM:ehr_extract:sync_extract.adoc#_sync_extract_spec_class" class="xref unresolved">SYNC_EXTRACT_SPEC</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Details of specification of this Extract.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>items</strong>: <code><a href="../../../../BASE/latest/foundation_types/structure_types/#_list_class" class="xref page">List</a>&lt;<a href="#RM:ehr_extract:sync_extract.adoc#_x_contribution_class" class="xref unresolved">X_CONTRIBUTION</a>&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Content, in the form of a serialised Contributions.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="_tabs_2_bmm--panel" class="tabpanel" aria-labelledby="_tabs_2_bmm">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+    "name": "SYNC_EXTRACT",
+    "ancestors": [
+        "MESSAGE_CONTENT"
+    ],
+    "properties": {
+        "specification": {
+            "_type": "P_BMM_SINGLE_PROPERTY",
+            "name": "specification",
+            "documentation": "Details of specification of this Extract.",
+            "is_mandatory": true,
+            "type": "SYNC_EXTRACT_SPEC"
+        },
+        "items": {
+            "_type": "P_BMM_CONTAINER_PROPERTY",
+            "name": "items",
+            "documentation": "Content, in the form of a serialised Contributions.",
+            "type_def": {
+                "container_type": "List",
+                "type": "X_CONTRIBUTION"
+            },
+            "cardinality": {
+                "lower": 0,
+                "upper_unbounded": true
+            }
+        }
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="_tabs_2_uml--panel" class="tabpanel" aria-labelledby="_tabs_2_uml">
+<div class="imageblock kroki">
+<div class="content">
+<img src="https://kroki.io/plantuml/svg/eNpdjl0LgjAYhe_3K17orjDoViUwGSHUDF1giMiaq0Z-hHuhovrvybqyu8Ph4TmHyFoYA-mBhSXNeBKEHF4EYAbmpqQ-aSlQdy24I6RMdzSEfFFYUqNqzEBstEE_K8OY8SRa7XkUsyXk04J8CBFHg72QCL-9LU3TYE0tSxkHmNwvg8Y03VV5tW6Ve-7F06Z51SGqykP1QNsO_wbhv8F_O87oI_kCK-VEbg==?svg-type=inline" alt="SYNC_EXTRACT">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_sync_extract_spec_class"><a class="anchor" href="#_sync_extract_spec_class"></a><a class="link" href="#_sync_extract_spec_class">SYNC_EXTRACT_SPEC Class</a></h3>
+<div id="_tabs_3" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="_tabs_3_definition" class="tab">
+<p>Definition</p>
+</li>
+<li id="_tabs_3_bmm" class="tab">
+<p>BMM</p>
+</li>
+<li id="_tabs_3_uml" class="tab">
+<p>UML</p>
+</li>
+</ul>
+</div>
+<div id="_tabs_3_definition--panel" class="tabpanel" aria-labelledby="_tabs_3_definition">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>SYNC_EXTRACT_SPEC</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Details of specification of Extract, used in a request to specify an Extract, or in a response, to describe what is actually in the Extract.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>includes_versions</strong>: <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>True if the Versions from the Contribution are included; False if just the Contribution and its Audit are included.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>contribution_list</strong>: <code><a href="../../../../BASE/latest/foundation_types/structure_types/#_list_class" class="xref page">List</a>&lt;<a href="../../../../BASE/latest/base_types/identification_package/#_hier_object_id_class" class="xref page">HIER_OBJECT_ID</a>&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>List of Contributions to include / that are included in the Extract.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>contributions_since</strong>: <code><a href="../../../latest/data_types/quantity_package/#_dv_date_time_class" class="xref page">DV_DATE_TIME</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Specify Contributions included in Extract by threshold date.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>all_contributions</strong>: <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>True if all Contributions in the record are included.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="_tabs_3_bmm--panel" class="tabpanel" aria-labelledby="_tabs_3_bmm">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+    "name": "SYNC_EXTRACT_SPEC",
+    "documentation": "Details of specification of Extract, used in a request to specify an Extract, or in a response, to describe what is actually in the Extract.",
+    "properties": {
+        "includes_versions": {
+            "_type": "P_BMM_SINGLE_PROPERTY",
+            "name": "includes_versions",
+            "documentation": "True if the Versions from the Contribution are included; False if just the Contribution and its Audit are included.",
+            "is_mandatory": true,
+            "type": "Boolean"
+        },
+        "contribution_list": {
+            "_type": "P_BMM_CONTAINER_PROPERTY",
+            "name": "contribution_list",
+            "documentation": "List of Contributions to include / that are included in the Extract.",
+            "type_def": {
+                "container_type": "List",
+                "type": "HIER_OBJECT_ID"
+            },
+            "cardinality": {
+                "lower": 0,
+                "upper_unbounded": true
+            }
+        },
+        "contributions_since": {
+            "_type": "P_BMM_SINGLE_PROPERTY",
+            "name": "contributions_since",
+            "documentation": "Specify Contributions included in Extract by threshold date.",
+            "type": "DV_DATE_TIME"
+        },
+        "all_contributions": {
+            "_type": "P_BMM_SINGLE_PROPERTY",
+            "name": "all_contributions",
+            "documentation": "True if all Contributions in the record are included.",
+            "type": "Boolean"
+        }
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="_tabs_3_uml--panel" class="tabpanel" aria-labelledby="_tabs_3_uml">
+<div class="imageblock kroki">
+<div class="content">
+<img src="https://kroki.io/plantuml/svg/eNrjSs5JLC5WCI70c453jQgJcnQOiQ8OcHVWqOZSUNBWyMxLzilNSS2OL0stKs7MzytWsFJwys_PSU3MU4g2jAWrSc7PKynKTCotAcrH52QWlwDV-AApGw9P16B4fycvV6CZni52CtFamBqK44uBdqQCtbiExbs4hrjGh3j6uipEG-jpQY1PzMmJR9GB7ASIslouAOrbPx0=?svg-type=inline" alt="SYNC_EXTRACT_SPEC">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_x_contribution_class"><a class="anchor" href="#_x_contribution_class"></a><a class="link" href="#_x_contribution_class">X_CONTRIBUTION Class</a></h3>
+<div id="_tabs_4" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="_tabs_4_definition" class="tab">
+<p>Definition</p>
+</li>
+<li id="_tabs_4_bmm" class="tab">
+<p>BMM</p>
+</li>
+<li id="_tabs_4_uml" class="tab">
+<p>UML</p>
+</li>
+</ul>
+</div>
+<div id="_tabs_4_definition--panel" class="tabpanel" aria-labelledby="_tabs_4_definition">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>X_CONTRIBUTION</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Serialised form of Contribution for an Extract.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>uid</strong>: <code><a href="../../../../BASE/latest/base_types/identification_package/#_hier_object_id_class" class="xref page">HIER_OBJECT_ID</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Uid of Contribution in source system.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>audit</strong>: <code><a href="../../../latest/common/generic_package/#_audit_details_class" class="xref page">AUDIT_DETAILS</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Audit of Contribution in source system.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>versions</strong>: <code><a href="../../../../BASE/latest/foundation_types/structure_types/#_list_class" class="xref page">List</a>&lt;<a href="../../../latest/common/change_control_package/#_version_class" class="xref page">VERSION</a>&lt;<a href="#RM:ehr_extract:sync_extract.adoc#_x_contribution_class" class="xref unresolved">X_CONTRIBUTION</a>&gt;&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Serialised Versions from Contribution in source system.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="_tabs_4_bmm--panel" class="tabpanel" aria-labelledby="_tabs_4_bmm">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+    "name": "X_CONTRIBUTION",
+    "documentation": "Serialised form of Contribution for an Extract.",
+    "properties": {
+        "uid": {
+            "_type": "P_BMM_SINGLE_PROPERTY",
+            "name": "uid",
+            "documentation": "Uid of Contribution in source system.",
+            "is_mandatory": true,
+            "type": "HIER_OBJECT_ID"
+        },
+        "audit": {
+            "_type": "P_BMM_SINGLE_PROPERTY",
+            "name": "audit",
+            "documentation": "Audit of Contribution in source system.",
+            "is_mandatory": true,
+            "type": "AUDIT_DETAILS"
+        },
+        "versions": {
+            "_type": "P_BMM_CONTAINER_PROPERTY",
+            "name": "versions",
+            "documentation": "Serialised Versions from Contribution in source system.",
+            "type_def": {
+                "container_type": "List",
+                "type_def": {
+                    "_type": "P_BMM_GENERIC_TYPE",
+                    "root_type": "VERSION",
+                    "generic_parameters": [
+                        "X_CONTRIBUTION"
+                    ]
+                }
+            },
+            "cardinality": {
+                "lower": 0,
+                "upper_unbounded": true
+            }
+        }
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="_tabs_4_uml--panel" class="tabpanel" aria-labelledby="_tabs_4_uml">
+<div class="imageblock kroki">
+<div class="content">
+<img src="https://kroki.io/plantuml/svg/eNrjSs5JLC5WiIh39vcLCfJ0Cg3x9PdTqOZSUNBWKM1MUbBS8PB0DYr3d_JydQ6J93RRiDaMBUsmlqZklgClHUNdPEPiXVxDHD19guGyZalFxZn5ecVABT6ZxSU2Ya5BwUCDbVDtsbNTiNaK5arlAgD4cCXq?svg-type=inline" alt="X_CONTRIBUTION">
+</div>
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -561,5 +965,6 @@ on their own - i..e find out what the other system has got.</p>
 <script async src="../../../../search-index.js"></script>
 <script src="../../../../ui/js/medium-zoom.min.js"></script>
 <script src="../../../../ui/js/zoom.js"></script>
+<script async src="../../../../ui/js/tabs.js"></script>
   </body>
 </html>

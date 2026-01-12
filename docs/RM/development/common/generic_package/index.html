@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="../../../../ui/css/site.css">
     <link rel="stylesheet" href="../../../../ui/css/antora-openehr.css">
     <link rel="stylesheet" href="../../../../ui/css/openehr.css">
+    <link rel="stylesheet" href="../../../../ui/css/tabs.css">
 <link rel="icon" href="../../../../ui/img/favicon.ico" type="image/x-icon">
   </head>
   <body class="article">
@@ -294,7 +295,7 @@
     <a class="nav-link" href="../../ehr_extract/generic_extract_package/">Generic_extract Package</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../../ehr_extract/synchronisation_package/">Synchronisation Extracts</a>
+    <a class="nav-link" href="../../ehr_extract/synchronisation_package/">Synchronisation Extract</a>
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../../ehr_extract/message_package/">The Message package</a>
@@ -411,20 +412,6 @@
     <span class="version">development</span>
   </div>
   <ul class="components">
-    <li class="component">
-      <div class="title"><a href="../../../../AM/latest/">Archetype Model</a></div>
-      <ul class="versions">
-        <li class="version is-latest">
-          <a href="../../../../AM/latest/">Release-2.3.0</a>
-        </li>
-        <li class="version">
-          <a href="../../../../AM/Release-2.2.0/">Release-2.2.0</a>
-        </li>
-        <li class="version">
-          <a href="../../../../AM/development/">development</a>
-        </li>
-      </ul>
-    </li>
     <li class="component">
       <div class="title"><a href="../../../../BASE/latest/">Base Model</a></div>
       <ul class="versions">
@@ -651,32 +638,1089 @@
 <div class="sect1">
 <h2 id="_class_descriptions"><a class="anchor" href="#_class_descriptions"></a><a class="link" href="#_class_descriptions">Class Descriptions</a></h2>
 <div class="sectionbody">
-<div class="paragraph">
-<p>Unresolved directive in generic_package.adoc - include::ROOT:partial$uml/{pkg}party_proxy.adoc[]</p>
+<div class="sect2">
+<h3 id="_party_proxy_class"><a class="anchor" href="#_party_proxy_class"></a><a class="link" href="#_party_proxy_class">PARTY_PROXY Class</a></h3>
+<div id="_tabs_1" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="_tabs_1_definition" class="tab">
+<p>Definition</p>
+</li>
+<li id="_tabs_1_bmm" class="tab">
+<p>BMM</p>
+</li>
+<li id="_tabs_1_uml" class="tab">
+<p>UML</p>
+</li>
+</ul>
+</div>
+<div id="_tabs_1_definition--panel" class="tabpanel" aria-labelledby="_tabs_1_definition">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong><em>PARTY_PROXY (abstract)</em></strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Abstract concept of a proxy description of a party, including an optional link to data for this party in a demographic or other identity management system. Sub- typed into <code>PARTY_IDENTIFIED</code> and <code>PARTY_SELF</code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>external_ref</strong>: <code><a href="../../../../BASE/latest/base_types/identification_package/#_party_ref_class" class="xref page">PARTY_REF</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Optional reference to more detailed demographic or identification information for this party, in an external system.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="_tabs_1_bmm--panel" class="tabpanel" aria-labelledby="_tabs_1_bmm">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+    "name": "PARTY_PROXY",
+    "documentation": "Abstract concept of a proxy description of a party, including an optional link to data for this party in a demographic or other identity management system. Sub- typed into `PARTY_IDENTIFIED` and `PARTY_SELF`. ",
+    "is_abstract": true,
+    "properties": {
+        "external_ref": {
+            "_type": "P_BMM_SINGLE_PROPERTY",
+            "name": "external_ref",
+            "documentation": "Optional reference to more detailed demographic or identification information for this party, in an external system. ",
+            "type": "PARTY_REF"
+        }
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="_tabs_1_uml--panel" class="tabpanel" aria-labelledby="_tabs_1_uml">
+<div class="imageblock kroki">
+<div class="content">
+<img src="https://kroki.io/plantuml/svg/eNrjSkwqLilKTC5RSM5JLC5WCHAMComMDwjyj4hUqOZSUNBWSK0oSS3KS8yJL0pNU7CCKghydVOINtDTM4zlquUCAPxqFOE=?svg-type=inline" alt="PARTY_PROXY">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_party_self_class"><a class="anchor" href="#_party_self_class"></a><a class="link" href="#_party_self_class">PARTY_SELF Class</a></h3>
+<div id="_tabs_2" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="_tabs_2_definition" class="tab">
+<p>Definition</p>
+</li>
+<li id="_tabs_2_bmm" class="tab">
+<p>BMM</p>
+</li>
+<li id="_tabs_2_uml" class="tab">
+<p>UML</p>
+</li>
+</ul>
+</div>
+<div id="_tabs_2_definition--panel" class="tabpanel" aria-labelledby="_tabs_2_definition">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>PARTY_SELF</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Party proxy representing the subject of the record. Used to indicate that the party is the owner of the record. May or may not have <code><em>external_ref</em></code> set.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="../../../latest/common/generic_package/#_party_proxy_class" class="xref page">PARTY_PROXY</a></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="_tabs_2_bmm--panel" class="tabpanel" aria-labelledby="_tabs_2_bmm">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+    "name": "PARTY_SELF",
+    "documentation": "Party proxy representing the subject of the record. Used to indicate that the party is the owner of the record. May or may not have `_external_ref_` set. ",
+    "ancestors": [
+        "PARTY_PROXY"
+    ]
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="_tabs_2_uml--panel" class="tabpanel" aria-labelledby="_tabs_2_uml">
+<div class="imageblock kroki">
+<div class="content">
+<img src="https://kroki.io/plantuml/svg/eNrjSs5JLC5WCHAMComMD3b1cVOo5qrl4kpMKi4pSkwuUUCWDgjyj4hUUFAuz8gsSS3Ozc9Otc7JzEu1Si9KrASz9FLyS0pSU6xLUitKwKJAwxQUtBWA3NSivMSc-KLUNAUrqGlBrm4K0QZ6eoaxIAuRbbCp0dVFchEXAH3rNGs=?svg-type=inline" alt="PARTY_SELF">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_party_identified_class"><a class="anchor" href="#_party_identified_class"></a><a class="link" href="#_party_identified_class">PARTY_IDENTIFIED Class</a></h3>
+<div id="_tabs_3" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="_tabs_3_definition" class="tab">
+<p>Definition</p>
+</li>
+<li id="_tabs_3_bmm" class="tab">
+<p>BMM</p>
+</li>
+<li id="_tabs_3_uml" class="tab">
+<p>UML</p>
+</li>
+</ul>
+</div>
+<div id="_tabs_3_definition--panel" class="tabpanel" aria-labelledby="_tabs_3_definition">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>PARTY_IDENTIFIED</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Proxy data for an identified party other than the subject of the record, minimally consisting of human-readable identifier(s), such as name, formal (and possibly computable) identifiers such as NHS number, and an optional link to external data. There must be at least one of name, identifier or external_ref present.</p>
 </div>
 <div class="paragraph">
-<p>Unresolved directive in generic_package.adoc - include::ROOT:partial$uml/{pkg}party_self.adoc[]</p>
+<p>Used to describe parties where only identifiers may be known, and there is no entry at all in the demographic system (or even no demographic system). Typically for health care providers, e.g. name and provider number of an institution.</p>
 </div>
 <div class="paragraph">
-<p>Unresolved directive in generic_package.adoc - include::ROOT:partial$uml/{pkg}party_identified.adoc[]</p>
+<p>Should not be used to include patient identifying information.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="../../../latest/common/generic_package/#_party_proxy_class" class="xref page">PARTY_PROXY</a></code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>name</strong>: <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_string_class" class="xref page">String</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Optional human-readable name (in String form).</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>identifiers</strong>: <code><a href="../../../../BASE/latest/foundation_types/structure_types/#_list_class" class="xref page">List</a>&lt;<a href="../../../latest/data_types/basic_package/#_dv_identifier_class" class="xref page">DV_IDENTIFIER</a>&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>One or more formal identifiers (possibly computable).</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Invariants</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Basic_validity</em>: <code>name /= Void or identifiers /= Void or external_ref /= Void</code></p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Name_valid</em>: <code>name /= Void implies not name.is_empty</code></p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Identifiers_valid</em>: <code>identifiers /= Void implies not identifiers.is_empty</code></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="_tabs_3_bmm--panel" class="tabpanel" aria-labelledby="_tabs_3_bmm">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+    "name": "PARTY_IDENTIFIED",
+    "documentation": "Proxy data for an identified party other than the subject of the record, minimally consisting of human-readable identifier(s), such as name, formal (and possibly computable) identifiers such as NHS number, and an optional link to external data. There must be at least one of name, identifier or external_ref present.\n\nUsed to describe parties where only identifiers may be known, and there is no entry at all in the demographic system (or even no demographic system). Typically for health care providers, e.g. name and provider number of an institution. \n\nShould not be used to include patient identifying information. ",
+    "ancestors": [
+        "PARTY_PROXY"
+    ],
+    "properties": {
+        "name": {
+            "_type": "P_BMM_SINGLE_PROPERTY",
+            "name": "name",
+            "documentation": "Optional human-readable name (in String form).",
+            "type": "String"
+        },
+        "identifiers": {
+            "_type": "P_BMM_CONTAINER_PROPERTY",
+            "name": "identifiers",
+            "documentation": "One or more formal identifiers (possibly computable). \n",
+            "type_def": {
+                "container_type": "List",
+                "type": "DV_IDENTIFIER"
+            },
+            "cardinality": {
+                "lower": 0,
+                "upper_unbounded": true
+            }
+        }
+    },
+    "invariants": {
+        "Basic_validity": "name /= Void or identifiers /= Void or external_ref /= Void",
+        "Name_valid": "name /= Void implies not name.is_empty",
+        "Identifiers_valid": "identifiers /= Void implies not identifiers.is_empty"
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="_tabs_3_uml--panel" class="tabpanel" aria-labelledby="_tabs_3_uml">
+<div class="imageblock kroki">
+<div class="content">
+<img src="https://kroki.io/plantuml/svg/eNplj0ELgkAQhe_7Kwa6FUpdVYJABSFKTCIRkU1HW9IVdgcqqv-eWJHQbd485n1vWNFwrSFcRXGSB663iQM_8Fy4M4AZSN4iWLAjJWQN6dw0F9lgiBIliUqg0r2_Fpocd_-7j5aQTjP2ZIwfNSleEIw5YbQ9JACTy0kQ6rY7o90IiVat-G2YzLIjwtImvNKw_fTpJSrJm1xh1XPfaZHnf6v1wDHBeRjG32vsBcb5SxY=?svg-type=inline" alt="PARTY_IDENTIFIED">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_party_related_class"><a class="anchor" href="#_party_related_class"></a><a class="link" href="#_party_related_class">PARTY_RELATED Class</a></h3>
+<div id="_tabs_4" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="_tabs_4_definition" class="tab">
+<p>Definition</p>
+</li>
+<li id="_tabs_4_bmm" class="tab">
+<p>BMM</p>
+</li>
+<li id="_tabs_4_uml" class="tab">
+<p>UML</p>
+</li>
+</ul>
+</div>
+<div id="_tabs_4_definition--panel" class="tabpanel" aria-labelledby="_tabs_4_definition">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>PARTY_RELATED</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Proxy type for identifying a party and its relationship to the subject of the record. Use where the relationship between the party and the subject of the record must be known.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="../../../latest/common/generic_package/#_party_identified_class" class="xref page">PARTY_IDENTIFIED</a></code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>relationship</strong>: <code><a href="../../../latest/data_types/text_package/#_dv_coded_text_class" class="xref page">DV_CODED_TEXT</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Relationship of subject of this ENTRY to the subject of the record. May be coded. If it is the patient, coded as  self.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Invariants</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Relationship_valid</em>: <code>terminology (Terminology_id_openehr).has_code_for_group_id (Group_id_subject_relationship, relationship.defining_code)</code></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="_tabs_4_bmm--panel" class="tabpanel" aria-labelledby="_tabs_4_bmm">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+    "name": "PARTY_RELATED",
+    "documentation": "Proxy type for identifying a party and its relationship to the subject of the record. Use where the relationship between the party and the subject of the record must be known. ",
+    "ancestors": [
+        "PARTY_IDENTIFIED"
+    ],
+    "properties": {
+        "relationship": {
+            "_type": "P_BMM_SINGLE_PROPERTY",
+            "name": "relationship",
+            "documentation": "Relationship of subject of this ENTRY to the subject of the record. May be coded. If it is the patient, coded as  self. ",
+            "is_mandatory": true,
+            "type": "DV_CODED_TEXT"
+        }
+    },
+    "invariants": {
+        "Relationship_valid": "terminology (Terminology_id_openehr).has_code_for_group_id (Group_id_subject_relationship, relationship.defining_code)"
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="_tabs_4_uml--panel" class="tabpanel" aria-labelledby="_tabs_4_uml">
+<div class="imageblock kroki">
+<div class="content">
+<img src="https://kroki.io/plantuml/svg/eNqdkE1rAjEQhu_5FQO9VVz0qlKQJsKCqGxDURZZojvq0DUryYAV2__edHEl4M1bJvPxPLxiWxnvYTHO9KrI1HSslYSrAOiAw8ow1dYf6AQDkJ_F-1wqWWi11JD31-JXiHg7lWqm00kaDsDL-UCM_lh_4bAii4O9M5fmlZQ1M5ZDxm9ufm80a44YKB_syO4h7yVJIPw3qETLtCN0PvSn5HkUVO6w7A3y18bFbDw7s2WIpRbZfLl6xieU6KypCoe7wG0DmrRqARgTRj_d7kMO7UiUTDR3S1v8AfHgeKc=?svg-type=inline" alt="PARTY_RELATED">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_participation_class"><a class="anchor" href="#_participation_class"></a><a class="link" href="#_participation_class">PARTICIPATION Class</a></h3>
+<div id="_tabs_5" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="_tabs_5_definition" class="tab">
+<p>Definition</p>
+</li>
+<li id="_tabs_5_bmm" class="tab">
+<p>BMM</p>
+</li>
+<li id="_tabs_5_uml" class="tab">
+<p>UML</p>
+</li>
+</ul>
+</div>
+<div id="_tabs_5_definition--panel" class="tabpanel" aria-labelledby="_tabs_5_definition">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>PARTICIPATION</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Model of a participation of a Party (any Actor or Role) in an activity.  Used to represent any participation of a Party in some activity, which is not  explicitly in the model, e.g. assisting nurse. Can be used to record past or  future participations.</p>
 </div>
 <div class="paragraph">
-<p>Unresolved directive in generic_package.adoc - include::ROOT:partial$uml/{pkg}party_related.adoc[]</p>
+<p>Should not be used in place of more permanent relationships between demographic entities.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>function</strong>: <code><a href="../../../latest/data_types/text_package/#_dv_text_class" class="xref page">DV_TEXT</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>The function of the Party in this participation (note that a given party might participate in more than one way in a particular activity). This attribute should be coded, but cannot be limited to the HL7v3:ParticipationFunction vocabulary, since it is too limited and hospital-oriented.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>mode</strong>: <code><a href="../../../latest/data_types/text_package/#_dv_coded_text_class" class="xref page">DV_CODED_TEXT</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Optional field for recording the 'mode' of the performer / activity interaction, e.g. present, by telephone, by email etc.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>performer</strong>: <code><a href="../../../latest/common/generic_package/#_party_proxy_class" class="xref page">PARTY_PROXY</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>The id and possibly demographic system link of the party participating in the activity.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>time</strong>: <code><a href="../../../latest/data_types/quantity_package/#_dv_interval_class" class="xref page">DV_INTERVAL</a>&lt;<a href="../../../latest/data_types/quantity_package/#_dv_date_time_class" class="xref page">DV_DATE_TIME</a>&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>The time interval during which the participation took place, if it is used in an observational context (i.e. recording facts about the past); or the intended time interval of the participation when used in future contexts, such as EHR Instructions.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Invariants</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Function_valid</em>: <code>function.generating_type.is_equal ("DV_CODED_TEXT") implies
+terminology (Terminology_id_openehr).has_code_for_group_id (Group_id_participation_function, function.defining_code)</code></p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Mode_valid</em>: <code>mode /= Void implies terminology (Terminology_id_openehr).has_code_for_group_id (Group_id_participation_mode, mode.defining_code)</code></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
 </div>
-<div class="paragraph">
-<p>Unresolved directive in generic_package.adoc - include::ROOT:partial$uml/{pkg}participation.adoc[]</p>
+<div id="_tabs_5_bmm--panel" class="tabpanel" aria-labelledby="_tabs_5_bmm">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+    "name": "PARTICIPATION",
+    "documentation": "Model of a participation of a Party (any Actor or Role) in an activity.  Used to represent any participation of a Party in some activity, which is not  explicitly in the model, e.g. assisting nurse. Can be used to record past or  future participations. \n\nShould not be used in place of more permanent relationships between demographic entities. ",
+    "properties": {
+        "function": {
+            "_type": "P_BMM_SINGLE_PROPERTY",
+            "name": "function",
+            "documentation": "The function of the Party in this participation (note that a given party might participate in more than one way in a particular activity). This attribute should be coded, but cannot be limited to the HL7v3:ParticipationFunction vocabulary, since it is too limited and hospital-oriented. ",
+            "is_mandatory": true,
+            "type": "DV_TEXT"
+        },
+        "mode": {
+            "_type": "P_BMM_SINGLE_PROPERTY",
+            "name": "mode",
+            "documentation": "Optional field for recording the 'mode' of the performer / activity interaction, e.g. present, by telephone, by email etc. ",
+            "type": "DV_CODED_TEXT"
+        },
+        "performer": {
+            "_type": "P_BMM_SINGLE_PROPERTY",
+            "name": "performer",
+            "documentation": "The id and possibly demographic system link of the party participating in the activity. ",
+            "is_mandatory": true,
+            "type": "PARTY_PROXY"
+        },
+        "time": {
+            "_type": "P_BMM_GENERIC_PROPERTY",
+            "name": "time",
+            "documentation": "The time interval during which the participation took place, if it is used in an observational context (i.e. recording facts about the past); or the intended time interval of the participation when used in future contexts, such as EHR Instructions. ",
+            "type_def": {
+                "root_type": "DV_INTERVAL",
+                "generic_parameters": [
+                    "DV_DATE_TIME"
+                ]
+            }
+        }
+    },
+    "invariants": {
+        "Function_valid": "function.generating_type.is_equal (\"DV_CODED_TEXT\") implies\nterminology (Terminology_id_openehr).has_code_for_group_id (Group_id_participation_function, function.defining_code)",
+        "Mode_valid": "mode /= Void implies terminology (Terminology_id_openehr).has_code_for_group_id (Group_id_participation_mode, mode.defining_code)"
+    }
+}</code></pre>
 </div>
-<div class="paragraph">
-<p>Unresolved directive in generic_package.adoc - include::ROOT:partial$uml/{pkg}audit_details.adoc[]</p>
 </div>
-<div class="paragraph">
-<p>Unresolved directive in generic_package.adoc - include::ROOT:partial$uml/{pkg}attestation.adoc[]</p>
 </div>
-<div class="paragraph">
-<p>Unresolved directive in generic_package.adoc - include::ROOT:partial$uml/{pkg}revision_history.adoc[]</p>
+<div id="_tabs_5_uml--panel" class="tabpanel" aria-labelledby="_tabs_5_uml">
+<div class="imageblock kroki">
+<div class="content">
+<img src="https://kroki.io/plantuml/svg/eNrjSs5JLC5WCHAMCvF09gxwDPH091Oo5lJQ0FZIK81LLsnMz1OwUnAJiw9xjQhRiDaMBUvl5qekQoSd_V1cXaCSBnp6UPmC1KK0_KLc1CKgIpDRkfEBQf4RkXD9JZm5UP2efiGuQWGOPjZAtotjiGt8iKevqx3MrFouADrXLJA=?svg-type=inline" alt="PARTICIPATION">
 </div>
-<div class="paragraph">
-<p>Unresolved directive in generic_package.adoc - include::ROOT:partial$uml/{pkg}revision_history_item.adoc[]</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_audit_details_class"><a class="anchor" href="#_audit_details_class"></a><a class="link" href="#_audit_details_class">AUDIT_DETAILS Class</a></h3>
+<div id="_tabs_6" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="_tabs_6_definition" class="tab">
+<p>Definition</p>
+</li>
+<li id="_tabs_6_bmm" class="tab">
+<p>BMM</p>
+</li>
+<li id="_tabs_6_uml" class="tab">
+<p>UML</p>
+</li>
+</ul>
+</div>
+<div id="_tabs_6_definition--panel" class="tabpanel" aria-labelledby="_tabs_6_definition">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>AUDIT_DETAILS</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>The set of attributes required to document the committal of an information item to a repository.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>system_id</strong>: <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_string_class" class="xref page">String</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Identifier of the logical EHR system where the change was committed. This is almost always owned by the organisation legally responsible for the EHR, and is distinct from any application, or any hosting infrastructure.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>time_committed</strong>: <code><a href="../../../latest/data_types/quantity_package/#_dv_date_time_class" class="xref page">DV_DATE_TIME</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Time of committal of the item.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>change_type</strong>: <code><a href="../../../latest/data_types/text_package/#_dv_coded_text_class" class="xref page">DV_CODED_TEXT</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Type of change. Coded using the openEHR Terminology  audit change type  group.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>description</strong>: <code><a href="../../../latest/data_types/text_package/#_dv_text_class" class="xref page">DV_TEXT</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Reason for committal. This may be used to qualify the value in the <code><em>change_type</em></code> field. For example, if the change affects only the EHR directory, this field might be used to indicate 'Folder "episode 2018-02-16" added' or similar.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>committer</strong>: <code><a href="../../../latest/common/generic_package/#_party_proxy_class" class="xref page">PARTY_PROXY</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Identity and optional reference into identity management service, of user who committed the item.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Invariants</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>System_id_valid</em>: <code>not system_id.is_empty</code></p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Change_type_valid</em>: <code>terminology (Terminology_id_openehr).has_code_for_group_id (Group_id_audit_change_type, change_type.defining_code)</code></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="_tabs_6_bmm--panel" class="tabpanel" aria-labelledby="_tabs_6_bmm">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+    "name": "AUDIT_DETAILS",
+    "documentation": "The set of attributes required to document the committal of an information item to a repository. ",
+    "properties": {
+        "system_id": {
+            "_type": "P_BMM_SINGLE_PROPERTY",
+            "name": "system_id",
+            "documentation": "Identifier of the logical EHR system where the change was committed. This is almost always owned by the organisation legally responsible for the EHR, and is distinct from any application, or any hosting infrastructure.",
+            "is_mandatory": true,
+            "type": "String"
+        },
+        "time_committed": {
+            "_type": "P_BMM_SINGLE_PROPERTY",
+            "name": "time_committed",
+            "documentation": "Time of committal of the item. ",
+            "is_mandatory": true,
+            "type": "DV_DATE_TIME"
+        },
+        "change_type": {
+            "_type": "P_BMM_SINGLE_PROPERTY",
+            "name": "change_type",
+            "documentation": "Type of change. Coded using the openEHR Terminology  audit change type  group.",
+            "is_mandatory": true,
+            "type": "DV_CODED_TEXT"
+        },
+        "description": {
+            "_type": "P_BMM_SINGLE_PROPERTY",
+            "name": "description",
+            "documentation": "Reason for committal. This may be used to qualify the value in the `_change_type_` field. For example, if the change affects only the EHR directory, this field might be used to indicate 'Folder \"episode 2018-02-16\" added' or similar.",
+            "type": "DV_TEXT"
+        },
+        "committer": {
+            "_type": "P_BMM_SINGLE_PROPERTY",
+            "name": "committer",
+            "documentation": "Identity and optional reference into identity management service, of user who committed the item. ",
+            "is_mandatory": true,
+            "type": "PARTY_PROXY"
+        }
+    },
+    "invariants": {
+        "System_id_valid": "not system_id.is_empty",
+        "Change_type_valid": "terminology (Terminology_id_openehr).has_code_for_group_id (Group_id_audit_change_type, change_type.defining_code)"
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="_tabs_6_uml--panel" class="tabpanel" aria-labelledby="_tabs_6_uml">
+<div class="imageblock kroki">
+<div class="content">
+<img src="https://kroki.io/plantuml/svg/eNo9zcEKgkAUheG9T3H3gdS23dDMQigUvYUScZFxsIFGZeZuJHr3yinX3885iX60IYA4ywxJKhTZsYJnArCBMAc2jmwHe6jY26GH6-62EFtnSI_OWWbzdXkhKVARZie1VvreDr0hnicTk0MulSRUNa5NZ4L2dmI7DrGJuk3T_8jvxX-4ECU2VJR53SwDr-QNmfU42A==?svg-type=inline" alt="AUDIT_DETAILS">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_attestation_class"><a class="anchor" href="#_attestation_class"></a><a class="link" href="#_attestation_class">ATTESTATION Class</a></h3>
+<div id="_tabs_7" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="_tabs_7_definition" class="tab">
+<p>Definition</p>
+</li>
+<li id="_tabs_7_bmm" class="tab">
+<p>BMM</p>
+</li>
+<li id="_tabs_7_uml" class="tab">
+<p>UML</p>
+</li>
+</ul>
+</div>
+<div id="_tabs_7_definition--panel" class="tabpanel" aria-labelledby="_tabs_7_definition">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>ATTESTATION</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Record an attestation of a party (the committer) to item(s) of record content. An attestation is an explicit signing by one healthcare agent of particular content for various particular purposes, including:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>for authorisation of a controlled substance or procedure (e.g. sectioning of patient under mental health act);</p>
+</li>
+<li>
+<p>witnessing of content by senior clinical professional;</p>
+</li>
+<li>
+<p>indicating acknowledgement of content by intended recipient, e.g. GP who ordered a test result.</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="../../../latest/common/generic_package/#_audit_details_class" class="xref page">AUDIT_DETAILS</a></code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>attested_view</strong>: <code><a href="../../../latest/data_types/encapsulated_package/#_dv_multimedia_class" class="xref page">DV_MULTIMEDIA</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Optional visual representation of content attested e.g. screen image.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>proof</strong>: <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_string_class" class="xref page">String</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Proof of attestation.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>items</strong>: <code><a href="../../../../BASE/latest/foundation_types/structure_types/#_list_class" class="xref page">List</a>&lt;<a href="../../../latest/data_types/uri_package/#_dv_ehr_uri_class" class="xref page">DV_EHR_URI</a>&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Items attested, expressed as fully qualified runtime paths to the items in question. Although not recommended, these may include fine-grained items which have been attested in some other system. Otherwise it is assumed to be for the entire VERSION with which it is associated.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>reason</strong>: <code><a href="../../../latest/data_types/text_package/#_dv_text_class" class="xref page">DV_TEXT</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Reason of this attestation. Optionally coded by the openEHR Terminology group  attestation reason ; includes values like  authorisation ,  witness  etc.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_pending</strong>: <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>True if this attestation is outstanding; False means it has been completed.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Invariants</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Items_valid</em>: <code>items /= Void implies not items.is_empty</code></p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Reason_valid</em>: <code>(reason.generating_type.is_equal (“DV_CODED_TEXT”) implies terminology (Terminology_id_openehr).has_code_for_group_id (Group_id_attestation_reason, reason.defining_code))</code></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="_tabs_7_bmm--panel" class="tabpanel" aria-labelledby="_tabs_7_bmm">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+    "name": "ATTESTATION",
+    "documentation": "Record an attestation of a party (the committer) to item(s) of record content. An attestation is an explicit signing by one healthcare agent of particular content for various particular purposes, including:\n\n* for authorisation of a controlled substance or procedure (e.g. sectioning of patient under mental health act); \n* witnessing of content by senior clinical professional; \n* indicating acknowledgement of content by intended recipient, e.g. GP who ordered a test result. \n",
+    "ancestors": [
+        "AUDIT_DETAILS"
+    ],
+    "properties": {
+        "attested_view": {
+            "_type": "P_BMM_SINGLE_PROPERTY",
+            "name": "attested_view",
+            "documentation": "Optional visual representation of content attested e.g. screen image. ",
+            "type": "DV_MULTIMEDIA"
+        },
+        "proof": {
+            "_type": "P_BMM_SINGLE_PROPERTY",
+            "name": "proof",
+            "documentation": "Proof of attestation. ",
+            "type": "String"
+        },
+        "items": {
+            "_type": "P_BMM_CONTAINER_PROPERTY",
+            "name": "items",
+            "documentation": "Items attested, expressed as fully qualified runtime paths to the items in question. Although not recommended, these may include fine-grained items which have been attested in some other system. Otherwise it is assumed to be for the entire VERSION with which it is associated. ",
+            "type_def": {
+                "container_type": "List",
+                "type": "DV_EHR_URI"
+            },
+            "cardinality": {
+                "lower": 0,
+                "upper_unbounded": true
+            }
+        },
+        "reason": {
+            "_type": "P_BMM_SINGLE_PROPERTY",
+            "name": "reason",
+            "documentation": "Reason of this attestation. Optionally coded by the openEHR Terminology group  attestation reason ; includes values like  authorisation ,  witness  etc. ",
+            "is_mandatory": true,
+            "type": "DV_TEXT"
+        },
+        "is_pending": {
+            "_type": "P_BMM_SINGLE_PROPERTY",
+            "name": "is_pending",
+            "documentation": "True if this attestation is outstanding; False means it has been completed.",
+            "is_mandatory": true,
+            "type": "Boolean"
+        }
+    },
+    "invariants": {
+        "Items_valid": "items /= Void implies not items.is_empty",
+        "Reason_valid": "(reason.generating_type.is_equal (“DV_CODED_TEXT”) implies terminology (Terminology_id_openehr).has_code_for_group_id (Group_id_attestation_reason, reason.defining_code))"
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="_tabs_7_uml--panel" class="tabpanel" aria-labelledby="_tabs_7_uml">
+<div class="imageblock kroki">
+<div class="content">
+<img src="https://kroki.io/plantuml/svg/eNpVkV9rgzAUxd_9FBf2tlHZXm0ZuCUwwc6icbTICKJ3NkyNmLBOtn33xX-bvoWcc-49v8TKylQpcBmjEXOZFzzDlwVwA6nWqDTm_EPgBRwgL3wf-8zbU-K5kNza9t3rYGxaKd-MIdKtqIulIjRWyii-UHpn8vQp5HHo3UNyPRpaTJWsx-GMHhkkc1LxBuu8n-fAg5QlpvUg_ljWVDgmHuOEMtfzI4Cry9lsU5V8x20panSKNu2Gk51LQ5JvNX7q4XbiU52hq7jIF9Wn7VpUyDNZVaJPjvWIyyjv6f9c2TmtC-S6a3C0PAaEkjVHjiprRaPFmvL_ieYtrZEPbshO_BAGx9PMuqbcfW82y5-yfgHTJYWi?svg-type=inline" alt="ATTESTATION">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_revision_history_class"><a class="anchor" href="#_revision_history_class"></a><a class="link" href="#_revision_history_class">REVISION_HISTORY Class</a></h3>
+<div id="_tabs_8" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="_tabs_8_definition" class="tab">
+<p>Definition</p>
+</li>
+<li id="_tabs_8_bmm" class="tab">
+<p>BMM</p>
+</li>
+<li id="_tabs_8_uml" class="tab">
+<p>UML</p>
+</li>
+</ul>
+</div>
+<div id="_tabs_8_definition--panel" class="tabpanel" aria-labelledby="_tabs_8_definition">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>REVISION_HISTORY</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Purpose Defines the notion of a revision history of audit items, each associated with the version for which that audit was committed. The list is in most-recent-first order.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>items</strong>: <code><a href="../../../../BASE/latest/foundation_types/structure_types/#_list_class" class="xref page">List</a>&lt;<a href="../../../latest/common/generic_package/#_revision_history_item_class" class="xref page">REVISION_HISTORY_ITEM</a>&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>The items in this history in most-recent-last order.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Functions</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>most_recent_version</strong> (): <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_string_class" class="xref page">String</a></code><br>
+<br>
+<em>Post</em>: <code>Result.is_equal (items.last.version_id.value)</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>The version id of the most recent item, as a String.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>most_recent_version_time_committed</strong> (): <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_string_class" class="xref page">String</a></code><br>
+<br>
+<em>Post</em>: <code>Result.is_equal (items.last.audits.first. time_committed.value)</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>The commit date/time of the most recent item, as a String.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="_tabs_8_bmm--panel" class="tabpanel" aria-labelledby="_tabs_8_bmm">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+    "name": "REVISION_HISTORY",
+    "documentation": "Purpose Defines the notion of a revision history of audit items, each associated with the version for which that audit was committed. The list is in most-recent-first order. ",
+    "properties": {
+        "items": {
+            "_type": "P_BMM_CONTAINER_PROPERTY",
+            "name": "items",
+            "documentation": "The items in this history in most-recent-last order. ",
+            "is_mandatory": true,
+            "type_def": {
+                "container_type": "List",
+                "type": "REVISION_HISTORY_ITEM"
+            },
+            "cardinality": {
+                "lower": 1,
+                "upper_unbounded": true
+            }
+        }
+    },
+    "functions": {
+        "most_recent_version": {
+            "name": "most_recent_version",
+            "documentation": "The version id of the most recent item, as a String.",
+            "post_conditions": {
+                "Post": "Result.is_equal (items.last.version_id.value)"
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "String"
+            }
+        },
+        "most_recent_version_time_committed": {
+            "name": "most_recent_version_time_committed",
+            "documentation": "The commit date/time of the most recent item, as a String. ",
+            "post_conditions": {
+                "Post": "Result.is_equal (items.last.audits.first. time_committed.value)"
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "String"
+            }
+        }
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="_tabs_8_uml--panel" class="tabpanel" aria-labelledby="_tabs_8_uml">
+<div class="imageblock kroki">
+<div class="content">
+<img src="https://kroki.io/plantuml/svg/eNrjSs5JLC5WCHIN8wz29PeL9_AMDvEPilSo5lJQ0FbILEnNLVawUvDJLC6xQVcT7xni6munEG2op6cVC1aem19cEl-UmpyaVxJfllpUnJmfp6EJ1B5cUpSZlw5UiVNZfElmbmp8cn5ubmZJSWoKuq5aLgAzMTXU?svg-type=inline" alt="REVISION_HISTORY">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_revision_history_item_class"><a class="anchor" href="#_revision_history_item_class"></a><a class="link" href="#_revision_history_item_class">REVISION_HISTORY_ITEM Class</a></h3>
+<div id="_tabs_9" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="_tabs_9_definition" class="tab">
+<p>Definition</p>
+</li>
+<li id="_tabs_9_bmm" class="tab">
+<p>BMM</p>
+</li>
+<li id="_tabs_9_uml" class="tab">
+<p>UML</p>
+</li>
+</ul>
+</div>
+<div id="_tabs_9_definition--panel" class="tabpanel" aria-labelledby="_tabs_9_definition">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>REVISION_HISTORY_ITEM</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>An entry in a revision history, corresponding to a version from a versioned container. Consists of <code>AUDIT_DETAILS</code> instances with revision identifier of the revision to which the <code>AUDIT_DETAILS</code> instance belongs.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>version_id</strong>: <code><a href="../../../../BASE/latest/base_types/identification_package/#_object_version_id_class" class="xref page">OBJECT_VERSION_ID</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Version identifier for this revision.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>audits</strong>: <code><a href="../../../../BASE/latest/foundation_types/structure_types/#_list_class" class="xref page">List</a>&lt;<a href="../../../latest/common/generic_package/#_audit_details_class" class="xref page">AUDIT_DETAILS</a>&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>The audits for this revision; there will always be at least one commit audit (which may itself be an <code>ATTESTATION</code>), there may also be further attestations.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Invariants</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Audit_valid</em>: <code>not audits.is_empty</code></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="_tabs_9_bmm--panel" class="tabpanel" aria-labelledby="_tabs_9_bmm">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+    "name": "REVISION_HISTORY_ITEM",
+    "documentation": "An entry in a revision history, corresponding to a version from a versioned container. Consists of `AUDIT_DETAILS` instances with revision identifier of the revision to which the `AUDIT_DETAILS` instance belongs. ",
+    "properties": {
+        "version_id": {
+            "_type": "P_BMM_SINGLE_PROPERTY",
+            "name": "version_id",
+            "documentation": "Version identifier for this revision. ",
+            "is_mandatory": true,
+            "type": "OBJECT_VERSION_ID"
+        },
+        "audits": {
+            "_type": "P_BMM_CONTAINER_PROPERTY",
+            "name": "audits",
+            "documentation": "The audits for this revision; there will always be at least one commit audit (which may itself be an `ATTESTATION`), there may also be further attestations. ",
+            "is_mandatory": true,
+            "type_def": {
+                "container_type": "List",
+                "type": "AUDIT_DETAILS"
+            },
+            "cardinality": {
+                "lower": 1,
+                "upper_unbounded": true
+            }
+        }
+    },
+    "invariants": {
+        "Audit_valid": "not audits.is_empty"
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="_tabs_9_uml--panel" class="tabpanel" aria-labelledby="_tabs_9_uml">
+<div class="imageblock kroki">
+<div class="content">
+<img src="https://kroki.io/plantuml/svg/eNrjSs5JLC5WCHIN8wz29PeL9_AMDvEPioz3DHH1VajmUlDQVihLLSrOzM-Lz0xRsFLwd_JydQ6JD3MNAiv3dFGINowFK0ssTcksKQYq8cksLrFxDHXxDIl3cQ1x9PQJtgMq0tPTiuWq5QIAaeoghw==?svg-type=inline" alt="REVISION_HISTORY_ITEM">
+</div>
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -723,5 +1767,6 @@
 <script async src="../../../../search-index.js"></script>
 <script src="../../../../ui/js/medium-zoom.min.js"></script>
 <script src="../../../../ui/js/zoom.js"></script>
+<script async src="../../../../ui/js/tabs.js"></script>
   </body>
 </html>

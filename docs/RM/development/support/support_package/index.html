@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="../../../../ui/css/site.css">
     <link rel="stylesheet" href="../../../../ui/css/antora-openehr.css">
     <link rel="stylesheet" href="../../../../ui/css/openehr.css">
+    <link rel="stylesheet" href="../../../../ui/css/tabs.css">
 <link rel="icon" href="../../../../ui/img/favicon.ico" type="image/x-icon">
   </head>
   <body class="article">
@@ -294,7 +295,7 @@
     <a class="nav-link" href="../../ehr_extract/generic_extract_package/">Generic_extract Package</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../../ehr_extract/synchronisation_package/">Synchronisation Extracts</a>
+    <a class="nav-link" href="../../ehr_extract/synchronisation_package/">Synchronisation Extract</a>
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../../ehr_extract/message_package/">The Message package</a>
@@ -412,20 +413,6 @@
   </div>
   <ul class="components">
     <li class="component">
-      <div class="title"><a href="../../../../AM/latest/">Archetype Model</a></div>
-      <ul class="versions">
-        <li class="version is-latest">
-          <a href="../../../../AM/latest/">Release-2.3.0</a>
-        </li>
-        <li class="version">
-          <a href="../../../../AM/Release-2.2.0/">Release-2.2.0</a>
-        </li>
-        <li class="version">
-          <a href="../../../../AM/development/">development</a>
-        </li>
-      </ul>
-    </li>
-    <li class="component">
       <div class="title"><a href="../../../../BASE/latest/">Base Model</a></div>
       <ul class="versions">
         <li class="version is-latest">
@@ -507,8 +494,72 @@ access, access to externally defined scientific units and conversion information
 <div class="sect1">
 <h2 id="_class_definitions"><a class="anchor" href="#_class_definitions"></a><a class="link" href="#_class_definitions">Class Definitions</a></h2>
 <div class="sectionbody">
-<div class="paragraph">
-<p>Unresolved directive in support_package.adoc - include::ROOT:partial$uml/{pkg}external_environment_access.adoc[]</p>
+<div class="sect2">
+<h3 id="_external_environment_access_class"><a class="anchor" href="#_external_environment_access_class"></a><a class="link" href="#_external_environment_access_class">EXTERNAL_ENVIRONMENT_ACCESS Class</a></h3>
+<div id="_tabs_1" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="_tabs_1_definition" class="tab">
+<p>Definition</p>
+</li>
+<li id="_tabs_1_bmm" class="tab">
+<p>BMM</p>
+</li>
+<li id="_tabs_1_uml" class="tab">
+<p>UML</p>
+</li>
+</ul>
+</div>
+<div id="_tabs_1_definition--panel" class="tabpanel" aria-labelledby="_tabs_1_definition">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong><em>EXTERNAL_ENVIRONMENT_ACCESS (abstract)</em></strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>A mixin class providing access to services in the external environment.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="#RM:support:terminology:terminology_package.adoc#_terminology_service_class" class="xref unresolved">TERMINOLOGY_SERVICE</a></code>, <code><a href="#RM:support:measurement.adoc#_measurement_service_class" class="xref unresolved">MEASUREMENT_SERVICE</a></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="_tabs_1_bmm--panel" class="tabpanel" aria-labelledby="_tabs_1_bmm">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+    "name": "EXTERNAL_ENVIRONMENT_ACCESS",
+    "documentation": "A mixin class providing access to services in the external environment.",
+    "is_abstract": true,
+    "ancestors": [
+        "TERMINOLOGY_SERVICE",
+        "MEASUREMENT_SERVICE"
+    ]
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="_tabs_1_uml--panel" class="tabpanel" aria-labelledby="_tabs_1_uml">
+<div class="imageblock kroki">
+<div class="content">
+<img src="https://kroki.io/plantuml/svg/eNqtU11PwjAUfedXNPFlKpjgIxgTHBWWwEY2IBpimsrK1jhabItK1P9u7XAOHIyob_24p_ecc08r-F4qgacKTBMsJYA3Q-i7rR6C7tjxPbcP3SFq2TYMAvBaea9U0jJd1Hdcr-d1blEA_bFjQwCOnmOqiJzzB9JMKCONSOCVWZ2FXCkSNhV5UeZUvwXAKVBEzCnjCY9WFmB4TkADBEpQFoFJ_Q4c622-05qHvjLoKQ8JkkTtgtpeG2p2w104NOMC0dACNDwcHGOJDqB9xXlCMNuAlfHdxuTaaJqEKTqjREjrs7ZHpbpI8ZdgcpIC-IIwEousUVraxTJel1YzxLYVpe9no_cG0IVdH-UH0_G90QA5bR0W59qBfvCbMDzhhIZ5b1Ek-HJhJoQZMkPKWfTDMs3wMG4Xb7VaUYK3FWYR-BdhOau_9exJQE5OIZHdKoo-p6ne87m_tPdhKxj50Nz84WNTiVLVS0aVRNLItIDZlQc_BZHHJdWP6FyugfUNZDU9PC91sUhSqR0fklCc5A==?svg-type=inline" alt="EXTERNAL_ENVIRONMENT_ACCESS">
+</div>
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -555,5 +606,6 @@ access, access to externally defined scientific units and conversion information
 <script async src="../../../../search-index.js"></script>
 <script src="../../../../ui/js/medium-zoom.min.js"></script>
 <script src="../../../../ui/js/zoom.js"></script>
+<script async src="../../../../ui/js/tabs.js"></script>
   </body>
 </html>

@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="../../../../ui/css/site.css">
     <link rel="stylesheet" href="../../../../ui/css/antora-openehr.css">
     <link rel="stylesheet" href="../../../../ui/css/openehr.css">
+    <link rel="stylesheet" href="../../../../ui/css/tabs.css">
 <link rel="icon" href="../../../../ui/img/favicon.ico" type="image/x-icon">
   </head>
   <body class="article">
@@ -294,7 +295,7 @@
     <a class="nav-link" href="../generic_extract_package/">Generic_extract Package</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../synchronisation_package/">Synchronisation Extracts</a>
+    <a class="nav-link" href="../synchronisation_package/">Synchronisation Extract</a>
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../message_package/">The Message package</a>
@@ -411,20 +412,6 @@
     <span class="version">development</span>
   </div>
   <ul class="components">
-    <li class="component">
-      <div class="title"><a href="../../../../AM/latest/">Archetype Model</a></div>
-      <ul class="versions">
-        <li class="version is-latest">
-          <a href="../../../../AM/latest/">Release-2.3.0</a>
-        </li>
-        <li class="version">
-          <a href="../../../../AM/Release-2.2.0/">Release-2.2.0</a>
-        </li>
-        <li class="version">
-          <a href="../../../../AM/development/">development</a>
-        </li>
-      </ul>
-    </li>
     <li class="component">
       <div class="title"><a href="../../../../BASE/latest/">Base Model</a></div>
       <ul class="versions">
@@ -562,26 +549,595 @@ rewritten to refer to the uid (<code>11111111</code>) of the first <code>OPENEHR
 <div class="sect1">
 <h2 id="_class_descriptions"><a class="anchor" href="#_class_descriptions"></a><a class="link" href="#_class_descriptions">Class Descriptions</a></h2>
 <div class="sectionbody">
-<div class="paragraph">
-<p>Unresolved directive in openehr_extract_package.adoc - include::ROOT:partial$uml/{pkg}openehr_content_item.adoc[]</p>
+<div class="sect2">
+<h3 id="_openehr_content_item_class"><a class="anchor" href="#_openehr_content_item_class"></a><a class="link" href="#_openehr_content_item_class">OPENEHR_CONTENT_ITEM Class</a></h3>
+<div id="_tabs_1" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="_tabs_1_definition" class="tab">
+<p>Definition</p>
+</li>
+<li id="_tabs_1_bmm" class="tab">
+<p>BMM</p>
+</li>
+<li id="_tabs_1_uml" class="tab">
+<p>UML</p>
+</li>
+</ul>
 </div>
-<div class="paragraph">
-<p>Unresolved directive in openehr_extract_package.adoc - include::ROOT:partial$uml/{pkg}x_versioned_object.adoc[]</p>
+<div id="_tabs_1_definition--panel" class="tabpanel" aria-labelledby="_tabs_1_definition">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>OPENEHR_CONTENT_ITEM</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Form of <code>EHR EXTRACT_ITEM</code> containing openEHR serialised <code>VERSIONED_OBJECTs</code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="#RM:ehr_extract:common.adoc#_extract_content_item_class" class="xref unresolved">EXTRACT_CONTENT_ITEM</a></code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1<br>
+(effected)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>item</strong>: <code><a href="#RM:ehr_extract:openehr_extract.adoc#_x_versioned_object_class" class="xref unresolved">X_VERSIONED_OBJECT</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Content object.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
 </div>
-<div class="paragraph">
-<p>Unresolved directive in openehr_extract_package.adoc - include::ROOT:partial$uml/{pkg}x_versioned_ehr_access.adoc[]</p>
+<div id="_tabs_1_bmm--panel" class="tabpanel" aria-labelledby="_tabs_1_bmm">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+    "name": "OPENEHR_CONTENT_ITEM",
+    "documentation": "Form of `EHR EXTRACT_ITEM` containing openEHR serialised `VERSIONED_OBJECTs`.",
+    "ancestors": [
+        "EXTRACT_CONTENT_ITEM"
+    ],
+    "properties": {
+        "item": {
+            "_type": "P_BMM_SINGLE_PROPERTY",
+            "name": "item",
+            "documentation": "Content object.",
+            "type": "X_VERSIONED_OBJECT"
+        }
+    }
+}</code></pre>
 </div>
-<div class="paragraph">
-<p>Unresolved directive in openehr_extract_package.adoc - include::ROOT:partial$uml/{pkg}x_versioned_ehr_status.adoc[]</p>
 </div>
-<div class="paragraph">
-<p>Unresolved directive in openehr_extract_package.adoc - include::ROOT:partial$uml/{pkg}x_versioned_composition.adoc[]</p>
 </div>
-<div class="paragraph">
-<p>Unresolved directive in openehr_extract_package.adoc - include::ROOT:partial$uml/{pkg}x_versioned_folder.adoc[]</p>
+<div id="_tabs_1_uml--panel" class="tabpanel" aria-labelledby="_tabs_1_uml">
+<div class="imageblock kroki">
+<div class="content">
+<img src="https://kroki.io/plantuml/svg/eNqdVF1P2zAUffevsLQXYKJir4AmpYlRs3VJlRrEVE2WSS6t1cQOsatRbfvvcxxonAJC9CmRzzn34_j6orzkWuN0RhIyyViYJpQklMWU_MB_EMafsTBQ4XN8y25INo_ThEQsHX8jIcWLs9Hoyy_0DyF-p03Dc4O7aOSWZkFIh9Hwp98rG0tXag0XpZBwvmz41v2NCmUMFBcGHo07fU6tWd2IijdbW8BYqRK4xAub8gnMV1wuofDBrqQnvOJ6_SbctRXI7ft9HFL_y2jTNAxoMJ6SQ6yQvAJbbnTDqK1qZwJv8hWYbQ1MqgKYaJudm0bI5Y6ycYfXccTGwdxeXhz5Ntica23xqdDmchon37_ixcl-7AIMF2VLC7JwQujPGRkEuQcooGF8UwhjSVeERCRjwXUUU5-WK5lDbY6OX2nE3lafr1GqY_l3_tLQWUAnh_pZ8wZkl2QXZuGNBuOG1dysjjB334Gv-Ph5cjyFfl_iTLa63uOWx-DRnuu3ZfuT70QbKR428EGRumdtqa2qVPle707mDY81fAdf_j097QcYoX6WHeI_FIQGz2aA-wuh5w3WhOO_to7QfyjbbZc=?svg-type=inline" alt="OPENEHR_CONTENT_ITEM">
 </div>
-<div class="paragraph">
-<p>Unresolved directive in openehr_extract_package.adoc - include::ROOT:partial$uml/{pkg}x_versioned_party.adoc[]</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_x_versioned_object_class"><a class="anchor" href="#_x_versioned_object_class"></a><a class="link" href="#_x_versioned_object_class">X_VERSIONED_OBJECT Class</a></h3>
+<div id="_tabs_2" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="_tabs_2_definition" class="tab">
+<p>Definition</p>
+</li>
+<li id="_tabs_2_bmm" class="tab">
+<p>BMM</p>
+</li>
+<li id="_tabs_2_uml" class="tab">
+<p>UML</p>
+</li>
+</ul>
+</div>
+<div id="_tabs_2_definition--panel" class="tabpanel" aria-labelledby="_tabs_2_definition">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>X_VERSIONED_OBJECT&lt;T&gt;</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Variety of Extract content that consists is a sharable data-oriented version of <code>VERSIONED_OBJECT&lt;T&gt;</code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>uid</strong>: <code><a href="../../../../BASE/latest/base_types/identification_package/#_hier_object_id_class" class="xref page">HIER_OBJECT_ID</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Uid of original <code>VERSIONED_OBJECT</code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>owner_id</strong>: <code><a href="../../../../BASE/latest/base_types/identification_package/#_object_ref_class" class="xref page">OBJECT_REF</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Owner_id from original <code>VERSIONED_OBJECT</code>, which identifies source EHR.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>time_created</strong>: <code><a href="../../../latest/data_types/quantity_package/#_dv_date_time_class" class="xref page">DV_DATE_TIME</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Creation time of original <code>VERSIONED_OBJECT</code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>total_version_count</strong>: <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_integer_class" class="xref page">Integer</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Total number of versions in original <code>VERSIONED_OBJECT</code> at time of creation of this <code>X_VERSIONED_OBJECT</code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>extract_version_count</strong>: <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_integer_class" class="xref page">Integer</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>The number of Versions in this extract for this Versioned object, i.e. the count of items in the versions attribute. May be 0 if only revision history is requested.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>revision_history</strong>: <code><a href="../../../latest/common/generic_package/#_revision_history_class" class="xref page">REVISION_HISTORY</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Optional revision history of the original <code>VERSIONED_OBJECT</code>. If included, it is the complete revision history.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>versions</strong>: <code><a href="../../../../BASE/latest/foundation_types/structure_types/#_list_class" class="xref page">List</a>&lt;<a href="../../../latest/common/change_control_package/#_original_version_class" class="xref page">ORIGINAL_VERSION</a>&lt;T&gt;&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>0 or more Versions from the original <code>VERSIONED_OBJECT</code>, according to the Extract specification.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="_tabs_2_bmm--panel" class="tabpanel" aria-labelledby="_tabs_2_bmm">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+    "name": "X_VERSIONED_OBJECT",
+    "documentation": "Variety of Extract content that consists is a sharable data-oriented version of `VERSIONED_OBJECT&lt;T&gt;`.",
+    "generic_parameter_defs": {
+        "T": {
+            "name": "T"
+        }
+    },
+    "properties": {
+        "uid": {
+            "_type": "P_BMM_SINGLE_PROPERTY",
+            "name": "uid",
+            "documentation": "Uid of original `VERSIONED_OBJECT`.",
+            "is_mandatory": true,
+            "type": "HIER_OBJECT_ID"
+        },
+        "owner_id": {
+            "_type": "P_BMM_SINGLE_PROPERTY",
+            "name": "owner_id",
+            "documentation": "Owner_id from original `VERSIONED_OBJECT`, which identifies source EHR.",
+            "is_mandatory": true,
+            "type": "OBJECT_REF"
+        },
+        "time_created": {
+            "_type": "P_BMM_SINGLE_PROPERTY",
+            "name": "time_created",
+            "documentation": "Creation time of original `VERSIONED_OBJECT`.",
+            "is_mandatory": true,
+            "type": "DV_DATE_TIME"
+        },
+        "total_version_count": {
+            "_type": "P_BMM_SINGLE_PROPERTY",
+            "name": "total_version_count",
+            "documentation": "Total number of versions in original `VERSIONED_OBJECT` at time of creation of this `X_VERSIONED_OBJECT`.",
+            "is_mandatory": true,
+            "type": "Integer"
+        },
+        "extract_version_count": {
+            "_type": "P_BMM_SINGLE_PROPERTY",
+            "name": "extract_version_count",
+            "documentation": "The number of Versions in this extract for this Versioned object, i.e. the count of items in the versions attribute. May be 0 if only revision history is requested.",
+            "is_mandatory": true,
+            "type": "Integer"
+        },
+        "revision_history": {
+            "_type": "P_BMM_SINGLE_PROPERTY",
+            "name": "revision_history",
+            "documentation": "Optional revision history of the original `VERSIONED_OBJECT`. If included, it is the complete revision history.",
+            "type": "REVISION_HISTORY"
+        },
+        "versions": {
+            "_type": "P_BMM_CONTAINER_PROPERTY",
+            "name": "versions",
+            "documentation": "0 or more Versions from the original `VERSIONED_OBJECT`, according to the Extract specification.",
+            "type_def": {
+                "container_type": "List",
+                "type_def": {
+                    "_type": "P_BMM_GENERIC_TYPE",
+                    "root_type": "ORIGINAL_VERSION",
+                    "generic_parameters": [
+                        "T"
+                    ]
+                }
+            },
+            "cardinality": {
+                "lower": 0,
+                "upper_unbounded": true
+            }
+        }
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="_tabs_2_uml--panel" class="tabpanel" aria-labelledby="_tabs_2_uml">
+<div class="imageblock kroki">
+<div class="content">
+<img src="https://kroki.io/plantuml/svg/eNqF0E0LwjAMgOH7fkXOCqJXEUFd1Yg6qGUoQ8KYQQu6Qlu_EP-7dUw9en6fBJKoOObOwZpSIVeYLEVMyXAmRgp6qg-PCKAJZ72DLkxRyLoRxpB1tlU015ItVaKOUoy_1esTU2E59_wWcUrxQAlSuBA_Y3x-pAtbp01JhTmXPlAsPe_ZfhXfvM0L_9dZvugKHLTzxt4DkSLF9200xZVK5AaydqtV83qdC2weBnqJxAkuB_PPP8IX-pA1ttEzegF8kVrx?svg-type=inline" alt="X_VERSIONED_OBJECT">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_x_versioned_ehr_access_class"><a class="anchor" href="#_x_versioned_ehr_access_class"></a><a class="link" href="#_x_versioned_ehr_access_class">X_VERSIONED_EHR_ACCESS Class</a></h3>
+<div id="_tabs_3" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="_tabs_3_definition" class="tab">
+<p>Definition</p>
+</li>
+<li id="_tabs_3_bmm" class="tab">
+<p>BMM</p>
+</li>
+<li id="_tabs_3_uml" class="tab">
+<p>UML</p>
+</li>
+</ul>
+</div>
+<div id="_tabs_3_definition--panel" class="tabpanel" aria-labelledby="_tabs_3_definition">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>X_VERSIONED_EHR_ACCESS</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Form of <code>X_VERSIONED_OBJECT</code> for <code>EHR_ACCESS</code> EHR object.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="#RM:ehr_extract:openehr_extract.adoc#_x_versioned_object_class" class="xref unresolved">X_VERSIONED_OBJECT</a></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="_tabs_3_bmm--panel" class="tabpanel" aria-labelledby="_tabs_3_bmm">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+    "name": "X_VERSIONED_EHR_ACCESS",
+    "documentation": "Form of `X_VERSIONED_OBJECT` for `EHR_ACCESS` EHR object.",
+    "ancestors": [
+        "X_VERSIONED_OBJECT"
+    ]
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="_tabs_3_uml--panel" class="tabpanel" aria-labelledby="_tabs_3_uml">
+<div class="imageblock kroki">
+<div class="content">
+<img src="https://kroki.io/plantuml/svg/eNqF0VFLwzAQB_D3fooD35QVfd3GoLbRRuYKaRlKGUdpjy3YNZDcNof63c1KnQ8qvoXcL3_C_4K6rZyDJ1wKlctsIRIUqcIojkWew1vwEQQ_RXb7IOICpsUM4OKw0Uxua15o0uqOxmtbHftT2BhmaiZMr9zf-jiAK9jpBsaQSqGGIJQJlDerfmgOHVnsxTBU4u48Zb0lrC1VPteLZIlJVAgs5KP4NoarFvdknTYd1mbXsaeyY1qTPSv_J1vV_K-ztNc92GjHxh49UWIpT0VgKvMiU89QXofhwIc459ncP5hmSt7LRTT_Ks9XNoPycnXq9bdG30ejP3YRfAImrYOe?svg-type=inline" alt="X_VERSIONED_EHR_ACCESS">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_x_versioned_ehr_status_class"><a class="anchor" href="#_x_versioned_ehr_status_class"></a><a class="link" href="#_x_versioned_ehr_status_class">X_VERSIONED_EHR_STATUS Class</a></h3>
+<div id="_tabs_4" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="_tabs_4_definition" class="tab">
+<p>Definition</p>
+</li>
+<li id="_tabs_4_bmm" class="tab">
+<p>BMM</p>
+</li>
+<li id="_tabs_4_uml" class="tab">
+<p>UML</p>
+</li>
+</ul>
+</div>
+<div id="_tabs_4_definition--panel" class="tabpanel" aria-labelledby="_tabs_4_definition">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>X_VERSIONED_EHR_STATUS</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Form of <code>X_VERSIONED_OBJECT</code> for <code>EHR_STATUS</code> EHR object.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="#RM:ehr_extract:openehr_extract.adoc#_x_versioned_object_class" class="xref unresolved">X_VERSIONED_OBJECT</a></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="_tabs_4_bmm--panel" class="tabpanel" aria-labelledby="_tabs_4_bmm">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+    "name": "X_VERSIONED_EHR_STATUS",
+    "documentation": "Form of `X_VERSIONED_OBJECT` for `EHR_STATUS` EHR object.",
+    "ancestors": [
+        "X_VERSIONED_OBJECT"
+    ]
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="_tabs_4_uml--panel" class="tabpanel" aria-labelledby="_tabs_4_uml">
+<div class="imageblock kroki">
+<div class="content">
+<img src="https://kroki.io/plantuml/svg/eNqF0dFKwzAUBuD7PsUB75QVvd3GoNpoI3OFNBaljFDawxbsEkjONof67malzgsV70LOl5_wn6jpau_hSZVMFDxfsFSxTKhCJvKxgLfoI4p-ivz6nt1ImMoZwNl-rQn9xr7gpNMGxytXH_pT3FoibCeEr9TfhjiAC9jqFsaQcSaGIMVTqK6W_dDuDTrVi2Eo2O1pSnqDqnFYh9wg0lKliWRK8gf2bSzVndqh89oa1ditoUC5IVyhO6nwJ1c39K9zuNM9WGtP1h0CEazkxyJUxguZi2eoLuN44EOcD2weHkxzwe_4Ipl_lRcqm0F1vjz2-luj76PRH7uIPgF2PYQC?svg-type=inline" alt="X_VERSIONED_EHR_STATUS">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_x_versioned_composition_class"><a class="anchor" href="#_x_versioned_composition_class"></a><a class="link" href="#_x_versioned_composition_class">X_VERSIONED_COMPOSITION Class</a></h3>
+<div id="_tabs_5" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="_tabs_5_definition" class="tab">
+<p>Definition</p>
+</li>
+<li id="_tabs_5_bmm" class="tab">
+<p>BMM</p>
+</li>
+<li id="_tabs_5_uml" class="tab">
+<p>UML</p>
+</li>
+</ul>
+</div>
+<div id="_tabs_5_definition--panel" class="tabpanel" aria-labelledby="_tabs_5_definition">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>X_VERSIONED_COMPOSITION</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Form of <code>X_VERSIONED_OBJECT</code> for <code>COMPOSITION</code> EHR object.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="#RM:ehr_extract:openehr_extract.adoc#_x_versioned_object_class" class="xref unresolved">X_VERSIONED_OBJECT</a></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="_tabs_5_bmm--panel" class="tabpanel" aria-labelledby="_tabs_5_bmm">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+    "name": "X_VERSIONED_COMPOSITION",
+    "documentation": "Form of `X_VERSIONED_OBJECT` for `COMPOSITION` EHR object.",
+    "ancestors": [
+        "X_VERSIONED_OBJECT"
+    ]
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="_tabs_5_uml--panel" class="tabpanel" aria-labelledby="_tabs_5_uml">
+<div class="imageblock kroki">
+<div class="content">
+<img src="https://kroki.io/plantuml/svg/eNqF0dFqwjAUBuD7PsWB3W1Y3K2K4Gw2M9SMNJSNIqG0Bw2rDSRHnWx798XSuYtNdpfkfPkJf6KyLryHZ50xmXKxZImeisWTSLkKO3iPPqPoNxF3j2yqYKTGAFeHjSH0W_uKw9o0OFi74tiu4soSYTUkfKP2NMQB3MDOVDCAGWeyC9I8gfx21Q7toUGnW9ENJbs_T8lsUZcOi5AbRJLpZKKYVnzBfoylotZ7dN7YRpd211CgvCFcozur8CZXlPSvc7g3LdgYT9YdA5Es46ci9IynSsgXyPtx3PEuzgc2DxdGQvIHvpzMv8sLlY0hv16dev2r0Y9e79JnRF9QwIRm?svg-type=inline" alt="X_VERSIONED_COMPOSITION">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_x_versioned_folder_class"><a class="anchor" href="#_x_versioned_folder_class"></a><a class="link" href="#_x_versioned_folder_class">X_VERSIONED_FOLDER Class</a></h3>
+<div id="_tabs_6" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="_tabs_6_definition" class="tab">
+<p>Definition</p>
+</li>
+<li id="_tabs_6_bmm" class="tab">
+<p>BMM</p>
+</li>
+<li id="_tabs_6_uml" class="tab">
+<p>UML</p>
+</li>
+</ul>
+</div>
+<div id="_tabs_6_definition--panel" class="tabpanel" aria-labelledby="_tabs_6_definition">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>X_VERSIONED_FOLDER</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Form of <code>X_VERSIONED_OBJECT</code> for <code>FOLDER</code> EHR object.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="#RM:ehr_extract:openehr_extract.adoc#_x_versioned_object_class" class="xref unresolved">X_VERSIONED_OBJECT</a></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="_tabs_6_bmm--panel" class="tabpanel" aria-labelledby="_tabs_6_bmm">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+    "name": "X_VERSIONED_FOLDER",
+    "documentation": "Form of `X_VERSIONED_OBJECT` for `FOLDER` EHR object.",
+    "ancestors": [
+        "X_VERSIONED_OBJECT"
+    ]
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="_tabs_6_uml--panel" class="tabpanel" aria-labelledby="_tabs_6_uml">
+<div class="imageblock kroki">
+<div class="content">
+<img src="https://kroki.io/plantuml/svg/eNqFkdFKwzAUhu_zFAe8U1b0dhuDaTIXqStkoShlhNIetmDXQHK2OdR3Nyt1Xjjw7pD_y8_hO6xqyhDgxeRCLWW2ENzMspQLBR_si7G_aXb_JB40jPUE4OqwsYRh695w1NgWh2tfHrspqR0R1iPCd-peYx3ADexsDUOYS6H6IiM5FHerLnSHFr3piD5UYnZOyW7RVB7L2BsJnhs-1cJo-Sx-GUdlY_bog3WtqdyupYjKlnCN_kzFnXxZ0b-cx73tgI0N5PwxIkrk8iTCzOVSZ-oVitsk6fG-LkQsjR_GmZKPcjFNf-RFZRMorlcnr5eMfg4GF-7AvgEdt4E2?svg-type=inline" alt="X_VERSIONED_FOLDER">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_x_versioned_party_class"><a class="anchor" href="#_x_versioned_party_class"></a><a class="link" href="#_x_versioned_party_class">X_VERSIONED_PARTY Class</a></h3>
+<div id="_tabs_7" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="_tabs_7_definition" class="tab">
+<p>Definition</p>
+</li>
+<li id="_tabs_7_bmm" class="tab">
+<p>BMM</p>
+</li>
+<li id="_tabs_7_uml" class="tab">
+<p>UML</p>
+</li>
+</ul>
+</div>
+<div id="_tabs_7_definition--panel" class="tabpanel" aria-labelledby="_tabs_7_definition">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>X_VERSIONED_PARTY</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Form of <code>X_VERSIONED_OBJECT</code> for <code>PARTY</code> demographic object.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="#RM:ehr_extract:openehr_extract.adoc#_x_versioned_object_class" class="xref unresolved">X_VERSIONED_OBJECT</a></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="_tabs_7_bmm--panel" class="tabpanel" aria-labelledby="_tabs_7_bmm">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+    "name": "X_VERSIONED_PARTY",
+    "documentation": "Form of `X_VERSIONED_OBJECT` for `PARTY` demographic object.",
+    "ancestors": [
+        "X_VERSIONED_OBJECT"
+    ]
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="_tabs_7_uml--panel" class="tabpanel" aria-labelledby="_tabs_7_uml">
+<div class="imageblock kroki">
+<div class="content">
+<img src="https://kroki.io/plantuml/svg/eNqFkdFqwjAUhu_7FAd2t2FxtypCt8aZ4eyIoShFQmkPGlYbSI462fbui6FzFw52d8j_5efwnahqSudgqXImFjybs1S9JkKu4CP6iqLrMHt4Zo8SRnIMcHPcakK3M284bHSLg40tT2GKa0OE9ZDwncKrrwO4g72uYQBTzkRXpHgKxf06hObYolWB6ELBJpeU9A5VZbH0vZ5Ic5UmkinJX9gvY6hs1AGt06ZVldm35FHeEm7QXii_ky0r-pezeNAB2GpHxp48IljOzyLUlC9kJlZQ9OO4w7s657GZ_zDKBH_i82T2I88rG0Nxuz57_cvoZ693fYboG1GugN4=?svg-type=inline" alt="X_VERSIONED_PARTY">
+</div>
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -628,5 +1184,6 @@ rewritten to refer to the uid (<code>11111111</code>) of the first <code>OPENEHR
 <script async src="../../../../search-index.js"></script>
 <script src="../../../../ui/js/medium-zoom.min.js"></script>
 <script src="../../../../ui/js/zoom.js"></script>
+<script async src="../../../../ui/js/tabs.js"></script>
   </body>
 </html>

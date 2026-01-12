@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="../../../../ui/css/site.css">
     <link rel="stylesheet" href="../../../../ui/css/antora-openehr.css">
     <link rel="stylesheet" href="../../../../ui/css/openehr.css">
+    <link rel="stylesheet" href="../../../../ui/css/tabs.css">
 <link rel="icon" href="../../../../ui/img/favicon.ico" type="image/x-icon">
   </head>
   <body class="article">
@@ -294,7 +295,7 @@
     <a class="nav-link" href="../../ehr_extract/generic_extract_package/">Generic_extract Package</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../../ehr_extract/synchronisation_package/">Synchronisation Extracts</a>
+    <a class="nav-link" href="../../ehr_extract/synchronisation_package/">Synchronisation Extract</a>
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../../ehr_extract/message_package/">The Message package</a>
@@ -411,20 +412,6 @@
     <span class="version">development</span>
   </div>
   <ul class="components">
-    <li class="component">
-      <div class="title"><a href="../../../../AM/latest/">Archetype Model</a></div>
-      <ul class="versions">
-        <li class="version is-latest">
-          <a href="../../../../AM/latest/">Release-2.3.0</a>
-        </li>
-        <li class="version">
-          <a href="../../../../AM/Release-2.2.0/">Release-2.2.0</a>
-        </li>
-        <li class="version">
-          <a href="../../../../AM/development/">development</a>
-        </li>
-      </ul>
-    </li>
     <li class="component">
       <div class="title"><a href="../../../../BASE/latest/">Base Model</a></div>
       <ul class="versions">
@@ -557,17 +544,822 @@ the version of the Resource package described below is used only in ADL 1.4 arch
 <div class="sect1">
 <h2 id="_class_descriptions"><a class="anchor" href="#_class_descriptions"></a><a class="link" href="#_class_descriptions">Class Descriptions</a></h2>
 <div class="sectionbody">
-<div class="paragraph">
-<p>Unresolved directive in resource_package.adoc - include::ROOT:partial$uml/{pkg}authored_resource.adoc[]</p>
+<div class="sect2">
+<h3 id="_authored_resource_class"><a class="anchor" href="#_authored_resource_class"></a><a class="link" href="#_authored_resource_class">AUTHORED_RESOURCE Class</a></h3>
+<div id="_tabs_1" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="_tabs_1_definition" class="tab">
+<p>Definition</p>
+</li>
+<li id="_tabs_1_bmm" class="tab">
+<p>BMM</p>
+</li>
+<li id="_tabs_1_uml" class="tab">
+<p>UML</p>
+</li>
+</ul>
 </div>
-<div class="paragraph">
-<p>Unresolved directive in resource_package.adoc - include::ROOT:partial$uml/{pkg}translation_details.adoc[]</p>
+<div id="_tabs_1_definition--panel" class="tabpanel" aria-labelledby="_tabs_1_definition">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong><em>AUTHORED_RESOURCE (abstract)</em></strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Abstract idea of an online resource created by a human author.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>original_language</strong>: <code><a href="../../../latest/data_types/text_package/#_code_phrase_class" class="xref page">CODE_PHRASE</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Language in which this resource was initially authored. Although there is no language primacy of resources overall, the language of original authoring is required to ensure natural language translations can preserve quality. Language is relevant in both the description and ontology sections.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_controlled</strong>: <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>True if this resource is under any kind of change control (even file copying), in which case revision history is created.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>translations</strong>: <code><a href="../../../../BASE/latest/foundation_types/structure_types/#_hash_class" class="xref page">Hash</a>&lt;<a href="../../../../BASE/latest/foundation_types/primitive_types/#_string_class" class="xref page">String</a>,<a href="../../../latest/common/resource_package/#_translation_details_class" class="xref page">TRANSLATION_DETAILS</a>&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>List of details for each natural-language translation made of this resource, keyed by language. For each translation listed here, there must be corresponding sections in all language-dependent parts of the resource. The <code><em>original_language</em></code> does not appear in this list.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>description</strong>: <code><a href="../../../latest/common/resource_package/#_resource_description_class" class="xref page">RESOURCE_DESCRIPTION</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Description and lifecycle information of the resource.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>revision_history</strong>: <code><a href="../../../latest/common/generic_package/#_revision_history_class" class="xref page">REVISION_HISTORY</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>The revision history of the resource. Only required if <code><em>is_controlled</em> = True</code> (avoids large revision histories for informal or private editing situations).</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Functions</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>current_revision</strong> (): <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_string_class" class="xref page">String</a></code><br>
+<br>
+<em>Post</em>: <code>Result = revision_history.most_recent_version</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Most recent revision in <code><em>revision_history</em></code> if <code><em>is_controlled</em></code> else  (uncontrolled) .</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>languages_available</strong> (): <code><a href="../../../../BASE/latest/foundation_types/structure_types/#_list_class" class="xref page">List</a>&lt;<a href="../../../../BASE/latest/foundation_types/primitive_types/#_string_class" class="xref page">String</a>&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Total list of languages available in this resource, derived from <code><em>original_language</em></code> and <code><em>translations</em></code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Invariants</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Original_language_valid</em>: <code>code_set (Code_set_id_languages).has_code (original_language.as_string)</code></p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Languages_available_valid</em>: <code>languages_available.has (original_language)</code></p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Revision_history_valid</em>: <code>is_controlled xor revision_history = Void</code></p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Current_revision_valid</em>: <code>(current_revision /= Void and not is_controlled) implies current_revision.is_equal (“(uncontrolled)”)</code></p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Translations_valid</em>: <code>translations /= Void implies (not translations.is_empty and not translations.has (orginal_language.code_string))</code></p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Description_valid</em>: <code>translations /= Void implies (description.details.for_all (d &#124;
+translations.has_key (d.language.code_string)))</code></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
 </div>
-<div class="paragraph">
-<p>Unresolved directive in resource_package.adoc - include::ROOT:partial$uml/{pkg}resource_description.adoc[]</p>
+<div id="_tabs_1_bmm--panel" class="tabpanel" aria-labelledby="_tabs_1_bmm">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+    "name": "AUTHORED_RESOURCE",
+    "documentation": "Abstract idea of an online resource created by a human author. \n",
+    "is_abstract": true,
+    "properties": {
+        "original_language": {
+            "_type": "P_BMM_SINGLE_PROPERTY",
+            "name": "original_language",
+            "documentation": "Language in which this resource was initially authored. Although there is no language primacy of resources overall, the language of original authoring is required to ensure natural language translations can preserve quality. Language is relevant in both the description and ontology sections. ",
+            "is_mandatory": true,
+            "type": "CODE_PHRASE"
+        },
+        "is_controlled": {
+            "_type": "P_BMM_SINGLE_PROPERTY",
+            "name": "is_controlled",
+            "documentation": "True if this resource is under any kind of change control (even file copying), in which case revision history is created. ",
+            "type": "Boolean"
+        },
+        "translations": {
+            "_type": "P_BMM_GENERIC_PROPERTY",
+            "name": "translations",
+            "documentation": "List of details for each natural-language translation made of this resource, keyed by language. For each translation listed here, there must be corresponding sections in all language-dependent parts of the resource. The `_original_language_` does not appear in this list.",
+            "type_def": {
+                "root_type": "Hash",
+                "generic_parameters": [
+                    "String",
+                    "TRANSLATION_DETAILS"
+                ]
+            }
+        },
+        "description": {
+            "_type": "P_BMM_SINGLE_PROPERTY",
+            "name": "description",
+            "documentation": "Description and lifecycle information of the resource.",
+            "type": "RESOURCE_DESCRIPTION"
+        },
+        "revision_history": {
+            "_type": "P_BMM_SINGLE_PROPERTY",
+            "name": "revision_history",
+            "documentation": "The revision history of the resource. Only required if `_is_controlled_ = True` (avoids large revision histories for informal or private editing situations). ",
+            "type": "REVISION_HISTORY"
+        }
+    },
+    "functions": {
+        "current_revision": {
+            "name": "current_revision",
+            "documentation": "Most recent revision in `_revision_history_` if `_is_controlled_` else  (uncontrolled) . ",
+            "post_conditions": {
+                "Post": "Result = revision_history.most_recent_version"
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "String"
+            }
+        },
+        "languages_available": {
+            "name": "languages_available",
+            "documentation": "Total list of languages available in this resource, derived from `_original_language_` and `_translations_`.\n",
+            "result": {
+                "_type": "P_BMM_CONTAINER_TYPE",
+                "container_type": "List",
+                "type": "String"
+            }
+        }
+    },
+    "invariants": {
+        "Original_language_valid": "code_set (Code_set_id_languages).has_code (original_language.as_string)",
+        "Languages_available_valid": "languages_available.has (original_language)",
+        "Revision_history_valid": "is_controlled xor revision_history = Void",
+        "Current_revision_valid": "(current_revision /= Void and not is_controlled) implies current_revision.is_equal (“(uncontrolled)”)",
+        "Translations_valid": "translations /= Void implies (not translations.is_empty and not translations.has (orginal_language.code_string))",
+        "Description_valid": "translations /= Void implies (description.details.for_all (d |\ntranslations.has_key (d.language.code_string)))"
+    }
+}</code></pre>
 </div>
-<div class="paragraph">
-<p>Unresolved directive in resource_package.adoc - include::ROOT:partial$uml/{pkg}resource_description_item.adoc[]</p>
+</div>
+</div>
+<div id="_tabs_1_uml--panel" class="tabpanel" aria-labelledby="_tabs_1_uml">
+<div class="imageblock kroki">
+<div class="content">
+<img src="https://kroki.io/plantuml/svg/eNpNj1trwyAYhu_zK7zcidDejjFwiZBAqEXtYJQiX1NJBdHhZwtj7L_PZM3I_fO8hwKOmCL0ifQOEAndqYYLVmvBJN-JipHvgpBHEqIdrAenHfjhAoMhz6TiNdPbRlDJyH59mDiLug8-xeCcOWXmLQRnwJP9qixvSK7z6CDZ4DETDeD5RaZo_fCkBN3IjqqWb3TNFG07-bpUTwb7aD9HNZvzxIzKSrTbUVvS0VwtZlSfLaYQvyblvZVjetNKxcXHEu8vMRqf9Kzd3Wfhb9j_vfk9ariCdXB0ZsK63HA7kQevy_LhUPwUvyyJa_w=?svg-type=inline" alt="AUTHORED_RESOURCE">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_translation_details_class"><a class="anchor" href="#_translation_details_class"></a><a class="link" href="#_translation_details_class">TRANSLATION_DETAILS Class</a></h3>
+<div id="_tabs_2" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="_tabs_2_definition" class="tab">
+<p>Definition</p>
+</li>
+<li id="_tabs_2_bmm" class="tab">
+<p>BMM</p>
+</li>
+<li id="_tabs_2_uml" class="tab">
+<p>UML</p>
+</li>
+</ul>
+</div>
+<div id="_tabs_2_definition--panel" class="tabpanel" aria-labelledby="_tabs_2_definition">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>TRANSLATION_DETAILS</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Class providing details of a natural language translation.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>language</strong>: <code><a href="../../../latest/data_types/text_package/#_code_phrase_class" class="xref page">CODE_PHRASE</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Language of the translation.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>author</strong>: <code><a href="../../../../BASE/latest/foundation_types/structure_types/#_hash_class" class="xref page">Hash</a>&lt;<a href="../../../../BASE/latest/foundation_types/primitive_types/#_string_class" class="xref page">String</a>,<a href="../../../../BASE/latest/foundation_types/primitive_types/#_string_class" class="xref page">String</a>&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Translator name and other demographic details.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>accreditaton</strong>: <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_string_class" class="xref page">String</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Accreditation of translator, usually a national translator&#8217;s registration or association membership id.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>other_details</strong>: <code><a href="../../../../BASE/latest/foundation_types/structure_types/#_hash_class" class="xref page">Hash</a>&lt;<a href="../../../../BASE/latest/foundation_types/primitive_types/#_string_class" class="xref page">String</a>,<a href="../../../../BASE/latest/foundation_types/primitive_types/#_string_class" class="xref page">String</a>&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Any other meta-data.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Invariants</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Language_valid</em>: <code>code_set (Code_set_id_languages).has_code (language)</code></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="_tabs_2_bmm--panel" class="tabpanel" aria-labelledby="_tabs_2_bmm">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+    "name": "TRANSLATION_DETAILS",
+    "documentation": "Class providing details of a natural language translation. ",
+    "properties": {
+        "language": {
+            "_type": "P_BMM_SINGLE_PROPERTY",
+            "name": "language",
+            "documentation": "Language of the translation.",
+            "is_mandatory": true,
+            "type": "CODE_PHRASE"
+        },
+        "author": {
+            "_type": "P_BMM_GENERIC_PROPERTY",
+            "name": "author",
+            "documentation": "Translator name and other demographic details.",
+            "is_mandatory": true,
+            "type_def": {
+                "root_type": "Hash",
+                "generic_parameters": [
+                    "String",
+                    "String"
+                ]
+            }
+        },
+        "accreditaton": {
+            "_type": "P_BMM_SINGLE_PROPERTY",
+            "name": "accreditaton",
+            "documentation": "Accreditation of translator, usually a national translator's registration or association membership id.",
+            "type": "String"
+        },
+        "other_details": {
+            "_type": "P_BMM_GENERIC_PROPERTY",
+            "name": "other_details",
+            "documentation": "Any other meta-data.",
+            "type_def": {
+                "root_type": "Hash",
+                "generic_parameters": [
+                    "String",
+                    "String"
+                ]
+            }
+        }
+    },
+    "invariants": {
+        "Language_valid": "code_set (Code_set_id_languages).has_code (language)"
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="_tabs_2_uml--panel" class="tabpanel" aria-labelledby="_tabs_2_uml">
+<div class="imageblock kroki">
+<div class="content">
+<img src="https://kroki.io/plantuml/svg/eNrjSs5JLC5WCAly9Av2cQzx9PeLd3ENcfT0CVao5lJQ0FbIScxLL01MT1WwUnD2d3GND_AIcgx2VYg2jAVLJ5aWZOQXASU9EoszbIJLijLz0nUglB1CUXJyUWpKZkliSX4eUClEWiHaQE8PqiC_JCO1KD4ltSQxM6cYl2EQ5bVcAO2PNqw=?svg-type=inline" alt="TRANSLATION_DETAILS">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_resource_description_class"><a class="anchor" href="#_resource_description_class"></a><a class="link" href="#_resource_description_class">RESOURCE_DESCRIPTION Class</a></h3>
+<div id="_tabs_3" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="_tabs_3_definition" class="tab">
+<p>Definition</p>
+</li>
+<li id="_tabs_3_bmm" class="tab">
+<p>BMM</p>
+</li>
+<li id="_tabs_3_uml" class="tab">
+<p>UML</p>
+</li>
+</ul>
+</div>
+<div id="_tabs_3_definition--panel" class="tabpanel" aria-labelledby="_tabs_3_definition">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>RESOURCE_DESCRIPTION</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Defines the descriptive meta-data of a resource.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>original_author</strong>: <code><a href="../../../../BASE/latest/foundation_types/structure_types/#_hash_class" class="xref page">Hash</a>&lt;<a href="../../../../BASE/latest/foundation_types/primitive_types/#_string_class" class="xref page">String</a>,<a href="../../../../BASE/latest/foundation_types/primitive_types/#_string_class" class="xref page">String</a>&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Original author of this resource, with all relevant details, including organisation.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>other_contributors</strong>: <code><a href="../../../../BASE/latest/foundation_types/structure_types/#_list_class" class="xref page">List</a>&lt;<a href="../../../../BASE/latest/foundation_types/primitive_types/#_string_class" class="xref page">String</a>&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Other contributors to the resource, probably listed in  <code>'name &lt;email&gt;'</code>  form.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>lifecycle_state</strong>: <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_string_class" class="xref page">String</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Lifecycle state of the resource, typically including states such as: <code>initial &#124; submitted &#124; experimental &#124; awaiting_approval &#124; approved &#124; superseded &#124; obsolete</code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>resource_package_uri</strong>: <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_string_class" class="xref page">String</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>URI of package to which this resource belongs.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>other_details</strong>: <code><a href="../../../../BASE/latest/foundation_types/structure_types/#_hash_class" class="xref page">Hash</a>&lt;<a href="../../../../BASE/latest/foundation_types/primitive_types/#_string_class" class="xref page">String</a>,<a href="../../../../BASE/latest/foundation_types/primitive_types/#_string_class" class="xref page">String</a>&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Additional non language-senstive resource meta-data, as a list of name/value pairs.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>parent_resource</strong>: <code><a href="../../../latest/common/resource_package/#_authored_resource_class" class="xref page">AUTHORED_RESOURCE</a><br>
+{default&#160;=&#160;0..1}</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Reference to owning resource.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>details</strong>: <code><a href="../../../../BASE/latest/foundation_types/structure_types/#_hash_class" class="xref page">Hash</a>&lt;<a href="../../../../BASE/latest/foundation_types/primitive_types/#_string_class" class="xref page">String</a>,<a href="../../../latest/common/resource_package/#_resource_description_item_class" class="xref page">RESOURCE_DESCRIPTION_ITEM</a>&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Details of all parts of resource description that are natural language-dependent, keyed by language code.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Invariants</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Original_author_valid</em>: <code>not original_author.is_empty</code></p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Lifecycle_state_valid</em>: <code>not lifecycle_state.is_empty</code></p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Details_valid</em>: <code>not details.is_empty</code></p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Language_valid</em>: <code>parent_resource /= Void implies details.for_all (d &#124; parent_resource.languages_available.has (d.language.code_string))</code></p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Parent_resource_valid</em>: <code>parent_resource /= Void implies parent_resource.description = self</code></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="_tabs_3_bmm--panel" class="tabpanel" aria-labelledby="_tabs_3_bmm">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+    "name": "RESOURCE_DESCRIPTION",
+    "documentation": "Defines the descriptive meta-data of a resource.",
+    "properties": {
+        "original_author": {
+            "_type": "P_BMM_GENERIC_PROPERTY",
+            "name": "original_author",
+            "documentation": "Original author of this resource, with all relevant details, including organisation.",
+            "is_mandatory": true,
+            "type_def": {
+                "root_type": "Hash",
+                "generic_parameters": [
+                    "String",
+                    "String"
+                ]
+            }
+        },
+        "other_contributors": {
+            "_type": "P_BMM_CONTAINER_PROPERTY",
+            "name": "other_contributors",
+            "documentation": "Other contributors to the resource, probably listed in  `'name &lt;email&gt;'`  form. ",
+            "type_def": {
+                "container_type": "List",
+                "type": "String"
+            },
+            "cardinality": {
+                "lower": 0,
+                "upper_unbounded": true
+            }
+        },
+        "lifecycle_state": {
+            "_type": "P_BMM_SINGLE_PROPERTY",
+            "name": "lifecycle_state",
+            "documentation": "Lifecycle state of the resource, typically including states such as: `initial | submitted | experimental | awaiting_approval | approved | superseded | obsolete`.",
+            "is_mandatory": true,
+            "type": "String"
+        },
+        "resource_package_uri": {
+            "_type": "P_BMM_SINGLE_PROPERTY",
+            "name": "resource_package_uri",
+            "documentation": "URI of package to which this resource belongs.",
+            "type": "String"
+        },
+        "other_details": {
+            "_type": "P_BMM_GENERIC_PROPERTY",
+            "name": "other_details",
+            "documentation": "Additional non language-senstive resource meta-data, as a list of name/value pairs. ",
+            "type_def": {
+                "root_type": "Hash",
+                "generic_parameters": [
+                    "String",
+                    "String"
+                ]
+            }
+        },
+        "parent_resource": {
+            "_type": "P_BMM_SINGLE_PROPERTY",
+            "name": "parent_resource",
+            "documentation": "Reference to owning resource. ",
+            "is_mandatory": true,
+            "type": "AUTHORED_RESOURCE",
+            "default": "0..1"
+        },
+        "details": {
+            "_type": "P_BMM_GENERIC_PROPERTY",
+            "name": "details",
+            "documentation": "Details of all parts of resource description that are natural language-dependent, keyed by language code. ",
+            "is_mandatory": true,
+            "type_def": {
+                "root_type": "Hash",
+                "generic_parameters": [
+                    "String",
+                    "RESOURCE_DESCRIPTION_ITEM"
+                ]
+            }
+        }
+    },
+    "invariants": {
+        "Original_author_valid": "not original_author.is_empty",
+        "Lifecycle_state_valid": "not lifecycle_state.is_empty",
+        "Details_valid": "not details.is_empty",
+        "Language_valid": "parent_resource /= Void implies details.for_all (d | parent_resource.languages_available.has (d.language.code_string))",
+        "Parent_resource_valid": "parent_resource /= Void implies parent_resource.description = self"
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="_tabs_3_uml--panel" class="tabpanel" aria-labelledby="_tabs_3_uml">
+<div class="imageblock kroki">
+<div class="content">
+<img src="https://kroki.io/plantuml/svg/eNp1kM1qwzAQhO9-Cp3TYNJrCYHiCGxo6-KfUynLRtnYosIKq_WhlL57DcJOCslpYfhmdpjEOAxBVbou2yrTsNd1VhXvTVG-qZ9EqQfl2XZ2QAc4Su9ZPakcQ7-the3QrePZqY_Hz0hLTwzGD5N-GMVzmAwvNsh2IVeRdPZE5ts4giAoNGGRWKKYgh_ZEJzRfGFHMLK9ojZp-u_nkQStC_f6XfAzMg0Cc_xkeG6bvKz0HuYZlg63Q2-tBUWjX-MOv8kfdVJtPw==?svg-type=inline" alt="RESOURCE_DESCRIPTION">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_resource_description_item_class"><a class="anchor" href="#_resource_description_item_class"></a><a class="link" href="#_resource_description_item_class">RESOURCE_DESCRIPTION_ITEM Class</a></h3>
+<div id="_tabs_4" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="_tabs_4_definition" class="tab">
+<p>Definition</p>
+</li>
+<li id="_tabs_4_bmm" class="tab">
+<p>BMM</p>
+</li>
+<li id="_tabs_4_uml" class="tab">
+<p>UML</p>
+</li>
+</ul>
+</div>
+<div id="_tabs_4_definition--panel" class="tabpanel" aria-labelledby="_tabs_4_definition">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>RESOURCE_DESCRIPTION_ITEM</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Language-specific detail of resource description. When a resource is translated for use in another language environment, each <code>RESOURCE_DESCRIPTION_ITEM</code> needs to be copied and translated into the new language.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>language</strong>: <code><a href="../../../latest/data_types/text_package/#_code_phrase_class" class="xref page">CODE_PHRASE</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>The localised language in which the items in this description item are written. Coded from openEHR code set <code>languages</code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>purpose</strong>: <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_string_class" class="xref page">String</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Purpose of the resource.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>keywords</strong>: <code><a href="../../../../BASE/latest/foundation_types/structure_types/#_list_class" class="xref page">List</a>&lt;<a href="../../../../BASE/latest/foundation_types/primitive_types/#_string_class" class="xref page">String</a>&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Keywords which characterise this resource, used e.g. for indexing and searching.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>use</strong>: <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_string_class" class="xref page">String</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Description of the uses of the resource, i.e. contexts in which it could be used.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>misuse</strong>: <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_string_class" class="xref page">String</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Description of any misuses of the resource, i.e. contexts in which it should not be used.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>copyright</strong>: <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_string_class" class="xref page">String</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Optional copyright statement for the resource as a knowledge resource.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>original_resource_uri</strong>: <code><a href="../../../../BASE/latest/foundation_types/structure_types/#_hash_class" class="xref page">Hash</a>&lt;<a href="../../../../BASE/latest/foundation_types/primitive_types/#_string_class" class="xref page">String</a>,<a href="../../../../BASE/latest/foundation_types/primitive_types/#_string_class" class="xref page">String</a>&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>URIs of original clinical document(s) or description of which resource is a formalisation, in the language of this description item; keyed by meaning.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>other_details</strong>: <code><a href="../../../../BASE/latest/foundation_types/structure_types/#_hash_class" class="xref page">Hash</a>&lt;<a href="../../../../BASE/latest/foundation_types/primitive_types/#_string_class" class="xref page">String</a>,<a href="../../../../BASE/latest/foundation_types/primitive_types/#_string_class" class="xref page">String</a>&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Additional language-senstive resource metadata, as a list of name/value pairs.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Invariants</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Language_valid</em>: <code>code_set (Code_set_id_languages).has_code (language)</code></p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Purpose_valid</em>: <code>not purpose.is_empty</code></p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Use_valid</em>: <code>use /= Void implies not use.is_empty</code></p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>misuse_valid</em>: <code>misuse /= Void implies not misuse.is_empty</code></p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>copyright_valid</em>: <code>copyright /= Void implies not copyright.is_empty</code></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="_tabs_4_bmm--panel" class="tabpanel" aria-labelledby="_tabs_4_bmm">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+    "name": "RESOURCE_DESCRIPTION_ITEM",
+    "documentation": "Language-specific detail of resource description. When a resource is translated for use in another language environment, each `RESOURCE_DESCRIPTION_ITEM` needs to be copied and translated into the new language.",
+    "properties": {
+        "language": {
+            "_type": "P_BMM_SINGLE_PROPERTY",
+            "name": "language",
+            "documentation": "The localised language in which the items in this description item are written. Coded from openEHR code set `languages`.",
+            "is_mandatory": true,
+            "type": "CODE_PHRASE"
+        },
+        "purpose": {
+            "_type": "P_BMM_SINGLE_PROPERTY",
+            "name": "purpose",
+            "documentation": "Purpose of the resource.",
+            "is_mandatory": true,
+            "type": "String"
+        },
+        "keywords": {
+            "_type": "P_BMM_CONTAINER_PROPERTY",
+            "name": "keywords",
+            "documentation": "Keywords which characterise this resource, used e.g. for indexing and searching. ",
+            "type_def": {
+                "container_type": "List",
+                "type": "String"
+            },
+            "cardinality": {
+                "lower": 0,
+                "upper_unbounded": true
+            }
+        },
+        "use": {
+            "_type": "P_BMM_SINGLE_PROPERTY",
+            "name": "use",
+            "documentation": "Description of the uses of the resource, i.e. contexts in which it could be used. \n",
+            "type": "String"
+        },
+        "misuse": {
+            "_type": "P_BMM_SINGLE_PROPERTY",
+            "name": "misuse",
+            "documentation": "Description of any misuses of the resource, i.e. contexts in which it should not be used.",
+            "type": "String"
+        },
+        "copyright": {
+            "_type": "P_BMM_SINGLE_PROPERTY",
+            "name": "copyright",
+            "documentation": "Optional copyright statement for the resource as a knowledge resource. \n",
+            "type": "String"
+        },
+        "original_resource_uri": {
+            "_type": "P_BMM_GENERIC_PROPERTY",
+            "name": "original_resource_uri",
+            "documentation": "URIs of original clinical document(s) or description of which resource is a formalisation, in the language of this description item; keyed by meaning. ",
+            "type_def": {
+                "root_type": "Hash",
+                "generic_parameters": [
+                    "String",
+                    "String"
+                ]
+            }
+        },
+        "other_details": {
+            "_type": "P_BMM_GENERIC_PROPERTY",
+            "name": "other_details",
+            "documentation": "Additional language-senstive resource metadata, as a list of name/value pairs. ",
+            "type_def": {
+                "root_type": "Hash",
+                "generic_parameters": [
+                    "String",
+                    "String"
+                ]
+            }
+        }
+    },
+    "invariants": {
+        "Language_valid": "code_set (Code_set_id_languages).has_code (language)",
+        "Purpose_valid": "not purpose.is_empty",
+        "Use_valid": "use /= Void implies not use.is_empty",
+        "misuse_valid": "misuse /= Void implies not misuse.is_empty",
+        "copyright_valid": "copyright /= Void implies not copyright.is_empty"
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="_tabs_4_uml--panel" class="tabpanel" aria-labelledby="_tabs_4_uml">
+<div class="imageblock kroki">
+<div class="content">
+<img src="https://kroki.io/plantuml/svg/eNp9zlELgjAUhuF7f8W5rpC6jQjCBgqVonYlMYaOOTInOxsh0X_PUqSgun6-l3OcvGKIEJMkPMYeoVuSeHEQpUF4oEFK9nBzAKZQsVpYJjgswQu3hEZ-vEkIZIvTixurG4VPTYyWtRjhzNur0gV2spNoVj2vIZv0bj-iuesO3UXiL8pV02opSvNVVUeyZhXVHJXVOadWy27pMyyH67PxibfMlFzTghsmK_w_vzsPpJJeCQ==?svg-type=inline" alt="RESOURCE_DESCRIPTION_ITEM">
+</div>
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -614,5 +1406,6 @@ the version of the Resource package described below is used only in ADL 1.4 arch
 <script async src="../../../../search-index.js"></script>
 <script src="../../../../ui/js/medium-zoom.min.js"></script>
 <script src="../../../../ui/js/zoom.js"></script>
+<script async src="../../../../ui/js/tabs.js"></script>
   </body>
 </html>

@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="../../../../ui/css/site.css">
     <link rel="stylesheet" href="../../../../ui/css/antora-openehr.css">
     <link rel="stylesheet" href="../../../../ui/css/openehr.css">
+    <link rel="stylesheet" href="../../../../ui/css/tabs.css">
 <link rel="icon" href="../../../../ui/img/favicon.ico" type="image/x-icon">
   </head>
   <body class="article">
@@ -294,7 +295,7 @@
     <a class="nav-link" href="./">Generic_extract Package</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../synchronisation_package/">Synchronisation Extracts</a>
+    <a class="nav-link" href="../synchronisation_package/">Synchronisation Extract</a>
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../message_package/">The Message package</a>
@@ -411,20 +412,6 @@
     <span class="version">development</span>
   </div>
   <ul class="components">
-    <li class="component">
-      <div class="title"><a href="../../../../AM/latest/">Archetype Model</a></div>
-      <ul class="versions">
-        <li class="version is-latest">
-          <a href="../../../../AM/latest/">Release-2.3.0</a>
-        </li>
-        <li class="version">
-          <a href="../../../../AM/Release-2.2.0/">Release-2.2.0</a>
-        </li>
-        <li class="version">
-          <a href="../../../../AM/development/">development</a>
-        </li>
-      </ul>
-    </li>
     <li class="component">
       <div class="title"><a href="../../../../BASE/latest/">Base Model</a></div>
       <ul class="versions">
@@ -602,14 +589,246 @@ variant may be required for the future.</p>
 <div class="sect1">
 <h2 id="_class_descriptions"><a class="anchor" href="#_class_descriptions"></a><a class="link" href="#_class_descriptions">Class Descriptions</a></h2>
 <div class="sectionbody">
-<div class="paragraph">
-<p>Unresolved directive in generic_extract_package.adoc - include::ROOT:partial$uml/{pkg}generic_content_item.adoc[]</p>
+<div class="sect2">
+<h3 id="_generic_content_item_class"><a class="anchor" href="#_generic_content_item_class"></a><a class="link" href="#_generic_content_item_class">GENERIC_CONTENT_ITEM Class</a></h3>
+<div id="_tabs_1" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="_tabs_1_definition" class="tab">
+<p>Definition</p>
+</li>
+<li id="_tabs_1_bmm" class="tab">
+<p>BMM</p>
+</li>
+<li id="_tabs_1_uml" class="tab">
+<p>UML</p>
+</li>
+</ul>
+</div>
+<div id="_tabs_1_definition--panel" class="tabpanel" aria-labelledby="_tabs_1_definition">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>GENERIC_CONTENT_ITEM</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Single item in generic extract, designed for 13606 and CDA data.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="#RM:ehr_extract:common.adoc#_extract_content_item_class" class="xref unresolved">EXTRACT_CONTENT_ITEM</a></code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>item_type</strong>: <code><a href="../../../latest/data_types/text_package/#_dv_coded_text_class" class="xref page">DV_CODED_TEXT</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Identifier of model or schema used to create the content.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>item_type_version</strong>: <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_string_class" class="xref page">String</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Version of model or schema used to create the content item.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>author</strong>: <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_string_class" class="xref page">String</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Reference to a demographic entity elsewhere in this Extract representing the author of the item version. The reference should be a UID corresponding to the UID of a <code>GENERIC_CONTENT_ITEM</code> containing the demographic information.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>creation_time</strong>: <code><a href="../../../../BASE/latest/foundation_types/time_types/#_iso8601_date_time_class" class="xref page">Iso8601_date_time</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Time of creation of this item version on the original system. This may be an earlier commit time, or it may be the time at which the item was created during the Extract generation process.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>authoriser</strong>: <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_string_class" class="xref page">String</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Reference to a demographic entity elsewhere in this Extract representing an authoriser of the item version, if relevant. The reference should be a UID corresponding to the UID of a <code>GENERIC_CONTENT_ITEM</code> containing the demographic information.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>authorisation_time</strong>: <code><a href="../../../../BASE/latest/foundation_types/time_types/#_iso8601_date_time_class" class="xref page">Iso8601_date_time</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Time of authorisation of this item version on the original system where relevant.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>item_status</strong>: <code><a href="../../../latest/data_types/text_package/#_dv_coded_text_class" class="xref page">DV_CODED_TEXT</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Coded lifecycle status of the item.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>version_id</strong>: <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_string_class" class="xref page">String</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Version id of this item in original system.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>version_set_id</strong>: <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_string_class" class="xref page">String</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Version set id of this item in original system, where applicable.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>system_id</strong>: <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_string_class" class="xref page">String</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Identifier of EMR or other system from which the item was created / extracted. Typically in the form of a domain name.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>other_details</strong>: <code><a href="../../../../BASE/latest/foundation_types/structure_types/#_hash_class" class="xref page">Hash</a>&lt;<a href="../../../../BASE/latest/foundation_types/primitive_types/#_string_class" class="xref page">String</a>,<a href="../../../../BASE/latest/foundation_types/primitive_types/#_string_class" class="xref page">String</a>&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Other details about the content item.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1<br>
+(effected)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>item</strong>: <code><a href="../../../latest/common/archetyped_package/#_locatable_class" class="xref page">LOCATABLE</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Content object.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="_tabs_1_bmm--panel" class="tabpanel" aria-labelledby="_tabs_1_bmm">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+    "name": "GENERIC_CONTENT_ITEM",
+    "documentation": "Single item in generic extract, designed for 13606 and CDA data.",
+    "ancestors": [
+        "EXTRACT_CONTENT_ITEM"
+    ],
+    "properties": {
+        "item_type": {
+            "_type": "P_BMM_SINGLE_PROPERTY",
+            "name": "item_type",
+            "documentation": "Identifier of model or schema used to create the content.",
+            "type": "DV_CODED_TEXT"
+        },
+        "item_type_version": {
+            "_type": "P_BMM_SINGLE_PROPERTY",
+            "name": "item_type_version",
+            "documentation": "Version of model or schema used to create the content item.",
+            "type": "String"
+        },
+        "author": {
+            "_type": "P_BMM_SINGLE_PROPERTY",
+            "name": "author",
+            "documentation": "Reference to a demographic entity elsewhere in this Extract representing the author of the item version. The reference should be a UID corresponding to the UID of a `GENERIC_CONTENT_ITEM` containing the demographic information.",
+            "type": "String"
+        },
+        "creation_time": {
+            "_type": "P_BMM_SINGLE_PROPERTY",
+            "name": "creation_time",
+            "documentation": "Time of creation of this item version on the original system. This may be an earlier commit time, or it may be the time at which the item was created during the Extract generation process.",
+            "type": "Iso8601_date_time"
+        },
+        "authoriser": {
+            "_type": "P_BMM_SINGLE_PROPERTY",
+            "name": "authoriser",
+            "documentation": "Reference to a demographic entity elsewhere in this Extract representing an authoriser of the item version, if relevant. The reference should be a UID corresponding to the UID of a `GENERIC_CONTENT_ITEM` containing the demographic information.",
+            "type": "String"
+        },
+        "authorisation_time": {
+            "_type": "P_BMM_SINGLE_PROPERTY",
+            "name": "authorisation_time",
+            "documentation": "Time of authorisation of this item version on the original system where relevant.",
+            "type": "Iso8601_date_time"
+        },
+        "item_status": {
+            "_type": "P_BMM_SINGLE_PROPERTY",
+            "name": "item_status",
+            "documentation": "Coded lifecycle status of the item.",
+            "type": "DV_CODED_TEXT"
+        },
+        "version_id": {
+            "_type": "P_BMM_SINGLE_PROPERTY",
+            "name": "version_id",
+            "documentation": "Version id of this item in original system.",
+            "type": "String"
+        },
+        "version_set_id": {
+            "_type": "P_BMM_SINGLE_PROPERTY",
+            "name": "version_set_id",
+            "documentation": "Version set id of this item in original system, where applicable.",
+            "type": "String"
+        },
+        "system_id": {
+            "_type": "P_BMM_SINGLE_PROPERTY",
+            "name": "system_id",
+            "documentation": "Identifier of EMR or other system from which the item was created / extracted. Typically in the form of a domain name.",
+            "type": "String"
+        },
+        "other_details": {
+            "_type": "P_BMM_GENERIC_PROPERTY",
+            "name": "other_details",
+            "documentation": "Other details about the content item.",
+            "type_def": {
+                "root_type": "Hash",
+                "generic_parameters": [
+                    "String",
+                    "String"
+                ]
+            }
+        },
+        "item": {
+            "_type": "P_BMM_SINGLE_PROPERTY",
+            "name": "item",
+            "documentation": "Content object.",
+            "type": "LOCATABLE"
+        }
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="_tabs_1_uml--panel" class="tabpanel" aria-labelledby="_tabs_1_uml">
+<div class="imageblock kroki">
+<div class="content">
+<img src="https://kroki.io/plantuml/svg/eNqdVV1v0zAUfc-vsMTLBlu1vSC0VUhpY2hE6aYuQ6AKWSa5a6w2drFvxiLgv89xmiXpxwZ9cuRz7ve5jhcvuTHkI53QaThkw6tJRCcRCyP6mfz2CHlDBELGsFgBuSDBF8sIaMAi-jUis7Ne7_x7l8TuQRuhpCXfoBZy3mbxHFOld0KxBo7WjqHIykihUe_enp2zhCNUd1t-hAH9TBhh_t2hS98gx9w8V-W6NiaSnXFr2ADuo5jClKH2oApT0CwB5GJZJjLiJu1XtJPqeL-ZtWWNr4Z-5A_GtMb-eh7_YVDzGEk1XlvH1B9G3fGSV79S68JkagGXSyHhYq554b56iUKE5BLhAd1trQXDVlpkXBc27kCpJXBJZnU6hsUpl3NI2mArXcMybhZ74aoaXxYv13FI_tvemsYd0ArJs_VGVCqptafjFNwiSJVAd9BrSu4ub8OADfwbq7IwaLfBxlyUsx8Lg_1xOPlkR_5603cjEX86HNHo2zXtOLkDSKySeJ4ItKQPlAZ0yvzbIOzoOVYyhhUeHe8oxE6riaeVqljtmW839NqPRof2c8U1yCrIk5tZez05shXH9Ihwd3b6So5r5bQszMsmrsnWrulxyWPwYO_NfrNN5TujXIqfOfynkbpjZaql1VLFG7U7s5Z4bMOf4P6f09NGwJ7XaNkh7UXxvM7adPD2g9DwOs-E4-_6P3iP8wToPA==?svg-type=inline" alt="GENERIC_CONTENT_ITEM">
+</div>
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
 <nav class="pagination">
   <span class="prev"><a href="../openehr_extract_package/">The openehr_extract Package</a></span>
-  <span class="next"><a href="../synchronisation_package/">Synchronisation Extracts</a></span>
+  <span class="next"><a href="../synchronisation_package/">Synchronisation Extract</a></span>
 </nav>
 </article>
   </div>
@@ -650,5 +869,6 @@ variant may be required for the future.</p>
 <script async src="../../../../search-index.js"></script>
 <script src="../../../../ui/js/medium-zoom.min.js"></script>
 <script src="../../../../ui/js/zoom.js"></script>
+<script async src="../../../../ui/js/tabs.js"></script>
   </body>
 </html>

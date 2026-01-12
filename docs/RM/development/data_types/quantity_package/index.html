@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="../../../../ui/css/site.css">
     <link rel="stylesheet" href="../../../../ui/css/antora-openehr.css">
     <link rel="stylesheet" href="../../../../ui/css/openehr.css">
+    <link rel="stylesheet" href="../../../../ui/css/tabs.css">
 <link rel="icon" href="../../../../ui/img/favicon.ico" type="image/x-icon">
   </head>
   <body class="article">
@@ -294,7 +295,7 @@
     <a class="nav-link" href="../../ehr_extract/generic_extract_package/">Generic_extract Package</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../../ehr_extract/synchronisation_package/">Synchronisation Extracts</a>
+    <a class="nav-link" href="../../ehr_extract/synchronisation_package/">Synchronisation Extract</a>
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../../ehr_extract/message_package/">The Message package</a>
@@ -411,20 +412,6 @@
     <span class="version">development</span>
   </div>
   <ul class="components">
-    <li class="component">
-      <div class="title"><a href="../../../../AM/latest/">Archetype Model</a></div>
-      <ul class="versions">
-        <li class="version is-latest">
-          <a href="../../../../AM/latest/">Release-2.3.0</a>
-        </li>
-        <li class="version">
-          <a href="../../../../AM/Release-2.2.0/">Release-2.2.0</a>
-        </li>
-        <li class="version">
-          <a href="../../../../AM/development/">development</a>
-        </li>
-      </ul>
-    </li>
     <li class="component">
       <div class="title"><a href="../../../../BASE/latest/">Base Model</a></div>
       <ul class="versions">
@@ -871,41 +858,2946 @@ is used for this purpose, and the constant unknown_accuracy_value = -1 is provid
 <div class="sect1">
 <h2 id="_class_descriptions"><a class="anchor" href="#_class_descriptions"></a><a class="link" href="#_class_descriptions">Class Descriptions</a></h2>
 <div class="sectionbody">
-<div class="paragraph">
-<p>Unresolved directive in quantity_package.adoc - include::ROOT:partial$uml/{pkg}dv_ordered.adoc[]</p>
+<div class="sect2">
+<h3 id="_dv_ordered_class"><a class="anchor" href="#_dv_ordered_class"></a><a class="link" href="#_dv_ordered_class">DV_ORDERED Class</a></h3>
+<div id="_tabs_1" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="_tabs_1_definition" class="tab">
+<p>Definition</p>
+</li>
+<li id="_tabs_1_bmm" class="tab">
+<p>BMM</p>
+</li>
+<li id="_tabs_1_uml" class="tab">
+<p>UML</p>
+</li>
+</ul>
+</div>
+<div id="_tabs_1_definition--panel" class="tabpanel" aria-labelledby="_tabs_1_definition">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong><em>DV_ORDERED (abstract)</em></strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Abstract class defining the concept of ordered values, which includes ordinals as well as true quantities. It defines the functions  <code>&lt;</code> and <code><em>is_strictly_comparable_to()</em></code>, the latter of which must evaluate to <code>True</code> for instances being compared with the  <code>&lt;</code> function, or used as limits in the <code>DV_INTERVAL&lt;T&gt;</code> class.</p>
 </div>
 <div class="paragraph">
-<p>Unresolved directive in quantity_package.adoc - include::ROOT:partial$uml/{pkg}dv_interval.adoc[]</p>
+<p>Data value types which are to be used as limits in the <code>DV_INTERVAL&lt;T&gt;</code> class must inherit from this class, and implement the function <code><em>is_strictly_comparable_to()</em></code> to ensure that instances compare meaningfully. For example, instances of <code>DV_QUANTITY</code> can only be compared if they measure the same kind of physical quantity.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="../../../latest/data_types/basic_package/#_data_value_class" class="xref page">DATA_VALUE</a></code>, <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_ordered_class" class="xref page">Ordered</a></code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>normal_status</strong>: <code><a href="../../../latest/data_types/text_package/#_code_phrase_class" class="xref page">CODE_PHRASE</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Optional normal status indicator of value with respect to normal range for this value. Often included by lab, even if the normal range itself is not included. Coded by ordinals in series HHH, HH, H, (nothing), L, LL, LLL; see openEHR terminology group  <code>normal_status</code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>normal_range</strong>: <code><a href="../../../latest/data_types/quantity_package/#_dv_interval_class" class="xref page">DV_INTERVAL</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Optional normal range.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>other_reference_ranges</strong>: <code><a href="../../../../BASE/latest/foundation_types/structure_types/#_list_class" class="xref page">List</a>&lt;<a href="../../../latest/data_types/quantity_package/#_reference_range_class" class="xref page">REFERENCE_RANGE</a>&lt;<a href="../../../latest/data_types/quantity_package/#_dv_ordered_class" class="xref page">DV_ORDERED</a>&gt;&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Optional tagged other reference ranges for this value in its particular measurement context.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Functions</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(abstract)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_strictly_comparable_to</strong> (<br>
+other: <code><a href="../../../latest/data_types/quantity_package/#_dv_ordered_class" class="xref page">DV_ORDERED</a>[1]</code><br>
+): <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Test if two instances are strictly comparable. Effected in descendants.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_simple</strong> (): <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>True if this quantity has no reference ranges.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_normal</strong> (): <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a></code><br>
+<br>
+<em>Pre</em>: <code>normal_range /= Void or normal_status /= Void</code><br>
+<br>
+<em>Post_range</em>: <code>normal_range /= Void implies Result = normal_range.has (self)</code><br>
+<em>Post_status</em>: <code>normal_status /= Void implies normal_status.code_string.is_equal (“N”)</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Value is in the normal range, determined by comparison of the value to <code><em>normal_range</em></code> if present, or by the <code><em>normal_status</em></code> marker if present.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(abstract)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>less_than</strong> <em>alias</em> "&lt;" (<br>
+other: <code><a href="../../../latest/data_types/quantity_package/#_dv_ordered_class" class="xref page">DV_ORDERED</a>[1]</code><br>
+): <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>True if this Ordered object is less than <code><em>other</em></code>. Redefined in descendants.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Invariants</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Other_reference_ranges_validity</em>: <code>other_reference_ranges /= Void implies not other_reference_ranges.is_empty</code></p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Is_simple_validity</em>: <code>(normal_range = Void and other_reference_ranges = Void) implies is_simple</code></p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Normal_status_validity</em>: <code>normal_status /= Void implies code_set (Code_set_id_normal_statuses).has_code (normal_status)</code></p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Normal_range_and_status_consistency</em>: <code>(normal_range /= Void and normal_status /= Void) implies (normal_status.code_string.is_equal (“N”) xor not normal_range.has (self))</code></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="_tabs_1_bmm--panel" class="tabpanel" aria-labelledby="_tabs_1_bmm">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+    "name": "DV_ORDERED",
+    "documentation": "Abstract class defining the concept of ordered values, which includes ordinals as well as true quantities. It defines the functions  `&lt;` and `_is_strictly_comparable_to()_`, the latter of which must evaluate to `True` for instances being compared with the  `&lt;` function, or used as limits in the `DV_INTERVAL&lt;T&gt;` class. \n\nData value types which are to be used as limits in the `DV_INTERVAL&lt;T&gt;` class must inherit from this class, and implement the function `_is_strictly_comparable_to()_` to ensure that instances compare meaningfully. For example, instances of `DV_QUANTITY` can only be compared if they measure the same kind of physical quantity. \n",
+    "is_abstract": true,
+    "ancestors": [
+        "DATA_VALUE",
+        "Ordered"
+    ],
+    "properties": {
+        "normal_status": {
+            "_type": "P_BMM_SINGLE_PROPERTY",
+            "name": "normal_status",
+            "documentation": "Optional normal status indicator of value with respect to normal range for this value. Often included by lab, even if the normal range itself is not included. Coded by ordinals in series HHH, HH, H, (nothing), L, LL, LLL; see openEHR terminology group  `normal_status`. ",
+            "type": "CODE_PHRASE"
+        },
+        "normal_range": {
+            "_type": "P_BMM_SINGLE_PROPERTY",
+            "name": "normal_range",
+            "documentation": "Optional normal range. ",
+            "type": "DV_INTERVAL"
+        },
+        "other_reference_ranges": {
+            "_type": "P_BMM_CONTAINER_PROPERTY",
+            "name": "other_reference_ranges",
+            "documentation": "Optional tagged other reference ranges for this value in its particular measurement context.",
+            "type_def": {
+                "container_type": "List",
+                "type_def": {
+                    "_type": "P_BMM_GENERIC_TYPE",
+                    "root_type": "REFERENCE_RANGE",
+                    "generic_parameters": [
+                        "DV_ORDERED"
+                    ]
+                }
+            },
+            "cardinality": {
+                "lower": 0,
+                "upper_unbounded": true
+            }
+        }
+    },
+    "functions": {
+        "is_strictly_comparable_to": {
+            "name": "is_strictly_comparable_to",
+            "documentation": "Test if two instances are strictly comparable. Effected in descendants.",
+            "is_abstract": true,
+            "parameters": {
+                "other": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "other",
+                    "type": "DV_ORDERED"
+                }
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Boolean"
+            }
+        },
+        "is_simple": {
+            "name": "is_simple",
+            "documentation": "True if this quantity has no reference ranges.",
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Boolean"
+            }
+        },
+        "is_normal": {
+            "name": "is_normal",
+            "documentation": "Value is in the normal range, determined by comparison of the value to `_normal_range_` if present, or by the `_normal_status_` marker if present. \n",
+            "pre_conditions": {
+                "Pre": "normal_range /= Void or normal_status /= Void"
+            },
+            "post_conditions": {
+                "Post_range": "normal_range /= Void implies Result = normal_range.has (self)",
+                "Post_status": "normal_status /= Void implies normal_status.code_string.is_equal (“N”)"
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Boolean"
+            }
+        },
+        "less_than": {
+            "name": "less_than",
+            "aliases": [
+                "&lt;"
+            ],
+            "documentation": "True if this Ordered object is less than `_other_`. Redefined in descendants.",
+            "is_abstract": true,
+            "parameters": {
+                "other": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "other",
+                    "type": "DV_ORDERED"
+                }
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Boolean"
+            }
+        }
+    },
+    "invariants": {
+        "Other_reference_ranges_validity": "other_reference_ranges /= Void implies not other_reference_ranges.is_empty",
+        "Is_simple_validity": "(normal_range = Void and other_reference_ranges = Void) implies is_simple",
+        "Normal_status_validity": "normal_status /= Void implies code_set (Code_set_id_normal_statuses).has_code (normal_status)",
+        "Normal_range_and_status_consistency": "(normal_range /= Void and normal_status /= Void) implies (normal_status.code_string.is_equal (“N”) xor not normal_range.has (self))"
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="_tabs_1_uml--panel" class="tabpanel" aria-labelledby="_tabs_1_uml">
+<div class="imageblock kroki">
+<div class="content">
+<img src="https://kroki.io/plantuml/svg/eNqVUk1PwkAQvfdXTOIFNRC5AiGpdP1ISGsqcGnIZmlHaNx2cXeIEuS_u21TbVAi3HZ33rz35s06YmFIi5gglsIY8GY8CD0WMg92DsA15EpnQnJDgjYGejAKPMafHkL3mUF00-l0502YFvkSLcrSPPoTFs7ccROlaIWaa3xBjXmMFbxgHaeGBiG7s8L-iPHQ9e_Z4MfLcAjRVUWxqw3vITXWlk5jklseq2wttFhI5KRalVDlox4n6s7h0j7dKiVR5MW9JCxY0mwtsXWkWo32Z7VhRqIxnFYiP1l87ziH4bsTl9vIpgzg4n2VEppMvWJfpjn2llpsy1MnUUSY9Ak_qHy1m7JcjebBZ7vdUP-lE-jELiA5V-T_iWviY1l_t3ClOb5tbKwn9y41CrK_5zzFZteZojbTunwY6BdUdQbP?svg-type=inline" alt="DV_ORDERED">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_dv_interval_class"><a class="anchor" href="#_dv_interval_class"></a><a class="link" href="#_dv_interval_class">DV_INTERVAL Class</a></h3>
+<div id="_tabs_2" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="_tabs_2_definition" class="tab">
+<p>Definition</p>
+</li>
+<li id="_tabs_2_bmm" class="tab">
+<p>BMM</p>
+</li>
+<li id="_tabs_2_uml" class="tab">
+<p>UML</p>
+</li>
+</ul>
+</div>
+<div id="_tabs_2_definition--panel" class="tabpanel" aria-labelledby="_tabs_2_definition">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>DV_INTERVAL&lt;T&gt;</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Generic class defining an interval (i.e. range) of a comparable type. An interval is a contiguous subrange of a comparable base type. Used to define intervals of dates, times, quantities (whose units match) and so on. The type parameter, <code>T</code>, must be a descendant of the type <code>DV_ORDERED</code>, which is necessary (but not sufficient) for instances to be compared (<code><em>strictly_comparable</em></code> is also needed).</p>
 </div>
 <div class="paragraph">
-<p>Unresolved directive in quantity_package.adoc - include::ROOT:partial$uml/{pkg}reference_range.adoc[]</p>
+<p>Without the <code>DV_INTERVAL</code> class, quite a few more <code>DV_</code> classes would be needed to express logical intervals, namely interval versions of all the date/time classes, and of quantity classes. Further, it allows the semantics of intervals to be stated in one place unequivocally, including the conditions for strict comparison.</p>
 </div>
 <div class="paragraph">
-<p>Unresolved directive in quantity_package.adoc - include::ROOT:partial$uml/{pkg}dv_ordinal.adoc[]</p>
+<p>The basic semantics are derived from the class <code>Interval&lt;T&gt;</code>, described in the support RM.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="../../../latest/data_types/basic_package/#_data_value_class" class="xref page">DATA_VALUE</a></code>, <code><a href="../../../../BASE/latest/foundation_types/interval/#_interval_class" class="xref page">Interval</a></code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Invariants</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Limits_consistent</em>: <code>(not upper_unbounded and not lower_unbounded) implies (lower.is_strictly_comparable_to(upper) and lower &lt;= upper)</code></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="_tabs_2_bmm--panel" class="tabpanel" aria-labelledby="_tabs_2_bmm">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+    "name": "DV_INTERVAL",
+    "documentation": "Generic class defining an interval (i.e. range) of a comparable type. An interval is a contiguous subrange of a comparable base type. Used to define intervals of dates, times, quantities (whose units match) and so on. The type parameter, `T`, must be a descendant of the type `DV_ORDERED`, which is necessary (but not sufficient) for instances to be compared (`_strictly_comparable_` is also needed). \n\nWithout the `DV_INTERVAL` class, quite a few more `DV_` classes would be needed to express logical intervals, namely interval versions of all the date/time classes, and of quantity classes. Further, it allows the semantics of intervals to be stated in one place unequivocally, including the conditions for strict comparison. \n\nThe basic semantics are derived from the class `Interval&lt;T&gt;`, described in the support RM. ",
+    "ancestors": [
+        "DATA_VALUE",
+        "Interval"
+    ],
+    "generic_parameter_defs": {
+        "T": {
+            "name": "T",
+            "conforms_to_type": "DV_ORDERED"
+        }
+    },
+    "invariants": {
+        "Limits_consistent": "(not upper_unbounded and not lower_unbounded) implies (lower.is_strictly_comparable_to(upper) and lower &lt;= upper)"
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="_tabs_2_uml--panel" class="tabpanel" aria-labelledby="_tabs_2_uml">
+<div class="imageblock kroki">
+<div class="content">
+<img src="https://kroki.io/plantuml/svg/eNqdkUFrwkAQhe_5FQO9tIihXlUKKXoQSg8l9SISxs3QLN3O2uxsraj_3bhpa9ASWm_L7PvmzcyLlEHnYDTNJo_p-GmaPMAwvYNNtIsiXDgpUQl8aZI0ySrB8xjgalVoIfdmX2lgNFP_pcR1eMW5FaF8IPQpoVr3asDDbbfbNDwzmrBQ-YEmTPJPK4AOGLuiEvqQwuw2jnvzUPTL5XkxKDPPC-s5p7z6vrfWEDLMmlirou6hWRnf1qJFsPnefwcFumugeszeHG7a1fpwKEdKKshKEfb7Od4feGVZUPOFtHYZvXs0Rzrh9a9glf8x09P091uVzJU=?svg-type=inline" alt="DV_INTERVAL">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_reference_range_class"><a class="anchor" href="#_reference_range_class"></a><a class="link" href="#_reference_range_class">REFERENCE_RANGE Class</a></h3>
+<div id="_tabs_3" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="_tabs_3_definition" class="tab">
+<p>Definition</p>
+</li>
+<li id="_tabs_3_bmm" class="tab">
+<p>BMM</p>
+</li>
+<li id="_tabs_3_uml" class="tab">
+<p>UML</p>
+</li>
+</ul>
+</div>
+<div id="_tabs_3_definition--panel" class="tabpanel" aria-labelledby="_tabs_3_definition">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>REFERENCE_RANGE&lt;T&gt;</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Defines a named range to be associated with any <code>DV_ORDERED</code> datum. Each such range is particular to the patient and context, e.g. sex, age, and any other factor which affects ranges. May be used to represent normal, therapeutic, dangerous, critical etc ranges.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>meaning</strong>: <code><a href="../../../latest/data_types/text_package/#_dv_text_class" class="xref page">DV_TEXT</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Term whose value indicates the meaning of this range, e.g.  normal,  critical,  therapeutic  etc.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>range</strong>: <code><a href="../../../latest/data_types/quantity_package/#_dv_interval_class" class="xref page">DV_INTERVAL</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>The data range for this meaning, e.g. critical  etc.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Functions</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_in_range</strong> (<br>
+v: <code><a href="../../../latest/data_types/quantity_package/#_dv_ordered_class" class="xref page">DV_ORDERED</a>[1]</code><br>
+): <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Indicates if the value  <code><em>v</em></code> is inside the range.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Invariants</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Range_is_simple</em>: <code>(range.lower_unbounded or else range.lower.is_simple) and (range.upper_unbounded or else range.upper.is_simple)</code></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="_tabs_3_bmm--panel" class="tabpanel" aria-labelledby="_tabs_3_bmm">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+    "name": "REFERENCE_RANGE",
+    "documentation": "Defines a named range to be associated with any `DV_ORDERED` datum. Each such range is particular to the patient and context, e.g. sex, age, and any other factor which affects ranges. May be used to represent normal, therapeutic, dangerous, critical etc ranges.",
+    "generic_parameter_defs": {
+        "T": {
+            "name": "T",
+            "conforms_to_type": "DV_ORDERED"
+        }
+    },
+    "properties": {
+        "meaning": {
+            "_type": "P_BMM_SINGLE_PROPERTY",
+            "name": "meaning",
+            "documentation": "Term whose value indicates the meaning of this range, e.g.  normal,  critical,  therapeutic  etc.",
+            "is_mandatory": true,
+            "type": "DV_TEXT"
+        },
+        "range": {
+            "_type": "P_BMM_SINGLE_PROPERTY",
+            "name": "range",
+            "documentation": "The data range for this meaning, e.g. critical  etc.",
+            "is_mandatory": true,
+            "type": "DV_INTERVAL"
+        }
+    },
+    "functions": {
+        "is_in_range": {
+            "name": "is_in_range",
+            "documentation": "Indicates if the value  `_v_` is inside the range.\n",
+            "parameters": {
+                "v": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "v",
+                    "type": "DV_ORDERED"
+                }
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Boolean"
+            }
+        }
+    },
+    "invariants": {
+        "Range_is_simple": "(range.lower_unbounded or else range.lower.is_simple) and (range.upper_unbounded or else range.upper.is_simple)"
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="_tabs_3_uml--panel" class="tabpanel" aria-labelledby="_tabs_3_uml">
+<div class="imageblock kroki">
+<div class="content">
+<img src="https://kroki.io/plantuml/svg/eNrjSs5JLC5WCHJ1cw1y9XN2jQ9y9HN3VbAJsVOo5lJQ0FbITU3My8xLV7BScAmLD3GNCFGINowFyxQl5qWnQsQ9_UJcg8IcfeBymcXxmXnxYBUaCmUQRf5BLkA7XEBqFDSBQk75-TlAw8F6arkAWfwmTA==?svg-type=inline" alt="REFERENCE_RANGE">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_dv_ordinal_class"><a class="anchor" href="#_dv_ordinal_class"></a><a class="link" href="#_dv_ordinal_class">DV_ORDINAL Class</a></h3>
+<div id="_tabs_4" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="_tabs_4_definition" class="tab">
+<p>Definition</p>
+</li>
+<li id="_tabs_4_bmm" class="tab">
+<p>BMM</p>
+</li>
+<li id="_tabs_4_uml" class="tab">
+<p>UML</p>
+</li>
+</ul>
+</div>
+<div id="_tabs_4_definition--panel" class="tabpanel" aria-labelledby="_tabs_4_definition">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>DV_ORDINAL</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>A data type that represents integral score values, e.g. pain, Apgar values, etc, where there is:</p>
 </div>
 <div class="paragraph">
-<p>Unresolved directive in quantity_package.adoc - include::ROOT:partial$uml/{pkg}dv_scale.adoc[]</p>
+<p>a) implied ordering,
+b) no implication that the distance between each value is constant, and
+c) the total number of values is finite;
+d) integer values only.</p>
 </div>
 <div class="paragraph">
-<p>Unresolved directive in quantity_package.adoc - include::ROOT:partial$uml/{pkg}dv_quantified.adoc[]</p>
+<p>Note that although the term 'ordinal' in mathematics means natural numbers only, here any integer is allowed, since negative and zero values are often used by medical professionals for values around a neutral point. Examples of sets of ordinal values:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>-3, -2, -1, 0, 1, 2, 3 &#8201;&#8212;&#8201;reflex response values</p>
+</li>
+<li>
+<p>0, 1, 2                 &#8201;&#8212;&#8201;Apgar values</p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
-<p>Unresolved directive in quantity_package.adoc - include::ROOT:partial$uml/{pkg}dv_amount.adoc[]</p>
+<p>This class is used for recording any clinical datum which is customarily recorded using symbolic values. Example: the results on a urinalysis strip, e.g. <code>{neg, trace, , , }</code> are used for leucocytes, protein, nitrites etc; for non-haemolysed blood <code>{neg, trace, moderate}</code>; for haemolysed blood <code>{small, moderate, large}</code>.</p>
 </div>
 <div class="paragraph">
-<p>Unresolved directive in quantity_package.adoc - include::ROOT:partial$uml/{pkg}dv_quantity.adoc[]</p>
+<p>For scores or scales that include Real numbers (or might in the future, i.e. not fixed for all time, such as Apgar), use <code>DV_SCALE</code>. <code>DV_SCALE</code> may also be used in future for representing purely Integer-based scales, however, the <code>DV_ORDINAL</code> type should continue to be supported in software implementations in order to accommodate existing data that are instances of this type.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="../../../latest/data_types/quantity_package/#_dv_ordered_class" class="xref page">DV_ORDERED</a></code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>symbol</strong>: <code><a href="../../../latest/data_types/text_package/#_dv_coded_text_class" class="xref page">DV_CODED_TEXT</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Coded textual representation of this value in the enumeration, which may be strings made from  +  symbols, or other enumerations of terms such as  <code>mild</code>, <code>moderate</code>, <code>severe</code>, or even the same number series as the values, e.g. 1, 2, 3.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>value</strong>: <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_integer_class" class="xref page">Integer</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Value in ordered enumeration of values. Any integer value can be used.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Functions</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(effected)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>less_than</strong> <em>alias</em> "&lt;" (<br>
+other: <code><a href="../../../latest/data_types/quantity_package/#_dv_ordinal_class" class="xref page">DV_ORDINAL</a>[1]</code><br>
+): <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>True if this Ordinal value is less than <code><em>other</em></code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(effected)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_strictly_comparable_to</strong> (<br>
+other: <code><a href="../../../latest/data_types/quantity_package/#_dv_ordinal_class" class="xref page">DV_ORDINAL</a>[1]</code><br>
+): <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Test if this Ordinal is strictly comparable to <code><em>other</em></code>.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="_tabs_4_bmm--panel" class="tabpanel" aria-labelledby="_tabs_4_bmm">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+    "name": "DV_ORDINAL",
+    "documentation": "A data type that represents integral score values, e.g. pain, Apgar values, etc, where there is:\n\na) implied ordering, \nb) no implication that the distance between each value is constant, and \nc) the total number of values is finite;\nd) integer values only.\n\nNote that although the term 'ordinal' in mathematics means natural numbers only, here any integer is allowed, since negative and zero values are often used by medical professionals for values around a neutral point. Examples of sets of ordinal values: \n\n*   -3, -2, -1, 0, 1, 2, 3  -- reflex response values \n*    0, 1, 2                  -- Apgar values \n\nThis class is used for recording any clinical datum which is customarily recorded using symbolic values. Example: the results on a urinalysis strip, e.g. `{neg, trace, +, ++, +++}` are used for leucocytes, protein, nitrites etc; for non-haemolysed blood `{neg, trace, moderate}`; for haemolysed blood `{small, moderate, large}`.\n\nFor scores or scales that include Real numbers (or might in the future, i.e. not fixed for all time, such as Apgar), use `DV_SCALE`. `DV_SCALE` may also be used in future for representing purely Integer-based scales, however, the `DV_ORDINAL` type should continue to be supported in software implementations in order to accommodate existing data that are instances of this type.",
+    "ancestors": [
+        "DV_ORDERED"
+    ],
+    "properties": {
+        "symbol": {
+            "_type": "P_BMM_SINGLE_PROPERTY",
+            "name": "symbol",
+            "documentation": "Coded textual representation of this value in the enumeration, which may be strings made from  +  symbols, or other enumerations of terms such as  `mild`, `moderate`, `severe`, or even the same number series as the values, e.g. 1, 2, 3.",
+            "is_mandatory": true,
+            "type": "DV_CODED_TEXT"
+        },
+        "value": {
+            "_type": "P_BMM_SINGLE_PROPERTY",
+            "name": "value",
+            "documentation": "Value in ordered enumeration of values. Any integer value can be used. \n",
+            "is_mandatory": true,
+            "type": "Integer"
+        }
+    },
+    "functions": {
+        "less_than": {
+            "name": "less_than",
+            "aliases": [
+                "&lt;"
+            ],
+            "documentation": "True if this Ordinal value is less than `_other_`.",
+            "parameters": {
+                "other": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "other",
+                    "type": "DV_ORDINAL"
+                }
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Boolean"
+            }
+        },
+        "is_strictly_comparable_to": {
+            "name": "is_strictly_comparable_to",
+            "documentation": "Test if this Ordinal is strictly comparable to `_other_`.",
+            "parameters": {
+                "other": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "other",
+                    "type": "DV_ORDINAL"
+                }
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Boolean"
+            }
+        }
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="_tabs_4_uml--panel" class="tabpanel" aria-labelledby="_tabs_4_uml">
+<div class="imageblock kroki">
+<div class="content">
+<img src="https://kroki.io/plantuml/svg/eNqdU11PwkAQfO-vuMQX1ED0FQhJpaeSkGIqEhNiLke7lsZrD-8WlSD_3WvLxyVQAr41O7uzM7NXJxRca-KN2CDwer7bJ0uHkGuiF-lECtLMke7Aox4b0tchGd--FfAXF3MwaC9DiEFt6wK0ZjjlWY1InBqgaVObLnJpSndSCuDZdirRTKNKQhQLFsp0xhWfCGAoT2ZZOQ6fGA4eIrEd0YB6hFx8TxMEncoPaIkkg2as-KL4akQSEaIWwg8W1bX9TKqUC6OK41ybXXkE7OkxcJ8pGd80Gmvh6zbFsxhKkT1_SINRrnLXVXhgCt5BQRZC2Z6z9hON7YDeG5V-l7LA9R9oeye80yHjq5JiuXG3Oj2swvuxyJN0JqBWgZbWDqKWmMp7Vy4_cCl36DIT2Qs991KGyxpu_9br1va9PQMVmQNE_3kOxx1viKuy3o4wqRh8zk2sJ8_GCjia13PeRnvqzKUm0w28F6h1WgvLf0rnD-bDW5Y=?svg-type=inline" alt="DV_ORDINAL">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_dv_scale_class"><a class="anchor" href="#_dv_scale_class"></a><a class="link" href="#_dv_scale_class">DV_SCALE Class</a></h3>
+<div id="_tabs_5" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="_tabs_5_definition" class="tab">
+<p>Definition</p>
+</li>
+<li id="_tabs_5_bmm" class="tab">
+<p>BMM</p>
+</li>
+<li id="_tabs_5_uml" class="tab">
+<p>UML</p>
+</li>
+</ul>
+</div>
+<div id="_tabs_5_definition--panel" class="tabpanel" aria-labelledby="_tabs_5_definition">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>DV_SCALE</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>A data type that represents scale values, where there is:</p>
 </div>
 <div class="paragraph">
-<p>Unresolved directive in quantity_package.adoc - include::ROOT:partial$uml/{pkg}dv_count.adoc[]</p>
+<p>a) implied ordering,
+b) no implication that the distance between each value is constant, and
+c) the total number of values is finite;
+d) non-integer values are allowed.</p>
 </div>
 <div class="paragraph">
-<p>Unresolved directive in quantity_package.adoc - include::ROOT:partial$uml/{pkg}dv_proportion.adoc[]</p>
+<p>Example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>Borg CR 10 Scale
+
+0    No Breathlessness at all
+0.5  Very Very Slight (Just Noticeable)
+1    Very Slight
+2    Slight Breathlessness
+3    Moderate
+... etc</pre>
+</div>
 </div>
 <div class="paragraph">
-<p>Unresolved directive in quantity_package.adoc - include::ROOT:partial$uml/{pkg}proportion_kind.adoc[]</p>
+<p>For scores that include only Integers, <code>DV_SCALE</code> may also be used, but <code>DV_ORDINAL</code> should be supported to accommodate existing data instances of that type.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="../../../latest/data_types/quantity_package/#_dv_ordered_class" class="xref page">DV_ORDERED</a></code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>symbol</strong>: <code><a href="../../../latest/data_types/text_package/#_dv_coded_text_class" class="xref page">DV_CODED_TEXT</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Coded textual representation of this value in the scale range, which may be strings made from symbols or other enumerations of terms such as  <code>no breathlessness</code>, <code>very very slight</code>, <code>slight breathlessness</code>. Codes come from archetypes.</p>
 </div>
 <div class="paragraph">
-<p>Unresolved directive in quantity_package.adoc - include::ROOT:partial$uml/{pkg}dv_absolute_quantity.adoc[]</p>
+<p>In some cases, a scale may include values that have no code/symbol. In this case, the symbol will be a <code>DV-CODED_TEXT</code> including the <code><em>terminology_id</em></code> and a blank String value for <code><em>code_string</em></code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>value</strong>: <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_real_class" class="xref page">Real</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Real number value of Scale item.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Functions</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(effected)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_strictly_comparable_to</strong> (<br>
+other: <code><a href="../../../latest/data_types/quantity_package/#_dv_scale_class" class="xref page">DV_SCALE</a>[1]</code><br>
+): <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Test if this Scale value is strictly comparable to <code><em>other</em></code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(effected)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>less_than</strong> <em>alias</em> "&lt;" (<br>
+other: <code><a href="../../../latest/data_types/quantity_package/#_dv_scale_class" class="xref page">DV_SCALE</a>[1]</code><br>
+): <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>True if this Scale value is less than <code><em>other</em></code>.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="_tabs_5_bmm--panel" class="tabpanel" aria-labelledby="_tabs_5_bmm">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+    "name": "DV_SCALE",
+    "documentation": "A data type that represents scale values, where there is:\n\na) implied ordering, \nb) no implication that the distance between each value is constant, and \nc) the total number of values is finite;\nd) non-integer values are allowed.\n\nExample:\n\n----\nBorg CR 10 Scale\n\n0    No Breathlessness at all\n0.5  Very Very Slight (Just Noticeable)\n1    Very Slight\n2    Slight Breathlessness\n3    Moderate\n... etc\n----\n\nFor scores that include only Integers, `DV_SCALE` may also be used, but `DV_ORDINAL` should be supported to accommodate existing data instances of that type.",
+    "ancestors": [
+        "DV_ORDERED"
+    ],
+    "properties": {
+        "symbol": {
+            "_type": "P_BMM_SINGLE_PROPERTY",
+            "name": "symbol",
+            "documentation": "Coded textual representation of this value in the scale range, which may be strings made from symbols or other enumerations of terms such as  `no breathlessness`, `very very slight`, `slight breathlessness`. Codes come from archetypes.\n\nIn some cases, a scale may include values that have no code/symbol. In this case, the symbol will be a `DV-CODED_TEXT` including the `_terminology_id_` and a blank String value for `_code_string_`.",
+            "is_mandatory": true,
+            "type": "DV_CODED_TEXT"
+        },
+        "value": {
+            "_type": "P_BMM_SINGLE_PROPERTY",
+            "name": "value",
+            "documentation": "Real number value of Scale item.\n",
+            "is_mandatory": true,
+            "type": "Real"
+        }
+    },
+    "functions": {
+        "is_strictly_comparable_to": {
+            "name": "is_strictly_comparable_to",
+            "documentation": "Test if this Scale value is strictly comparable to `_other_`.",
+            "parameters": {
+                "other": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "other",
+                    "type": "DV_SCALE"
+                }
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Boolean"
+            }
+        },
+        "less_than": {
+            "name": "less_than",
+            "aliases": [
+                "&lt;"
+            ],
+            "documentation": "True if this Scale value is less than `_other_`.",
+            "parameters": {
+                "other": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "other",
+                    "type": "DV_SCALE"
+                }
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Boolean"
+            }
+        }
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="_tabs_5_uml--panel" class="tabpanel" aria-labelledby="_tabs_5_uml">
+<div class="imageblock kroki">
+<div class="content">
+<img src="https://kroki.io/plantuml/svg/eNqdU11PwkAQfO-vuMQX1ED0FQhJpedHQsAclZgQcznaFRqvPbw7VIL8d7ctrU34EHxrdnZndmavTiCFMcQb8WHX7VGycgi5JGYZT5QkzbTeHXjU4z599sn4-iWDP4RcAKIMhCyLkeHG6iiwcskDFc-FFhMJ3KoaUXYGOmfLVXCGnGPhRikJIik5JBjD7UwkR86sHUdMUFUElpRGBsyjjHqEnH3OIgsmVm_QklECzakWy-yrESprIWxZ-LJZdeM7UToWEn0IuzColXrnj_fMHaL-VaOxWXPTpkUyhXzFh75P2cjtVbsyB1zDK2hIAsjbU9ZeZGyb0Vvcst-lnLn9O9r-XbzTIeOLnGJVuFsfGW_hfV_AKUsUzyXU9qC5tZ1oZZnddzokvuNSru9yjOyJnnop5KoMt7_r9Yr6ls5Ah3iA8D_P4bDjgvjPx8yV5vC-wFiPnp1qEBZfz2mK1akTRTHTAt4KtHLaAst-SecHNYxXyA==?svg-type=inline" alt="DV_SCALE">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_dv_quantified_class"><a class="anchor" href="#_dv_quantified_class"></a><a class="link" href="#_dv_quantified_class">DV_QUANTIFIED Class</a></h3>
+<div id="_tabs_6" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="_tabs_6_definition" class="tab">
+<p>Definition</p>
+</li>
+<li id="_tabs_6_bmm" class="tab">
+<p>BMM</p>
+</li>
+<li id="_tabs_6_uml" class="tab">
+<p>UML</p>
+</li>
+</ul>
+</div>
+<div id="_tabs_6_definition--panel" class="tabpanel" aria-labelledby="_tabs_6_definition">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong><em>DV_QUANTIFIED (abstract)</em></strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Abstract class defining the concept of true quantified values, i.e. values which are not only ordered, but which have a precise magnitude.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="../../../latest/data_types/quantity_package/#_dv_ordered_class" class="xref page">DV_ORDERED</a></code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>magnitude_status</strong>: <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_string_class" class="xref page">String</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Optional status of magnitude with values:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>"="</code>   :   magnitude is a point value</p>
+</li>
+<li>
+<p><code>"&lt;"</code>   :   value is &lt; magnitude</p>
+</li>
+<li>
+<p><code>"&gt;"</code>   :   value is &gt; magnitude</p>
+</li>
+<li>
+<p><code>"&lt;="</code> : value is &lt;= magnitude</p>
+</li>
+<li>
+<p><code>"&gt;="</code> : value is &gt;= magnitude</p>
+</li>
+<li>
+<p><code>"~"</code>   :   value is approximately magnitude</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>If not present, assumed meaning is  <code>"="</code> .</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>accuracy</strong>: <code><a href="../../../../BASE/latest/foundation_types/overview/#_any_class" class="xref page">Any</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Accuracy of measurement. Exact form of expression determined in descendants.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Functions</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>valid_magnitude_status</strong> (): <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a></code><br>
+<br>
+<em>Post</em>: <code>Result = s in {"=", "&lt;", "&gt;", "&lt;=", "&gt;=", "~"}</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Test whether a string value is one of the valid values for the magnitude_status attribute.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(abstract)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>magnitude</strong> (): <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_ordered_numeric_class" class="xref page">Ordered_Numeric</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>accuracy_unknown</strong> (): <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>True if accuracy is not known, e.g. due to not being recorded or discernable.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(abstract)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_equal</strong> (<br>
+other: <code><a href="../../../latest/data_types/quantity_package/#_dv_quantified_class" class="xref page">DV_QUANTIFIED</a>[1]</code><br>
+): <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Return True if this <code>DV_QUANTIFIED</code> is considered equal to <code><em>other</em></code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(effected)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>less_than</strong> <em>alias</em> "&lt;" (<br>
+other: <code><a href="../../../latest/data_types/quantity_package/#_dv_quantified_class" class="xref page">DV_QUANTIFIED</a>[1]</code><br>
+): <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a></code><br>
+<br>
+<em>Pre_comparable</em>: <code>is_strictly_comparable()</code><br>
+<br>
+<em>Post_result</em>: <code>Result = magnitude &lt; other.magnitude</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>True if this Quantified object is less than <code><em>other</em></code>, based on comparison of <code><em>magnitude</em></code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Invariants</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Magnitude_status_valid</em>: <code>magnitude_status /= Void implies valid_magnitude_status (magnitude_status)</code></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="_tabs_6_bmm--panel" class="tabpanel" aria-labelledby="_tabs_6_bmm">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+    "name": "DV_QUANTIFIED",
+    "documentation": "Abstract class defining the concept of true quantified values, i.e. values which are not only ordered, but which have a precise magnitude.",
+    "is_abstract": true,
+    "ancestors": [
+        "DV_ORDERED"
+    ],
+    "properties": {
+        "magnitude_status": {
+            "_type": "P_BMM_SINGLE_PROPERTY",
+            "name": "magnitude_status",
+            "documentation": "Optional status of magnitude with values: \n\n* `\"=\"`   :   magnitude is a point value \n* `\"&lt;\"`   :   value is &lt; magnitude \n* `\"&gt;\"`   :   value is &gt; magnitude \n* `\"&lt;=\"` : value is &lt;= magnitude \n* `\"&gt;=\"` : value is &gt;= magnitude \n* `\"~\"`   :   value is approximately magnitude \n\nIf not present, assumed meaning is  `\"=\"` . \n",
+            "type": "String"
+        },
+        "accuracy": {
+            "_type": "P_BMM_SINGLE_PROPERTY",
+            "name": "accuracy",
+            "documentation": "Accuracy of measurement. Exact form of expression determined in descendants.",
+            "type": "Any"
+        }
+    },
+    "functions": {
+        "valid_magnitude_status": {
+            "name": "valid_magnitude_status",
+            "documentation": "Test whether a string value is one of the valid values for the magnitude_status attribute. ",
+            "post_conditions": {
+                "Post": "Result = s in {\"=\", \"&lt;\", \"&gt;\", \"&lt;=\", \"&gt;=\", \"~\"}"
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Boolean"
+            }
+        },
+        "magnitude": {
+            "name": "magnitude",
+            "is_abstract": true,
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Ordered_Numeric"
+            }
+        },
+        "accuracy_unknown": {
+            "name": "accuracy_unknown",
+            "documentation": "True if accuracy is not known, e.g. due to not being recorded or discernable.",
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Boolean"
+            }
+        },
+        "is_equal": {
+            "name": "is_equal",
+            "documentation": "Return True if this `DV_QUANTIFIED` is considered equal to `_other_`.",
+            "is_abstract": true,
+            "parameters": {
+                "other": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "other",
+                    "type": "DV_QUANTIFIED"
+                }
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Boolean"
+            }
+        },
+        "less_than": {
+            "name": "less_than",
+            "aliases": [
+                "&lt;"
+            ],
+            "documentation": "True if this Quantified object is less than `_other_`, based on comparison of `_magnitude_`.",
+            "parameters": {
+                "other": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "other",
+                    "type": "DV_QUANTIFIED"
+                }
+            },
+            "pre_conditions": {
+                "Pre_comparable": "is_strictly_comparable()"
+            },
+            "post_conditions": {
+                "Post_result": "Result = magnitude &lt; other.magnitude"
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Boolean"
+            }
+        }
+    },
+    "invariants": {
+        "Magnitude_status_valid": "magnitude_status /= Void implies valid_magnitude_status (magnitude_status)"
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="_tabs_6_uml--panel" class="tabpanel" aria-labelledby="_tabs_6_uml">
+<div class="imageblock kroki">
+<div class="content">
+<img src="https://kroki.io/plantuml/svg/eNqdU8FOwkAQvfcrNvGCGohegZBUWJSEFC3IhZjN2o5lw3YXd6cqUf7dtVApghK8bTrvvZl5b-rxR4uGR0giya0lnTG7u_eDUa_box3y7hFyTlKeKIFZDMwix8ySOhmiESohk4ta7fIhB_EoypzOwhV9tShXXrgUMfspUjl1yCutJXBFJmvoezHNctM0Bw5MDAZiFmQpGBF9E4quLFMzpV_VIVVhGTxnXFaIxikYB95e2FHIPgkJ1jKccnUMcel5u-4Owg4NHYGcvE4Fgk31DBpSKKgnhi_yVy3WiBA3EN4w_7rOQWmTcrkJoT3oUHZ7E_pDWvZ7DTNcJbCasxeMaDj2-2VUvgYz8OR8VRGs4F-qfWGxGdKumzJoUxb6wTVtbgZvtcjkbJ-v7ikilAsW6XTODX-UwFBv-VXs_pvLXyoinUuo_FJdrXYo5P1h_dV8T1L-yGfOsnt6bFJOq0RuflSrpe47fdaH_Z9z-HvjQvjgRTNtfv4Th7iJAY7ueo7rWGYd2dR5WpR3DC1FW9Q2_6X3CYkpjek=?svg-type=inline" alt="DV_QUANTIFIED">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_dv_amount_class"><a class="anchor" href="#_dv_amount_class"></a><a class="link" href="#_dv_amount_class">DV_AMOUNT Class</a></h3>
+<div id="_tabs_7" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="_tabs_7_definition" class="tab">
+<p>Definition</p>
+</li>
+<li id="_tabs_7_bmm" class="tab">
+<p>BMM</p>
+</li>
+<li id="_tabs_7_uml" class="tab">
+<p>UML</p>
+</li>
+</ul>
+</div>
+<div id="_tabs_7_definition--panel" class="tabpanel" aria-labelledby="_tabs_7_definition">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong><em>DV_AMOUNT (abstract)</em></strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Abstract class defining the concept of relative quantified  'amounts'. For relative quantities, the  <code>+</code> and  <code>-</code> operators are defined (unlike descendants of <code>DV_ABSOLUTE_QUANTITY</code>, such as the date/time types).</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="../../../latest/data_types/quantity_package/#_dv_quantified_class" class="xref page">DV_QUANTIFIED</a></code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>accuracy_is_percent</strong>: <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>If <code>True</code>, indicates that when this object was created, <code><em>accuracy</em></code> was recorded as a percent value; if <code>False</code>, as an absolute quantity value.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1<br>
+(effected)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>accuracy</strong>: <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_real_class" class="xref page">Real</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Accuracy of measurement, expressed either as a half-range percent value (<code><em>accuracy_is_percent</em></code> = <code>True</code>) or a half-range quantity. A value of <code>0</code> means that accuracy is 100%, i.e. no error.</p>
+</div>
+<div class="paragraph">
+<p>A value of <code><em>unknown_accuracy_value</em></code> means that accuracy was not recorded.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Functions</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>valid_percentage</strong> (<br>
+number: <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_ordered_numeric_class" class="xref page">Ordered_Numeric</a>[1]</code><br>
+): <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Test whether a number is a valid percentage, i.e. between 0 and 100.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>add</strong> <em>alias</em> "+" (<br>
+other: <code><a href="../../../latest/data_types/quantity_package/#_dv_amount_class" class="xref page">DV_AMOUNT</a>[1]</code><br>
+): <code><a href="../../../latest/data_types/quantity_package/#_dv_amount_class" class="xref page">DV_AMOUNT</a></code><br>
+<br>
+<em>Pre_comparable</em>: <code>is_strictly_comparable_to (other)</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Sum of this amount and another. The value of accuracy in the result is either:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>the sum of the accuracies of the operands, if both present, or;</p>
+</li>
+<li>
+<p>both operand accuracies are unknown_accuracy_value.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>If the accuracy value is a percentage in one operand and not in the other, the form in the result is that of the larger operand.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>subtract</strong> <em>alias</em> "-" (<br>
+other: <code><a href="../../../latest/data_types/quantity_package/#_dv_amount_class" class="xref page">DV_AMOUNT</a>[1]</code><br>
+): <code><a href="../../../latest/data_types/quantity_package/#_dv_amount_class" class="xref page">DV_AMOUNT</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Difference of this amount and another. The value of <code><em>accuracy</em></code> in the result is either:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>the sum of the accuracies of the operands, if both present, or;</p>
+</li>
+<li>
+<p>unknown, if either or both operand accuracies are unknown.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>If the <code><em>accuracy</em></code> value is a percentage in one operand and not in the other, the form in the result is that of the larger operand.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(abstract)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_equal</strong> (<br>
+other: <code><a href="../../../latest/data_types/quantity_package/#_dv_amount_class" class="xref page">DV_AMOUNT</a>[1]</code><br>
+): <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Return True if this <code>DV_AMOUNT</code> is considered equal to <code><em>other</em></code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>multiply</strong> <em>alias</em> "&#42;" (<br>
+factor: <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_real_class" class="xref page">Real</a>[1]</code><br>
+): <code><a href="../../../latest/data_types/quantity_package/#_dv_amount_class" class="xref page">DV_AMOUNT</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Product of this Amount and <code><em>factor</em></code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>negative</strong> <em>alias</em> "-" (): <code><a href="../../../latest/data_types/quantity_package/#_dv_amount_class" class="xref page">DV_AMOUNT</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Negated version of current object, such as used for representing a difference, e.g. a weight loss.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(redefined)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>less_than</strong> <em>alias</em> "&lt;" (<br>
+other: <code><a href="../../../latest/data_types/quantity_package/#_dv_amount_class" class="xref page">DV_AMOUNT</a>[1]</code><br>
+): <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a></code><br>
+<br>
+<em>Pre_comparable</em>: <code>is_strictly_comparable()</code><br>
+<br>
+<em>Post_result</em>: <code>Result = magnitude &lt; other.magnitude</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>True if this object is less than <code><em>other</em></code>. Based on comparison of <code><em>magnitude</em></code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Invariants</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Accuracy_is_percent_validity</em>: <code>accuracy = 0 implies not accuracy_is_percent</code></p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Accuracy_validity</em>: <code>accuracy_is_percent implies valid_percentage (accuracy)</code></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="_tabs_7_bmm--panel" class="tabpanel" aria-labelledby="_tabs_7_bmm">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+    "name": "DV_AMOUNT",
+    "documentation": "Abstract class defining the concept of relative quantified  'amounts'. For relative quantities, the  `+` and  `-` operators are defined (unlike descendants of `DV_ABSOLUTE_QUANTITY`, such as the date/time types). \n",
+    "is_abstract": true,
+    "ancestors": [
+        "DV_QUANTIFIED"
+    ],
+    "properties": {
+        "accuracy_is_percent": {
+            "_type": "P_BMM_SINGLE_PROPERTY",
+            "name": "accuracy_is_percent",
+            "documentation": "If `True`, indicates that when this object was created, `_accuracy_` was recorded as a percent value; if `False`, as an absolute quantity value.",
+            "type": "Boolean"
+        },
+        "accuracy": {
+            "_type": "P_BMM_SINGLE_PROPERTY",
+            "name": "accuracy",
+            "documentation": "Accuracy of measurement, expressed either as a half-range percent value (`_accuracy_is_percent_` = `True`) or a half-range quantity. A value of `0` means that accuracy is 100%, i.e. no error.\n\nA value of `_unknown_accuracy_value_` means that accuracy was not recorded.",
+            "type": "Real"
+        }
+    },
+    "functions": {
+        "valid_percentage": {
+            "name": "valid_percentage",
+            "documentation": "Test whether a number is a valid percentage, i.e. between 0 and 100. ",
+            "parameters": {
+                "number": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "number",
+                    "type": "Ordered_Numeric"
+                }
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Boolean"
+            }
+        },
+        "add": {
+            "name": "add",
+            "aliases": [
+                "+"
+            ],
+            "documentation": "Sum of this amount and another. The value of accuracy in the result is either:\n\n* the sum of the accuracies of the operands, if both present, or;\n* both operand accuracies are unknown_accuracy_value.\n\nIf the accuracy value is a percentage in one operand and not in the other, the form in the result is that of the larger operand.",
+            "parameters": {
+                "other": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "other",
+                    "type": "DV_AMOUNT"
+                }
+            },
+            "pre_conditions": {
+                "Pre_comparable": "is_strictly_comparable_to (other)"
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "DV_AMOUNT"
+            }
+        },
+        "subtract": {
+            "name": "subtract",
+            "aliases": [
+                "-"
+            ],
+            "documentation": "Difference of this amount and another. The value of `_accuracy_` in the result is either:\n\n* the sum of the accuracies of the operands, if both present, or;\n* unknown, if either or both operand accuracies are unknown.\n\nIf the `_accuracy_` value is a percentage in one operand and not in the other, the form in the result is that of the larger operand.",
+            "parameters": {
+                "other": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "other",
+                    "type": "DV_AMOUNT"
+                }
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "DV_AMOUNT"
+            }
+        },
+        "is_equal": {
+            "name": "is_equal",
+            "documentation": "Return True if this `DV_AMOUNT` is considered equal to `_other_`.",
+            "is_abstract": true,
+            "parameters": {
+                "other": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "other",
+                    "type": "DV_AMOUNT"
+                }
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Boolean"
+            }
+        },
+        "multiply": {
+            "name": "multiply",
+            "aliases": [
+                "&amp;#42;"
+            ],
+            "documentation": "Product of this Amount and `_factor_`.",
+            "parameters": {
+                "factor": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "factor",
+                    "type": "Real"
+                }
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "DV_AMOUNT"
+            }
+        },
+        "negative": {
+            "name": "negative",
+            "aliases": [
+                "-"
+            ],
+            "documentation": "Negated version of current object, such as used for representing a difference, e.g. a weight loss.",
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "DV_AMOUNT"
+            }
+        },
+        "less_than": {
+            "name": "less_than",
+            "aliases": [
+                "&lt;"
+            ],
+            "documentation": "True if this object is less than `_other_`. Based on comparison of `_magnitude_`.",
+            "parameters": {
+                "other": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "other",
+                    "type": "DV_AMOUNT"
+                }
+            },
+            "pre_conditions": {
+                "Pre_comparable": "is_strictly_comparable()"
+            },
+            "post_conditions": {
+                "Post_result": "Result = magnitude &lt; other.magnitude"
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Boolean"
+            }
+        }
+    },
+    "invariants": {
+        "Accuracy_is_percent_validity": "accuracy = 0 implies not accuracy_is_percent",
+        "Accuracy_validity": "accuracy_is_percent implies valid_percentage (accuracy)"
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="_tabs_7_uml--panel" class="tabpanel" aria-labelledby="_tabs_7_uml">
+<div class="imageblock kroki">
+<div class="content">
+<img src="https://kroki.io/plantuml/svg/eNqdVFFP2zAQfs-vsLSXsIlqvEKFlNEwKkG6hZaXCllucqQWjl3sCyxi_PeZtKFumzQrb5bvu-_uvu9sj80MapYgSQQzhgzuaHAzmkRj8uoR8o2wJClsuKTc0AXoBCSSU_JDKQFMkun3Xu_kfgNoozEw4YaemeBpnc0y8Iks8hloCx3pFDSkNCpy0Dwh05N7cuQWqNnT1CcK51XSuscavnFTJZhiVo11WNZrrcYbsfPCU8HEPoLtLvNCIF-I0icPlkPpDy1aC0rIGPJn8JvDAoyhOGfyf7t487xdQ39Pgmg8vByGA0K-vMw5gsnVI5wJLuE006ysTr1UIUJ6hvAHq9vVBuQskxyLFKhBhoWxFW9Rc5m1uB_Ictf8bRK_ST5H_Q98BWzYks3lLOSjVC-yi7XRU0edNl-bbehIbLRiFA_C-HM-SKVzJtYmXIwGIf11FQe3oav3CqaZzGDZ5zAah_FdcO2iqjGohgerq0xgCX9nveYG-3F4abuMLkIaB9HPsL9u_PycTL826WqPPEFR0kTlC6bZTABFtaFXPXubyu8sPF8I8Fuiy9G6TG42a1_xBqeCcUCtZJPwUKcsl5Pc_3t87FTfqbNa7M-sw_6Ja-LOjaZKb7-JrtxMA0O7PYdVdLMOLGo1rcM7gjrW1rH1u6zCzjOtEcsP1PsH-1Ix8g==?svg-type=inline" alt="DV_AMOUNT">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_dv_quantity_class"><a class="anchor" href="#_dv_quantity_class"></a><a class="link" href="#_dv_quantity_class">DV_QUANTITY Class</a></h3>
+<div id="_tabs_8" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="_tabs_8_definition" class="tab">
+<p>Definition</p>
+</li>
+<li id="_tabs_8_bmm" class="tab">
+<p>BMM</p>
+</li>
+<li id="_tabs_8_uml" class="tab">
+<p>UML</p>
+</li>
+</ul>
+</div>
+<div id="_tabs_8_definition--panel" class="tabpanel" aria-labelledby="_tabs_8_definition">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>DV_QUANTITY</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Quantitified type representing  scientific  quantities, i.e. quantities expressed as a magnitude and units. Units are expressed in the UCUM syntax (<a href="http://unitsofmeasure.org/ucum.html">Unified Code for Units of Measure (UCUM)</a>, by Gunther Schadow and Clement J. McDonald of The Regenstrief Institute)  (case-sensitive form) by default, or another system if <code><em>units_system</em></code> is set.</p>
+</div>
+<div class="paragraph">
+<p>Can also be used for time durations, where it is more convenient to treat these as simply a number of seconds rather than days, months, years (in the latter case, <code>DV_DURATION</code> may be used).</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="../../../latest/data_types/quantity_package/#_dv_amount_class" class="xref page">DV_AMOUNT</a></code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>magnitude</strong>: <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_real_class" class="xref page">Real</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Numeric magnitude of the quantity.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>precision</strong>: <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_integer_class" class="xref page">Integer</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Precision to which the value of the quantity is expressed, in terms of number of decimal places. The value 0 implies an integral quantity.
+The value -1 implies no limit, i.e. any number of decimal places.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>units</strong>: <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_string_class" class="xref page">String</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Quantity units, expressed as a code or syntax string from either UCUM (the default) or the units system specified in <code><em>units_system</em></code>, when set.</p>
+</div>
+<div class="paragraph">
+<p>In either case, the value is the code or syntax - normally formed of standard ASCII - which is in principal not the same as the display string, although in simple cases such as 'm' (for meters) it will be.</p>
+</div>
+<div class="paragraph">
+<p>If the <code><em>units_display_name</em></code> field is set, this may be used for display. If not, the implementations must effect the resolution of the <code><em>units</em></code> value to a display form locally, e.g. by lookup of reference tables, request to a terminology service etc.</p>
+</div>
+<div class="paragraph">
+<p>Example values from UCUM: "kg/m^2", “mm[Hg]", "ms-1", "km/h".</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1<br>
+(effected)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>normal_range</strong>: <code><a href="../../../latest/data_types/quantity_package/#_dv_interval_class" class="xref page">DV_INTERVAL</a>&lt;<a href="../../../latest/data_types/quantity_package/#_dv_quantity_class" class="xref page">DV_QUANTITY</a>&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Optional normal range.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1<br>
+(effected)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>other_reference_ranges</strong>: <code><a href="../../../../BASE/latest/foundation_types/structure_types/#_list_class" class="xref page">List</a>&lt;<a href="../../../latest/data_types/quantity_package/#_reference_range_class" class="xref page">REFERENCE_RANGE</a>&lt;<a href="../../../latest/data_types/quantity_package/#_dv_quantity_class" class="xref page">DV_QUANTITY</a>&gt;&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Optional tagged other reference ranges for this value in its particular measurement context.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>units_system</strong>: <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_string_class" class="xref page">String</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Optional field used to specify a units system from which codes in <code><em>units</em></code> are defined. Value is a URI identifying a terminology containing units concepts from the  (<a href="https://www.hl7.org/fhir/terminologies-systems.html">HL7 FHIR terminologies list</a>).</p>
+</div>
+<div class="paragraph">
+<p>If not set, the UCUM standard (case-sensitive codes) is assumed as the units system.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>units_display_name</strong>: <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_string_class" class="xref page">String</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Optional field containing the displayable form of the <code><em>units</em></code> field, e.g. <code>'°C'</code>.</p>
+</div>
+<div class="paragraph">
+<p>If not set, the application environment needs to determine the displayable form.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The display name may be language-dependent for various older and non-systematic units. For this reason, it is not recommended to add unit display names to archetypes, only to templates (for localisation purposes).
+</td>
+</tr>
+</table>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Functions</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(redefined)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>add</strong> <em>alias</em> "+" (<br>
+other: <code><a href="../../../latest/data_types/quantity_package/#_dv_quantity_class" class="xref page">DV_QUANTITY</a>[1]</code><br>
+): <code><a href="../../../latest/data_types/quantity_package/#_dv_quantity_class" class="xref page">DV_QUANTITY</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Sum of this <code>DV_QUANTITY</code> and <code><em>other</em></code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(redefined)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>subtract</strong> <em>alias</em> "-" (<br>
+other: <code><a href="../../../latest/data_types/quantity_package/#_dv_quantity_class" class="xref page">DV_QUANTITY</a>[1]</code><br>
+): <code><a href="../../../latest/data_types/quantity_package/#_dv_quantity_class" class="xref page">DV_QUANTITY</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Difference of this <code>DV_QUANTITY</code> and <code><em>other</em></code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(redefined)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>multiply</strong> <em>alias</em> "&#42;" (<br>
+factor: <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_real_class" class="xref page">Real</a>[1]</code><br>
+): <code><a href="../../../latest/data_types/quantity_package/#_dv_quantity_class" class="xref page">DV_QUANTITY</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Product of this <code>DV_QUANTITY</code> and <code><em>factor</em></code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(redefined)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>less_than</strong> <em>alias</em> "&lt;" (<br>
+other: <code><a href="../../../latest/data_types/quantity_package/#_dv_quantity_class" class="xref page">DV_QUANTITY</a>[1]</code><br>
+): <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a></code><br>
+<br>
+<em>Pre_comparable</em>: <code>is_strictly_comparable()</code><br>
+<br>
+<em>Post_result</em>: <code>Result = magnitude &lt; other.magnitude</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>True if this Quantity object is less than <code><em>other</em></code>, based on comparison of <code><em>magnitude</em></code>. Only valid if <code><em>is_strictly_comparable_to()</em></code> is True.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_integral</strong> (): <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>True if <code><em>precision</em></code> = 0, meaning that the <code><em>magnitude</em></code> is a whole number.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(effected)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_strictly_comparable_to</strong> (<br>
+other: <code><a href="../../../latest/data_types/quantity_package/#_dv_ordered_class" class="xref page">DV_ORDERED</a>[1]</code><br>
+): <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>True if this quantity and <code><em>other</em></code> have the same <code><em>units</em></code> and also <code><em>units_system</em></code> if it exists.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="_tabs_8_bmm--panel" class="tabpanel" aria-labelledby="_tabs_8_bmm">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+    "name": "DV_QUANTITY",
+    "documentation": "Quantitified type representing  scientific  quantities, i.e. quantities expressed as a magnitude and units. Units are expressed in the UCUM syntax (http://unitsofmeasure.org/ucum.html[Unified Code for Units of Measure (UCUM)], by Gunther Schadow and Clement J. McDonald of The Regenstrief Institute)  (case-sensitive form) by default, or another system if `_units_system_` is set. \n\nCan also be used for time durations, where it is more convenient to treat these as simply a number of seconds rather than days, months, years (in the latter case, `DV_DURATION` may be used).",
+    "ancestors": [
+        "DV_AMOUNT"
+    ],
+    "properties": {
+        "magnitude": {
+            "_type": "P_BMM_SINGLE_PROPERTY",
+            "name": "magnitude",
+            "documentation": "Numeric magnitude of the quantity.",
+            "is_mandatory": true,
+            "type": "Real"
+        },
+        "precision": {
+            "_type": "P_BMM_SINGLE_PROPERTY",
+            "name": "precision",
+            "documentation": "Precision to which the value of the quantity is expressed, in terms of number of decimal places. The value 0 implies an integral quantity.\nThe value -1 implies no limit, i.e. any number of decimal places.",
+            "type": "Integer"
+        },
+        "units": {
+            "_type": "P_BMM_SINGLE_PROPERTY",
+            "name": "units",
+            "documentation": "Quantity units, expressed as a code or syntax string from either UCUM (the default) or the units system specified in `_units_system_`, when set.\n\nIn either case, the value is the code or syntax - normally formed of standard ASCII - which is in principal not the same as the display string, although in simple cases such as 'm' (for meters) it will be.\n\nIf the `_units_display_name_` field is set, this may be used for display. If not, the implementations must effect the resolution of the `_units_` value to a display form locally, e.g. by lookup of reference tables, request to a terminology service etc.\n\nExample values from UCUM: \"kg/m^2\", “mm[Hg]\", \"ms-1\", \"km/h\".",
+            "is_mandatory": true,
+            "type": "String"
+        },
+        "normal_range": {
+            "_type": "P_BMM_GENERIC_PROPERTY",
+            "name": "normal_range",
+            "documentation": "Optional normal range. ",
+            "type_def": {
+                "root_type": "DV_INTERVAL",
+                "generic_parameters": [
+                    "DV_QUANTITY"
+                ]
+            }
+        },
+        "other_reference_ranges": {
+            "_type": "P_BMM_CONTAINER_PROPERTY",
+            "name": "other_reference_ranges",
+            "documentation": "Optional tagged other reference ranges for this value in its particular measurement context.",
+            "type_def": {
+                "container_type": "List",
+                "type_def": {
+                    "_type": "P_BMM_GENERIC_TYPE",
+                    "root_type": "REFERENCE_RANGE",
+                    "generic_parameters": [
+                        "DV_QUANTITY"
+                    ]
+                }
+            },
+            "cardinality": {
+                "lower": 0,
+                "upper_unbounded": true
+            }
+        },
+        "units_system": {
+            "_type": "P_BMM_SINGLE_PROPERTY",
+            "name": "units_system",
+            "documentation": "Optional field used to specify a units system from which codes in `_units_` are defined. Value is a URI identifying a terminology containing units concepts from the  (https://www.hl7.org/fhir/terminologies-systems.html[HL7 FHIR terminologies list]).\n\nIf not set, the UCUM standard (case-sensitive codes) is assumed as the units system.",
+            "type": "String"
+        },
+        "units_display_name": {
+            "_type": "P_BMM_SINGLE_PROPERTY",
+            "name": "units_display_name",
+            "documentation": "Optional field containing the displayable form of the `_units_` field, e.g. `'°C'`.\n\nIf not set, the application environment needs to determine the displayable form.\n\nNOTE: The display name may be language-dependent for various older and non-systematic units. For this reason, it is not recommended to add unit display names to archetypes, only to templates (for localisation purposes).",
+            "type": "String"
+        }
+    },
+    "functions": {
+        "add": {
+            "name": "add",
+            "aliases": [
+                "+"
+            ],
+            "documentation": "Sum of this `DV_QUANTITY` and `_other_`.",
+            "parameters": {
+                "other": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "other",
+                    "type": "DV_QUANTITY"
+                }
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "DV_QUANTITY"
+            }
+        },
+        "subtract": {
+            "name": "subtract",
+            "aliases": [
+                "-"
+            ],
+            "documentation": "Difference of this `DV_QUANTITY` and `_other_`.",
+            "parameters": {
+                "other": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "other",
+                    "type": "DV_QUANTITY"
+                }
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "DV_QUANTITY"
+            }
+        },
+        "multiply": {
+            "name": "multiply",
+            "aliases": [
+                "&amp;#42;"
+            ],
+            "documentation": "Product of this `DV_QUANTITY` and `_factor_`.",
+            "parameters": {
+                "factor": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "factor",
+                    "type": "Real"
+                }
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "DV_QUANTITY"
+            }
+        },
+        "less_than": {
+            "name": "less_than",
+            "aliases": [
+                "&lt;"
+            ],
+            "documentation": "True if this Quantity object is less than `_other_`, based on comparison of `_magnitude_`. Only valid if `_is_strictly_comparable_to()_` is True.",
+            "parameters": {
+                "other": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "other",
+                    "type": "DV_QUANTITY"
+                }
+            },
+            "pre_conditions": {
+                "Pre_comparable": "is_strictly_comparable()"
+            },
+            "post_conditions": {
+                "Post_result": "Result = magnitude &lt; other.magnitude"
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Boolean"
+            }
+        },
+        "is_integral": {
+            "name": "is_integral",
+            "documentation": "True if `_precision_` = 0, meaning that the `_magnitude_` is a whole number.",
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Boolean"
+            }
+        },
+        "is_strictly_comparable_to": {
+            "name": "is_strictly_comparable_to",
+            "documentation": "True if this quantity and `_other_` have the same `_units_` and also `_units_system_` if it exists.",
+            "parameters": {
+                "other": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "other",
+                    "type": "DV_ORDERED"
+                }
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Boolean"
+            }
+        }
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="_tabs_8_uml--panel" class="tabpanel" aria-labelledby="_tabs_8_uml">
+<div class="imageblock kroki">
+<div class="content">
+<img src="https://kroki.io/plantuml/svg/eNqlVF1P2zAUfe-vsLSXbhMVe4VqUkYDq8TSLaRICE2Wm1xSC8fObAcWAf99br7qpkm7lrco1-d-nHPuHYSMKIUmt_jX3PGCaXCHXgYIfUYJiTnVWQToDPlAGLr_8rsIpBJCqqjgJjDlGmKQ6P50NKrCmUEpE7rRkvK4QXEhE8KwJDxeZTT1pl7g-rfO9diq_dXOJPQSJJbwABJ4CCV2lfqaKj323UvXd70LF_uOd-VuZDFpPlndYJUrDYnVVKtdHFGVMpJjThLofEaiaFg2VDbfkGXmQx-3_xUglS20JKE-HJlkTNOU5UP0YPBCWhr0YhgohfWS8N3lvgnBgPAGRhWmKxUlYcOeuDJ0hJrlOBRJSiRZMMBabJSZ-ROjxqSzyttgQBaqYAI1bnN-zOZegNCH5yXVoBLxCOeMcjgzjeTF1ygSWkN0ruGvLv5WxiRhmJlcOTadpSBD4NouaGlWPWzIW4eeCKNRjSYxDBHPkkUxzExGxm8R9rIEzNi9vLUdUQ1kKbT-0--GvaiXmrq3lRLwJzMy7UjQ7vI_jNQqyCEmmj7BsDvc7bIdXXSqX7rycmocc4QDmtNknEl0pro3dq2-w_Nt8dtJOs1vsd-8Lx52uGTTnBl_5OKZ78vaqanFTp-uu5a9F9gpRb25R-hQ3fRGhIvZxMU_v_vOjWvz3X_633Xtq8atY7_J6zuvVn37aJIy6LuM5Wj7RO4W68CT6QQONpTN3UOVMrks8Pj15MSqvlWnMvYxdtg9cZ14r6OxkO2d2IeNJRBt3HNYRRt1YFHDaR3eItSSto6t97IIW2tavygPaBGtbukmNrgb_APDOQLx?svg-type=inline" alt="DV_QUANTITY">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_dv_count_class"><a class="anchor" href="#_dv_count_class"></a><a class="link" href="#_dv_count_class">DV_COUNT Class</a></h3>
+<div id="_tabs_9" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="_tabs_9_definition" class="tab">
+<p>Definition</p>
+</li>
+<li id="_tabs_9_bmm" class="tab">
+<p>BMM</p>
+</li>
+<li id="_tabs_9_uml" class="tab">
+<p>UML</p>
+</li>
+</ul>
+</div>
+<div id="_tabs_9_definition--panel" class="tabpanel" aria-labelledby="_tabs_9_definition">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>DV_COUNT</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Countable quantities. Used for countable types such as pregnancies and steps (taken by a physiotherapy patient), number of cigarettes smoked in a day.</p>
+</div>
+<div class="paragraph">
+<p>Misuse: Not to be used for amounts of physical entities (which all have units).</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="../../../latest/data_types/quantity_package/#_dv_amount_class" class="xref page">DV_AMOUNT</a></code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>magnitude</strong>: <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_integer64_class" class="xref page">Integer64</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1<br>
+(effected)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>normal_range</strong>: <code><a href="../../../latest/data_types/quantity_package/#_dv_interval_class" class="xref page">DV_INTERVAL</a>&lt;<a href="../../../latest/data_types/quantity_package/#_dv_count_class" class="xref page">DV_COUNT</a>&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Optional normal range.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1<br>
+(effected)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>other_reference_ranges</strong>: <code><a href="../../../../BASE/latest/foundation_types/structure_types/#_list_class" class="xref page">List</a>&lt;<a href="../../../latest/data_types/quantity_package/#_reference_range_class" class="xref page">REFERENCE_RANGE</a>&lt;<a href="../../../latest/data_types/quantity_package/#_dv_count_class" class="xref page">DV_COUNT</a>&gt;&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Optional tagged other reference ranges for this value in its particular measurement context.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Functions</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(redefined)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>add</strong> <em>alias</em> "+" (<br>
+other: <code><a href="../../../latest/data_types/quantity_package/#_dv_count_class" class="xref page">DV_COUNT</a>[1]</code><br>
+): <code><a href="../../../latest/data_types/quantity_package/#_dv_count_class" class="xref page">DV_COUNT</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Sum of this <code>DV_COUNT</code> and <code><em>other</em></code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(redefined)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>subtract</strong> <em>alias</em> "-" (<br>
+other: <code><a href="../../../latest/data_types/quantity_package/#_dv_count_class" class="xref page">DV_COUNT</a>[1]</code><br>
+): <code><a href="../../../latest/data_types/quantity_package/#_dv_count_class" class="xref page">DV_COUNT</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Difference of this <code>DV_COUNT</code> and <code><em>other</em></code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(redefined)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>multiply</strong> <em>alias</em> "&#42;" (<br>
+factor: <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_real_class" class="xref page">Real</a>[1]</code><br>
+): <code><a href="../../../latest/data_types/quantity_package/#_dv_count_class" class="xref page">DV_COUNT</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Product of this <code>DV_COUNT</code> and <code><em>factor</em></code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(redefined)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>less_than</strong> <em>alias</em> "&lt;" (<br>
+other: <code><a href="../../../latest/data_types/quantity_package/#_dv_count_class" class="xref page">DV_COUNT</a>[1]</code><br>
+): <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a></code><br>
+<br>
+<em>Pre_comparable</em>: <code>is_strictly_comparable()</code><br>
+<br>
+<em>Post_result</em>: <code>Result = magnitude &lt; other.magnitude</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>True if this Quantified object is less than <code><em>other</em></code>, based on comparison of <code><em>magnitude</em></code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(effected)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_strictly_comparable_to</strong> (<br>
+other: <code><a href="../../../latest/data_types/quantity_package/#_dv_ordered_class" class="xref page">DV_ORDERED</a>[1]</code><br>
+): <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Return True.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="_tabs_9_bmm--panel" class="tabpanel" aria-labelledby="_tabs_9_bmm">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+    "name": "DV_COUNT",
+    "documentation": "Countable quantities. Used for countable types such as pregnancies and steps (taken by a physiotherapy patient), number of cigarettes smoked in a day. \n\nMisuse: Not to be used for amounts of physical entities (which all have units).",
+    "ancestors": [
+        "DV_AMOUNT"
+    ],
+    "properties": {
+        "magnitude": {
+            "_type": "P_BMM_SINGLE_PROPERTY",
+            "name": "magnitude",
+            "is_mandatory": true,
+            "type": "Integer64"
+        },
+        "normal_range": {
+            "_type": "P_BMM_GENERIC_PROPERTY",
+            "name": "normal_range",
+            "documentation": "Optional normal range. ",
+            "type_def": {
+                "root_type": "DV_INTERVAL",
+                "generic_parameters": [
+                    "DV_COUNT"
+                ]
+            }
+        },
+        "other_reference_ranges": {
+            "_type": "P_BMM_CONTAINER_PROPERTY",
+            "name": "other_reference_ranges",
+            "documentation": "Optional tagged other reference ranges for this value in its particular measurement context.",
+            "type_def": {
+                "container_type": "List",
+                "type_def": {
+                    "_type": "P_BMM_GENERIC_TYPE",
+                    "root_type": "REFERENCE_RANGE",
+                    "generic_parameters": [
+                        "DV_COUNT"
+                    ]
+                }
+            },
+            "cardinality": {
+                "lower": 0,
+                "upper_unbounded": true
+            }
+        }
+    },
+    "functions": {
+        "add": {
+            "name": "add",
+            "aliases": [
+                "+"
+            ],
+            "documentation": "Sum of this `DV_COUNT` and `_other_`.",
+            "parameters": {
+                "other": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "other",
+                    "type": "DV_COUNT"
+                }
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "DV_COUNT"
+            }
+        },
+        "subtract": {
+            "name": "subtract",
+            "aliases": [
+                "-"
+            ],
+            "documentation": "Difference of this `DV_COUNT` and `_other_`.",
+            "parameters": {
+                "other": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "other",
+                    "type": "DV_COUNT"
+                }
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "DV_COUNT"
+            }
+        },
+        "multiply": {
+            "name": "multiply",
+            "aliases": [
+                "&amp;#42;"
+            ],
+            "documentation": "Product of this `DV_COUNT` and `_factor_`.",
+            "parameters": {
+                "factor": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "factor",
+                    "type": "Real"
+                }
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "DV_COUNT"
+            }
+        },
+        "less_than": {
+            "name": "less_than",
+            "aliases": [
+                "&lt;"
+            ],
+            "documentation": "True if this Quantified object is less than `_other_`, based on comparison of `_magnitude_`.",
+            "parameters": {
+                "other": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "other",
+                    "type": "DV_COUNT"
+                }
+            },
+            "pre_conditions": {
+                "Pre_comparable": "is_strictly_comparable()"
+            },
+            "post_conditions": {
+                "Post_result": "Result = magnitude &lt; other.magnitude"
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Boolean"
+            }
+        },
+        "is_strictly_comparable_to": {
+            "name": "is_strictly_comparable_to",
+            "documentation": "Return True.",
+            "parameters": {
+                "other": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "other",
+                    "type": "DV_ORDERED"
+                }
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Boolean"
+            }
+        }
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="_tabs_9_uml--panel" class="tabpanel" aria-labelledby="_tabs_9_uml">
+<div class="imageblock kroki">
+<div class="content">
+<img src="https://kroki.io/plantuml/svg/eNqlVVFv2jAQfudXWNpLtqlok6Y9tGhSBumG1IU1hb5Uk2WSa4jq2Mx22kVd__tMEgcTEjLoG8rd993d952PQUiJlGhyi8ezhT9HzwOE3qOUxCxRWQToHE2ZghjE50_o7uOvIsq4SAnFgrB4k6CxU3_uBbfu1cjwfEF3H4bDKp-rFQgs4B4EsBBKoNTIq0SqUeBdeoHnjz0cuP43b0uhOd6VBCSKnJKlLFe2qttBbxsfinSZLZUgoToGk2ZUJWuaO-heI_kGFACh3QAKUmK1IuxAla-cUyCsxiQSSyWSUNEchzxdE0GWFLDiOxyzYKIFmbSyvAwGZCmL6VDtnPujqIrePK0SBTLlD3BBEwbnsSB58WsYcaUgulDwRxVfK59JGGaaK8e6szWIEJiyC24tNIm1LNvQI6FJZNAkBgexLF0Ww8xEpC2PsJ-loMfu1KXpbzWQpf32S7fDvahnI93Lxgn4nRF6iKDZ5X-sSKMgg5io5BGc9nD7Ch3ootX964Xrz6eXU70xJ2xA_dL1ZhKVbV7ljV5RFne477J83_wmidMmn6V-nV8ktmzJ7nJm7IHxJ9bH2uqppU6Xr-029ABbrTAv9wQfqptamzCeTTz883vg3ni23t2n91UHt2rcOrm7ur7yapnbl6RrCk5HtBytz-R2s448me7cxVqyhXesU5rLAo_-np1Z1ffqVIt9yjocntgQ92405qL5JvqwsQCi9PYcV9FGHVlUa2rCe4Ja1prY9l0WYeuZmozygBbR6paaSPHvPPgH0_HKSw==?svg-type=inline" alt="DV_COUNT">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_dv_proportion_class"><a class="anchor" href="#_dv_proportion_class"></a><a class="link" href="#_dv_proportion_class">DV_PROPORTION Class</a></h3>
+<div id="_tabs_10" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="_tabs_10_definition" class="tab">
+<p>Definition</p>
+</li>
+<li id="_tabs_10_bmm" class="tab">
+<p>BMM</p>
+</li>
+<li id="_tabs_10_uml" class="tab">
+<p>UML</p>
+</li>
+</ul>
+</div>
+<div id="_tabs_10_definition--panel" class="tabpanel" aria-labelledby="_tabs_10_definition">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>DV_PROPORTION</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Models a ratio of values, i.e. where the numerator and denominator are both pure numbers. The <code><em>valid_proportion_kind</em></code> property of the <code>PROPORTION_KIND</code> class is used to control the type attribute to be one of a defined set.</p>
+</div>
+<div class="paragraph">
+<p>Used for recording titers (e.g. 1:128), concentration ratios, e.g. Na:K (unitary denominator), albumin:creatinine ratio, and percentages, e.g. red cell distirbution width (RDW).</p>
+</div>
+<div class="paragraph">
+<p>Misuse: Should not be used to represent things like blood pressure which are often written using a  '/' character, giving the misleading impression that the item is a ratio, when in fact it is a structured value. Similarly, visual acuity, often written as (e.g.) "6/24" in clinical notes is not a ratio but an ordinal (which includes non-numeric symbols like CF = count fingers etc). Should not be used for formulations.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="../../../latest/data_types/quantity_package/#_proportion_kind_enumeration" class="xref page">PROPORTION_KIND</a></code>, <code><a href="../../../latest/data_types/quantity_package/#_dv_amount_class" class="xref page">DV_AMOUNT</a></code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>numerator</strong>: <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_real_class" class="xref page">Real</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Numerator of ratio</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>denominator</strong>: <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_real_class" class="xref page">Real</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Denominator of ratio.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>type</strong>: <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_integer_class" class="xref page">Integer</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Indicates semantic type of proportion, including percent, unitary etc.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>precision</strong>: <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_integer_class" class="xref page">Integer</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Precision  to  which  the  <code><em>numerator</em></code> and <code><em>denominator</em></code> values of  the  proportion are expressed, in terms of number  of decimal places. The value 0 implies an integral quantity. The value -1 implies no limit, i.e. any number of decimal places.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1<br>
+(effected)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>normal_range</strong>: <code><a href="../../../latest/data_types/quantity_package/#_dv_interval_class" class="xref page">DV_INTERVAL</a>&lt;<a href="../../../latest/data_types/quantity_package/#_dv_proportion_class" class="xref page">DV_PROPORTION</a>&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Optional normal range.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1<br>
+(effected)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>other_reference_ranges</strong>: <code><a href="../../../../BASE/latest/foundation_types/structure_types/#_list_class" class="xref page">List</a>&lt;<a href="../../../latest/data_types/quantity_package/#_reference_range_class" class="xref page">REFERENCE_RANGE</a>&lt;<a href="../../../latest/data_types/quantity_package/#_dv_proportion_class" class="xref page">DV_PROPORTION</a>&gt;&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Optional tagged other reference ranges for this value in its particular measurement context.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Functions</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(effected)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>magnitude</strong> (): <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_real_class" class="xref page">Real</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Effective magnitude represented by ratio.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_integral</strong> (): <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>True if the <code><em>numerator</em></code> and <code><em>denominator</em></code> values are integers, i.e. if <code><em>precision</em></code> is 0.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(redefined)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>add</strong> <em>alias</em> "+" (<br>
+other: <code><a href="../../../latest/data_types/quantity_package/#_dv_proportion_class" class="xref page">DV_PROPORTION</a>[1]</code><br>
+): <code><a href="../../../latest/data_types/quantity_package/#_dv_proportion_class" class="xref page">DV_PROPORTION</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Sum of two strictly comparable proportions.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(redefined)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>subtract</strong> <em>alias</em> "-" (<br>
+other: <code><a href="../../../latest/data_types/quantity_package/#_dv_proportion_class" class="xref page">DV_PROPORTION</a>[1]</code><br>
+): <code><a href="../../../latest/data_types/quantity_package/#_dv_proportion_class" class="xref page">DV_PROPORTION</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Difference between two strictly comparable proportions.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(effected)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_equal</strong> (<br>
+other: <code><a href="../../../latest/data_types/quantity_package/#_dv_proportion_class" class="xref page">DV_PROPORTION</a>[1]</code><br>
+): <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Return True if this <code>DV_AMOUNT</code> is considered equal to <code><em>other</em></code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(redefined)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>multiply</strong> <em>alias</em> "&#42;" (<br>
+factor: <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_real_class" class="xref page">Real</a>[1]</code><br>
+): <code><a href="../../../latest/data_types/quantity_package/#_dv_proportion_class" class="xref page">DV_PROPORTION</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Product of this Proportion and <code><em>factor</em></code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(redefined)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>less_than</strong> <em>alias</em> "&lt;" (<br>
+other: <code><a href="../../../latest/data_types/quantity_package/#_dv_proportion_class" class="xref page">DV_PROPORTION</a>[1]</code><br>
+): <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a></code><br>
+<br>
+<em>Pre_comparable</em>: <code>is_strictly_comparable()</code><br>
+<br>
+<em>Post_result</em>: <code>Result = magnitude &lt; other.magnitude</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>True if this Proportion is less than  <code><em>other</em></code>. Only valid if <code><em>is_strictly_comparable_to()</em></code> is True.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(effected)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_strictly_comparable_to</strong> (<br>
+other: <code><a href="../../../latest/data_types/quantity_package/#_dv_ordered_class" class="xref page">DV_ORDERED</a>[1]</code><br>
+): <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Return True if the <code><em>type</em></code> of this proportion is the same as the <code><em>type</em></code> of <code><em>other</em></code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Invariants</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Type_validity</em>: <code>valid_proportion_kind (type)</code></p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Precision_validity</em>: <code>precision = 0 implies is_integral</code></p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Is_integral_validity</em>: <code>is_integral implies (numerator.floor = numerator and denominator.floor = denominator)</code></p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Fraction_validity</em>: <code>(type = pk_fraction or type = pk_integer_fraction) implies is_integral</code></p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Unitary_validity</em>: <code>type = pk_unitary implies denominator = 1</code></p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Percent_validity</em>: <code>type = pk_percent implies denominator = 100</code></p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Valid_denominator</em>: <code>denominator /= 0.0</code></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="_tabs_10_bmm--panel" class="tabpanel" aria-labelledby="_tabs_10_bmm">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+    "name": "DV_PROPORTION",
+    "documentation": "Models a ratio of values, i.e. where the numerator and denominator are both pure numbers. The `_valid_proportion_kind_` property of the `PROPORTION_KIND` class is used to control the type attribute to be one of a defined set.\n\nUsed for recording titers (e.g. 1:128), concentration ratios, e.g. Na:K (unitary denominator), albumin:creatinine ratio, and percentages, e.g. red cell distirbution width (RDW). \n \nMisuse: Should not be used to represent things like blood pressure which are often written using a  '/' character, giving the misleading impression that the item is a ratio, when in fact it is a structured value. Similarly, visual acuity, often written as (e.g.) \"6/24\" in clinical notes is not a ratio but an ordinal (which includes non-numeric symbols like CF = count fingers etc). Should not be used for formulations. ",
+    "ancestors": [
+        "PROPORTION_KIND",
+        "DV_AMOUNT"
+    ],
+    "properties": {
+        "numerator": {
+            "_type": "P_BMM_SINGLE_PROPERTY",
+            "name": "numerator",
+            "documentation": "Numerator of ratio",
+            "is_mandatory": true,
+            "type": "Real"
+        },
+        "denominator": {
+            "_type": "P_BMM_SINGLE_PROPERTY",
+            "name": "denominator",
+            "documentation": "Denominator of ratio.",
+            "is_mandatory": true,
+            "type": "Real"
+        },
+        "type": {
+            "_type": "P_BMM_SINGLE_PROPERTY",
+            "name": "type",
+            "documentation": "Indicates semantic type of proportion, including percent, unitary etc.",
+            "is_mandatory": true,
+            "type": "Integer"
+        },
+        "precision": {
+            "_type": "P_BMM_SINGLE_PROPERTY",
+            "name": "precision",
+            "documentation": "Precision  to  which  the  `_numerator_` and `_denominator_` values of  the  proportion are expressed, in terms of number  of decimal places. The value 0 implies an integral quantity. The value -1 implies no limit, i.e. any number of decimal places. ",
+            "type": "Integer"
+        },
+        "normal_range": {
+            "_type": "P_BMM_GENERIC_PROPERTY",
+            "name": "normal_range",
+            "documentation": "Optional normal range. ",
+            "type_def": {
+                "root_type": "DV_INTERVAL",
+                "generic_parameters": [
+                    "DV_PROPORTION"
+                ]
+            }
+        },
+        "other_reference_ranges": {
+            "_type": "P_BMM_CONTAINER_PROPERTY",
+            "name": "other_reference_ranges",
+            "documentation": "Optional tagged other reference ranges for this value in its particular measurement context.",
+            "type_def": {
+                "container_type": "List",
+                "type_def": {
+                    "_type": "P_BMM_GENERIC_TYPE",
+                    "root_type": "REFERENCE_RANGE",
+                    "generic_parameters": [
+                        "DV_PROPORTION"
+                    ]
+                }
+            },
+            "cardinality": {
+                "lower": 0,
+                "upper_unbounded": true
+            }
+        }
+    },
+    "functions": {
+        "magnitude": {
+            "name": "magnitude",
+            "documentation": "Effective magnitude represented by ratio.",
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Real"
+            }
+        },
+        "is_integral": {
+            "name": "is_integral",
+            "documentation": "True if the `_numerator_` and `_denominator_` values are integers, i.e. if `_precision_` is 0.",
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Boolean"
+            }
+        },
+        "add": {
+            "name": "add",
+            "aliases": [
+                "+"
+            ],
+            "documentation": "Sum of two strictly comparable proportions.",
+            "parameters": {
+                "other": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "other",
+                    "type": "DV_PROPORTION"
+                }
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "DV_PROPORTION"
+            }
+        },
+        "subtract": {
+            "name": "subtract",
+            "aliases": [
+                "-"
+            ],
+            "documentation": "Difference between two strictly comparable proportions.",
+            "parameters": {
+                "other": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "other",
+                    "type": "DV_PROPORTION"
+                }
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "DV_PROPORTION"
+            }
+        },
+        "is_equal": {
+            "name": "is_equal",
+            "documentation": "Return True if this `DV_AMOUNT` is considered equal to `_other_`.",
+            "parameters": {
+                "other": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "other",
+                    "type": "DV_PROPORTION"
+                }
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Boolean"
+            }
+        },
+        "multiply": {
+            "name": "multiply",
+            "aliases": [
+                "&amp;#42;"
+            ],
+            "documentation": "Product of this Proportion and `_factor_`.",
+            "parameters": {
+                "factor": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "factor",
+                    "type": "Real"
+                }
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "DV_PROPORTION"
+            }
+        },
+        "less_than": {
+            "name": "less_than",
+            "aliases": [
+                "&lt;"
+            ],
+            "documentation": "True if this Proportion is less than  `_other_`. Only valid if `_is_strictly_comparable_to()_` is True.",
+            "parameters": {
+                "other": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "other",
+                    "type": "DV_PROPORTION"
+                }
+            },
+            "pre_conditions": {
+                "Pre_comparable": "is_strictly_comparable()"
+            },
+            "post_conditions": {
+                "Post_result": "Result = magnitude &lt; other.magnitude"
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Boolean"
+            }
+        },
+        "is_strictly_comparable_to": {
+            "name": "is_strictly_comparable_to",
+            "documentation": "Return True if the `_type_` of this proportion is the same as the `_type_` of `_other_`.",
+            "parameters": {
+                "other": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "other",
+                    "type": "DV_ORDERED"
+                }
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Boolean"
+            }
+        }
+    },
+    "invariants": {
+        "Type_validity": "valid_proportion_kind (type)",
+        "Precision_validity": "precision = 0 implies is_integral",
+        "Is_integral_validity": "is_integral implies (numerator.floor = numerator and denominator.floor = denominator)",
+        "Fraction_validity": "(type = pk_fraction or type = pk_integer_fraction) implies is_integral",
+        "Unitary_validity": "type = pk_unitary implies denominator = 1",
+        "Percent_validity": "type = pk_percent implies denominator = 100",
+        "Valid_denominator": "denominator /= 0.0"
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="_tabs_10_uml--panel" class="tabpanel" aria-labelledby="_tabs_10_uml">
+<div class="imageblock kroki">
+<div class="content">
+<img src="https://kroki.io/plantuml/svg/eNqlVV1vmzAUfedXWNpLuqnR9tpGk1hDN7QOOpr0ZZosB26JVWMzY9pFbf77HL4CxAlL-oZ8uPce33PutRUykmVoeo9vA__WD2au76EXC6EPiOcJSKKERBcoAMLQr0-_CyACLhLKTZBapaDPXK4gBtkcpxJCmlHB29jH8biCuZAJYVgSHm-iNRnXmznBvX0z6RD73A4SagkSS3gACTyEMjrT4Tc0U5PAuXYCx7tycGB7X51eHp3ofZklITGnKo9gdNa_C80w3XCVhBXgFyEYEN7gJIpGJYuSc6uB-hd0ZjotArN8oSQJ1WnRmhb8yTWngeg-3SRniqZsNUIPunZHugPVGGQZVkvCjy2naWZK0lCxFQ5FkhJJFgywEp1EfjDVMk2NWdaWta2Dv7veFE1ez8-79S2LLLKim6hxsv3Dn3szhN49L6mCLBGPcMkohwst5ar4GkdCKYguFfxVxWlleRKGuc61wpp9CjIErtqktuarf2yauIWeCKNRHU1iGG0GaVFc2JeRNmuEvc1k0XBv7_rOqi7UUmp7st9Rg1EvdevWZlP1EpxgqF5BDjFR9KmctV3Y7LUDLNYm9X_ObW_mXrvaVSc4oNkH2r1E5Zt9cqdtzOM96tt8tSt-P4lxfbS6311CBpd0zZnzRy6e-VBWo6at7uzT1SzDQKBRinq6T9ChehIaEa78qYNvvwX2nfN_L8ebnoqKeOud6Pb1jZut3o80SRmM9qDl1YZENos1sFb7StkzG-uWzZ1jldK5WsH1dq6q79SpjH2KHQ7fuE486GgsZH8mhmJjCURp9xxXsR11ZFHd0xreaWhL2hrbzmUBt8a0_qNcoAVa7VLDM_oPsvkcnA==?svg-type=inline" alt="DV_PROPORTION">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_proportion_kind_class"><a class="anchor" href="#_proportion_kind_class"></a><a class="link" href="#_proportion_kind_class">PROPORTION_KIND Class</a></h3>
+<div id="_tabs_11" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="_tabs_11_definition" class="tab">
+<p>Definition</p>
+</li>
+<li id="_tabs_11_bmm" class="tab">
+<p>BMM</p>
+</li>
+<li id="_tabs_11_uml" class="tab">
+<p>UML</p>
+</li>
+</ul>
+</div>
+<div id="_tabs_11_definition--panel" class="tabpanel" aria-labelledby="_tabs_11_definition">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Enumeration</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>PROPORTION_KIND</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Class of enumeration constants defining types of proportion for the <code>DV_PROPORTION</code> class.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Constants</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>pk_ratio</strong>: <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_integer_class" class="xref page">Integer</a>&#160;=&#160;0</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Ratio type. Numerator and denominator may be any value.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>pk_unitary</strong>: <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_integer_class" class="xref page">Integer</a>&#160;=&#160;1</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Denominator must be 1.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>pk_percent</strong>: <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_integer_class" class="xref page">Integer</a>&#160;=&#160;2</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Denominator is 100, numerator is understood as a percentage value.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>pk_fraction</strong>: <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_integer_class" class="xref page">Integer</a>&#160;=&#160;3</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Numerator and denominator are integral, and the presentation method uses a slash, e.g.  1/2 .</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>pk_integer_fraction</strong>: <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_integer_class" class="xref page">Integer</a>&#160;=&#160;4</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Numerator and denominator are integral, and the presentation method uses a slash, e.g.  1/2 ; if the numerator is greater than the denominator, e.g. n=3, d=2, the presentation is  1 1/2 .</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Functions</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>valid_proportion_kind</strong> (<br>
+nq: <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_integer_class" class="xref page">Integer</a>[1]</code><br>
+): <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>True if n is one of the defined types.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="_tabs_11_bmm--panel" class="tabpanel" aria-labelledby="_tabs_11_bmm">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+    "_type": "P_BMM_ENUMERATION_INTEGER",
+    "name": "PROPORTION_KIND",
+    "documentation": "Class of enumeration constants defining types of proportion for the `DV_PROPORTION` class. ",
+    "ancestors": [
+        "Integer"
+    ],
+    "item_names": [
+        "pk_ratio",
+        "pk_unitary",
+        "pk_percent",
+        "pk_fraction",
+        "pk_integer_fraction"
+    ],
+    "item_values": [
+        0,
+        1,
+        2,
+        3,
+        4
+    ],
+    "item_documentations": [
+        "Ratio type. Numerator and denominator may be any value.\n",
+        "Denominator must be 1.",
+        "Denominator is 100, numerator is understood as a percentage value.",
+        "Numerator and denominator are integral, and the presentation method uses a slash, e.g.  1/2 . \n",
+        "Numerator and denominator are integral, and the presentation method uses a slash, e.g.  1/2 ; if the numerator is greater than the denominator, e.g. n=3, d=2, the presentation is  1 1/2 ."
+    ],
+    "functions": {
+        "valid_proportion_kind": {
+            "name": "valid_proportion_kind",
+            "documentation": "True if n is one of the defined types. ",
+            "parameters": {
+                "nq": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "nq",
+                    "type": "Integer"
+                }
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Boolean"
+            }
+        }
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="_tabs_11_uml--panel" class="tabpanel" aria-labelledby="_tabs_11_uml">
+<div class="imageblock kroki">
+<div class="content">
+<img src="https://kroki.io/plantuml/svg/eNrjSs0rzVUICPIP8A8K8fT3i_f29HNRqOZSUCjIji9KLMnMV7BVMIBwS_MySxKLKoEChhCBgtSi5NS8EqCAEUQgrSgxGaglDyhiDBHJzCtJTU8tQpYx4arlAgCENSTB?svg-type=inline" alt="PROPORTION_KIND">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_dv_absolute_quantity_class"><a class="anchor" href="#_dv_absolute_quantity_class"></a><a class="link" href="#_dv_absolute_quantity_class">DV_ABSOLUTE_QUANTITY Class</a></h3>
+<div id="_tabs_12" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="_tabs_12_definition" class="tab">
+<p>Definition</p>
+</li>
+<li id="_tabs_12_bmm" class="tab">
+<p>BMM</p>
+</li>
+<li id="_tabs_12_uml" class="tab">
+<p>UML</p>
+</li>
+</ul>
+</div>
+<div id="_tabs_12_definition--panel" class="tabpanel" aria-labelledby="_tabs_12_definition">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong><em>DV_ABSOLUTE_QUANTITY (abstract)</em></strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Abstract class defining the concept of quantified entities whose values are absolute with respect to an origin. Dates and Times are the main example.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="../../../latest/data_types/quantity_package/#_dv_quantified_class" class="xref page">DV_QUANTIFIED</a></code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1<br>
+(effected)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>accuracy</strong>: <code><a href="../../../latest/data_types/quantity_package/#_dv_amount_class" class="xref page">DV_AMOUNT</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Functions</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(abstract)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>add</strong> <em>alias</em> "+" (<br>
+a_diff: <code><a href="../../../latest/data_types/quantity_package/#_dv_amount_class" class="xref page">DV_AMOUNT</a>[1]</code><br>
+): <code><a href="../../../latest/data_types/quantity_package/#_dv_absolute_quantity_class" class="xref page">DV_ABSOLUTE_QUANTITY</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Addition of a differential amount to this quantity.</p>
+</div>
+<div class="paragraph">
+<p>The value of accuracy in the result is either:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>the sum of the accuracies of the operands, if both present, or;</p>
+</li>
+<li>
+<p>unknown, if either or both operand accuracies are unknown.</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(abstract)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>subtract</strong> <em>alias</em> "-" (<br>
+a_diff: <code><a href="../../../latest/data_types/quantity_package/#_dv_amount_class" class="xref page">DV_AMOUNT</a>[1]</code><br>
+): <code><a href="../../../latest/data_types/quantity_package/#_dv_absolute_quantity_class" class="xref page">DV_ABSOLUTE_QUANTITY</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Result of subtracting a differential amount from this quantity.</p>
+</div>
+<div class="paragraph">
+<p>The value of <code><em>accuracy</em></code> in the result is either:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>the sum of the accuracies of the operands, if both present, or;</p>
+</li>
+<li>
+<p>unknown, if either or both operand accuracies are unknown.</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(abstract)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>diff</strong> <em>alias</em> "-" (<br>
+other: <code><a href="../../../latest/data_types/quantity_package/#_dv_absolute_quantity_class" class="xref page">DV_ABSOLUTE_QUANTITY</a>[1]</code><br>
+): <code><a href="../../../latest/data_types/quantity_package/#_dv_amount_class" class="xref page">DV_AMOUNT</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Difference of two quantities.</p>
+</div>
+<div class="paragraph">
+<p>The value of accuracy in the result is either:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>the sum of the accuracies of the operands, if both present, or;</p>
+</li>
+<li>
+<p>unknown, if either or both operand accuracies are unknown.</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="_tabs_12_bmm--panel" class="tabpanel" aria-labelledby="_tabs_12_bmm">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+    "name": "DV_ABSOLUTE_QUANTITY",
+    "documentation": "Abstract class defining the concept of quantified entities whose values are absolute with respect to an origin. Dates and Times are the main example.",
+    "is_abstract": true,
+    "ancestors": [
+        "DV_QUANTIFIED"
+    ],
+    "properties": {
+        "accuracy": {
+            "_type": "P_BMM_SINGLE_PROPERTY",
+            "name": "accuracy",
+            "type": "DV_AMOUNT"
+        }
+    },
+    "functions": {
+        "add": {
+            "name": "add",
+            "aliases": [
+                "+"
+            ],
+            "documentation": "Addition of a differential amount to this quantity. \n\nThe value of accuracy in the result is either:\n\n* the sum of the accuracies of the operands, if both present, or;\n* unknown, if either or both operand accuracies are unknown.",
+            "is_abstract": true,
+            "parameters": {
+                "a_diff": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "a_diff",
+                    "type": "DV_AMOUNT"
+                }
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "DV_ABSOLUTE_QUANTITY"
+            }
+        },
+        "subtract": {
+            "name": "subtract",
+            "aliases": [
+                "-"
+            ],
+            "documentation": "Result of subtracting a differential amount from this quantity.\n\nThe value of `_accuracy_` in the result is either:\n\n* the sum of the accuracies of the operands, if both present, or;\n* unknown, if either or both operand accuracies are unknown.",
+            "is_abstract": true,
+            "parameters": {
+                "a_diff": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "a_diff",
+                    "type": "DV_AMOUNT"
+                }
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "DV_ABSOLUTE_QUANTITY"
+            }
+        },
+        "diff": {
+            "name": "diff",
+            "aliases": [
+                "-"
+            ],
+            "documentation": "Difference of two quantities.\n\nThe value of accuracy in the result is either:\n\n* the sum of the accuracies of the operands, if both present, or;\n* unknown, if either or both operand accuracies are unknown.",
+            "is_abstract": true,
+            "parameters": {
+                "other": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "other",
+                    "type": "DV_ABSOLUTE_QUANTITY"
+                }
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "DV_AMOUNT"
+            }
+        }
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="_tabs_12_uml--panel" class="tabpanel" aria-labelledby="_tabs_12_uml">
+<div class="imageblock kroki">
+<div class="content">
+<img src="https://kroki.io/plantuml/svg/eNqtVNFu2jAUfc9XWNoL21S0vraoUlrcDYklWwiVJlRZJr4Eq47d2c461PbfZwIBQ1IQ1d6s3HPPufccOwGdGqtpZlEmqDGof0fC61E8HKeY_ByHUTpIf6HnAKHPiGZZ6ZALdFGhvsfjKEWTL93u-X1Vf66pXhFlrIMoYXw220Wf36OP6y8NlUmTx5TT6vRfyJYEHaTsHPSBrg3lRiR4DYKmS6ue2wHuI_Thac4tmEI9wKXgEi5yTRfVqcuUtcAuLfy11de1lwXNJbclA2IstaVxmiOrucx9Qz3DQ7nwK3-o4Izsk3SWo18rJYDKNgM2-AoYawYaGInKAjTPNg21Kinlg1RP8hgrNwR-l1TsWOu5U3u6TyHAGGLnVJ7S2BpFnPRx8r4cpNIFFdsQbuI-Jj--JeEI-36vYZrKHFZzDqIUJ3fh0EdVaxANM-erzGAFX7IOubG9BN-6KaMbTJIw-op728GvrtDkU5uv7sgzKxYkU8Uj1XQqgFi141e9-1suL1l48Sig80Z1tdqxkNvDOiTeklSYhsRZNsanJuW4vObey9mZp97QWV_s91yHwxvXxEdvNFF6_00c6801UOtuz2mKfteJos7Tutww1Iu2rm3fZVX2nmmNaPxNg3_CrQIN?svg-type=inline" alt="DV_ABSOLUTE_QUANTITY">
+</div>
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -991,5 +3883,6 @@ Integer = ? [0-9]+ ?;          (* regex *)</code></pre>
 <script async src="../../../../search-index.js"></script>
 <script src="../../../../ui/js/medium-zoom.min.js"></script>
 <script src="../../../../ui/js/zoom.js"></script>
+<script async src="../../../../ui/js/tabs.js"></script>
   </body>
 </html>

@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="../../../../ui/css/site.css">
     <link rel="stylesheet" href="../../../../ui/css/antora-openehr.css">
     <link rel="stylesheet" href="../../../../ui/css/openehr.css">
+    <link rel="stylesheet" href="../../../../ui/css/tabs.css">
 <link rel="icon" href="../../../../ui/img/favicon.ico" type="image/x-icon">
   </head>
   <body class="article">
@@ -294,7 +295,7 @@
     <a class="nav-link" href="../../ehr_extract/generic_extract_package/">Generic_extract Package</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../../ehr_extract/synchronisation_package/">Synchronisation Extracts</a>
+    <a class="nav-link" href="../../ehr_extract/synchronisation_package/">Synchronisation Extract</a>
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../../ehr_extract/message_package/">The Message package</a>
@@ -411,20 +412,6 @@
     <span class="version">development</span>
   </div>
   <ul class="components">
-    <li class="component">
-      <div class="title"><a href="../../../../AM/latest/">Archetype Model</a></div>
-      <ul class="versions">
-        <li class="version is-latest">
-          <a href="../../../../AM/latest/">Release-2.3.0</a>
-        </li>
-        <li class="version">
-          <a href="../../../../AM/Release-2.2.0/">Release-2.2.0</a>
-        </li>
-        <li class="version">
-          <a href="../../../../AM/development/">development</a>
-        </li>
-      </ul>
-    </li>
     <li class="component">
       <div class="title"><a href="../../../../BASE/latest/">Base Model</a></div>
       <ul class="versions">
@@ -706,7 +693,7 @@ applications or sources. This approach may require a substantial modelling effor
 <div class="paragraph">
 <p>Algorithms for conversion between the Egyptian, Armenian, Khwarizmian, Persian, Ethiopian, Coptic,
 Republican, Macedonian, Syrian, Julian Roman, Gregorian, Islamic A, Islamic B, Baha&#8217;i and
-Saka calendars are described by cite:[Richards1998] and are based on the work of D. A. Hatcher (1986).</p>
+Saka calendars are described by <span class="citation"><a href="#bibliography_entry_Richards1998">[1]</a></span> and are based on the work of D. A. Hatcher (1986).</p>
 </div>
 </div>
 <div class="sect3">
@@ -741,20 +728,1338 @@ it is strongly recommended that where possible, the <em>extended</em> form of th
 <div class="sect1">
 <h2 id="_class_descriptions"><a class="anchor" href="#_class_descriptions"></a><a class="link" href="#_class_descriptions">Class Descriptions</a></h2>
 <div class="sectionbody">
-<div class="paragraph">
-<p>Unresolved directive in date_time_package.adoc - include::ROOT:partial$uml/{pkg}dv_temporal.adoc[]</p>
+<div class="sect2">
+<h3 id="_dv_temporal_class"><a class="anchor" href="#_dv_temporal_class"></a><a class="link" href="#_dv_temporal_class">DV_TEMPORAL Class</a></h3>
+<div id="_tabs_1" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="_tabs_1_definition" class="tab">
+<p>Definition</p>
+</li>
+<li id="_tabs_1_bmm" class="tab">
+<p>BMM</p>
+</li>
+<li id="_tabs_1_uml" class="tab">
+<p>UML</p>
+</li>
+</ul>
+</div>
+<div id="_tabs_1_definition--panel" class="tabpanel" aria-labelledby="_tabs_1_definition">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong><em>DV_TEMPORAL (abstract)</em></strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Specialised temporal variant of <code>DV_ABSOLUTE_QUANTITY</code> whose diff type is <code>DV_DURATION</code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="../../../latest/data_types/quantity_package/#_dv_absolute_quantity_class" class="xref page">DV_ABSOLUTE_QUANTITY</a></code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1<br>
+(effected)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>accuracy</strong>: <code><a href="../../../latest/data_types/quantity_package/#_dv_duration_class" class="xref page">DV_DURATION</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Time accuracy, expressed as a duration.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Functions</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(abstract)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>add</strong> <em>alias</em> "+" (<br>
+a_diff: <code><a href="../../../latest/data_types/quantity_package/#_dv_duration_class" class="xref page">DV_DURATION</a>[1]</code><br>
+): <code><a href="../../../latest/data_types/quantity_package/#_dv_temporal_class" class="xref page">DV_TEMPORAL</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Addition of a Duration to this temporal entity.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(abstract)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>subtract</strong> <em>alias</em> "-" (<br>
+a_diff: <code><a href="../../../latest/data_types/quantity_package/#_dv_duration_class" class="xref page">DV_DURATION</a>[1]</code><br>
+): <code><a href="../../../latest/data_types/quantity_package/#_dv_temporal_class" class="xref page">DV_TEMPORAL</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Subtract a Duration from this temporal entity.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(abstract)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>diff</strong> <em>alias</em> "-" (<br>
+other: <code><a href="../../../latest/data_types/quantity_package/#_dv_temporal_class" class="xref page">DV_TEMPORAL</a>[1]</code><br>
+): <code><a href="../../../latest/data_types/quantity_package/#_dv_duration_class" class="xref page">DV_DURATION</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Difference between this temporal entity and <code><em>other</em></code>.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="_tabs_1_bmm--panel" class="tabpanel" aria-labelledby="_tabs_1_bmm">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+    "name": "DV_TEMPORAL",
+    "documentation": "Specialised temporal variant of `DV_ABSOLUTE_QUANTITY` whose diff type is `DV_DURATION`. ",
+    "is_abstract": true,
+    "ancestors": [
+        "DV_ABSOLUTE_QUANTITY"
+    ],
+    "properties": {
+        "accuracy": {
+            "_type": "P_BMM_SINGLE_PROPERTY",
+            "name": "accuracy",
+            "documentation": "Time accuracy, expressed as a duration.",
+            "type": "DV_DURATION"
+        }
+    },
+    "functions": {
+        "add": {
+            "name": "add",
+            "aliases": [
+                "+"
+            ],
+            "documentation": "Addition of a Duration to this temporal entity.",
+            "is_abstract": true,
+            "parameters": {
+                "a_diff": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "a_diff",
+                    "type": "DV_DURATION"
+                }
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "DV_TEMPORAL"
+            }
+        },
+        "subtract": {
+            "name": "subtract",
+            "aliases": [
+                "-"
+            ],
+            "documentation": "Subtract a Duration from this temporal entity.",
+            "is_abstract": true,
+            "parameters": {
+                "a_diff": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "a_diff",
+                    "type": "DV_DURATION"
+                }
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "DV_TEMPORAL"
+            }
+        },
+        "diff": {
+            "name": "diff",
+            "aliases": [
+                "-"
+            ],
+            "documentation": "Difference between this temporal entity and `_other_`.",
+            "is_abstract": true,
+            "parameters": {
+                "other": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "other",
+                    "type": "DV_TEMPORAL"
+                }
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "DV_DURATION"
+            }
+        }
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="_tabs_1_uml--panel" class="tabpanel" aria-labelledby="_tabs_1_uml">
+<div class="imageblock kroki">
+<div class="content">
+<img src="https://kroki.io/plantuml/svg/eNqllV1P2zAUhu_zKyztpttENW6hQjLEbJVKwtIEaaqQ5SZuauE4zHbGKuC_Lx84MU2gtLuzfN7znuPn2IlDlkpLEmsQc6IUcG9wiK6u_QDOwKMDwFdA4rgoBRtwUgXdKIDh1PfA4tt4fHxbKx6NxzMgSTICBCdstdrWH9-Cz81eW2DRN1DFsl79n0uVOQK5XlPZFxsD29R5dpw-CXg-92dRiPDPCHrhNPwFwKeHNdNUZfkdPeVM0JNUkk29Gie51jQ51fSvrncH-cErP_LCj9Iz6q7pfksfhnigWY_lYFZr2RYZRtrkXE6RewjLjKSC6SKhWGmiC1XWnGvJRGoDtYBDsbEjfwhnCd42GVWtn-c5p0QMAWj1tdCXCZU0wV6RUcniNsFUxYW4E_mD2OXKFKa_C8JfobXoGKbbFpwqhfWaiH0SB0fhBy4KDpuDyGVGeDeEC99F-PpHAOfI5v0ik0SktOlz6oUouKneYaeqj4ElXZVcRUwbeeU6Y0pPAnRZduldIBxA7zuadI2fnYHFlyGu5ZLFmm9wnGf3RJIlp1jnr3iZs79FuXJh2T2nozeizdF2DXl4WO8VH5gUDCEukUVo30mVXlby5OnoyKreq_NysQ-5Du-f2BjvvNE4l9tvYlduKinR5e3Zr6KdtWfRkqkJ94BaozWx7l3WYeuZGkXva1oL-99Yozd_MucfZ7tsgA==?svg-type=inline" alt="DV_TEMPORAL">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_dv_date_class"><a class="anchor" href="#_dv_date_class"></a><a class="link" href="#_dv_date_class">DV_DATE Class</a></h3>
+<div id="_tabs_2" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="_tabs_2_definition" class="tab">
+<p>Definition</p>
+</li>
+<li id="_tabs_2_bmm" class="tab">
+<p>BMM</p>
+</li>
+<li id="_tabs_2_uml" class="tab">
+<p>UML</p>
+</li>
+</ul>
+</div>
+<div id="_tabs_2_definition--panel" class="tabpanel" aria-labelledby="_tabs_2_definition">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>DV_DATE</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Represents an absolute point in time, as measured on the Gregorian calendar, and specified only to the day. Semantics defined by ISO 8601. Used for recording dates in real world time. The partial form is used for approximate birth dates, dates of death, etc.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="../../../latest/data_types/quantity_package/#_dv_temporal_class" class="xref page">DV_TEMPORAL</a></code>, <code><a href="../../../../BASE/latest/foundation_types/time_types/#_iso8601_date_class" class="xref page">Iso8601_date</a></code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(effected)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>value</strong>: <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_string_class" class="xref page">String</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>ISO8601 date string.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Functions</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(effected)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>magnitude</strong> (): <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_integer_class" class="xref page">Integer</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Numeric value of the date as days since the calendar origin date <code>0001-01-01</code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(effected)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_equal</strong> (<br>
+other: <code><a href="../../../latest/data_types/quantity_package/#_dv_quantified_class" class="xref page">DV_QUANTIFIED</a>[1]</code><br>
+): <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Return True if this <code>DV_QUANTIFIED</code> is considered equal to <code><em>other</em></code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(effected)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>add</strong> <em>alias</em> "+" (<br>
+a_diff: <code><a href="../../../latest/data_types/quantity_package/#_dv_duration_class" class="xref page">DV_DURATION</a>[1]</code><br>
+): <code><a href="../../../latest/data_types/quantity_package/#_dv_date_class" class="xref page">DV_DATE</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Addition of a Duration to this Date.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(effected)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>subtract</strong> <em>alias</em> "-" (<br>
+a_diff: <code><a href="../../../latest/data_types/quantity_package/#_dv_duration_class" class="xref page">DV_DURATION</a>[1]</code><br>
+): <code><a href="../../../latest/data_types/quantity_package/#_dv_date_class" class="xref page">DV_DATE</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Subtract a Duration from this Date.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(effected)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>diff</strong> <em>alias</em> "-" (<br>
+other: <code><a href="../../../latest/data_types/quantity_package/#_dv_date_class" class="xref page">DV_DATE</a>[1]</code><br>
+): <code><a href="../../../latest/data_types/quantity_package/#_dv_duration_class" class="xref page">DV_DURATION</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Difference between this Date and <code><em>other</em></code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(redefined)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>less_than</strong> <em>alias</em> "&lt;" (<br>
+other: <code><a href="../../../latest/data_types/quantity_package/#_dv_date_class" class="xref page">DV_DATE</a>[1]</code><br>
+): <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a></code><br>
+<br>
+<em>Pre_comparable</em>: <code>is_strictly_comparable()</code><br>
+<br>
+<em>Post_result</em>: <code>Result = magnitude &lt; other.magnitude</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>True if this date object is less than <code><em>other</em></code>, based on comparison of <code><em>magnitude()</em></code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(effected)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_strictly_comparable_to</strong> (<br>
+other: <code><a href="../../../latest/data_types/quantity_package/#_dv_date_class" class="xref page">DV_DATE</a>[1]</code><br>
+): <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>True, for any two Dates.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Invariants</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Value_valid</em>: <code>valid_iso8601_date(value)</code></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="_tabs_2_bmm--panel" class="tabpanel" aria-labelledby="_tabs_2_bmm">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+    "name": "DV_DATE",
+    "documentation": "Represents an absolute point in time, as measured on the Gregorian calendar, and specified only to the day. Semantics defined by ISO 8601. Used for recording dates in real world time. The partial form is used for approximate birth dates, dates of death, etc.\n",
+    "ancestors": [
+        "DV_TEMPORAL",
+        "Iso8601_date"
+    ],
+    "properties": {
+        "value": {
+            "_type": "P_BMM_SINGLE_PROPERTY",
+            "name": "value",
+            "documentation": "ISO8601 date string.",
+            "is_mandatory": true,
+            "type": "String"
+        }
+    },
+    "functions": {
+        "magnitude": {
+            "name": "magnitude",
+            "documentation": "Numeric value of the date as days since the calendar origin date `0001-01-01`.",
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Integer"
+            }
+        },
+        "is_equal": {
+            "name": "is_equal",
+            "documentation": "Return True if this `DV_QUANTIFIED` is considered equal to `_other_`.",
+            "parameters": {
+                "other": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "other",
+                    "type": "DV_QUANTIFIED"
+                }
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Boolean"
+            }
+        },
+        "add": {
+            "name": "add",
+            "aliases": [
+                "+"
+            ],
+            "documentation": "Addition of a Duration to this Date.",
+            "parameters": {
+                "a_diff": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "a_diff",
+                    "type": "DV_DURATION"
+                }
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "DV_DATE"
+            }
+        },
+        "subtract": {
+            "name": "subtract",
+            "aliases": [
+                "-"
+            ],
+            "documentation": "Subtract a Duration from this Date.",
+            "parameters": {
+                "a_diff": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "a_diff",
+                    "type": "DV_DURATION"
+                }
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "DV_DATE"
+            }
+        },
+        "diff": {
+            "name": "diff",
+            "aliases": [
+                "-"
+            ],
+            "documentation": "Difference between this Date and `_other_`.",
+            "parameters": {
+                "other": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "other",
+                    "type": "DV_DATE"
+                }
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "DV_DURATION"
+            }
+        },
+        "less_than": {
+            "name": "less_than",
+            "aliases": [
+                "&lt;"
+            ],
+            "documentation": "True if this date object is less than `_other_`, based on comparison of `_magnitude()_`. ",
+            "parameters": {
+                "other": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "other",
+                    "type": "DV_DATE"
+                }
+            },
+            "pre_conditions": {
+                "Pre_comparable": "is_strictly_comparable()"
+            },
+            "post_conditions": {
+                "Post_result": "Result = magnitude &lt; other.magnitude"
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Boolean"
+            }
+        },
+        "is_strictly_comparable_to": {
+            "name": "is_strictly_comparable_to",
+            "documentation": "True, for any two Dates.",
+            "parameters": {
+                "other": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "other",
+                    "type": "DV_DATE"
+                }
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Boolean"
+            }
+        }
+    },
+    "invariants": {
+        "Value_valid": "valid_iso8601_date(value)"
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="_tabs_2_uml--panel" class="tabpanel" aria-labelledby="_tabs_2_uml">
+<div class="imageblock kroki">
+<div class="content">
+<img src="https://kroki.io/plantuml/svg/eNrtV1tP2zAUfs-vsLSXbgMEL9MECCmQsFWCloUUaUKTZRK3tUjsLnEGGeO_z7k4cS5N0rDHvVU-5zv38-VUczwUhsC4g4Zum-BFA-Aj-IW8CINjcMsDQlfg_uhH-uyjFSU8cvHkvRBOKccrHBRSEkL8M0LeBDC-Fu_HidFvC31mTy-nppHogQR3zpiHES1wyHUnAEGXLJcZxlhYuj2dzwqEDE4iwuiBB8jhO8IS1UpwUlpoKxZShIfDEPI1otth9WxEFUJRNYd7MXSYv0EBevAw5GyYiVdNQw9hmh0oOmOb1zdzS78C4N3TmnAc-uwRn3iE4uNVgOL014HLOMfuCcfPPH3NW4kcJxLW4nqGhwcHecQv0uHrsFYU0dw3DQzvTJeVRqNU5dZmtZZNP7-dXy1sMx9C-_vb66dfzxcze2j1pHYZdDOkwUUcaaxRy1ZUYbJw0l5SZZ1H1LLgD7EiiEehwjBlQZWC6zRWJYKViAvrRiZtW6gUoEpa88DFAXbhLPKx2NKShHKvMKKPlD3RPqtjya6dUXqAra2YW4ZpjesDZYGPvLIJF3PDhDdfLf3WVOudqwWIrnAW53Rmm9ZdsoelVpoGDPBS1JU6OFNPrF6RkJ9a5qWIcnZhQkuffTFPy8DPzsD9h7a6DqBPmXsXCRN_4-HJFmmWWl-T25vV5bylU7qtQ1Gyhblrp4QtBXz6Z39f8d7wkw_2mHHozlga7p1oyIL6TvRhVwFGXEzPbh5V1I5ORU2luFFQpbVSVu5lKlbWVGo02DRVbHKs1JdfslSt-KxJaXIWaFrW0GnIPn86PIKuyHVMV2OMgtY7zWeUr1slLopb3znx8W9G87Mvj0s-Vu128qew3ykXiykWnpMtm5lw7jPH1MVuqxxl3EFXqbR2u1Y_zkVxBelzwmgxLJWqd9ybuxnIPsIoe2zqVIGKRRm54Cuf0GTI35jBmww1ya2YhXgzaka3_M-ofg-6RqL2Rd42Hc3IbexvWIC8EaT8n3j_AfHK-mta0Yn0XZ0oyYS2YBpo4CURd5wY0HDkpInbMeVEEFcprjXV_NZMqRL4gwEJg9bt79Xxe8AdbHDNIhHxutdiODwnQiOOd0kqxA6jgj2H-1gmQy1alRyZOXiZoA0WiWuuB0wU3smclvQwAJZ8l0bAEm-jsTl19kLFFjSGuWXsK7RakSdRlvKUmSu3w191Q5DM?svg-type=inline" alt="DV_DATE">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_dv_time_class"><a class="anchor" href="#_dv_time_class"></a><a class="link" href="#_dv_time_class">DV_TIME Class</a></h3>
+<div id="_tabs_3" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="_tabs_3_definition" class="tab">
+<p>Definition</p>
+</li>
+<li id="_tabs_3_bmm" class="tab">
+<p>BMM</p>
+</li>
+<li id="_tabs_3_uml" class="tab">
+<p>UML</p>
+</li>
+</ul>
+</div>
+<div id="_tabs_3_definition--panel" class="tabpanel" aria-labelledby="_tabs_3_definition">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>DV_TIME</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Represents an absolute point in time from an origin usually interpreted as meaning the start of the current day, specified to a fraction of a second. Semantics defined by ISO 8601.</p>
 </div>
 <div class="paragraph">
-<p>Unresolved directive in date_time_package.adoc - include::ROOT:partial$uml/{pkg}dv_date.adoc[]</p>
+<p>Used for recording real world times, rather than scientifically measured fine amounts of time. The partial form is used for approximate times of events and substance administrations.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="../../../latest/data_types/quantity_package/#_dv_temporal_class" class="xref page">DV_TEMPORAL</a></code>, <code><a href="../../../../BASE/latest/foundation_types/time_types/#_iso8601_time_class" class="xref page">Iso8601_time</a></code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(effected)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>value</strong>: <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_string_class" class="xref page">String</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>ISO8601 time string</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Functions</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(effected)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>magnitude</strong> (): <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_real_class" class="xref page">Real</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Numeric value of the time as seconds since the start of day, i.e. <code>00:00:00</code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(effected)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>add</strong> <em>alias</em> "+" (<br>
+a_diff: <code><a href="../../../latest/data_types/quantity_package/#_dv_duration_class" class="xref page">DV_DURATION</a>[1]</code><br>
+): <code><a href="../../../latest/data_types/quantity_package/#_dv_time_class" class="xref page">DV_TIME</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Addition of a Duration to this Time.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(effected)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>subtract</strong> <em>alias</em> "-" (<br>
+a_diff: <code><a href="../../../latest/data_types/quantity_package/#_dv_duration_class" class="xref page">DV_DURATION</a>[1]</code><br>
+): <code><a href="../../../latest/data_types/quantity_package/#_dv_time_class" class="xref page">DV_TIME</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Subtract a Duration from this Time.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(effected)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>diff</strong> <em>alias</em> "-" (<br>
+other: <code><a href="../../../latest/data_types/quantity_package/#_dv_time_class" class="xref page">DV_TIME</a>[1]</code><br>
+): <code><a href="../../../latest/data_types/quantity_package/#_dv_duration_class" class="xref page">DV_DURATION</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Difference between this Time and <code><em>other</em></code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(redefined)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>less_than</strong> <em>alias</em> "&lt;" (<br>
+other: <code><a href="../../../latest/data_types/quantity_package/#_dv_time_class" class="xref page">DV_TIME</a>[1]</code><br>
+): <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a></code><br>
+<br>
+<em>Pre_comparable</em>: <code>is_strictly_comparable()</code><br>
+<br>
+<em>Post_result</em>: <code>Result = magnitude &lt; other.magnitude</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>True if this time object is less than <code><em>other</em></code>, based on comparison of <code><em>magnitude()</em></code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(effected)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_strictly_comparable_to</strong> (<br>
+other: <code><a href="../../../latest/data_types/quantity_package/#_dv_time_class" class="xref page">DV_TIME</a>[1]</code><br>
+): <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>True, for any two Times.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Invariants</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Value_valid</em>: <code>valid_iso8601_time (value)</code></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="_tabs_3_bmm--panel" class="tabpanel" aria-labelledby="_tabs_3_bmm">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+    "name": "DV_TIME",
+    "documentation": "Represents an absolute point in time from an origin usually interpreted as meaning the start of the current day, specified to a fraction of a second. Semantics defined by ISO 8601. \n\nUsed for recording real world times, rather than scientifically measured fine amounts of time. The partial form is used for approximate times of events and substance administrations. ",
+    "ancestors": [
+        "DV_TEMPORAL",
+        "Iso8601_time"
+    ],
+    "properties": {
+        "value": {
+            "_type": "P_BMM_SINGLE_PROPERTY",
+            "name": "value",
+            "documentation": "ISO8601 time string",
+            "is_mandatory": true,
+            "type": "String"
+        }
+    },
+    "functions": {
+        "magnitude": {
+            "name": "magnitude",
+            "documentation": "Numeric value of the time as seconds since the start of day, i.e. `00:00:00`. ",
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Real"
+            }
+        },
+        "add": {
+            "name": "add",
+            "aliases": [
+                "+"
+            ],
+            "documentation": "Addition of a Duration to this Time.",
+            "parameters": {
+                "a_diff": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "a_diff",
+                    "type": "DV_DURATION"
+                }
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "DV_TIME"
+            }
+        },
+        "subtract": {
+            "name": "subtract",
+            "aliases": [
+                "-"
+            ],
+            "documentation": "Subtract a Duration from this Time.",
+            "parameters": {
+                "a_diff": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "a_diff",
+                    "type": "DV_DURATION"
+                }
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "DV_TIME"
+            }
+        },
+        "diff": {
+            "name": "diff",
+            "aliases": [
+                "-"
+            ],
+            "documentation": "Difference between this Time and `_other_`.",
+            "parameters": {
+                "other": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "other",
+                    "type": "DV_TIME"
+                }
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "DV_DURATION"
+            }
+        },
+        "less_than": {
+            "name": "less_than",
+            "aliases": [
+                "&lt;"
+            ],
+            "documentation": "True if this time object is less than `_other_`, based on comparison of `_magnitude()_`. ",
+            "parameters": {
+                "other": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "other",
+                    "type": "DV_TIME"
+                }
+            },
+            "pre_conditions": {
+                "Pre_comparable": "is_strictly_comparable()"
+            },
+            "post_conditions": {
+                "Post_result": "Result = magnitude &lt; other.magnitude"
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Boolean"
+            }
+        },
+        "is_strictly_comparable_to": {
+            "name": "is_strictly_comparable_to",
+            "documentation": "True, for any two Times.",
+            "parameters": {
+                "other": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "other",
+                    "type": "DV_TIME"
+                }
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Boolean"
+            }
+        }
+    },
+    "invariants": {
+        "Value_valid": "valid_iso8601_time (value)"
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="_tabs_3_uml--panel" class="tabpanel" aria-labelledby="_tabs_3_uml">
+<div class="imageblock kroki">
+<div class="content">
+<img src="https://kroki.io/plantuml/svg/eNrtV1tP2zAUfu-vsLSXsgGCl2kChBRo2CpBy0KKNKHJMonbWiR2FzuDjPHf59ydxE2TbI97q3zOd-7ny-nI8RDnYHIP7emNCV5HAHwAP5EXYnAC7kRA6Ao8HH9Pnn20okSELh7vSaGFkVeIkOuOAYIuWS6lSFqbLCzDns5nsQbYS98SDzmCh48iQI7oCYtVx4CJNQ6q0lxbtZAgPMw5FGtEt8MuGPMwogWEcMhl6o7wIugwf4MC9OhhKFg3E2-jEXrkSXagLK95czu3jGsA3j2vicDcZ0_41CMUn6wCFCW_Dl0mBHZPBX4RyWvWD-Q4obQW1TM8OjzMIn7NHb51bEUezUPTQI_OtFhpNkpR1jZLWzbj4m5-vbBN-HVhzOyp_e3v62fczBczu2v1cu0y6GZInYs40FijllpUYbJwoi9pirmampMhtSxIQK4IEiFXaKIsqFJwg0aqRFILcWHdyFi3hUoBqswzD1wcYBfOQh_LLS1JKPMKQ_pE2TPdZVWuOf4RIq9SWqU62-hBzyg7gNpWzK2JaQ3rA2WBj7yyCZfziQlvv1jGnanWO1MLEF3hNM7pzDat-3gPS60kDRjgpawrdXCqHlu9JlycWeaVjHJ2aULLmH02z8rAz8_Bw3tdXTvQZ557GwkTf-Ph8RZpmtquJuub1eZc0ynDNqAs2cLs2ylpSwGf_T44ULw3_GSDPWQc2jPODe-caMiC-k7swq4CjIScnn4eVVRPp7KmubhRUKW1uazcy0SsrGmu0WDTRLHJsbl-_iVL1IrPWiGVZ8FolDZ0ytmnj0fHUBAfD-nqmoVBMuBTKvBKVqY4xQgNBdaKOHYYdbWiZTwghNGYN0qtyiEXR_qL0cy0En78WHPfyrOpg1YVucMudkhCY2RFY67w0TZNySKCbFn3mMhfBKYudrXyNeJQn3tdE6XURVeJtHb_Vm-DvDiu_ObEhotZrTS95dztZyC9AVD62NSpAFWLGjorsNFm0FRu-XtQ_QK09av2Dd7WumbkNvY3LJDj2p-G_1PtP6DavP6jUdGJ5F2dqJz7bDmZcIKXRF5uchb5wEmT12KEUTAGUZXQtKlm1yWjYj0GfmeAi6KG_f06fh-4nQ0mvA3WOy3y7jmlhN8jqYzlevhoUiRYxugJC-X9tgNMcu5BcZi8Qg8dYDGPDYDF3gZjM5bcCZVb0BhmzdhXaLUql2hFHlN25Vr4AwzLflk=?svg-type=inline" alt="DV_TIME">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_dv_date_time_class"><a class="anchor" href="#_dv_date_time_class"></a><a class="link" href="#_dv_date_time_class">DV_DATE_TIME Class</a></h3>
+<div id="_tabs_4" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="_tabs_4_definition" class="tab">
+<p>Definition</p>
+</li>
+<li id="_tabs_4_bmm" class="tab">
+<p>BMM</p>
+</li>
+<li id="_tabs_4_uml" class="tab">
+<p>UML</p>
+</li>
+</ul>
+</div>
+<div id="_tabs_4_definition--panel" class="tabpanel" aria-labelledby="_tabs_4_definition">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>DV_DATE_TIME</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Represents an absolute point in time, specified to the second. Semantics defined by ISO 8601.</p>
 </div>
 <div class="paragraph">
-<p>Unresolved directive in date_time_package.adoc - include::ROOT:partial$uml/{pkg}dv_time.adoc[]</p>
+<p>Used for recording a precise point in real world time, and for approximate time stamps, e.g. the origin of a <code>HISTORY</code> in an <code>OBSERVATION</code> which is only partially known.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="../../../latest/data_types/quantity_package/#_dv_temporal_class" class="xref page">DV_TEMPORAL</a></code>, <code><a href="../../../../BASE/latest/foundation_types/time_types/#_iso8601_date_time_class" class="xref page">Iso8601_date_time</a></code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(effected)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>value</strong>: <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_string_class" class="xref page">String</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>ISO8601 date/time string.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Functions</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(effected)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>magnitude</strong> (): <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_double_class" class="xref page">Double</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Numeric value of the date/time as seconds since the calendar origin date/time <code>0001-01-01T00:00:00Z</code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(effected)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>add</strong> <em>alias</em> "+" (<br>
+a_diff: <code><a href="../../../latest/data_types/quantity_package/#_dv_duration_class" class="xref page">DV_DURATION</a>[1]</code><br>
+): <code><a href="../../../latest/data_types/quantity_package/#_dv_date_time_class" class="xref page">DV_DATE_TIME</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Addition of a Duration to this Date/time.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(effected)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>subtract</strong> <em>alias</em> "-" (<br>
+a_diff: <code><a href="../../../latest/data_types/quantity_package/#_dv_duration_class" class="xref page">DV_DURATION</a>[1]</code><br>
+): <code><a href="../../../latest/data_types/quantity_package/#_dv_date_time_class" class="xref page">DV_DATE_TIME</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Subtract a Duration from this Date/time.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(effected)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>diff</strong> <em>alias</em> "-" (<br>
+other: <code><a href="../../../latest/data_types/quantity_package/#_dv_date_time_class" class="xref page">DV_DATE_TIME</a>[1]</code><br>
+): <code><a href="../../../latest/data_types/quantity_package/#_dv_duration_class" class="xref page">DV_DURATION</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Difference between this Date/time and <code><em>other</em></code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(redefined)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>less_than</strong> <em>alias</em> "&lt;" (<br>
+other: <code><a href="../../../latest/data_types/quantity_package/#_dv_date_time_class" class="xref page">DV_DATE_TIME</a>[1]</code><br>
+): <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a></code><br>
+<br>
+<em>Pre_comparable</em>: <code>is_strictly_comparable()</code><br>
+<br>
+<em>Post_result</em>: <code>Result = magnitude &lt; other.magnitude</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>True if this date-time object is less than <code><em>other</em></code>, based on comparison of <code><em>magnitude()</em></code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(effected)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_strictly_comparable_to</strong> (<br>
+other: <code><a href="../../../latest/data_types/quantity_package/#_dv_date_time_class" class="xref page">DV_DATE_TIME</a>[1]</code><br>
+): <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>True, for any two Date/times.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Invariants</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Value_valid</em>: <code>valid_iso8601_date_time (value)</code></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="_tabs_4_bmm--panel" class="tabpanel" aria-labelledby="_tabs_4_bmm">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+    "name": "DV_DATE_TIME",
+    "documentation": "Represents an absolute point in time, specified to the second. Semantics defined by ISO 8601. \n\nUsed for recording a precise point in real world time, and for approximate time stamps, e.g. the origin of a `HISTORY` in an `OBSERVATION` which is only partially known. \n",
+    "ancestors": [
+        "DV_TEMPORAL",
+        "Iso8601_date_time"
+    ],
+    "properties": {
+        "value": {
+            "_type": "P_BMM_SINGLE_PROPERTY",
+            "name": "value",
+            "documentation": "ISO8601 date/time string.",
+            "is_mandatory": true,
+            "type": "String"
+        }
+    },
+    "functions": {
+        "magnitude": {
+            "name": "magnitude",
+            "documentation": "Numeric value of the date/time as seconds since the calendar origin date/time `0001-01-01T00:00:00Z`. \n",
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Double"
+            }
+        },
+        "add": {
+            "name": "add",
+            "aliases": [
+                "+"
+            ],
+            "documentation": "Addition of a Duration to this Date/time.",
+            "parameters": {
+                "a_diff": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "a_diff",
+                    "type": "DV_DURATION"
+                }
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "DV_DATE_TIME"
+            }
+        },
+        "subtract": {
+            "name": "subtract",
+            "aliases": [
+                "-"
+            ],
+            "documentation": "Subtract a Duration from this Date/time.",
+            "parameters": {
+                "a_diff": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "a_diff",
+                    "type": "DV_DURATION"
+                }
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "DV_DATE_TIME"
+            }
+        },
+        "diff": {
+            "name": "diff",
+            "aliases": [
+                "-"
+            ],
+            "documentation": "Difference between this Date/time and `_other_`.",
+            "parameters": {
+                "other": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "other",
+                    "type": "DV_DATE_TIME"
+                }
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "DV_DURATION"
+            }
+        },
+        "less_than": {
+            "name": "less_than",
+            "aliases": [
+                "&lt;"
+            ],
+            "documentation": "True if this date-time object is less than `_other_`, based on comparison of `_magnitude()_`. ",
+            "parameters": {
+                "other": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "other",
+                    "type": "DV_DATE_TIME"
+                }
+            },
+            "pre_conditions": {
+                "Pre_comparable": "is_strictly_comparable()"
+            },
+            "post_conditions": {
+                "Post_result": "Result = magnitude &lt; other.magnitude"
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Boolean"
+            }
+        },
+        "is_strictly_comparable_to": {
+            "name": "is_strictly_comparable_to",
+            "documentation": "True, for any two Date/times.",
+            "parameters": {
+                "other": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "other",
+                    "type": "DV_DATE_TIME"
+                }
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Boolean"
+            }
+        }
+    },
+    "invariants": {
+        "Value_valid": "valid_iso8601_date_time (value)"
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="_tabs_4_uml--panel" class="tabpanel" aria-labelledby="_tabs_4_uml">
+<div class="imageblock kroki">
+<div class="content">
+<img src="https://kroki.io/plantuml/svg/eNrtWN1P2zAQf-9fYWkvZQMEL9M0EFKgYasELQsp0oQmyyRua5HYXewMOsb_PufLcRI3TcMe94ZyX77f3f3uysALEOdgdAdHlmtDd3xtg5cBAB_ALxTEGHwGtyIidAHuj3-kn0O0oETEPh7uSeGIxQ8BVkLk-0OAoE_m80Qonc4cyx1PJ4kG2Mu_qUCFGY8fRIQ80cc20R8CJpY4MqgoO81XahZgzqFYIrrF9pyxACOq7AiHXALiiWANPRauUIQkAFCwHfy8DgbogacZAwW_a1_fTB3rCoB3T0siMA_ZIz4JCMWfFxFap38d-kwI7J8I_CzSr3mpkOfF0tu6nuvR4WH-7Jci4Gu3GqnX3DcddK9Wm5dG3XRlY9mMsFnnt9OrmUT728yauGP3-9vxs66ns4nbFb1Cu3x080mdQezprIGl0Uq5VEHMkGY2l2N71AdLxQ9yTpCIucYgJaAa4BZd6xLJOsSHdSdD0yhqAFRJaRr5OMI-nMQhlqNaslMeFcb0kbInus2rnHX8M0ZBBVoNnU0cYeaWLYbGUkydke30qwNlUYiCsggX05ENb7461q2t452rRYgucPbO8cS1nbtkDkutNA0Y4bnElXo4U0-8XhEuTh37Ur5ycmFDx5p8sU_Lh5-dgfv3Jlw7cGiRexsTk3AV4OEGaZbatiKbi9UW3FApy7WghGxm71op6UszPv1zcKBFb8TJG7tPO7RnXDje2tGQRfWZ2Ga7iDASsnt2i6hb7RhUYlqIG4BqpS1k5VymYm1MC40Gm6aKTY4t9ItNlqqptVZI1W0wGGRVHXP26ePRMfRlwlCQEPep7xqjKG31MRV4ITFS9xqjYmmU-Ght_L5k8QZXhMYCG0Uce4z6RtE86TrCaEJGpZaDUaBUkqR_M5q7zuEoPlYzaeVumVGrPEugVSV7YquKpBYfeyRlV7KgCYWFaJOmJDdBNrBQsl-eBaY-9o3yJeLQjF5dE2WMSheptHaxV08W1W1yFSaO1Qg127DlPO_hJTtSkCbZoF31owUospHMLiuZ0MFu72kk9CZHzTWgOne96jXDG35xVTdnW0PVbpdNvdV8uYvDFYvkRO6-vv6vqH-wogr8BwNVifS73lHFunDlmMARnhN58coG5T07TV7Z6c4A6ypnG1PNr_J0lYCws0GyYer-9-v2-8Dv7DBdTWC51SPvnlO203ZIKqfhHWI0ORzMeeWfJy3GROOdLGhJDx3MElLtYaYIuY9tTp1bTeUUNJrZ0PYVWq3I1StLpXKTNO-tv0G07fI=?svg-type=inline" alt="DV_DATE_TIME">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_dv_duration_class"><a class="anchor" href="#_dv_duration_class"></a><a class="link" href="#_dv_duration_class">DV_DURATION Class</a></h3>
+<div id="_tabs_5" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="_tabs_5_definition" class="tab">
+<p>Definition</p>
+</li>
+<li id="_tabs_5_bmm" class="tab">
+<p>BMM</p>
+</li>
+<li id="_tabs_5_uml" class="tab">
+<p>UML</p>
+</li>
+</ul>
+</div>
+<div id="_tabs_5_definition--panel" class="tabpanel" aria-labelledby="_tabs_5_definition">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>DV_DURATION</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Represents a period of time with respect to a notional point in time, which is not specified. A sign may be used to indicate the duration is  backwards  in time rather than forwards.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+two deviations from ISO 8601 are supported, the first, to allow a negative sign, and the second allowing the 'W' designator to be mixed with other designators. See time types section in the Foundation Types model.
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
-<p>Unresolved directive in date_time_package.adoc - include::ROOT:partial$uml/{pkg}dv_date_time.adoc[]</p>
+<p>Used for recording the duration of something in the real world, particularly when there is a need a) to represent the duration in customary format, i.e. days, hours, minutes etc, and b) if it will be used in computational operations with date/time quantities, i.e. additions, subtractions etc.</p>
 </div>
 <div class="paragraph">
-<p>Unresolved directive in date_time_package.adoc - include::ROOT:partial$uml/{pkg}dv_duration.adoc[]</p>
+<p>Misuse: Durations cannot be used to represent points in time, or intervals of time.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="../../../latest/data_types/quantity_package/#_dv_amount_class" class="xref page">DV_AMOUNT</a></code>, <code><a href="../../../../BASE/latest/foundation_types/time_types/#_iso8601_duration_class" class="xref page">Iso8601_duration</a></code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(effected)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>value</strong>: <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_string_class" class="xref page">String</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>ISO8601 duration string, including described deviations to support negative values and weeks.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Functions</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(redefined)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>add</strong> <em>alias</em> "+" (<br>
+other: <code><a href="../../../latest/data_types/quantity_package/#_dv_duration_class" class="xref page">DV_DURATION</a>[1]</code><br>
+): <code><a href="../../../latest/data_types/quantity_package/#_dv_duration_class" class="xref page">DV_DURATION</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Sum of this Duration and <code><em>other</em></code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(redefined)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>subtract</strong> <em>alias</em> "-" (<br>
+other: <code><a href="../../../latest/data_types/quantity_package/#_dv_duration_class" class="xref page">DV_DURATION</a>[1]</code><br>
+): <code><a href="../../../latest/data_types/quantity_package/#_dv_duration_class" class="xref page">DV_DURATION</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Difference of this Duration and <code><em>other</em></code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(redefined)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>multiply</strong> <em>alias</em> "&#42;" (<br>
+factor: <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_real_class" class="xref page">Real</a>[1]</code><br>
+): <code><a href="../../../latest/data_types/quantity_package/#_dv_duration_class" class="xref page">DV_DURATION</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Product of this Duration and <code><em>factor</em></code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(redefined)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>less_than</strong> <em>alias</em> "&lt;" (<br>
+other: <code><a href="../../../latest/data_types/quantity_package/#_dv_duration_class" class="xref page">DV_DURATION</a>[1]</code><br>
+): <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a></code><br>
+<br>
+<em>Pre_comparable</em>: <code>is_strictly_comparable()</code><br>
+<br>
+<em>Post_result</em>: <code>Result = magnitude &lt; other.magnitude</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>True if this duration object is less than <code><em>other</em></code>, based on comparison of <code><em>magnitude()</em></code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(effected)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_strictly_comparable_to</strong> (<br>
+other: <code><a href="../../../latest/data_types/quantity_package/#_dv_duration_class" class="xref page">DV_DURATION</a>[1]</code><br>
+): <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>True, for any two Durations.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(redefined)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>negative</strong> <em>alias</em> "-" (): <code><a href="../../../latest/data_types/quantity_package/#_dv_duration_class" class="xref page">DV_DURATION</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Negated version of current duration.</p>
+</div>
+<div class="paragraph">
+<p>Assuming the current duration is positive, the negated version represents a time prior to some origin point, or a negative age (e.g. so-called 'adjusted age' of premature infant).</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(effected)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>magnitude</strong> (): <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_double_class" class="xref page">Double</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Numeric value of the duration as a number of seconds. Computed using the method <code><em>to_seconds()</em></code> inherited from <code>Iso8601_duration</code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Invariants</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Value_valid</em>: <code>valid_iso8601_duration (value)</code></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="_tabs_5_bmm--panel" class="tabpanel" aria-labelledby="_tabs_5_bmm">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+    "name": "DV_DURATION",
+    "documentation": "Represents a period of time with respect to a notional point in time, which is not specified. A sign may be used to indicate the duration is  backwards  in time rather than forwards. \n\nNOTE: two deviations from ISO 8601 are supported, the first, to allow a negative sign, and the second allowing the 'W' designator to be mixed with other designators. See time types section in the Foundation Types model. \n\nUsed for recording the duration of something in the real world, particularly when there is a need a) to represent the duration in customary format, i.e. days, hours, minutes etc, and b) if it will be used in computational operations with date/time quantities, i.e. additions, subtractions etc. \n\nMisuse: Durations cannot be used to represent points in time, or intervals of time. ",
+    "ancestors": [
+        "DV_AMOUNT",
+        "Iso8601_duration"
+    ],
+    "properties": {
+        "value": {
+            "_type": "P_BMM_SINGLE_PROPERTY",
+            "name": "value",
+            "documentation": "ISO8601 duration string, including described deviations to support negative values and weeks.",
+            "is_mandatory": true,
+            "type": "String"
+        }
+    },
+    "functions": {
+        "add": {
+            "name": "add",
+            "aliases": [
+                "+"
+            ],
+            "documentation": "Sum of this Duration and `_other_`.",
+            "parameters": {
+                "other": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "other",
+                    "type": "DV_DURATION"
+                }
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "DV_DURATION"
+            }
+        },
+        "subtract": {
+            "name": "subtract",
+            "aliases": [
+                "-"
+            ],
+            "documentation": "Difference of this Duration and `_other_`.",
+            "parameters": {
+                "other": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "other",
+                    "type": "DV_DURATION"
+                }
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "DV_DURATION"
+            }
+        },
+        "multiply": {
+            "name": "multiply",
+            "aliases": [
+                "&amp;#42;"
+            ],
+            "documentation": "Product of this Duration and `_factor_`.",
+            "parameters": {
+                "factor": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "factor",
+                    "type": "Real"
+                }
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "DV_DURATION"
+            }
+        },
+        "less_than": {
+            "name": "less_than",
+            "aliases": [
+                "&lt;"
+            ],
+            "documentation": "True if this duration object is less than `_other_`, based on comparison of `_magnitude()_`. ",
+            "parameters": {
+                "other": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "other",
+                    "type": "DV_DURATION"
+                }
+            },
+            "pre_conditions": {
+                "Pre_comparable": "is_strictly_comparable()"
+            },
+            "post_conditions": {
+                "Post_result": "Result = magnitude &lt; other.magnitude"
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Boolean"
+            }
+        },
+        "is_strictly_comparable_to": {
+            "name": "is_strictly_comparable_to",
+            "documentation": "True, for any two Durations.",
+            "parameters": {
+                "other": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "other",
+                    "type": "DV_DURATION"
+                }
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Boolean"
+            }
+        },
+        "negative": {
+            "name": "negative",
+            "aliases": [
+                "-"
+            ],
+            "documentation": "Negated version of current duration.\n\nAssuming the current duration is positive, the negated version represents a time prior to some origin point, or a negative age (e.g. so-called 'adjusted age' of premature infant).",
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "DV_DURATION"
+            }
+        },
+        "magnitude": {
+            "name": "magnitude",
+            "documentation": "Numeric value of the duration as a number of seconds. Computed using the method `_to_seconds()_` inherited from `Iso8601_duration`.",
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Double"
+            }
+        }
+    },
+    "invariants": {
+        "Value_valid": "valid_iso8601_duration (value)"
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="_tabs_5_uml--panel" class="tabpanel" aria-labelledby="_tabs_5_uml">
+<div class="imageblock kroki">
+<div class="content">
+<img src="https://kroki.io/plantuml/svg/eNrtV11P2zAUfc-vsLSXbAMEL9MECCmjYavE2q20vKApcpPb1CKxu9gBIsZ_n_PhNh9O2kR73FuVe8-17z3Hx67hBphzNLp3RouZNR9PJ-jVQOgjesJBDOgc3YmIUB89nP3KPmPPMxETa4hkrIySCeh981sG4vFSRNgV_ZFhHAiyCRITrSSepdAZ4KATEwDnjlhj2r3cF8YCwHQLI9zhsldXBInjsnCDI7wMwBGsXxkKPhbkCczWlrBPiYi9IoPFcpUs-GYYeMmzQaEtK9b36WIyR-jd85oI4CF7hIuAUDj3I5xkv048JgR4FwJeRPa1IBC7bixrJY5sbAORC1SUt3t6cqIoLRK3s92FpAiIp9DYBxPROFxms5hGHkTgOZM4BDm11nnUBVM0VCJw96VdLHtRr2p0bymR8DvGQVeB-i4P0FltwTrPtbBehB270LL_c2FN5uObsT0aooCt0qSwsYh56TRr2bdo0iS_XsTUja80_aq8NSqpijOmj5Q9031VtZyWptPGq56GPUAtFdPZyJ4N44GyKMTBjoTr6ch2fnybWXd2ed5FWoSpD_k-x5O5Pbu3bstZWRtOBCs5V-pCnp5WvSVcXM7sG7nLybXtzKzJV_tyt_GrK_TwQTfXA0xP9d5lnSTcBGC2RPPW9pGsJ6trcQ1T1txy5MgWdl-mZK0S-PLP8XFp9cY6hbCHyKG7Y1V4r6IdFtXPxD6sHwEWUj39Viyjei4qZ6rCjYGWqFWx3bnMwqVjqjJyA82ihZeqiLpnDSMnaMzZ50-nZ44nfUYQRocwlbrOiwDqgdembHliBGmRdgI4yv1yTAX4clrb64ZRsdaHPJzoA2sWt1UjNJaNaWMcXEY9fWyVilCOJvWmUpq6-LKcZ4BHPVo274FLMmcjPk3tI8TaOQjWXh_nBkT9LKR7bGJHXkTp-nVCleB0gdpLYniN3cNA1ai8C1pxHnki8g7siao8KrRZTcdTaSLZwBCRtzz0q5dEl8xr13TbgWnufA7hhkVyLv2d-r8b_wM3VvM3jC0T2feyopSdzkkIzghWRD7upBb5QKXJB2XqiiZKqo6ibbV4gKZeaaLwYIB00Eb9ozr-CHkHF0yd10TrvRX54T1ljt2nqdxAzR5rNNxd_rfhlX-cHWCivAen2-QVezgAJqRaBsDS1QZjC5fcC5WnoCFmjewrtlqJq5V2OVuHbjxG_gLj_HDb?svg-type=inline" alt="DV_DURATION">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_references"><a class="anchor" href="#_references"></a><a class="link" href="#_references">References</a></h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>[1] E. G. Richards, Mapping Time - The Calendar and its History. Oxford University Press, 1998.
+</p>
+</li>
+</ul>
 </div>
 </div>
 </div>
@@ -801,5 +2106,6 @@ it is strongly recommended that where possible, the <em>extended</em> form of th
 <script async src="../../../../search-index.js"></script>
 <script src="../../../../ui/js/medium-zoom.min.js"></script>
 <script src="../../../../ui/js/zoom.js"></script>
+<script async src="../../../../ui/js/tabs.js"></script>
   </body>
 </html>

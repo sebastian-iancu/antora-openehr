@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="../../../../ui/css/site.css">
     <link rel="stylesheet" href="../../../../ui/css/antora-openehr.css">
     <link rel="stylesheet" href="../../../../ui/css/openehr.css">
+    <link rel="stylesheet" href="../../../../ui/css/tabs.css">
 <link rel="icon" href="../../../../ui/img/favicon.ico" type="image/x-icon">
   </head>
   <body class="article">
@@ -250,20 +251,6 @@
     <span class="version">development</span>
   </div>
   <ul class="components">
-    <li class="component">
-      <div class="title"><a href="../../../../AM/latest/">Archetype Model</a></div>
-      <ul class="versions">
-        <li class="version is-latest">
-          <a href="../../../../AM/latest/">Release-2.3.0</a>
-        </li>
-        <li class="version">
-          <a href="../../../../AM/Release-2.2.0/">Release-2.2.0</a>
-        </li>
-        <li class="version">
-          <a href="../../../../AM/development/">development</a>
-        </li>
-      </ul>
-    </li>
     <li class="component is-current">
       <div class="title"><a href="../../../latest/">Base Model</a></div>
       <ul class="versions">
@@ -340,12 +327,785 @@
 <div class="sect1">
 <h2 id="_class_definitions"><a class="anchor" href="#_class_definitions"></a><a class="link" href="#_class_definitions">Class Definitions</a></h2>
 <div class="sectionbody">
-<div class="paragraph">
-<p>Unresolved directive in builtins_package.adoc - include::ROOT:partial$uml/{pkg}env.adoc[]
-Unresolved directive in builtins_package.adoc - include::ROOT:partial$uml/{pkg}locale.adoc[]
-Unresolved directive in builtins_package.adoc - include::ROOT:partial$uml/{pkg}statistical_evaluator.adoc[]
-Unresolved directive in builtins_package.adoc - include::ROOT:partial$uml/{pkg}math.adoc[]
-Unresolved directive in builtins_package.adoc - include::ROOT:partial$uml/{pkg}quantity_converter.adoc[]</p>
+<div class="sect2">
+<h3 id="_env_class"><a class="anchor" href="#_env_class"></a><a class="link" href="#_env_class">Env Class</a></h3>
+<div id="_tabs_1" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="_tabs_1_definition" class="tab">
+<p>Definition</p>
+</li>
+<li id="_tabs_1_bmm" class="tab">
+<p>BMM</p>
+</li>
+<li id="_tabs_1_uml" class="tab">
+<p>UML</p>
+</li>
+</ul>
+</div>
+<div id="_tabs_1_definition--panel" class="tabpanel" aria-labelledby="_tabs_1_definition">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Interface</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>Env</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Class representing the real-world environment, providing basic information like current time, date, etc.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Functions</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>current_date</strong> (): <code><a href="../../../latest/foundation_types/time_types/#_iso8601_date_class" class="xref page">Iso8601_date</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Return today&#8217;s date in the current locale.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>current_time</strong> (): <code><a href="../../../latest/foundation_types/time_types/#_iso8601_time_class" class="xref page">Iso8601_time</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Return current time in the current locale.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>current_date_time</strong> (): <code><a href="../../../latest/foundation_types/time_types/#_iso8601_date_time_class" class="xref page">Iso8601_date_time</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Return current date/time in the current locale.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>current_time_zone</strong> (): <code><a href="../../../latest/foundation_types/time_types/#_iso8601_timezone_class" class="xref page">Iso8601_timezone</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Return the timezone of the current locale.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="_tabs_1_bmm--panel" class="tabpanel" aria-labelledby="_tabs_1_bmm">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+    "_type": "P_BMM_INTERFACE",
+    "name": "Env",
+    "documentation": "Class representing the real-world environment, providing basic information like current time, date, etc.",
+    "functions": {
+        "current_date": {
+            "name": "current_date",
+            "documentation": "Return today's date in the current locale.",
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Iso8601_date"
+            }
+        },
+        "current_time": {
+            "name": "current_time",
+            "documentation": "Return current time in the current locale.",
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Iso8601_time"
+            }
+        },
+        "current_date_time": {
+            "name": "current_date_time",
+            "documentation": "Return current date/time in the current locale.",
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Iso8601_date_time"
+            }
+        },
+        "current_time_zone": {
+            "name": "current_time_zone",
+            "documentation": "Return the timezone of the current locale.",
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Iso8601_timezone"
+            }
+        }
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="_tabs_1_uml--panel" class="tabpanel" aria-labelledby="_tabs_1_uml">
+<div class="imageblock kroki">
+<div class="content">
+<img src="https://kroki.io/plantuml/svg/eNrjyswrSS1KS0xOVXDNK1Oo5lJQ0FZILi0qSs0riU9JLEnV0FSwUvAszrcwMzAECyhEG8aiqCrJzEVVBRLAUAXSiqkULorV1Piq_DxMo0GCYOW1XAA4Tjvo?svg-type=inline" alt="Env">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_locale_class"><a class="anchor" href="#_locale_class"></a><a class="link" href="#_locale_class">Locale Class</a></h3>
+<div id="_tabs_2" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="_tabs_2_definition" class="tab">
+<p>Definition</p>
+</li>
+<li id="_tabs_2_bmm" class="tab">
+<p>BMM</p>
+</li>
+<li id="_tabs_2_uml" class="tab">
+<p>UML</p>
+</li>
+</ul>
+</div>
+<div id="_tabs_2_definition--panel" class="tabpanel" aria-labelledby="_tabs_2_definition">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Interface</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>Locale</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Class representing current Locale.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Functions</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>primary_language</strong> (): <code><a href="../../../latest/foundation_types/terminology/#_terminology_code_class" class="xref page">Terminology_code</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Primary language of the current locale.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="_tabs_2_bmm--panel" class="tabpanel" aria-labelledby="_tabs_2_bmm">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+    "_type": "P_BMM_INTERFACE",
+    "name": "Locale",
+    "documentation": "Class representing current Locale.",
+    "functions": {
+        "primary_language": {
+            "name": "primary_language",
+            "documentation": "Primary language of the current locale.",
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Terminology_code"
+            }
+        }
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="_tabs_2_uml--panel" class="tabpanel" aria-labelledby="_tabs_2_uml">
+<div class="imageblock kroki">
+<div class="content">
+<img src="https://kroki.io/plantuml/svg/eNrjyswrSS1KS0xOVfDJT07MSVWo5lJQ0FYoKMrMTSyqjM9JzEsvTUxP1dBUsFIISS3KzczLz8lPr4xPzk9JVYg2jOWq5QIAHwIW-w==?svg-type=inline" alt="Locale">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_statistical_evaluator_class"><a class="anchor" href="#_statistical_evaluator_class"></a><a class="link" href="#_statistical_evaluator_class">Statistical_evaluator Class</a></h3>
+<div id="_tabs_3" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="_tabs_3_definition" class="tab">
+<p>Definition</p>
+</li>
+<li id="_tabs_3_bmm" class="tab">
+<p>BMM</p>
+</li>
+<li id="_tabs_3_uml" class="tab">
+<p>UML</p>
+</li>
+</ul>
+</div>
+<div id="_tabs_3_definition--panel" class="tabpanel" aria-labelledby="_tabs_3_definition">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Interface</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>Statistical_evaluator</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>A basic statistical evaluator class providing common functions on collections of numbers.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Functions</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>sum</strong> (<br>
+vals: <code><a href="../../../latest/foundation_types/structure_types/#_container_class" class="xref page">Container</a>&lt;<a href="../../../latest/foundation_types/primitive_types/#_numeric_class" class="xref page">Numeric</a>&gt;[1]</code><br>
+): <code><a href="../../../latest/foundation_types/primitive_types/#_double_class" class="xref page">Double</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Sum of a container of values.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>avg</strong> (<br>
+vals: <code><a href="../../../latest/foundation_types/structure_types/#_container_class" class="xref page">Container</a>&lt;<a href="../../../latest/foundation_types/primitive_types/#_numeric_class" class="xref page">Numeric</a>&gt;[1]</code><br>
+): <code><a href="../../../latest/foundation_types/primitive_types/#_double_class" class="xref page">Double</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Synonym for <code><em>mean()</em></code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>mean</strong> (<br>
+vals: <code><a href="../../../latest/foundation_types/structure_types/#_container_class" class="xref page">Container</a>&lt;<a href="../../../latest/foundation_types/primitive_types/#_numeric_class" class="xref page">Numeric</a>&gt;[1]</code><br>
+): <code><a href="../../../latest/foundation_types/primitive_types/#_double_class" class="xref page">Double</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Mean (arithmetic average) of a container of values.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>median</strong> (<br>
+vals: <code><a href="../../../latest/foundation_types/structure_types/#_container_class" class="xref page">Container</a>&lt;<a href="../../../latest/foundation_types/primitive_types/#_numeric_class" class="xref page">Numeric</a>&gt;[1]</code><br>
+): <code><a href="../../../latest/foundation_types/primitive_types/#_numeric_class" class="xref page">Numeric</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Return numerically centre value in ordered form of container contents.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>mode</strong> (<br>
+vals: <code><a href="../../../latest/foundation_types/structure_types/#_container_class" class="xref page">Container</a>&lt;<a href="../../../latest/foundation_types/primitive_types/#_numeric_class" class="xref page">Numeric</a>&gt;[1]</code><br>
+): <code><a href="../../../latest/foundation_types/primitive_types/#_numeric_class" class="xref page">Numeric</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Mode (most frequent) of a container of values.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>max</strong> (<br>
+vals: <code><a href="../../../latest/foundation_types/structure_types/#_container_class" class="xref page">Container</a>&lt;<a href="../../../latest/foundation_types/primitive_types/#_numeric_class" class="xref page">Numeric</a>&gt;[1]</code><br>
+): <code><a href="../../../latest/foundation_types/primitive_types/#_numeric_class" class="xref page">Numeric</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Maximum of a container of values.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>min</strong> (<br>
+vals: <code><a href="../../../latest/foundation_types/structure_types/#_container_class" class="xref page">Container</a>&lt;<a href="../../../latest/foundation_types/primitive_types/#_numeric_class" class="xref page">Numeric</a>&gt;[1]</code><br>
+): <code><a href="../../../latest/foundation_types/primitive_types/#_numeric_class" class="xref page">Numeric</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Minimum of a container of values.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>count</strong> (<br>
+vals: <code><a href="../../../latest/foundation_types/structure_types/#_container_class" class="xref page">Container</a>&lt;<a href="../../../latest/foundation_types/primitive_types/#_numeric_class" class="xref page">Numeric</a>&gt;[1]</code><br>
+): <code><a href="../../../latest/foundation_types/primitive_types/#_numeric_class" class="xref page">Numeric</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Return the number of items in <code><em>vals</em></code>, i.e. <code><em>vals.count</em></code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>std_dev</strong> (<br>
+vals: <code><a href="../../../latest/foundation_types/structure_types/#_container_class" class="xref page">Container</a>&lt;<a href="../../../latest/foundation_types/primitive_types/#_numeric_class" class="xref page">Numeric</a>&gt;[1]</code><br>
+): <code><a href="../../../latest/foundation_types/primitive_types/#_double_class" class="xref page">Double</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Compute standard deviation of a container of values.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="_tabs_3_bmm--panel" class="tabpanel" aria-labelledby="_tabs_3_bmm">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+    "_type": "P_BMM_INTERFACE",
+    "name": "Statistical_evaluator",
+    "documentation": "A basic statistical evaluator class providing common functions on collections of numbers.",
+    "functions": {
+        "sum": {
+            "name": "sum",
+            "documentation": "Sum of a container of values.",
+            "parameters": {
+                "vals": {
+                    "_type": "P_BMM_GENERIC_FUNCTION_PARAMETER",
+                    "name": "vals",
+                    "type_def": {
+                        "root_type": "Container",
+                        "generic_parameters": [
+                            "Numeric"
+                        ]
+                    }
+                }
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Double"
+            }
+        },
+        "avg": {
+            "name": "avg",
+            "documentation": "Synonym for `_mean()_`.",
+            "parameters": {
+                "vals": {
+                    "_type": "P_BMM_GENERIC_FUNCTION_PARAMETER",
+                    "name": "vals",
+                    "type_def": {
+                        "root_type": "Container",
+                        "generic_parameters": [
+                            "Numeric"
+                        ]
+                    }
+                }
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Double"
+            }
+        },
+        "mean": {
+            "name": "mean",
+            "documentation": "Mean (arithmetic average) of a container of values.",
+            "parameters": {
+                "vals": {
+                    "_type": "P_BMM_GENERIC_FUNCTION_PARAMETER",
+                    "name": "vals",
+                    "type_def": {
+                        "root_type": "Container",
+                        "generic_parameters": [
+                            "Numeric"
+                        ]
+                    }
+                }
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Double"
+            }
+        },
+        "median": {
+            "name": "median",
+            "documentation": "Return numerically centre value in ordered form of container contents.",
+            "parameters": {
+                "vals": {
+                    "_type": "P_BMM_GENERIC_FUNCTION_PARAMETER",
+                    "name": "vals",
+                    "type_def": {
+                        "root_type": "Container",
+                        "generic_parameters": [
+                            "Numeric"
+                        ]
+                    }
+                }
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Numeric"
+            }
+        },
+        "mode": {
+            "name": "mode",
+            "documentation": "Mode (most frequent) of a container of values.",
+            "parameters": {
+                "vals": {
+                    "_type": "P_BMM_GENERIC_FUNCTION_PARAMETER",
+                    "name": "vals",
+                    "type_def": {
+                        "root_type": "Container",
+                        "generic_parameters": [
+                            "Numeric"
+                        ]
+                    }
+                }
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Numeric"
+            }
+        },
+        "max": {
+            "name": "max",
+            "documentation": "Maximum of a container of values.",
+            "parameters": {
+                "vals": {
+                    "_type": "P_BMM_GENERIC_FUNCTION_PARAMETER",
+                    "name": "vals",
+                    "type_def": {
+                        "root_type": "Container",
+                        "generic_parameters": [
+                            "Numeric"
+                        ]
+                    }
+                }
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Numeric"
+            }
+        },
+        "min": {
+            "name": "min",
+            "documentation": "Minimum of a container of values.",
+            "parameters": {
+                "vals": {
+                    "_type": "P_BMM_GENERIC_FUNCTION_PARAMETER",
+                    "name": "vals",
+                    "type_def": {
+                        "root_type": "Container",
+                        "generic_parameters": [
+                            "Numeric"
+                        ]
+                    }
+                }
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Numeric"
+            }
+        },
+        "count": {
+            "name": "count",
+            "documentation": "Return the number of items in `_vals_`, i.e. `_vals.count_`.",
+            "parameters": {
+                "vals": {
+                    "_type": "P_BMM_GENERIC_FUNCTION_PARAMETER",
+                    "name": "vals",
+                    "type_def": {
+                        "root_type": "Container",
+                        "generic_parameters": [
+                            "Numeric"
+                        ]
+                    }
+                }
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Numeric"
+            }
+        },
+        "std_dev": {
+            "name": "std_dev",
+            "documentation": "Compute standard deviation of a container of values.",
+            "parameters": {
+                "vals": {
+                    "_type": "P_BMM_GENERIC_FUNCTION_PARAMETER",
+                    "name": "vals",
+                    "type_def": {
+                        "root_type": "Container",
+                        "generic_parameters": [
+                            "Numeric"
+                        ]
+                    }
+                }
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Double"
+            }
+        }
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="_tabs_3_uml--panel" class="tabpanel" aria-labelledby="_tabs_3_uml">
+<div class="imageblock kroki">
+<div class="content">
+<img src="https://kroki.io/plantuml/svg/eNqd0DELAjEMBeC9vyKj4uQq4qKzi6PIkWujBNoU2rQI4n_3TgRXzZj3-OARx6JUrugJTorKVdljHKhjbKi5wMMBrKC2tIApq7CBfRZFFirbY0tU2O_gvL7AcqoOuY2R5vOtsN8MKhGKiQX-DX6Cr8yBTA7vJsamlT43UQusGoZA_c-XPt0L0taojw==?svg-type=inline" alt="Statistical_evaluator">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_math_class"><a class="anchor" href="#_math_class"></a><a class="link" href="#_math_class">Math Class</a></h3>
+<div id="_tabs_4" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="_tabs_4_definition" class="tab">
+<p>Definition</p>
+</li>
+<li id="_tabs_4_bmm" class="tab">
+<p>BMM</p>
+</li>
+<li id="_tabs_4_uml" class="tab">
+<p>UML</p>
+</li>
+</ul>
+</div>
+<div id="_tabs_4_definition--panel" class="tabpanel" aria-labelledby="_tabs_4_definition">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Interface</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>Math</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Mathematical computation.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Functions</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>ln</strong> (<br>
+v: <code><a href="../../../latest/foundation_types/primitive_types/#_numeric_class" class="xref page">Numeric</a>[1]</code><br>
+): <code><a href="../../../latest/foundation_types/primitive_types/#_double_class" class="xref page">Double</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Compute natural log of v.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>log</strong> (<br>
+v: <code><a href="../../../latest/foundation_types/primitive_types/#_numeric_class" class="xref page">Numeric</a>[1]</code><br>
+): <code><a href="../../../latest/foundation_types/primitive_types/#_double_class" class="xref page">Double</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Compute base 10 log of v.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>sin</strong> (<br>
+(v: <code><a href="../../../latest/foundation_types/primitive_types/#_numeric_class" class="xref page">Numeric</a>[1]</code><br>
+): <code><a href="../../../latest/foundation_types/primitive_types/#_double_class" class="xref page">Double</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Compute sin(v).</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="_tabs_4_bmm--panel" class="tabpanel" aria-labelledby="_tabs_4_bmm">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+    "_type": "P_BMM_INTERFACE",
+    "name": "Math",
+    "documentation": "Mathematical computation.",
+    "functions": {
+        "ln": {
+            "name": "ln",
+            "documentation": "Compute natural log of v.",
+            "parameters": {
+                "v": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "v",
+                    "type": "Numeric"
+                }
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Double"
+            }
+        },
+        "log": {
+            "name": "log",
+            "documentation": "Compute base 10 log of v.",
+            "parameters": {
+                "v": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "v",
+                    "type": "Numeric"
+                }
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Double"
+            }
+        },
+        "sin": {
+            "name": "sin",
+            "documentation": "Compute sin(v).",
+            "parameters": {
+                "(v": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "(v",
+                    "type": "Numeric"
+                }
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Double"
+            }
+        }
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="_tabs_4_uml--panel" class="tabpanel" aria-labelledby="_tabs_4_uml">
+<div class="imageblock kroki">
+<div class="content">
+<img src="https://kroki.io/plantuml/svg/eNrjyswrSS1KS0xOVfBNLMlQqOZSUNBWyMnTUChTsFLwK81NLcpMVog2jFXQBPJd8kuTclJBXIiy_HSi1BVnAs3TIKCwlgsAGoonkA==?svg-type=inline" alt="Math">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_quantity_converter_class"><a class="anchor" href="#_quantity_converter_class"></a><a class="link" href="#_quantity_converter_class">Quantity_converter Class</a></h3>
+<div id="_tabs_5" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="_tabs_5_definition" class="tab">
+<p>Definition</p>
+</li>
+<li id="_tabs_5_bmm" class="tab">
+<p>BMM</p>
+</li>
+<li id="_tabs_5_uml" class="tab">
+<p>UML</p>
+</li>
+</ul>
+</div>
+<div id="_tabs_5_definition--panel" class="tabpanel" aria-labelledby="_tabs_5_definition">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Interface</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>Quantity_converter</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Quantity conversion.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Functions</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>convert_value</strong> (<br>
+value: <code><a href="../../../latest/foundation_types/primitive_types/#_real_class" class="xref page">Real</a>[1]</code>,<br>
+from_units: <code><a href="../../../latest/foundation_types/primitive_types/#_string_class" class="xref page">String</a>[1]</code>,<br>
+to_units: <code><a href="../../../latest/foundation_types/primitive_types/#_string_class" class="xref page">String</a>[1]</code>,<br>
+property: <code><a href="../../../latest/foundation_types/terminology/#_terminology_code_class" class="xref page">Terminology_code</a>[1]</code><br>
+): <code><a href="../../../latest/foundation_types/primitive_types/#_real_class" class="xref page">Real</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Convert <code><em>value</em></code> of physical property type (e.g. 'pressure' etc) from one units to another.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="_tabs_5_bmm--panel" class="tabpanel" aria-labelledby="_tabs_5_bmm">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+    "_type": "P_BMM_INTERFACE",
+    "name": "Quantity_converter",
+    "documentation": "Quantity conversion.",
+    "functions": {
+        "convert_value": {
+            "name": "convert_value",
+            "documentation": "Convert `_value_` of physical property type (e.g. 'pressure' etc) from one units to another.",
+            "parameters": {
+                "value": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "value",
+                    "type": "Real"
+                },
+                "from_units": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "from_units",
+                    "type": "String"
+                },
+                "to_units": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "to_units",
+                    "type": "String"
+                },
+                "property": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "property",
+                    "type": "Terminology_code"
+                }
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Real"
+            }
+        }
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="_tabs_5_uml--panel" class="tabpanel" aria-labelledby="_tabs_5_uml">
+<div class="imageblock kroki">
+<div class="content">
+<img src="https://kroki.io/plantuml/svg/eNrjyswrSS1KS0xOVQgsTcwrySypjE_OzytLLQIKK1RzKShoK0D58WWJOaWpGgpgSsFKISg1MUch2jBWRyGtKD83vjQvs6QYKBxcUpSZlw6RKMnHKlxQlF8ANLASKBySWpSbmZefk58OsjclFaRAQRPJdK5aLgCBHDea?svg-type=inline" alt="Quantity_converter">
+</div>
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -392,5 +1152,6 @@ Unresolved directive in builtins_package.adoc - include::ROOT:partial$uml/{pkg}q
 <script async src="../../../../search-index.js"></script>
 <script src="../../../../ui/js/medium-zoom.min.js"></script>
 <script src="../../../../ui/js/zoom.js"></script>
+<script async src="../../../../ui/js/tabs.js"></script>
   </body>
 </html>

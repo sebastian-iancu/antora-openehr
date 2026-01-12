@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="../../../../ui/css/site.css">
     <link rel="stylesheet" href="../../../../ui/css/antora-openehr.css">
     <link rel="stylesheet" href="../../../../ui/css/openehr.css">
+    <link rel="stylesheet" href="../../../../ui/css/tabs.css">
 <link rel="icon" href="../../../../ui/img/favicon.ico" type="image/x-icon">
   </head>
   <body class="article">
@@ -250,20 +251,6 @@
     <span class="version">Release-1.2.0</span>
   </div>
   <ul class="components">
-    <li class="component">
-      <div class="title"><a href="../../../../AM/latest/">Archetype Model</a></div>
-      <ul class="versions">
-        <li class="version is-latest">
-          <a href="../../../../AM/latest/">Release-2.3.0</a>
-        </li>
-        <li class="version">
-          <a href="../../../../AM/Release-2.2.0/">Release-2.2.0</a>
-        </li>
-        <li class="version">
-          <a href="../../../../AM/development/">development</a>
-        </li>
-      </ul>
-    </li>
     <li class="component is-current">
       <div class="title"><a href="../../">Base Model</a></div>
       <ul class="versions">
@@ -340,295 +327,12 @@
 <div class="sect1">
 <h2 id="_class_definitions"><a class="anchor" href="#_class_definitions"></a><a class="link" href="#_class_definitions">Class Definitions</a></h2>
 <div class="sectionbody">
-<div class="sect2">
-<h3 id="_env_interface"><a class="anchor" href="#_env_interface"></a><a class="link" href="#_env_interface">Env Interface</a></h3>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 11.1111%;">
-<col style="width: 33.3333%;">
-<col style="width: 55.5556%;">
-</colgroup>
-<tbody>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Interface</strong></p></th>
-<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>Env</strong></p></th>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
-<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
-<p>Class representing the real-world environment, providing basic information like current time, date, etc.</p>
-</div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Functions</strong></p></th>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>current_date</strong> (): <code><a href="/releases/BASE/latest/foundation_types.html#_iso8601_date_class" target="_blank" rel="noopener">Iso8601_date</a></code></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Return today&#8217;s date in the current locale.</p>
-</div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>current_time</strong> (): <code><a href="/releases/BASE/latest/foundation_types.html#_iso8601_time_class" target="_blank" rel="noopener">Iso8601_time</a></code></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Return current time in the current locale.</p>
-</div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>current_date_time</strong> (): <code><a href="/releases/BASE/latest/foundation_types.html#_iso8601_date_time_class" target="_blank" rel="noopener">Iso8601_date_time</a></code></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Return current date/time in the current locale.</p>
-</div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>current_time_zone</strong> (): <code><a href="/releases/BASE/latest/foundation_types.html#_iso8601_timezone_class" target="_blank" rel="noopener">Iso8601_timezone</a></code></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Return the timezone of the current locale.</p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect2">
-<h3 id="_locale_interface"><a class="anchor" href="#_locale_interface"></a><a class="link" href="#_locale_interface">Locale Interface</a></h3>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 11.1111%;">
-<col style="width: 33.3333%;">
-<col style="width: 55.5556%;">
-</colgroup>
-<tbody>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Interface</strong></p></th>
-<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>Locale</strong></p></th>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
-<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
-<p>Class representing current Locale.</p>
-</div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Functions</strong></p></th>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>primary_language</strong> (): <code><a href="/releases/BASE/latest/foundation_types.html#_terminology_code_class" target="_blank" rel="noopener">Terminology_code</a></code></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Primary language of the current locale.</p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect2">
-<h3 id="_statistical_evaluator_interface"><a class="anchor" href="#_statistical_evaluator_interface"></a><a class="link" href="#_statistical_evaluator_interface">Statistical_evaluator Interface</a></h3>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 11.1111%;">
-<col style="width: 33.3333%;">
-<col style="width: 55.5556%;">
-</colgroup>
-<tbody>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Interface</strong></p></th>
-<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>Statistical_evaluator</strong></p></th>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
-<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
-<p>A basic statistical evaluator class providing common functions on collections of numbers.</p>
-</div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Functions</strong></p></th>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>sum</strong> (<br>
-vals: <code><a href="/releases/BASE/latest/foundation_types.html#_container_class">Container<sup></a>&lt;<a href="/releases/BASE/latest/foundation_types.html#_numeric_class">Numeric</sup></a>&gt;[1]</code><br>
-): <code><a href="/releases/BASE/latest/foundation_types.html#_double_class" target="_blank" rel="noopener">Double</a></code></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Sum of a container of values.</p>
-</div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>avg</strong> (<br>
-vals: <code><a href="/releases/BASE/latest/foundation_types.html#_container_class">Container<sup></a>&lt;<a href="/releases/BASE/latest/foundation_types.html#_numeric_class">Numeric</sup></a>&gt;[1]</code><br>
-): <code><a href="/releases/BASE/latest/foundation_types.html#_double_class" target="_blank" rel="noopener">Double</a></code></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Synonym for <code><em>mean()</em></code>.</p>
-</div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>mean</strong> (<br>
-vals: <code><a href="/releases/BASE/latest/foundation_types.html#_container_class">Container<sup></a>&lt;<a href="/releases/BASE/latest/foundation_types.html#_numeric_class">Numeric</sup></a>&gt;[1]</code><br>
-): <code><a href="/releases/BASE/latest/foundation_types.html#_double_class" target="_blank" rel="noopener">Double</a></code></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Mean (arithmetic average) of a container of values.</p>
-</div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>median</strong> (<br>
-vals: <code><a href="/releases/BASE/latest/foundation_types.html#_container_class">Container<sup></a>&lt;<a href="/releases/BASE/latest/foundation_types.html#_numeric_class">Numeric</sup></a>&gt;[1]</code><br>
-): <code><a href="/releases/BASE/latest/foundation_types.html#_numeric_class" target="_blank" rel="noopener">Numeric</a></code></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Return numerically centre value in ordered form of container contents.</p>
-</div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>mode</strong> (<br>
-vals: <code><a href="/releases/BASE/latest/foundation_types.html#_container_class">Container<sup></a>&lt;<a href="/releases/BASE/latest/foundation_types.html#_numeric_class">Numeric</sup></a>&gt;[1]</code><br>
-): <code><a href="/releases/BASE/latest/foundation_types.html#_numeric_class" target="_blank" rel="noopener">Numeric</a></code></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Mode (most frequent) of a container of values.</p>
-</div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>max</strong> (<br>
-vals: <code><a href="/releases/BASE/latest/foundation_types.html#_container_class">Container<sup></a>&lt;<a href="/releases/BASE/latest/foundation_types.html#_numeric_class">Numeric</sup></a>&gt;[1]</code><br>
-): <code><a href="/releases/BASE/latest/foundation_types.html#_numeric_class" target="_blank" rel="noopener">Numeric</a></code></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Maximum of a container of values.</p>
-</div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>min</strong> (<br>
-vals: <code><a href="/releases/BASE/latest/foundation_types.html#_container_class">Container<sup></a>&lt;<a href="/releases/BASE/latest/foundation_types.html#_numeric_class">Numeric</sup></a>&gt;[1]</code><br>
-): <code><a href="/releases/BASE/latest/foundation_types.html#_numeric_class" target="_blank" rel="noopener">Numeric</a></code></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Minimum of a container of values.</p>
-</div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>count</strong> (<br>
-vals: <code><a href="/releases/BASE/latest/foundation_types.html#_container_class">Container<sup></a>&lt;<a href="/releases/BASE/latest/foundation_types.html#_numeric_class">Numeric</sup></a>&gt;[1]</code><br>
-): <code><a href="/releases/BASE/latest/foundation_types.html#_numeric_class" target="_blank" rel="noopener">Numeric</a></code></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Return the number of items in <code><em>vals</em></code>, i.e. <code><em>vals.count</em></code>.</p>
-</div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>std_dev</strong> (<br>
-vals: <code><a href="/releases/BASE/latest/foundation_types.html#_container_class">Container<sup></a>&lt;<a href="/releases/BASE/latest/foundation_types.html#_numeric_class">Numeric</sup></a>&gt;[1]</code><br>
-): <code><a href="/releases/BASE/latest/foundation_types.html#_double_class" target="_blank" rel="noopener">Double</a></code></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Compute standard deviation of a container of values.</p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect2">
-<h3 id="_math_interface"><a class="anchor" href="#_math_interface"></a><a class="link" href="#_math_interface">Math Interface</a></h3>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 11.1111%;">
-<col style="width: 33.3333%;">
-<col style="width: 55.5556%;">
-</colgroup>
-<tbody>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Interface</strong></p></th>
-<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>Math</strong></p></th>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
-<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
-<p>Mathematical computation.</p>
-</div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Functions</strong></p></th>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>ln</strong> (<br>
-v: <code><a href="/releases/BASE/latest/foundation_types.html#_numeric_class" target="_blank" rel="noopener">Numeric</a>[1]</code><br>
-): <code><a href="/releases/BASE/latest/foundation_types.html#_double_class" target="_blank" rel="noopener">Double</a></code></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Compute natural log of v.</p>
-</div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>log</strong> (<br>
-v: <code><a href="/releases/BASE/latest/foundation_types.html#_numeric_class" target="_blank" rel="noopener">Numeric</a>[1]</code><br>
-): <code><a href="/releases/BASE/latest/foundation_types.html#_double_class" target="_blank" rel="noopener">Double</a></code></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Compute base 10 log of v.</p>
-</div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>sin</strong> (<br>
-(v: <code><a href="/releases/BASE/latest/foundation_types.html#_numeric_class" target="_blank" rel="noopener">Numeric</a>[1]</code><br>
-): <code><a href="/releases/BASE/latest/foundation_types.html#_double_class" target="_blank" rel="noopener">Double</a></code></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Compute sin(v).</p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect2">
-<h3 id="_quantity_converter_interface"><a class="anchor" href="#_quantity_converter_interface"></a><a class="link" href="#_quantity_converter_interface">Quantity_converter Interface</a></h3>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 11.1111%;">
-<col style="width: 33.3333%;">
-<col style="width: 55.5556%;">
-</colgroup>
-<tbody>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Interface</strong></p></th>
-<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>Quantity_converter</strong></p></th>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
-<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
-<p>Quantity conversion.</p>
-</div></div></td>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Functions</strong></p></th>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
-</tr>
-<tr>
-<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>convert_value</strong> (<br>
-value: <code><a href="/releases/BASE/latest/foundation_types.html#_real_class" target="_blank" rel="noopener">Real</a>[1]</code>,<br>
-from_units: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a>[1]</code>,<br>
-to_units: <code><a href="/releases/BASE/latest/foundation_types.html#_string_class" target="_blank" rel="noopener">String</a>[1]</code>,<br>
-property: <code><a href="/releases/BASE/latest/foundation_types.html#_terminology_code_class" target="_blank" rel="noopener">Terminology_code</a>[1]</code><br>
-): <code><a href="/releases/BASE/latest/foundation_types.html#_real_class" target="_blank" rel="noopener">Real</a></code></p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Convert <code><em>value</em></code> of physical property type (e.g. 'pressure' etc) from one units to another.</p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
+<div class="paragraph">
+<p>Unresolved include directive in modules/base_types/pages/builtins_package.adoc - include::../UML/classes/env.adoc[]
+Unresolved include directive in modules/base_types/pages/builtins_package.adoc - include::../UML/classes/locale.adoc[]
+Unresolved include directive in modules/base_types/pages/builtins_package.adoc - include::../UML/classes/statistical_evaluator.adoc[]
+Unresolved include directive in modules/base_types/pages/builtins_package.adoc - include::../UML/classes/math.adoc[]
+Unresolved include directive in modules/base_types/pages/builtins_package.adoc - include::../UML/classes/quantity_converter.adoc[]</p>
 </div>
 </div>
 </div>
@@ -675,5 +379,6 @@ property: <code><a href="/releases/BASE/latest/foundation_types.html#_terminolog
 <script async src="../../../../search-index.js"></script>
 <script src="../../../../ui/js/medium-zoom.min.js"></script>
 <script src="../../../../ui/js/zoom.js"></script>
+<script async src="../../../../ui/js/tabs.js"></script>
   </body>
 </html>

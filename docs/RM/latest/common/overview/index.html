@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="../../../../ui/css/site.css">
     <link rel="stylesheet" href="../../../../ui/css/antora-openehr.css">
     <link rel="stylesheet" href="../../../../ui/css/openehr.css">
+    <link rel="stylesheet" href="../../../../ui/css/tabs.css">
 <link rel="icon" href="../../../../ui/img/favicon.ico" type="image/x-icon">
   </head>
   <body class="article">
@@ -369,20 +370,6 @@
   </div>
   <ul class="components">
     <li class="component">
-      <div class="title"><a href="../../../../AM/latest/">Archetype Model</a></div>
-      <ul class="versions">
-        <li class="version is-latest">
-          <a href="../../../../AM/latest/">Release-2.3.0</a>
-        </li>
-        <li class="version">
-          <a href="../../../../AM/Release-2.2.0/">Release-2.2.0</a>
-        </li>
-        <li class="version">
-          <a href="../../../../AM/development/">development</a>
-        </li>
-      </ul>
-    </li>
-    <li class="component">
       <div class="title"><a href="../../../../BASE/latest/">Base Model</a></div>
       <ul class="versions">
         <li class="version is-latest">
@@ -441,20 +428,41 @@
 </aside>
 <article class="doc">
 <h1 class="page">Overview</h1>
+<div id="preamble">
+<div class="sectionbody">
 <div class="paragraph">
 <p>The openEHR Common Information Model defines various abstract concepts and design patterns used in higher level openEHR models.</p>
 </div>
 <div class="paragraph">
-<p>The <code>archetyped</code> package is informed by a number of design principles, centred on the concept of 'two-level' modelling. These principles are described in detail in cite:[Beale2000]. The <code>generic</code> package contains classes forming 'analysis patterns' which are generic across the domain, mostly to do with referencing demographic entities from within other data including <code>PARTICIPATION</code>, <code>PARTY_PROXY</code>, <code>ATTESTATION</code> and so on.</p>
+<p>The <code>archetyped</code> package is informed by a number of design principles, centred on the concept of 'two-level' modelling. These principles are described in detail in <span class="citation"><a href="#bibliography_entry_Beale2000">[1]</a></span>. The <code>generic</code> package contains classes forming 'analysis patterns' which are generic across the domain, mostly to do with referencing demographic entities from within other data including <code>PARTICIPATION</code>, <code>PARTY_PROXY</code>, <code>ATTESTATION</code> and so on.</p>
 </div>
 <div class="paragraph">
 <p>The <code>directory</code> package provides a simple reusable abstraction of a versioned folder structure.</p>
 </div>
 <div class="paragraph">
-<p>The <code>change_control</code> package defines the generalised semantics of changes to a logical repository, such as an EHR, over time. Each item in such a repository is version-controlled to allow the repository as a whole to be properly versioned in time. The semantics described are in response to medicolegal requirements defined in cite:[GEHR1995], and in the ISO Technical Specification <a href="https://www.iso.org/standard/52823.html" target="_blank" rel="noopener">ISO 18308</a>. Both of these requirements specifications mention specifically the version control of the health record.</p>
+<p>The <code>change_control</code> package defines the generalised semantics of changes to a logical repository, such as an EHR, over time. Each item in such a repository is version-controlled to allow the repository as a whole to be properly versioned in time. The semantics described are in response to medicolegal requirements defined in <span class="citation"><a href="#bibliography_entry_GEHR1995">[2]</a></span>, and in the ISO Technical Specification <a href="https://www.iso.org/standard/52823.html" target="_blank" rel="noopener">ISO 18308</a>. Both of these requirements specifications mention specifically the version control of the health record.</p>
 </div>
 <div class="paragraph">
 <p>The <code>resource</code> package defines semantics of an online authored resource, such as a document, and supports multiple language translations, descriptive meta-data and revision history.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_references"><a class="anchor" href="#_references"></a><a class="link" href="#_references">References</a></h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>[1] T. Beale, “Archetypes: Constraint-based Domain Models for Future-proof Information Systems.” [Online]. Available: <a href="https://www.openehr.org/publications/archetypes/archetypes_beale_web_2000.pdf" class="bare">https://www.openehr.org/publications/archetypes/archetypes_beale_web_2000.pdf</a>
+</p>
+</li>
+<li>
+<p>[2] T. Beale, D. Lloyd, S. Heard, D. Kalra, and D. Ingram, “Deliverable 19,20,24: GEHR Architecture,” European Commission AIM, Brussels, techreport, 1995. [Online]. Available: <a href="https://www.openehr.org/resources/related_projects/gehr_deliverable-19_20_24.pdf" class="bare">https://www.openehr.org/resources/related_projects/gehr_deliverable-19_20_24.pdf</a>
+</p>
+</li>
+</ul>
+</div>
+</div>
 </div>
 <nav class="pagination">
   <span class="prev"><a href="../preface/">Preface</a></span>
@@ -499,5 +507,6 @@
 <script async src="../../../../search-index.js"></script>
 <script src="../../../../ui/js/medium-zoom.min.js"></script>
 <script src="../../../../ui/js/zoom.js"></script>
+<script async src="../../../../ui/js/tabs.js"></script>
   </body>
 </html>

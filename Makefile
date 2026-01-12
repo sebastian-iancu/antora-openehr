@@ -14,7 +14,7 @@ NC := \033[0m # No Color
 # Configuration
 REPOS_DIR := repos
 BUILD_DIR := build
-SPECS_REPOS := specifications-BASE specifications-RM specifications-AM
+SPECS_REPOS := specifications-BASE specifications-RM
 #SPECS_REPOS := specifications-BASE specifications-RM specifications-AM \
 #               specifications-LANG specifications-SM specifications-QUERY \
 #               specifications-PROC specifications-CDS specifications-CNF \
@@ -135,7 +135,7 @@ validate-all: ## Validate Antora structure in all repositories
 build: ## Build the full site using production playbook
 	@echo "$(GREEN)Building openEHR specifications site...$(NC)"
 	npx antora antora-playbook.yml
-	@echo "$(GREEN)Build complete! Site generated in $(BUILD_DIR)/site$(NC)"
+	@echo "$(GREEN)Build complete! Site generated in $(BUILD_DIR)$(NC)"
 
 build-local: ## Build site using local repositories
 	@echo "$(GREEN)Building site from local repositories...$(NC)"
@@ -144,7 +144,7 @@ build-local: ## Build site using local repositories
 		exit 1; \
 	fi
 	npx antora antora-playbook-local.yml
-	@echo "$(GREEN)Build complete! Site generated in $(BUILD_DIR)/site$(NC)"
+	@echo "$(GREEN)Build complete! Site generated in $(BUILD_DIR)$(NC)"
 
 clean: ## Clean build artifacts and cache
 	@echo "$(YELLOW)Cleaning build artifacts...$(NC)"
@@ -161,13 +161,13 @@ clean-all: clean ## Clean everything including cloned repos
 ##@ Preview
 
 preview: ## Start local HTTP server to preview built site
-	@if [ ! -d "$(BUILD_DIR)/site" ]; then \
-		echo "$(RED)Error: Build directory not found. Run 'make build' or 'make build-local' first.$(NC)"; \
+	@if [ ! -d "$(BUILD_DIR)" ]; then \
+		echo "$(RED)Error: Build directory $(BUILD_DIR) not found. Run 'make build' or 'make build-local' first.$(NC)"; \
 		exit 1; \
 	fi
 	@echo "$(GREEN)Starting preview server at http://localhost:8080$(NC)"
 	@echo "$(YELLOW)Press Ctrl+C to stop$(NC)"
-	@cd $(BUILD_DIR)/site && python3 -m http.server 8080
+	@cd $(BUILD_DIR) && python3 -m http.server 8080
 
 
 ##@ CI/CD

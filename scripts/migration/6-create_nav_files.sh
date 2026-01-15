@@ -79,14 +79,10 @@ generate_nav_entries_from_master() {
 
         case "$target" in
           *"/"*|*"{"* ) continue ;;
-        esac
-
-        case "$target" in
+          *"/"*|*"{"* ) continue ;;
           manifest_vars.adoc) continue ;;
-        esac
-
-        case "$target" in
           *-amendment_record.adoc|amendment_record.adoc) continue ;;
+          *-preface.adoc|preface.adoc) continue ;;
         esac
 
         local base="${target%.adoc}"
@@ -107,10 +103,6 @@ generate_nav_entries_from_master() {
 
         echo "** xref:${base}.adoc[${title}]"
       done
-
-  if grep -q 'include::.*amendment_record\.adoc' "$master_file"; then
-    echo "** xref:amendment_record.adoc[Amendment Record]"
-  fi
 }
 
 

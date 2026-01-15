@@ -97,10 +97,10 @@ copy_diagrams() {
 }
 
 # -------------------------------------------------------------------
-# Replace {diagrams_uri} with diagrams
+# Replace {diagrams_uri} with diagrams and also removing {images_uri}/
 # -------------------------------------------------------------------
 
-replace_diagram_attr() {
+replace_diagram_and_images_uri_attr() {
   local module="$1"
   local pages_dir="modules/$module/pages"
 
@@ -111,6 +111,7 @@ replace_diagram_attr() {
   for f in "$pages_dir"/*.adoc; do
     [ -f "$f" ] || continue
     sed -i "s|{diagrams_uri}|diagrams|g" "$f"
+    sed -i "s|{images_uri}/||g" "$f"
   done
 }
 
@@ -150,7 +151,7 @@ process_module() {
   copy_master_numbered "$module"
   copy_included_non_master "$module"
 
-  replace_diagram_attr "$module"
+  replace_diagram_and_images_uri_attr "$module"
   add_bibliography "$module"
 
   copy_images "$module"

@@ -1,6 +1,9 @@
 #!/bin/bash
 set -euo pipefail
 
+COMPONENT_NAME="$1"
+shift
+
 MODULES="$@"
 
 rewrite_uml_class_includes_for_module() {
@@ -19,7 +22,14 @@ rewrite_uml_class_includes_for_module() {
     # include::{uml_export_dir}/classes/X.adoc[]
     #     → partial::ROOT:classes/NAME.svg[]
     #
-    sed -i 's|{uml_export_dir}/classes/{pkg}|ROOT:partial$classes/|g' "$f"
+    prefix=""
+    if [[ "$COMPONENT_NAME" == "AM" ]]; then
+      case "$module" in
+        AOM2|OPT2|ADL2) prefix="aom2." ;;
+        *)              prefix="aom14." ;;
+      esac
+    fi
+    sed -i "s|{uml_export_dir}/classes/{pkg}|ROOT:partial\$classes/${prefix}|g" "$f"
 
     #
     # UML DIAGRAMS

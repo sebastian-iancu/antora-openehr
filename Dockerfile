@@ -12,6 +12,7 @@ RUN apt-get update && apt-get install -y \
     ruby-dev \
     build-essential \
     graphviz \
+    jq \
     && rm -rf /var/lib/apt/lists/*
 
 # Install AsciiDoctor and extensions

@@ -124,6 +124,7 @@ create_module_nav() {
 
   # ------------------------------------------------------------------
   # TITLE RESOLUTION PRIORITY:
+  # 0) Title from manifest.json
   # 1) :spec_title: from module_vars.adoc
   # 2) First "= Heading" in index.adoc
   # 3) Prettified module name
@@ -131,7 +132,13 @@ create_module_nav() {
   local module_title
   local spec_title_literal="{spec_title}"
 
-  module_title="$(get_spec_title_from_module_vars "$module")"
+  if [ -f "manifest.json" ]; then
+    module_title=$(jq -r ".specifications[] | select(.id == \"$module\") | .title // empty" manifest.json)
+  fi
+
+  if [ -z "$module_title" ]; then
+    module_title="$(get_spec_title_from_module_vars "$module")"
+  fi
 
   if [ -z "$module_title" ]; then
     module_title="$(get_title_from_page "$index_file")"

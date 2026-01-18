@@ -1,0 +1,1094 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+    <title>The Rules Package :: openEHR Specifications (Local Build)</title>
+    <link rel="canonical" href="https://sebastian-iancu.github.io/antora-openehr/AM/latest/AOM2/rules_package/">
+    <link rel="prev" href="../constraint_model-class_definitions/">
+    <link rel="next" href="../rm_overlay/">
+    <meta name="description" content="openEHR Archetype Object Model 2 (AOM2) (ISO 13606-2:2019)">
+    <meta name="keywords" content="EHR, ADL, AOM, health records, archetypes, constraint language, ISO 13606, openehr">
+    <meta name="generator" content="Antora 3.1.14">
+    <link rel="stylesheet" href="../../../../ui/css/site.css">
+    <link rel="stylesheet" href="../../../../ui/css/antora-openehr.css">
+    <link rel="stylesheet" href="../../../../ui/css/openehr.css">
+    <link rel="stylesheet" href="../../../../ui/css/tabs.css">
+<link rel="icon" href="../../../../ui/img/favicon.ico" type="image/x-icon">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://sebastian-iancu.github.io/antora-openehr">openEHR Specifications (Local Build)</a>
+
+      <div class="navbar-item search hide-for-print">
+        <div id="search-field" class="field has-filter">
+          <input id="search-input" type="text" placeholder="Search the docs">
+          <label class="filter checkbox">
+            <input type="checkbox" data-facet-filter="component:AM"> Archetype Model only
+          </label>
+        </div>
+      </div>
+
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">Specifications</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://specifications.openehr.org/" target="_blank">
+              openEHR specification
+            </a>
+            <a class="navbar-item" href="https://specifications.openehr.org/releases/UML/development/index.html" target="_blank">
+              openEHR portal
+            </a>
+            <a class="navbar-item" href="https://ckm.openehr.org/ckm/" target="_blank">
+              openEHR CKM
+            </a>
+          </div>
+        </div>
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">Community</a>
+          <div class="navbar-dropdown is-right">
+            <a class="navbar-item" href="https://openehr.atlassian.net/secure/Dashboard.jspa?selectPageId=10190" target="_blank">
+              Issue trackers
+            </a>
+            <a class="navbar-item" href="https://discourse.openehr.org/" target="_blank">
+              Discourse Forum
+            </a>
+            <a class="navbar-item" href="https://specifications.openehr.org/wiki/display/spec/Specifications+Home" target="_blank">
+              Wiki
+            </a>
+            <a class="navbar-item" href="https://github.com/openEHR" target="_blank">
+              GitHub
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="AM" data-version="development">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="../../">Archetype Model</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../">Overview</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../Overview/">Archetype Technology Overview</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../Overview/introduction/">Business Purpose of Archetypes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../Overview/formalism_overview/">Archetype Formalism Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../Overview/the_specifications/">The Specifications</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../Overview/semantic_overview/">Semantic Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../Overview/artefacts/">Artefacts</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../ADL2/">Archetype Definition Language 2 (ADL2)</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/overview/">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/file_encoding/">File Encoding and Character Quoting</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/cadl_overview/">cADL - Constraint ADL</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/cadl_basics/">Cadl Basics</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/cadl_complex_types/">Cadl Complex Types</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/cadl_second_order/">Cadl Second Order</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/cadl_primitive_types/">Cadl Primitive Types</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/cadl_validity_rules/">Cadl Validity Rules</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/paths/">ADL Paths</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/default_values/">Default Values</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/adl_introduction/">ADL - Archetype Definition Language</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/adl_conventions/">Adl Conventions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/adl_artefacts/">Adl Artefacts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/adl_basics/">Adl Basics</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/adl_identification/">Adl Identification</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/adl_specialise/">Adl Specialise</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/adl_language/">Adl Language</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/adl_description/">Adl Description</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/adl_deprecated/">Adl Deprecated</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/adl_definition/">Adl Definition</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/adl_rules/">Adl Rules</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/adl_rm_overlay/">Adl Rm Overlay</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/adl_terminology/">Adl Terminology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/adl_annotations/">Adl Annotations</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/terminology_integration/">Terminology Integration</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/spec_overview/">Specialisation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/spec_concepts/">Spec Concepts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/spec_examples/">Spec Examples</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/spec_attrib_redef/">Spec Attrib Redef</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/spec_object_redef/">Spec Object Redef</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/spec_rules/">Spec Rules</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/spec_languages/">Spec Languages</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/spec_description/">Spec Description</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/spec_terminology/">Spec Terminology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/spec_bindings/">Spec Bindings</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/templates/">Templates</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/other_formalisms/">Relationship of ADL to Other Formalisms</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/syntax_spec/">Syntax Specification</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../">Archetype Object Model 2 (AOM2)</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../model_overview/">Model Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../archetype_package/">The Archetype Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../constraint_model-overview/">Constraint Model Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../constraint_model-semantics/">Constraint Model-Semantics</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../constraint_model-second_order/">Constraint Model-Second Order</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../constraint_model-AOM_type_subs/">Constraint Model-AOM Type Subs</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../constraint_model-class_definitions/">Constraint Model-Class Definitions</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="./">The Rules Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../rm_overlay/">The RM Overlay Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../terminology_package/">Terminology Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../validation/">Validation and Transformation Semantics</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../serialisation_model/">Serialisation Model</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../templates/">Templates</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../rm_adaptation/">Reference Model Adaptation</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../OPT2/">Operational Template 2 (OPT2)</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../OPT2/overview/">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../OPT2/opt_raw/">The Raw Operational Template</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../OPT2/opt_profiled/">The Profiled Operational Template</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../OPT2/file_formats/">File Formats</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../Identification/">Archetype Identification</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../Identification/overview/">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../Identification/artefact_source_id/">Source Artefact Identification</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../Identification/versioning/">Versioning</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../Identification/lifecycle_mgt/">Lifecycle Model</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../Identification/distributed_governance/">Distributed Governance</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../Identification/referencing/">Referencing</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../Identification/uris/">A Reliable URI for Knowledge Resources</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../Identification/artefact_authentication/">Artefact Authentication</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../Identification/scenarios/">Scenarios</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../ADL1.4/">Archetype Definition Language 1.4 (ADL1.4)</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL1.4/overview/">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL1.4/file_encoding/">File Encoding and Character Quoting</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL1.4/dadl/">dADL - Data ADL</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL1.4/cadl/">cADL - Constraint ADL</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL1.4/assertions/">Assertions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL1.4/paths/">ADL Paths</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL1.4/adl/">ADL - Archetype Definition Language</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL1.4/customising_adl/">Customising ADL</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL1.4/other_formalisms/">Relationship of ADL to Other Formalisms</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL1.4/extended_metadata/">Extended Meta-data Guide</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL1.4/syntax_spec/">Syntax Specification</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../AOM1.4/">Archetype Object Model 1.4 (AOM1.4)</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM1.4/model_overview/">The Archetype Object Model</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM1.4/archetype_package/">The Archetype Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM1.4/constraint_model_package/">Constraint Model Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM1.4/assertion_package/">The Assertion Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM1.4/primitive_package/">Primitive Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM1.4/ontology_package/">Terminology Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM1.4/domain_extension/">Domain-specific Extension Example</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM1.4/diverse_reference_models/">Using Archetypes with Diverse Reference Models</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Archetype Model</span>
+    <span class="version">development</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <div class="title"><a href="../../../latest/">Archetype Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../latest/">Release-2.3.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../Release-2.2.0/">Release-2.2.0</a>
+        </li>
+        <li class="version is-current">
+          <a href="../../">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../BASE/latest/">Base Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../BASE/latest/">Release-1.2.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../BASE/Release-1.1.0/">Release-1.1.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../BASE/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../RM/latest/">Reference Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../RM/latest/">Release-1.1.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../RM/Release-1.0.4/">Release-1.0.4</a>
+        </li>
+        <li class="version">
+          <a href="../../../../RM/development/">development</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../../BASE/latest/" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../../">Archetype Model</a></li>
+    <li><a href="../">Archetype Object Model 2 (AOM2)</a></li>
+    <li><a href="./">The Rules Package</a></li>
+  </ul>
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">development</button>
+  <div class="version-menu">
+    <a class="version" href="../../../latest/AOM2/rules_package/">Release-2.3.0</a>
+    <a class="version" href="../../../Release-2.2.0/AOM2/rules_package/">Release-2.2.0</a>
+    <a class="version is-current" href="./">development</a>
+  </div>
+</div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">The Rules Package</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>The AOM <code>rules</code> package makes use of the <code>org.openehr.lang.beom</code> package described in the <a href="https://specifications.openehr.org/releases/LANG/latest/BEL.html" target="_blank" rel="noopener">openEHR Basic Expression Language (BEL) specification</a> and adds a small number of other classes to support two needs in the AOM:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>representation of the assertions within <code>ARCHETYPE_SLOT</code> (i.e. the 'includes' and 'excludes'), which are concretely regex pattern matchers for Archetype Ids;</p>
+</li>
+<li>
+<p>representation of statements within the <code>rules</code> section of an archetype.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The AOM <code>rules</code> package is illustrated below.</p>
+</div>
+<div id="rules_package" class="imageblock text-center text-center">
+<div class="content">
+<img src="../../_images/uml/AM-aom2.rules.svg" alt="AM aom2.rules">
+</div>
+<div class="title">Figure 1. am.aom2.rules Package</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_archetype_slot_assertions"><a class="anchor" href="#_archetype_slot_assertions"></a><a class="link" href="#_archetype_slot_assertions">Archetype Slot Assertions</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The <code>ARCHETYPE_SLOT</code> class  contains <code><em>includes</em></code> and <code><em>excludes</em></code> attributes, which are constraints on archetypes allowed to populate the slot location at run-time. These are represented by <code>ASSERTIONs</code> containing expressions of the form:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>archetype_path matches Archetype-id-regex-matcher</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>These are represented by the structure <code>EXPR_ARCHETYPE_REF matches EXPR_ARCHETYPE_ID_CONSTRAINT</code>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_archetype_rules"><a class="anchor" href="#_archetype_rules"></a><a class="link" href="#_archetype_rules">Archetype Rules</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The <code>rules</code> section of an archetype may contain various kinds of statements that may be used to express constraints ranging across multiple nodes, i.e. constraints that can&#8217;t be expressed inline within the main <code>definition</code> section structure. The Basic Expression Language enables the representation of the following kinds of statements in an archetype:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><em>declarations</em> of variables;</p>
+</li>
+<li>
+<p><em>assignments</em> of expression results to variables;</p>
+</li>
+<li>
+<p><em>assertions</em> of values.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Expressions (i.e. evaluable value-returning operations, function calls etc) appear within assignments and assertions. Within these expressions, two kinds of entity are needed that are not directly supported by the expression meta-types defined in the <code>lang.beom</code> package, as follows:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>instances of <code>EXPR_ARCHETYPE_REF</code> to express archetype paths as proxies for runtime value references, and;</p>
+</li>
+<li>
+<p><code>C_PRIMITIVE_OBJECT</code> constraints as Boolean-valued sub-expressions.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The first of these allows a path reference to a leaf in an archetype (e.g. systolic blood pressure) to be used as a special kind of variable whose value can be replaced at runtime by all instances that are found at that archetype path in the data.</p>
+</div>
+<div class="paragraph">
+<p>The second allows typical archetype constraints of the form <code>value matches value_constraint</code> to be used inline in expressions. This facilitates the representation of common expressions of this form within larger rules, e.g. <code>/path/to/systolic/pressure matches {|140..160|}</code>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_class_descriptions"><a class="anchor" href="#_class_descriptions"></a><a class="link" href="#_class_descriptions">Class Descriptions</a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_expr_constraint_class"><a class="anchor" href="#_expr_constraint_class"></a><a class="link" href="#_expr_constraint_class">EXPR_CONSTRAINT Class</a></h3>
+<div id="_tabs_1" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="_tabs_1_definition" class="tab">
+<p>Definition</p>
+</li>
+<li id="_tabs_1_effective" class="tab">
+<p>Effective</p>
+</li>
+<li id="_tabs_1_bmm" class="tab">
+<p>BMM</p>
+</li>
+<li id="_tabs_1_uml" class="tab">
+<p>UML</p>
+</li>
+</ul>
+</div>
+<div id="_tabs_1_definition--panel" class="tabpanel" aria-labelledby="_tabs_1_definition">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>EXPR_CONSTRAINT</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Expression tree leaf item representing a constraint on a primitive type, expressed in the form of a concrete subtype of C_PRIMITIVE_OBJECT.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="#LANG:beom:core_package.adoc#_expr_leaf_class" class="xref unresolved">EXPR_LEAF</a></code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(effected)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>item</strong>: <code><a href="../../../latest/AOM2/constraint_model-class_definitions/#_c_primitive_object_class" class="xref page">C_PRIMITIVE_OBJECT</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>The constraint.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="_tabs_1_effective--panel" class="tabpanel" aria-labelledby="_tabs_1_effective">
+<table class="tableblock frame-none grid-rows stretch">
+<colgroup>
+<col style="width: 40%;">
+<col style="width: 60%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-center valign-top" colspan="2"><strong>EXPR_CONSTRAINT</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Expression tree leaf item representing a constraint on a primitive type, expressed in the form of a concrete subtype of C_PRIMITIVE_OBJECT.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock">Inherits: <a href="#LANG:beom:core_package.adoc#_expr_value_class" class="xref unresolved">EXPR_VALUE</a>, <a href="#LANG:beom:core_package.adoc#_expression_class" class="xref unresolved">EXPRESSION</a>, <a href="#LANG:beom:core_package.adoc#_expr_leaf_class" class="xref unresolved">EXPR_LEAF</a></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><strong>Attributes</strong></p></th>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>item</strong>: <code><a href="../../../latest/AOM2/constraint_model-class_definitions/#_c_primitive_object_class" class="xref page">C_PRIMITIVE_OBJECT</a></code> [1..1]</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>The constraint.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><strong>Functions</strong></p></th>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>(abstract)</em> <a href="#LANG:beom:core_package.adoc#_expr_value_class" class="xref unresolved">EXPR_VALUE</a>.<strong>value</strong> (): <code><a href="../../../../BASE/latest/foundation_types/overview/#_any_class" class="xref page">Any</a></code> [1..1]</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>The computed value of this node as a result of the nodes below it, for operator nodes, or else statically set or otherwise derived values.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>(abstract)</em> <a href="#LANG:beom:core_package.adoc#_expression_class" class="xref unresolved">EXPRESSION</a>.<strong>type</strong> (): <code><a href="#LANG:beom:types_package.adoc#_expr_type_def_class" class="xref unresolved">EXPR_TYPE_DEF</a></code> [1..1]</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>The primitive type of this node, which must be determined by redefinitions in concrete classes.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="_tabs_1_bmm--panel" class="tabpanel" aria-labelledby="_tabs_1_bmm">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+    "name": "EXPR_CONSTRAINT",
+    "documentation": "Expression tree leaf item representing a constraint on a primitive type, expressed in the form of a concrete subtype of C_PRIMITIVE_OBJECT.",
+    "ancestors": [
+        "EXPR_LEAF"
+    ],
+    "properties": {
+        "item": {
+            "_type": "P_BMM_SINGLE_PROPERTY",
+            "name": "item",
+            "documentation": "The constraint.",
+            "is_mandatory": true,
+            "type": "C_PRIMITIVE_OBJECT"
+        }
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="_tabs_1_uml--panel" class="tabpanel" aria-labelledby="_tabs_1_uml">
+<div class="imageblock kroki">
+<div class="content">
+<img src="https://kroki.io/plantuml/svg/eNrjSs5JLC5WcI0ICIp39vcLDgly9PQLUajmUlDQVsgsSc1VsFJwjg8I8vT1DPEMc433d_JydQ5RiDaM5arl4kpMKi4pSkwuUUAyxcfV0U1BQbk8A6i7ODc_O9U6JzMv1Sq9KLESzNJLyS8pSU2xLkmtKAGLolrmmFepEG2gp4fTAtfgYE9_P3JsqIaZVqtQUlmQqqEJtA7s5JDIANd4F1c3fN4Kc_QJdaXQ1rLEnFKItWBfQixDMt2mRlcXyY8QOah_4XLgAIZqA4c1QgYRgVwAQUKVXg==" alt="EXPR_CONSTRAINT">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_expr_archetype_id_constraint_class"><a class="anchor" href="#_expr_archetype_id_constraint_class"></a><a class="link" href="#_expr_archetype_id_constraint_class">EXPR_ARCHETYPE_ID_CONSTRAINT Class</a></h3>
+<div id="_tabs_2" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="_tabs_2_definition" class="tab">
+<p>Definition</p>
+</li>
+<li id="_tabs_2_effective" class="tab">
+<p>Effective</p>
+</li>
+<li id="_tabs_2_bmm" class="tab">
+<p>BMM</p>
+</li>
+<li id="_tabs_2_uml" class="tab">
+<p>UML</p>
+</li>
+</ul>
+</div>
+<div id="_tabs_2_definition--panel" class="tabpanel" aria-labelledby="_tabs_2_definition">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>EXPR_ARCHETYPE_ID_CONSTRAINT</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Expression tree leaf item representing a constraint on an archetype identifier.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="../../../latest/AOM2/rules_package/#_expr_constraint_class" class="xref page">EXPR_CONSTRAINT</a></code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(redefined)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>item</strong>: <code><a href="../../../latest/AOM2/constraint_model-class_definitions/#_c_string_class" class="xref page">C_STRING</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>A C_STRING representing a regular expression for matching Archetype identifiers.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="_tabs_2_effective--panel" class="tabpanel" aria-labelledby="_tabs_2_effective">
+<table class="tableblock frame-none grid-rows stretch">
+<colgroup>
+<col style="width: 40%;">
+<col style="width: 60%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-center valign-top" colspan="2"><strong>EXPR_ARCHETYPE_ID_CONSTRAINT</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Expression tree leaf item representing a constraint on an archetype identifier.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock">Inherits: <a href="#LANG:beom:core_package.adoc#_expr_value_class" class="xref unresolved">EXPR_VALUE</a>, <a href="#LANG:beom:core_package.adoc#_expression_class" class="xref unresolved">EXPRESSION</a>, <a href="#LANG:beom:core_package.adoc#_expr_leaf_class" class="xref unresolved">EXPR_LEAF</a>, <a href="../../../latest/AOM2/rules_package/#_expr_constraint_class" class="xref page">EXPR_CONSTRAINT</a></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><strong>Attributes</strong></p></th>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>item</strong>: <code><a href="../../../latest/AOM2/constraint_model-class_definitions/#_c_string_class" class="xref page">C_STRING</a></code> [1..1]</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>A C_STRING representing a regular expression for matching Archetype identifiers.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><strong>Functions</strong></p></th>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>(abstract)</em> <a href="#LANG:beom:core_package.adoc#_expr_value_class" class="xref unresolved">EXPR_VALUE</a>.<strong>value</strong> (): <code><a href="../../../../BASE/latest/foundation_types/overview/#_any_class" class="xref page">Any</a></code> [1..1]</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>The computed value of this node as a result of the nodes below it, for operator nodes, or else statically set or otherwise derived values.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>(abstract)</em> <a href="#LANG:beom:core_package.adoc#_expression_class" class="xref unresolved">EXPRESSION</a>.<strong>type</strong> (): <code><a href="#LANG:beom:types_package.adoc#_expr_type_def_class" class="xref unresolved">EXPR_TYPE_DEF</a></code> [1..1]</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>The primitive type of this node, which must be determined by redefinitions in concrete classes.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="_tabs_2_bmm--panel" class="tabpanel" aria-labelledby="_tabs_2_bmm">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+    "name": "EXPR_ARCHETYPE_ID_CONSTRAINT",
+    "documentation": "Expression tree leaf item representing a constraint on an archetype identifier.",
+    "ancestors": [
+        "EXPR_CONSTRAINT"
+    ],
+    "properties": {
+        "item": {
+            "_type": "P_BMM_SINGLE_PROPERTY",
+            "name": "item",
+            "documentation": "A C_STRING representing a regular expression for matching Archetype identifiers.",
+            "is_mandatory": true,
+            "type": "C_STRING"
+        }
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="_tabs_2_uml--panel" class="tabpanel" aria-labelledby="_tabs_2_uml">
+<div class="imageblock kroki">
+<div class="content">
+<img src="https://kroki.io/plantuml/svg/eNrjSs5JLC5WcI0ICIp3DHL2cA2JDHCN93SJd_b3Cw4JcvT0C1Go5lJQ0FbILEnNVbBScI4HCnv6uStEG8Zy1XJxIelH0qKgXJ4B1FCcm5-dap2TmZdqlV6UWAlm6aXkl5SkpliXpFaUgEXRzQ8I8vT1DPEMc433d_JydQ6B2ZSYVFxSlJhcooBkpY-roxsFljnmVSpEG-jp4bTANTjY09-PHBuqYabVKpRUFqRqaAKtAzsZHMAurm74vBXm6BPqSqGtZYk5pRBrwb6EWIZkuk2Nri6SHyFyUP_C5cABDNUGDmuEDCK2ofJI0Y9QhSNNcQEAR_THLg==" alt="EXPR_ARCHETYPE_ID_CONSTRAINT">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_expr_archetype_ref_class"><a class="anchor" href="#_expr_archetype_ref_class"></a><a class="link" href="#_expr_archetype_ref_class">EXPR_ARCHETYPE_REF Class</a></h3>
+<div id="_tabs_3" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="_tabs_3_definition" class="tab">
+<p>Definition</p>
+</li>
+<li id="_tabs_3_effective" class="tab">
+<p>Effective</p>
+</li>
+<li id="_tabs_3_bmm" class="tab">
+<p>BMM</p>
+</li>
+<li id="_tabs_3_uml" class="tab">
+<p>UML</p>
+</li>
+</ul>
+</div>
+<div id="_tabs_3_definition--panel" class="tabpanel" aria-labelledby="_tabs_3_definition">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>EXPR_ARCHETYPE_REF</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Expression tree leaf item representing a reference to a value found in data at a location specified by a path in the archetype definition.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>A path referring to a value in the archetype (paths with a leading ‘/’ are in the definition section.</p>
+</li>
+<li>
+<p>Paths with no leading ‘/’ are in the outer part of the archetype, e.g. “archetype_id/value” refers to the String value of the archetype_id attribute of the enclosing archetype.</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="#LANG:beom:core_package.adoc#_expr_value_ref_class" class="xref unresolved">EXPR_VALUE_REF</a></code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>path</strong>: <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_string_class" class="xref page">String</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>The path to the archetype node.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(effected)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>item</strong>: <code><a href="../../../latest/AOM2/constraint_model-class_definitions/#_archetype_constraint_class" class="xref page">ARCHETYPE_CONSTRAINT</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="_tabs_3_effective--panel" class="tabpanel" aria-labelledby="_tabs_3_effective">
+<table class="tableblock frame-none grid-rows stretch">
+<colgroup>
+<col style="width: 40%;">
+<col style="width: 60%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-center valign-top" colspan="2"><strong>EXPR_ARCHETYPE_REF</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Expression tree leaf item representing a reference to a value found in data at a location specified by a path in the archetype definition.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>A path referring to a value in the archetype (paths with a leading ‘/’ are in the definition section.</p>
+</li>
+<li>
+<p>Paths with no leading ‘/’ are in the outer part of the archetype, e.g. “archetype_id/value” refers to the String value of the archetype_id attribute of the enclosing archetype.</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock">Inherits: <a href="#LANG:beom:core_package.adoc#_expr_value_class" class="xref unresolved">EXPR_VALUE</a>, <a href="#LANG:beom:core_package.adoc#_expression_class" class="xref unresolved">EXPRESSION</a>, <a href="#LANG:beom:core_package.adoc#_expr_leaf_class" class="xref unresolved">EXPR_LEAF</a>, <a href="#LANG:beom:core_package.adoc#_expr_value_ref_class" class="xref unresolved">EXPR_VALUE_REF</a></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><strong>Attributes</strong></p></th>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>item</strong>: <code><a href="../../../latest/AOM2/constraint_model-class_definitions/#_archetype_constraint_class" class="xref page">ARCHETYPE_CONSTRAINT</a></code> [1..1]</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>path</strong>: <code><a href="../../../../BASE/latest/foundation_types/primitive_types/#_string_class" class="xref page">String</a></code> [1..1]</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>The path to the archetype node.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><strong>Functions</strong></p></th>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>(abstract)</em> <a href="#LANG:beom:core_package.adoc#_expr_value_class" class="xref unresolved">EXPR_VALUE</a>.<strong>value</strong> (): <code><a href="../../../../BASE/latest/foundation_types/overview/#_any_class" class="xref page">Any</a></code> [1..1]</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>The computed value of this node as a result of the nodes below it, for operator nodes, or else statically set or otherwise derived values.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>(abstract)</em> <a href="#LANG:beom:core_package.adoc#_expression_class" class="xref unresolved">EXPRESSION</a>.<strong>type</strong> (): <code><a href="#LANG:beom:types_package.adoc#_expr_type_def_class" class="xref unresolved">EXPR_TYPE_DEF</a></code> [1..1]</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>The primitive type of this node, which must be determined by redefinitions in concrete classes.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="_tabs_3_bmm--panel" class="tabpanel" aria-labelledby="_tabs_3_bmm">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+    "name": "EXPR_ARCHETYPE_REF",
+    "documentation": "Expression tree leaf item representing a reference to a value found in data at a location specified by a path in the archetype definition.\n\n* A path referring to a value in the archetype (paths with a leading ‘/’ are in the definition section.\n* Paths with no leading ‘/’ are in the outer part of the archetype, e.g. “archetype_id/value” refers to the String value of the archetype_id attribute of the enclosing archetype.\n",
+    "ancestors": [
+        "EXPR_VALUE_REF"
+    ],
+    "properties": {
+        "path": {
+            "_type": "P_BMM_SINGLE_PROPERTY",
+            "name": "path",
+            "documentation": "The path to the archetype node.",
+            "is_mandatory": true,
+            "type": "String"
+        },
+        "item": {
+            "_type": "P_BMM_SINGLE_PROPERTY",
+            "name": "item",
+            "is_mandatory": true,
+            "type": "ARCHETYPE_CONSTRAINT"
+        }
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="_tabs_3_uml--panel" class="tabpanel" aria-labelledby="_tabs_3_uml">
+<div class="imageblock kroki">
+<div class="content">
+<img src="https://kroki.io/plantuml/svg/eNqlkk1rwkAQhu_7Kwa8KMWg1-gl6JYKIUqSSiUUWXXRYBJDMrYG9b-7zFqzQnuw3pb5eN6Zd5YtE1GWwD8m_tzxB288nE343OevcGQAL5AL3IANARZxtoao-0nRGGWqonXDYOwFoe-MvJBqzowZ3KnjvmsmNL43qrdMd1vZS-JM2utCVPSyVjtEueqhPCBF1QAKIxYlFmKJYPBc7jyMMqfOKog6lqXn_EWAB8Fo7P1H4fhDOwNWuWy2lByNTCYNlQPRn6rapidVv0Sy17K0pRYz6P1Tu23sqHPXfW85MvjaRl7XmdspTSqdtq65-0bsAnBzwLY=" alt="EXPR_ARCHETYPE_REF">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="../constraint_model-class_definitions/">Constraint Model-Class Definitions</a></span>
+  <span class="next"><a href="../rm_overlay/">The RM Overlay Package</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>
+    Copyright: © 2003+
+    <a href="https://www.openehr.org"
+        alt="is an independent, non-profit foundation, facilitating the sharing of health
+           records by consumers and clinicians via open specifications, clinical models
+           and open platform implementations.">The openEHR Foundation</a>
+  </p>
+
+  <p>
+    License:
+    <img src="../../../../ui/img/cc-by-nd-88x31.png"
+        alt="Creative Commons Attribution-NoDerivs 3.0 Unported."
+        style="vertical-align:middle;margin:0 0.25rem 0 0;">
+    <a href="https://creativecommons.org/licenses/by-nd/3.0/">
+      Creative Commons Attribution-NoDerivs 3.0 Unported.
+    </a>
+  </p>
+
+  <p>
+    <strong>Links: <strong>
+    <a href="https://www.openehr.org/terms-of-use" class="mr-1">Terms of use</a> |
+    <a href="https://www.openehr.org/privacy-policy" class="mx-1">Privacy policy</a> |
+    <a href="https://www.openehr.org/privacy-policy" class="mx-1">Logos &amp; Trademarks</a> |
+    <a href="https://www.openehr.org/contact-us" class="mx-1">Contact</a>
+  </p>
+</footer>
+
+<script id="site-script" src="../../../../ui/js/site.js" data-ui-root-path="../../../../ui"></script>
+<script async src="../../../../ui/js/vendor/highlight.js"></script>
+<script src="../../../../ui/js/vendor/lunr.js"></script>
+<script src="../../../../ui/js/search-ui.js" id="search-ui-script" data-site-root-path="../../../.." data-snippet-length="80" data-stylesheet="../../../../ui/css/search.css"></script>
+<script async src="../../../../search-index.js"></script>
+<script src="../../../../ui/js/medium-zoom.min.js"></script>
+<script src="../../../../ui/js/zoom.js"></script>
+<script async src="../../../../ui/js/tabs.js"></script>
+  </body>
+</html>

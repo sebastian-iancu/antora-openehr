@@ -13,12 +13,10 @@ if [ -d "docs/UML" ] || [ -d "docs/uml" ]; then
 
     # Move UML classes to ROOT partials
     if [ -d "$UML_DIR/classes" ]; then
-#        echo "→ Moving UML classes to ROOT/partials/classes"
-        echo "→ Creating classes-tabs directory in ROOT/partials/classes"
+        echo "→ Moving UML classes to ROOT/partials/classes"
         mkdir -p modules/ROOT/partials/classes/
-#        find "$UML_DIR/classes" -name "*.adoc" -exec cp {} modules/ROOT/partials/classes/ \;
-#        echo "✓ Moved UML classes"
-        echo "✓ Created classes-tabs directory "
+        find "$UML_DIR/classes" -name "*.adoc" -exec cp {} modules/ROOT/partials/classes/ \;
+        echo "✓ Moved UML classes"
     fi
 
     # Move UML diagrams to ROOT images

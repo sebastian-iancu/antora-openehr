@@ -29,7 +29,7 @@ rewrite_uml_class_includes_for_module() {
         *)              prefix="aom14." ;;
       esac
     fi
-    sed -i "s|{uml_export_dir}/classes/{pkg}|ROOT:partial\$classes/${prefix}|g" "$f"
+    sed -i "s|{uml_export_dir}/classes/|ROOT:partial\$classes/${prefix}|g" "$f"
 
     #
     # UML DIAGRAMS

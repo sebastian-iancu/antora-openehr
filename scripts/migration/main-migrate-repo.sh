@@ -75,3 +75,6 @@ MODULES="$("$SCRIPT_DIR/1-analyze-structure.sh")"
 # Step 9: Rewrite UML class includes to ROOT partials
 "$SCRIPT_DIR/9-rewrite-uml-class-includes.sh" "$COMPONENT_NAME" $MODULES
 
+# Step 10: Rewrite internal class cross-references to Antora xrefs
+"$SCRIPT_DIR/10-rewrite-class-xrefs.sh"
+

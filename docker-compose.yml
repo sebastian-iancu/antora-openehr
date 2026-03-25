@@ -20,6 +20,18 @@ services:
     command: tail -f /dev/null  # Keep container running for interactive use
 
 
+  nginx:
+    image: nginx:alpine
+    container_name: antora-openehr-nginx
+    profiles:
+      - test
+    ports:
+      - "8081:80"
+    volumes:
+      - ./build:/usr/share/nginx/html:ro
+      - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf:ro
+      - ./nginx/legacy-redirects.conf:/etc/nginx/legacy-redirects.conf:ro
+
 volumes:
   npm-cache:
   git-cache:

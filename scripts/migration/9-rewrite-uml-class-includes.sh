@@ -18,9 +18,7 @@ rewrite_uml_class_includes_for_module() {
     [ -f "$f" ] || continue
 
     #
-    # CLASS DEFINITIONS
-    # include::{uml_export_dir}/classes/X.adoc[]
-    #     → partial::ROOT:classes/NAME.svg[]
+    # CLASS DEFINITIONS — flat layout: {uml_export_dir}/classes/X.adoc
     #
     prefix=""
     if [[ "$COMPONENT_NAME" == "AM" ]]; then
@@ -29,14 +27,25 @@ rewrite_uml_class_includes_for_module() {
         *)              prefix="aom14." ;;
       esac
     fi
-    sed -i "s|{uml_export_dir}/classes/|ROOT:partial\$classes/${prefix}|g" "$f"
+    sed -i "s|include::{uml_export_dir}/classes/|include::ROOT:partial\$classes/${prefix}|g" "$f"
 
     #
-    # UML DIAGRAMS
-    # image::{uml_diagrams_uri}/NAME.svg[]
-    #      → image::ROOT:uml/diagrams/NAME.svg[]
+    # CLASS DEFINITIONS — nested layout: {uml_export_dir}/SUBDIR/classes/X.adoc
+    # Strip the subdir and apply prefix derived from it.
+    # Handles any {uml_export_dir}/<word><dot><word>/classes/ or {uml_export_dir}/<word>/classes/
+    #
+    perl -i -pe '
+      s|include::\{uml_export_dir\}/([^/]+)/classes/|
+        my $sub = lc($1); $sub =~ s/\.//g;
+        "include::ROOT:partial\$classes/$sub."|ge
+    ' "$f"
+
+    #
+    # UML DIAGRAMS — all known diagram URI attributes → ROOT:uml/
     #
     sed -i 's|image::{uml_diagrams_uri}/|image::ROOT:uml/|g' "$f"
+    sed -i 's|image::{uml_aom14_diagrams_uri}/|image::ROOT:uml/|g' "$f"
+    sed -i 's|image::{uml_aom2_diagrams_uri}/|image::ROOT:uml/|g' "$f"
   done
 }
 

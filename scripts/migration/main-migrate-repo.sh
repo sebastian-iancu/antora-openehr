@@ -55,10 +55,13 @@ MODULES="$("$SCRIPT_DIR/1-analyze-structure.sh")"
 "$SCRIPT_DIR/2-create-antora-structure.sh" $MODULES
 
 # Step 3: Move UML content into ROOT
-"$SCRIPT_DIR/3-move-uml.sh"
+"$SCRIPT_DIR/3-move-uml.sh" "$COMPONENT_NAME"
 
 # Step 4: Migrating content files (your existing script)
 "$SCRIPT_DIR/4-migrate_content_files.sh" $MODULES
+
+# Step 4c: Fetch external grammar files and rewrite remote includes
+"$SCRIPT_DIR/4c-fetch-external-grammars.sh" "$COMPONENT_NAME" $MODULES
 
 # Step 5: Create antora.yml
 "$SCRIPT_DIR/5-create-antora-yml.sh" "$COMPONENT_NAME" $MODULES

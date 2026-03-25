@@ -129,6 +129,11 @@ validate-all: ## Validate Antora structure in all repositories
 	done
 
 
+update-grammars: ## Re-download external ANTLR grammar files into local AM repo partials
+	@echo "$(GREEN)Updating ANTLR grammar files from adl-antlr...$(NC)"
+	@"./scripts/migration/4c-fetch-external-grammars.sh" AM ADL1.4 ADL2 OPT2
+	@echo "$(GREEN)Done.$(NC)"
+
 ##@ Build Operations
 
 build: ## Build the full site using production playbook

@@ -27,9 +27,41 @@ if [[ "$COMPONENT_NAME" == "AM" ]]; then
         for page in "$pages_dir"/*.adoc; do
           [ -f "$page" ] || continue
           sed -i 's|include::{openehr_adl_antlr_include}/adl/\([^]]*\)\[\]|include::partial$\1[]|g' "$page"
+          sed -i 's|include::{grammar_dir}/adl/\([^]]*\)\[\]|include::partial$\1[]|g' "$page"
         done
         ;;
     esac
+  done
+fi
+
+# Rewrite {grammar_dir} includes to partial$ for PROC (files are provided by make update-grammars)
+if [[ "$COMPONENT_NAME" == "PROC" ]]; then
+  for module in $MODULES; do
+    pages_dir="modules/$module/pages"
+    [ -d "$pages_dir" ] || continue
+    for page in "$pages_dir"/*.adoc; do
+      [ -f "$page" ] || continue
+      sed -i 's|include::{grammar_dir}/\([^]]*\)\[\]|include::partial$\1[]|g' "$page"
+    done
+  done
+fi
+
+# Rewrite LANG grammar includes to partial$ (files provided by make update-grammars)
+if [[ "$COMPONENT_NAME" == "LANG" ]]; then
+  for module in $MODULES; do
+    pages_dir="modules/$module/pages"
+    [ -d "$pages_dir" ] || continue
+    for page in "$pages_dir"/*.adoc; do
+      [ -f "$page" ] || continue
+      # {openehr_adl_antlr_include}/adl/FILE.g4 → partial$FILE.g4
+      sed -i 's|include::{openehr_adl_antlr_include}/adl/\([^]]*\)\[\]|include::partial$\1[]|g' "$page"
+      # {openehr_openehr_antlr_include}/FILE.g4 → partial$FILE.g4
+      sed -i 's|include::{openehr_openehr_antlr_include}/\([^]]*\)\[\]|include::partial$\1[]|g' "$page"
+    done
+    # Check if any rewrites happened
+    if grep -rl 'include::partial\$.*\.g4' "$pages_dir"/*.adoc 2>/dev/null | grep -q .; then
+      echo "  ↻ Rewrote grammar includes in $module/pages/"
+    fi
   done
 fi
 
@@ -64,8 +96,8 @@ for module in $MODULES; do
       fi
 
       mkdir -p "$dest_dir"
-      # Copy with lowercase filename to match the include directive
-      cp "$src" "$dest_dir/$(echo "$filename" | tr '[:upper:]' '[:lower:]')"
+      # Copy preserving original filename case to match the include directive
+      cp "$src" "$dest_dir/$filename"
       echo "  ↳ $src → $module/partials/$rel_path"
 
       # Rewrite include directive to use partial$

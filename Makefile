@@ -160,6 +160,7 @@ migrate-repo: ## Migrate a single repository to Antora structure (usage: make mi
 	fi
 	@echo "$(GREEN)Migrating $(REPO) to Antora structure...$(NC)"
 	@./scripts/migration/main-migrate-repo.sh $(REPOS_DIR)/$(REPO)
+	@$(MAKE) update-grammars
 
 migrate-all: ## Migrate all repositories to Antora structure
 	@echo "$(GREEN)Migrating all repositories to Antora structure...$(NC)"
@@ -178,17 +179,6 @@ validate-structure: ## Validate Antora structure in a repository (usage: make va
 	@echo "$(GREEN)Validating Antora structure in $(REPO)...$(NC)"
 	@./scripts/validate-structure.sh $(REPOS_DIR)/$(REPO)
 
-migrate-release-branches: ## Migrate all release branches for a single repo (usage: make migrate-release-branches REPO=specifications-AM)
-	@if [ -z "$(REPO)" ]; then \
-		echo "$(RED)Error: REPO variable not set. Usage: make migrate-release-branches REPO=specifications-AM$(NC)"; \
-		exit 1; \
-	fi
-	@./scripts/migrate-release-branches.sh $(REPOS_DIR)/$(REPO)
-
-migrate-all-release-branches: ## Migrate release branches for all repositories
-	@echo "$(GREEN)Migrating release branches for all repositories...$(NC)"
-	@./scripts/migrate-release-branches.sh
-	@echo "$(GREEN)Done.$(NC)"
 
 validate-all: ## Validate Antora structure in all repositories
 	@echo "$(GREEN)Validating all repositories...$(NC)"

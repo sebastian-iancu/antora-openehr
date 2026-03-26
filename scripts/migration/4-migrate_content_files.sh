@@ -339,7 +339,6 @@ process_module() {
   copy_included_non_master "$module"
   migrate_preface "$module"
   migrate_amendment_record "$module"
-  add_front_block "$module"
 
   replace_diagram_and_images_uri_attr "$module"
   add_bibliography "$module"

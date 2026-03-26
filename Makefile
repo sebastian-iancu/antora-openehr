@@ -18,6 +18,9 @@ SPECS_REPOS := specifications-BASE specifications-RM specifications-AM \
                specifications-LANG specifications-SM specifications-QUERY \
                specifications-PROC specifications-CDS specifications-CNF \
                specifications-ITS-REST specifications-ITS-JSON specifications-ITS-XML specifications-ITS-BMM
+ADL_ANTLR_REPO := https://github.com/openEHR/adl-antlr.git
+ADL_ANTLR_DIR  := $(REPOS_DIR)/adl-antlr
+ADL_ANTLR_SRC  := $(ADL_ANTLR_DIR)/src/main/antlr/adl
 
 ##@ General
 
@@ -52,6 +55,25 @@ clone-repos: ## Clone all openEHR specification repositories
 		fi \
 	done
 	@echo "$(GREEN)Done cloning repositories.$(NC)"
+	@$(MAKE) update-grammars
+
+update-grammars: ## Clone/update adl-antlr and copy g4 files into AM module partials
+	@echo "$(GREEN)Updating ANTLR grammar files from adl-antlr...$(NC)"
+	@if [ ! -d "$(ADL_ANTLR_DIR)" ]; then \
+		echo "$(CYAN)Cloning adl-antlr...$(NC)"; \
+		git clone $(ADL_ANTLR_REPO) $(ADL_ANTLR_DIR); \
+	else \
+		echo "$(CYAN)Updating adl-antlr...$(NC)"; \
+		git -C $(ADL_ANTLR_DIR) pull --quiet; \
+	fi
+	@for module in ADL1.4 ADL2 OPT2; do \
+		dir="$(REPOS_DIR)/specifications-AM/modules/$$module/partials"; \
+		if [ -d "$$dir" ]; then \
+			echo "$(CYAN)Copying g4 files to AM/$$module/partials...$(NC)"; \
+			cp $(ADL_ANTLR_SRC)/*.g4 "$$dir/"; \
+		fi \
+	done
+	@echo "$(GREEN)Done.$(NC)"
 
 list-repos: ## List all specification repositories
 	@echo "$(CYAN)OpenEHR Specification Repositories:$(NC)"
@@ -111,6 +133,7 @@ migrate-all: ## Migrate all repositories to Antora structure
 		echo "$(CYAN)Migrating $$repo...$(NC)"; \
 		make migrate-repo REPO=$$repo; \
 	done
+	@$(MAKE) update-grammars
 	@echo "$(GREEN)Done migrating all repositories.$(NC)"
 
 validate-structure: ## Validate Antora structure in a repository (usage: make validate-structure REPO=specifications-BASE)
@@ -129,10 +152,6 @@ validate-all: ## Validate Antora structure in all repositories
 	done
 
 
-update-grammars: ## Re-download external ANTLR grammar files into local AM repo partials
-	@echo "$(GREEN)Updating ANTLR grammar files from adl-antlr...$(NC)"
-	@"./scripts/migration/4c-fetch-external-grammars.sh" AM ADL1.4 ADL2 OPT2
-	@echo "$(GREEN)Done.$(NC)"
 
 ##@ Build Operations
 

@@ -61,7 +61,7 @@ MODULES="$("$SCRIPT_DIR/1-analyze-structure.sh")"
 "$SCRIPT_DIR/4-migrate_content_files.sh" $MODULES
 
 # Step 4c: Fetch external grammar files and rewrite remote includes
-"$SCRIPT_DIR/4c-fetch-external-grammars.sh" "$COMPONENT_NAME" $MODULES
+"$SCRIPT_DIR/4a-fetch-external-grammars.sh" "$COMPONENT_NAME" $MODULES
 
 # Step 5: Create antora.yml
 "$SCRIPT_DIR/5-create-antora-yml.sh" "$COMPONENT_NAME" $MODULES

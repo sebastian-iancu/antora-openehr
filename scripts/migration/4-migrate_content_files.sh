@@ -146,26 +146,60 @@ migrate_amendment_record() {
 
   if [ ! -z "$amendment_file" ] && [ -f "docs/$module/$amendment_file" ]; then
     echo "  • $amendment_file → partials/amendment_record.adoc"
-    
+
     # Copy and change heading to level 2
     sed 's/^= Amendment Record/\n== Amendment Record/' "docs/$module/$amendment_file" > "$partials_dir/amendment_record.adoc"
 
-    # Insert include in index.adoc after :sectnums:
+    # Append include at end of index.adoc
     if [ -f "$index_file" ]; then
-      echo "  • Including amendment_record in index.adoc"
-      # Insert amendment record after preface if preface exists, or after CHAPTERS.
-      if grep -q "include::partial\$preface.adoc\[\]" "$index_file"; then
-         sed -i '/include::partial\$preface.adoc\[\]/a include::partial$amendment_record.adoc[]' "$index_file"
-      else
-         # Try to find CHAPTERS block, else append at end (though copy_master should have it)
-         if grep -q "\-\- CHAPTERS \-\-" "$index_file"; then
-            sed -i '/-- CHAPTERS --/a \\ninclude::partial$amendment_record.adoc[]' "$index_file"
-         else
-            echo "include::partial$amendment_record.adoc[]" >> "$index_file"
-         fi
-      fi
+      echo "  • Appending amendment_record to index.adoc"
+      echo "" >> "$index_file"
+      echo "include::partial\$amendment_record.adoc[]" >> "$index_file"
     fi
   fi
+}
+
+add_front_block() {
+  local module="$1"
+  local index_file="modules/$module/pages/index.adoc"
+
+  [ -f "$index_file" ] || return 0
+
+  # Only add if module_vars has spec_status (i.e. it's a real spec, not a stub)
+  local module_vars="modules/$module/partials/module_vars.adoc"
+  grep -q "^:spec_status:" "$module_vars" 2>/dev/null || return 0
+
+  echo "  • Adding front block to index.adoc"
+
+  local tmp=$(mktemp)
+  awk '
+    /^= / && !done {
+      print
+      print ""
+      print "[.specmeta%autowidth,cols=\"1,1\",frame=all,grid=all]"
+      print "|==="
+      print "2+^h| *Issuer*: link:{openehr_specification_program}[openEHR Specification Program^]"
+      print "| *Release*: {page-component-name} {page-component-version} | *Status*: {spec_status}"
+      print "| *Revision*: {latest_issue} | *Date*: {latest_issue_date}"
+      print "2+^| *Keywords*: {keywords}"
+      print "|==="
+      print ""
+      print "image::ROOT:openehr_block_diagram.svg[openEHR components,60%,align=center]"
+      print ""
+      print "[.specmeta,cols=\"20%,80%\",frame=all,grid=all]"
+      print "|==="
+      print "2+^h| &#169; {copyright_year} The openEHR Foundation"
+      print "2+a| link:https://www.openehr.org[The openEHR Foundation^] is an independent, non-profit foundation, facilitating the sharing of health records by consumers and clinicians via open specifications, clinical models and open platform implementations."
+      print "| *Licence* a| image:https://specifications.openehr.org/images/cc-by-nd-88x31.png[CC BY-ND,88,31] Creative Commons Attribution-NoDerivs 3.0 Unported. https://creativecommons.org/licenses/by-nd/3.0/"
+      print "| *Support* a| Issues: {component_prs}[Problem Reports^] +"
+      print "Web: {openehr_specs}[specifications.openEHR.org^]"
+      print "|==="
+      done=1
+      next
+    }
+    { print }
+  ' "$index_file" > "$tmp"
+  mv "$tmp" "$index_file"
 }
 
 add_child_nav_to_index() {
@@ -305,6 +339,7 @@ process_module() {
   copy_included_non_master "$module"
   migrate_preface "$module"
   migrate_amendment_record "$module"
+  add_front_block "$module"
 
   replace_diagram_and_images_uri_attr "$module"
   add_bibliography "$module"

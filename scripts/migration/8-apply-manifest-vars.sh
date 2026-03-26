@@ -187,8 +187,37 @@ apply_manifest_vars() {
 
   install_component_vars
   install_module_vars "$module" "$manifest_src"
+  extract_amendment_vars "$module"
   include_module_vars_to_pages "$module"
   install_pkg_var "$module"
+}
+
+extract_amendment_vars() {
+  local module="$1"
+  local module_vars="modules/$module/partials/module_vars.adoc"
+
+  [ -f "$module_vars" ] || return 0
+
+  # Find amendment record source
+  local amend_file
+  amend_file=$(find "docs/$module" -name "*amendment_record.adoc" 2>/dev/null | head -1)
+  [ -n "$amend_file" ] || return 0
+
+  local latest_issue latest_issue_date
+  latest_issue=$(grep -oP '\[\[latest_issue\]\]\K[^|\n]+' "$amend_file" | head -1 | sed 's/[[:space:]]//g')
+  latest_issue_date=$(grep -oP '\[\[latest_issue_date\]\]\K[^|\n]+' "$amend_file" | head -1 | sed 's/^[[:space:]]*//' | sed 's/[[:space:]]*$//')
+
+  if [ -n "$latest_issue" ] && ! grep -q "^:latest_issue:" "$module_vars"; then
+    echo ":latest_issue: $latest_issue" >> "$module_vars"
+    echo "  • Extracted latest_issue: $latest_issue"
+  elif [ -z "$latest_issue" ] && ! grep -q "^:latest_issue:" "$module_vars"; then
+    echo ":latest_issue: -" >> "$module_vars"
+  fi
+
+  if [ -n "$latest_issue_date" ] && ! grep -q "^:latest_issue_date:" "$module_vars"; then
+    echo ":latest_issue_date: $latest_issue_date" >> "$module_vars"
+    echo "  • Extracted latest_issue_date: $latest_issue_date"
+  fi
 }
 
 # -------------------------------------------------------------------

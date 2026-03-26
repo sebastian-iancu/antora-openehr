@@ -178,6 +178,18 @@ validate-structure: ## Validate Antora structure in a repository (usage: make va
 	@echo "$(GREEN)Validating Antora structure in $(REPO)...$(NC)"
 	@./scripts/validate-structure.sh $(REPOS_DIR)/$(REPO)
 
+migrate-release-branches: ## Migrate all release branches for a single repo (usage: make migrate-release-branches REPO=specifications-AM)
+	@if [ -z "$(REPO)" ]; then \
+		echo "$(RED)Error: REPO variable not set. Usage: make migrate-release-branches REPO=specifications-AM$(NC)"; \
+		exit 1; \
+	fi
+	@./scripts/migrate-release-branches.sh $(REPOS_DIR)/$(REPO)
+
+migrate-all-release-branches: ## Migrate release branches for all repositories
+	@echo "$(GREEN)Migrating release branches for all repositories...$(NC)"
+	@./scripts/migrate-release-branches.sh
+	@echo "$(GREEN)Done.$(NC)"
+
 validate-all: ## Validate Antora structure in all repositories
 	@echo "$(GREEN)Validating all repositories...$(NC)"
 	@for repo in $(SPECS_REPOS); do \

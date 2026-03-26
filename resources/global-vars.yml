@@ -249,6 +249,7 @@ openehr_proc_releases: "{openehr_specs}/releases/PROC/{proc_release}"
 openehr_proc_overview: "{openehr_proc_releases}/overview.html"
 openehr_task_planning: "{openehr_proc_releases}/task_planning.html"
 openehr_tp_vml: "{openehr_proc_releases}/tp_vml.html"
+openehr_tp_examples: "{openehr_proc_releases}/process_examples.html"
 openehr_process_examples: "{openehr_proc_releases}/process_examples.html"
 openehr_decision_language: "{openehr_proc_releases}/decision_language.html"
 
@@ -347,6 +348,8 @@ openehr_query_rest_api: "{openehr_its_rest_releases}/query.html"
 openehr_cds_rest_api: "{openehr_its_rest_releases}/query.html"
 openehr_definitions_rest_api: "{openehr_its_rest_releases}/definitions.html"
 openehr_demographic_rest_api: "{openehr_its_rest_releases}/demographic.html"
+openehr_admin_rest_api: "{openehr_its_rest_releases}/admin.html"
+openehr_message_rest_api: "{openehr_its_rest_releases}/system.html"
 
 # legacy openehr_simplified_data_template => openehr_simplified_formats
 openehr_simplified_formats: "{openehr_its_rest_releases}/simplified_formats.html"
@@ -1442,6 +1445,22 @@ oidc_authentication: "https://openid.net/specs/openid-connect-core-1_0.html#Auth
 validity_kind: "{class_validity_kind}"
 bmm_definitions: "{class_bmm_definitions}"
 bmm_model: "{class_bmm_model}"
+
+# ===== Suppress false attribute warnings from code/invariant contexts =====
+# These are type names, placeholders, or identifiers used literally in code
+# examples that Asciidoctor mistakenly parses as attribute references.
+typename: "T"
+some_type: "SomeType"
+colours: "colours"
+version_utils: "version_utils"
+integer: "Integer"
+total: "total"
+isalphabetic: "isalphabetic"
+iss: "iss"
+# doc_name: legacy per-document path prefix used for draw.io XML links (broken in Antora anyway)
+doc_name: ""
+# baseurl: literal REST API URL placeholder in CNF prose ({baseUrl}/v1/ehr)
+baseurl: "<baseUrl>"
 
 # ===== Classes with no dedicated page — point to closest related page =====
 # These class partials exist but are not included in any spec page;

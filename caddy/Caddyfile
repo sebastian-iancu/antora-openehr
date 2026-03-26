@@ -1,0 +1,27 @@
+:80 {
+	root * /srv
+
+	# Legacy URL redirects — old specifications.openehr.org URL pattern to Antora
+	#
+	# Old: /releases/{COMPONENT}/{version}/{DocName}.html
+	# New: /{COMPONENT}/{version}/{DocName}/
+	#
+	# Three version formats:
+	#   Release-X.Y.Z  — already prefixed, pass through as-is
+	#   X.Y.Z          — bare numeric, gets a Release- prefix
+	#   latest|development — named versions, pass through as-is
+
+	# Already has Release- prefix: /releases/RM/Release-1.0.3/support.html -> /RM/Release-1.0.3/support/
+	@release_prefixed path_regexp release ^/releases/([^/]+)/(Release-[^/]+)/([^/]+)\.html$
+	redir @release_prefixed /{re.release.1}/{re.release.2}/{re.release.3}/ 301
+
+	# Bare numeric version: /releases/AM/2.2.0/AOM2.html -> /AM/Release-2.2.0/AOM2/
+	@bare_numeric path_regexp numeric ^/releases/([^/]+)/(\d[^/]*)/([^/]+)\.html$
+	redir @bare_numeric /{re.numeric.1}/Release-{re.numeric.2}/{re.numeric.3}/ 301
+
+	# Named version: /releases/AM/latest/AOM2.html -> /AM/latest/AOM2/
+	@named_version path_regexp named ^/releases/([^/]+)/(latest|development)/([^/]+)\.html$
+	redir @named_version /{re.named.1}/{re.named.2}/{re.named.3}/ 301
+
+	file_server
+}

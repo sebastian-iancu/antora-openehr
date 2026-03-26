@@ -1,4 +1,4 @@
-# Nginx Legacy URL Redirects
+# Caddy Legacy URL Redirects
 
 ## What this does
 
@@ -12,12 +12,11 @@ The new Antora-based site uses a different structure:
 /AM/Release-2.2.0/AOM2/
 ```
 
-`legacy-redirects.conf` is an nginx config that handles this rewrite with 301 permanent redirects.
+`Caddyfile` handles this rewrite with 301 permanent redirects and serves the static build output.
 
 ## Files
 
-- `legacy-redirects.conf` — production nginx config, include this in the server block
-- `nginx.conf` — test nginx server config wrapping the above
+- `Caddyfile` — Caddy server config with redirect rules and static file serving
 - `test-redirects.sh` — curl-based test script
 - `README.md` — this file
 
@@ -32,29 +31,28 @@ The new Antora-based site uses a different structure:
 
 ## Production usage
 
-Include `legacy-redirects.conf` inside the nginx `server {}` block:
+The `Caddyfile` is self-contained. Mount it and the build output:
 
-```nginx
-include /path/to/legacy-redirects.conf;
+```bash
+docker run -p 80:80 \
+  -v ./build:/srv:ro \
+  -v ./caddy/Caddyfile:/etc/caddy/Caddyfile:ro \
+  caddy:alpine
 ```
 
 ## Testing
 
-Requires Docker and a completed build in `build/` — run `make build` first.
+Requires Docker and a completed build in `build/` — run `make build-local` first.
 
 ```bash
-# Start nginx
-docker compose --profile test up nginx
+# Start Caddy
+docker compose --profile test up caddy
 
 # In another terminal
-./nginx/test-redirects.sh
+./caddy/test-redirects.sh
 ```
 
-Each test first checks whether the old URL actually exists on the live `specifications.openehr.org` site. If it does not, the test is skipped. Only URLs confirmed to exist on the live site are tested against the local nginx redirect.
-
-The test suite covers:
-- All components with `latest` and `development` versions
-- All release versions found in the specification repos (AM, BASE, RM, LANG, PROC, QUERY, ITS-REST)
+Each test first checks whether the old URL actually exists on the live `specifications.openehr.org` site. If it does not, the test is skipped. Only URLs confirmed to exist on the live site are tested against the local Caddy redirect.
 
 ## What is not handled
 

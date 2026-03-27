@@ -183,18 +183,37 @@ add_front_block() {
 
   echo "  • Adding front block to index.adoc"
 
+  # Check for a non-standard license in manifest.json.
+  # Falls back to component-level "license" if per-spec entry is absent.
+  # CC BY-ND (the openEHR default) is suppressed; anything else is shown.
+  local license_rows=""
+  if [ -f "manifest.json" ]; then
+    local lic
+    lic=$(jq -r ".specifications[] | select(.id == \"$module\") | .license // empty" manifest.json 2>/dev/null || true)
+    if [ -z "$lic" ]; then
+      lic=$(jq -r '.license // empty' manifest.json 2>/dev/null || true)
+    fi
+    if [ -n "$lic" ] && [[ "$lic" != *"CC-BY-ND"* ]] && [[ "$lic" != *"CC BY-ND"* ]]; then
+      license_rows="| *Licence* a| $lic"
+    fi
+  fi
+
+  # Extract spec_status value to build CSS class at migration time
+  local spec_status_val
+  spec_status_val=$(grep -m1 "^:spec_status:" "$module_vars" | sed 's/^:spec_status:[[:space:]]*//' | tr '[:upper:]' '[:lower:]')
+  local status_badge="[.spec-status.spec-status-${spec_status_val}]#{spec_status}#"
+
   local tmp
   tmp=$(mktemp)
-  awk '
+  awk -v license_rows="$license_rows" -v status_badge="$status_badge" '
     /^= / && !done {
       print
       print ""
       print "[.specmeta%autowidth,cols=\"1\",frame=all,grid=all]"
       print "|==="
-      print "^h| *Status*: {spec_status}"
+      print "^h| *Status*: " status_badge
+      if (license_rows != "") print license_rows
       print "|==="
-      print ""
-      print "image::ROOT:openehr_block_diagram.svg[openEHR components,60%,align=center]"
       done=1
       next
     }

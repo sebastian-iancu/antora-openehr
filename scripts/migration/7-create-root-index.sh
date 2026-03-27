@@ -54,6 +54,8 @@ fi
 MANIFEST_TITLE=$(jq -r '.title // empty' manifest.json)
 DESC="${COMPONENT_DESC[$COMPONENT_NAME]}"
 COMPONENT_STATUS=$(jq -r '.status // "STABLE"' manifest.json | tr '[:lower:]' '[:upper:]')
+COMPONENT_STATUS_CLASS=$(echo "$COMPONENT_STATUS" | tr '[:upper:]' '[:lower:]')
+COMPONENT_STATUS_BADGE="[.spec-status.spec-status-${COMPONENT_STATUS_CLASS}]#${COMPONENT_STATUS}#"
 
 # Build index.adoc
 {
@@ -61,7 +63,7 @@ COMPONENT_STATUS=$(jq -r '.status // "STABLE"' manifest.json | tr '[:lower:]' '[
   echo ""
   echo "[.specmeta%autowidth,cols=\"1,1\",frame=all,grid=all]"
   echo "|==="
-  echo "| *Release*: {page-component-version} | *Status*: $COMPONENT_STATUS"
+  echo "| *Release*: {page-component-version} | *Status*: $COMPONENT_STATUS_BADGE"
   echo "|==="
   echo ""
 

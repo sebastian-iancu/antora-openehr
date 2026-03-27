@@ -20,6 +20,17 @@ services:
     command: tail -f /dev/null  # Keep container running for interactive use
 
 
+  caddy:
+    image: caddy:alpine
+    container_name: antora-openehr-caddy
+    profiles:
+      - test
+    ports:
+      - "8081:80"
+    volumes:
+      - ./build:/srv:ro
+      - ./caddy/Caddyfile:/etc/caddy/Caddyfile:ro
+
 volumes:
   npm-cache:
   git-cache:

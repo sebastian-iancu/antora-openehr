@@ -34,6 +34,12 @@ rewrite_xrefs_in_file() {
   # Pattern 2b: same but without the ^ marker
   sed -i 's|link:/releases/[^#]*#_\([a-z0-9_]*\)_class\[\([^]]*\)\]|xref:{class_\1}[\2]|g' "$f"
 
+  # Pattern 2c: link:/releases/.../spec.html#_foo_bar_enumeration[Text^]  →  xref:{class_foo_bar}[Text]
+  sed -i 's|link:/releases/[^#]*#_\([a-z0-9_]*\)_enumeration\[\([^\^]*\)\^\]|xref:{class_\1}[\2]|g' "$f"
+
+  # Pattern 2d: same but without the ^ marker
+  sed -i 's|link:/releases/[^#]*#_\([a-z0-9_]*\)_enumeration\[\([^]]*\)\]|xref:{class_\1}[\2]|g' "$f"
+
   # Pattern 3: https://specifications.openehr.org/releases/.../spec.html#_foo_bar_class[Text]
   sed -i 's|https://specifications\.openehr\.org/releases/[^#]*#_\([a-z0-9_]*\)_class\[\([^]]*\)\]|xref:{class_\1}[\2]|g' "$f"
 }

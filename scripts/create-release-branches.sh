@@ -53,11 +53,10 @@ for TAG in $TAGS; do
     # Create branch name
     BRANCH_NAME="release/$VERSION"
     
-    # Check if branch already exists
+    # Create or update branch without touching the working directory
     if git show-ref --verify --quiet "refs/heads/$BRANCH_NAME"; then
-        echo "✓ Branch $BRANCH_NAME from tag $TAG already exists locally"
-        git checkout -f -B "$BRANCH_NAME" "$TAG"
-        echo "✓ Bound branch $BRANCH_NAME to $TAG tag"
+        echo "✓ Branch $BRANCH_NAME already exists, updating to $TAG"
+        git branch -f "$BRANCH_NAME" "$TAG"
     else
         echo "→ Creating branch $BRANCH_NAME from tag $TAG"
         git branch "$BRANCH_NAME" "$TAG"

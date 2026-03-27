@@ -1,4 +1,4 @@
-.PHONY: help build build-local clean preview \
+.PHONY: help build build-local clean preview all \
         install create-branches migrate-repo validate-structure clone-repos
 
 # Default target
@@ -18,6 +18,12 @@ SPECS_REPOS := specifications-BASE specifications-RM specifications-AM \
                specifications-LANG specifications-SM specifications-QUERY \
                specifications-PROC specifications-CDS specifications-CNF \
                specifications-ITS-REST specifications-ITS-JSON specifications-ITS-XML specifications-ITS-BMM
+ADL_ANTLR_REPO := https://github.com/openEHR/adl-antlr.git
+ADL_ANTLR_DIR  := $(REPOS_DIR)/adl-antlr
+ADL_ANTLR_SRC  := $(ADL_ANTLR_DIR)/src/main/antlr/adl
+OPENEHR_ANTLR4_REPO := https://github.com/openEHR/openEHR-antlr4.git
+OPENEHR_ANTLR4_DIR  := $(REPOS_DIR)/openEHR-antlr4
+OPENEHR_ANTLR4_SRC  := $(OPENEHR_ANTLR4_DIR)/reader_common/src/main/antlr
 
 ##@ General
 
@@ -28,6 +34,8 @@ help: ## Display this help message
 
 
 ##@ Development Workflow
+
+all: clean-all install create-all-branches migrate-all build-local preview ## Full setup from scratch: wipe everything, install, branch, migrate, build and preview
 
 install: ## Install Node.js dependencies
 	@echo "$(GREEN)Installing Node.js dependencies...$(NC)"
@@ -52,6 +60,54 @@ clone-repos: ## Clone all openEHR specification repositories
 		fi \
 	done
 	@echo "$(GREEN)Done cloning repositories.$(NC)"
+	@$(MAKE) update-grammars
+
+update-grammars: ## Clone/update grammar repos and copy g4 files into module partials
+	@echo "$(GREEN)Updating ANTLR grammar files from adl-antlr...$(NC)"
+	@if [ ! -d "$(ADL_ANTLR_DIR)" ]; then \
+		echo "$(CYAN)Cloning adl-antlr...$(NC)"; \
+		git clone $(ADL_ANTLR_REPO) $(ADL_ANTLR_DIR); \
+	else \
+		echo "$(CYAN)Updating adl-antlr...$(NC)"; \
+		git -C $(ADL_ANTLR_DIR) pull --quiet; \
+	fi
+	@for module in ADL1.4 ADL2 OPT2; do \
+		dir="$(REPOS_DIR)/specifications-AM/modules/$$module/partials"; \
+		if [ -d "$$dir" ]; then \
+			echo "$(CYAN)Copying g4 files to AM/$$module/partials...$(NC)"; \
+			cp $(ADL_ANTLR_SRC)/*.g4 "$$dir/"; \
+		fi \
+	done
+	@echo "$(GREEN)Updating ANTLR grammar files from openEHR-antlr4...$(NC)"
+	@if [ ! -d "$(OPENEHR_ANTLR4_DIR)" ]; then \
+		echo "$(CYAN)Cloning openEHR-antlr4...$(NC)"; \
+		git clone $(OPENEHR_ANTLR4_REPO) $(OPENEHR_ANTLR4_DIR); \
+	else \
+		echo "$(CYAN)Updating openEHR-antlr4...$(NC)"; \
+		git -C $(OPENEHR_ANTLR4_DIR) pull --quiet; \
+	fi
+	@for module in EL; do \
+		dir="$(REPOS_DIR)/specifications-LANG/modules/$$module/partials"; \
+		if [ -d "$$dir" ]; then \
+			echo "$(CYAN)Copying g4 files to LANG/$$module/partials...$(NC)"; \
+			cp $(OPENEHR_ANTLR4_SRC)/El*.g4 "$$dir/" 2>/dev/null || true; \
+		fi \
+	done
+	@for module in odin BEL; do \
+		dir="$(REPOS_DIR)/specifications-LANG/modules/$$module/partials"; \
+		if [ -d "$$dir" ]; then \
+			echo "$(CYAN)Copying adl-antlr g4 files to LANG/$$module/partials...$(NC)"; \
+			cp $(ADL_ANTLR_SRC)/*.g4 "$$dir/"; \
+		fi \
+	done
+	@for module in decision_language; do \
+		dir="$(REPOS_DIR)/specifications-PROC/modules/$$module/partials"; \
+		if [ -d "$$dir" ]; then \
+			echo "$(CYAN)Copying adl-antlr g4 files to PROC/$$module/partials...$(NC)"; \
+			cp $(ADL_ANTLR_SRC)/*.g4 "$$dir/"; \
+		fi \
+	done
+	@echo "$(GREEN)Done.$(NC)"
 
 list-repos: ## List all specification repositories
 	@echo "$(CYAN)OpenEHR Specification Repositories:$(NC)"
@@ -111,6 +167,7 @@ migrate-all: ## Migrate all repositories to Antora structure
 		echo "$(CYAN)Migrating $$repo...$(NC)"; \
 		make migrate-repo REPO=$$repo; \
 	done
+	@$(MAKE) update-grammars
 	@echo "$(GREEN)Done migrating all repositories.$(NC)"
 
 validate-structure: ## Validate Antora structure in a repository (usage: make validate-structure REPO=specifications-BASE)
@@ -129,6 +186,7 @@ validate-all: ## Validate Antora structure in all repositories
 	done
 
 
+
 ##@ Build Operations
 
 build: ## Build the full site using production playbook
@@ -142,8 +200,8 @@ build-local: ## Build site using local repositories
 		echo "$(RED)Error: $(REPOS_DIR) directory not found. Run 'make install' first.$(NC)"; \
 		exit 1; \
 	fi
-	npx antora antora-playbook-local.yml
-	@echo "$(GREEN)Build complete! Site generated in $(BUILD_DIR)$(NC)"
+	npx antora antora-playbook-local.yml 2>&1 | tee build.log
+	@echo "$(GREEN)Build complete! Site generated in $(BUILD_DIR) — log: build.log$(NC)"
 
 clean: ## Clean build artifacts and cache
 	@echo "$(YELLOW)Cleaning build artifacts...$(NC)"

@@ -48,6 +48,14 @@ git branch "$BACKUP_BRANCH" HEAD
 echo "✓ Backup created"
 echo ""
 
+# Clean previous migration output so re-runs start fresh
+if [ -d "modules" ]; then
+    echo "→ Removing existing modules/ directory"
+    rm -rf modules
+    echo "✓ Cleaned"
+    echo ""
+fi
+
 # Step 1: Analyze structure and get MODULES (stdout), logs go to stderr
 MODULES="$("$SCRIPT_DIR/1-analyze-structure.sh")"
 
@@ -55,10 +63,13 @@ MODULES="$("$SCRIPT_DIR/1-analyze-structure.sh")"
 "$SCRIPT_DIR/2-create-antora-structure.sh" $MODULES
 
 # Step 3: Move UML content into ROOT
-"$SCRIPT_DIR/3-move-uml.sh"
+"$SCRIPT_DIR/3-move-uml.sh" "$COMPONENT_NAME"
 
 # Step 4: Migrating content files (your existing script)
 "$SCRIPT_DIR/4-migrate_content_files.sh" $MODULES
+
+# Step 4c: Fetch external grammar files and rewrite remote includes
+"$SCRIPT_DIR/4a-fetch-external-grammars.sh" "$COMPONENT_NAME" $MODULES
 
 # Step 5: Create antora.yml
 "$SCRIPT_DIR/5-create-antora-yml.sh" "$COMPONENT_NAME" $MODULES
@@ -77,4 +88,7 @@ MODULES="$("$SCRIPT_DIR/1-analyze-structure.sh")"
 
 # Step 10: Rewrite internal class cross-references to Antora xrefs
 "$SCRIPT_DIR/10-rewrite-class-xrefs.sh"
+
+# Step 11: Tag untagged listing blocks in QUERY/AQL pages with [source, sql]
+"$SCRIPT_DIR/11-tag-query-source-blocks.sh" "$COMPONENT_NAME"
 

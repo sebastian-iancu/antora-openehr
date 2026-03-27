@@ -4,6 +4,16 @@
 
 This repository provides the structure and tools to migrate the openEHR specifications to Antora and to build a unified, multi‑repository, multi‑version documentation site.
 
+## Quick Start
+
+To set up everything from scratch and launch a local preview, run:
+
+```bash
+make all
+```
+
+This will wipe any previous state, clone all repositories, create release branches, run the migration, build the site, and open a preview at http://localhost:8080.
+
 Use this README for a high‑level overview. For setup and commands, start with `START-HERE.md`.
 
 ## What this project is

@@ -16,14 +16,20 @@ if [ -d "docs/UML" ] || [ -d "docs/uml" ]; then
     mkdir -p modules/ROOT/partials/classes/ modules/ROOT/images/uml
 
     # Flat layout: UML/classes/ and UML/diagrams/
-    # For AM, flat classes are AOM2 — copy with aom2. prefix since AOM1.4 has overlapping names.
+    # For AM, flat classes contain both AOM1.4 (org.openehr.am.aom14.*) and AOM2
+    # (org.openehr.am.aom2.*) files — detect from filename and use matching prefix.
     # For all other components, copy flat (no prefix needed).
     if [ -d "$UML_DIR/classes" ]; then
         if [[ "$COMPONENT_NAME" == "AM" ]]; then
-            echo "→ Moving UML classes (flat/AM) to ROOT/partials/classes with aom2. prefix"
+            echo "→ Moving UML classes (flat/AM) to ROOT/partials/classes with aom14./aom2. prefix"
             for f in "$UML_DIR/classes/"*.adoc; do
                 [ -f "$f" ] || continue
-                cp "$f" "modules/ROOT/partials/classes/aom2.$(basename "$f")"
+                fname=$(basename "$f")
+                if [[ "$fname" == org.openehr.am.aom14.* ]]; then
+                    cp "$f" "modules/ROOT/partials/classes/aom14.${fname}"
+                else
+                    cp "$f" "modules/ROOT/partials/classes/aom2.${fname}"
+                fi
             done
         else
             echo "→ Moving UML classes (flat) to ROOT/partials/classes"

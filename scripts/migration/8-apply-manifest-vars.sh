@@ -19,32 +19,24 @@ get_manifest_src_for_module() {
     manifest_src="docs/$module/manifest_vars.adoc"
   elif [ -f "docs/manifest_vars.adoc" ]; then
     manifest_src="docs/manifest_vars.adoc"
-  else
-    # Create manifest_vars.adoc if it doesn't exist
-    mkdir -p "docs/$module"
-    manifest_src="docs/$module/manifest_vars.adoc"
-
-    # Extract variables from master.adoc
-    if [ -f "docs/$module/master.adoc" ]; then
-      # Get title from first heading
-      spec_title=$(grep -m 1 "^=" "docs/$module/master.adoc" | sed 's/^= //')
-      # Extract other variables
-      copyright_year=$(grep -m 1 ":copyright_year:" "docs/$module/master.adoc" | cut -d' ' -f2-)
-      spec_status=$(grep -m 1 ":spec_status:" "docs/$module/master.adoc" | cut -d' ' -f2-)
-      keywords=$(grep -m 1 ":keywords:" "docs/$module/master.adoc" | cut -d' ' -f2-)
-      description=$(grep -m 1 ":description:" "docs/$module/master.adoc" | cut -d' ' -f2-)
-
-      # Write manifest file
-      {
-        echo ":spec_title: $spec_title"
-        echo ":copyright_year: $copyright_year"
-        echo ":spec_status: $spec_status"
-        echo ":keywords: $keywords"
-        echo ":description: $description"
-      } > "$manifest_src"
-    else
-      manifest_src=""
-    fi
+  elif [ -f "docs/$module/master.adoc" ]; then
+    # Generate manifest_vars.adoc into modules/ — never touch docs/
+    local generated="modules/$module/partials/manifest_vars.adoc"
+    mkdir -p "modules/$module/partials"
+    local spec_title copyright_year spec_status keywords description
+    spec_title=$(grep -m 1 "^=" "docs/$module/master.adoc" | sed 's/^= //')
+    copyright_year=$(grep -m 1 ":copyright_year:" "docs/$module/master.adoc" | cut -d' ' -f2-)
+    spec_status=$(grep -m 1 ":spec_status:" "docs/$module/master.adoc" | cut -d' ' -f2-)
+    keywords=$(grep -m 1 ":keywords:" "docs/$module/master.adoc" | cut -d' ' -f2-)
+    description=$(grep -m 1 ":description:" "docs/$module/master.adoc" | cut -d' ' -f2-)
+    {
+      echo ":spec_title: $spec_title"
+      echo ":copyright_year: $copyright_year"
+      echo ":spec_status: $spec_status"
+      echo ":keywords: $keywords"
+      echo ":description: $description"
+    } > "$generated"
+    manifest_src="$generated"
   fi
 
   echo "$manifest_src"
@@ -114,16 +106,62 @@ include_module_vars_to_pages() {
 install_pkg_var() {
   local module="$1"
   local module_vars="modules/$module/partials/module_vars.adoc"
+  local master="docs/$module/master.adoc"
 
   [ -f "$module_vars" ] || return 0
+  [ -f "$master" ] || return 0
 
-  # Construct package name
-  local component_lower=$(echo "$COMPONENT_NAME" | tr '[:upper:]' '[:lower:]')
-  local pkg_value="org.openehr.${component_lower}.${module}."
-  echo "  • Setting :pkg: value as '${pkg_value}' in ${module_vars}"
+  # Read :pkg: directly from master.adoc where it is authoritatively defined
+  local pkg_value
+  pkg_value=$(grep -m1 '^:pkg:' "$master" | sed 's/^:pkg: *//' || true)
+  [ -z "$pkg_value" ] && return 0
 
-  # Append the pkg variable to module_vars.adoc
+  echo "  • Setting :pkg: ${pkg_value} in module_vars.adoc"
   echo ":pkg: ${pkg_value}" >> "$module_vars"
+
+  # Handle multi-pkg modules: master.adoc may change :pkg: mid-document.
+  # Parse include order and inject per-page :pkg: overrides for pages that
+  # use a different value than the module default.
+  inject_per_page_pkg_overrides "$module" "$master" "$pkg_value"
+}
+
+inject_per_page_pkg_overrides() {
+  local module="$1"
+  local master="$2"
+  local default_pkg="$3"
+  local pages_dir="modules/$module/pages"
+
+  [ -d "$pages_dir" ] || return 0
+
+  # Walk master.adoc tracking :pkg: changes and mapping page includes to their pkg value
+  local current_pkg="$default_pkg"
+  while IFS= read -r line; do
+    # Detect :pkg: assignment
+    if [[ "$line" =~ ^:pkg:[[:space:]]*(.+)$ ]]; then
+      current_pkg="${BASH_REMATCH[1]}"
+      continue
+    fi
+    # Detect include of a sub-page file
+    if [[ "$line" =~ ^include::([^[:space:]\[]+)\.adoc ]]; then
+      local src_file
+      src_file=$(basename "${BASH_REMATCH[1]}.adoc")
+      # Derive page name using same rename rule as step 4
+      local page_name
+      page_name=$(echo "$src_file" | sed -E 's/^master[0-9.]+-//; s/^masterApp[A-Z]-//')
+      local page_path="$pages_dir/$page_name"
+
+      [ -f "$page_path" ] || continue
+      [ "$current_pkg" = "$default_pkg" ] && continue
+
+      echo "  • Per-page :pkg: ${current_pkg} → ${page_name}"
+      # Inject :pkg: override immediately after the module_vars include line
+      local tmp="${page_path}.tmp"
+      awk -v pkg=":pkg: $current_pkg" '
+        /include::partial\$module_vars\.adoc\[\]/ { print; print ""; print pkg; next }
+        { print }
+      ' "$page_path" > "$tmp" && mv "$tmp" "$page_path"
+    fi
+  done < "$master"
 }
 
 # -------------------------------------------------------------------
@@ -150,7 +188,7 @@ apply_manifest_vars() {
   install_component_vars
   install_module_vars "$module" "$manifest_src"
   include_module_vars_to_pages "$module"
-#  install_pkg_var "$module"
+  install_pkg_var "$module"
 }
 
 # -------------------------------------------------------------------

@@ -189,24 +189,12 @@ add_front_block() {
     /^= / && !done {
       print
       print ""
-      print "[.specmeta%autowidth,cols=\"1,1\",frame=all,grid=all]"
+      print "[.specmeta%autowidth,cols=\"1\",frame=all,grid=all]"
       print "|==="
-      print "2+^h| *Issuer*: link:{openehr_specification_program}[openEHR Specification Program^]"
-      print "| *Release*: {page-component-name} {page-component-version} | *Status*: {spec_status}"
-      print "| *Revision*: {latest_issue} | *Date*: {latest_issue_date}"
-      print "2+^| *Keywords*: {keywords}"
+      print "^h| *Status*: {spec_status}"
       print "|==="
       print ""
       print "image::ROOT:openehr_block_diagram.svg[openEHR components,60%,align=center]"
-      print ""
-      print "[.specmeta,cols=\"20%,80%\",frame=all,grid=all]"
-      print "|==="
-      print "2+^h| &#169; {copyright_year} The openEHR Foundation"
-      print "2+a| link:https://www.openehr.org[The openEHR Foundation^] is an independent, non-profit foundation, facilitating the sharing of health records by consumers and clinicians via open specifications, clinical models and open platform implementations."
-      print "| *Licence* a| image:https://specifications.openehr.org/images/cc-by-nd-88x31.png[CC BY-ND,88,31] Creative Commons Attribution-NoDerivs 3.0 Unported. https://creativecommons.org/licenses/by-nd/3.0/"
-      print "| *Support* a| Issues: {component_prs}[Problem Reports^] +"
-      print "Web: {openehr_specs}[specifications.openEHR.org^]"
-      print "|==="
       done=1
       next
     }

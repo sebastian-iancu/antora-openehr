@@ -53,10 +53,16 @@ fi
 
 MANIFEST_TITLE=$(jq -r '.title // empty' manifest.json)
 DESC="${COMPONENT_DESC[$COMPONENT_NAME]}"
+COMPONENT_STATUS=$(jq -r '.status // "STABLE"' manifest.json | tr '[:lower:]' '[:upper:]')
 
 # Build index.adoc
 {
   echo "= $MANIFEST_TITLE"
+  echo ""
+  echo "[.specmeta%autowidth,cols=\"1,1\",frame=all,grid=all]"
+  echo "|==="
+  echo "| *Release*: {page-component-version} | *Status*: $COMPONENT_STATUS"
+  echo "|==="
   echo ""
 
   if [ -f "modules/ROOT/images/openehr_block_diagram.svg" ]; then

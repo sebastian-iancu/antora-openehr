@@ -207,13 +207,13 @@ add_front_block() {
   tmp=$(mktemp)
   awk -v license_rows="$license_rows" -v status_badge="$status_badge" '
     /^= / && !done {
-      print
+      print $0 " " status_badge
+      if (license_rows != "") {
+        print ""
+        print "[.spec-status-line]"
+        print license_rows
+      }
       print ""
-      print "[.specmeta%autowidth,cols=\"1\",frame=all,grid=all]"
-      print "|==="
-      print "^h| *Status*: " status_badge
-      if (license_rows != "") print license_rows
-      print "|==="
       done=1
       next
     }

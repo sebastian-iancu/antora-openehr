@@ -98,3 +98,6 @@ MODULES="$("$SCRIPT_DIR/1-analyze-structure.sh")"
 # Step 13: Restructure landing pages (Purpose + first chapter + Document Information)
 "$SCRIPT_DIR/13-restructure-landing-pages.sh" $MODULES
 
+# Step 14: Apply abstracts and overview texts from scripts/resources/abstracts/
+"$SCRIPT_DIR/14-apply-abstracts.sh" "$COMPONENT_NAME" $MODULES
+

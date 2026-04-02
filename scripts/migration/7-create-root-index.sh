@@ -72,11 +72,6 @@ COMPONENT_STATUS_BADGE="[.spec-status.spec-status-${COMPONENT_STATUS_CLASS}]#${C
     echo ""
   fi
 
-  if [ -n "$DESC" ]; then
-    echo "$DESC"
-    echo ""
-  fi
-
   echo "== Specifications"
   echo ""
 
@@ -89,17 +84,12 @@ COMPONENT_STATUS_BADGE="[.spec-status.spec-status-${COMPONENT_STATUS_CLASS}]#${C
       MODULE_TITLE=$(jq -r ".specifications[] | select(.id == \"$mod_id\") | .title" manifest.json)
       SPEC_STATUS=$(jq -r ".specifications[] | select(.id == \"$mod_id\") | .spec_status" manifest.json)
       MICRO=$(jq -r ".specifications[] | select(.id == \"$mod_id\") | .micro_summary // empty" manifest.json)
-      STATUS_LABEL=""
-      case "$SPEC_STATUS" in
-        DEVELOPMENT) STATUS_LABEL=" _(development)_" ;;
-        TRIAL)       STATUS_LABEL=" _(trial)_" ;;
-        RETIRED)     STATUS_LABEL=" _(retired)_" ;;
-        PAUSED)      STATUS_LABEL=" _(paused)_" ;;
-      esac
+      SPEC_STATUS_CLASS=$(echo "$SPEC_STATUS" | tr '[:upper:]' '[:lower:]')
+      STATUS_BADGE=" [.spec-status.spec-status-${SPEC_STATUS_CLASS}]#${SPEC_STATUS}#"
       if [ -n "$MICRO" ]; then
-        echo "* xref:$mod_id:index.adoc[$MODULE_TITLE]$STATUS_LABEL — $MICRO"
+        echo "* xref:$mod_id:index.adoc[$MODULE_TITLE]${STATUS_BADGE} — $MICRO"
       else
-        echo "* xref:$mod_id:index.adoc[$MODULE_TITLE]$STATUS_LABEL"
+        echo "* xref:$mod_id:index.adoc[$MODULE_TITLE]${STATUS_BADGE}"
       fi
       ADDED_MODULES="$ADDED_MODULES $mod_id"
     fi

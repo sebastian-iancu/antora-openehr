@@ -1,0 +1,17 @@
+// @overview
+Formal language specifications shared across openEHR: ODIN for data serialisation, BMM for information model definition, and expression languages BEL and EL for computable logic.
+
+// @spec:odin
+Object Data Instance Notation: a human-readable serialisation syntax for structured data trees. Used in archetype header sections, configuration files, and wherever structured data must be authored and exchanged in plain text.
+
+// @spec:bmm
+A technology-neutral language for describing the structure of object-oriented information models, independent of UML, XSD, or any programming language. BMM allows openEHR information models to be defined once and consumed by modelling tools, validators, and code generators across different platforms and languages without retooling. BMM persistence defines the file format used to store and exchange these schemas.
+
+// @spec:bmm_persistence
+The file syntax for storing and exchanging BMM model definitions. Tools use this format to load openEHR information model schemas at runtime for introspection, validation, and code generation. BMM defines the underlying meta-model; this specification defines how it is serialised to disk.
+
+// @spec:BEL
+A formal syntax for boolean-valued predicate expressions, used in archetype invariants and assertion blocks where only true or false conditions are needed. BEL is a constrained subset of EL covering logical, relational, and existence operators. EL is the full expression language that subsumes BEL.
+
+// @spec:EL
+A formal syntax for computable expressions covering arithmetic, relational, logical, and function call forms, used in archetype rules, decision logic, and guideline conditions. EL is the full expression language of the openEHR platform; BEL is the boolean-only subset used where only predicate conditions are required.

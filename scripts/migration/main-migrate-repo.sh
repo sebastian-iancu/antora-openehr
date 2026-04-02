@@ -95,9 +95,6 @@ MODULES="$("$SCRIPT_DIR/1-analyze-structure.sh")"
 # Step 12: Escape literal braces that AsciiDoc would misread as attributes
 "$SCRIPT_DIR/12-escape-literal-braces.sh" "$COMPONENT_NAME" $MODULES
 
-# Step 13: Restructure landing pages (Purpose + first chapter + Document Information)
-"$SCRIPT_DIR/13-restructure-landing-pages.sh" $MODULES
-
-# Step 14: Apply abstracts and overview texts from scripts/resources/abstracts/
-"$SCRIPT_DIR/14-apply-abstracts.sh" "$COMPONENT_NAME" $MODULES
+# Step 13: Finalise landing pages (appendix, abstracts, overview, feedback)
+"$SCRIPT_DIR/13-finalise-landing-pages.sh" "$COMPONENT_NAME" $MODULES
 

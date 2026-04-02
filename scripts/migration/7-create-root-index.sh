@@ -3,7 +3,6 @@ set -e
 
 # Usage: 7-create-root-index.sh <COMPONENT_NAME> <module1> <module2> ...
 
-SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 COMPONENT_NAME="$1"
 shift
 MODULES="$@"
@@ -19,22 +18,6 @@ if [ -f "docs/openehr_block_diagram.svg" ]; then
   cp "docs/openehr_block_diagram.svg" "modules/ROOT/images/"
   echo "  • Copied openehr_block_diagram.svg to ROOT/images/"
 fi
-
-# Component descriptions — written per component, not derived from manifest
-declare -A COMPONENT_DESC
-COMPONENT_DESC["AM"]="Defines the formalism for building clinical content models. Specifies the Archetype Definition Language (ADL), Archetype Object Model (AOM), archetype identification and versioning, and operational templates. AOM 2 is adopted as ISO 13606-2:2019."
-COMPONENT_DESC["BASE"]="Foundation of the openEHR specification stack. Covers the global Architecture Overview, primitive and structured types (Boolean, Interval, Date/Time), identifiers (UUIDs, object references, version IDs), and the Resource model for authored, translatable documents."
-COMPONENT_DESC["RM"]="Core information model of openEHR: EHR structure, demographic model, data types (quantities, coded text, date/times), data structures (lists, tables, trees), and the EHR Extract model. Archetypes constrain RM instances to express domain content."
-COMPONENT_DESC["LANG"]="Formal language specifications shared across openEHR: ODIN (Object Data Instance Notation for serialisation), BMM (Basic Meta-Model for defining information models), BMM persistence format, and expression languages BEL and EL."
-COMPONENT_DESC["QUERY"]="Archetype Query Language (AQL) — an SQL-like language for retrieving openEHR data using archetype paths as the addressing mechanism. Includes the formal specification and annotated query examples."
-COMPONENT_DESC["PROC"]="Task Planning model for encoding adaptive, executable, team-based clinical workflows. Includes the TP-VML visual notation for designing care plans, a decision rule language, and real-world clinical process examples."
-COMPONENT_DESC["CDS"]="Guideline Definition Language v2 (GDL2) for encoding computable clinical guidelines and decision rules. GDL2 rules operate on openEHR archetypes and can be evaluated at the point of care to drive clinical decision support."
-COMPONENT_DESC["CNF"]="Framework for certifying openEHR platform implementations. Defines conformance profiles, test cases per REST API endpoint, and a certificate scheme for verifying vendor compliance against the openEHR specifications."
-COMPONENT_DESC["SM"]="Abstract service interfaces for a complete openEHR platform, covering EHR, Query, Definitions, Demographics, Admin, and Terminology services. Includes the Simplified Information Model (SIM-B) and serial data formats for REST contexts."
-COMPONENT_DESC["ITS-REST"]="OpenAPI specifications for the openEHR REST APIs: EHR, Query, Definition, System, Demographic, Admin, and SMART on openEHR. The core APIs (EHR, Query, Definition) are stable and in production use across implementations."
-COMPONENT_DESC["ITS-XML"]="XSD schemas for validating XML-encoded openEHR data, covering the Reference Model, Archetype Model (AM 1.4 and AM 2), BASE types, and AQL query structures."
-COMPONENT_DESC["ITS-JSON"]="JSON Schema definitions for validating JSON-encoded openEHR data across all information models. Used by implementations to verify request and response payloads against the REST APIs."
-COMPONENT_DESC["ITS-BMM"]="Machine-readable BMM schemas for openEHR information models. Used by modelling tools and validators to load, introspect, and validate the structure of openEHR model definitions."
 
 # Read manifest
 if [ ! -f "manifest.json" ]; then
@@ -52,32 +35,12 @@ EOF
   exit 0
 fi
 
-# Extract a single-line micro summary override from the resource file
-extract_micro() {
-  local module="$1"
-  local resource="$SCRIPT_DIR/../resources/abstracts/${COMPONENT_NAME}.adoc"
-  [ -f "$resource" ] || return 0
-  awk -v section="micro:$module" '
-    /^\/\/ @/ { in_section = (substr($0, 5) == section); next }
-    in_section && /[^[:space:]]/ { print; exit }
-  ' "$resource"
-}
-
 MANIFEST_TITLE=$(jq -r '.title // empty' manifest.json)
-DESC="${COMPONENT_DESC[$COMPONENT_NAME]}"
 COMPONENT_STATUS=$(jq -r '.status // "STABLE"' manifest.json | tr '[:lower:]' '[:upper:]')
 COMPONENT_STATUS_CLASS=$(echo "$COMPONENT_STATUS" | tr '[:upper:]' '[:lower:]')
 COMPONENT_STATUS_BADGE="[.spec-status.spec-status-${COMPONENT_STATUS_CLASS}]#${COMPONENT_STATUS}#"
 
-# Determine version display: prefix "v" only for numeric versions (e.g. 2.4.0), not "development"
-PLAYBOOK="$SCRIPT_DIR/../../antora-playbook-local.yml"
-COMPONENT_VERSION=$(grep -A5 "specifications-${COMPONENT_NAME}" "$PLAYBOOK" 2>/dev/null \
-  | grep "version:" | head -1 | sed 's/.*version:[[:space:]]*//' | tr -d "\"'")
-if [[ "$COMPONENT_VERSION" =~ ^[0-9] ]]; then
-  VERSION_DISPLAY="v{page-component-version}"
-else
-  VERSION_DISPLAY="{page-component-version}"
-fi
+VERSION_DISPLAY="{page-component-version}"
 
 # Build index.adoc
 {
@@ -104,8 +67,6 @@ fi
       MODULE_TITLE=$(jq -r ".specifications[] | select(.id == \"$mod_id\") | .title" manifest.json)
       SPEC_STATUS=$(jq -r ".specifications[] | select(.id == \"$mod_id\") | .spec_status" manifest.json)
       MICRO=$(jq -r ".specifications[] | select(.id == \"$mod_id\") | .micro_summary // empty" manifest.json)
-      MICRO_OVERRIDE=$(extract_micro "$mod_id")
-      [ -n "$MICRO_OVERRIDE" ] && MICRO="$MICRO_OVERRIDE"
       SPEC_STATUS_CLASS=$(echo "$SPEC_STATUS" | tr '[:upper:]' '[:lower:]')
       STATUS_BADGE=" [.spec-status.spec-status-${SPEC_STATUS_CLASS}]#${SPEC_STATUS}#"
       if [ -n "$MICRO" ]; then

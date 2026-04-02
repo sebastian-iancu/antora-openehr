@@ -1,0 +1,62 @@
+// @overview
+OpenAPI specifications for the openEHR REST APIs: EHR, Query, Definition, System, Demographic, Admin, and SMART on openEHR. The core APIs (EHR, Query, Definition) are stable and in production use across implementations.
+
+// @spec:overview
+Overview of the openEHR REST API suite. Describes API design principles, shared conventions, versioning, authentication approach, and the relationships between the individual openEHR REST API specifications. It covers HTTP method conventions, content negotiation, error response formats, versioning strategy, and security considerations shared by all openEHR REST APIs. Implementers integrating with any openEHR platform REST API should read this specification before consulting the individual endpoint API documents.
+
+// @spec:system
+REST API for system-level operations: server capability discovery, version information, status queries, and administrative metadata endpoints used by clients before interacting with EHR data. Clients use the System API to discover which openEHR APIs and optional features a server supports before attempting clinical operations. Responses include structured capability declarations aligned with the openEHR conformance profiles defined in the CNF specification.
+
+// @spec:ehr
+REST API for Electronic Health Record operations: creating and retrieving EHRs, managing Compositions and Contributions, accessing EHR Status, and querying versioned clinical content. The EHR API is the most widely implemented openEHR REST API and is the primary interface for clinical documentation systems interacting with an openEHR CDR. It supports both full Composition submission and versioned update workflows, with optimistic locking via ETag-based version control.
+
+// @spec:query
+REST API for executing Archetype Query Language queries against EHR data. Supports both stored query execution by name and ad-hoc query submission with parameter binding. The API accepts AQL query strings directly or references stored queries by qualified name, returning structured result sets with typed column values. It is the primary interface for analytics platforms, dashboards, and clinical decision support systems retrieving data from an openEHR CDR.
+
+// @spec:definition
+REST API for managing clinical knowledge artefacts: uploading, versioning, and retrieving archetypes, templates, and stored AQL queries on an openEHR platform. The API supports ADL 1.4 and ADL 2 artefact formats and provides version-aware retrieval using the Identification scheme. It is used by archetype governance tools, template designers, and runtime engines to synchronise knowledge artefacts with an openEHR platform.
+
+// @spec:demographic
+REST API for demographic service operations: creating, retrieving, and searching Party records representing persons, organisations, and roles in the openEHR demographic model. The API supports both exact-match lookup by party identifier and fuzzy search across name and identifier fields. It is typically used alongside the EHR API to resolve subject references and populate patient context in clinical applications.
+
+// @spec:admin
+REST API for platform administration tasks: EHR deletion, system configuration queries, and bulk data management operations reserved for privileged administrative clients. Administrative operations are separated from clinical APIs to enable fine-grained access control, as they can modify or delete committed clinical records. Implementers should treat Admin API access as privileged and subject to audit logging requirements.
+
+// @spec:simplified_formats
+Simplified JSON and XML formats for use with openEHR REST APIs. Provides a more compact, approachable data representation for common EHR data exchange scenarios and integration use cases. The simplified formats reduce nesting depth and remove meta-model artefacts such as explicit type discriminators that are unnecessary for common integration scenarios. They are defined as a subset of the canonical formats, with a normalisation mapping allowing round-trip conversion without data loss for supported data types.
+
+// @spec:smart_app_launch
+SMART on openEHR profile enabling SMART App Launch protocol integration with openEHR platforms. Defines the authentication and authorisation flow for standards-based application access to EHR data. The profile specifies the OAuth 2.0 scopes, launch context parameters, and token exchange flow adapted to openEHR's EHR and patient identity model. It enables SMART-compatible EHR apps to launch within an openEHR platform context without requiring bespoke authentication integration.
+
+// @spec:REST_OAS_files
+OpenAPI Specification files for the openEHR REST APIs. Machine-readable API definitions used for client code generation, interactive documentation, and automated conformance testing. The files are generated from the normative REST API specifications and are versioned in step with the corresponding API releases. They can be imported directly into tools such as Swagger UI, Postman, or code generators to produce client SDKs and interactive documentation.
+
+// @micro:overview
+Design principles, conventions, and relationships between the openEHR REST APIs
+
+// @micro:system
+Server capability discovery, version information, and status endpoints
+
+// @micro:ehr
+Create and retrieve EHRs, manage Compositions, Contributions, and versioned content
+
+// @micro:query
+Execute AQL queries ad-hoc or by stored query name with parameter binding
+
+// @micro:definition
+Upload, version, and retrieve archetypes, templates, and stored AQL queries
+
+// @micro:demographic
+Create, retrieve, and search Party records for persons, organisations, and roles
+
+// @micro:admin
+EHR deletion, system configuration, and bulk data management for privileged clients
+
+// @micro:simplified_formats
+Compact JSON and XML formats for common EHR data exchange over REST
+
+// @micro:smart_app_launch
+SMART App Launch protocol for standards-based application access to EHR data
+
+// @micro:REST_OAS_files
+Machine-readable OpenAPI files for code generation and conformance testing

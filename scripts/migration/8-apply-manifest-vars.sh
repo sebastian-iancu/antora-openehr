@@ -165,6 +165,64 @@ inject_per_page_pkg_overrides() {
 }
 
 # -------------------------------------------------------------------
+# Front block (cover table + block diagram) — runs after module_vars exists
+# -------------------------------------------------------------------
+
+add_front_block() {
+  local module="$1"
+  local index_file="modules/$module/pages/index.adoc"
+
+  [ -f "$index_file" ] || return 0
+
+  # Only add if module_vars has spec_status (i.e. it's a real spec, not a stub)
+  local module_vars="modules/$module/partials/module_vars.adoc"
+  grep -q "^:spec_status:" "$module_vars" 2>/dev/null || return 0
+
+  # Skip if already present
+  grep -q "specmeta" "$index_file" 2>/dev/null && return 0
+
+  echo "  • Adding front block to index.adoc"
+
+  # Check for a non-standard license in manifest.json.
+  # Falls back to component-level "license" if per-spec entry is absent.
+  # CC BY-ND (the openEHR default) is suppressed; anything else is shown.
+  local license_rows=""
+  if [ -f "manifest.json" ]; then
+    local lic
+    lic=$(jq -r ".specifications[] | select(.id == \"$module\") | .license // empty" manifest.json 2>/dev/null || true)
+    if [ -z "$lic" ]; then
+      lic=$(jq -r '.license // empty' manifest.json 2>/dev/null || true)
+    fi
+    if [ -n "$lic" ] && [[ "$lic" != *"CC-BY-ND"* ]] && [[ "$lic" != *"CC BY-ND"* ]]; then
+      license_rows="| *Licence* a| $lic"
+    fi
+  fi
+
+  # Extract spec_status value to build CSS class at migration time
+  local spec_status_val
+  spec_status_val=$(grep -m1 "^:spec_status:" "$module_vars" | sed 's/^:spec_status:[[:space:]]*//' | tr '[:upper:]' '[:lower:]')
+  local status_badge="[.spec-status.spec-status-${spec_status_val}]#{spec_status}#"
+
+  local tmp
+  tmp=$(mktemp)
+  awk -v license_rows="$license_rows" -v status_badge="$status_badge" '
+    /^= / && !done {
+      print $0 " " status_badge
+      if (license_rows != "") {
+        print ""
+        print "[.spec-status-line]"
+        print license_rows
+      }
+      print ""
+      done=1
+      next
+    }
+    { print }
+  ' "$index_file" > "$tmp"
+  mv "$tmp" "$index_file"
+}
+
+# -------------------------------------------------------------------
 # Orchestrator for a single module
 # -------------------------------------------------------------------
 
@@ -187,8 +245,41 @@ apply_manifest_vars() {
 
   install_component_vars
   install_module_vars "$module" "$manifest_src"
+  extract_amendment_vars "$module"
   include_module_vars_to_pages "$module"
   install_pkg_var "$module"
+  add_front_block "$module"
+}
+
+extract_amendment_vars() {
+  local module="$1"
+  local module_vars="modules/$module/partials/module_vars.adoc"
+
+  [ -f "$module_vars" ] || return 0
+
+  # Find amendment record source
+  local amend_file
+  amend_file=$(find "docs/$module" -name "*amendment_record.adoc" 2>/dev/null | head -1)
+  [ -n "$amend_file" ] || return 0
+
+  local latest_issue latest_issue_date
+  latest_issue=$(grep -oP '\[\[latest_issue\]\]\K[^|\n]+' "$amend_file" 2>/dev/null | head -1 | sed 's/[[:space:]]//g' || true)
+  latest_issue_date=$(grep -oP '\[\[latest_issue_date\]\]\K[^|\n]+' "$amend_file" 2>/dev/null | head -1 | sed 's/^[[:space:]]*//' | sed 's/[[:space:]]*$//' || true)
+
+  # Ensure file ends with a newline before appending
+  printf '\n' >> "$module_vars"
+
+  if [ -n "$latest_issue" ] && ! grep -q "^:latest_issue:" "$module_vars"; then
+    echo ":latest_issue: $latest_issue" >> "$module_vars"
+    echo "  • Extracted latest_issue: $latest_issue"
+  elif [ -z "$latest_issue" ] && ! grep -q "^:latest_issue:" "$module_vars"; then
+    echo ":latest_issue: -" >> "$module_vars"
+  fi
+
+  if [ -n "$latest_issue_date" ] && ! grep -q "^:latest_issue_date:" "$module_vars"; then
+    echo ":latest_issue_date: $latest_issue_date" >> "$module_vars"
+    echo "  • Extracted latest_issue_date: $latest_issue_date"
+  fi
 }
 
 # -------------------------------------------------------------------

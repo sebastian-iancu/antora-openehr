@@ -160,6 +160,7 @@ migrate-repo: ## Migrate a single repository to Antora structure (usage: make mi
 	fi
 	@echo "$(GREEN)Migrating $(REPO) to Antora structure...$(NC)"
 	@./scripts/migration/main-migrate-repo.sh $(REPOS_DIR)/$(REPO)
+	@$(MAKE) update-grammars
 
 migrate-all: ## Migrate all repositories to Antora structure
 	@echo "$(GREEN)Migrating all repositories to Antora structure...$(NC)"
@@ -177,6 +178,7 @@ validate-structure: ## Validate Antora structure in a repository (usage: make va
 	fi
 	@echo "$(GREEN)Validating Antora structure in $(REPO)...$(NC)"
 	@./scripts/validate-structure.sh $(REPOS_DIR)/$(REPO)
+
 
 validate-all: ## Validate Antora structure in all repositories
 	@echo "$(GREEN)Validating all repositories...$(NC)"

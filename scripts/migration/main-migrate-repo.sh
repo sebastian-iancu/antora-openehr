@@ -92,3 +92,9 @@ MODULES="$("$SCRIPT_DIR/1-analyze-structure.sh")"
 # Step 11: Tag untagged listing blocks in QUERY/AQL pages with [source, sql]
 "$SCRIPT_DIR/11-tag-query-source-blocks.sh" "$COMPONENT_NAME"
 
+# Step 12: Escape literal braces that AsciiDoc would misread as attributes
+"$SCRIPT_DIR/12-escape-literal-braces.sh" "$COMPONENT_NAME" $MODULES
+
+# Step 13: Finalise landing pages (appendix, abstracts, overview, feedback)
+"$SCRIPT_DIR/13-finalise-landing-pages.sh" "$COMPONENT_NAME" $MODULES
+

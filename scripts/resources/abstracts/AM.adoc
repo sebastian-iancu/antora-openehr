@@ -2,28 +2,55 @@
 Defines the formalism for building clinical content models. Specifies the Archetype Definition Language (ADL), Archetype Object Model (AOM), archetype identification and versioning, and operational templates. AOM 2 is adopted as ISO 13606-2:2019.
 
 // @spec:Overview
-Rationale and concepts of the openEHR two-level modelling approach. Introduces archetypes, templates, and knowledge governance, and positions the AM specifications within the broader platform architecture.
+Rationale and concepts of the openEHR two-level modelling approach. Introduces archetypes, templates, and knowledge governance, and positions the AM specifications within the broader platform architecture. It describes the separation between the Reference Model, which defines stable data types, and archetypes, which capture variable clinical knowledge, explaining how this enables knowledge sharing across systems. Readers new to openEHR should start here before consulting the ADL, AOM, or OPT specifications.
 
 // @spec:ADL2
-The format and syntax for archetype definitions: the computable specifications that describe what clinical data a system may record. ADL 2 expresses constraints on Reference Model instances covering differential specialisation, terminology binding, and annotations, enabling archetype definitions to be authored, validated, and shared across tools and repositories. ADL 1.4 is the predecessor widely deployed in production systems; ADL 2 extends it with a cleaner constraint model and is adopted as ISO 13606-2:2019.
+The format and syntax for archetype definitions: the computable specifications that describe what clinical data a system may record. ADL 2 expresses constraints on Reference Model instances covering differential specialisation, terminology binding, and annotations, enabling archetype definitions to be authored, validated, and shared across tools and repositories. ADL 1.4 is the predecessor widely deployed in production systems; ADL 2 extends it with a cleaner constraint model and is adopted as ISO 13606-2:2019. ADL 2 files are the primary artefacts published in archetype repositories such as the openEHR Clinical Knowledge Manager and consumed by modelling tools worldwide. Implementers building authoring tools, validators, or repository services should read this specification alongside AOM 2.
 
 // @spec:AOM2
-The object model of an ADL 2 archetype in memory. This specification is the primary reference for tool developers building archetype editors, validators, repository software, and template engines, as it defines exactly how archetype structure, constraints, terminology, and specialisation are represented in a conformant implementation. AOM 1.4 is the predecessor aligned with the ADL 1.4 formalism.
+The object model of an ADL 2 archetype in memory. This specification is the primary reference for tool developers building archetype editors, validators, repository software, and template engines, as it defines exactly how archetype structure, constraints, terminology, and specialisation are represented in a conformant implementation. AOM 1.4 is the predecessor aligned with the ADL 1.4 formalism. AOM 2 classes are directly instantiated by parsers when reading ADL 2 source files and by template engines when flattening archetypes. The AOM includes a full constraint type hierarchy, terminology binding model, and specialisation semantics covering both differential and flat forms.
 
 // @spec:OPT2
-The format for a template in ADL 2. A template combines multiple archetypes to define a complete form or document (such as a discharge summary or encounter note); the OPT2 is its fully flattened, self-contained form that clinical systems use at runtime to drive data entry, validation, and storage, with no further archetype resolution required. OPT 1.4 is the predecessor aligned with the ADL 1.4 formalism.
+The format for a template in ADL 2. A template combines multiple archetypes to define a complete form or document (such as a discharge summary or encounter note); the OPT2 is its fully flattened, self-contained form that clinical systems use at runtime to drive data entry, validation, and storage, with no further archetype resolution required. OPT 1.4 is the predecessor aligned with the ADL 1.4 formalism. Clinical systems that do not resolve archetypes at runtime consume the OPT2 directly, making it the primary deployment artefact for form-based EHR applications. Template authors compose it from a root archetype and one or more filler archetypes, specifying slot fillers, value set restrictions, and language selections.
 
 // @spec:Identification
-The scheme used to uniquely name, version, and govern archetypes and templates across repositories and throughout their lifecycle. Covers human-readable identifiers, machine identifiers, and the rules for managing versions and revisions of clinical knowledge artefacts.
+The scheme used to uniquely name, version, and govern archetypes and templates across repositories and throughout their lifecycle. Covers human-readable identifiers, machine identifiers, and the rules for managing versions and revisions of clinical knowledge artefacts. The scheme distinguishes between concept identifiers, which are stable across versions, and version-qualified identifiers, which pinpoint a specific release. It is the basis for interoperable archetype referencing across governance domains, enabling safe evolution of clinical knowledge artefacts over time.
 
 // @spec:ADL1.4
-The format and syntax for archetype definitions, widely deployed in production systems and adopted as ISO 13606-2:2008. ADL 1.4 defines the constraint syntax, terminology binding rules, and file format used by the majority of existing archetype repositories and tooling. ADL 2 is the successor introducing differential specialisation and an improved constraint model.
+The format and syntax for archetype definitions, widely deployed in production systems and adopted as ISO 13606-2:2008. ADL 1.4 defines the constraint syntax, terminology binding rules, and file format used by the majority of existing archetype repositories and tooling. ADL 2 is the successor introducing differential specialisation and an improved constraint model. Most deployed openEHR systems and archetype repositories, including the international Clinical Knowledge Manager, currently use ADL 1.4 artefacts. Implementers maintaining or migrating existing archetype tooling should refer to this specification together with AOM 1.4.
 
 // @spec:AOM1.4
-The object model of an ADL 1.4 archetype in memory. This specification is the primary reference for tool developers building archetype editors, validators, and repository software targeting ISO 13606-2:2008 compliant archetypes, defining the constraint type hierarchy and terminology model for the ADL 1.4 formalism. AOM 2 is the successor aligned with ADL 2.
+The object model of an ADL 1.4 archetype in memory. This specification is the primary reference for tool developers building archetype editors, validators, and repository software targeting ISO 13606-2:2008 compliant archetypes, defining the constraint type hierarchy and terminology model for the ADL 1.4 formalism. AOM 2 is the successor aligned with ADL 2. AOM 1.4 is the reference used by the majority of currently deployed archetype editors and validators. It defines the C_OBJECT and C_ATTRIBUTE class hierarchy that underpins constraint processing in ADL 1.4-based tooling.
 
 // @spec:OPT1.4
-The format for a template in ADL 1.4. Combines multiple ADL 1.4 archetypes into a single self-contained form used by clinical systems at runtime for data entry, validation, and storage. OPT2 is the successor aligned with the ADL 2 formalism.
+The format for a template in ADL 1.4. Combines multiple ADL 1.4 archetypes into a single self-contained form used by clinical systems at runtime for data entry, validation, and storage. OPT2 is the successor aligned with the ADL 2 formalism. The OPT 1.4 is produced by template designers using tools such as the openEHR Template Designer and consumed directly by clinical data entry applications. Most production openEHR deployments currently use OPT 1.4 as their runtime template format pending migration to ADL 2 tooling.
 
 // @spec:archetype_profile
-Legacy profile defining plug-in constraint semantics for AOM 1.4 archetypes. Superseded by the standard constraint extension mechanism introduced in AOM 2.
+Legacy profile defining plug-in constraint semantics for AOM 1.4 archetypes. Superseded by the standard constraint extension mechanism introduced in AOM 2. It defined additional constraint types beyond the core AOM 1.4 model, allowing tool vendors to express domain-specific constraints such as slot matching rules. Readers working with AOM 1.4 implementations that predate AOM 2 may encounter artefacts that reference this profile.
+
+// @micro:Overview
+Rationale and concepts behind the openEHR two-level modelling approach
+
+// @micro:ADL2
+Format and syntax for authoring archetype definitions
+
+// @micro:AOM2
+In-memory object model of an ADL 2 archetype; primary reference for tool developers
+
+// @micro:OPT2
+Fully flattened template format for runtime data entry and validation
+
+// @micro:Identification
+Scheme for naming, versioning, and governing archetypes across repositories
+
+// @micro:ADL1.4
+Predecessor archetype format, widely deployed and adopted as ISO 13606-2:2008
+
+// @micro:AOM1.4
+In-memory object model of an ADL 1.4 archetype; reference for ISO 13606-2:2008 tools
+
+// @micro:OPT1.4
+Predecessor template format for runtime data entry using ADL 1.4 archetypes
+
+// @micro:archetype_profile
+Legacy plug-in constraint semantics for AOM 1.4; superseded by AOM 2

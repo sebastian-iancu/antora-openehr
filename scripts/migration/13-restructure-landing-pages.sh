@@ -33,16 +33,21 @@ restructure_module() {
     # ---------------------------------------------------------------
     # 1. pages/document_information.adoc  –  standalone last chapter
     # ---------------------------------------------------------------
-    local doc_info="$pages_dir/document_information.adoc"
+    local doc_info="$pages_dir/appendix.adoc"
     local tmp_doc
     tmp_doc=$(mktemp)
 
     # Page header — title + block diagram image
-    printf 'include::partial$module_vars.adoc[]\n\n= Document Information\n\nimage::ROOT:openehr_block_diagram.svg[openEHR components,60%%,align=center]\n\n' >> "$tmp_doc"
+    printf 'include::partial$module_vars.adoc[]\n\n= Appendix\n\nimage::ROOT:openehr_block_diagram.svg[openEHR components,60%%,align=center]\n\n' >> "$tmp_doc"
 
-    # Full preface content (Purpose + all other sections), skipping the empty == Preface line
+    # Full preface content (Purpose + all other sections), skipping == Preface title and == Feedback section
     if [ -f "$preface" ]; then
-        awk '/^== Preface[[:space:]]*$/ { next } { print }' "$preface" >> "$tmp_doc"
+        awk '
+            /^== Preface[[:space:]]*$/   { next }
+            /^== Feedback[[:space:]]*$/  { in_feedback = 1; next }
+            in_feedback && /^== /        { in_feedback = 0 }
+            !in_feedback                 { print }
+        ' "$preface" >> "$tmp_doc"
     fi
 
     # Acknowledgements from index.adoc (keep == level, strip comment/attribute lines)
@@ -104,12 +109,25 @@ restructure_module() {
         }
     ' "$index" >> "$tmp_idx"
 
+    # Append Feedback section from preface to landing page
+    if [ -f "$preface" ]; then
+        local feedback
+        feedback=$(awk '
+            /^== Feedback[[:space:]]*$/ { in_feedback = 1; print; next }
+            in_feedback && /^== /       { exit }
+            in_feedback                 { print }
+        ' "$preface")
+        if [ -n "$feedback" ]; then
+            printf '\n%s\n' "$feedback" >> "$tmp_idx"
+        fi
+    fi
+
     mv "$tmp_idx" "$index"
 
     # ---------------------------------------------------------------
     # 4. nav.adoc  –  append Document Information as last entry
     # ---------------------------------------------------------------
-    if [ -f "$nav" ] && ! grep -q 'document_information\.adoc' "$nav"; then
+    if [ -f "$nav" ] && ! grep -q 'appendix\.adoc' "$nav"; then
         # Strip trailing blank lines, append entry, add trailing newline
         awk '
             { lines[NR] = $0 }
@@ -117,7 +135,7 @@ restructure_module() {
                 end = NR
                 while (end > 0 && lines[end] == "") end--
                 for (i = 1; i <= end; i++) print lines[i]
-                print "** xref:document_information.adoc[Document Information]"
+                print "** xref:appendix.adoc[Appendix]"
                 print ""
             }
         ' "$nav" > "$nav.tmp" && mv "$nav.tmp" "$nav"

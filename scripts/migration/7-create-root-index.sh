@@ -3,6 +3,7 @@ set -e
 
 # Usage: 7-create-root-index.sh <COMPONENT_NAME> <module1> <module2> ...
 
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 COMPONENT_NAME="$1"
 shift
 MODULES="$@"
@@ -51,20 +52,39 @@ EOF
   exit 0
 fi
 
+# Extract a single-line micro summary override from the resource file
+extract_micro() {
+  local module="$1"
+  local resource="$SCRIPT_DIR/../resources/abstracts/${COMPONENT_NAME}.adoc"
+  [ -f "$resource" ] || return 0
+  awk -v section="micro:$module" '
+    /^\/\/ @/ { in_section = (substr($0, 5) == section); next }
+    in_section && /[^[:space:]]/ { print; exit }
+  ' "$resource"
+}
+
 MANIFEST_TITLE=$(jq -r '.title // empty' manifest.json)
 DESC="${COMPONENT_DESC[$COMPONENT_NAME]}"
 COMPONENT_STATUS=$(jq -r '.status // "STABLE"' manifest.json | tr '[:lower:]' '[:upper:]')
 COMPONENT_STATUS_CLASS=$(echo "$COMPONENT_STATUS" | tr '[:upper:]' '[:lower:]')
 COMPONENT_STATUS_BADGE="[.spec-status.spec-status-${COMPONENT_STATUS_CLASS}]#${COMPONENT_STATUS}#"
 
+# Determine version display: prefix "v" only for numeric versions (e.g. 2.4.0), not "development"
+PLAYBOOK="$SCRIPT_DIR/../../antora-playbook-local.yml"
+COMPONENT_VERSION=$(grep -A5 "specifications-${COMPONENT_NAME}" "$PLAYBOOK" 2>/dev/null \
+  | grep "version:" | head -1 | sed 's/.*version:[[:space:]]*//' | tr -d "\"'")
+if [[ "$COMPONENT_VERSION" =~ ^[0-9] ]]; then
+  VERSION_DISPLAY="v{page-component-version}"
+else
+  VERSION_DISPLAY="{page-component-version}"
+fi
+
 # Build index.adoc
 {
   echo "= $MANIFEST_TITLE"
   echo ""
-  echo "[.specmeta%autowidth,cols=\"1,1\",frame=all,grid=all]"
-  echo "|==="
-  echo "| *Release*: {page-component-version} | *Status*: $COMPONENT_STATUS_BADGE"
-  echo "|==="
+  echo "[.spec-meta-line]"
+  echo "Status: $COMPONENT_STATUS_BADGE  Release: [.release-tag]#${VERSION_DISPLAY}#"
   echo ""
 
   if [ -f "modules/ROOT/images/openehr_block_diagram.svg" ]; then
@@ -84,6 +104,8 @@ COMPONENT_STATUS_BADGE="[.spec-status.spec-status-${COMPONENT_STATUS_CLASS}]#${C
       MODULE_TITLE=$(jq -r ".specifications[] | select(.id == \"$mod_id\") | .title" manifest.json)
       SPEC_STATUS=$(jq -r ".specifications[] | select(.id == \"$mod_id\") | .spec_status" manifest.json)
       MICRO=$(jq -r ".specifications[] | select(.id == \"$mod_id\") | .micro_summary // empty" manifest.json)
+      MICRO_OVERRIDE=$(extract_micro "$mod_id")
+      [ -n "$MICRO_OVERRIDE" ] && MICRO="$MICRO_OVERRIDE"
       SPEC_STATUS_CLASS=$(echo "$SPEC_STATUS" | tr '[:upper:]' '[:lower:]')
       STATUS_BADGE=" [.spec-status.spec-status-${SPEC_STATUS_CLASS}]#${SPEC_STATUS}#"
       if [ -n "$MICRO" ]; then

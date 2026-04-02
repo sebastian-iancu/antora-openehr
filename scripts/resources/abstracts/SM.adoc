@@ -2,10 +2,19 @@
 Abstract service interfaces for a complete openEHR platform, covering EHR, Query, Definitions, Demographics, Admin, and Terminology services. Includes the Simplified Information Model (SIM-B) and serial data formats for REST contexts.
 
 // @spec:openehr_platform
-Abstract service interface model for a complete openEHR platform. Defines formal service interfaces for EHR, Query, Definitions, Demographics, Admin, and Terminology access, independent of transport technology.
+Abstract service interface model for a complete openEHR platform. Defines formal service interfaces for EHR, Query, Definitions, Demographics, Admin, and Terminology access, independent of transport technology. The service model is expressed in terms of method signatures, pre/post-conditions, and typed parameters using the openEHR BMM type system. It provides the normative contract that REST API, messaging, and in-process implementations must satisfy to be considered conformant.
 
 // @spec:simplified_im_b
-A reduced-complexity data model intended for integrators and application developers who need to work with openEHR data over REST without implementing the full Reference Model. SIM-B trades some expressiveness for a flatter, more directly serialisable structure, lowering the tooling and implementation overhead for common integration scenarios.
+A reduced-complexity data model intended for integrators and application developers who need to work with openEHR data over REST without implementing the full Reference Model. SIM-B trades some expressiveness for a flatter, more directly serialisable structure, lowering the tooling and implementation overhead for common integration scenarios. SIM-B types map directly to JSON-serialisable structures, making them suitable for use with the openEHR simplified REST format without an intermediate transformation step. It is intended for integration scenarios such as mobile health apps, lightweight EHR viewers, and analytics pipelines that do not require full RM fidelity.
 
 // @spec:serial_data_formats
-Serialisation formats for openEHR data in REST API contexts. Specifies JSON and XML conventions for encoding RM instances in request and response payloads, aligned with the openEHR REST API specifications.
+Serialisation formats for openEHR data in REST API contexts. Specifies JSON and XML conventions for encoding RM instances in request and response payloads, aligned with the openEHR REST API specifications. The specification covers canonical JSON and XML as well as simplified variants, with transformation rules between them and the in-memory RM object graph. Implementers building REST API clients or servers use this specification together with the ITS-JSON and ITS-XML schemas to ensure interoperable payload encoding.
+
+// @micro:openehr_platform
+Abstract interfaces for EHR, Query, Definitions, Demographics, Admin, and Terminology services
+
+// @micro:simplified_im_b
+Reduced-complexity data model for REST integrators without the full Reference Model
+
+// @micro:serial_data_formats
+JSON and XML encoding conventions for RM instances in REST API payloads

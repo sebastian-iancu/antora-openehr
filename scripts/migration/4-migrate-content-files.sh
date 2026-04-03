@@ -1,6 +1,9 @@
 #!/bin/bash
 set -euo pipefail
 
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+source "$SCRIPT_DIR/_lib.sh"
+
 MODULES="$@"
 
 # -------------------------------------------------------------------
@@ -31,11 +34,7 @@ copy_master_numbered() {
         local base new
 
         base="$(basename "$src")"
-        # Strip prefixes:
-        #   masterNN-something.adoc   -> something.adoc
-        #   masterNN.NN-something.adoc   -> something.adoc
-        #   masterAppA-something.adoc -> something.adoc
-        new="$(echo "$base" | sed -E 's/^master[0-9.]+-//; s/^masterApp[A-Z]-//')"
+        new="$(strip_master_prefix "$base")"
 
         # skip things handled as partials
         case "$new" in
@@ -52,37 +51,24 @@ copy_included_non_master() {
   local master_file="docs/$module/master.adoc"
 
   [ -f "$master_file" ] || return 0
-  # find all 'include::' lines after ':sectnums:' or ':sectanchors:' or '-- CHAPTERS --'
-  awk 'found {print} /:sectnums:|:sectanchors:|-- CHAPTERS --/{found=1}' "$master_file" \
-    | grep '^include::' 2>/dev/null \
-    | sed -E 's/^include::([^[]+)\[.*/\1/' \
-    | while read -r target; do
-        [ -z "$target" ] && continue
 
-        # skip paths and attribute-based includes
-        case "$target" in
-          *"/"*|*"{"* ) continue ;;
-        esac
+  list_chapter_includes "$master_file" | while read -r target; do
+    # Skip master-prefixed files (handled by copy_master_numbered)
+    case "$target" in
+      master[0-9][0-9]-*.adoc)       continue ;;
+      master[0-9][0-9].[0-9]-*.adoc) continue ;;
+      master[0-9][0-9].[0-9][0-9]-*.adoc) continue ;;
+      masterApp[A-Z]-*.adoc)         continue ;;
+    esac
 
-        # skip things handled elsewhere (master files)
-        case "$target" in
-          manifest_vars.adoc) continue ;;
-          master[0-9][0-9]-*.adoc) continue ;;
-          master[0-9][0-9].[0-9]-*.adoc) continue ;;
-          master[0-9][0-9].[0-9][0-9]-*.adoc) continue ;;
-          masterApp[A-Z]-*.adoc) continue ;;
-          *-amendment_record.adoc|amendment_record.adoc) continue ;;
-          *-preface.adoc|preface.adoc) continue ;;
-        esac
+    local src="docs/$module/$target"
+    local dst="modules/$module/pages/$target"
 
-        local src="docs/$module/$target"
-        local dst="modules/$module/pages/$target"
-
-        if [ -f "$src" ]; then
-          echo "  • $target → pages/$target"
-          cp "$src" "$dst"
-        fi
-      done
+    if [ -f "$src" ]; then
+      echo "  • $target → pages/$target"
+      cp "$src" "$dst"
+    fi
+  done
 }
 
 migrate_preface() {
@@ -157,111 +143,6 @@ migrate_amendment_record() {
       echo "include::partial\$amendment_record.adoc[]" >> "$index_file"
     fi
   fi
-}
-
-add_front_block() {
-  local module="$1"
-  local index_file="modules/$module/pages/index.adoc"
-
-  [ -f "$index_file" ] || return 0
-
-  # Only add if module_vars has spec_status (i.e. it's a real spec, not a stub)
-  local module_vars="modules/$module/partials/module_vars.adoc"
-  grep -q "^:spec_status:" "$module_vars" 2>/dev/null || return 0
-
-  echo "  • Adding front block to index.adoc"
-
-  local tmp=$(mktemp)
-  awk '
-    /^= / && !done {
-      print
-      print ""
-      print "[.specmeta%autowidth,cols=\"1,1\",frame=all,grid=all]"
-      print "|==="
-      print "2+^h| *Issuer*: link:{openehr_specification_program}[openEHR Specification Program^]"
-      print "| *Release*: {page-component-name} {page-component-version} | *Status*: {spec_status}"
-      print "| *Revision*: {latest_issue} | *Date*: {latest_issue_date}"
-      print "2+^| *Keywords*: {keywords}"
-      print "|==="
-      print ""
-      print "image::ROOT:openehr_block_diagram.svg[openEHR components,60%,align=center]"
-      print ""
-      print "[.specmeta,cols=\"20%,80%\",frame=all,grid=all]"
-      print "|==="
-      print "2+^h| &#169; {copyright_year} The openEHR Foundation"
-      print "2+a| link:https://www.openehr.org[The openEHR Foundation^] is an independent, non-profit foundation, facilitating the sharing of health records by consumers and clinicians via open specifications, clinical models and open platform implementations."
-      print "| *Licence* a| image:https://specifications.openehr.org/images/cc-by-nd-88x31.png[CC BY-ND,88,31] Creative Commons Attribution-NoDerivs 3.0 Unported. https://creativecommons.org/licenses/by-nd/3.0/"
-      print "| *Support* a| Issues: {component_prs}[Problem Reports^] +"
-      print "Web: {openehr_specs}[specifications.openEHR.org^]"
-      print "|==="
-      done=1
-      next
-    }
-    { print }
-  ' "$index_file" > "$tmp"
-  mv "$tmp" "$index_file"
-}
-
-add_child_nav_to_index() {
-  local module="$1"
-  local index_file="modules/$module/pages/index.adoc"
-  local master_file="docs/$module/master.adoc"
-
-  [ -f "$index_file" ] || return 0
-  [ -f "$master_file" ] || return 0
-
-  echo "  • Adding child navigation to index.adoc"
-
-  # Create a temporary file for the navigation section
-  local nav_tmp=$(mktemp)
-  echo "" > "$nav_tmp"
-  echo "== Sections" >> "$nav_tmp"
-  echo "" >> "$nav_tmp"
-
-  # Extract includes from master.adoc (same logic as nav generation)
-  awk 'found {print} /:sectnums:|:sectanchors:|-- CHAPTERS --/{found=1}' "$master_file" \
-    | grep '^include::' 2>/dev/null \
-    | sed -E 's/^include::([^[]+)\[.*/\1/' \
-    | while read -r target; do
-        [ -z "$target" ] && continue
-        case "$target" in
-          *"/"*|*"{"* ) continue ;;
-          manifest_vars.adoc) continue ;;
-          *-amendment_record.adoc|amendment_record.adoc) continue ;;
-          *-preface.adoc|preface.adoc) continue ;;
-        esac
-
-        local base="${target%.adoc}"
-        base="$(echo "$base" | sed -E 's/^master[0-9.]+-//; s/^masterApp[A-Z]-//')"
-        
-        # We need the title of the page. 
-        # Since this script runs after master files are copied, we can try to get it from the page
-        local page_file="modules/$module/pages/${base}.adoc"
-        local title=""
-        if [ -f "$page_file" ]; then
-           title=$(awk '/^[[:space:]]*= / { sub(/^[[:space:]]*= /,""); print; exit }' "$page_file")
-        fi
-        [ -z "$title" ] && title=$(echo "$base" | sed 's/_/ /g' | sed 's/\b\(.\)/\u\1/g')
-
-        echo "* xref:${base}.adoc[${title}]" >> "$nav_tmp"
-      done
-  echo " " >> "$nav_tmp"
-  echo " " >> "$nav_tmp"
-
-  # Append navigation to index.adoc before References or at the end
-  # First, remove existing References and bibliography if they exist in index.adoc
-  if [ -f "$index_file" ]; then
-    # Use a temporary file to safely remove sections
-    local tmp_idx=$(mktemp)
-    # Remove lines from == References to the end of file, and also any bibliography::[]
-    # This is a bit aggressive, but we want to clean it up.
-    # Actually, simpler: just delete any line starting with == References or bibliography::[]
-    sed '/^== References/d' "$index_file" | sed '/^bibliography::\[\]/d' > "$tmp_idx"
-    mv "$tmp_idx" "$index_file"
-  fi
-
-  cat "$nav_tmp" >> "$index_file"
-  rm "$nav_tmp"
 }
 
 copy_images() {

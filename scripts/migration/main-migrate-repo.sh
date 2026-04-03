@@ -1,5 +1,5 @@
 #!/bin/bash
-set -e
+set -euo pipefail
 
 # Script to migrate openEHR specification repository to Antora structure
 # Usage: ./main-migrate-repo.sh /path/to/repo
@@ -66,7 +66,7 @@ MODULES="$("$SCRIPT_DIR/1-analyze-structure.sh")"
 "$SCRIPT_DIR/3-move-uml.sh" "$COMPONENT_NAME"
 
 # Step 4: Migrating content files (your existing script)
-"$SCRIPT_DIR/4-migrate_content_files.sh" $MODULES
+"$SCRIPT_DIR/4-migrate-content-files.sh" $MODULES
 
 # Step 4c: Fetch external grammar files and rewrite remote includes
 "$SCRIPT_DIR/4a-fetch-external-grammars.sh" "$COMPONENT_NAME" $MODULES

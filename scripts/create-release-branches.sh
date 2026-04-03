@@ -1,5 +1,5 @@
 #!/bin/bash
-set -e
+set -euo pipefail
 
 # Script to create release branches from git tags
 # Usage: ./create-release-branches.sh /path/to/repo

@@ -1,5 +1,5 @@
 #!/bin/bash
-set -e
+set -euo pipefail
 
 # Usage: step3-move-uml.sh <COMPONENT_NAME>
 # Run from repo root

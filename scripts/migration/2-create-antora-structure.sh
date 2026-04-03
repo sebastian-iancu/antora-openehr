@@ -1,5 +1,5 @@
 #!/bin/bash
-set -e
+set -euo pipefail
 
 # Usage: step2-create-antora-structure.sh <module1> <module2> ...
 

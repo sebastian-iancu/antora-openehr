@@ -1,5 +1,5 @@
 #!/bin/bash
-set -e
+set -euo pipefail
 
 # Usage: 7-create-root-index.sh <COMPONENT_NAME> <module1> <module2> ...
 

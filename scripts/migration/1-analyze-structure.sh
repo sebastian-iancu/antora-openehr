@@ -1,5 +1,5 @@
 #!/bin/bash
-set -e
+set -euo pipefail
 
 # Usage: step1-analyze-structure.sh
 # Run from repo root (expects docs/)

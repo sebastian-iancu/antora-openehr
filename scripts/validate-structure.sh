@@ -1,5 +1,5 @@
 #!/bin/bash
-set -e
+set -euo pipefail
 
 # Script to validate Antora structure in a repository
 # Usage: ./validate-structure.sh /path/to/repo

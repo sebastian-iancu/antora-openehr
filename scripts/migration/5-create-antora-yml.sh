@@ -1,5 +1,5 @@
 #!/bin/bash
-set -e
+set -euo pipefail
 
 # Usage: step5-create-antora-yml.sh <COMPONENT_NAME> <module1> <module2> ...
 

@@ -1,6 +1,9 @@
 #!/bin/bash
 set -euo pipefail
 
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+source "$SCRIPT_DIR/_lib.sh"
+
 COMPONENT_NAME="$1"
 shift
 
@@ -145,9 +148,8 @@ inject_per_page_pkg_overrides() {
     if [[ "$line" =~ ^include::([^[:space:]\[]+)\.adoc ]]; then
       local src_file
       src_file=$(basename "${BASH_REMATCH[1]}.adoc")
-      # Derive page name using same rename rule as step 4
       local page_name
-      page_name=$(echo "$src_file" | sed -E 's/^master[0-9.]+-//; s/^masterApp[A-Z]-//')
+      page_name="$(strip_master_prefix "$src_file")"
       local page_path="$pages_dir/$page_name"
 
       [ -f "$page_path" ] || continue

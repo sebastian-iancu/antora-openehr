@@ -4,6 +4,10 @@ set -euo pipefail
 # Rewrites class cross-references to Antora xref macros
 # using class_* attributes from global-vars.yml.
 #
+# REMOVAL CANDIDATE: This entire script can be removed once the UML class
+# regeneration script is in place — regenerated .adoc files will already
+# contain correct xref:{class_*} macros.
+#
 # Handles three patterns:
 #
 #   1. AsciiDoc internal refs:

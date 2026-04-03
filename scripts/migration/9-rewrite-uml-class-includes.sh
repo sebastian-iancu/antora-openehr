@@ -1,6 +1,13 @@
 #!/bin/bash
 set -euo pipefail
 
+# NOTE: The class-include rewrites in this script are candidates for removal
+# once a UML class regeneration script is in place (which will produce files
+# with correct Antora paths). The diagram-path rewrites will still be needed.
+
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+source "$SCRIPT_DIR/_lib.sh"
+
 COMPONENT_NAME="$1"
 shift
 
@@ -21,13 +28,8 @@ rewrite_uml_class_includes_for_module() {
     #
     # CLASS DEFINITIONS — flat layout: {uml_export_dir}/classes/X.adoc
     #
-    prefix=""
-    if [[ "$COMPONENT_NAME" == "AM" ]]; then
-      case "$module" in
-        AOM2|OPT2|ADL2) prefix="aom2." ;;
-        *)              prefix="aom14." ;;
-      esac
-    fi
+    local prefix
+    prefix="$(get_uml_prefix "$COMPONENT_NAME" "$module")"
     sed -i "s|include::{uml_export_dir}/classes/|include::ROOT:partial\$classes/${prefix}|g" "$f"
 
     #

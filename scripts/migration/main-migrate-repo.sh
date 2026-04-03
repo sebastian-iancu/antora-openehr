@@ -75,12 +75,12 @@ MODULES="$("$SCRIPT_DIR/1-analyze-structure.sh")"
 "$SCRIPT_DIR/5-create-antora-yml.sh" "$COMPONENT_NAME" $MODULES
 
 # Step 6: Create navigation files (your existing create_nav_files.sh)
-"$SCRIPT_DIR/6-create_nav_files.sh" $MODULES
+"$SCRIPT_DIR/6-create-nav-files.sh" $MODULES
 
 # Step 7: Create ROOT index page
 "$SCRIPT_DIR/7-create-root-index.sh" "$COMPONENT_NAME" $MODULES
 
-# Step 8: Create ROOT index page
+# Step 8: Apply manifest vars
 "$SCRIPT_DIR/8-apply-manifest-vars.sh" "$COMPONENT_NAME" $MODULES
 
 # Step 9: Rewrite UML class includes to ROOT partials

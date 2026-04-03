@@ -1,26 +1,10 @@
 #!/bin/bash
-set -e
+set -euo pipefail
+
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+source "$SCRIPT_DIR/_lib.sh"
 
 MODULES="$@"
-
-# -------------------------------------------------------------------
-# Helpers
-# -------------------------------------------------------------------
-
-# Turn "foo_bar" into "Foo Bar"
-to_title_case() {
-  echo "$1" \
-    | sed 's/_/ /g' \
-    | sed 's/\b\(.\)/\u\1/g'
-}
-
-# Get the first = header from a page
-get_title_from_page() {
-  local page_file="$1"
-  [ -f "$page_file" ] || { echo ""; return; }
-
-  awk '/^[[:space:]]*= / { sub(/^[[:space:]]*= /,""); print; exit }' "$page_file"
-}
 
 # -------------------------------------------------------------------
 # Extract :spec_title: from modules/$module/partials/module_vars.adoc
@@ -70,39 +54,21 @@ generate_nav_entries_from_master() {
   local master_file="docs/$module/master.adoc"
 
   [ -f "$master_file" ] || return 0
-  # find all 'include::' lines after ':sectnums:' or ':sectanchors:' or '-- CHAPTERS --'
-  awk 'found {print} /:sectnums:|:sectanchors:|-- CHAPTERS --/{found=1}' "$master_file" \
-    | grep '^include::' 2>/dev/null \
-    | sed -E 's/^include::([^[]+)\[.*/\1/' \
-    | while read -r target; do
-        [ -z "$target" ] && continue
 
-        case "$target" in
-          *"/"*|*"{"* ) continue ;;
-          *"/"*|*"{"* ) continue ;;
-          manifest_vars.adoc) continue ;;
-          *-amendment_record.adoc|amendment_record.adoc) continue ;;
-          *-preface.adoc|preface.adoc) continue ;;
-        esac
+  list_chapter_includes "$master_file" | while read -r target; do
+    local base
+    base="$(strip_master_prefix "${target%.adoc}")"
 
-        local base="${target%.adoc}"
+    local page_file="modules/$module/pages/${base}.adoc"
+    local title
 
-        # REMOVE ALL MASTER PREFIX PATTERNS
-        # masterNN-something -> something
-        # masterNN.NN-something -> something
-        # masterAppA-glossary -> glossary
-        base="$(echo "$base" | sed -E 's/^master[0-9.]+-//; s/^masterApp[A-Z]-//')"
+    title="$(get_title_from_page "$page_file")"
+    if [ -z "$title" ]; then
+      title="$(to_title_case "$base")"
+    fi
 
-        local page_file="modules/$module/pages/${base}.adoc"
-        local title
-
-        title="$(get_title_from_page "$page_file")"
-        if [ -z "$title" ]; then
-          title="$(to_title_case "$base")"
-        fi
-
-        echo "** xref:${base}.adoc[${title}]"
-      done
+    echo "** xref:${base}.adoc[${title}]"
+  done
 }
 
 

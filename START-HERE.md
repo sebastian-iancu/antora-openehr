@@ -57,7 +57,7 @@ make migrate-repo REPO=specifications-BASE
 make validate-structure REPO=specifications-BASE
 ```
 
-Note: migration now generates UML class partials via Docker image `ghcr.io/openehr/bmm-publisher`.
+Note: migration now generates UML class partials via Docker image `ghcr.io/openehr/bmm-publisher:0.4.0` (override with `BMM_PUBLISHER_IMAGE` if needed).
 If you need to run class generation by itself:
 ```bash
 make generate-uml-classes-repo REPO=specifications-BASE
@@ -110,7 +110,7 @@ make migrate-all && make validate-all
 - npm install fails → verify Node.js version (use 18 LTS if possible)
 - "antora.yml not found" → run a migration for that repository first
 - Images or includes broken → follow the adjustments in `MIGRATION-GUIDE.md`
-- UML class generation fails → verify Docker can pull `ghcr.io/openehr/bmm-publisher` and re-run migration
+- UML class generation fails → verify Docker can pull `ghcr.io/openehr/bmm-publisher:0.4.0` and re-run migration
 
 More details: see Troubleshooting sections in `MIGRATION-GUIDE.md` and `QUICK-REFERENCE.md`.
 

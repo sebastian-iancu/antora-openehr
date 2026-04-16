@@ -31,6 +31,17 @@ make migrate-repo REPO=specifications-BASE
 # Optional: run only UML class generation (bmm-publisher)
 make generate-uml-classes-repo REPO=specifications-BASE
 
+### Local BMM JSON files (override bmm-publisher bundled models)
+
+To use your own `.bmm.json` files (e.g. corrected `openehr_lang_1.0.0` / `openehr_lang_1.1.0`) instead of only the copies inside the Docker image, put them under **`computable/BMM/` at the root of that specification repository** (next to `manifest.json`), with **exact** filenames the publisher expects, for example:
+
+- `repos/specifications-LANG/computable/BMM/openehr_lang_1.0.0.bmm.json`
+- `repos/specifications-LANG/computable/BMM/openehr_lang_1.1.0.bmm.json`
+
+Migration step `3a-generate-uml-classes.sh` will copy the image’s full `/app/resources` set into a temp dir and **replace any matching names** with your files, then run `bmm-publisher` against that merged tree.
+
+Alternatively set **`BMM_RESOURCES_OVERLAY`** to an absolute path to a directory containing the same `*.bmm.json` filenames.
+
 # Validate
 make validate-structure REPO=specifications-BASE
 ```

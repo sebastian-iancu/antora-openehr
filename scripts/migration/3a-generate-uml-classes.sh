@@ -9,9 +9,52 @@ REPO_NAME="$(basename "$(pwd)")"
 MANIFEST_PATH="manifest.json"
 OUTPUT_DIR="modules/ROOT/partials/classes"
 STAGING_ROOT="modules/ROOT/partials/Adoc"
-DOCKER_IMAGE="${BMM_PUBLISHER_IMAGE:-ghcr.io/openehr/bmm-publisher}"
+# Pin default tag; override with BMM_PUBLISHER_IMAGE e.g. ghcr.io/openehr/bmm-publisher:0.4.0
+DOCKER_IMAGE="${BMM_PUBLISHER_IMAGE:-ghcr.io/openehr/bmm-publisher:0.4.0}"
 
-if [ -z "$COMPONENT_NAME" ]; then
+# Optional local BMM JSON overlays (merged on top of the image's /app/resources):
+#   - Default directory next to manifest.json: ./computable/BMM/*.bmm.json
+#   - Or explicit path: BMM_RESOURCES_OVERLAY=/path/to/dir
+# Filenames must match publisher ids, e.g. openehr_lang_1.1.0.bmm.json
+BMM_RESOURCES_MERGED_DIR=""
+
+cleanup_bmm_resources_merged_dir() {
+  if [[ -n "${BMM_RESOURCES_MERGED_DIR:-}" && -d "${BMM_RESOURCES_MERGED_DIR}" ]]; then
+    rm -rf "${BMM_RESOURCES_MERGED_DIR}"
+    BMM_RESOURCES_MERGED_DIR=""
+  fi
+}
+
+prepare_bmm_resources_overlay() {
+  local overlay=""
+  if [[ -n "${BMM_RESOURCES_OVERLAY:-}" && -d "${BMM_RESOURCES_OVERLAY}" ]]; then
+    overlay="${BMM_RESOURCES_OVERLAY}"
+  elif [[ -d "computable/BMM" ]] && compgen -G "computable/BMM/*.bmm.json" >/dev/null; then
+    overlay="$(pwd)/computable/BMM"
+  fi
+
+  if [[ -z "$overlay" ]]; then
+    return 1
+  fi
+
+  echo "→ BMM resources overlay: $overlay (merged onto image /app/resources)"
+
+  BMM_RESOURCES_MERGED_DIR="$(mktemp -d)"
+  local cid
+  cid="$(docker create --entrypoint /bin/true "$DOCKER_IMAGE")"
+  docker cp "$cid:/app/resources/." "${BMM_RESOURCES_MERGED_DIR}/"
+  docker rm "$cid" >/dev/null
+
+  local f
+  for f in "$overlay"/*.bmm.json; do
+    [[ -f "$f" ]] || continue
+    cp -f "$f" "${BMM_RESOURCES_MERGED_DIR}/"
+    echo "  • overlay $(basename "$f")"
+  done
+  return 0
+}
+
+if [[ -z "$COMPONENT_NAME" ]]; then
   echo "Usage: $0 <COMPONENT_NAME>"
   exit 1
 fi
@@ -148,6 +191,11 @@ echo "→ Repo: $REPO_NAME"
 echo "→ Component: $COMPONENT_NAME"
 echo "→ Output dir: $OUTPUT_DIR"
 
+trap cleanup_bmm_resources_merged_dir EXIT
+if prepare_bmm_resources_overlay; then
+  :
+fi
+
 for MAIN_ID in "${MAIN_IDS[@]}"; do
   if [ -n "${BMM_DEP_FILES:-}" ]; then
     DEP_IDS="${BMM_DEP_FILES}"
@@ -165,14 +213,19 @@ for MAIN_ID in "${MAIN_IDS[@]}"; do
     echo "  Dependency ids: none"
   fi
 
-  docker run --rm \
-    -v "$(pwd)/modules/ROOT/partials:/app/output" \
-    "$DOCKER_IMAGE" asciidoc "$MAIN_ID" $DEP_IDS
+  docker_run=(docker run --rm -v "$(pwd)/modules/ROOT/partials:/app/output")
+  if [[ -n "${BMM_RESOURCES_MERGED_DIR:-}" ]]; then
+    docker_run+=(-v "${BMM_RESOURCES_MERGED_DIR}:/app/resources")
+  fi
+  docker_run+=("$DOCKER_IMAGE" asciidoc "$MAIN_ID" $DEP_IDS)
+  "${docker_run[@]}"
 
   collect_generated_artifacts "$MAIN_ID" "modules/ROOT/partials"
 done
 
 validate_generated_classes "$OUTPUT_DIR"
 cleanup_staging_output
+cleanup_bmm_resources_merged_dir
+trap - EXIT
 echo "✓ Generated UML class partials in $OUTPUT_DIR"
 echo ""

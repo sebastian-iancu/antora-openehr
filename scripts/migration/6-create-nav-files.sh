@@ -55,7 +55,18 @@ generate_nav_entries_from_master() {
 
   [ -f "$master_file" ] || return 0
 
+  declare -A seen_group
+
   list_chapter_includes "$master_file" | while read -r target; do
+    if is_master_include "$target"; then
+      local group
+      group="$(chapter_group_key "$target")"
+      if [ -n "$group" ] && [ -n "${seen_group[$group]:-}" ]; then
+        continue
+      fi
+      [ -n "$group" ] && seen_group[$group]=1
+    fi
+
     local base
     base="$(strip_master_prefix "${target%.adoc}")"
 

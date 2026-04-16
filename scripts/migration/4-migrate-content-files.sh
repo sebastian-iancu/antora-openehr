@@ -27,23 +27,53 @@ copy_master() {
 
 copy_master_numbered() {
   local module="$1"
+  local master_file="docs/$module/master.adoc"
+  [ -f "$master_file" ] || return 0
 
-  # Copy all masterNN-* and masterAppA-* files, stripping the prefix
-  find "docs/$module" \( -name "master[0-9][0-9]-*.adoc" -o -name "master[0-9][0-9].[0-9]-*.adoc" -o -name "master[0-9][0-9].[0-9][0-9]-*.adoc" -o -name "masterApp[A-Z]-*.adoc" \) 2>/dev/null \
-    | while read -r src; do
-        local base new
+  mkdir -p "modules/$module/partials"
 
-        base="$(basename "$src")"
-        new="$(strip_master_prefix "$base")"
+  declare -A root_page_for_group
 
-        # skip things handled as partials
-        case "$new" in
-          amendment_record.adoc|preface.adoc) continue ;;
-        esac
+  list_chapter_includes "$master_file" | while read -r target; do
+    is_master_include "$target" || continue
 
-        echo "  • $base → pages/$new"
-        cp "$src" "modules/$module/pages/$new"
-      done
+    local src="docs/$module/$target"
+    [ -f "$src" ] || continue
+
+    local base new group root_page root_path
+    base="$(basename "$target")"
+    new="$(strip_master_prefix "$base")"
+    group="$(chapter_group_key "$target")"
+
+    # skip things handled as partials
+    case "$new" in
+      amendment_record.adoc|preface.adoc) continue ;;
+    esac
+
+    if [ -z "$group" ]; then
+      echo "  • $base → pages/$new"
+      cp "$src" "modules/$module/pages/$new"
+      continue
+    fi
+
+    if [ -z "${root_page_for_group[$group]:-}" ]; then
+      root_page_for_group[$group]="$new"
+      echo "  • $base → pages/$new"
+      cp "$src" "modules/$module/pages/$new"
+    else
+      root_page="${root_page_for_group[$group]}"
+      root_path="modules/$module/pages/$root_page"
+
+      echo "  • $base → partials/$new"
+      cp "$src" "modules/$module/partials/$new"
+      decrease_asciidoc_section_heading_one_level "modules/$module/partials/$new"
+
+      if [ -f "$root_path" ]; then
+        echo "" >> "$root_path"
+        echo "include::partial\$$new[leveloffset=+1]" >> "$root_path"
+      fi
+    fi
+  done
 }
 
 copy_included_non_master() {
@@ -54,12 +84,7 @@ copy_included_non_master() {
 
   list_chapter_includes "$master_file" | while read -r target; do
     # Skip master-prefixed files (handled by copy_master_numbered)
-    case "$target" in
-      master[0-9][0-9]-*.adoc)       continue ;;
-      master[0-9][0-9].[0-9]-*.adoc) continue ;;
-      master[0-9][0-9].[0-9][0-9]-*.adoc) continue ;;
-      masterApp[A-Z]-*.adoc)         continue ;;
-    esac
+    is_master_include "$target" && continue
 
     local src="docs/$module/$target"
     local dst="modules/$module/pages/$target"
@@ -171,16 +196,25 @@ copy_diagrams() {
 replace_diagram_and_images_uri_attr() {
   local module="$1"
   local pages_dir="modules/$module/pages"
+  local partials_dir="modules/$module/partials"
 
   [ -d "$pages_dir" ] || return 0
 
-  echo "  • Replacing {diagrams_uri} → diagrams in $pages_dir"
+  echo "  • Replacing {diagrams_uri} / {images_uri} in $module pages and partials"
 
   for f in "$pages_dir"/*.adoc; do
     [ -f "$f" ] || continue
     sed -i "s|{diagrams_uri}|diagrams|g" "$f"
     sed -i "s|{images_uri}/||g" "$f"
   done
+
+  if [ -d "$partials_dir" ]; then
+    for f in "$partials_dir"/*.adoc; do
+      [ -f "$f" ] || continue
+      sed -i "s|{diagrams_uri}|diagrams|g" "$f"
+      sed -i "s|{images_uri}/||g" "$f"
+    done
+  fi
 }
 
 function add_bibliography() {

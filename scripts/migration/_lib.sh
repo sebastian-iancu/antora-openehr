@@ -64,6 +64,58 @@ list_chapter_includes() {
 }
 
 # -------------------------------------------------------------------
+# is_master_include <target>
+#   Returns success if target matches master chapter naming.
+# -------------------------------------------------------------------
+is_master_include() {
+  local target="$1"
+  case "$target" in
+    master[0-9][0-9]-*.adoc)       return 0 ;;
+    master[0-9][0-9].[0-9]-*.adoc) return 0 ;;
+    master[0-9][0-9].[0-9][0-9]-*.adoc) return 0 ;;
+    masterApp[A-Z]-*.adoc)         return 0 ;;
+    *)                             return 1 ;;
+  esac
+}
+
+# -------------------------------------------------------------------
+# chapter_group_key <target>
+#   master07-foo.adoc      -> 07
+#   master07.01-foo.adoc   -> 07
+#   masterAppA-foo.adoc    -> APP-A-foo.adoc (unique group per appendix)
+#   non-master target      -> ""
+#
+# When a later include in the same group is migrated as a partial (included from
+# the chapter root page with leveloffset=+1), section titles in that file are
+# demoted one level via decrease_asciidoc_section_heading_one_level so e.g.
+#   == Subsection  ->  = Subsection
+# -------------------------------------------------------------------
+chapter_group_key() {
+  local target="$1"
+  if [[ "$target" =~ ^master([0-9]{2})(\.[0-9]{1,2})?- ]]; then
+    echo "${BASH_REMATCH[1]}"
+    return 0
+  fi
+  if [[ "$target" =~ ^masterApp([A-Z])-(.+)\.adoc$ ]]; then
+    echo "APP-${BASH_REMATCH[1]}-${BASH_REMATCH[2]}"
+    return 0
+  fi
+  echo ""
+}
+
+# -------------------------------------------------------------------
+# decrease_asciidoc_section_heading_one_level <file>
+#   Demotes every atx-style section title by removing one leading '='.
+#   Matches lines that start with two or more '=' followed by a space or
+#   an anchor ('[['), so lone '= Document title' lines are left unchanged.
+# -------------------------------------------------------------------
+decrease_asciidoc_section_heading_one_level() {
+  local file="$1"
+  [ -f "$file" ] || return 0
+  sed -E -i '/^={2,}(\[|[[:space:]])/s/^=//' "$file"
+}
+
+# -------------------------------------------------------------------
 # normalize_semver3 <version>
 #   "1.4" -> "1.4.0"
 #   "v1.2.0" -> "1.2.0"

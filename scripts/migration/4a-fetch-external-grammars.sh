@@ -19,12 +19,12 @@ echo "━━━━━━━━━━━━━━━━━━━━━━━━�
 # -------------------------------------------------------------------
 # Rewrite attribute-based remote grammar includes to partial$
 # Each entry: COMPONENT|MODULE_FILTER|SED_PATTERN
-# MODULE_FILTER is a regex matched against the module name (. = any)
+# MODULE_FILTER is comma-separated module list, or "." for any module.
 # -------------------------------------------------------------------
 
 REMOTE_REWRITES=(
-  "AM|ADL1.4|ADL2|OPT2|{openehr_adl_antlr_include}/adl/"
-  "AM|ADL1.4|ADL2|OPT2|{grammar_dir}/adl/"
+  "AM|ADL1.4,ADL2,OPT2|{openehr_adl_antlr_include}/adl/"
+  "AM|ADL1.4,ADL2,OPT2|{grammar_dir}/adl/"
   "PROC|.|{grammar_dir}/"
   "LANG|.|{openehr_adl_antlr_include}/adl/"
   "LANG|.|{openehr_openehr_antlr_include}/"
@@ -38,7 +38,7 @@ for entry in "${REMOTE_REWRITES[@]}"; do
     # Check module filter (pipe-separated list or . for any)
     if [[ "$mod_filter" != "." ]]; then
       match=false
-      IFS='|' read -ra allowed <<< "$mod_filter"
+      IFS=',' read -ra allowed <<< "$mod_filter"
       for a in "${allowed[@]}"; do
         [[ "$module" == "$a" ]] && match=true
       done
@@ -77,8 +77,8 @@ for module in $MODULES; do
   for page in "$pages_dir"/*.adoc; do
     [ -f "$page" ] || continue
 
-    # Find all relative grammar includes (not starting with http or {)
-    { grep -oP 'include::(?!http|\{)[^\[]+\.(g4?|jj)\[\]' "$page" 2>/dev/null || true; } | \
+    # Find relative grammar includes (not remote attr/http and not already partial$)
+    { grep -oP 'include::(?!http|\{|partial\$)[^\[]+\.(g4?|jj)\[\]' "$page" 2>/dev/null || true; } | \
     sed 's/include:://;s/\[\]//' | while read -r rel_path; do
       filename=$(basename "$rel_path")
       partials_dir="modules/$module/partials"

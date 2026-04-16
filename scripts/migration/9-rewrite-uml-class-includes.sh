@@ -1,51 +1,50 @@
 #!/bin/bash
 set -euo pipefail
 
-# NOTE: The class-include rewrites in this script are candidates for removal
-# once a UML class regeneration script is in place (which will produce files
-# with correct Antora paths). The diagram-path rewrites will still be needed.
+# Rewrites UML class include references and diagram references
+# to Antora-compatible locations.
 
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
-source "$SCRIPT_DIR/_lib.sh"
-
 COMPONENT_NAME="$1"
 shift
 
 MODULES="$@"
 
-rewrite_uml_class_includes_for_module() {
+rewrite_uml_refs_for_module() {
   local module="$1"
   local pages_dir="modules/$module/pages"
   local partials_dir="modules/$module/partials"
+  local class_prefix=""
 
-  [ -d "$pages_dir" ] && echo "→ Rewriting UML includes + diagrams in $pages_dir"
-  [ -d "$partials_dir" ] && echo "→ Rewriting UML includes + diagrams in $partials_dir"
+  # AM class files are generated with series prefixes.
+  if [[ "$COMPONENT_NAME" == "AM" ]]; then
+    case "$module" in
+      AOM2|OPT2|ADL2) class_prefix="aom2." ;;
+      *)              class_prefix="aom14." ;;
+    esac
+  fi
+
+  [ -d "$pages_dir" ] && echo "→ Rewriting UML refs in $pages_dir"
+  [ -d "$partials_dir" ] && echo "→ Rewriting UML refs in $partials_dir"
 
   # Process both pages and partials
   for f in "$pages_dir"/*.adoc "$partials_dir"/*.adoc; do
     [ -f "$f" ] || continue
 
     #
-    # CLASS DEFINITIONS — flat layout: {uml_export_dir}/classes/X.adoc
+    # UML CLASS INCLUDES — normalize legacy include patterns to ROOT partials
+    # Generated bmm class files are now promoted under ROOT/partials/classes.
     #
-    local prefix
-    prefix="$(get_uml_prefix "$COMPONENT_NAME" "$module")"
-    sed -i "s|include::{uml_export_dir}/classes/|include::ROOT:partial\$classes/${prefix}|g" "$f"
-
-    #
-    # CLASS DEFINITIONS — nested layout: {uml_export_dir}/SUBDIR/classes/X.adoc
-    # and bare path variant: ../UML/SUBDIR/classes/X.adoc
-    #
-    perl -i -pe '
-      s!include::(?:\{uml_export_dir\}|\.\./UML)/([^/]+)/classes/!
-        my $sub = lc($1); $sub =~ s/\.//g;
-        "include::ROOT:partial\$classes/$sub."!ge
-    ' "$f"
-
-    #
-    # CLASS DEFINITIONS — bare flat path: ../UML/classes/X.adoc
-    #
-    sed -i "s|include::../UML/classes/|include::ROOT:partial\$classes/${prefix}|g" "$f"
+    sed -i "s|include::{uml_export_dir}/classes/|include::ROOT:partial\$classes/${class_prefix}|g" "$f"
+    sed -i "s|include::../UML/classes/|include::ROOT:partial\$classes/${class_prefix}|g" "$f"
+    # Handle optional nested UML export paths, with optional {pkg} prefix.
+    perl -i -pe "s!include::(?:\\{uml_export_dir\\}|\\.\\./UML)(?:/[^/\\[]+)?/classes/(?:\\{pkg\\})?([^/\\[]+)!include::ROOT:partial\\\$classes/${class_prefix}\$1!g" "$f"
+    # If simple replacement matched, remove any remaining {pkg} token,
+    # including the AM-prefixed form (e.g. aom2.{pkg}class.adoc).
+    sed -i "s|include::ROOT:partial\$classes/{pkg}|include::ROOT:partial\$classes/|g" "$f"
+    sed -i "s|partial\$classes/aom14.{pkg}|partial\$classes/aom14.|g" "$f"
+    sed -i "s|partial\$classes/aom2.{pkg}|partial\$classes/aom2.|g" "$f"
+    perl -i -pe 's|(include::ROOT:partial\$classes/[^[]*)\{pkg\}|$1|g' "$f"
 
     #
     # UML DIAGRAMS — all known diagram URI attributes → ROOT:uml/
@@ -81,11 +80,11 @@ rewrite_uml_class_includes_for_module() {
   done
 }
 
-echo "Step 9: Rewriting UML class includes & diagram references..."
+echo "Step 9: Rewriting UML class + diagram references..."
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 
 for module in $MODULES; do
-  rewrite_uml_class_includes_for_module "$module"
+  rewrite_uml_refs_for_module "$module"
 done
 
 echo ""

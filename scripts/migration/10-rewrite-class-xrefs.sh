@@ -1,12 +1,8 @@
 #!/bin/bash
 set -euo pipefail
 
-# Rewrites class cross-references to Antora xref macros
+# Rewrites legacy class cross-references in module pages to Antora xref macros
 # using class_* attributes from global-vars.yml.
-#
-# REMOVAL CANDIDATE: This entire script can be removed once the UML class
-# regeneration script is in place — regenerated .adoc files will already
-# contain correct xref:{class_*} macros.
 #
 # Handles three patterns:
 #
@@ -46,19 +42,28 @@ rewrite_xrefs_in_file() {
 
   # Pattern 3: https://specifications.openehr.org/releases/.../spec.html#_foo_bar_class[Text]
   sed -i 's|https://specifications\.openehr\.org/releases/[^#]*#_\([a-z0-9_]*\)_class\[\([^]]*\)\]|xref:{class_\1}[\2]|g' "$f"
+
+  # Pattern 4: xref:...#_foo_bar_class[Text]
+  sed -i 's|xref:[^#]*#_\([a-z0-9_]*\)_class\[\([^]]*\)\]|xref:{class_\1}[\2]|g' "$f"
+
+  # Pattern 4b: xref:...#_foo_bar_enumeration[Text]
+  sed -i 's|xref:[^#]*#_\([a-z0-9_]*\)_enumeration\[\([^]]*\)\]|xref:{class_\1}[\2]|g' "$f"
 }
 
 echo "Step 10: Rewriting class cross-references..."
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 
-# Process class partials
-CLASSES_DIR="modules/ROOT/partials/classes"
-if [ -d "$CLASSES_DIR" ]; then
-  for f in "$CLASSES_DIR"/*.adoc; do
+# Process ROOT partials (except class partials)
+ROOT_PARTIALS_DIR="modules/ROOT/partials"
+if [ -d "$ROOT_PARTIALS_DIR" ]; then
+  while IFS= read -r f; do
     [ -f "$f" ] || continue
+    case "$f" in
+      */classes/*) continue ;;
+    esac
     rewrite_xrefs_in_file "$f"
-  done
-  echo "✓ Rewrote class cross-references in $CLASSES_DIR"
+  done < <(find "$ROOT_PARTIALS_DIR" -name "*.adoc" 2>/dev/null)
+  echo "✓ Rewrote class cross-references in ROOT partials"
 fi
 
 # Process all pages in all modules

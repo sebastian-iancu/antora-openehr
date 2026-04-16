@@ -28,6 +28,9 @@ cd repos/specifications-BASE
 # Perform actual migration
 make migrate-repo REPO=specifications-BASE
 
+# Optional: run only UML class generation (bmm-publisher)
+make generate-uml-classes-repo REPO=specifications-BASE
+
 # Validate
 make validate-structure REPO=specifications-BASE
 ```

@@ -1,5 +1,6 @@
 .PHONY: help build build-local clean preview all \
-        install create-branches migrate-repo validate-structure clone-repos
+        install create-branches migrate-repo validate-structure clone-repos \
+        generate-uml-classes-repo generate-uml-classes-all
 
 # Default target
 .DEFAULT_GOAL := help
@@ -16,8 +17,8 @@ REPOS_DIR := repos
 BUILD_DIR := build
 SPECS_REPOS := specifications-BASE specifications-RM specifications-AM \
                specifications-LANG specifications-SM specifications-QUERY \
-               specifications-PROC specifications-CDS specifications-CNF \
-               specifications-ITS-REST specifications-ITS-JSON specifications-ITS-XML specifications-ITS-BMM
+			   specifications-PROC specifications-CDS specifications-CNF \
+		  	   specifications-ITS-REST specifications-ITS-JSON specifications-ITS-XML specifications-ITS-BMM
 ADL_ANTLR_REPO := https://github.com/openEHR/adl-antlr.git
 ADL_ANTLR_DIR  := $(REPOS_DIR)/adl-antlr
 ADL_ANTLR_SRC  := $(ADL_ANTLR_DIR)/src/main/antlr/adl
@@ -170,6 +171,25 @@ migrate-all: ## Migrate all repositories to Antora structure
 	done
 	@$(MAKE) update-grammars
 	@echo "$(GREEN)Done migrating all repositories.$(NC)"
+
+generate-uml-classes-repo: ## Generate ROOT UML class partials via bmm-publisher (usage: make generate-uml-classes-repo REPO=specifications-BASE)
+	@if [ -z "$(REPO)" ]; then \
+		echo "$(RED)Error: REPO variable not set. Usage: make generate-uml-classes-repo REPO=specifications-BASE$(NC)"; \
+		exit 1; \
+	fi
+	@echo "$(GREEN)Generating UML classes for $(REPO)...$(NC)"
+	@repo_path="$(REPOS_DIR)/$(REPO)"; \
+	component="$${repo_path##*/}"; \
+	component="$${component#specifications-}"; \
+	cd "$$repo_path" && ../../scripts/migration/3a-generate-uml-classes.sh "$$component"
+
+generate-uml-classes-all: ## Generate ROOT UML class partials for all repositories via bmm-publisher
+	@echo "$(GREEN)Generating UML classes for all repositories...$(NC)"
+	@for repo in $(SPECS_REPOS); do \
+		echo "$(CYAN)Generating UML classes for $$repo...$(NC)"; \
+		make generate-uml-classes-repo REPO=$$repo; \
+	done
+	@echo "$(GREEN)Done generating UML classes.$(NC)"
 
 validate-structure: ## Validate Antora structure in a repository (usage: make validate-structure REPO=specifications-BASE)
 	@if [ -z "$(REPO)" ]; then \

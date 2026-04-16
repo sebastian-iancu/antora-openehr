@@ -62,8 +62,11 @@ MODULES="$("$SCRIPT_DIR/1-analyze-structure.sh")"
 # Step 2: Create Antora directory structure
 "$SCRIPT_DIR/2-create-antora-structure.sh" $MODULES
 
-# Step 3: Move UML content into ROOT
-"$SCRIPT_DIR/3-move-uml.sh" "$COMPONENT_NAME"
+# Step 3: Move UML diagram assets into ROOT
+"$SCRIPT_DIR/3-move-uml.sh"
+
+# Step 3a: Generate Antora-ready UML class partials via bmm-publisher
+"$SCRIPT_DIR/3a-generate-uml-classes.sh" "$COMPONENT_NAME"
 
 # Step 4: Migrating content files (your existing script)
 "$SCRIPT_DIR/4-migrate-content-files.sh" $MODULES
@@ -83,7 +86,7 @@ MODULES="$("$SCRIPT_DIR/1-analyze-structure.sh")"
 # Step 8: Apply manifest vars
 "$SCRIPT_DIR/8-apply-manifest-vars.sh" "$COMPONENT_NAME" $MODULES
 
-# Step 9: Rewrite UML class includes to ROOT partials
+# Step 9: Rewrite UML diagram references
 "$SCRIPT_DIR/9-rewrite-uml-class-includes.sh" "$COMPONENT_NAME" $MODULES
 
 # Step 10: Rewrite internal class cross-references to Antora xrefs

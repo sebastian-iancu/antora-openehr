@@ -64,20 +64,50 @@ list_chapter_includes() {
 }
 
 # -------------------------------------------------------------------
-# get_uml_prefix <component_name> <module_name>
-#   Returns the filename prefix used for UML class partials.
-#   AM component uses aom14. / aom2. depending on module; all others
-#   return empty string.
+# normalize_semver3 <version>
+#   "1.4" -> "1.4.0"
+#   "v1.2.0" -> "1.2.0"
 # -------------------------------------------------------------------
-get_uml_prefix() {
-  local component="$1"
-  local module="$2"
+normalize_semver3() {
+  local raw="${1:-}"
+  raw="${raw#v}"
+  raw="${raw//[^0-9.]/}"
+  IFS='.' read -r major minor patch <<< "$raw"
+  major="${major:-0}"
+  minor="${minor:-0}"
+  patch="${patch:-0}"
+  echo "${major}.${minor}.${patch}"
+}
 
-  if [[ "$component" == "AM" ]]; then
-    case "$module" in
-      AOM2|OPT2|ADL2) echo "aom2." ;;
-      *)              echo "aom14." ;;
-    esac
-  fi
-  # non-AM components: no prefix (empty string)
+# -------------------------------------------------------------------
+# latest_manifest_release <manifest_json>
+#   Returns first releases[].id in manifest.json (or empty)
+# -------------------------------------------------------------------
+latest_manifest_release() {
+  local manifest_json="$1"
+  [ -f "$manifest_json" ] || { echo ""; return; }
+  jq -r '.releases[0].id // empty' "$manifest_json" 2>/dev/null || true
+}
+
+# -------------------------------------------------------------------
+# manifest_has_release <manifest_json> <version>
+#   Returns success if releases[].id contains version
+# -------------------------------------------------------------------
+manifest_has_release() {
+  local manifest_json="$1"
+  local version="$2"
+  [ -f "$manifest_json" ] || return 1
+  jq -e --arg version "$version" '.releases[]? | select(.id == $version)' "$manifest_json" >/dev/null 2>&1
+}
+
+# -------------------------------------------------------------------
+# to_bmm_id <component> <version>
+#   BASE + 1.3.0 -> openehr_base_1.3.0
+# -------------------------------------------------------------------
+to_bmm_id() {
+  local component="$1"
+  local version="$2"
+  local lc
+  lc="$(echo "$component" | tr '[:upper:]' '[:lower:]')"
+  echo "openehr_${lc}_$(normalize_semver3 "$version")"
 }

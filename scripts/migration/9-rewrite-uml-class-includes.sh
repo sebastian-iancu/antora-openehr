@@ -46,6 +46,12 @@ rewrite_uml_refs_for_module() {
     sed -i "s|partial\$classes/aom2.{pkg}|partial\$classes/aom2.|g" "$f"
     perl -i -pe 's|(include::ROOT:partial\$classes/[^[]*)\{pkg\}|$1|g' "$f"
 
+    # AM: generated class partials start at "==="; when included inside class
+    # definition chapters, demote by one heading level to avoid sequence warnings.
+    if [[ "$COMPONENT_NAME" == "AM" ]]; then
+      perl -i -pe 's|include::ROOT:partial\$classes/([^\[]+)\[\]|include::ROOT:partial\$classes/${1}[leveloffset=-1]|g' "$f"
+    fi
+
     #
     # UML DIAGRAMS — all known diagram URI attributes → ROOT:uml/
     #

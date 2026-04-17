@@ -3,7 +3,8 @@ set -euo pipefail
 
 # Step 12: Escape literal curly-brace expressions that Asciidoctor
 # misparses as attribute references in ADL/grammar prose.
-# Targets patterns like {0}, {1}, {0..1}, {m..n}, {*} in any module page.
+# Targets patterns like {0}, {1}, {0..1}, {m..n}, {*} in module pages
+# and module partials (but not generated bmm-publisher class partials).
 #
 # Only runs for AM and LANG components; a no-op for all others.
 
@@ -22,10 +23,13 @@ echo "━━━━━━━━━━━━━━━━━━━━━━━━�
 COUNT=0
 for module in $MODULES; do
   pages_dir="modules/$module/pages"
-  [ -d "$pages_dir" ] || continue
+  partials_dir="modules/$module/partials"
 
-  for f in "$pages_dir"/*.adoc; do
+  for f in "$pages_dir"/*.adoc "$partials_dir"/*.adoc; do
     [ -f "$f" ] || continue
+    case "$f" in
+      */ROOT/partials/classes/*) continue ;;
+    esac
 
     # Only process files that actually contain unescaped brace patterns
     if grep -qE '\{[0-9*mn](\.\.[0-9*n])?\}' "$f" 2>/dev/null; then

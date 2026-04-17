@@ -1,7 +1,9 @@
 #!/bin/bash
 set -euo pipefail
 
-# Script to create release branches from git tags and a development branch from master.
+# Script to create release branches from tags and development from master.
+# For migration development reruns, existing local branches are force-reset to
+# canonical refs (release/* -> matching tag, development -> origin/master or master).
 # Usage: ./create-release-branches.sh /path/to/repo
 
 REPO_PATH="$1"
@@ -27,6 +29,7 @@ fi
 
 echo "Processing repository: $(basename $REPO_PATH)"
 echo "=============================================="
+echo "Mode: canonical reset (existing local branches may be force-updated)"
 
 # Fetch tags and remote heads so origin/master is available for development
 echo "Fetching tags and remote refs..."
@@ -35,6 +38,7 @@ git fetch origin 2>/dev/null || true
 
 # Get all tags that look like version numbers (e.g., Release-1.0.2, v1.0.2, 1.0.2)
 TAGS=$(git tag -l | grep -E '(Release-|v)?[0-9]+\.[0-9]+\.[0-9]+(v[0-9]+)?' || true)
+CURRENT_BRANCH="$(git rev-parse --abbrev-ref HEAD 2>/dev/null || echo "")"
 
 if [ -z "$TAGS" ]; then
     echo "No version tags found in repository (skipping release/* branches)"
@@ -52,10 +56,14 @@ else
         # Create branch name
         BRANCH_NAME="release/$VERSION"
 
-        # Create or update branch without touching the working directory
+        # Create or force-reset branch without touching the working directory
         if git show-ref --verify --quiet "refs/heads/$BRANCH_NAME"; then
-            echo "✓ Branch $BRANCH_NAME already exists, updating to $TAG"
-            git branch -f "$BRANCH_NAME" "$TAG"
+            echo "↻ Resetting existing $BRANCH_NAME to tag $TAG"
+            if [ "$CURRENT_BRANCH" = "$BRANCH_NAME" ]; then
+                git reset --hard "$TAG" >/dev/null
+            else
+                git branch -f "$BRANCH_NAME" "$TAG"
+            fi
         else
             echo "→ Creating branch $BRANCH_NAME from tag $TAG"
             git branch "$BRANCH_NAME" "$TAG"
@@ -79,8 +87,12 @@ fi
 
 if [ -n "$MASTER_REF" ]; then
     if git show-ref --verify --quiet refs/heads/development; then
-        echo "✓ Branch development exists, updating to $MASTER_REF"
-        git branch -f development "$MASTER_REF"
+        echo "↻ Resetting existing development to $MASTER_REF"
+        if [ "$CURRENT_BRANCH" = "development" ]; then
+            git reset --hard "$MASTER_REF" >/dev/null
+        else
+            git branch -f development "$MASTER_REF"
+        fi
     else
         echo "→ Creating branch development from $MASTER_REF"
         git branch development "$MASTER_REF"

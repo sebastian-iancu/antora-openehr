@@ -51,7 +51,8 @@ EOF
 
 generate_nav_entries_from_master() {
   local module="$1"
-  local master_file="docs/$module/master.adoc"
+  local master_file
+  master_file="$(resolve_module_master_source "$module")"
 
   [ -f "$master_file" ] || return 0
 

@@ -22,24 +22,28 @@ get_manifest_src_for_module() {
     manifest_src="docs/$module/manifest_vars.adoc"
   elif [ -f "docs/manifest_vars.adoc" ]; then
     manifest_src="docs/manifest_vars.adoc"
-  elif [ -f "docs/$module/master.adoc" ]; then
-    # Generate manifest_vars.adoc into modules/ — never touch docs/
-    local generated="modules/$module/partials/manifest_vars.adoc"
-    mkdir -p "modules/$module/partials"
-    local spec_title copyright_year spec_status keywords description
-    spec_title=$(grep -m 1 "^=" "docs/$module/master.adoc" | sed 's/^= //')
-    copyright_year=$(grep -m 1 ":copyright_year:" "docs/$module/master.adoc" | cut -d' ' -f2-)
-    spec_status=$(grep -m 1 ":spec_status:" "docs/$module/master.adoc" | cut -d' ' -f2-)
-    keywords=$(grep -m 1 ":keywords:" "docs/$module/master.adoc" | cut -d' ' -f2-)
-    description=$(grep -m 1 ":description:" "docs/$module/master.adoc" | cut -d' ' -f2-)
-    {
-      echo ":spec_title: $spec_title"
-      echo ":copyright_year: $copyright_year"
-      echo ":spec_status: $spec_status"
-      echo ":keywords: $keywords"
-      echo ":description: $description"
-    } > "$generated"
-    manifest_src="$generated"
+  else
+    local ms
+    ms="$(resolve_module_master_source "$module")"
+    if [ -n "$ms" ] && [ -f "$ms" ]; then
+      # Generate manifest_vars.adoc into modules/ — source is migrated index (was master.adoc)
+      local generated="modules/$module/partials/manifest_vars.adoc"
+      mkdir -p "modules/$module/partials"
+      local spec_title copyright_year spec_status keywords description
+      spec_title=$(grep -m 1 "^=" "$ms" | sed 's/^= //')
+      copyright_year=$(grep -m 1 ":copyright_year:" "$ms" | cut -d' ' -f2-)
+      spec_status=$(grep -m 1 ":spec_status:" "$ms" | cut -d' ' -f2-)
+      keywords=$(grep -m 1 ":keywords:" "$ms" | cut -d' ' -f2-)
+      description=$(grep -m 1 ":description:" "$ms" | cut -d' ' -f2-)
+      {
+        echo ":spec_title: $spec_title"
+        echo ":copyright_year: $copyright_year"
+        echo ":spec_status: $spec_status"
+        echo ":keywords: $keywords"
+        echo ":description: $description"
+      } > "$generated"
+      manifest_src="$generated"
+    fi
   fi
 
   echo "$manifest_src"
@@ -109,12 +113,13 @@ include_module_vars_to_pages() {
 install_pkg_var() {
   local module="$1"
   local module_vars="modules/$module/partials/module_vars.adoc"
-  local master="docs/$module/master.adoc"
+  local master
+  master="$(resolve_module_master_source "$module")"
 
   [ -f "$module_vars" ] || return 0
   [ -f "$master" ] || return 0
 
-  # Read :pkg: directly from master.adoc where it is authoritatively defined
+  # Read :pkg: from migrated index (was master.adoc) where it is authoritatively defined
   local pkg_value
   pkg_value=$(grep -m1 '^:pkg:' "$master" | sed 's/^:pkg: *//' || true)
   [ -z "$pkg_value" ] && return 0
@@ -259,9 +264,13 @@ extract_amendment_vars() {
 
   [ -f "$module_vars" ] || return 0
 
-  # Find amendment record source
+  # Find amendment record source (migrated to partials or legacy under docs/)
   local amend_file
-  amend_file=$(find "docs/$module" -name "*amendment_record.adoc" 2>/dev/null | head -1)
+  if [ -f "modules/$module/partials/amendment_record.adoc" ]; then
+    amend_file="modules/$module/partials/amendment_record.adoc"
+  else
+    amend_file=$(find "docs/$module" -name "*amendment_record.adoc" 2>/dev/null | head -1)
+  fi
   [ -n "$amend_file" ] || return 0
 
   local latest_issue latest_issue_date
@@ -293,6 +302,11 @@ echo "━━━━━━━━━━━━━━━━━━━━━━━━�
 
 for module in $MODULES; do
   apply_manifest_vars "$module"
+done
+
+# Snapshots were only for nav + pkg lineage (step 6 / inject); drop before later steps
+for module in $MODULES; do
+  rm -f "modules/$module/partials/.migration_master_snapshot.adoc"
 done
 
 echo ""

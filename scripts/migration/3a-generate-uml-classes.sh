@@ -157,6 +157,83 @@ cleanup_staging_output() {
   fi
 }
 
+is_tracked_path() {
+  local path="$1"
+  git ls-files --error-unmatch "$path" >/dev/null 2>&1
+}
+
+remove_legacy_class_file() {
+  local path="$1"
+  [ -f "$path" ] || return 0
+  if is_tracked_path "$path"; then
+    git rm -f -- "$path" >/dev/null
+  else
+    rm -f -- "$path"
+  fi
+}
+
+cleanup_empty_parent_dirs() {
+  local dir="$1"
+  while [ -n "$dir" ] && [ "$dir" != "." ] && [ "$dir" != "/" ]; do
+    rmdir "$dir" 2>/dev/null || break
+    dir="$(dirname "$dir")"
+  done
+}
+
+reconcile_legacy_class_files() {
+  local output_dir="$1"
+  local mapped=0
+  local removed=0
+
+  # Legacy class files historically lived under docs/**/UML/classes/*.adoc.
+  local -a legacy_files=()
+  while IFS= read -r f; do
+    legacy_files+=("$f")
+  done < <(find docs -type f -path "*/[Uu][Mm][Ll]/classes/*.adoc" 2>/dev/null | sort)
+
+  [ "${#legacy_files[@]}" -gt 0 ] || return 0
+
+  declare -A legacy_for_name
+  local lf base
+  for lf in "${legacy_files[@]}"; do
+    base="$(basename "$lf")"
+    # Keep first match deterministically (sorted order).
+    if [ -z "${legacy_for_name[$base]:-}" ]; then
+      legacy_for_name[$base]="$lf"
+    fi
+  done
+
+  local generated generated_tmp legacy
+  for generated in "$output_dir"/*.adoc; do
+    [ -f "$generated" ] || continue
+    base="$(basename "$generated")"
+    legacy="${legacy_for_name[$base]:-}"
+    [ -n "$legacy" ] || continue
+    [ -f "$legacy" ] || continue
+
+    generated_tmp="${generated}.generated-tmp"
+    mv -f -- "$generated" "$generated_tmp"
+    git_move_preserve_history "$legacy" "$generated"
+    mv -f -- "$generated_tmp" "$generated"
+    cleanup_empty_parent_dirs "$(dirname "$legacy")"
+    unset 'legacy_for_name[$base]'
+    mapped=$((mapped + 1))
+    echo "  • legacy class mapped via git mv: $legacy → $generated"
+  done
+
+  # Remove remaining legacy class files that do not map 1:1 to new outputs.
+  for lf in "${legacy_files[@]}"; do
+    [ -f "$lf" ] || continue
+    remove_legacy_class_file "$lf"
+    cleanup_empty_parent_dirs "$(dirname "$lf")"
+    removed=$((removed + 1))
+  done
+
+  if [ "$mapped" -gt 0 ] || [ "$removed" -gt 0 ]; then
+    echo "→ Legacy UML class cleanup: mapped=$mapped, removed=$removed"
+  fi
+}
+
 echo "Step 3a: Generating UML class partials via bmm-publisher..."
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 
@@ -224,6 +301,7 @@ for MAIN_ID in "${MAIN_IDS[@]}"; do
 done
 
 validate_generated_classes "$OUTPUT_DIR"
+reconcile_legacy_class_files "$OUTPUT_DIR"
 cleanup_staging_output
 cleanup_bmm_resources_merged_dir
 trap - EXIT

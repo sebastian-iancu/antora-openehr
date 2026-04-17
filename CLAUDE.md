@@ -118,7 +118,7 @@ antora-openehr/
 │   ├── references.bib           # BibTeX bibliography for asciidoctor-bibtex
 │   └── component_vars.adoc      # Component-level variable definitions
 ├── scripts/
-│   ├── migration/               # Migration shell scripts (numbered 1–12)
+│   ├── migration/               # Migration shell scripts (numbered 1–12); git mv for tracked sources
 │   │   └── main-migrate-repo.sh # Entry point: runs all migration steps
 │   ├── create-release-branches.sh
 │   └── validate-structure.sh

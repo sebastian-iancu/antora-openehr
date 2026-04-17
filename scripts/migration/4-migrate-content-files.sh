@@ -7,21 +7,22 @@ source "$SCRIPT_DIR/_lib.sh"
 MODULES="$@"
 
 # -------------------------------------------------------------------
-# Copy actions
+# Move actions (git mv when tracked) — include/strip of index deferred to step 8
+# so nav + manifest steps still see the legacy master structure.
 # -------------------------------------------------------------------
 
-copy_master() {
+move_master_to_index() {
   local module="$1"
   local src="docs/$module/master.adoc"
   local dst="modules/$module/pages/index.adoc"
 
   if [ -f "$src" ]; then
-    echo "  • master.adoc → pages/index.adoc"
-    cp "$src" "$dst"
-    # Remove ALL include:: lines and the openehr logo image line
-    sed -i '/^include::/d;/^image::{openehr_logo}/d' "$dst"
-    # Remove :sectnums:
-    sed -i '/^:sectnums:/d' "$dst"
+    mkdir -p "modules/$module/partials"
+    echo "  • master.adoc → pages/index.adoc (git mv)"
+    git_move_preserve_history "$src" "$dst"
+    # Snapshot for step 6 (nav) / step 8 (pkg injection); index is stripped like legacy cp+sed before partial includes
+    cp -- "$dst" "modules/$module/partials/.migration_master_snapshot.adoc"
+    strip_legacy_master_index_lines "$dst"
   fi
 }
 
@@ -52,20 +53,20 @@ copy_master_numbered() {
 
     if [ -z "$group" ]; then
       echo "  • $base → pages/$new"
-      cp "$src" "modules/$module/pages/$new"
+      git_move_preserve_history "$src" "modules/$module/pages/$new"
       continue
     fi
 
     if [ -z "${root_page_for_group[$group]:-}" ]; then
       root_page_for_group[$group]="$new"
       echo "  • $base → pages/$new"
-      cp "$src" "modules/$module/pages/$new"
+      git_move_preserve_history "$src" "modules/$module/pages/$new"
     else
       root_page="${root_page_for_group[$group]}"
       root_path="modules/$module/pages/$root_page"
 
       echo "  • $base → partials/$new"
-      cp "$src" "modules/$module/partials/$new"
+      git_move_preserve_history "$src" "modules/$module/partials/$new"
       decrease_asciidoc_section_heading_one_level "modules/$module/partials/$new"
 
       if [ -f "$root_path" ]; then
@@ -91,21 +92,22 @@ copy_included_non_master() {
 
     if [ -f "$src" ]; then
       echo "  • $target → pages/$target"
-      cp "$src" "$dst"
+      git_move_preserve_history "$src" "$dst"
     fi
   done
 }
 
 migrate_preface() {
   local module="$1"
-  local master_file="docs/$module/master.adoc"
+  local master_file
+  master_file="$(resolve_module_master_source "$module")"
   local partials_dir="modules/$module/partials"
   local index_file="modules/$module/pages/index.adoc"
 
   [ -f "$master_file" ] || return 0
   mkdir -p "$partials_dir"
 
-  # Find preface in master.adoc
+  # Find preface in migrated index (was master.adoc)
   local preface_file=$(grep -E 'include::.*preface\.adoc' "$master_file" | sed -E 's/^include::([^[]+)\[.*/\1/' | head -n 1)
 
   if [ -z "$preface_file" ]; then
@@ -119,9 +121,9 @@ migrate_preface() {
 
   if [ ! -z "$preface_file" ] && [ -f "docs/$module/$preface_file" ]; then
     echo "  • $preface_file → partials/preface.adoc"
-    
+    git_move_preserve_history "docs/$module/$preface_file" "$partials_dir/preface.adoc"
     # Change heading to level 2
-    sed -E 's/^= (Preface|Purpose)/== \1/' "docs/$module/$preface_file" > "$partials_dir/preface.adoc"
+    sed -E -i 's/^= (Preface|Purpose)/== \1/' "$partials_dir/preface.adoc"
 
     # Insert include in index.adoc after :sectnums:
     if [ -f "$index_file" ]; then
@@ -138,14 +140,15 @@ migrate_preface() {
 
 migrate_amendment_record() {
   local module="$1"
-  local master_file="docs/$module/master.adoc"
+  local master_file
+  master_file="$(resolve_module_master_source "$module")"
   local partials_dir="modules/$module/partials"
   local index_file="modules/$module/pages/index.adoc"
 
   [ -f "$master_file" ] || return 0
   mkdir -p "$partials_dir"
 
-  # Find amendment record in master.adoc
+  # Find amendment record in migrated index (was master.adoc)
   local amendment_file=$(grep -E 'include::.*amendment_record\.adoc' "$master_file" | sed -E 's/^include::([^[]+)\[.*/\1/' | head -n 1)
 
   if [ -z "$amendment_file" ]; then
@@ -157,9 +160,8 @@ migrate_amendment_record() {
 
   if [ ! -z "$amendment_file" ] && [ -f "docs/$module/$amendment_file" ]; then
     echo "  • $amendment_file → partials/amendment_record.adoc"
-
-    # Copy and change heading to level 2
-    sed 's/^= Amendment Record/\n== Amendment Record/' "docs/$module/$amendment_file" > "$partials_dir/amendment_record.adoc"
+    git_move_preserve_history "docs/$module/$amendment_file" "$partials_dir/amendment_record.adoc"
+    sed -i 's/^= Amendment Record/\n== Amendment Record/' "$partials_dir/amendment_record.adoc"
 
     # Append include at end of index.adoc
     if [ -f "$index_file" ]; then
@@ -170,22 +172,36 @@ migrate_amendment_record() {
   fi
 }
 
-copy_images() {
+move_module_images() {
   local module="$1"
 
   if [ -d "docs/$module/images" ]; then
-    echo "  • Copying images/"
-    cp -r "docs/$module/images/"* "modules/$module/images/" 2>/dev/null || true
+    echo "  • Moving images/ (git mv per file)"
+    shopt -s nullglob
+    local f
+    for f in "docs/$module/images/"*; do
+      [ -f "$f" ] || continue
+      git_move_preserve_history "$f" "modules/$module/images/$(basename "$f")"
+    done
+    shopt -u nullglob
+    rmdir "docs/$module/images" 2>/dev/null || true
   fi
 }
 
-copy_diagrams() {
+move_module_diagrams() {
   local module="$1"
 
   if [ -d "docs/$module/diagrams" ]; then
-    echo "  • Copying diagrams/ to images/"
+    echo "  • Moving diagrams/ → images/diagrams/"
     mkdir -p "modules/$module/images/diagrams"
-    cp -r "docs/$module/diagrams/"* "modules/$module/images/diagrams/" 2>/dev/null || true
+    shopt -s nullglob
+    local f
+    for f in "docs/$module/diagrams/"*; do
+      [ -f "$f" ] || continue
+      git_move_preserve_history "$f" "modules/$module/images/diagrams/$(basename "$f")"
+    done
+    shopt -u nullglob
+    rmdir "docs/$module/diagrams" 2>/dev/null || true
   fi
 }
 
@@ -249,17 +265,18 @@ process_module() {
 
   mkdir -p "modules/$module/pages" "modules/$module/images"
 
-  copy_master "$module"
+  # Chapter files first; then master → index so preface/amendment can patch index.adoc
   copy_master_numbered "$module"
   copy_included_non_master "$module"
+  move_master_to_index "$module"
   migrate_preface "$module"
   migrate_amendment_record "$module"
 
   replace_diagram_and_images_uri_attr "$module"
   add_bibliography "$module"
 
-  copy_images "$module"
-  copy_diagrams "$module"
+  move_module_images "$module"
+  move_module_diagrams "$module"
 
   echo "✓ Processed: $module"
 }

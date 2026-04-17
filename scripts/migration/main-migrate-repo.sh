@@ -23,6 +23,7 @@ fi
 
 REPO_NAME=$(basename "$REPO_PATH")
 COMPONENT_NAME="${REPO_NAME#specifications-}"
+MIGRATION_BRANCH="${MIGRATION_BRANCH:-development}"
 
 echo "╔════════════════════════════════════════════════════════════╗"
 echo "║  openEHR Antora Migration Script                          ║"
@@ -41,12 +42,58 @@ if [ ! -d ".git" ]; then
     exit 1
 fi
 
+# Run migration on the desired working branch (default: development), not master.
+if ! git show-ref --verify --quiet "refs/heads/$MIGRATION_BRANCH"; then
+    echo "Error: Branch '$MIGRATION_BRANCH' does not exist in $REPO_NAME"
+    echo "Run branch creation first (e.g. make create-branches REPO=$REPO_NAME)"
+    exit 1
+fi
+CURRENT_BRANCH="$(git rev-parse --abbrev-ref HEAD)"
+if [ "$CURRENT_BRANCH" != "$MIGRATION_BRANCH" ]; then
+    echo "→ Checking out migration branch: $MIGRATION_BRANCH"
+    git checkout "$MIGRATION_BRANCH"
+    echo "✓ On branch $MIGRATION_BRANCH"
+    echo ""
+fi
+
 # Safety check: Create a backup branch
 BACKUP_BRANCH="backup-pre-antora-$(date +%Y%m%d-%H%M%S)"
 echo "→ Creating backup branch: $BACKUP_BRANCH"
 git branch "$BACKUP_BRANCH" HEAD
 echo "✓ Backup created"
 echo ""
+
+# Optional workflow checkpoints:
+# AUTO_COMMIT_CHECKPOINTS=1 (default) enables git add/commit at key milestones.
+# Set AUTO_COMMIT_CHECKPOINTS=0 to run migration without creating commits.
+AUTO_COMMIT_CHECKPOINTS="${AUTO_COMMIT_CHECKPOINTS:-1}"
+
+commit_checkpoint() {
+    local title="$1"
+    local body="$2"
+
+    [ "$AUTO_COMMIT_CHECKPOINTS" = "1" ] || return 0
+
+    # Only commit when there is an actual delta.
+    if git diff --quiet && git diff --cached --quiet; then
+        return 0
+    fi
+
+    git add -A
+    if git diff --cached --quiet; then
+        return 0
+    fi
+
+    echo "→ Commit checkpoint: $title"
+    git commit -m "$(cat <<EOF
+$title
+
+$body
+EOF
+)"
+    echo "✓ Checkpoint committed"
+    echo ""
+}
 
 # Clean previous migration output so re-runs start fresh
 if [ -d "modules" ]; then
@@ -68,11 +115,21 @@ MODULES="$("$SCRIPT_DIR/1-analyze-structure.sh")"
 # Step 3a: Generate Antora-ready UML class partials via bmm-publisher
 "$SCRIPT_DIR/3a-generate-uml-classes.sh" "$COMPONENT_NAME"
 
+# Checkpoint: generated class partials + legacy UML/class cleanup.
+commit_checkpoint \
+  "chore(migration): regenerate uml classes and retire legacy class files" \
+  "Capture bmm-publisher class outputs and cleanup of legacy UML/classes artifacts as an isolated checkpoint for clearer rename lineage."
+
 # Step 4: Migrating content files (your existing script)
 "$SCRIPT_DIR/4-migrate-content-files.sh" $MODULES
 
 # Step 4c: Fetch external grammar files and rewrite remote includes
 "$SCRIPT_DIR/4a-fetch-external-grammars.sh" "$COMPONENT_NAME" $MODULES
+
+# Checkpoint 1: structural migration, where git-moves are concentrated.
+commit_checkpoint \
+  "chore(migration): move legacy docs into antora modules" \
+  "Capture file relocation and initial module shaping as an isolated migration checkpoint to preserve rename lineage."
 
 # Step 5: Create antora.yml
 "$SCRIPT_DIR/5-create-antora-yml.sh" "$COMPONENT_NAME" $MODULES
@@ -100,4 +157,9 @@ MODULES="$("$SCRIPT_DIR/1-analyze-structure.sh")"
 
 # Step 13: Finalise landing pages (appendix, abstracts, overview, feedback)
 "$SCRIPT_DIR/13-finalise-landing-pages.sh" "$COMPONENT_NAME" $MODULES
+
+# Checkpoint 2: content rewrites and finalization.
+commit_checkpoint \
+  "chore(migration): apply antora rewrites and finalisation" \
+  "Capture include/xref rewrites, nav/index normalization, and final migration polish after structure relocation."
 

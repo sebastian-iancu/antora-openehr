@@ -116,6 +116,52 @@ decrease_asciidoc_section_heading_one_level() {
 }
 
 # -------------------------------------------------------------------
+# git_move_preserve_history <src> <dst>
+#   Move a tracked file with git mv so renames keep blame/history; fall back to
+#   mv for untracked paths. Creates parent directories for dst as needed.
+# -------------------------------------------------------------------
+git_move_preserve_history() {
+  local src="$1"
+  local dst="$2"
+  [ -e "$src" ] || return 1
+  mkdir -p "$(dirname "$dst")"
+  if git ls-files --error-unmatch "$src" >/dev/null 2>&1; then
+    git mv -f -- "$src" "$dst"
+  else
+    mv -f -- "$src" "$dst"
+  fi
+}
+
+# -------------------------------------------------------------------
+# resolve_module_master_source <module>
+#   Path for chapter list / pkg injection: docs master, else a snapshot taken
+#   right after master → index (before includes are stripped), else live index.
+# -------------------------------------------------------------------
+resolve_module_master_source() {
+  local module="$1"
+  if [ -f "docs/$module/master.adoc" ]; then
+    echo "docs/$module/master.adoc"
+  elif [ -f "modules/$module/partials/.migration_master_snapshot.adoc" ]; then
+    echo "modules/$module/partials/.migration_master_snapshot.adoc"
+  elif [ -f "modules/$module/pages/index.adoc" ]; then
+    echo "modules/$module/pages/index.adoc"
+  else
+    echo ""
+  fi
+}
+
+# -------------------------------------------------------------------
+# strip_legacy_master_index_lines <index.adoc>
+#   Remove include lines and sectnums from a migrated module index (was master.adoc).
+# -------------------------------------------------------------------
+strip_legacy_master_index_lines() {
+  local f="$1"
+  [ -f "$f" ] || return 0
+  sed -i '/^include::/d;/^image::{openehr_logo}/d' "$f"
+  sed -i '/^:sectnums:/d' "$f"
+}
+
+# -------------------------------------------------------------------
 # normalize_semver3 <version>
 #   "1.4" -> "1.4.0"
 #   "v1.2.0" -> "1.2.0"

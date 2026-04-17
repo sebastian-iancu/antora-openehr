@@ -1,6 +1,9 @@
 #!/bin/bash
 set -euo pipefail
 
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+source "$SCRIPT_DIR/_lib.sh"
+
 # Usage: 7-create-root-index.sh <COMPONENT_NAME> <module1> <module2> ...
 
 COMPONENT_NAME="$1"
@@ -13,10 +16,10 @@ echo "━━━━━━━━━━━━━━━━━━━━━━━━�
 mkdir -p "modules/ROOT/pages"
 mkdir -p "modules/ROOT/images"
 
-# Copy block diagram if available
+# Move block diagram if available (git mv when tracked)
 if [ -f "docs/openehr_block_diagram.svg" ]; then
-  cp "docs/openehr_block_diagram.svg" "modules/ROOT/images/"
-  echo "  • Copied openehr_block_diagram.svg to ROOT/images/"
+  git_move_preserve_history "docs/openehr_block_diagram.svg" "modules/ROOT/images/openehr_block_diagram.svg"
+  echo "  • Moved openehr_block_diagram.svg to ROOT/images/"
 fi
 
 # Read manifest

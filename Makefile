@@ -136,15 +136,15 @@ update-repos: ## Update all cloned repositories
 	done
 	@echo "$(GREEN)Done updating repositories.$(NC)"
 
-create-branches: ## Create release branches from git tags (usage: make create-branches REPO=specifications-BASE)
+create-branches: ## Create release/* from tags and development from master (usage: make create-branches REPO=specifications-BASE)
 	@if [ -z "$(REPO)" ]; then \
 		echo "$(RED)Error: REPO variable not set. Usage: make create-branches REPO=specifications-BASE$(NC)"; \
 		exit 1; \
 	fi
-	@echo "$(GREEN)Creating release branches from tags in $(REPO)...$(NC)"
+	@echo "$(GREEN)Creating release and development branches in $(REPO)...$(NC)"
 	@./scripts/create-release-branches.sh $(REPOS_DIR)/$(REPO)
 
-create-all-branches: ## Create release branches for all repositories
+create-all-branches: ## Create release/* and development branches for all repositories
 	@echo "$(GREEN)Creating release branches for all repositories...$(NC)"
 	@for repo in $(SPECS_REPOS); do \
 		echo "$(CYAN)Processing $$repo...$(NC)"; \

@@ -17,67 +17,67 @@ content:
     # Local sources for development - cloned repositories from ../repos/ directory relative to this playbook
     
     - url: repos/specifications-BASE
-      branches: HEAD
+      branches: development
       start_path: .
       version: development
     
     - url: repos/specifications-RM
-      branches: HEAD
+      branches: development
       start_path: .
       version: development
 
     - url: repos/specifications-AM
-      branches: HEAD
+      branches: development
       start_path: .
       version: development
 
     - url: repos/specifications-LANG
-      branches: HEAD
+      branches: development
       start_path: .
       version: development
 
     - url: repos/specifications-SM
-      branches: HEAD
+      branches: development
       start_path: .
       version: development
 
     - url: repos/specifications-QUERY
-      branches: HEAD
+      branches: development
       start_path: .
       version: development
 
     - url: repos/specifications-PROC
-      branches: HEAD
+      branches: development
       start_path: .
       version: development
 
     - url: repos/specifications-CDS
-      branches: HEAD
+      branches: development
       start_path: .
       version: development
 
     - url: repos/specifications-CNF
-      branches: HEAD
+      branches: development
       start_path: .
       version: development
 
     - url: repos/specifications-ITS-REST
-      branches: HEAD
+      branches: development
       start_path: .
       version: development
 
     - url: repos/specifications-ITS-JSON
-      branches: HEAD
+      branches: development
       start_path: .
       version: development
 
     - url: repos/specifications-ITS-XML
-      branches: HEAD
+      branches: development
       start_path: .
       version: development
 
     - url: repos/specifications-ITS-BMM
-      branches: HEAD
+      branches: development
       start_path: .
       version: development
 
@@ -114,7 +114,9 @@ asciidoc:
 runtime:
   fetch: true
   cache_dir: ./.cache/antora
-  
+  log:
+    failure_level: warn
+
 output:
   dir: ./build
   clean: true

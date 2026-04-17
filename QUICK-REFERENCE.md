@@ -173,7 +173,7 @@ component-repo/
 
 **Component**: A documentation unit (BASE, RM, AM, etc.)
 **Module**: A section within a component (foundation_types, base_types, etc.)
-**Version**: Git branch (master, release/1.0.3, etc.)
+**Version**: Git branch (`development` for prerelease content from master, `release/1.0.3`, etc.)
 **Resource ID**: `[version@]component:module:family$path`
 
 ## Useful Links

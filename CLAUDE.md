@@ -49,7 +49,7 @@ make all
 
 # Development workflow
 make install              # Install npm deps + clone specification repos into repos/
-make create-all-branches  # Convert tags (e.g. Release-1.0.3) to release branches
+make create-all-branches  # Tags → release/*; master tip → development branch (Antora prerelease)
 make migrate-all          # Migrate all repositories to Antora structure
 make validate-all         # Validate all repositories
 make build-local          # Build the site using antora-playbook-local.yml

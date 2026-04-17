@@ -46,7 +46,7 @@ The next steps can be run inside the docker container.
 make install
 ```
 
-4) Create release branches from tags (converts tags like Release-1.0.3 → release/1.0.3):
+4) Create release branches from tags and a `development` branch from `master` (used by Antora for the prerelease site):
 ```bash
 make create-all-branches
 ```

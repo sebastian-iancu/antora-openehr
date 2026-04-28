@@ -3,6 +3,10 @@ set -euo pipefail
 
 # Usage: step3-move-uml.sh
 # Run from repo root
+#
+# Moves diagram assets into modules/ROOT/images/uml/, then removes legacy
+# docs/**/UML/class_index.adoc (superseded by generated ROOT partials) and
+# prunes empty docs/**/UML/diagrams and docs/**/UML directories.
 
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 source "$SCRIPT_DIR/_lib.sh"
@@ -46,5 +50,48 @@ if [ -d "docs/UML" ] || [ -d "docs/uml" ]; then
 else
   echo "No UML directory found, skipping UML move."
 fi
+
+# -------------------------------------------------------------------
+# Legacy class index + empty UML/diagrams cleanup
+# -------------------------------------------------------------------
+remove_legacy_uml_class_index_and_prune_empty_dirs() {
+  [ -d docs ] || return 0
+
+  echo "→ Removing legacy docs/**/UML/class_index.adoc (and empty diagrams/ siblings)..."
+
+  local f
+  while IFS= read -r -d '' f; do
+    echo "  • rm $f"
+    if git ls-files --error-unmatch "$f" >/dev/null 2>&1; then
+      git rm -f "$f"
+    else
+      rm -f "$f"
+    fi
+  done < <(find docs \( -path '*/UML/class_index.adoc' -o -path '*/uml/class_index.adoc' \) -type f -print0 2>/dev/null)
+
+  local d
+  while IFS= read -r -d '' d; do
+    if [ ! -d "$d" ]; then
+      continue
+    fi
+    if [ -z "$(find "$d" -mindepth 1 -maxdepth 1 2>/dev/null)" ]; then
+      echo "  • rmdir $d"
+      rmdir "$d" 2>/dev/null || true
+    fi
+  done < <(find docs \( -path '*/UML/diagrams' -o -path '*/uml/diagrams' \) -type d -print0 2>/dev/null)
+
+  # Deepest first so nested empties collapse (e.g. diagrams/ then UML/)
+  while IFS= read -r d; do
+    if [ ! -d "$d" ]; then
+      continue
+    fi
+    if [ -z "$(find "$d" -mindepth 1 -maxdepth 1 2>/dev/null)" ]; then
+      echo "  • rmdir $d"
+      rmdir "$d" 2>/dev/null || true
+    fi
+  done < <(find docs -depth -type d \( -name UML -o -name uml \) ! -path docs 2>/dev/null)
+}
+
+remove_legacy_uml_class_index_and_prune_empty_dirs
 
 echo ""

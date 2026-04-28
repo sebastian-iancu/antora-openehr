@@ -59,8 +59,10 @@ antora-openehr-migration/
 ├── 🛠️ Build Tools
 │   ├── Makefile (main automation)
 │   └── scripts/
-│       ├── migrate/
-│       │   └── *.sh
+│       ├── migration/
+│       │   ├── main-migrate-repo.sh
+│       │   ├── _lib.sh
+│       │   └── 1..13 + 3a/4a step scripts
 │       ├── create-release-branches.sh
 │       └── validate-structure.sh
 │

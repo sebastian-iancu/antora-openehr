@@ -72,19 +72,20 @@ specifications-BASE/
 │   │   ├── pages/
 │   │   │   └── index.adoc          # Component landing page
 │   │   ├── partials/
-│   │   │   └── uml/
-│   │   │       └── classes/        # UML class definitions
+│   │   │   └── classes/            # UML class definitions (flat; bmm-publisher output)
 │   │   ├── images/
-│   │   │   └── uml/
-│   │   │       └── diagrams/       # UML diagrams
+│   │   │   └── uml/                # UML diagrams (flat: *.svg / *.png)
 │   │   └── nav.adoc                # Root navigation
 │   ├── foundation_types/           # Module (was docs/foundation_types)
 │   │   ├── pages/
-│   │   │   └── index.adoc          # Was master.adoc
-│   │   ├── partials/
-│   │   │   ├── preface.adoc        # Was master01-preface.adoc
+│   │   │   ├── index.adoc          # Was master.adoc (header only + Feedback)
 │   │   │   ├── overview.adoc       # Was master02-overview.adoc
-│   │   │   └── types.adoc          # Was master03-types.adoc
+│   │   │   ├── types.adoc          # Was master03-types.adoc
+│   │   │   └── appendix.adoc       # Generated: preface body + acknowledgements + references
+│   │   ├── partials/
+│   │   │   ├── module_vars.adoc    # Generated from manifest.json / master.adoc front matter
+│   │   │   ├── preface.adoc        # Was master01-preface.adoc
+│   │   │   └── amendment_record.adoc
 │   │   ├── images/
 │   │   └── nav.adoc
 │   └── base_types/
@@ -101,11 +102,13 @@ The following steps describe the migration flow. For exact commands, see `START-
 
 1. Prepare the build repository (this project) and ensure dependencies are installed.
 2. Clone the specification repositories into the local `repos/` directory.
-3. Convert existing tags into release branches (e.g., `Release-1.0.3` → `release/1.0.3`).
-4. Run the migration for each repository to move files into Antora’s `modules/` layout and generate `antora.yml` and `nav.adoc` files.
+3. Convert existing tags into release branches (e.g., `Release-1.0.3` → `release/1.0.3`) and a `development` branch from `master`.
+4. Run the migration for each repository to move files into Antora's `modules/` layout and generate `antora.yml` and `nav.adoc` files. As part of the pipeline, **step 3a** runs the `ghcr.io/openehr/bmm-publisher` Docker image to regenerate the ROOT class partials from the manifest's BMM model — the legacy `docs/UML/classes/*.adoc` files are no longer hand-edited.
 5. Validate the migrated structure for Antora compliance.
 6. Perform manual adjustments (includes, images, xrefs, navigation) as detailed below.
 7. Build and preview the site to verify results.
+
+**Note:** The migration runs on the `development` branch by default (override with `MIGRATION_BRANCH=…`) and creates ~3 git checkpoints inside the spec repo (set `AUTO_COMMIT_CHECKPOINTS=0` to disable).
 
 ---
 
@@ -148,12 +151,12 @@ include::{uml_export_dir}/classes/archetypes.adoc[]
 
 **After:**
 ```asciidoc
-include::ROOT:partial$uml/classes/pathable.adoc[]
-include::ROOT:partial$uml/classes/locatable.adoc[]
-include::ROOT:partial$uml/classes/archetypes.adoc[]
+include::ROOT:partial$classes/pathable.adoc[]
+include::ROOT:partial$classes/locatable.adoc[]
+include::ROOT:partial$classes/archetypes.adoc[]
 ```
 
-**Pattern:** `ROOT:partial$` for content in the ROOT module's partials.
+**Pattern:** `ROOT:partial$` for content in the ROOT module's partials. UML class partials are stored flat under `modules/ROOT/partials/classes/`. For the AM component, files carry an `aom14.` or `aom2.` filename prefix (e.g. `aom2.archetypes.adoc`) — the migration scripts add the prefix automatically.
 
 ### 3. Update Image References
 
@@ -170,8 +173,10 @@ image::diagrams/foundation-types.svg[]
 
 **After (for UML diagrams in ROOT):**
 ```asciidoc
-image::ROOT:uml/diagrams/BASE-classes.svg[]
+image::ROOT:uml/BASE-classes.svg[]
 ```
+
+UML diagrams are stored flat under `modules/ROOT/images/uml/` — there is no `diagrams/` subdirectory.
 
 ### 4. Update Cross-References
 
@@ -313,8 +318,8 @@ Antora uses a consistent format for referencing resources:
 **Examples:**
 - `BASE:foundation_types:index.adoc` - Page in current version
 - `1.0.3@RM:ehr:composition.adoc` - Page in specific version
-- `ROOT:partial$uml/classes/LOCATABLE.adoc` - Partial file
-- `ROOT:uml/diagrams/diagram.svg` - Image file
+- `ROOT:partial$classes/LOCATABLE.adoc` - Partial file
+- `ROOT:uml/diagram.svg` - Image file
 
 ### Appendix C: File Naming Conventions
 
@@ -364,13 +369,13 @@ Replace: include::partial$\2.adoc[]
 **Update UML class includes:**
 ```regex
 Find:    include::\.\.\/\.\.\/UML\/classes\/(.+?)\.adoc\[\]
-Replace: include::ROOT:partial$uml/classes/\1.adoc[]
+Replace: include::ROOT:partial$classes/\1.adoc[]
 ```
 
 **Update UML diagram images:**
 ```regex
 Find:    image::\.\.\/UML\/diagrams\/(.+?)\[(.*?)\]
-Replace: image::ROOT:uml/diagrams/\1[\2]
+Replace: image::ROOT:uml/\1[\2]
 ```
 
 ---

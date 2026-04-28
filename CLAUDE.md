@@ -51,18 +51,21 @@ make all
 make install              # Install npm deps + clone specification repos into repos/
 make create-all-branches  # Tags → release/*; master tip → development branch (Antora prerelease)
 make migrate-all          # Migrate all repositories to Antora structure
+make generate-uml-classes-all  # Regenerate ROOT UML class partials via bmm-publisher (Docker)
 make validate-all         # Validate all repositories
 make build-local          # Build the site using antora-playbook-local.yml
 make preview              # Start local server at http://localhost:8080
 
 # Single-repo operations
 make migrate-repo REPO=specifications-BASE
+make generate-uml-classes-repo REPO=specifications-BASE
 make validate-structure REPO=specifications-BASE
 make create-branches REPO=specifications-BASE
 
 # Maintenance
 make update-repos         # git fetch --all on every cloned repo
 make update-grammars      # Clone/update ANTLR grammar repos, copy .g4 files
+make commit-updated-grammars # Stage and commit updated .g4 files in spec repos
 make check-deps           # Verify node, npm, git are installed
 make clean                # Remove build/ and .cache/
 make clean-all            # Remove build/, .cache/, and repos/
@@ -118,8 +121,11 @@ antora-openehr/
 │   ├── references.bib           # BibTeX bibliography for asciidoctor-bibtex
 │   └── component_vars.adoc      # Component-level variable definitions
 ├── scripts/
-│   ├── migration/               # Migration shell scripts (numbered 1–12); git mv for tracked sources
-│   │   └── main-migrate-repo.sh # Entry point: runs all migration steps
+│   ├── migration/               # Migration shell scripts (numbered 1–13, plus 3a/4a sub-steps); git mv for tracked sources
+│   │   ├── main-migrate-repo.sh        # Entry point: runs all migration steps
+│   │   ├── _lib.sh                     # Shared helpers (sourced by scripts 4, 6, 8, 9)
+│   │   ├── 3a-generate-uml-classes.sh  # UML class regeneration via bmm-publisher (Docker)
+│   │   └── 4a-fetch-external-grammars.sh # ANTLR/grammar include rewriting
 │   ├── create-release-branches.sh
 │   └── validate-structure.sh
 ├── src/
@@ -147,9 +153,9 @@ component-repo/
     ├── ROOT/               # Shared content (UML classes, diagrams)
     │   ├── pages/
     │   ├── partials/
-    │   │   └── uml/classes/   # Shared UML class definitions
+    │   │   └── classes/       # Shared UML class definitions (flat; bmm-publisher output)
     │   └── images/
-    │       └── uml/diagrams/  # Shared UML diagrams
+    │       └── uml/           # Shared UML diagrams (flat: *.svg / *.png)
     └── <module-name>/      # Each specification document (e.g. foundation_types)
         ├── nav.adoc
         ├── pages/
@@ -206,8 +212,8 @@ Standard AsciiDoc with Antora extensions. Follow existing patterns in the codeba
 
 - Use `xref:` instead of old internal links.
 - Use `include::partial$name.adoc[]` for files in `partials/`.
-- Reference UML from ROOT: `include::ROOT:partial$uml/classes/NAME.adoc[]`.
-- Image from ROOT: `image::ROOT:uml/diagrams/diagram.svg[]`.
+- Reference UML from ROOT: `include::ROOT:partial$classes/NAME.adoc[]` (AM uses `aom14.`/`aom2.` prefix, e.g. `classes/aom2.archetypes.adoc`).
+- Image from ROOT: `image::ROOT:uml/diagram.svg[]` (UML diagrams are flat under `images/uml/`).
 
 ---
 
@@ -229,6 +235,10 @@ Standard AsciiDoc with Antora extensions. Follow existing patterns in the codeba
 - **UI bundle**: `src/ui-bundle.zip` is the packaged bundle referenced by the playbook. If you modify files in `src/ui-bundle/`, you must repackage the zip. `src/supplemental-ui/` overrides are applied on top and do NOT require repackaging.
 - **Build log**: `make build-local` tees output to `build.log` at project root.
 - **`runtime.fetch: true`** in the playbook allows Antora to fetch remote resources (e.g., Kroki diagrams). Builds require internet access.
+- **Migration branch**: `make migrate-repo` runs on the `development` branch (override with `MIGRATION_BRANCH=…`), and refuses to run if that branch doesn't exist locally — run `make create-branches` first.
+- **Auto-commit checkpoints**: the migration script creates ~3 git checkpoints inside the spec repo by default. Set `AUTO_COMMIT_CHECKPOINTS=0` to disable.
+- **UML class regeneration**: step 3a (`3a-generate-uml-classes.sh`) runs the `ghcr.io/openehr/bmm-publisher` Docker image to produce ROOT class partials. Override the image with `BMM_PUBLISHER_IMAGE=…`. Local BMM JSON overlays can be supplied via `BMM_RESOURCES_OVERLAY=/path/to/dir` or by placing files under `<repo>/computable/BMM/*.bmm.json`.
+- **Shared helpers**: `scripts/migration/_lib.sh` is sourced by several scripts (chapter-list extraction, `strip_master_prefix`, `get_uml_prefix`, etc.). Editing any consumer? Check `_lib.sh` first.
 
 ---
 

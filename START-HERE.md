@@ -57,17 +57,14 @@ make migrate-repo REPO=specifications-BASE
 make validate-structure REPO=specifications-BASE
 ```
 
-Note: migration now generates UML class partials via Docker image `ghcr.io/openehr/bmm-publisher:0.4.0` (override with `BMM_PUBLISHER_IMAGE` if needed).
-If you need to run class generation by itself:
+Notes:
+- Migration runs on the `development` branch of the target spec repo by default. Override with `MIGRATION_BRANCH=<branch>` if needed; the script will refuse to run if the branch doesn't exist locally (run step 4 first).
+- The migration creates ~3 git checkpoint commits in the spec repo. Set `AUTO_COMMIT_CHECKPOINTS=0` to disable.
+- UML class partials are regenerated via the Docker image `ghcr.io/openehr/bmm-publisher:0.4.0` (override with `BMM_PUBLISHER_IMAGE`). Local BMM JSON overlays can be supplied via `BMM_RESOURCES_OVERLAY=/path/to/dir` or by placing files under `<repo>/computable/BMM/*.bmm.json`.
+
+To run class generation by itself (without a full migration):
 ```bash
 make generate-uml-classes-repo REPO=specifications-BASE
-```
-
-Optional dry-run from inside a repo to preview changes:
-```bash
-cd repos/specifications-BASE
-../../scripts/migration/main-migrate-repo.sh . dry-run
-cd ../../
 ```
 
 6) Build and preview locally:

@@ -5,11 +5,15 @@ set -euo pipefail
 #
 # Per subspec module:
 #   - Creates pages/appendix.adoc (acknowledgements first, then remaining preface
-#     sections after Status/Feedback, package_qualifiers ifdef, optional
-#     References only when citations exist, amendment record)
+#     sections after Nomenclature/Feedback, package_qualifiers ifdef, optional
+#     References only when citations exist; amendment record partial is included
+#     here only (not on index.adoc)
 #   - Rewrites pages/index.adoc: header + title + abstract + Purpose/Related
-#     Documents/Nomenclature/Status (from partials/preface.adoc) + intro body
-#     before first section + Feedback (from preface)
+#     Documents/Nomenclature (from partials/preface.adoc during this step only) +
+#     intro body before first section + Feedback; Status section is omitted
+#   - Removes partials/preface.adoc after inlining (git rm when tracked) so the
+#     partial is not part of the final tree; lineage remains via the prior
+#     git mv from docs/**/preface into partials/preface before this step
 #   - Injects abstract from scripts/resources/abstracts/{COMPONENT}.adoc
 #   - Optionally updates manifest.json "summary" for this module from the
 #     matching @spec:{ModuleId} abstract block when present
@@ -53,8 +57,8 @@ extract_section() {
   ' "$ABSTRACT_FILE"
 }
 
-# Extract Purpose, Related Documents, Nomenclature, and Status blocks from
-# partials/preface.adoc (for the module index). Stops before Feedback.
+# Extract Purpose, Related Documents, and Nomenclature from partials/preface.adoc
+# for the module index. Omits Status (not carried forward). Stops before Feedback.
 extract_preface_index_sections() {
   local preface="$1"
   [ -f "$preface" ] || return 0
@@ -67,7 +71,7 @@ extract_preface_index_sections() {
     /^==/ {
       t = title($0)
       if (t == "Preface") { active = 0; next }
-      if (t == "Purpose" || t == "Related Documents" || t == "Nomenclature" || t == "Status") {
+      if (t == "Purpose" || t == "Related Documents" || t == "Nomenclature") {
         active = 1
         print
         next
@@ -80,8 +84,8 @@ extract_preface_index_sections() {
   ' "$preface"
 }
 
-# Preface material for the appendix: drop Preface title, Purpose–Status,
-# and Feedback; keep Conformance onward.
+# Appendix: drop Preface title, Purpose–Nomenclature, Status, and Feedback;
+# keep Conformance onward (Status body is not reproduced anywhere).
 extract_preface_appendix_sections() {
   local preface="$1"
   [ -f "$preface" ] || return 0
@@ -105,6 +109,21 @@ extract_preface_appendix_sections() {
     skip { next }
     { print }
   ' "$preface"
+}
+
+# After inlining, drop partials/preface.adoc so it is not shipped in the final tree.
+# Uses git rm when the path is tracked (records removal after the earlier git mv from docs).
+remove_superseded_preface_partial() {
+  local module="$1"
+  local p="modules/$module/partials/preface.adoc"
+  [ -f "$p" ] || return 0
+  echo "  • Removing superseded partials/preface.adoc (inlined into index/appendix)"
+  if git rev-parse --git-dir >/dev/null 2>&1 \
+    && git ls-files --error-unmatch "$p" >/dev/null 2>&1; then
+    git rm -f "$p"
+  else
+    rm -f "$p"
+  fi
 }
 
 # True if the module uses AsciiDoc citation macros anywhere under pages/ or partials/.
@@ -288,7 +307,11 @@ restructure_module() {
     printf '\n== References\n\nbibliography::[]\n' >> "$tmp_doc"
   fi
 
-  if grep -q 'include::partial\$amendment_record\.adoc' "$index" 2>/dev/null; then
+  # Amendment record: single include on appendix only (partial must exist). Skip if a
+  # legacy line was already copied into tmp_doc from extracted preface material.
+  local amend_partial="modules/$module/partials/amendment_record.adoc"
+  if [ -f "$amend_partial" ] \
+    && ! grep -q 'include::partial\$amendment_record\.adoc' "$tmp_doc" 2>/dev/null; then
     printf '\ninclude::partial$amendment_record.adoc[]\n' >> "$tmp_doc"
   fi
 
@@ -313,6 +336,10 @@ restructure_module() {
       for (i = 1; i <= end; i++) print lines[i]
     }
   ' "$index" > "$tmp_trim"
+
+  # Drop amendment includes from index trim (appendix-only; legacy migrations appended them)
+  awk '$0 !~ /^include::partial\$amendment_record\.adoc\[\][[:space:]]*$/' "$tmp_trim" > "${tmp_trim}.noamend" \
+    && mv "${tmp_trim}.noamend" "$tmp_trim"
 
   local pidx_tmp feed_tmp abst_tmp
   pidx_tmp=$(mktemp)
@@ -376,6 +403,8 @@ restructure_module() {
   } > "$index"
 
   rm -f "$tmp_trim" "$pidx_tmp" "$feed_tmp" "$abst_tmp"
+
+  remove_superseded_preface_partial "$module"
 
   update_manifest_summary_from_abstract "$module"
 

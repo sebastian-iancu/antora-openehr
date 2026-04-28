@@ -8,11 +8,17 @@ REPOS_DIR="${1:-repos}"
 
 commit_g4_in_repo() {
   local repo_root="$1"
+  [ -d "$repo_root" ] || return 0
+  repo_root="$(cd "$repo_root" && pwd)"
   [ -d "$repo_root/.git" ] || return 0
 
   local files=()
+  local f rel
   while IFS= read -r -d '' f; do
-    files+=("$f")
+    # Paths must be relative to the spec repo (modules/...), not
+    # repos/specifications-XX/modules/... which git rejects under git -C.
+    rel="${f#"$repo_root"/}"
+    [ -n "$rel" ] && [ "$rel" != "$f" ] && files+=("$rel")
   done < <(find "$repo_root/modules" -type f -name '*.g4' -path '*/partials/*' -print0 2>/dev/null || true)
 
   [ "${#files[@]}" -eq 0 ] && return 0

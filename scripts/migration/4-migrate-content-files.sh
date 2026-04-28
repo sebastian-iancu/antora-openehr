@@ -102,7 +102,6 @@ migrate_preface() {
   local master_file
   master_file="$(resolve_module_master_source "$module")"
   local partials_dir="modules/$module/partials"
-  local index_file="modules/$module/pages/index.adoc"
 
   [ -f "$master_file" ] || return 0
   mkdir -p "$partials_dir"
@@ -124,17 +123,9 @@ migrate_preface() {
     git_move_preserve_history "docs/$module/$preface_file" "$partials_dir/preface.adoc"
     # Change heading to level 2
     sed -E -i 's/^= (Preface|Purpose)/== \1/' "$partials_dir/preface.adoc"
-
-    # Insert include in index.adoc after :sectnums:
-    if [ -f "$index_file" ]; then
-      # We insert it after CHAPTERS comment block
-      echo "  • Including preface in index.adoc"
-      if grep -q "\-\- CHAPTERS \-\-" "$index_file"; then
-         sed -i '/-- CHAPTERS --/a \\ninclude::partial$preface.adoc[]' "$index_file"
-      else
-         echo "include::partial$preface.adoc[]" >> "$index_file"
-      fi
-    fi
+    # Preface is not included from index.adoc: step 13 inlines sections into index/
+    # appendix and removes this partial (git rm). Keeping the git mv above preserves
+    # rename history from docs/**/preface.adoc → partials/preface.adoc until then.
   fi
 }
 
@@ -143,7 +134,6 @@ migrate_amendment_record() {
   local master_file
   master_file="$(resolve_module_master_source "$module")"
   local partials_dir="modules/$module/partials"
-  local index_file="modules/$module/pages/index.adoc"
 
   [ -f "$master_file" ] || return 0
   mkdir -p "$partials_dir"
@@ -162,13 +152,8 @@ migrate_amendment_record() {
     echo "  • $amendment_file → partials/amendment_record.adoc"
     git_move_preserve_history "docs/$module/$amendment_file" "$partials_dir/amendment_record.adoc"
     sed -i 's/^= Amendment Record/\n== Amendment Record/' "$partials_dir/amendment_record.adoc"
-
-    # Append include at end of index.adoc
-    if [ -f "$index_file" ]; then
-      echo "  • Appending amendment_record to index.adoc"
-      echo "" >> "$index_file"
-      echo "include::partial\$amendment_record.adoc[]" >> "$index_file"
-    fi
+    # Inclusion only on appendix.adoc (step 13), not on index.adoc — avoids duplicate
+    # [[latest_issue]] anchors when the same partial would appear twice on one page.
   fi
 }
 

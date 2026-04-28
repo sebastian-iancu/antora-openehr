@@ -158,8 +158,11 @@ commit_checkpoint \
 # Step 13: Finalise landing pages (appendix, abstracts, overview, feedback)
 "$SCRIPT_DIR/13-finalise-landing-pages.sh" "$COMPONENT_NAME" $MODULES
 
+# Step 14: Drop legacy docs/**/*.html publish artefacts and prune empty docs dirs
+"$SCRIPT_DIR/14-remove-legacy-docs-html.sh"
+
 # Checkpoint 2: content rewrites and finalization.
 commit_checkpoint \
   "chore(migration): apply antora rewrites and finalisation" \
-  "Capture include/xref rewrites, nav/index normalization, and final migration polish after structure relocation."
+  "Capture include/xref rewrites, nav/index normalization, legacy docs HTML removal, and final migration polish after structure relocation."
 

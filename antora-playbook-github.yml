@@ -70,6 +70,11 @@ asciidoc:
     bibtex-format: asciidoc              # Output format
     bibtex-locale: en-US                 # Locale
     bibtex-throw: false                  # Error handling
+    # Kroki: render diagrams at build time and embed local SVG, instead of
+    # emitting kroki.io URLs that the browser fetches at view time. Removes
+    # runtime dependency on kroki.io and avoids per-visitor rate limits.
+    kroki-fetch-diagram: true
+    kroki-default-format: svg
   extensions:
     - asciidoctor-kroki
     - '@asciidoctor/tabs'

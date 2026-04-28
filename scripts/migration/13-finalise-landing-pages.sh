@@ -4,10 +4,15 @@ set -euo pipefail
 # Step 13: Finalise landing pages
 #
 # Per subspec module:
-#   - Creates pages/appendix.adoc (image, preface sections, acknowledgements,
-#     references, amendment record) — Feedback section excluded
-#   - Trims pages/index.adoc to header only, appends Feedback section
+#   - Creates pages/appendix.adoc (acknowledgements first, then remaining preface
+#     sections after Status/Feedback, package_qualifiers ifdef, optional
+#     References only when citations exist, amendment record)
+#   - Rewrites pages/index.adoc: header + title + abstract + Purpose/Related
+#     Documents/Nomenclature/Status (from partials/preface.adoc) + intro body
+#     before first section + Feedback (from preface)
 #   - Injects abstract from scripts/resources/abstracts/{COMPONENT}.adoc
+#   - Optionally updates manifest.json "summary" for this module from the
+#     matching @spec:{ModuleId} abstract block when present
 #   - Appends appendix to nav.adoc
 #
 # For ROOT:
@@ -46,6 +51,100 @@ extract_section() {
       for (i = start; i <= n; i++) print lines[i]
     }
   ' "$ABSTRACT_FILE"
+}
+
+# Extract Purpose, Related Documents, Nomenclature, and Status blocks from
+# partials/preface.adoc (for the module index). Stops before Feedback.
+extract_preface_index_sections() {
+  local preface="$1"
+  [ -f "$preface" ] || return 0
+  awk '
+    function title(line,    t) {
+      if (line !~ /^==/) return ""
+      t = line; sub(/^==[[:space:]]+/, "", t); sub(/[[:space:]]+$/, "", t)
+      return t
+    }
+    /^==/ {
+      t = title($0)
+      if (t == "Preface") { active = 0; next }
+      if (t == "Purpose" || t == "Related Documents" || t == "Nomenclature" || t == "Status") {
+        active = 1
+        print
+        next
+      }
+      if (t == "Feedback") { active = 0; exit }
+      active = 0
+      next
+    }
+    active { print }
+  ' "$preface"
+}
+
+# Preface material for the appendix: drop Preface title, Purpose–Status,
+# and Feedback; keep Conformance onward.
+extract_preface_appendix_sections() {
+  local preface="$1"
+  [ -f "$preface" ] || return 0
+  awk '
+    function title(line,    t) {
+      if (line !~ /^==/) return ""
+      t = line; sub(/^==[[:space:]]+/, "", t); sub(/[[:space:]]+$/, "", t)
+      return t
+    }
+    /^==/ {
+      t = title($0)
+      if (t == "Preface" || t == "Purpose" || t == "Related Documents" \
+          || t == "Nomenclature" || t == "Status" || t == "Feedback") {
+        skip = 1
+        next
+      }
+      skip = 0
+      print
+      next
+    }
+    skip { next }
+    { print }
+  ' "$preface"
+}
+
+# True if the module uses AsciiDoc citation macros anywhere under pages/ or partials/.
+module_has_citations() {
+  local module="$1"
+  local base="modules/$module"
+  [ -d "$base/pages" ] || return 1
+  if grep -RIl --include='*.adoc' -E \
+    '(^|[[:space:]])(citenp|citen|cites|cite):\\[' \
+    "$base/pages" "$base/partials" 2>/dev/null | grep -q .; then
+    return 0
+  fi
+  return 1
+}
+
+# Set manifest.specifications[].summary for this module id from abstract text (first paragraph).
+update_manifest_summary_from_abstract() {
+  local module="$1"
+  local manifest="manifest.json"
+  [ -f "$manifest" ] || return 0
+  command -v jq >/dev/null 2>&1 || return 0
+  local abstract_text
+  abstract_text="$(extract_section "spec:$module")"
+  [ -n "$abstract_text" ] || return 0
+  local summary
+  summary="$(printf '%s\n' "$abstract_text" | awk '
+    NF { buf = buf (buf ? " " : "") $0 }
+    /^$/ && buf { print buf; exit }
+    END { if (buf) print buf }
+  ')"
+  [ -n "$summary" ] || return 0
+  local tmp
+  tmp=$(mktemp)
+  if jq --arg id "$module" --arg s "$summary" '
+    (.specifications |= map(if .id == $id then .summary = $s else . end))
+  ' "$manifest" > "$tmp" 2>/dev/null; then
+    mv "$tmp" "$manifest"
+  else
+    rm -f "$tmp"
+  fi
 }
 
 # -------------------------------------------------------------------
@@ -146,25 +245,15 @@ restructure_module() {
   echo "  • $module"
 
   # -----------------------------------------------------------------
-  # 1. pages/appendix.adoc
+  # 1. pages/appendix.adoc (read original index before it is rewritten)
   # -----------------------------------------------------------------
   local appendix="$pages_dir/appendix.adoc"
   local tmp_doc
   tmp_doc=$(mktemp)
 
-  printf 'include::partial$module_vars.adoc[]\n\n= Appendix\n\nimage::ROOT:openehr_block_diagram.svg[openEHR components,60%%,align=center]\n\n' >> "$tmp_doc"
+  printf 'include::partial$module_vars.adoc[]\n\n= Appendix\n\n' >> "$tmp_doc"
 
-  # Preface content — skip == Preface title and == Feedback section
-  if [ -f "$preface" ]; then
-    awk '
-      /^== Preface[[:space:]]*$/  { next }
-      /^== Feedback[[:space:]]*$/ { in_feedback = 1; next }
-      in_feedback && /^== /       { in_feedback = 0 }
-      !in_feedback                { print }
-    ' "$preface" >> "$tmp_doc"
-  fi
-
-  # Acknowledgements from index.adoc
+  # Acknowledgements first (scraped from index before trim)
   awk '
     /^== Acknowledgements[[:space:]]*$/ { in_ack = 1; print "\n== Acknowledgements"; next }
     in_ack && /^include::partial\$preface\.adoc/ { exit }
@@ -181,6 +270,11 @@ restructure_module() {
     }
   ' >> "$tmp_doc"
 
+  # Remaining preface (Conformance, Tools, change log, etc.) — not Purpose–Status or Feedback
+  if [ -f "$preface" ]; then
+    extract_preface_appendix_sections "$preface" >> "$tmp_doc"
+  fi
+
   # Package-qualifier ifdef block (AOM-style specs only)
   if grep -q '^ifdef::package_qualifiers' "$index" 2>/dev/null; then
     printf '\n' >> "$tmp_doc"
@@ -189,7 +283,8 @@ restructure_module() {
 
   printf '\n:sectnums!:\n' >> "$tmp_doc"
 
-  if grep -q '^bibliography::\[\]' "$index" 2>/dev/null; then
+  # References only when the module actually cites something (avoids empty bibliography)
+  if module_has_citations "$module"; then
     printf '\n== References\n\nbibliography::[]\n' >> "$tmp_doc"
   fi
 
@@ -200,10 +295,10 @@ restructure_module() {
   mv "$tmp_doc" "$appendix"
 
   # -----------------------------------------------------------------
-  # 2. Trim index.adoc to header + Feedback
+  # 2. Trim index body (before first section or preface include)
   # -----------------------------------------------------------------
-  local tmp_idx
-  tmp_idx=$(mktemp)
+  local tmp_trim
+  tmp_trim=$(mktemp)
 
   awk '
     {
@@ -216,45 +311,73 @@ restructure_module() {
       end = (stop > 0) ? stop : NR
       while (end > 0 && lines[end] == "") end--
       for (i = 1; i <= end; i++) print lines[i]
-      print ""
     }
-  ' "$index" >> "$tmp_idx"
+  ' "$index" > "$tmp_trim"
 
-  # Append Feedback section from preface
+  local pidx_tmp feed_tmp abst_tmp
+  pidx_tmp=$(mktemp)
+  feed_tmp=$(mktemp)
+  abst_tmp=$(mktemp)
   if [ -f "$preface" ]; then
-    local feedback
-    feedback=$(awk '
+    extract_preface_index_sections "$preface" > "$pidx_tmp"
+    awk '
       /^== Feedback[[:space:]]*$/ { in_feedback = 1; print; next }
       in_feedback && /^== /       { exit }
       in_feedback                 { print }
-    ' "$preface")
-    if [ -n "$feedback" ]; then
-      printf '\n%s\n' "$feedback" >> "$tmp_idx"
+    ' "$preface" > "$feed_tmp"
+  else
+    : > "$pidx_tmp"
+    : > "$feed_tmp"
+  fi
+  extract_section "spec:$module" > "$abst_tmp" || true
+
+  # -----------------------------------------------------------------
+  # 3. Assemble index: header… title, abstract, preface core, intro, Feedback
+  # -----------------------------------------------------------------
+  local title_line total_lines
+  title_line=$(awk '/^= /{print NR; exit}' "$tmp_trim" || true)
+  total_lines=$(wc -l < "$tmp_trim" | tr -d ' ')
+
+  {
+    if [ -n "${title_line:-}" ] && [ "$title_line" -gt 0 ]; then
+      if [ "$title_line" -gt 1 ]; then
+        head -n $((title_line - 1)) "$tmp_trim"
+      fi
+      sed -n "${title_line}p" "$tmp_trim"
+      echo ""
+      if [ -s "$abst_tmp" ]; then
+        cat "$abst_tmp"
+        echo ""
+      fi
+      if [ -s "$pidx_tmp" ]; then
+        cat "$pidx_tmp"
+        echo ""
+      fi
+      if [ -n "$total_lines" ] && [ "$title_line" -lt "$total_lines" ]; then
+        tail -n +$((title_line + 1)) "$tmp_trim"
+      fi
+    else
+      cat "$tmp_trim"
+      echo ""
+      if [ -s "$abst_tmp" ]; then
+        cat "$abst_tmp"
+        echo ""
+      fi
+      if [ -s "$pidx_tmp" ]; then
+        cat "$pidx_tmp"
+        echo ""
+      fi
     fi
-  fi
+    if [ -s "$feed_tmp" ]; then
+      echo ""
+      cat "$feed_tmp"
+    fi
+    echo ""
+  } > "$index"
 
-  # -----------------------------------------------------------------
-  # 3. Inject abstract after title
-  # -----------------------------------------------------------------
-  local abstract
-  abstract="$(extract_section "spec:$module")"
-  if [ -n "$abstract" ]; then
-    local tmp_abs
-    tmp_abs=$(mktemp)
-    awk -v text="$abstract" '
-      /^= / && !done {
-        print
-        print ""
-        print text
-        done=1
-        next
-      }
-      { print }
-    ' "$tmp_idx" > "$tmp_abs"
-    mv "$tmp_abs" "$tmp_idx"
-  fi
+  rm -f "$tmp_trim" "$pidx_tmp" "$feed_tmp" "$abst_tmp"
 
-  mv "$tmp_idx" "$index"
+  update_manifest_summary_from_abstract "$module"
 
   # -----------------------------------------------------------------
   # 4. nav.adoc — append Appendix as last entry

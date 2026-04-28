@@ -26,7 +26,7 @@ get_manifest_src_for_module() {
     local ms
     ms="$(resolve_module_master_source "$module")"
     if [ -n "$ms" ] && [ -f "$ms" ]; then
-      # Generate manifest_vars.adoc into modules/ — source is migrated index (was master.adoc)
+      # Generate intermediate manifest_vars.adoc; install_module_vars renames it to module_vars.adoc (git mv when tracked).
       local generated="modules/$module/partials/manifest_vars.adoc"
       mkdir -p "modules/$module/partials"
       local spec_title copyright_year spec_status keywords description
@@ -62,24 +62,51 @@ install_component_vars() {
   cp "$component_vars_src" "$root_partials_dir/component_vars.adoc"
 }
 
+# Rename manifest_vars.adoc → module_vars.adoc using git mv when the source is
+# tracked so history follows the file. Untracked sources use mv.
+migrate_manifest_vars_to_module_vars() {
+  local src="$1"
+  local dest="$2"
+
+  mkdir -p "$(dirname "$dest")"
+  [[ -e "$dest" ]] && rm -f "$dest"
+
+  if git rev-parse --git-dir >/dev/null 2>&1 \
+    && git ls-files --error-unmatch "$src" >/dev/null 2>&1; then
+    git mv -f "$src" "$dest"
+  else
+    mv -f "$src" "$dest"
+  fi
+}
+
 install_module_vars() {
   local module="$1"
-  local file_src="$2"
+  local manifest_src="$2"
   local partials_dir="modules/$module/partials"
   local file_dest="$partials_dir/module_vars.adoc"
+  local per_module_docs="docs/$module/manifest_vars.adoc"
 
   mkdir -p "$partials_dir"
 
-  if grep -q 'include::ROOT:partial\$component_vars.adoc\[\]' "$file_src"; then
-    # Source already includes the ROOT global include; just copy it
-    cp "$file_src" "$file_dest"
+  if [[ "$manifest_src" == "$per_module_docs" ]]; then
+    migrate_manifest_vars_to_module_vars "$manifest_src" "$file_dest"
+  elif [[ "$manifest_src" == "docs/manifest_vars.adoc" ]]; then
+    # Shared component-level manifest: cannot git mv to multiple modules; copy then augment below.
+    cp "$manifest_src" "$file_dest"
+  elif [[ "$manifest_src" == "$partials_dir/manifest_vars.adoc" ]]; then
+    # Generated from master metadata — rename into place (git mv if already tracked by prior staging).
+    migrate_manifest_vars_to_module_vars "$manifest_src" "$file_dest"
   else
-    # Prepend include of ROOT component_vars.adoc
+    echo "install_module_vars: unexpected manifest_src=$manifest_src" >&2
+    return 1
+  fi
+
+  if ! grep -q 'include::ROOT:partial\$component_vars.adoc\[\]' "$file_dest"; then
     local tmp_file="${file_dest}.tmp"
     {
       echo "include::ROOT:partial\$component_vars.adoc[]"
       echo
-      cat "$file_src"
+      cat "$file_dest"
     } > "$tmp_file"
     mv "$tmp_file" "$file_dest"
   fi

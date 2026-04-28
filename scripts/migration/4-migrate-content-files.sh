@@ -77,6 +77,58 @@ copy_master_numbered() {
   done
 }
 
+# -------------------------------------------------------------------
+# migrate_orphan_master_chapters <module>
+#   Move docs/<module>/master*.adoc chapter files that were never listed in master.adoc
+#   (e.g. alternate filenames such as master07.11-adl_rulesNEW.adoc while master references
+#   master07.11-adl_rules.adoc). Listed chapters are already git mv'd by copy_master_numbered.
+#   Each orphan becomes a standalone page under modules/.../pages/ (no chapter-group partial logic).
+# -------------------------------------------------------------------
+migrate_orphan_master_chapters() {
+  local module="$1"
+  mkdir -p "modules/$module/pages"
+
+  local src base new dst
+  shopt -s nullglob
+  for src in docs/"$module"/master*.adoc; do
+    base="$(basename "$src")"
+    [[ "$base" == "master.adoc" ]] && continue
+    is_master_include "$base" || continue
+    new="$(strip_master_prefix "$base")"
+    case "$new" in
+      amendment_record.adoc|preface.adoc) continue ;;
+    esac
+    dst="modules/$module/pages/$new"
+    [ -f "$dst" ] && continue
+
+    echo "  • orphan $base → pages/$new (no matching chapter include in master.adoc)"
+    git_move_preserve_history "$src" "$dst"
+  done
+  shopt -u nullglob
+}
+
+# -------------------------------------------------------------------
+# warn_leftover_docs_adoc <module>
+#   Surface any remaining docs/**/*.adoc files after migration (excluding known boilerplate).
+# -------------------------------------------------------------------
+warn_leftover_docs_adoc() {
+  local module="$1"
+  local found_any=0
+  local f base
+  while IFS= read -r -d '' f; do
+    base="$(basename "$f")"
+    case "$base" in
+      manifest_vars.adoc) continue ;;
+    esac
+    echo "  ⚠ leftover under docs/$module/: $base (not migrated)"
+    found_any=1
+  done < <(find "docs/$module" -maxdepth 1 -type f -name '*.adoc' -print0 2>/dev/null)
+
+  if [ "$found_any" -eq 1 ]; then
+    echo "    Hint: add include::...[] to master.adoc (active or // commented), or remove stale files."
+  fi
+}
+
 copy_included_non_master() {
   local module="$1"
   local master_file="docs/$module/master.adoc"
@@ -252,6 +304,7 @@ process_module() {
 
   # Chapter files first; then master → index so preface/amendment can patch index.adoc
   copy_master_numbered "$module"
+  migrate_orphan_master_chapters "$module"
   copy_included_non_master "$module"
   move_master_to_index "$module"
   migrate_preface "$module"
@@ -262,6 +315,8 @@ process_module() {
 
   move_module_images "$module"
   move_module_diagrams "$module"
+
+  warn_leftover_docs_adoc "$module"
 
   echo "✓ Processed: $module"
 }

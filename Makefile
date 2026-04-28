@@ -1,6 +1,7 @@
 .PHONY: help build build-local clean preview all \
         install create-branches migrate-repo validate-structure clone-repos \
-        generate-uml-classes-repo generate-uml-classes-all
+        generate-uml-classes-repo generate-uml-classes-all \
+        commit-updated-grammars
 
 # Default target
 .DEFAULT_GOAL := help

@@ -38,19 +38,33 @@ get_title_from_page() {
 # list_chapter_includes <master_file>
 #   Prints the ordered list of chapter include targets from a
 #   master.adoc file. Each line is the raw include target filename
-#   (e.g. "master04-data_types.adoc"). Filters out:
+#   (e.g. "master04-data_types.adoc"). Includes commented-out lines such as
+#   // include::masterAppC-foo.adoc[leveloffset=+1] so optional chapters still migrate.
+#   Filters out:
 #     - paths containing / or { (cross-directory / attribute-based)
 #     - manifest_vars.adoc
-#     - master-prefixed files (use strip_master_prefix on the result)
 #     - amendment_record / preface files
 # -------------------------------------------------------------------
 list_chapter_includes() {
   local master_file="$1"
   [ -f "$master_file" ] || return 0
 
-  awk 'found {print} /:sectnums:|:sectanchors:|-- CHAPTERS --/{found=1}' "$master_file" \
-    | grep '^include::' 2>/dev/null \
-    | sed -E 's/^include::([^[]+)\[.*/\1/' \
+  # After -- CHAPTERS -- / :sectnums: / :sectanchors:, emit each chapter include target in order.
+  # Include commented-out lines like "// include::masterAppC-foo.adoc[leveloffset=+1]" so optional
+  # chapters still migrate when the .adoc file exists (authors often disable via comment).
+  awk '
+    BEGIN { found=0 }
+    /:sectnums:|:sectanchors:|-- CHAPTERS --/ { found=1; next }
+    found && /include::/ {
+      line=$0
+      sub(/^[[:space:]]*\/\/[[:space:]]*/, "", line)
+      if (line ~ /^include::/) {
+        sub(/^include::/, "", line)
+        sub(/\[.*/, "", line)
+        print line
+      }
+    }
+  ' "$master_file" \
     | while read -r target; do
         [ -z "$target" ] && continue
         case "$target" in

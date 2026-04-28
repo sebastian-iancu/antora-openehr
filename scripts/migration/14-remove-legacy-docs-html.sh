@@ -1,30 +1,35 @@
 #!/usr/bin/env bash
-# Step 14: Remove legacy rendered HTML under docs/ (pre-Antora publish artefacts)
-# and prune empty directories under docs/<module>/.
+# Step 14: Remove legacy publish/HTML artefacts and AsciiDoc tooling files under docs/
+# (pre-Antora), prune empty directories under docs/<module>/, and drop repo-root
+# .asciidoctorconfig when present (optional IDE/local AsciiDoctor config).
 #
 # Usage: run from specification repository root (same as other migration steps).
 set -euo pipefail
 
-echo "Step 14: Removing legacy docs/**/*.html and empty docs directories..."
+echo "Step 14: Removing legacy docs/**/*.html, .asciidoctorconfig, and empty docs dirs..."
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 
-[ -d docs ] || {
-  echo "  (no docs/ directory — nothing to do)"
-  echo ""
-  exit 0
+remove_one_tracked_or_untracked() {
+  local f="$1"
+  echo "  • rm $f"
+  if git rev-parse --git-dir >/dev/null 2>&1 \
+    && git ls-files --error-unmatch "$f" >/dev/null 2>&1; then
+    git rm -f "$f"
+  else
+    rm -f "$f"
+  fi
 }
 
-remove_html_files() {
+remove_html_and_tooling_files() {
   local f
   while IFS= read -r -d '' f; do
-    echo "  • rm $f"
-    if git rev-parse --git-dir >/dev/null 2>&1 \
-      && git ls-files --error-unmatch "$f" >/dev/null 2>&1; then
-      git rm -f "$f"
-    else
-      rm -f "$f"
-    fi
-  done < <(find docs -type f \( -name '*.html' -o -name '*.htm' \) -print0 2>/dev/null || true)
+    remove_one_tracked_or_untracked "$f"
+  done < <(find docs -type f \( -name '*.html' -o -name '*.htm' -o -name '.asciidoctorconfig' \) -print0 2>/dev/null || true)
+}
+
+remove_repo_root_asciidoctorconfig() {
+  [ -f .asciidoctorconfig ] || return 0
+  remove_one_tracked_or_untracked .asciidoctorconfig
 }
 
 prune_empty_dirs_under_docs() {
@@ -32,8 +37,17 @@ prune_empty_dirs_under_docs() {
     | sed 's/^/  • rmdir /' || true
 }
 
-remove_html_files
+if [ ! -d docs ]; then
+  echo "  (no docs/ directory — skipping docs tree cleanup)"
+  remove_repo_root_asciidoctorconfig
+  echo ""
+  echo "✓ Legacy docs cleanup finished"
+  exit 0
+fi
+
+remove_html_and_tooling_files
 prune_empty_dirs_under_docs
+remove_repo_root_asciidoctorconfig
 
 echo ""
-echo "✓ Legacy docs HTML cleanup finished"
+echo "✓ Legacy docs cleanup finished"

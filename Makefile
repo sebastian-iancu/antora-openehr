@@ -63,7 +63,7 @@ clone-repos: ## Clone all openEHR specification repositories
 	@echo "$(GREEN)Done cloning repositories.$(NC)"
 	@$(MAKE) update-grammars
 
-update-grammars: ## Clone/update grammar repos and copy g4 files into module partials
+update-grammars: ## Clone/update grammar repos, copy .g4 into spec repos, git commit there
 	@echo "$(GREEN)Updating ANTLR grammar files from adl-antlr...$(NC)"
 	@if [ ! -d "$(ADL_ANTLR_DIR)" ]; then \
 		echo "$(CYAN)Cloning adl-antlr...$(NC)"; \
@@ -103,12 +103,17 @@ update-grammars: ## Clone/update grammar repos and copy g4 files into module par
 	done
 	@for module in decision_language; do \
 		dir="$(REPOS_DIR)/specifications-PROC/modules/$$module/partials"; \
-		if [ -d "$$dir" ]; then \
+		if 		[ -d "$$dir" ]; then \
 			echo "$(CYAN)Copying adl-antlr g4 files to PROC/$$module/partials...$(NC)"; \
 			cp $(ADL_ANTLR_SRC)/*.g4 "$$dir/"; \
 		fi \
 	done
-	@echo "$(GREEN)Done.$(NC)"
+	@echo "$(GREEN)Done copying grammar files.$(NC)"
+	@$(MAKE) commit-updated-grammars
+
+commit-updated-grammars: ## Stage and commit updated .g4 files under repos/specifications-*
+	@echo "$(GREEN)Staging grammar commits in specification repos...$(NC)"
+	@./scripts/commit-updated-grammars.sh $(REPOS_DIR)
 
 list-repos: ## List all specification repositories
 	@echo "$(CYAN)OpenEHR Specification Repositories:$(NC)"

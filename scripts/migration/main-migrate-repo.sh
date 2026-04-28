@@ -155,6 +155,9 @@ commit_checkpoint \
 # Step 12: Escape literal braces that AsciiDoc would misread as attributes
 "$SCRIPT_DIR/12-escape-literal-braces.sh" "$COMPONENT_NAME" $MODULES
 
+# Step 12b: class_definitions partial heading ladder (overview include vs ROOT === classes)
+"$SCRIPT_DIR/12b-fix-class-definitions-heading-ladder.sh" "$COMPONENT_NAME" $MODULES
+
 # Step 13: Finalise landing pages (appendix, abstracts, overview, feedback)
 "$SCRIPT_DIR/13-finalise-landing-pages.sh" "$COMPONENT_NAME" $MODULES
 

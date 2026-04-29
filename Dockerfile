@@ -37,4 +37,4 @@ USER node
 # Default command
 CMD ["/bin/bash"]
 
-# For building: docker run --rm -v $(pwd):/workspace antora-openehr make build
+# For building: docker compose build

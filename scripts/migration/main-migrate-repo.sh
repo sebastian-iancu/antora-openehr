@@ -6,6 +6,8 @@ set -euo pipefail
 
 REPO_PATH="$1"
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+# shellcheck source=/dev/null
+source "$SCRIPT_DIR/_lib.sh"
 
 if [ -z "$REPO_PATH" ]; then
     echo "Error: Repository path not provided"
@@ -98,7 +100,12 @@ EOF
 # Clean previous migration output so re-runs start fresh
 if [ -d "modules" ]; then
     echo "→ Removing existing modules/ directory"
-    rm -rf modules
+    rm_rf_repo_path "modules"
+    if [ -d "modules" ]; then
+        echo "Error: Could not remove modules/ (often root-owned files from Docker). Fix ownership then retry, e.g.:" >&2
+        echo "  sudo rm -rf modules" >&2
+        exit 1
+    fi
     echo "✓ Cleaned"
     echo ""
 fi

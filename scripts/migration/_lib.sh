@@ -223,3 +223,35 @@ to_bmm_id() {
   lc="$(echo "$component" | tr '[:upper:]' '[:lower:]')"
   echo "openehr_${lc}_$(normalize_semver3 "$version")"
 }
+
+# -------------------------------------------------------------------
+# rm_rf_repo_path <path>
+#   Remove path relative to current working directory. Docker bind mounts often
+#   leave root-owned files (e.g. under partials/.bmm-output-scratch); plain rm -rf
+#   then fails from migrate-repo's "Removing existing modules/". Retry removal
+#   from a root-owned Alpine container on the same workspace bind mount.
+# -------------------------------------------------------------------
+rm_rf_repo_path() {
+  local target="$1"
+  [ -n "$target" ] || return 0
+  [ -e "$target" ] || return 0
+
+  chmod -R u+w "$target" 2>/dev/null || true
+  if rm -rf "$target" 2>/dev/null; then
+    return 0
+  fi
+
+  if command -v docker >/dev/null 2>&1; then
+    local repo_root
+    repo_root="$(pwd)"
+    docker run --rm \
+      -v "${repo_root}:/work" \
+      -w /work \
+      -e TARGET="$target" \
+      alpine:3.20 \
+      sh -c 'chmod -R u+w "/work/${TARGET}" 2>/dev/null; rm -rf "/work/${TARGET}"' 2>/dev/null || true
+  fi
+
+  chmod -R u+w "$target" 2>/dev/null || true
+  rm -rf "$target" 2>/dev/null || true
+}

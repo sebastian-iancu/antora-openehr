@@ -9,8 +9,24 @@ REPO_NAME="$(basename "$(pwd)")"
 MANIFEST_PATH="manifest.json"
 OUTPUT_DIR="modules/ROOT/partials/classes"
 STAGING_ROOT="modules/ROOT/partials/Adoc"
-# Pin default tag; override with BMM_PUBLISHER_IMAGE e.g. ghcr.io/openehr/bmm-publisher:0.4.0
-DOCKER_IMAGE="${BMM_PUBLISHER_IMAGE:-ghcr.io/openehr/bmm-publisher:0.4.0}"
+#
+# Docker + host layout
+# ---------------------
+# Run bmm-publisher as **host UID:GID** (`docker run --user …`) so bind-mounted output is owned by you, not root.
+# Mount **modules/ROOT/partials** → **/app/output**. The publisher writes Adoc/<BMM_ID>/{classes,definitions,…,images,plantUML,…}.
+#
+# Why not bind-mount each subtree straight onto modules/ROOT/partials/<dir> and modules/ROOT/images?
+# Any nested Docker bind mount under /app/output/Adoc/… causes bmm-publisher (tested through 0.7.x) to abort with
+# `Directory "/app/output/Adoc/" is not writable` (Java writability check). Only a single mount on /app/output works.
+#
+# So we **promote** output after each run: classes/definitions/effective/BMMs → modules/ROOT/partials/*;
+# SVG tree → modules/ROOT/images/*. **plantUML/** and **images/** under Adoc are not copied into partials/plantUML
+# (images/ is handled separately; plantUML/ is staging-only and removed with Adoc/).
+#
+# Pin default tag; override with BMM_PUBLISHER_IMAGE e.g. ghcr.io/openehr/bmm-publisher:0.7.0
+# Set BMM_PUBLISHER_AS_ROOT=1 to omit --user (not recommended; leaves root-owned files on mounts).
+DOCKER_IMAGE="${BMM_PUBLISHER_IMAGE:-ghcr.io/openehr/bmm-publisher:0.7.0}"
+ROOT_IMAGES_DIR="modules/ROOT/images"
 
 # Optional local BMM JSON overlays (merged on top of the image's /app/resources):
 #   - Default directory next to manifest.json: ./computable/BMM/*.bmm.json
@@ -44,6 +60,8 @@ prepare_bmm_resources_overlay() {
   cid="$(docker create --entrypoint /bin/true "$DOCKER_IMAGE")"
   docker cp "$cid:/app/resources/." "${BMM_RESOURCES_MERGED_DIR}/"
   docker rm "$cid" >/dev/null
+  # docker cp often leaves root-owned files; publisher runs as host UID and must read /app/resources.
+  chmod -R a+rX "${BMM_RESOURCES_MERGED_DIR}" 2>/dev/null || true
 
   local f
   for f in "$overlay"/*.bmm.json; do
@@ -135,26 +153,56 @@ collect_generated_artifacts() {
   local target_root="$2"
   local generated_root="${STAGING_ROOT}/${main_id}"
 
-  # bmm-publisher writes under partials/Adoc/<main_id>/*.
-  # Promote all generated sibling directories (classes + related artifacts)
-  # into ROOT partials for migration-time consumption.
+  # Promote Adoc/<id>/* into ROOT partials (except images/ → ROOT images; plantUML/ not kept under partials/).
   if [ -d "$generated_root" ]; then
-    local item
+    local item name rel dest
     for item in "$generated_root"/*; do
       [ -e "$item" ] || continue
-      local name
       name="$(basename "$item")"
-      mkdir -p "${target_root}/${name}"
-      cp -r "$item"/. "${target_root}/${name}/"
+      if [[ "$name" == "images" || "$name" == "plantUML" ]]; then
+        continue
+      fi
+      dest="${target_root}/${name}"
+      mkdir -p "$dest"
+
+      while IFS= read -r -d '' rel; do
+        [[ "$rel" == *.puml ]] && continue
+        if [ -d "$item/$rel" ]; then
+          mkdir -p "$dest/$rel"
+        else
+          mkdir -p "$(dirname "$dest/$rel")"
+          cp -f -- "$item/$rel" "$dest/$rel"
+        fi
+      done < <(cd "$item" && find . -mindepth 1 -print0)
+
+      find "$dest" -type f -name '*.puml' -delete 2>/dev/null || true
     done
   fi
 }
 
-cleanup_staging_output() {
-  # Keep migration output stable: only ROOT/partials/classes is needed downstream.
-  if [ -d "$STAGING_ROOT" ]; then
-    rm -rf "$STAGING_ROOT"
+collect_generated_publisher_images() {
+  local main_id="$1"
+  local dest_images_root="$2"
+  local src="${STAGING_ROOT}/${main_id}/images"
+
+  [ -d "$src" ] || return 0
+
+  local f rel copied=0
+  while IFS= read -r -d '' f; do
+    rel="${f#"${src}/"}"
+    mkdir -p "$(dirname "${dest_images_root}/${rel}")"
+    cp -f -- "$f" "${dest_images_root}/${rel}"
+    copied=$((copied + 1))
+  done < <(find "$src" -type f \( -name '*.svg' -o -name '*.SVG' \) -print0 2>/dev/null)
+
+  if [ "$copied" -gt 0 ]; then
+    echo "  • publisher SVGs ($copied files) → ${dest_images_root}/ (from Adoc/${main_id}/images/)"
   fi
+}
+
+cleanup_staging_output() {
+  rm_rf_repo_path "modules/ROOT/partials/.bmm-output-scratch"
+  rm_rf_repo_path "$STAGING_ROOT"
 }
 
 is_tracked_path() {
@@ -243,8 +291,14 @@ if [ ! -f "$MANIFEST_PATH" ]; then
   exit 0
 fi
 
-mkdir -p "$OUTPUT_DIR"
+mkdir -p "$OUTPUT_DIR" \
+  modules/ROOT/partials/definitions \
+  modules/ROOT/partials/effective \
+  modules/ROOT/partials/BMMs \
+  "$ROOT_IMAGES_DIR"
 rm -f "$OUTPUT_DIR"/*.adoc
+# Regenerated publisher SVG outputs only (do not remove other ROOT/images assets).
+rm -rf "${ROOT_IMAGES_DIR}/uml/classes" "${ROOT_IMAGES_DIR}/uml/diagrams" 2>/dev/null || true
 
 if [ -n "${BMM_MAIN_FILE:-}" ]; then
   MAIN_IDS=("$BMM_MAIN_FILE")
@@ -290,7 +344,11 @@ for MAIN_ID in "${MAIN_IDS[@]}"; do
     echo "  Dependency ids: none"
   fi
 
-  docker_run=(docker run --rm -v "$(pwd)/modules/ROOT/partials:/app/output")
+  docker_run=(docker run --rm)
+  if [[ -z "${BMM_PUBLISHER_AS_ROOT:-}" ]]; then
+    docker_run+=(--user "$(id -u):$(id -g)" -e HOME=/tmp)
+  fi
+  docker_run+=(-v "$(pwd)/modules/ROOT/partials:/app/output")
   if [[ -n "${BMM_RESOURCES_MERGED_DIR:-}" ]]; then
     docker_run+=(-v "${BMM_RESOURCES_MERGED_DIR}:/app/resources")
   fi
@@ -298,6 +356,7 @@ for MAIN_ID in "${MAIN_IDS[@]}"; do
   "${docker_run[@]}"
 
   collect_generated_artifacts "$MAIN_ID" "modules/ROOT/partials"
+  collect_generated_publisher_images "$MAIN_ID" "$ROOT_IMAGES_DIR"
 done
 
 validate_generated_classes "$OUTPUT_DIR"
@@ -306,4 +365,7 @@ cleanup_staging_output
 cleanup_bmm_resources_merged_dir
 trap - EXIT
 echo "✓ Generated UML class partials in $OUTPUT_DIR"
+if find "${ROOT_IMAGES_DIR}/uml" -type f -name '*.svg' 2>/dev/null | read -r _; then
+  echo "✓ Publisher SVG assets under ${ROOT_IMAGES_DIR}/uml/"
+fi
 echo ""

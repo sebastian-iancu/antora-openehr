@@ -121,19 +121,25 @@ antora-openehr/
 │   ├── references.bib           # BibTeX bibliography for asciidoctor-bibtex
 │   └── component_vars.adoc      # Component-level variable definitions
 ├── scripts/
-│   ├── migration/               # Migration shell scripts (numbered 1–13, plus 3a/4a sub-steps); git mv for tracked sources
-│   │   ├── main-migrate-repo.sh        # Entry point: runs all migration steps
-│   │   ├── _lib.sh                     # Shared helpers (sourced by scripts 4, 6, 8, 9)
+│   ├── migration/               # Migration shell scripts (numbered 1–14, plus 3a/4a/12b sub-steps); git mv for tracked sources
+│   │   ├── main-migrate-repo.sh        # Entry point: orchestrates all migration steps
+│   │   ├── _lib.sh                     # Shared helpers (sourced by main + 3, 3a, 4, 6, 7, 8)
 │   │   ├── 3a-generate-uml-classes.sh  # UML class regeneration via bmm-publisher (Docker)
-│   │   └── 4a-fetch-external-grammars.sh # ANTLR/grammar include rewriting
+│   │   ├── 4a-fetch-external-grammars.sh # ANTLR/grammar include rewriting
+│   │   ├── 12b-fix-class-definitions-heading-ladder.sh # Aligns class_definitions overview-include heading levels with ROOT `=== classes`
+│   │   ├── 13-finalise-landing-pages.sh   # Landing pages + abstract injection
+│   │   └── 14-remove-legacy-docs-html.sh
+│   ├── resources/abstracts/     # Per-component landing-page abstracts (BASE.adoc, RM.adoc, …) consumed by step 13
+│   ├── commit-updated-grammars.sh
 │   ├── create-release-branches.sh
 │   └── validate-structure.sh
 ├── src/
 │   ├── extensions/
-│   │   └── load-global-vars.js  # Antora extension: loads global-vars.yml as attributes
-│   ├── ui-bundle/               # Custom Antora UI bundle (Handlebars, CSS, JS)
-│   ├── ui-bundle.zip            # Packaged UI bundle (referenced by playbook)
-│   └── supplemental-ui/         # CSS overrides, images, HBS partial overrides
+│   │   ├── load-global-vars.js              # Antora extension: loads global-vars.yml as attributes
+│   │   └── patch-asciidoctor-bibtex-lines.js # Runtime patch for @ayowel/asciidoctor-bibtex-js TreeProcessor
+│   ├── ui-bundle/               # Custom Antora UI bundle source (gitignored — repackage to .zip after edits)
+│   ├── ui-bundle.zip            # Packaged UI bundle (referenced by playbook; tracked in git)
+│   └── supplemental-ui/         # CSS overrides, images, HBS partial overrides (applied on top of bundle)
 ├── caddy/
 │   └── Caddyfile                # Caddy config for test profile
 ├── repos/                       # Cloned specification repos (local builds)
@@ -186,8 +192,9 @@ The build pipeline uses several AsciiDoc/Antora extensions configured in the pla
 | Extension | Purpose |
 |-----------|---------|
 | `load-global-vars.js` | Custom Antora extension that loads `resources/global-vars.yml` as AsciiDoc attributes with recursive interpolation |
+| `patch-asciidoctor-bibtex-lines.js` | Custom Antora extension; monkey-patches `@ayowel/asciidoctor-bibtex-js` `TreeProcessor` to type-guard non-string lines and avoid build crashes |
 | `@antora/lunr-extension` | Full-text search index generation |
-| `asciidoctor-kroki` | Diagram rendering (PlantUML, ditaa, etc.) via Kroki |
+| `asciidoctor-kroki` | Diagram rendering (PlantUML, ditaa, etc.) via Kroki — **build-time SVG fetch** (`kroki-fetch-diagram: true`) embeds diagrams locally instead of emitting kroki.io URLs |
 | `@asciidoctor/tabs` | Tabbed content blocks in AsciiDoc |
 | `@ayowel/asciidoctor-bibtex-js` | BibTeX citation support using `resources/references.bib` |
 
@@ -236,9 +243,12 @@ Standard AsciiDoc with Antora extensions. Follow existing patterns in the codeba
 - **Build log**: `make build-local` tees output to `build.log` at project root.
 - **`runtime.fetch: true`** in the playbook allows Antora to fetch remote resources (e.g., Kroki diagrams). Builds require internet access.
 - **Migration branch**: `make migrate-repo` runs on the `development` branch (override with `MIGRATION_BRANCH=…`), and refuses to run if that branch doesn't exist locally — run `make create-branches` first.
+- **Backup branch on migrate**: each `migrate-repo` run creates a `backup-pre-antora-<timestamp>` branch in the spec repo before any rewrites. Useful for diff/rollback; clean up periodically.
 - **Auto-commit checkpoints**: the migration script creates ~3 git checkpoints inside the spec repo by default. Set `AUTO_COMMIT_CHECKPOINTS=0` to disable.
-- **UML class regeneration**: step 3a (`3a-generate-uml-classes.sh`) runs the `ghcr.io/openehr/bmm-publisher` Docker image to produce ROOT class partials. Override the image with `BMM_PUBLISHER_IMAGE=…`. Local BMM JSON overlays can be supplied via `BMM_RESOURCES_OVERLAY=/path/to/dir` or by placing files under `<repo>/computable/BMM/*.bmm.json`.
-- **Shared helpers**: `scripts/migration/_lib.sh` is sourced by several scripts (chapter-list extraction, `strip_master_prefix`, `get_uml_prefix`, etc.). Editing any consumer? Check `_lib.sh` first.
+- **UML class regeneration**: step 3a (`3a-generate-uml-classes.sh`) runs the `ghcr.io/openehr/bmm-publisher` Docker image to produce ROOT class partials. Override the image with `BMM_PUBLISHER_IMAGE=…` (default pinned to `:0.7.0`). The container runs as host UID:GID by default; set `BMM_PUBLISHER_AS_ROOT=1` to drop `--user` (not recommended — leaves root-owned files on the bind mount). Local BMM JSON overlays can be supplied via `BMM_RESOURCES_OVERLAY=/path/to/dir` or by placing files under `<repo>/computable/BMM/*.bmm.json`. The publisher's nested `Adoc/<id>/` output is **promoted** into `modules/ROOT/partials/*` (and SVGs into `images/uml/`); nested bind-mounts on `/app/output/Adoc/…` would trigger the publisher's writability check and abort.
+- **AsciiDoc extension load order**: in the playbook, `patch-asciidoctor-bibtex-lines.js` MUST be registered **before** the `@ayowel/asciidoctor-bibtex-js` extension — its `playbookBuilt`-stage monkey-patch type-guards `TreeProcessor.search_and_flag_inline_macros` / `process_inline_macros` against non-string lines, preventing crashes on lines emitted by other processors.
+- **Landing-page abstracts**: step 13 reads `scripts/resources/abstracts/<COMPONENT>.adoc` for module abstracts and (when present) updates `manifest.json.summary` for matching modules. Abstract files are organized by `// @SECTION` blocks (e.g., `@overview`, `@spec:foundation_types`).
+- **Shared helpers**: `scripts/migration/_lib.sh` is sourced by `main-migrate-repo.sh` and steps 3, 3a, 4, 6, 7, 8 (chapter-list extraction, `strip_master_prefix`, `git_move_preserve_history`, `rm_rf_repo_path`, BMM id helpers, etc.). Editing any consumer? Check `_lib.sh` first.
 
 ---
 

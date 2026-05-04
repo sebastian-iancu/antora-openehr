@@ -242,6 +242,23 @@ move_module_diagrams() {
   fi
 }
 
+move_module_codesets() {
+  local module="$1"
+
+  if [ -d "docs/$module/codesets" ]; then
+    echo "  • Moving codesets/ → partials/codesets/"
+    mkdir -p "modules/$module/partials/codesets"
+    shopt -s nullglob
+    local f
+    for f in "docs/$module/codesets/"*; do
+      [ -f "$f" ] || continue
+      git_move_preserve_history "$f" "modules/$module/partials/codesets/$(basename "$f")"
+    done
+    shopt -u nullglob
+    rmdir "docs/$module/codesets" 2>/dev/null || true
+  fi
+}
+
 # -------------------------------------------------------------------
 # Replace {diagrams_uri} with diagrams and also removing {images_uri}/
 # -------------------------------------------------------------------
@@ -259,6 +276,7 @@ replace_diagram_and_images_uri_attr() {
     [ -f "$f" ] || continue
     sed -i "s|{diagrams_uri}|diagrams|g" "$f"
     sed -i "s|{images_uri}/||g" "$f"
+    sed -i 's|include::codesets/|include::partial$codesets/|g' "$f"
   done
 
   if [ -d "$partials_dir" ]; then
@@ -266,6 +284,7 @@ replace_diagram_and_images_uri_attr() {
       [ -f "$f" ] || continue
       sed -i "s|{diagrams_uri}|diagrams|g" "$f"
       sed -i "s|{images_uri}/||g" "$f"
+      sed -i 's|include::codesets/|include::partial$codesets/|g' "$f"
     done
   fi
 }
@@ -315,6 +334,7 @@ process_module() {
 
   move_module_images "$module"
   move_module_diagrams "$module"
+  move_module_codesets "$module"
 
   warn_leftover_docs_adoc "$module"
 

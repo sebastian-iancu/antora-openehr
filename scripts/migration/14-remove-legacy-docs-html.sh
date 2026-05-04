@@ -35,9 +35,13 @@ remove_repo_root_asciidoctorconfig() {
 
 remove_obsolete_docs_root_files() {
   # Superseded by modules/ROOT/pages/index.adoc
-  [ -f docs/index.adoc ] && remove_one_tracked_or_untracked docs/index.adoc
+  if [ -f docs/index.adoc ]; then
+    remove_one_tracked_or_untracked docs/index.adoc
+  fi
   # Legacy draw.io source no longer used after migration (SVG lives in modules/ROOT/images/)
-  [ -f docs/openehr_block_diagram.xml ] && remove_one_tracked_or_untracked docs/openehr_block_diagram.xml
+  if [ -f docs/openehr_block_diagram.xml ]; then
+    remove_one_tracked_or_untracked docs/openehr_block_diagram.xml
+  fi
 }
 
 prune_empty_dirs_under_docs() {

@@ -99,11 +99,11 @@ create_module_nav() {
   # 2) First "= Heading" in index.adoc
   # 3) Prettified module name
   # ------------------------------------------------------------------
-  local module_title
+  local module_title=""
   local spec_title_literal="{spec_title}"
 
   if [ -f "manifest.json" ]; then
-    module_title=$(jq -r ".specifications[] | select(.id == \"$module\") | .title // empty" manifest.json)
+    module_title="$(jq -r --arg module_id "$module" '.specifications[]? | select(.id == $module_id) | .title // empty' manifest.json)"
   fi
 
   if [ -z "$module_title" ]; then

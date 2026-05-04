@@ -41,6 +41,57 @@ cleanup_bmm_resources_merged_dir() {
   fi
 }
 
+bmm_resource_exists_locally() {
+  local id="$1"
+
+  if [[ -n "${BMM_RESOURCES_OVERLAY:-}" && -f "${BMM_RESOURCES_OVERLAY}/${id}.bmm.json" ]]; then
+    return 0
+  fi
+
+  [[ -f "computable/BMM/${id}.bmm.json" ]]
+}
+
+bmm_resource_exists_in_image() {
+  local id="$1"
+  local cid tmp
+
+  tmp="$(mktemp -d)"
+  if ! cid="$(docker create --entrypoint /bin/true "$DOCKER_IMAGE" 2>/dev/null)"; then
+    rm -rf "$tmp"
+    return 1
+  fi
+
+  if docker cp "$cid:/app/resources/${id}.bmm.json" "$tmp/${id}.bmm.json" >/dev/null 2>&1; then
+    docker rm "$cid" >/dev/null 2>&1 || true
+    rm -rf "$tmp"
+    return 0
+  fi
+
+  docker rm "$cid" >/dev/null 2>&1 || true
+  rm -rf "$tmp"
+  return 1
+}
+
+bmm_resource_available() {
+  local id="$1"
+
+  bmm_resource_exists_locally "$id" || bmm_resource_exists_in_image "$id"
+}
+
+bmm_resources_available() {
+  local id missing=0
+
+  for id in "$@"; do
+    [ -n "$id" ] || continue
+    if ! bmm_resource_available "$id"; then
+      echo "  • no BMM resource available for ${id}; skipping this publisher input"
+      missing=1
+    fi
+  done
+
+  [ "$missing" -eq 0 ]
+}
+
 prepare_bmm_resources_overlay() {
   local overlay=""
   if [[ -n "${BMM_RESOURCES_OVERLAY:-}" && -d "${BMM_RESOURCES_OVERLAY}" ]]; then
@@ -78,17 +129,26 @@ seed_missing_bmm_resources_from_image() {
 
   mkdir -p "computable/BMM"
 
-  local cid tmp id target copied=0
-  tmp="$(mktemp -d)"
-  cid="$(docker create --entrypoint /bin/true "$DOCKER_IMAGE")"
-  trap 'docker rm "$cid" >/dev/null 2>&1 || true; rm -rf "$tmp"; cleanup_bmm_resources_merged_dir' EXIT
-
+  local id target copied=0
+  local -a missing_ids=()
   for id in "${ids[@]}"; do
     target="computable/BMM/${id}.bmm.json"
-    if [ -f "$target" ]; then
-      continue
-    fi
+    [ -f "$target" ] || missing_ids+=("$id")
+  done
 
+  [ "${#missing_ids[@]}" -gt 0 ] || return 0
+
+  local cid tmp
+  tmp="$(mktemp -d)"
+  if ! cid="$(docker create --entrypoint /bin/true "$DOCKER_IMAGE" 2>/dev/null)"; then
+    rm -rf "$tmp"
+    echo "  • could not inspect publisher image for missing BMM resources; continuing without seeding"
+    return 0
+  fi
+  trap 'docker rm "$cid" >/dev/null 2>&1 || true; rm -rf "$tmp"; cleanup_bmm_resources_merged_dir' EXIT
+
+  for id in "${missing_ids[@]}"; do
+    target="computable/BMM/${id}.bmm.json"
     if docker cp "$cid:/app/resources/${id}.bmm.json" "$tmp/${id}.bmm.json" >/dev/null 2>&1; then
       cp -f "$tmp/${id}.bmm.json" "$target"
       chmod u+rw,go+r "$target" 2>/dev/null || true
@@ -145,8 +205,7 @@ resolve_bmm_main() {
       pick_best_manifest_version "$component" "$manifest" "1.2.0" "1.1.0" "1.0.4"
       ;;
     LANG)
-      # LANG repo may be missing in local setup; keep a stable default.
-      echo "1.1.0"
+      pick_best_manifest_version "$component" "$manifest" "1.1.0" "1.0.0"
       ;;
     *)
       latest_manifest_release "$manifest"
@@ -327,23 +386,15 @@ if [ ! -f "$MANIFEST_PATH" ]; then
   exit 0
 fi
 
-mkdir -p "$OUTPUT_DIR" \
-  modules/ROOT/partials/definitions \
-  modules/ROOT/partials/effective \
-  modules/ROOT/partials/BMMs \
-  "$ROOT_IMAGES_DIR"
-rm -f "$OUTPUT_DIR"/*.adoc
-# Regenerated publisher SVG outputs only (do not remove other ROOT/images assets).
-rm -rf "${ROOT_IMAGES_DIR}/uml/classes" "${ROOT_IMAGES_DIR}/uml/diagrams" 2>/dev/null || true
-
 if [ -n "${BMM_MAIN_FILE:-}" ]; then
   MAIN_IDS=("$BMM_MAIN_FILE")
   RESOLUTION_MODE="external override"
 else
   MAIN_VERSION="$(resolve_bmm_main "$COMPONENT_NAME" "$MANIFEST_PATH")"
   if [ -z "$MAIN_VERSION" ]; then
-    echo "Error: Could not resolve BMM version for component $COMPONENT_NAME from $MANIFEST_PATH"
-    exit 1
+    echo "No BMM version resolved for component $COMPONENT_NAME from $MANIFEST_PATH; skipping bmm-publisher generation."
+    echo ""
+    exit 0
   fi
   MAIN_ID="$(to_bmm_id "$COMPONENT_NAME" "$MAIN_VERSION")"
   MAIN_IDS=("$MAIN_ID")
@@ -358,6 +409,32 @@ echo "→ Repo: $REPO_NAME"
 echo "→ Component: $COMPONENT_NAME"
 echo "→ Output dir: $OUTPUT_DIR"
 
+AVAILABLE_MAIN_IDS=()
+for MAIN_ID in "${MAIN_IDS[@]}"; do
+  if bmm_resource_available "$MAIN_ID"; then
+    AVAILABLE_MAIN_IDS+=("$MAIN_ID")
+  else
+    echo "  • no BMM resource available for ${MAIN_ID}; skipping this publisher input"
+  fi
+done
+
+if [ "${#AVAILABLE_MAIN_IDS[@]}" -eq 0 ]; then
+  echo "No resolvable BMM resources for component $COMPONENT_NAME; skipping bmm-publisher generation."
+  echo ""
+  exit 0
+fi
+
+MAIN_IDS=("${AVAILABLE_MAIN_IDS[@]}")
+
+mkdir -p "$OUTPUT_DIR" \
+  modules/ROOT/partials/definitions \
+  modules/ROOT/partials/effective \
+  modules/ROOT/partials/BMMs \
+  "$ROOT_IMAGES_DIR"
+rm -f "$OUTPUT_DIR"/*.adoc
+# Regenerated publisher SVG outputs only (do not remove other ROOT/images assets).
+rm -rf "${ROOT_IMAGES_DIR}/uml/classes" "${ROOT_IMAGES_DIR}/uml/diagrams" 2>/dev/null || true
+
 trap cleanup_bmm_resources_merged_dir EXIT
 # Seed the component model(s) into the repo. Dependency models stay resolved from
 # the publisher image unless the repo supplies an explicit computable/BMM overlay.
@@ -366,6 +443,7 @@ if prepare_bmm_resources_overlay; then
   :
 fi
 
+GENERATED_COUNT=0
 for MAIN_ID in "${MAIN_IDS[@]}"; do
   if [ -n "${BMM_DEP_FILES:-}" ]; then
     DEP_IDS="${BMM_DEP_FILES}"
@@ -383,6 +461,17 @@ for MAIN_ID in "${MAIN_IDS[@]}"; do
     echo "  Dependency ids: none"
   fi
 
+  REQUIRED_IDS=("$MAIN_ID")
+  if [ -n "$DEP_IDS" ]; then
+    # shellcheck disable=SC2206
+    DEP_ID_ARRAY=($DEP_IDS)
+    REQUIRED_IDS+=("${DEP_ID_ARRAY[@]}")
+  fi
+
+  if ! bmm_resources_available "${REQUIRED_IDS[@]}"; then
+    continue
+  fi
+
   docker_run=(docker run --rm)
   if [[ -z "${BMM_PUBLISHER_AS_ROOT:-}" ]]; then
     docker_run+=(--user "$(id -u):$(id -g)" -e HOME=/tmp)
@@ -396,7 +485,17 @@ for MAIN_ID in "${MAIN_IDS[@]}"; do
 
   collect_generated_artifacts "$MAIN_ID" "modules/ROOT/partials"
   collect_generated_publisher_images "$MAIN_ID" "$ROOT_IMAGES_DIR"
+  GENERATED_COUNT=$((GENERATED_COUNT + 1))
 done
+
+if [ "$GENERATED_COUNT" -eq 0 ]; then
+  cleanup_staging_output
+  cleanup_bmm_resources_merged_dir
+  trap - EXIT
+  echo "No complete BMM input set available for component $COMPONENT_NAME; skipping bmm-publisher generation."
+  echo ""
+  exit 0
+fi
 
 validate_generated_classes "$OUTPUT_DIR"
 reconcile_legacy_class_files "$OUTPUT_DIR"

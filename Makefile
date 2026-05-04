@@ -238,6 +238,7 @@ build-github: ## Build site using local repositories for github docs
 		exit 1; \
 	fi
 	npx antora antora-playbook-github.yml 2>&1 | tee build-github.log
+	@touch docs/.nojekyll
 	@echo "$(GREEN)Build complete! Site generated in 'docs' — log: build-github.log$(NC)"
 
 clean: ## Clean build artifacts and cache

@@ -332,6 +332,8 @@ openehr_term_development_terminology: "{openehr_term_development}/SupportTermino
 # Git links
 openehr_terminology_resources: "{openehr_git}/specifications-TERM"
 openehr_terminology_xml: "{openehr_terminology_resources}/blob/master/computable/XML/en/openehr_terminology.xml"
+# Legacy aliases still referenced by older release branches.
+openehr_terminology: "{openehr_term_development_terminology}"
 
 # --------------- ITS ----------------
 openehr_its_releases: "{openehr_specs}/releases/ITS/{its_release}"
@@ -378,6 +380,7 @@ openehr_adl_210_antlr_include: "{openehr_git_raw}/adl-antlr/ADL_2.1.0/src/main/a
 openehr_adl_220_antlr_include: "{openehr_git_raw}/adl-antlr/ADL_2.2.0/src/main/antlr"
 openehr_openehr_antlr_include: "{openehr_git_raw}/openEHR-antlr4/refs/heads/master/combined/src/main/antlr"
 openehr_openehr_antlr: "{openehr_git}/openEHR-antlr4/refs/heads/master/combined/src/main/antlr"
+openehr_rules: "{openehr_adl_antlr_include}/adl/adl_rules.g4"
 
 #
 # ============== openEHR online resources ==============
@@ -489,11 +492,13 @@ hl7v3_arden: "{hl7}/special/Committees/arden/index.cfm"
 hl7v3_gello: "{hl7}/implement/standards/product_brief.cfm?product_id=5"
 hl7_cql: "https://cql.hl7.org"
 hl7_cimi: "https://cimi.hl7.org/index.html"
+cimi_home: "{hl7_cimi}"
 
 #
 # W3C
 #
 w3c_xml_schema: "https://www.w3.org/XML/Schema"
+xml_schema: "{w3c_xml_schema}"
 w3c_xpath: "https://www.w3.org/TR/xpath-31/"
 xquery: "https://www.w3.org/XML/Query/"
 w3c_owl: "https://www.w3.org/TR/2003/CR-owl-ref-20030818/"
@@ -1066,6 +1071,7 @@ class_bmm_package: "{page_lang_bmm_core_model}#_bmm_package_class"
 class_bmm_module: "{page_lang_bmm_core_model}#_bmm_module_class"
 class_bmm_model_element: "{page_lang_bmm_core_model}#_bmm_model_element_class"
 class_bmm_package_container: "{page_lang_bmm_core_model}#_bmm_package_container_class"
+class_bmm_declaration: "{page_lang_bmm_core_model}#_bmm_declaration_class"
 
 # LANG - bmm - classes
 class_bmm_class: "{page_lang_bmm_core_classes}#_bmm_class_class"
@@ -1092,6 +1098,12 @@ class_bmm_model_type: "{page_lang_bmm_core_types}#_bmm_model_type_class"
 class_bmm_parameter_type: "{page_lang_bmm_core_types}#_bmm_parameter_type_class"
 
 # LANG - bmm - features
+class_bmm_class_feature: "{page_lang_bmm_core_features}#_bmm_class_feature_class"
+class_bmm_class_entity: "{page_lang_bmm_core_features}#_bmm_class_entity_class"
+class_bmm_typed: "{page_lang_bmm_core_features}#_bmm_typed_class"
+class_bmm_typed_feature: "{page_lang_bmm_core_features}#_bmm_typed_feature_class"
+class_bmm_instantiable: "{page_lang_bmm_core_features}#_bmm_instantiable_class"
+class_bmm_routine_body: "{page_lang_bmm_core_features}#_bmm_routine_body_class"
 class_bmm_property: "{page_lang_bmm_core_features}#_bmm_property_class"
 class_bmm_unitary_property: "{page_lang_bmm_core_features}#_bmm_unitary_property_class"
 class_bmm_container_property: "{page_lang_bmm_core_features}#_bmm_container_property_class"
@@ -1111,6 +1123,7 @@ class_bmm_readonly_variable: "{page_lang_bmm_core_features}#_bmm_readonly_variab
 class_bmm_parameter: "{page_lang_bmm_core_features}#_bmm_parameter_class"
 
 # LANG - bmm - values
+class_bmm_container_value: "{page_lang_bmm_core_values}#_bmm_container_value_class"
 class_bmm_literal_value: "{page_lang_bmm_core_values}#_bmm_literal_value_class"
 class_bmm_primitive_value: "{page_lang_bmm_core_values}#_bmm_primitive_value_class"
 class_bmm_string_value: "{page_lang_bmm_core_values}#_bmm_string_value_class"
@@ -1119,6 +1132,9 @@ class_bmm_unitary_value: "{page_lang_bmm_core_values}#_bmm_unitary_value_class"
 
 # LANG - bmm - expressions (EL)
 class_el_expression: "{page_lang_bmm_expressions}#_el_expression_class"
+class_el_instance_ref: "{page_lang_bmm_expressions}#_el_instance_ref_class"
+class_el_instantiable_ref: "{page_lang_bmm_expressions}#_el_instantiable_ref_class"
+class_el_scoped_ref: "{page_lang_bmm_expressions}#_el_scoped_ref_class"
 class_el_terminal: "{page_lang_bmm_expressions}#_el_terminal_class"
 class_el_simple: "{page_lang_bmm_expressions}#_el_simple_class"
 class_el_value_generator: "{page_lang_bmm_expressions}#_el_value_generator_class"
@@ -1144,6 +1160,7 @@ class_el_constrained: "{page_lang_bmm_expressions}#_el_constrained_class"
 class_el_boolean_expression: "{page_lang_bmm_expressions}#_el_boolean_expression_class"
 
 # LANG - bmm - statements
+class_bmm_conditional_action: "{page_lang_bmm_statements}#_bmm_conditional_action_class"
 class_bmm_statement_item: "{page_lang_bmm_statements}#_bmm_statement_item_class"
 class_bmm_statement: "{page_lang_bmm_statements}#_bmm_statement_class"
 class_bmm_simple_statement: "{page_lang_bmm_statements}#_bmm_simple_statement_class"
@@ -1163,6 +1180,14 @@ class_bmm_parameter_direction: "{page_lang_bmm_model_access}#_bmm_parameter_dire
 
 # LANG - bmm - packages
 class_bmm_definitions: "{page_lang_bmm_packages}#_bmm_definitions_class"
+
+# ===== TERM - Support Terminology =====
+page_term_support_representation: "TERM:SupportTerminology:representation.adoc"
+class_code_set: "{page_term_support_representation}#_code_set_class"
+class_code: "{page_term_support_representation}#_code_class"
+class_terminology_group: "{page_term_support_representation}#_terminology_group_class"
+class_terminology_concept: "{page_term_support_representation}#_terminology_concept_class"
+class_terminology_status: "{page_term_support_representation}#_terminology_status_class"
 
 # ===== LANG - BMM_PERSISTENCE =====
 page_lang_bmm_persistence_model: "LANG:bmm_persistence:model.adoc"

@@ -10,6 +10,22 @@ shift
 
 MODULES="$@"
 
+remove_missing_class_includes() {
+  local file="$1"
+  local tmp
+  tmp="$(mktemp)"
+
+  while IFS= read -r line; do
+    if [[ "$line" =~ include::ROOT:partial\$classes/([^[]+)\[ ]]; then
+      local class_partial="modules/ROOT/partials/classes/${BASH_REMATCH[1]}"
+      [ -f "$class_partial" ] || continue
+    fi
+    echo "$line"
+  done < "$file" > "$tmp"
+
+  mv "$tmp" "$file"
+}
+
 rewrite_uml_refs_for_module() {
   local module="$1"
   local pages_dir="modules/$module/pages"
@@ -64,6 +80,8 @@ rewrite_uml_refs_for_module() {
     #
     sed -i 's|image::UML/diagrams/|image::ROOT:uml/|g' "$f"
     perl -i -pe 's|image::UML/([^/]+)/diagrams/|image::ROOT:uml/|g' "$f"
+    sed -i 's|image::../UML/diagrams/|image::ROOT:uml/|g' "$f"
+    perl -i -pe 's|image::\.\./UML/([^/]+)/diagrams/|image::ROOT:uml/|g' "$f"
 
     #
     # LEGACY diagrams_uri — image::{diagrams_uri}/X.png → image::diagrams/X.png
@@ -83,6 +101,8 @@ rewrite_uml_refs_for_module() {
         fi
       fi
     done < "$f"
+
+    remove_missing_class_includes "$f"
   done
 }
 

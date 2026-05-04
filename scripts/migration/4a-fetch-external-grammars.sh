@@ -25,9 +25,11 @@ echo "━━━━━━━━━━━━━━━━━━━━━━━━�
 REMOTE_REWRITES=(
   "AM|ADL1.4,ADL2,OPT2|{openehr_adl_antlr_include}/adl/"
   "AM|ADL1.4,ADL2,OPT2|{grammar_dir}/adl/"
+  "AM|ADL1.4,ADL2,OPT2|{grammar_dir}/"
   "PROC|.|{grammar_dir}/"
   "LANG|.|{openehr_adl_antlr_include}/adl/"
   "LANG|.|{openehr_openehr_antlr_include}/"
+  "LANG|.|{grammar_dir}/"
 )
 
 for entry in "${REMOTE_REWRITES[@]}"; do

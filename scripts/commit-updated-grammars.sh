@@ -4,6 +4,10 @@
 # Usage: scripts/commit-updated-grammars.sh [repos_dir]
 set -euo pipefail
 
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+# shellcheck source=/dev/null
+source "$SCRIPT_DIR/migration/_lib.sh"
+
 REPOS_DIR="${1:-repos}"
 
 commit_g4_in_repo() {
@@ -31,6 +35,11 @@ commit_g4_in_repo() {
 
   git -C "$repo_root" commit -m "chore: refresh vendored ADL ANTLR grammar (.g4)" \
     -m "Synced from make update-grammars (adl-antlr / openEHR-antlr4)."
+
+  (
+    cd "$repo_root"
+    git_force_push_current_branch
+  )
 }
 
 echo "→ Committing grammar updates in specification repos (if any)..."

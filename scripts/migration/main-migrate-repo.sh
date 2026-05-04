@@ -76,11 +76,6 @@ commit_checkpoint() {
 
     [ "$AUTO_COMMIT_CHECKPOINTS" = "1" ] || return 0
 
-    # Only commit when there is an actual delta.
-    if git diff --quiet && git diff --cached --quiet; then
-        return 0
-    fi
-
     git add -A
     if git diff --cached --quiet; then
         return 0
@@ -176,3 +171,4 @@ commit_checkpoint \
   "chore(migration): apply antora rewrites and finalisation" \
   "Capture include/xref rewrites, nav/index normalization, legacy docs HTML removal, and final migration polish after structure relocation."
 
+git_force_push_current_branch "$MIGRATION_BRANCH"

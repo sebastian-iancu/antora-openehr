@@ -113,5 +113,5 @@ fi
 echo ""
 echo "To push these branches to remote, run:"
 echo "  cd $REPO_PATH"
-echo "  git push origin development"
-echo "  git push origin 'refs/heads/release/*'"
+echo "  git push --force-with-lease origin development"
+echo "  git push --force-with-lease origin 'refs/heads/release/*'"

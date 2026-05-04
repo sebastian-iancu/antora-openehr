@@ -72,6 +72,42 @@ prepare_bmm_resources_overlay() {
   return 0
 }
 
+seed_missing_bmm_resources_from_image() {
+  local -a ids=("$@")
+  [ "${#ids[@]}" -gt 0 ] || return 0
+
+  mkdir -p "computable/BMM"
+
+  local cid tmp id target copied=0
+  tmp="$(mktemp -d)"
+  cid="$(docker create --entrypoint /bin/true "$DOCKER_IMAGE")"
+  trap 'docker rm "$cid" >/dev/null 2>&1 || true; rm -rf "$tmp"; cleanup_bmm_resources_merged_dir' EXIT
+
+  for id in "${ids[@]}"; do
+    target="computable/BMM/${id}.bmm.json"
+    if [ -f "$target" ]; then
+      continue
+    fi
+
+    if docker cp "$cid:/app/resources/${id}.bmm.json" "$tmp/${id}.bmm.json" >/dev/null 2>&1; then
+      cp -f "$tmp/${id}.bmm.json" "$target"
+      chmod u+rw,go+r "$target" 2>/dev/null || true
+      echo "  • seeded BMM resource from publisher image: $target"
+      copied=$((copied + 1))
+    else
+      echo "  • no publisher BMM resource found for ${id}; leaving computable/BMM unchanged"
+    fi
+  done
+
+  docker rm "$cid" >/dev/null
+  rm -rf "$tmp"
+  trap cleanup_bmm_resources_merged_dir EXIT
+
+  if [ "$copied" -gt 0 ]; then
+    echo "→ Seeded $copied missing BMM resource file(s) under computable/BMM"
+  fi
+}
+
 if [[ -z "$COMPONENT_NAME" ]]; then
   echo "Usage: $0 <COMPONENT_NAME>"
   exit 1
@@ -323,6 +359,9 @@ echo "→ Component: $COMPONENT_NAME"
 echo "→ Output dir: $OUTPUT_DIR"
 
 trap cleanup_bmm_resources_merged_dir EXIT
+# Seed the component model(s) into the repo. Dependency models stay resolved from
+# the publisher image unless the repo supplies an explicit computable/BMM overlay.
+seed_missing_bmm_resources_from_image "${MAIN_IDS[@]}"
 if prepare_bmm_resources_overlay; then
   :
 fi

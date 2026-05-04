@@ -23,7 +23,9 @@ content:
         - development
         - 'release/1.0.2'
         - 'release/1.0.3'
+        - 'release/1.0.4'
         - 'release/1.1.0'
+        - 'release/1.2.0'
       version:
         release/(?<version>+({0..9}).+({0..9}).+({0..9})): Release-$<version>
         development: development
@@ -108,7 +110,16 @@ content:
         development: development
     
     # ITS Component - Implementation Technology Specifications
-    - url: https://github.com/openEHR/specifications-ITS
+    - url: https://github.com/openEHR/specifications-ITS-REST
+      branches:
+        - development
+        - 'release/*'
+      version:
+        release/(?<version>+({0..9}).+({0..9}).+({0..9})): Release-$<version>
+        development: development
+
+    # TERM Component - Terminology Support
+    - url: https://github.com/openEHR/specifications-TERM
       branches:
         - development
         - 'release/*'
@@ -149,9 +160,9 @@ asciidoc:
     kroki-default-format: svg
   extensions:
     - asciidoctor-kroki
+    - '@asciidoctor/tabs'
     - '@ayowel/asciidoctor-bibtex-js'
     - './src/extensions/auto-bibtex-references.js'
-    - '@asciidoctor/tabs'
 
 runtime:
   fetch: true

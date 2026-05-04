@@ -1,4 +1,4 @@
-.PHONY: help build build-local clean preview all \
+.PHONY: help build build-local build-github clean preview all \
         install create-branches migrate-repo validate-structure clone-repos \
         generate-uml-classes-repo generate-uml-classes-all \
         commit-updated-grammars
@@ -19,7 +19,7 @@ BUILD_DIR := build
 SPECS_REPOS := specifications-BASE specifications-RM specifications-AM \
                specifications-LANG specifications-SM specifications-QUERY \
 			   specifications-PROC specifications-CDS specifications-CNF \
-		  	   specifications-ITS-REST specifications-ITS-JSON specifications-ITS-XML specifications-ITS-BMM
+		  	   specifications-ITS-REST specifications-TERM
 ADL_ANTLR_REPO := https://github.com/openEHR/adl-antlr.git
 ADL_ANTLR_DIR  := $(REPOS_DIR)/adl-antlr
 ADL_ANTLR_SRC  := $(ADL_ANTLR_DIR)/src/main/antlr/adl
@@ -230,6 +230,15 @@ build-local: ## Build site using local repositories
 	fi
 	npx antora antora-playbook-local.yml 2>&1 | tee build.log
 	@echo "$(GREEN)Build complete! Site generated in $(BUILD_DIR) — log: build.log$(NC)"
+
+build-github: ## Build site using local repositories for github docs
+	@echo "$(GREEN)Building site from local repositories for github docs...$(NC)"
+	@if [ ! -d "$(REPOS_DIR)" ]; then \
+		echo "$(RED)Error: $(REPOS_DIR) directory not found. Run 'make install' first.$(NC)"; \
+		exit 1; \
+	fi
+	npx antora antora-playbook-github.yml 2>&1 | tee build-github.log
+	@echo "$(GREEN)Build complete! Site generated in 'docs' — log: build-github.log$(NC)"
 
 clean: ## Clean build artifacts and cache
 	@echo "$(YELLOW)Cleaning build artifacts...$(NC)"

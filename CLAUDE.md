@@ -256,7 +256,7 @@ Standard AsciiDoc with Antora extensions. Follow existing patterns in the codeba
 
 The project manages these openEHR specification repos (cloned into `repos/`):
 
-`specifications-BASE`, `specifications-RM`, `specifications-AM`, `specifications-LANG`, `specifications-SM`, `specifications-QUERY`, `specifications-PROC`, `specifications-CDS`, `specifications-CNF`, `specifications-ITS-REST`, `specifications-ITS-JSON`, `specifications-ITS-XML`, `specifications-ITS-BMM`
+`specifications-BASE`, `specifications-RM`, `specifications-AM`, `specifications-LANG`, `specifications-SM`, `specifications-QUERY`, `specifications-PROC`, `specifications-CDS`, `specifications-CNF`, `specifications-ITS-REST`, `specifications-TERM`
 
 ---
 

@@ -1,0 +1,1341 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+    <title>The Archetype Package :: openEHR Specifications (Local Build)</title>
+    <link rel="canonical" href="https://sebastian-iancu.github.io/antora-openehr/AM/Release-2.3.0/AOM1.4/archetype_package/">
+    <link rel="prev" href="../model_overview/">
+    <link rel="next" href="../constraint_model_package/">
+    <meta name="description" content="openEHR Archetype Object Model 1.4 (AOM1.4)">
+    <meta name="keywords" content="EHR, ADL, AOM, health records, archetypes, constraint language, ISO 13606, openehr">
+    <meta name="generator" content="Antora 3.1.14">
+    <link rel="stylesheet" href="../../../../ui/css/site.css">
+    <link rel="stylesheet" href="../../../../ui/css/antora-openehr.css">
+    <link rel="stylesheet" href="../../../../ui/css/openehr.css">
+    <link rel="stylesheet" href="../../../../ui/css/tabs.css">
+    <link rel="stylesheet" href="../../../../ui/css/extra.css">
+<link rel="icon" href="../../../../ui/img/favicon.ico" type="image/x-icon">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://sebastian-iancu.github.io/antora-openehr">openEHR Specifications (Local Build)</a>
+
+      <div class="navbar-item search hide-for-print">
+        <div id="search-field" class="field has-filter">
+          <input id="search-input" type="text" placeholder="Search the docs">
+          <label class="filter checkbox">
+            <input type="checkbox" data-facet-filter="component:AM"> Archetype Model only
+          </label>
+        </div>
+      </div>
+
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">Specifications</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://specifications.openehr.org/" target="_blank">
+              openEHR specification
+            </a>
+            <a class="navbar-item" href="https://specifications.openehr.org/releases/UML/development/index.html" target="_blank">
+              openEHR portal
+            </a>
+            <a class="navbar-item" href="https://ckm.openehr.org/ckm/" target="_blank">
+              openEHR CKM
+            </a>
+          </div>
+        </div>
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">Community</a>
+          <div class="navbar-dropdown is-right">
+            <a class="navbar-item" href="https://openehr.atlassian.net/secure/Dashboard.jspa?selectPageId=10190" target="_blank">
+              Issue trackers
+            </a>
+            <a class="navbar-item" href="https://discourse.openehr.org/" target="_blank">
+              Discourse Forum
+            </a>
+            <a class="navbar-item" href="https://specifications.openehr.org/wiki/display/spec/Specifications+Home" target="_blank">
+              Wiki
+            </a>
+            <a class="navbar-item" href="https://github.com/openEHR" target="_blank">
+              GitHub
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="AM" data-version="Release-2.3.0">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="../../">Archetype Model</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../">Overview</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../Overview/">Archetype Technology Overview</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../Overview/introduction/">Business Purpose of Archetypes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../Overview/formalism_overview/">Archetype Formalism Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../Overview/the_specifications/">The Specifications</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../Overview/semantic_overview/">Semantic Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../Overview/artefacts/">Artefacts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../Overview/appendix/">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../ADL2/">Archetype Definition Language 2 (ADL2)</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/overview/">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/file_encoding/">File Encoding and Character Quoting</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/cadl_overview/">cADL - Constraint ADL</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/paths/">ADL Paths</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/default_values/">Default Values</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/adl_introduction/">ADL - Archetype Definition Language</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/terminology_integration/">Terminology Integration</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/spec_overview/">Specialisation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/templates/">Templates</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/other_formalisms/">Relationship of ADL to Other Formalisms</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/syntax_spec/">Syntax Specification</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL2/appendix/">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../AOM2/">Archetype Object Model 2 (AOM2)</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM2/model_overview/">Model Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM2/archetype_package/">The Archetype Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM2/constraint_model-overview/">Constraint Model Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM2/rules_package/">The Rules Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM2/rm_overlay/">The RM Overlay Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM2/terminology_package/">Terminology Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM2/validation/">Validation and Transformation Semantics</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM2/serialisation_model/">Serialisation Model</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM2/templates/">Templates</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM2/rm_adaptation/">Reference Model Adaptation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AOM2/appendix/">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../OPT2/">Operational Template 2 (OPT2)</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../OPT2/overview/">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../OPT2/opt_raw/">The Raw Operational Template</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../OPT2/opt_profiled/">The Profiled Operational Template</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../OPT2/file_formats/">File Formats</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../OPT2/appendix/">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../Identification/">Archetype Identification</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../Identification/overview/">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../Identification/artefact_source_id/">Source Artefact Identification</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../Identification/versioning/">Versioning</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../Identification/lifecycle_mgt/">Lifecycle Model</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../Identification/distributed_governance/">Distributed Governance</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../Identification/referencing/">Referencing</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../Identification/uris/">A Reliable URI for Knowledge Resources</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../Identification/artefact_authentication/">Artefact Authentication</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../Identification/scenarios/">Scenarios</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../Identification/appendix/">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../ADL1.4/">Archetype Definition Language 1.4 (ADL1.4)</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL1.4/overview/">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL1.4/file_encoding/">File Encoding and Character Quoting</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL1.4/dadl/">dADL - Data ADL</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL1.4/cadl/">cADL - Constraint ADL</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL1.4/assertions/">Assertions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL1.4/paths/">ADL Paths</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL1.4/adl/">ADL - Archetype Definition Language</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL1.4/customising_adl/">Customising ADL</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL1.4/other_formalisms/">Relationship of ADL to Other Formalisms</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL1.4/extended_metadata/">Extended Meta-data Guide</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL1.4/syntax_spec/">Syntax Specification</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ADL1.4/appendix/">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../">Archetype Object Model 1.4 (AOM1.4)</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../model_overview/">The Archetype Object Model</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="./">The Archetype Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../constraint_model_package/">Constraint Model Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../assertion_package/">The Assertion Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../primitive_package/">Primitive Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../ontology_package/">Terminology Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../domain_extension/">Domain-specific Extension Example</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../diverse_reference_models/">Using Archetypes with Diverse Reference Models</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../rm_dependencies/">Reference Model Dependencies</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../appendix/">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Archetype Model</span>
+    <span class="version">Release-2.3.0</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <div class="title"><a href="../../">Archetype Model</a></div>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../../">Release-2.3.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../Release-2.2.0/">Release-2.2.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../Release-1.4.0/">Release-1.4.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../BASE/Release-1.2.0/">Base Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../BASE/Release-1.2.0/">Release-1.2.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../BASE/Release-1.1.0/">Release-1.1.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../BASE/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../CDS/development/">Clinical Decision Support</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../CDS/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../CNF/development/">Conformance Specifications</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../CNF/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../LANG/Release-1.0.0/">Generic Languages</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../LANG/Release-1.0.0/">Release-1.0.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../LANG/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../TERM/Release-3.0.0/">openEHR Terminology</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../TERM/Release-3.0.0/">Release-3.0.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../TERM/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../PROC/development/">Process Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../PROC/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../QUERY/Release-1.0.1/">Query Languages</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../QUERY/Release-1.0.1/">Release-1.0.1</a>
+        </li>
+        <li class="version">
+          <a href="../../../../QUERY/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../RM/Release-1.1.0/">Reference Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../RM/Release-1.1.0/">Release-1.1.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../RM/Release-1.0.4/">Release-1.0.4</a>
+        </li>
+        <li class="version">
+          <a href="../../../../RM/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../ITS-REST/development/">REST API specifications</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../ITS-REST/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../SM/development/">Service Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../SM/development/">development</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../../BASE/Release-1.2.0/" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../../">Archetype Model</a></li>
+    <li><a href="../">Archetype Object Model 1.4 (AOM1.4)</a></li>
+    <li><a href="./">The Archetype Package</a></li>
+  </ul>
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">Release-2.3.0</button>
+  <div class="version-menu">
+    <a class="version is-current" href="./">Release-2.3.0</a>
+    <a class="version" href="../../../Release-2.2.0/AOM1.4/archetype_package/">Release-2.2.0</a>
+    <a class="version" href="../../../Release-1.4.0/AOM1.4/archetype_package/">Release-1.4.0</a>
+    <a class="version" href="../../../development/AOM1.4/archetype_package/">development</a>
+  </div>
+</div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">The Archetype Package</h1>
+<div class="sect1">
+<h2 id="_overview"><a class="anchor" href="#_overview"></a><a class="link" href="#_overview">Overview</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The model of an archetype, illustrated in the following figure, is straightforward at an abstract level, mimicking the structure of an archetype document as defined in the openEHR Archetype Definition Language (ADL) document. An archetype is modelled as a particular kind of <code>AUTHORED_RESOURCE</code>, and as such, includes descriptive meta-data, language information and revision history. The <code>ARCHETYPE</code> class adds identifying information, a <code>definition</code> - expressed in terms of constraints on instances of an object model, and an <code>ontology</code>. The archetype <code>definition</code>, the 'main' part of an archetype, is an instance of a <code>C_COMPLEX_OBJECT</code>, which is to say, the root of the constraint structure of an archetype always takes the form of a constraint on a non-primitive object type. The last section of an archetype, the <code>ontology</code>, is represented by its own class, and is what allows the archetypes to be natural language- and terminology-neutral.</p>
+</div>
+<div id="archetype_package" class="imageblock text-center text-center">
+<div class="content">
+<img src="../../_images/uml/AM-aom14.archetype.svg" alt="AM aom14.archetype">
+</div>
+<div class="title">Figure 1. am.aom14.archetype Package</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_class_descriptions"><a class="anchor" href="#_class_descriptions"></a><a class="link" href="#_class_descriptions">Class Descriptions</a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_archetype_class"><a class="anchor" href="#_archetype_class"></a><a class="link" href="#_archetype_class">ARCHETYPE Class</a></h3>
+<div id="_tabs_1" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="_tabs_1_definition" class="tab">
+<p>Definition</p>
+</li>
+<li id="_tabs_1_effective" class="tab">
+<p>Effective</p>
+</li>
+<li id="_tabs_1_bmm" class="tab">
+<p>BMM</p>
+</li>
+<li id="_tabs_1_uml" class="tab">
+<p>UML</p>
+</li>
+</ul>
+</div>
+<div id="_tabs_1_definition--panel" class="tabpanel" aria-labelledby="_tabs_1_definition">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>ARCHETYPE</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Archetype equivalent to ARCHETYPED class in Common reference model. Defines semantics of identfication, lifecycle, versioning, composition and specialisation.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="../../../../BASE/Release-1.2.0/resource/resource_package/#_authored_resource_class" class="xref page">AUTHORED_RESOURCE</a></code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>definition</strong>: <code><a href="../../AOM2/constraint_model-overview/#_c_complex_object_class" class="xref page">C_COMPLEX_OBJECT</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Root node of the definition of this archetype.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>ontology</strong>: <code><a href="../ontology_package/#_archetype_ontology_class" class="xref page">ARCHETYPE_ONTOLOGY</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>The ontology of the archetype.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>adl_version</strong>: <code><a href="../../../../BASE/Release-1.2.0/foundation_types/primitive_types/#_string_class" class="xref page">String</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>ADL version if archetype was read in from an ADL sharable archetype.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>archetype_id</strong>: <code><a href="../../../../BASE/Release-1.2.0/base_types/identification_package/#_archetype_id_class" class="xref page">ARCHETYPE_ID</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Multi-axial identifier of this archetype in archetype space.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1<br>
+(redefined)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>uid</strong>: <code><a href="../../../../BASE/Release-1.2.0/base_types/identification_package/#_hier_object_id_class" class="xref page">HIER_OBJECT_ID</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>OID identifier of this archetype.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>concept</strong>: <code><a href="../../../../BASE/Release-1.2.0/foundation_types/primitive_types/#_string_class" class="xref page">String</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>The normative meaning of the archetype as a whole, expressed as a local archetype code, typically “at0000”.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>parent_archetype_id</strong>: <code><a href="../../../../BASE/Release-1.2.0/base_types/identification_package/#_archetype_id_class" class="xref page">ARCHETYPE_ID</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Identifier of the specialisation parent of this archetype.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>invariants</strong>: <code><a href="../../../../BASE/Release-1.2.0/foundation_types/structure_types/#_list_class" class="xref page">List</a>&lt;<a href="#LANG:BEL:expression_object_model.adoc#_assertion_class" class="xref unresolved">ASSERTION</a>&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Invariant statements about this object. Statements are expressed in first order predicate logic, and usually refer to at least two attributes.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Functions</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>concept_name</strong> (<br>
+a_lang: <code><a href="../../../../BASE/Release-1.2.0/foundation_types/primitive_types/#_string_class" class="xref page">String</a>[1]</code><br>
+): <code><a href="../../../../BASE/Release-1.2.0/foundation_types/primitive_types/#_string_class" class="xref page">String</a></code><br>
+<br>
+<em>post-condition</em>: <code>Result.is_equal (definition.node_id)</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>The concept name of the archetype in language a_lang; corresponds to the term definition of the concept attribute in the archetype ontology.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>physical_paths</strong> (): <code><a href="../../../../BASE/Release-1.2.0/foundation_types/structure_types/#_list_class" class="xref page">List</a>&lt;<a href="../../../../BASE/Release-1.2.0/foundation_types/primitive_types/#_string_class" class="xref page">String</a>&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Set of language-independent paths extracted from archetype. Paths obey Xpath-like syntax and are formed from alternations of C_OBJECT.node_id and C_ATTRIBUTE.rm_attribute_name values.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>logical_paths</strong> (<br>
+lang: <code><a href="../../../../BASE/Release-1.2.0/foundation_types/primitive_types/#_string_class" class="xref page">String</a>[1]</code><br>
+): <code><a href="../../../../BASE/Release-1.2.0/foundation_types/structure_types/#_list_class" class="xref page">List</a>&lt;<a href="../../../../BASE/Release-1.2.0/foundation_types/primitive_types/#_string_class" class="xref page">String</a>&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Set of language-dependent paths extracted from archetype. Paths obey the same syntax as physical_paths, but with node_ids replaced by their meanings from the ontology.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>specialisation_depth</strong> (): <code><a href="../../../../BASE/Release-1.2.0/foundation_types/primitive_types/#_integer_class" class="xref page">Integer</a></code><br>
+<br>
+<em>post-condition</em>: <code>Result = terminology.specialisation_depth</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Specialisation depth of this archetype; larger than 0 if this archetype has a parent. Derived from terminology.specialisation_depth.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_specialised</strong> (): <code><a href="../../../../BASE/Release-1.2.0/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a></code><br>
+<br>
+<em>post-condition</em>: <code>Result implies parent_archetype_id /= Void</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>True if this archetype is a specialisation of another.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_valid</strong> (): <code><a href="../../../../BASE/Release-1.2.0/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a></code><br>
+<br>
+<em>Post</em>: <code>not (node_ids_valid and internal_references_valid and constraint_references_valid) implies not Result</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>True if the archetype is valid overall; various tests should be used, including checks on node_ids, internal references, and constraint references.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>node_ids_valid</strong> (): <code><a href="../../../../BASE/Release-1.2.0/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>True if every node_id found on a C_OBJECT node is found in ontology.term_codes.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>previous_version</strong> (): <code><a href="../../../../BASE/Release-1.2.0/foundation_types/primitive_types/#_string_class" class="xref page">String</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Version of predecessor archetype of this archetype, if any.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>internal_references_valid</strong> (): <code><a href="../../../../BASE/Release-1.2.0/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>True if every ARCHETYPE_INTERNAL_REF. target_path refers to a legitimate node in the archetype definition.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>constraint_references_valid</strong> (): <code><a href="../../../../BASE/Release-1.2.0/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>True if every CONSTRAINT_REF.reference found on a C_OBJECT node in the archetype definition is found in ontology.constraint_codes.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>short_concept_name</strong> (): <code><a href="../../../../BASE/Release-1.2.0/foundation_types/primitive_types/#_string_class" class="xref page">String</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>The short concept name of the archetype extracted from the archetype_id.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>version</strong> (): <code><a href="../../../../BASE/Release-1.2.0/foundation_types/primitive_types/#_string_class" class="xref page">String</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Invariants</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Inv_concept_valid</em>: <code>ontology.has_term_code (concept_code)</code></p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Inv_specialisation_validity</em>: <code>is_specialised implies specialisation_depth &gt; 0</code></p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Inv_invariants_valid</em>: <code>invariants /= Void implies not invariants.is_empty</code></p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Inv_uid_validity</em>: <code>uid /= Void implies not uid.is_empty</code></p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Inv_version_validity</em>: <code>version /= Void and then version.is_equal(archetype_id.version_id)</code></p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Inv_description_valid</em>: <code>description /= Void</code></p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Inv_original_language_valid</em>: <code>original_language /= void and then language /= Void</code></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="_tabs_1_effective--panel" class="tabpanel" aria-labelledby="_tabs_1_effective">
+<table class="tableblock frame-none grid-rows stretch">
+<colgroup>
+<col style="width: 40%;">
+<col style="width: 60%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-center valign-top" colspan="2"><strong>ARCHETYPE</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Archetype equivalent to ARCHETYPED class in Common reference model. Defines semantics of identfication, lifecycle, versioning, composition and specialisation.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock">Inherits: <a href="../../../../BASE/Release-1.2.0/resource/resource_package/#_authored_resource_class" class="xref page">AUTHORED_RESOURCE</a></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><strong>Attributes</strong></p></th>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>uid</strong>: <code><a href="../../../../BASE/Release-1.2.0/base_types/identification_package/#_hier_object_id_class" class="xref page">HIER_OBJECT_ID</a></code> [0..1]</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>OID identifier of this archetype.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>original_language</strong>: <code><a href="../../../../BASE/Release-1.2.0/foundation_types/terminology/#_terminology_code_class" class="xref page">Terminology_code</a></code> [1..1]</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Language in which this resource was initially authored. Although there is no language primacy of resources overall, the language of original authoring is required to ensure natural language translations can preserve quality. Language is relevant in both the description and ontology sections.<br>
+<em>Inherited from <a href="../../../../BASE/Release-1.2.0/resource/resource_package/#_authored_resource_class" class="xref page">AUTHORED_RESOURCE</a></em></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>description</strong>: <code><a href="../../../../BASE/Release-1.2.0/resource/resource_package/#_resource_description_class" class="xref page">RESOURCE_DESCRIPTION</a></code> [0..1]</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Description and lifecycle information of the resource.<br>
+<em>Inherited from <a href="../../../../BASE/Release-1.2.0/resource/resource_package/#_authored_resource_class" class="xref page">AUTHORED_RESOURCE</a></em></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_controlled</strong>: <code><a href="../../../../BASE/Release-1.2.0/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a></code> [0..1]</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>True if this resource is under any kind of change control (even file copying), in which case revision history is created.<br>
+<em>Inherited from <a href="../../../../BASE/Release-1.2.0/resource/resource_package/#_authored_resource_class" class="xref page">AUTHORED_RESOURCE</a></em></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>annotations</strong>: <code><a href="../../../../BASE/Release-1.2.0/resource/resource_package/#_resource_annotations_class" class="xref page">RESOURCE_ANNOTATIONS</a></code> [0..1]</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Annotations on individual items within the resource, keyed by path. The inner table takes the form of a Hash table of String values keyed by String tags.<br>
+<em>Inherited from <a href="../../../../BASE/Release-1.2.0/resource/resource_package/#_authored_resource_class" class="xref page">AUTHORED_RESOURCE</a></em></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>translations</strong>: <code><a href="../../../../BASE/Release-1.2.0/foundation_types/structure_types/#_hash_class" class="xref page">Hash</a>&lt;<a href="../../../../BASE/Release-1.2.0/foundation_types/primitive_types/#_string_class" class="xref page">String</a>,<a href="../../../../BASE/Release-1.2.0/resource/resource_package/#_translation_details_class" class="xref page">TRANSLATION_DETAILS</a>&gt;</code> [0..1]</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>List of details for each natural translation made of this resource, keyed by language code. For each translation listed here, there must be corresponding sections in all language-dependent parts of the resource. The <code><em>original_language</em></code> does not appear in this list.<br>
+<em>Inherited from <a href="../../../../BASE/Release-1.2.0/resource/resource_package/#_authored_resource_class" class="xref page">AUTHORED_RESOURCE</a></em></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>definition</strong>: <code><a href="../../AOM2/constraint_model-overview/#_c_complex_object_class" class="xref page">C_COMPLEX_OBJECT</a></code> [1..1]</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Root node of the definition of this archetype.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>ontology</strong>: <code><a href="../ontology_package/#_archetype_ontology_class" class="xref page">ARCHETYPE_ONTOLOGY</a></code> [1..1]</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>The ontology of the archetype.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>adl_version</strong>: <code><a href="../../../../BASE/Release-1.2.0/foundation_types/primitive_types/#_string_class" class="xref page">String</a></code> [0..1]</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>ADL version if archetype was read in from an ADL sharable archetype.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>archetype_id</strong>: <code><a href="../../../../BASE/Release-1.2.0/base_types/identification_package/#_archetype_id_class" class="xref page">ARCHETYPE_ID</a></code> [1..1]</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Multi-axial identifier of this archetype in archetype space.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>concept</strong>: <code><a href="../../../../BASE/Release-1.2.0/foundation_types/primitive_types/#_string_class" class="xref page">String</a></code> [1..1]</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>The normative meaning of the archetype as a whole, expressed as a local archetype code, typically “at0000”.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>parent_archetype_id</strong>: <code><a href="../../../../BASE/Release-1.2.0/base_types/identification_package/#_archetype_id_class" class="xref page">ARCHETYPE_ID</a></code> [0..1]</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Identifier of the specialisation parent of this archetype.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>invariants</strong>: <code><a href="../../../../BASE/Release-1.2.0/foundation_types/structure_types/#_list_class" class="xref page">List</a>&lt;<a href="#LANG:BEL:expression_object_model.adoc#_assertion_class" class="xref unresolved">ASSERTION</a>&gt;</code> [0..1]</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Invariant statements about this object. Statements are expressed in first order predicate logic, and usually refer to at least two attributes.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><strong>Functions</strong></p></th>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>current_revision</strong> (): <code><a href="../../../../BASE/Release-1.2.0/foundation_types/primitive_types/#_string_class" class="xref page">String</a></code><br>
+<br>
+<em>Post</em>: <code>Result = revision_history.most_recent_version</code> [1..1]</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Most recent revision in revision_history if is_controlled else  (uncontrolled) .<br>
+<em>Inherited from <a href="../../../../BASE/Release-1.2.0/resource/resource_package/#_authored_resource_class" class="xref page">AUTHORED_RESOURCE</a></em></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>languages_available</strong> (): <code><a href="../../../../BASE/Release-1.2.0/foundation_types/structure_types/#_list_class" class="xref page">List</a>&lt;<a href="../../../../BASE/Release-1.2.0/foundation_types/primitive_types/#_string_class" class="xref page">String</a>&gt;</code> [1..1]</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Total list of languages available in this resource, derived from original_language and translations.<br>
+<em>Inherited from <a href="../../../../BASE/Release-1.2.0/resource/resource_package/#_authored_resource_class" class="xref page">AUTHORED_RESOURCE</a></em></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>concept_name</strong> (<br>
+a_lang: <code><a href="../../../../BASE/Release-1.2.0/foundation_types/primitive_types/#_string_class" class="xref page">String</a>[1]</code><br>
+): <code><a href="../../../../BASE/Release-1.2.0/foundation_types/primitive_types/#_string_class" class="xref page">String</a></code><br>
+<br>
+<em>post-condition</em>: <code>Result.is_equal (definition.node_id)</code> [1..1]</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>The concept name of the archetype in language a_lang; corresponds to the term definition of the concept attribute in the archetype ontology.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>physical_paths</strong> (): <code><a href="../../../../BASE/Release-1.2.0/foundation_types/structure_types/#_list_class" class="xref page">List</a>&lt;<a href="../../../../BASE/Release-1.2.0/foundation_types/primitive_types/#_string_class" class="xref page">String</a>&gt;</code> [1..1]</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Set of language-independent paths extracted from archetype. Paths obey Xpath-like syntax and are formed from alternations of C_OBJECT.node_id and C_ATTRIBUTE.rm_attribute_name values.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>logical_paths</strong> (<br>
+lang: <code><a href="../../../../BASE/Release-1.2.0/foundation_types/primitive_types/#_string_class" class="xref page">String</a>[1]</code><br>
+): <code><a href="../../../../BASE/Release-1.2.0/foundation_types/structure_types/#_list_class" class="xref page">List</a>&lt;<a href="../../../../BASE/Release-1.2.0/foundation_types/primitive_types/#_string_class" class="xref page">String</a>&gt;</code> [1..1]</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Set of language-dependent paths extracted from archetype. Paths obey the same syntax as physical_paths, but with node_ids replaced by their meanings from the ontology.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>specialisation_depth</strong> (): <code><a href="../../../../BASE/Release-1.2.0/foundation_types/primitive_types/#_integer_class" class="xref page">Integer</a></code><br>
+<br>
+<em>post-condition</em>: <code>Result = terminology.specialisation_depth</code> [1..1]</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Specialisation depth of this archetype; larger than 0 if this archetype has a parent. Derived from terminology.specialisation_depth.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_specialised</strong> (): <code><a href="../../../../BASE/Release-1.2.0/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a></code><br>
+<br>
+<em>post-condition</em>: <code>Result implies parent_archetype_id /= Void</code> [1..1]</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>True if this archetype is a specialisation of another.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_valid</strong> (): <code><a href="../../../../BASE/Release-1.2.0/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a></code><br>
+<br>
+<em>Post</em>: <code>not (node_ids_valid and internal_references_valid and constraint_references_valid) implies not Result</code> [1..1]</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>True if the archetype is valid overall; various tests should be used, including checks on node_ids, internal references, and constraint references.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>node_ids_valid</strong> (): <code><a href="../../../../BASE/Release-1.2.0/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a></code> [1..1]</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>True if every node_id found on a C_OBJECT node is found in ontology.term_codes.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>previous_version</strong> (): <code><a href="../../../../BASE/Release-1.2.0/foundation_types/primitive_types/#_string_class" class="xref page">String</a></code> [0..1]</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Version of predecessor archetype of this archetype, if any.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>internal_references_valid</strong> (): <code><a href="../../../../BASE/Release-1.2.0/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a></code> [1..1]</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>True if every ARCHETYPE_INTERNAL_REF. target_path refers to a legitimate node in the archetype definition.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>constraint_references_valid</strong> (): <code><a href="../../../../BASE/Release-1.2.0/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a></code> [1..1]</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>True if every CONSTRAINT_REF.reference found on a C_OBJECT node in the archetype definition is found in ontology.constraint_codes.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>short_concept_name</strong> (): <code><a href="../../../../BASE/Release-1.2.0/foundation_types/primitive_types/#_string_class" class="xref page">String</a></code> [1..1]</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>The short concept name of the archetype extracted from the archetype_id.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>version</strong> (): <code><a href="../../../../BASE/Release-1.2.0/foundation_types/primitive_types/#_string_class" class="xref page">String</a></code> [1..1]</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><strong>Invariants</strong></p></th>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Original_language_valid</em>: <code>code_set (Code_set_id_languages).has_code (original_language.as_string)</code><br>
+<em>Inherited from <a href="../../../../BASE/Release-1.2.0/resource/resource_package/#_authored_resource_class" class="xref page">AUTHORED_RESOURCE</a></em></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Current_revision_valid</em>: <code>(current_revision /= Void and not is_controlled) implies current_revision.is_equal ("(uncontrolled)")</code><br>
+<em>Inherited from <a href="../../../../BASE/Release-1.2.0/resource/resource_package/#_authored_resource_class" class="xref page">AUTHORED_RESOURCE</a></em></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Translations_valid</em>: <code>translations /= Void implies (not translations.is_empty and not translations.has (orginal_language.code_string))</code><br>
+<em>Inherited from <a href="../../../../BASE/Release-1.2.0/resource/resource_package/#_authored_resource_class" class="xref page">AUTHORED_RESOURCE</a></em></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Description_valid</em>: <code>translations /= Void implies (description.details.for_all (d &#124;
+translations.has_key (d.language.code_string)))</code><br>
+<em>Inherited from <a href="../../../../BASE/Release-1.2.0/resource/resource_package/#_authored_resource_class" class="xref page">AUTHORED_RESOURCE</a></em></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Languages_available_valid</em>: <code>languages_available.has (original_language)</code><br>
+<em>Inherited from <a href="../../../../BASE/Release-1.2.0/resource/resource_package/#_authored_resource_class" class="xref page">AUTHORED_RESOURCE</a></em></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Revision_history_valid</em>: <code>is_controlled xor revision_history = Void</code><br>
+<em>Inherited from <a href="../../../../BASE/Release-1.2.0/resource/resource_package/#_authored_resource_class" class="xref page">AUTHORED_RESOURCE</a></em></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Inv_concept_valid</em>: <code>ontology.has_term_code (concept_code)</code></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Inv_specialisation_validity</em>: <code>is_specialised implies specialisation_depth &gt; 0</code></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Inv_invariants_valid</em>: <code>invariants /= Void implies not invariants.is_empty</code></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Inv_uid_validity</em>: <code>uid /= Void implies not uid.is_empty</code></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Inv_version_validity</em>: <code>version /= Void and then version.is_equal(archetype_id.version_id)</code></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Inv_description_valid</em>: <code>description /= Void</code></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Inv_original_language_valid</em>: <code>original_language /= void and then language /= Void</code></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="_tabs_1_bmm--panel" class="tabpanel" aria-labelledby="_tabs_1_bmm">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+    "name": "ARCHETYPE",
+    "documentation": "Archetype equivalent to ARCHETYPED class in Common reference model. Defines semantics of identfication, lifecycle, versioning, composition and specialisation.",
+    "ancestors": [
+        "AUTHORED_RESOURCE"
+    ],
+    "properties": {
+        "definition": {
+            "_type": "P_BMM_SINGLE_PROPERTY",
+            "name": "definition",
+            "documentation": "Root node of the definition of this archetype.",
+            "is_mandatory": true,
+            "type": "C_COMPLEX_OBJECT"
+        },
+        "ontology": {
+            "_type": "P_BMM_SINGLE_PROPERTY",
+            "name": "ontology",
+            "documentation": "The ontology of the archetype.",
+            "is_mandatory": true,
+            "type": "ARCHETYPE_ONTOLOGY"
+        },
+        "adl_version": {
+            "_type": "P_BMM_SINGLE_PROPERTY",
+            "name": "adl_version",
+            "documentation": "ADL version if archetype was read in from an ADL sharable archetype.",
+            "type": "String"
+        },
+        "archetype_id": {
+            "_type": "P_BMM_SINGLE_PROPERTY",
+            "name": "archetype_id",
+            "documentation": "Multi-axial identifier of this archetype in archetype space.",
+            "is_mandatory": true,
+            "type": "ARCHETYPE_ID"
+        },
+        "uid": {
+            "_type": "P_BMM_SINGLE_PROPERTY",
+            "name": "uid",
+            "documentation": "OID identifier of this archetype.",
+            "type": "HIER_OBJECT_ID"
+        },
+        "concept": {
+            "_type": "P_BMM_SINGLE_PROPERTY",
+            "name": "concept",
+            "documentation": "The normative meaning of the archetype as a whole, expressed as a local archetype code, typically “at0000”.",
+            "is_mandatory": true,
+            "type": "String"
+        },
+        "parent_archetype_id": {
+            "_type": "P_BMM_SINGLE_PROPERTY",
+            "name": "parent_archetype_id",
+            "documentation": "Identifier of the specialisation parent of this archetype.",
+            "type": "ARCHETYPE_ID"
+        },
+        "invariants": {
+            "_type": "P_BMM_CONTAINER_PROPERTY",
+            "name": "invariants",
+            "documentation": "Invariant statements about this object. Statements are expressed in first order predicate logic, and usually refer to at least two attributes.",
+            "type_def": {
+                "container_type": "List",
+                "type": "ASSERTION"
+            },
+            "cardinality": {
+                "lower": 0,
+                "upper_unbounded": true
+            }
+        }
+    },
+    "functions": {
+        "concept_name": {
+            "name": "concept_name",
+            "documentation": "The concept name of the archetype in language a_lang; corresponds to the term definition of the concept attribute in the archetype ontology.",
+            "parameters": {
+                "a_lang": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "a_lang",
+                    "type": "String"
+                }
+            },
+            "post_conditions": {
+                "post-condition": "Result.is_equal (definition.node_id)"
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "String"
+            }
+        },
+        "physical_paths": {
+            "name": "physical_paths",
+            "documentation": "Set of language-independent paths extracted from archetype. Paths obey Xpath-like syntax and are formed from alternations of C_OBJECT.node_id and C_ATTRIBUTE.rm_attribute_name values. ",
+            "result": {
+                "_type": "P_BMM_CONTAINER_TYPE",
+                "container_type": "List",
+                "type": "String"
+            }
+        },
+        "logical_paths": {
+            "name": "logical_paths",
+            "documentation": "Set of language-dependent paths extracted from archetype. Paths obey the same syntax as physical_paths, but with node_ids replaced by their meanings from the ontology. ",
+            "parameters": {
+                "lang": {
+                    "_type": "P_BMM_SINGLE_FUNCTION_PARAMETER",
+                    "name": "lang",
+                    "type": "String"
+                }
+            },
+            "result": {
+                "_type": "P_BMM_CONTAINER_TYPE",
+                "container_type": "List",
+                "type": "String"
+            }
+        },
+        "specialisation_depth": {
+            "name": "specialisation_depth",
+            "documentation": "Specialisation depth of this archetype; larger than 0 if this archetype has a parent. Derived from terminology.specialisation_depth.",
+            "post_conditions": {
+                "post-condition": "Result = terminology.specialisation_depth"
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Integer"
+            }
+        },
+        "is_specialised": {
+            "name": "is_specialised",
+            "documentation": "True if this archetype is a specialisation of another. ",
+            "post_conditions": {
+                "post-condition": "Result implies parent_archetype_id /= Void"
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Boolean"
+            }
+        },
+        "is_valid": {
+            "name": "is_valid",
+            "documentation": "True if the archetype is valid overall; various tests should be used, including checks on node_ids, internal references, and constraint references.",
+            "post_conditions": {
+                "Post": "not (node_ids_valid and internal_references_valid and constraint_references_valid) implies not Result"
+            },
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Boolean"
+            }
+        },
+        "node_ids_valid": {
+            "name": "node_ids_valid",
+            "documentation": "True if every node_id found on a C_OBJECT node is found in ontology.term_codes.",
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Boolean"
+            }
+        },
+        "previous_version": {
+            "name": "previous_version",
+            "documentation": "Version of predecessor archetype of this archetype, if any.",
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "String"
+            },
+            "is_nullable": true
+        },
+        "internal_references_valid": {
+            "name": "internal_references_valid",
+            "documentation": "True if every ARCHETYPE_INTERNAL_REF. target_path refers to a legitimate node in the archetype definition.",
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Boolean"
+            }
+        },
+        "constraint_references_valid": {
+            "name": "constraint_references_valid",
+            "documentation": "True if every CONSTRAINT_REF.reference found on a C_OBJECT node in the archetype definition is found in ontology.constraint_codes.",
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Boolean"
+            }
+        },
+        "short_concept_name": {
+            "name": "short_concept_name",
+            "documentation": "The short concept name of the archetype extracted from the archetype_id.",
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "String"
+            }
+        },
+        "version": {
+            "name": "version",
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "String"
+            }
+        }
+    },
+    "invariants": {
+        "Inv_concept_valid": "ontology.has_term_code (concept_code)",
+        "Inv_specialisation_validity": "is_specialised implies specialisation_depth &gt; 0",
+        "Inv_invariants_valid": "invariants /= Void implies not invariants.is_empty",
+        "Inv_uid_validity": "uid /= Void implies not uid.is_empty",
+        "Inv_version_validity": "version /= Void and then version.is_equal(archetype_id.version_id)",
+        "Inv_description_valid": "description /= Void",
+        "Inv_original_language_valid": "original_language /= void and then language /= Void"
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="_tabs_1_uml--panel" class="tabpanel" aria-labelledby="_tabs_1_uml">
+<div class="imageblock">
+<div class="content">
+<img src="../../_images/uml/classes/aom14.archetype.svg" alt="aom14.archetype">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="../model_overview/">The Archetype Object Model</a></span>
+  <span class="next"><a href="../constraint_model_package/">Constraint Model Package</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>
+    Copyright: © 2003+
+    <a href="https://www.openehr.org"
+        alt="is an independent, non-profit foundation, facilitating the sharing of health
+           records by consumers and clinicians via open specifications, clinical models
+           and open platform implementations.">The openEHR Foundation</a>
+  </p>
+
+  <p>
+    License:
+    <img src="../../../../ui/img/cc-by-nd-88x31.png"
+        alt="Creative Commons Attribution-NoDerivs 3.0 Unported."
+        style="vertical-align:middle;margin:0 0.25rem 0 0;">
+    <a href="https://creativecommons.org/licenses/by-nd/3.0/">
+      Creative Commons Attribution-NoDerivs 3.0 Unported.
+    </a>
+  </p>
+
+  <p>
+    <strong>Links: <strong>
+    <a href="https://www.openehr.org/terms-of-use" class="mr-1">Terms of use</a> |
+    <a href="https://www.openehr.org/privacy-policy" class="mx-1">Privacy policy</a> |
+    <a href="https://www.openehr.org/privacy-policy" class="mx-1">Logos &amp; Trademarks</a> |
+    <a href="https://www.openehr.org/contact-us" class="mx-1">Contact</a>
+  </p>
+</footer>
+
+<script id="site-script" src="../../../../ui/js/site.js" data-ui-root-path="../../../../ui"></script>
+<script defer src="../../../../ui/js/vendor/highlight.js"></script>
+<script src="../../../../ui/js/vendor/lunr.js"></script>
+<script src="../../../../ui/js/search-ui.js" id="search-ui-script" data-site-root-path="../../../.." data-snippet-length="80" data-stylesheet="../../../../ui/css/search.css"></script>
+<script async src="../../../../search-index.js"></script>
+<script src="../../../../ui/js/medium-zoom.min.js"></script>
+<script src="../../../../ui/js/zoom.js"></script>
+<script async src="../../../../ui/js/tabs.js"></script>
+  </body>
+</html>

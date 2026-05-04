@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+    <title>AQL Syntax Specification :: openEHR Specifications (Local Build)</title>
+    <link rel="canonical" href="https://sebastian-iancu.github.io/antora-openehr/QUERY/Release-1.0.1/AQL/grammar/">
+    <link rel="prev" href="../writing_AQL/">
+    <link rel="next" href="../appendix/">
+    <meta name="description" content="openEHR Archetype Query Language (AQL)">
+    <meta name="keywords" content="query, AQL, archetype, Xpath, openehr">
+    <meta name="generator" content="Antora 3.1.14">
+    <link rel="stylesheet" href="../../../../ui/css/site.css">
+    <link rel="stylesheet" href="../../../../ui/css/antora-openehr.css">
+    <link rel="stylesheet" href="../../../../ui/css/openehr.css">
+    <link rel="stylesheet" href="../../../../ui/css/tabs.css">
+    <link rel="stylesheet" href="../../../../ui/css/extra.css">
+<link rel="icon" href="../../../../ui/img/favicon.ico" type="image/x-icon">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://sebastian-iancu.github.io/antora-openehr">openEHR Specifications (Local Build)</a>
+
+      <div class="navbar-item search hide-for-print">
+        <div id="search-field" class="field has-filter">
+          <input id="search-input" type="text" placeholder="Search the docs">
+          <label class="filter checkbox">
+            <input type="checkbox" data-facet-filter="component:QUERY"> Query Languages only
+          </label>
+        </div>
+      </div>
+
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">Specifications</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://specifications.openehr.org/" target="_blank">
+              openEHR specification
+            </a>
+            <a class="navbar-item" href="https://specifications.openehr.org/releases/UML/development/index.html" target="_blank">
+              openEHR portal
+            </a>
+            <a class="navbar-item" href="https://ckm.openehr.org/ckm/" target="_blank">
+              openEHR CKM
+            </a>
+          </div>
+        </div>
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">Community</a>
+          <div class="navbar-dropdown is-right">
+            <a class="navbar-item" href="https://openehr.atlassian.net/secure/Dashboard.jspa?selectPageId=10190" target="_blank">
+              Issue trackers
+            </a>
+            <a class="navbar-item" href="https://discourse.openehr.org/" target="_blank">
+              Discourse Forum
+            </a>
+            <a class="navbar-item" href="https://specifications.openehr.org/wiki/display/spec/Specifications+Home" target="_blank">
+              Wiki
+            </a>
+            <a class="navbar-item" href="https://github.com/openEHR" target="_blank">
+              GitHub
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="QUERY" data-version="Release-1.0.1">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="../../">Query Languages</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../">Overview</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../">Archetype Query Language</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../overview/">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../syntax/">AQL Syntax Description</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../result_structure/">Result structure</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../operator_examples/">AQL Operator Syntax Examples</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing_AQL/">How to write an AQL query statement manually</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="./">AQL Syntax Specification</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../appendix/">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Query Languages</span>
+    <span class="version">Release-1.0.1</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <div class="title"><a href="../../../../AM/Release-2.3.0/">Archetype Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../AM/Release-2.3.0/">Release-2.3.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../AM/Release-2.2.0/">Release-2.2.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../AM/Release-1.4.0/">Release-1.4.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../AM/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../BASE/Release-1.2.0/">Base Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../BASE/Release-1.2.0/">Release-1.2.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../BASE/Release-1.1.0/">Release-1.1.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../BASE/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../CDS/development/">Clinical Decision Support</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../CDS/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../CNF/development/">Conformance Specifications</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../CNF/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../LANG/Release-1.0.0/">Generic Languages</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../LANG/Release-1.0.0/">Release-1.0.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../LANG/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../TERM/Release-3.0.0/">openEHR Terminology</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../TERM/Release-3.0.0/">Release-3.0.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../TERM/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../PROC/development/">Process Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../PROC/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <div class="title"><a href="../../">Query Languages</a></div>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../../">Release-1.0.1</a>
+        </li>
+        <li class="version">
+          <a href="../../../development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../RM/Release-1.1.0/">Reference Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../RM/Release-1.1.0/">Release-1.1.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../RM/Release-1.0.4/">Release-1.0.4</a>
+        </li>
+        <li class="version">
+          <a href="../../../../RM/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../ITS-REST/development/">REST API specifications</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../ITS-REST/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../SM/development/">Service Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../SM/development/">development</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../../BASE/Release-1.2.0/" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../../">Query Languages</a></li>
+    <li><a href="../">Archetype Query Language</a></li>
+    <li><a href="./">AQL Syntax Specification</a></li>
+  </ul>
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">Release-1.0.1</button>
+  <div class="version-menu">
+    <a class="version is-current" href="./">Release-1.0.1</a>
+    <a class="version" href="../../../development/AQL/grammar/">development</a>
+  </div>
+</div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">AQL Syntax Specification</h1>
+<div class="paragraph">
+<p>The following Antlr grammar expresses the AQL syntax.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-antlr-java" data-lang="antlr-java">// Author: Bostjan Lah
+// (c) Copyright, Marand, http://www.marand.com
+// Licensed under LGPL: http://www.gnu.org/copyleft/lesser.html
+// Based on AQL grammar by Ocean Informatics: http://www.openehr.org/wiki/download/attachments/2949295/EQL_v0.6.grm?version=1&amp;modificationDate=1259650833000
+grammar Aql;
+
+options {
+	output=AST;
+	ASTLabelType=CommonTree;
+	backtrack=true;
+	memoize=true;
+}
+
+tokens {
+	ORDERDESC;
+	ORDERASC;
+}
+
+@header {
+package com.marand.thinkehr.aql.antlr;
+import com.marand.thinkehr.aql.AqlRecognitionException;
+}
+
+@lexer::header{
+package com.marand.thinkehr.aql.antlr;
+import com.marand.thinkehr.aql.AqlRecognitionException;
+}
+
+@members{
+public void displayRecognitionError(String[] tokenNames, RecognitionException e)
+{
+  throw new AqlRecognitionException(e);
+}
+}
+
+// Rule Definitions
+//&lt;Query&gt; ::= &lt;Select&gt; &lt;From&gt;
+//           | &lt;Select&gt; &lt;From&gt; &lt;Where&gt;
+//            | &lt;Select&gt; &lt;From&gt; &lt;OrderBy&gt;   ! is this allowed?
+//            | &lt;Select&gt; &lt;From&gt; &lt;Where&gt; &lt;OrderBy&gt;
+query	:	select from where? orderBy? ';'!? EOF!;
+
+//&lt;Select&gt; ::= 'SELECT' &lt;SelectExpr&gt;
+//         | 'SELECT' &lt;TOP&gt; &lt;SelectExpr&gt;
+select	:	SELECT top? selectExpr -&gt; ^(SELECT top? selectExpr);
+
+//&lt;Top&gt; ::= 'TOP' Integer
+//          | 'TOP' Integer 'BACKWARD'
+//          | 'TOP' Integer 'FORWARD'
+top	:	TOP INTEGER FORWARD? -&gt; ^(TOP INTEGER)
+	|	TOP INTEGER BACKWARD -&gt; ^(TOP INTEGER BACKWARD);
+
+
+//&lt;Where&gt; ::= 'WHERE' &lt;IdentifiedExpr&gt;
+where	:	WHERE identifiedExpr -&gt; ^(WHERE identifiedExpr);
+
+//&lt;OrderBy&gt; ::= 'ORDER BY' &lt;OrderBySeq&gt;
+orderBy	:	ORDERBY orderBySeq -&gt; ^(ORDERBY orderBySeq);
+
+//&lt;OrderBySeq&gt;  ::= &lt;OrderByExpr&gt; 
+//		| &lt;OrderByExpr&gt; ',' &lt;OrderBySeq&gt;
+orderBySeq
+	:	orderByExpr (','! orderByExpr)*;
+
+//&lt;OrderByExpr&gt; ::= &lt;IdentifiedPath&gt;
+//		| &lt;IdentifiedPath&gt; 'DESCENDING'
+//		| &lt;IdentifiedPath&gt; 'ASCENDING'
+//		| &lt;IdentifiedPath&gt; 'DESC'
+//		| &lt;IdentifiedPath&gt; 'ASC'
+orderByExpr
+	:	identifiedPath (DESCENDING|DESC) -&gt; ^(ORDERDESC identifiedPath)
+	|	identifiedPath (ASCENDING|ASC)? -&gt; ^(ORDERASC identifiedPath);
+
+//&lt;SelectExpr&gt; ::= &lt;IdentifiedPathSeq&gt;
+selectExpr
+	:	identifiedPathSeq;
+
+//! When multiple paths provided, each IdentifiedPath must represent an object of type DataValue
+//&lt;IdentifiedPathSeq&gt; ::= &lt;IdentifiedPath//&gt;
+//			| &lt;IdentifiedPath&gt; 'as' Identifier
+//			| &lt;IdentifiedPath&gt; ',' &lt;IdentifiedPathSeq&gt;
+//			| &lt;IdentifiedPath&gt; 'as' Identifier ',' &lt;IdentifiedPathSeq&gt;
+identifiedPathSeq
+	:	selectVar (','! selectVar)*;
+
+selectVar
+	:	identifiedPath^ asIdentifier?;
+	
+asIdentifier
+	:	AS IDENTIFIER;
+		
+//&lt;From&gt; ::=   'FROM' &lt;FromExpr&gt;		! stop or/and without root class
+//	    | 'FROM' &lt;FromEHR&gt; &lt;ContainsExpr&gt;
+//           | 'FROM' &lt;FromEHR&gt;
+//!          'FROM' &lt;ContainsOr&gt;
+from	: FROM fromExpr -&gt; ^(FROM fromExpr)
+	| FROM ehrContains -&gt; ^(FROM ehrContains);
+
+//&lt;FromEHR&gt; ::= 'EHR' &lt;StandardPredicate&gt;
+//              | 'EHR' Identifier &lt;StandardPredicate&gt;
+//              | 'EHR' Identifier
+fromEHR	: EHR IDENTIFIER -&gt; ^(EHR IDENTIFIER)
+	| EHR IDENTIFIER standardPredicate -&gt; ^(EHR IDENTIFIER standardPredicate)
+	| EHR standardPredicate -&gt; ^(EHR standardPredicate);
+
+ehrContains
+	: fromEHR (CONTAINS^ contains)?;
+	
+//&lt;IdentifiedExpr&gt; ::= &lt;IdentifiedEquality&gt;
+//                   | &lt;IdentifiedExprBoolean&gt;
+//                   |'(' &lt;IdentifiedExprBoolean&gt; ')'
+//identifiedExpr
+//	: identifiedExprBoolean;
+//        | '('! identifiedExprBoolean ')'!;
+
+//&lt;IdentifiedExprBoolean&gt; ::= &lt;IdentifiedExpr&gt; 'OR' &lt;IdentifiedExpr&gt;
+//                              | &lt;IdentifiedExpr&gt; 'AND' &lt;IdentifiedExpr&gt;
+//                              | &lt;IdentifiedExpr&gt; 'XOR' &lt;IdentifiedExpr&gt;
+//                              | 'NOT''(' &lt;IdentifiedExprBoolean&gt; ')'
+//                              | 'NOT' &lt;IdentifiedEquality&gt;
+identifiedExpr
+ 	: identifiedExprAnd ((OR|XOR)^ identifiedExprAnd)*;
+
+identifiedExprAnd
+	: identifiedEquality (AND^ identifiedEquality)*;
+
+
+//&lt;IdentifiedEquality&gt; ::= &lt;IdentifiedOperand&gt; ComparableOperator &lt;IdentifiedOperand&gt;
+//			     | &lt;IdentifiedOperand&gt; 'matches' '{' &lt;MatchesOperand&gt; '}'
+//                          | &lt;IdentifiedOperand&gt; 'matches' RegExPattern
+//                          | 'EXISTS' &lt;IdentifiedPath&gt;
+identifiedEquality
+ 	: identifiedOperand ((MATCHES^ '{'! matchesOperand '}'!)|(COMPARABLEOPERATOR^ identifiedOperand))
+        | EXISTS identifiedPath -&gt; ^(EXISTS identifiedPath)
+        | '('! identifiedExpr ')'!
+        | NOT^ identifiedEquality
+ 	;
+// 	| identifiedOperand 'matches' '{' matchesOperand '}'
+//        | identifiedOperand 'matches' REGEXPATTERN
+//        | 'EXISTS' identifiedPath;
+
+//&lt;IdentifiedOperand&gt; ::= &lt;Operand&gt; | &lt;IdentifiedPath&gt;
+identifiedOperand
+ 	: operand | identifiedPath;
+//!&lt;IdentifiedOperand&gt; ::= &lt;Operand&gt; | &lt;RelativePath&gt;
+
+//&lt;IdentifiedPath&gt;::= Identifier
+//                    | Identifier &lt;Predicate&gt;
+//                    | Identifier '/' &lt;ObjectPath&gt;
+//                    | Identifier &lt;Predicate&gt; '/' &lt;ObjectPath&gt;
+identifiedPath
+	 : IDENTIFIER predicate? ('/' objectPath)? -&gt; ^(IDENTIFIER predicate? objectPath?);
+//!		| Identifer &lt;AbsolutePath&gt;
+//!		| Identifer &lt;Predicate&gt; &lt;AbsolutePath&gt;
+
+
+//&lt;Predicate&gt; ::= &lt;NodePredicate&gt;
+predicate
+ 	: nodePredicate;
+
+//&lt;NodePredicate&gt; ::= '['&lt;NodePredicateOr&gt;']'
+nodePredicate
+ 	: OPENBRACKET nodePredicateOr CLOSEBRACKET;
+
+//&lt;NodePredicateOr&gt; ::= &lt;NodePredicateAnd&gt;
+//                 | &lt;NodePredicateOr&gt; 'or' &lt;NodePredicateAnd&gt;
+nodePredicateOr
+ 	: nodePredicateAnd (OR^ nodePredicateAnd)*;
+
+//&lt;NodePredicateAnd&gt; ::= &lt;NodePredicateComparable&gt;
+//                 | &lt;NodePredicateAnd&gt; 'and' &lt;NodePredicateComparable&gt;
+nodePredicateAnd
+ 	: nodePredicateComparable (AND^ nodePredicateComparable)*;
+
+//&lt;NodePredicateComparable&gt; ::= &lt;PredicateOperand&gt; ComparableOperator &lt;PredicateOperand&gt;
+//                          | NodeId
+//                          | NodeId ',' String        ! &lt;NodeId&gt; and name/value = &lt;String&gt; shortcut
+//                          | NodeId ',' parameter     ! &lt;NodeId&gt; and name/value = &lt;Parameter&gt; shortcut
+//                          | &lt;NodePredicateRegEx&gt;     ! /items[{/at0001.*/}], /items[at0001 and name/value matches {//}]
+//                          | ArchetypeId
+//                          | ArchetypeId ',' String        ! &lt;NodeId&gt; and name/value = &lt;String&gt; shortcut
+//                          | ArchetypeId ',' parameter     ! &lt;NodeId&gt; and name/value = &lt;Parameter&gt; shortcut
+nodePredicateComparable
+ 	: NODEID (COMMA^ (STRING|PARAMETER))?
+ 	| ARCHETYPEID (COMMA^ (STRING|PARAMETER))?
+ 	| predicateOperand ((COMPARABLEOPERATOR^ predicateOperand)|(MATCHES^ REGEXPATTERN)) 
+        | REGEXPATTERN     //! /items[{/at0001.*/}], /items[at0001 and name/value matches {//}]
+        ;
+
+//&lt;NodePredicateRegEx&gt;    ::= RegExPattern
+//                          | &lt;PredicateOperand&gt; 'matches' RegExPattern
+nodePredicateRegEx
+ 	: REGEXPATTERN
+ 	| predicateOperand MATCHES^ REGEXPATTERN;
+
+//&lt;MatchesOperand&gt; ::= &lt;ValueListItems&gt;
+//			| UriValue
+matchesOperand
+ 	: valueListItems | URIVALUE;
+
+//! &lt;ValueList&gt; ::= '{'&lt;ValueListItems&gt;'}'
+//&lt;ValueListItems&gt; ::= &lt;Operand&gt;
+//                     |&lt;Operand&gt; ',' &lt;ValueListItems&gt;
+valueListItems
+ 	: operand (','! operand)*;
+
+//&lt;URI&gt;     ::= '{' UriValue '}'
+uri 	: '{' URIVALUE '}';
+
+
+//&lt;ArchetypePredicate&gt; ::= '[' ArchetypeId ']'
+//			 | '[' Parameter ']'
+//                      | '[' RegExPattern ']'
+archetypePredicate
+ 	: OPENBRACKET (archetypeId|PARAMETER|REGEXPATTERN) CLOSEBRACKET;
+
+archetypeId
+	:	ARCHETYPEID;
+	
+//&lt;VersionPredicate&gt; ::= '[' &lt;VersionPredicateOptions&gt; ']'
+versionPredicate
+ 	: OPENBRACKET versionPredicateOptions CLOSEBRACKET;
+
+//&lt;VersionPredicateOptions&gt; ::= 'latest_version' | 'all_versions'
+versionPredicateOptions
+ 	: 'latest_version' | ALL_VERSIONS;
+
+//&lt;StandardPredicate&gt; ::= '[' &lt;PredicateExpr&gt; ']'
+standardPredicate
+ 	: '['! predicateExpr ']'!;
+
+//&lt;PredicateExpr&gt; ::= &lt;PredicateOr&gt;
+predicateExpr
+ 	: predicateOr;
+
+//&lt;PredicateOr&gt; ::= &lt;PredicateAnd&gt;
+//                 | &lt;PredicateOr&gt; 'or' &lt;PredicateAnd&gt;
+predicateOr
+ 	: predicateAnd (OR^ predicateAnd)*;
+// 	: (predicateOr 'or')? predicateAnd; !!!
+
+//&lt;PredicateAnd&gt; ::= &lt;PredicateEquality&gt;
+//                 | &lt;PredicateAnd&gt; 'and' &lt;PredicateEquality&gt;
+predicateAnd
+ 	: predicateEquality (AND^ predicateEquality)*;
+// 	: (predicateAnd 'and')? predicateEquality; !!!
+
+//&lt;PredicateEquality&gt; ::= &lt;PredicateOperand&gt; ComparableOperator &lt;PredicateOperand&gt;
+predicateEquality
+ 	: predicateOperand COMPARABLEOPERATOR^ predicateOperand;
+
+//&lt;PredicateOperand&gt; ::= !Identifier
+//			!| Identifier PathItem
+//                     | &lt;ObjectPath&gt;
+//                     | &lt;Operand&gt;
+predicateOperand
+ 	: objectPath | operand;
+
+//&lt;Operand&gt; ::= String | Integer | Float | Date | Parameter | Boolean
+operand: STRING | INTEGER | FLOAT | DATE | PARAMETER | BOOLEAN;
+
+
+//&lt;ObjectPath&gt; ::=  &lt;PathPart&gt;
+//                | &lt;PathPart&gt; '/' &lt;ObjectPath&gt;
+objectPath
+ 	: pathPart ('/' pathPart)*;
+
+
+//&lt;PathPart&gt; ::= Identifier
+//           | Identifier &lt;Predicate&gt;
+pathPart
+ 	: IDENTIFIER predicate?;
+
+//&lt;FromExpr&gt; ::=  &lt;SimpleClassExpr&gt;
+//		| &lt;SimpleClassExpr&gt; &lt;ContainsExpr&gt;
+fromExpr: containsExpression;
+
+contains:	simpleClassExpr (CONTAINS^ containsExpression)?;
+
+//! Check thislass
+//&lt;ContainsExpr&gt;::= 'CONTAINS' &lt;ContainsExpression&gt;
+//                  !'CONTAINS' &lt;ContainsOr&gt;
+//&lt;ContainsExpression&gt; ::= &lt;ClassExpr&gt;
+//                        | &lt;ContainExpressionBoolean&gt;
+//                        |'(' &lt;ContainExpressionBoolean&gt; ')'
+containsExpression
+ 	: containExpressionBool (boolOp containsExpression)?
+// 	| '(' containExpressionBool ')' -&gt; ^(OPEN containExpressionBool)
+        ;
+
+//&lt;ContainExpressionBoolean&gt; ::= &lt;ContainsExpression&gt; 'OR' &lt;ContainsExpression&gt;
+//                              | &lt;ContainsExpression&gt; 'AND' &lt;ContainsExpression&gt;
+//                              | &lt;ContainsExpression&gt; 'XOR' &lt;ContainsExpression&gt;
+containExpressionBool
+ 	: contains
+ 	| '(' containsExpression ')' -&gt; ^(OPEN containsExpression CLOSE);
+
+boolOp	:	OR|XOR|AND;
+	
+//&lt;ClassExpr&gt;::=   &lt;SimpleClassExpr&gt;
+//		   | '(' &lt;SimpleClassExpr&gt; &lt;ContainsExpr&gt; ')'
+//		   | &lt;SimpleClassExpr&gt; &lt;ContainsExpr&gt;
+//classExpr
+// 	: '(' simpleClassExpr ')'
+//	| simpleClassExpr
+//	;
+
+//&lt;SimpleClassExpr&gt;::= Identifier							! RM_TYPE_NAME
+//               | Identifier Identifier					! RM_TYPE_NAME variable
+//               | &lt;ArchetypedClassExpr&gt;
+//		 | &lt;VersionedClassExpr&gt;
+//		 | &lt;VersionClassExpr&gt;
+//		 ! | &lt;IdentifiedObjectExpr&gt;                           ! need to be used once VersionedClassExpr is removed
+simpleClassExpr
+	: IDENTIFIER IDENTIFIER?					//! RM_TYPE_NAME .. RM_TYPE_NAME variable
+        | archetypedClassExpr
+        | versionedClassExpr
+	| versionClassExpr;
+//		 ! | &lt;IdentifiedObjectExpr&gt;                           ! need to be used once VersionedClassExpr is removed
+
+//&lt;ArchetypedClassExpr&gt;::= Identifier &lt;ArchetypePredicate&gt;	! RM_TYPE_NAME [archetype_id]
+//               | Identifier Identifier &lt;ArchetypePredicate&gt;	! RM_TYPE_NAME variable [archetype_id]
+archetypedClassExpr
+ 	: IDENTIFIER^ IDENTIFIER? archetypePredicate;	//! RM_TYPE_NAME variable? [archetype_id]
+
+//! need to be used once VersionedClassExpr is removed
+//!&lt;IdentifiedObjectExpr&gt;::= Identifier &lt;StandardPredicate&gt;	! RM_TYPE_NAME [path operator operand]
+//!               | Identifier Identifier &lt;StandardPredicate&gt;	! RM_TYPE_NAME variable [path operator operand]
+//&lt;VersionedClassExpr&gt;::= 'VERSIONED_OBJECT'
+//               | 'VERSIONED_OBJECT' Identifier
+//               | 'VERSIONED_OBJECT' &lt;StandardPredicate&gt;
+//               | 'VERSIONED_OBJECT' Identifier &lt;StandardPredicate&gt;
+versionedClassExpr
+ 	: VERSIONED_OBJECT^ IDENTIFIER? standardPredicate?;
+
+//&lt;VersionClassExpr&gt;::= 'VERSION'
+//               | 'VERSION' Identifier
+//               | 'VERSION' &lt;StandardPredicate&gt;
+//               | 'VERSION' Identifier &lt;StandardPredicate&gt;
+//		 | 'VERSION' &lt;VersionPredicate&gt;
+//               | 'VERSION' Identifier &lt;VersionPredicate&gt;
+versionClassExpr
+ 	: VERSION^ IDENTIFIER? (standardPredicate|versionPredicate)?;
+
+//
+// LEXER PATTERNS
+//
+
+WS  :   ( ' '
+        | '\t'
+        | '\r'
+        | '\n'
+        ) {$channel=HIDDEN;}
+    ;
+
+SELECT : ('S'|'s')('E'|'e')('L'|'l')('E'|'e')('C'|'c')('T'|'t') ;
+TOP : ('T'|'t')('O'|'o')('P'|'p') ;
+FORWARD : ('F'|'f')('O'|'o')('R'|'r')('W'|'w')('A'|'a')('R'|'r')('D'|'d') ;
+BACKWARD : ('B'|'b')('A'|'a')('C'|'c')('K'|'k')('W'|'w')('A'|'a')('R'|'r')('D'|'d') ;
+AS : ('A'|'a')('S'|'s') ;
+CONTAINS : ('C'|'c')('O'|'o')('N'|'n')('T'|'t')('A'|'a')('I'|'i')('N'|'n')('S'|'s') ;
+WHERE : ('W'|'w')('H'|'h')('E'|'e')('R'|'r')('E'|'e') ;
+ORDERBY : ('O'|'o')('R'|'r')('D'|'d')('E'|'e')('R'|'r')(' ')('B'|'b')('Y'|'y') ;
+FROM : ('F'|'f')('R'|'r')('O'|'o')('M'|'m') ;
+DESCENDING : ('D'|'d')('E'|'e')('S'|'s')('C'|'c')('E'|'e')('N'|'n')('D'|'d')('I'|'i')('N'|'n')('G'|'g') ;
+ASCENDING : ('A'|'a')('S'|'s')('C'|'c')('E'|'e')('N'|'n')('D'|'d')('I'|'i')('N'|'n')('G'|'g') ;
+DESC : ('D'|'d')('E'|'e')('S'|'s')('C'|'c') ;
+ASC : ('A'|'a')('S'|'s')('C'|'c') ;
+EHR : 'EHR';
+AND : ('A'|'a')('N'|'n')('D'|'d') ;
+OR : ('O'|'o')('R'|'r') ;
+XOR : ('X'|'x')('O'|'o')('R'|'r') ;
+NOT : ('N'|'n')('O'|'o')('T'|'t') ;
+MATCHES : ('M'|'m')('A'|'a')('T'|'t')('C'|'c')('H'|'h')('E'|'e')('S'|'s') ;
+EXISTS: ('E'|'e')('X'|'x')('I'|'i')('S'|'s')('T'|'t')('S'|'s') ;
+VERSION	:	'VERSION';
+VERSIONED_OBJECT	:	'VERSIONED_OBJECT';
+ALL_VERSIONS
+	:	'all_versions';
+	
+fragment
+ESC_SEQ
+    :   '\\' ('b'|'t'|'n'|'f'|'r'|'\"'|'\''|'\\')
+    |   UNICODE_ESC
+    |   OCTAL_ESC
+    ;
+
+fragment
+OCTAL_ESC
+    :   '\\' ('0'..'3') ('0'..'7') ('0'..'7')
+    |   '\\' ('0'..'7') ('0'..'7')
+    |   '\\' ('0'..'7')
+    ;
+
+fragment
+UNICODE_ESC
+    :   '\\' 'u' HEX_DIGIT HEX_DIGIT HEX_DIGIT HEX_DIGIT
+    ;
+
+fragment
+HEX_DIGIT : ('0'..'9'|'a'..'f'|'A'..'F') ;
+
+QUOTE	:	'\'';
+
+fragment
+DIGIT	:	'0'..'9';
+
+fragment
+HEXCHAR	:	 DIGIT|'a'|'A'|'b'|'B'|'c'|'C'|'d'|'D'|'e'|'E'|'f'|'F';
+
+fragment
+LETTER
+	:	'a'..'z'|'A'..'Z';
+
+fragment
+ALPHANUM
+	:	LETTER|DIGIT;
+
+fragment
+LETTERMINUSA
+	:	'b'..'z'|'B'..'Z';
+
+fragment
+LETTERMINUST
+	:	'a'..'s'|'A'..'S'|'u'..'z'|'U'..'Z';
+
+fragment
+IDCHAR	:	ALPHANUM|'_';
+
+fragment
+IDCHARMINUST
+	:	LETTERMINUST|DIGIT|'_';
+
+fragment
+URISTRING
+	:	ALPHANUM|'_'|'-'|'/'|':'|'.'|'?'|'&amp;'|'%'|'$'|'#'|'@'|'!'|'+'|'='|'*';
+
+fragment
+REGEXCHAR
+	:	URISTRING|'('|')'|'\\'|'^'|'{'|'}'|']'|'[';
+
+
+// Terminal Definitions
+
+//Boolean     = 'true' | 'false'
+BOOLEAN	:	'true' | 'false' | 'TRUE' | 'FALSE' ;
+
+//!NodeId      = 'a''t'{Digit}{Digit}{Digit}{Digit}
+//! conflict with Identifier
+//!NodeId	     = 'at'({Digit}{Digit}{Digit}{Digit}('.0'*('.'{NonZeroDigit}{Digit}*)+|('.'{NonZeroDigit}{Digit}*)*)|'0''.0'*('.'{NonZeroDigit}{Digit}*)+|('.'{NonZeroDigit}{Digit}*)+)
+//NodeId	     = 'at'({Digit}+('.'{Digit}+)*)
+//NODEID	:	'at' DIGIT+ ('.' DIGIT+)*;
+NODEID	:	'at' DIGIT+ ('.' DIGIT+)*; // DIGIT DIGIT DIGIT DIGIT;
+
+//!Identifier  = {Letter}({Alphanumeric}|'_')*   ! Conflicts with UID
+//!Identifier  = {Letter}{IdChar}*   ! Conflicts with extended NodeId
+//! restricted to allow only letters after the 4th character due to conflict with extended NodeId
+//!Identifier  = {Letter}{IdChar}?{IdChar}?{IdChar}?({Letter}|'_')*  !Conficts with NodeId which may have any length of digit, such as at0.9
+//Identifier = {LetterMinusA}{IdCharMinusT}?{IdChar}* | 'a''t'?(({letter}|'_')*|{LetterMinusT}{Alphanumeric}*)
+// ???
+IDENTIFIER
+	:	('a'|'A') (ALPHANUM|'_')*
+	| 	LETTERMINUSA IDCHAR*
+	;
+
+//!PathItem = '/'{Letter}({Alphanumeric}|'_')*
+
+//Integer     = {Digit}+
+INTEGER	:	'-'? DIGIT+;
+
+//Float       = {Digit}+'.'{Digit}+
+FLOAT	:	'-'? DIGIT+ '.' DIGIT+;
+
+//Date        = ''{Digit}{Digit}{Digit}{Digit}'-'{Digit}{Digit}'-'{Digit}{Digit}''
+DATE	:	'\'' DIGIT DIGIT DIGIT DIGIT DIGIT DIGIT DIGIT DIGIT 'T' DIGIT DIGIT DIGIT DIGIT DIGIT DIGIT '.' DIGIT DIGIT DIGIT '+' DIGIT DIGIT DIGIT DIGIT '\'';
+
+//!Parameter   = '$'{letter}({Alphanumeric}|'_')*
+//Parameter   = '$'{letter}{IdChar}*
+PARAMETER
+	:	'$' LETTER IDCHAR*;
+
+//! could constrain UID further
+//UniqueId    = {digit}+('.'{digit}+)+'.'{digit}+  ! OID
+//          | {Hex Char}+('-'{Hex Char}+)+       ! UUID
+UNIQUEID:	DIGIT+ ('.' DIGIT+)+ '.' DIGIT+  // OID
+            | HEXCHAR+ ('-' HEXCHAR+)+       // UUID
+	;
+
+//! could constrain ArchetypeId further
+//!ArchetypeId = {Letter}+'-'{Letter}+'-'({Letter}|'_')+'.'({Letter}|'_'|'-')+'.v'{Digit}+('.'{Digit}+)?  ! not allow a number in archetype id concept, such as openEHR-EHR-OBSERVATION.laboratory-hba1c.v1
+//ArchetypeId = {Letter}+'-'{Letter}+'-'({Letter}|'_')+'.'({IdChar}|'-')+'.v'{Digit}+('.'{Digit}+)?
+ARCHETYPEID
+	:	LETTER+ '-' LETTER+ '-' (LETTER|'_')+ '.' (IDCHAR|'-')+ '.v' DIGIT+ ('.' DIGIT+)?
+	;
+
+//ComparableOperator = '=' | '!=' | '&gt;' | '&gt;=' | '&lt;' | '&lt;='
+COMPARABLEOPERATOR
+	:	'=' | '!=' | '&gt;' | '&gt;=' | '&lt;' | '&lt;='
+	;
+
+//UriValue   = {Letter}+'://'({UriString}|'['|']'|', '''|'')*
+//            |{Letter}+':'({UriString}|'['|']'|'')*
+URIVALUE: LETTER+ '://' (URISTRING|'['|']'|', \''|'\'')*
+//	| LETTER+ ':' (URISTRING|'['|']'|'\'')*
+        ;
+
+//RegExPattern = '{/'{RegExChar}+'/}'
+REGEXPATTERN
+	:	'{/' REGEXCHAR+ '/}';
+
+//String      = '"'{String Char}*'"'
+  //          | ''{String Char}*''
+STRING
+    	:  '\'' ( ESC_SEQ | ~('\\'|'\'') )* '\''
+    	|  '"' ( ESC_SEQ | ~('\\'|'"') )* '"'
+    	;
+
+SLASH	:	'/';
+
+COMMA	:	',';
+
+OPENBRACKET
+	:	'[';
+
+CLOSEBRACKET
+	:	']';
+	
+OPEN	:	'(';
+CLOSE	:	')';</code></pre>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="../writing_AQL/">How to write an AQL query statement manually</a></span>
+  <span class="next"><a href="../appendix/">Appendix</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>
+    Copyright: © 2003+
+    <a href="https://www.openehr.org"
+        alt="is an independent, non-profit foundation, facilitating the sharing of health
+           records by consumers and clinicians via open specifications, clinical models
+           and open platform implementations.">The openEHR Foundation</a>
+  </p>
+
+  <p>
+    License:
+    <img src="../../../../ui/img/cc-by-nd-88x31.png"
+        alt="Creative Commons Attribution-NoDerivs 3.0 Unported."
+        style="vertical-align:middle;margin:0 0.25rem 0 0;">
+    <a href="https://creativecommons.org/licenses/by-nd/3.0/">
+      Creative Commons Attribution-NoDerivs 3.0 Unported.
+    </a>
+  </p>
+
+  <p>
+    <strong>Links: <strong>
+    <a href="https://www.openehr.org/terms-of-use" class="mr-1">Terms of use</a> |
+    <a href="https://www.openehr.org/privacy-policy" class="mx-1">Privacy policy</a> |
+    <a href="https://www.openehr.org/privacy-policy" class="mx-1">Logos &amp; Trademarks</a> |
+    <a href="https://www.openehr.org/contact-us" class="mx-1">Contact</a>
+  </p>
+</footer>
+
+<script id="site-script" src="../../../../ui/js/site.js" data-ui-root-path="../../../../ui"></script>
+<script defer src="../../../../ui/js/vendor/highlight.js"></script>
+<script src="../../../../ui/js/vendor/lunr.js"></script>
+<script src="../../../../ui/js/search-ui.js" id="search-ui-script" data-site-root-path="../../../.." data-snippet-length="80" data-stylesheet="../../../../ui/css/search.css"></script>
+<script async src="../../../../search-index.js"></script>
+<script src="../../../../ui/js/medium-zoom.min.js"></script>
+<script src="../../../../ui/js/zoom.js"></script>
+<script async src="../../../../ui/js/tabs.js"></script>
+  </body>
+</html>

@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+    <title>Definition Package :: openEHR Specifications (Local Build)</title>
+    <link rel="canonical" href="https://sebastian-iancu.github.io/antora-openehr/SM/development/openehr_platform/definition_package/">
+    <link rel="prev" href="../common_package/">
+    <link rel="next" href="../ehr_service/">
+    <meta name="description" content="openEHR Platform Abstract Service Model">
+    <meta name="keywords" content="openehr, service, API">
+    <meta name="generator" content="Antora 3.1.14">
+    <link rel="stylesheet" href="../../../../ui/css/site.css">
+    <link rel="stylesheet" href="../../../../ui/css/antora-openehr.css">
+    <link rel="stylesheet" href="../../../../ui/css/openehr.css">
+    <link rel="stylesheet" href="../../../../ui/css/tabs.css">
+    <link rel="stylesheet" href="../../../../ui/css/extra.css">
+<link rel="icon" href="../../../../ui/img/favicon.ico" type="image/x-icon">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://sebastian-iancu.github.io/antora-openehr">openEHR Specifications (Local Build)</a>
+
+      <div class="navbar-item search hide-for-print">
+        <div id="search-field" class="field has-filter">
+          <input id="search-input" type="text" placeholder="Search the docs">
+          <label class="filter checkbox">
+            <input type="checkbox" data-facet-filter="component:SM"> Service Model only
+          </label>
+        </div>
+      </div>
+
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">Specifications</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://specifications.openehr.org/" target="_blank">
+              openEHR specification
+            </a>
+            <a class="navbar-item" href="https://specifications.openehr.org/releases/UML/development/index.html" target="_blank">
+              openEHR portal
+            </a>
+            <a class="navbar-item" href="https://ckm.openehr.org/ckm/" target="_blank">
+              openEHR CKM
+            </a>
+          </div>
+        </div>
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">Community</a>
+          <div class="navbar-dropdown is-right">
+            <a class="navbar-item" href="https://openehr.atlassian.net/secure/Dashboard.jspa?selectPageId=10190" target="_blank">
+              Issue trackers
+            </a>
+            <a class="navbar-item" href="https://discourse.openehr.org/" target="_blank">
+              Discourse Forum
+            </a>
+            <a class="navbar-item" href="https://specifications.openehr.org/wiki/display/spec/Specifications+Home" target="_blank">
+              Wiki
+            </a>
+            <a class="navbar-item" href="https://github.com/openEHR" target="_blank">
+              GitHub
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="SM" data-version="development">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="../../">Service Model</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../">Overview</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../">openEHR Platform Service Model</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../overview/">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../common_package/">Common Package</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="./">Definition Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../ehr_service/">EHR Service</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../demographic_service/">Demographic Service</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../ehr_index_service/">EHR Index Service</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../query_service/">Query Service</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../message_service/">Message Service</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../subject_proxy_service/">Subject Proxy Service (SPS)</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../terminology_service/">Terminology Service</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../admin_service/">Admin Service</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../appendix/">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../simplified_im_b/">openEHR Simplified Information Model 'B'</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../simplified_im_b/overview/">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../simplified_im_b/sim_base/">Sim Base</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../simplified_im_b/sim_data_types/">SIM-B Data types Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../simplified_im_b/sim_structures/">SIM-B Structures</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../simplified_im_b/app_context/">App Context</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../simplified_im_b/transformation_rules/">Transformation Rules</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../simplified_im_b/appendix/">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../serial_data_formats/">openEHR Serial Data Formats (SDF)</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../serial_data_formats/overview/">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../serial_data_formats/data_values/">Data Values</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../serial_data_formats/syntax/">Syntax Specification</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../serial_data_formats/appendix/">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Service Model</span>
+    <span class="version">development</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <div class="title"><a href="../../../../AM/Release-2.3.0/">Archetype Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../AM/Release-2.3.0/">Release-2.3.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../AM/Release-2.2.0/">Release-2.2.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../AM/Release-1.4.0/">Release-1.4.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../AM/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../BASE/Release-1.2.0/">Base Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../BASE/Release-1.2.0/">Release-1.2.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../BASE/Release-1.1.0/">Release-1.1.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../BASE/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../CDS/development/">Clinical Decision Support</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../CDS/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../CNF/development/">Conformance Specifications</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../CNF/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../LANG/Release-1.0.0/">Generic Languages</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../LANG/Release-1.0.0/">Release-1.0.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../LANG/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../TERM/Release-3.0.0/">openEHR Terminology</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../TERM/Release-3.0.0/">Release-3.0.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../TERM/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../PROC/development/">Process Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../PROC/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../QUERY/Release-1.0.1/">Query Languages</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../QUERY/Release-1.0.1/">Release-1.0.1</a>
+        </li>
+        <li class="version">
+          <a href="../../../../QUERY/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../RM/Release-1.1.0/">Reference Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../RM/Release-1.1.0/">Release-1.1.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../RM/Release-1.0.4/">Release-1.0.4</a>
+        </li>
+        <li class="version">
+          <a href="../../../../RM/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../ITS-REST/development/">REST API specifications</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../ITS-REST/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <div class="title"><a href="../../">Service Model</a></div>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../../">development</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../../BASE/Release-1.2.0/" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../../">Service Model</a></li>
+    <li><a href="../">openEHR Platform Service Model</a></li>
+    <li><a href="./">Definition Package</a></li>
+  </ul>
+</nav>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Definition Package</h1>
+<div class="sect1">
+<h2 id="_overview"><a class="anchor" href="#_overview"></a><a class="link" href="#_overview">Overview</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The <code>platform.interface.definitions</code> package shown below defines service interface to the <code>definitions</code> component in the logical platform architecture.</p>
+</div>
+<div id="sm_platform_interface_definitions" class="imageblock text-center text-center">
+<div class="content">
+<img src="../../_images/uml/SM-platform.interface.definitions.svg" alt="SM platform.interface.definitions">
+</div>
+<div class="title">Figure 1. <code>sm.platform.interface.definitions</code> package</div>
+</div>
+<div class="paragraph">
+<p>The interfaces provided in this service are designed to enable any model-like or reference artefacts, other than terminology, to be stored for use by the rest of the system. This includes archetypes, templates, queries, and query sets.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_archetypes_and_templates"><a class="anchor" href="#_archetypes_and_templates"></a><a class="link" href="#_archetypes_and_templates">Archetypes and Templates</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The <code>I_DEFINITION_ADL14</code> and <code>I_DEFINITION_ADL2</code> interfaces are provided to enable upload, updating and removal of archetypes and templates based on the <a href="https://specifications.openehr.org/releases/AM/latest/index" target="_blank" rel="noopener">ADL 1.4 and ADL 2 standards</a> respectively, for use in an operational system.</p>
+</div>
+<div class="paragraph">
+<p>In the ADL2 case, archetypes and 'templates' are all instances of archetypes, formally speaking, which means that both source artefacts and Operational Templates (OPTs) can be uploaded. All such artefacts are identified in the same way, via an Archetype human-readable identifier (<code>ARCHETYPE_HRID</code>) and a UUID.</p>
+</div>
+<div class="paragraph">
+<p>For ADL 1.4, 'templates' are distinct artefacts, and the service enables the upload of source archetypes and ADL 1.4 - based OPTs, which are XML artefacts. In ADL 1.4, archetypes are identified with the older <code>ARCHETYPE_ID</code>, while OPTs are identified with UUIDs.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_registered_queries"><a class="anchor" href="#_registered_queries"></a><a class="link" href="#_registered_queries">Registered Queries</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Queries may be registered in the system for later execution. They are identified by 'qualified names', i.e. String names that may include a namespace and optionally a formalism type. The following schemes may be used:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>&lt;namespace&gt;::&lt;query-name&gt;</code></p>
+</li>
+<li>
+<p><code>&lt;namespace&gt;::&lt;formalism&gt;::&lt;query-name&gt;</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>"ehr::all_influenza_vacc_candidates"</code>     &#8201;&#8212;&#8201;a query for candidates for influenza vaccination</p>
+</li>
+<li>
+<p><code>"demographic::inpatients_rns"</code>            &#8201;&#8212;&#8201;a demographic query for current in-patients of RNS hospital</p>
+</li>
+<li>
+<p><code>"task_planning::aql::chemotherapy_plans"</code> &#8201;&#8212;&#8201;an AQL query for chemotherapy plans</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>If no namespace is supplied, the namespace <code>"misc"</code> is assumed.</p>
+</div>
+<div class="sect2">
+<h3 id="_query_formalism"><a class="anchor" href="#_query_formalism"></a><a class="link" href="#_query_formalism">Query Formalism</a></h3>
+<div class="paragraph">
+<p>A stored or ad hoc query text has an associated formalism, i.e. query language, provided in the <code><em>a_type</em></code> parameter in various calls. This parameter is a string value, treated case-insensitively carrying the name of the formalism of the query text, with an optional version identifier separated by the '::' delimiter. The version identifier may be:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>a semver.org partial or full version string, such as "1", "1.0", "1.0.3"; OR</p>
+</li>
+<li>
+<p>any text value, for non-computable version identifiers.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>If no version identifier part is supplied, the major version "1" is assumed.</p>
+</div>
+<div class="paragraph">
+<p>Accordingly, the following values for the <code><em>type</em></code> parameter are all equivalent:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>"AQL"</p>
+</li>
+<li>
+<p>"aql"</p>
+</li>
+<li>
+<p>"AQL::1"</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_class_definitions"><a class="anchor" href="#_class_definitions"></a><a class="link" href="#_class_definitions">Class Definitions</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Unresolved include directive in modules/openehr_platform/pages/definition_package.adoc - include::ROOT:partial$classes/i_definition_adl2.adoc[]</p>
+</div>
+<div class="paragraph">
+<p>Unresolved include directive in modules/openehr_platform/pages/definition_package.adoc - include::ROOT:partial$classes/i_definition_adl14.adoc[]</p>
+</div>
+<div class="paragraph">
+<p>Unresolved include directive in modules/openehr_platform/pages/definition_package.adoc - include::ROOT:partial$classes/i_definition_query.adoc[]</p>
+</div>
+<div class="paragraph">
+<p>Unresolved include directive in modules/openehr_platform/pages/definition_package.adoc - include::ROOT:partial$classes/definition_call_status_type.adoc[]</p>
+</div>
+<div class="paragraph">
+<p>Unresolved include directive in modules/openehr_platform/pages/definition_package.adoc - include::ROOT:partial$classes/query_descriptor.adoc[]</p>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="../common_package/">Common Package</a></span>
+  <span class="next"><a href="../ehr_service/">EHR Service</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>
+    Copyright: © 2003+
+    <a href="https://www.openehr.org"
+        alt="is an independent, non-profit foundation, facilitating the sharing of health
+           records by consumers and clinicians via open specifications, clinical models
+           and open platform implementations.">The openEHR Foundation</a>
+  </p>
+
+  <p>
+    License:
+    <img src="../../../../ui/img/cc-by-nd-88x31.png"
+        alt="Creative Commons Attribution-NoDerivs 3.0 Unported."
+        style="vertical-align:middle;margin:0 0.25rem 0 0;">
+    <a href="https://creativecommons.org/licenses/by-nd/3.0/">
+      Creative Commons Attribution-NoDerivs 3.0 Unported.
+    </a>
+  </p>
+
+  <p>
+    <strong>Links: <strong>
+    <a href="https://www.openehr.org/terms-of-use" class="mr-1">Terms of use</a> |
+    <a href="https://www.openehr.org/privacy-policy" class="mx-1">Privacy policy</a> |
+    <a href="https://www.openehr.org/privacy-policy" class="mx-1">Logos &amp; Trademarks</a> |
+    <a href="https://www.openehr.org/contact-us" class="mx-1">Contact</a>
+  </p>
+</footer>
+
+<script id="site-script" src="../../../../ui/js/site.js" data-ui-root-path="../../../../ui"></script>
+<script defer src="../../../../ui/js/vendor/highlight.js"></script>
+<script src="../../../../ui/js/vendor/lunr.js"></script>
+<script src="../../../../ui/js/search-ui.js" id="search-ui-script" data-site-root-path="../../../.." data-snippet-length="80" data-stylesheet="../../../../ui/css/search.css"></script>
+<script async src="../../../../search-index.js"></script>
+<script src="../../../../ui/js/medium-zoom.min.js"></script>
+<script src="../../../../ui/js/zoom.js"></script>
+<script async src="../../../../ui/js/tabs.js"></script>
+  </body>
+</html>

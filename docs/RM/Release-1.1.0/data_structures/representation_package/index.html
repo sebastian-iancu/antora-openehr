@@ -1,0 +1,1654 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+    <title>Representation Package :: openEHR Specifications (Local Build)</title>
+    <link rel="canonical" href="https://sebastian-iancu.github.io/antora-openehr/RM/Release-1.1.0/data_structures/representation_package/">
+    <link rel="prev" href="../item_structure_package/">
+    <link rel="next" href="../history_package/">
+    <meta name="description" content="openEHR Data Structures Information Model specification">
+    <meta name="keywords" content="EHR, data structures, reference model, openehr">
+    <meta name="generator" content="Antora 3.1.14">
+    <link rel="stylesheet" href="../../../../ui/css/site.css">
+    <link rel="stylesheet" href="../../../../ui/css/antora-openehr.css">
+    <link rel="stylesheet" href="../../../../ui/css/openehr.css">
+    <link rel="stylesheet" href="../../../../ui/css/tabs.css">
+    <link rel="stylesheet" href="../../../../ui/css/extra.css">
+<link rel="icon" href="../../../../ui/img/favicon.ico" type="image/x-icon">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://sebastian-iancu.github.io/antora-openehr">openEHR Specifications (Local Build)</a>
+
+      <div class="navbar-item search hide-for-print">
+        <div id="search-field" class="field has-filter">
+          <input id="search-input" type="text" placeholder="Search the docs">
+          <label class="filter checkbox">
+            <input type="checkbox" data-facet-filter="component:RM"> Reference Model only
+          </label>
+        </div>
+      </div>
+
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">Specifications</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://specifications.openehr.org/" target="_blank">
+              openEHR specification
+            </a>
+            <a class="navbar-item" href="https://specifications.openehr.org/releases/UML/development/index.html" target="_blank">
+              openEHR portal
+            </a>
+            <a class="navbar-item" href="https://ckm.openehr.org/ckm/" target="_blank">
+              openEHR CKM
+            </a>
+          </div>
+        </div>
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">Community</a>
+          <div class="navbar-dropdown is-right">
+            <a class="navbar-item" href="https://openehr.atlassian.net/secure/Dashboard.jspa?selectPageId=10190" target="_blank">
+              Issue trackers
+            </a>
+            <a class="navbar-item" href="https://discourse.openehr.org/" target="_blank">
+              Discourse Forum
+            </a>
+            <a class="navbar-item" href="https://specifications.openehr.org/wiki/display/spec/Specifications+Home" target="_blank">
+              Wiki
+            </a>
+            <a class="navbar-item" href="https://github.com/openEHR" target="_blank">
+              GitHub
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="RM" data-version="Release-1.1.0">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="../../">Reference Model</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../">Overview</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../ehr/">EHR Information Model</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr/background/">Background</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr/ehr_information_model/">The EHR Information Model</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr/ehr_package/">EHR Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr/composition_package/">Composition Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr/content_package/">Content Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr/navigation_package/">Navigation Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr/entry_package/">Entry Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr/glossary/">Glossary</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr/appendix/">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../demographic/">Demographic Information Model</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../demographic/demographic_package/">Demographic package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../demographic/appendix/">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../common/">Common Information Model</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../common/overview/">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../common/archetyped_package/">Archetyped Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../common/generic_package/">Generic Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../common/directory_package/">Directory Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../common/change_control_package/">Change Control Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../common/tags/">Tags Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../common/resource_package/">Resource Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../common/appendix/">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../">Data Structures Information Model</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../background/">Background</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../overview/">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../item_structure_package/">Item Structure Package</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="./">Representation Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../history_package/">History Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../appendix/">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../data_types/">Data Types Information Model</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_types/background/">Background</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_types/introduction/">Introduction</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_types/basic_package/">Basic Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_types/text_package/">Text Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_types/quantity_package/">Quantity Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_types/date_time_package/">Date Time Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_types/time_specification_package/">Time_specification Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_types/encapsulated_package/">Encapsulated Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_types/uri_package/">Uri Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_types/implem_strategies/">Implementation Strategies</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_types/comparison_HL7/">Comparison with HL7v3 Types</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../data_types/appendix/">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../support/">Support Information Model</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../support/support_package/">Support Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../support/assumed_types/">Assumed Types</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../support/identification_package/">Identification Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../support/terminology_package/">Terminology Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../support/measurement_package/">Measurement Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../support/definition_package/">Definition Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../support/appendix/">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../integration/">Integration Information Model</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../integration/integration_package/">Integration Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../integration/appendix/">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../ehr_extract/">EHR Extract Information Model</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr_extract/requirements/">Requirements</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr_extract/design_overview/">Design Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr_extract/common_package/">Extract.common Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr_extract/openehr_extract_package/">The openehr_extract Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr_extract/generic_extract_package/">Generic_extract Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr_extract/synchronisation_package/">Synchronisation Extracts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr_extract/message_package/">The Message package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr_extract/semantics/">Semantics of openEHR and ISO 13606 extracts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../ehr_extract/appendix/">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Reference Model</span>
+    <span class="version">Release-1.1.0</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <div class="title"><a href="../../../../AM/Release-2.3.0/">Archetype Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../AM/Release-2.3.0/">Release-2.3.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../AM/Release-2.2.0/">Release-2.2.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../AM/Release-1.4.0/">Release-1.4.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../AM/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../BASE/Release-1.2.0/">Base Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../BASE/Release-1.2.0/">Release-1.2.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../BASE/Release-1.1.0/">Release-1.1.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../BASE/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../CDS/development/">Clinical Decision Support</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../CDS/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../CNF/development/">Conformance Specifications</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../CNF/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../LANG/Release-1.0.0/">Generic Languages</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../LANG/Release-1.0.0/">Release-1.0.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../LANG/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../TERM/Release-3.0.0/">openEHR Terminology</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../TERM/Release-3.0.0/">Release-3.0.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../TERM/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../PROC/development/">Process Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../PROC/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../QUERY/Release-1.0.1/">Query Languages</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../QUERY/Release-1.0.1/">Release-1.0.1</a>
+        </li>
+        <li class="version">
+          <a href="../../../../QUERY/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <div class="title"><a href="../../">Reference Model</a></div>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../../">Release-1.1.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../Release-1.0.4/">Release-1.0.4</a>
+        </li>
+        <li class="version">
+          <a href="../../../development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../ITS-REST/development/">REST API specifications</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../ITS-REST/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../SM/development/">Service Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../SM/development/">development</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../../BASE/Release-1.2.0/" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../../">Reference Model</a></li>
+    <li><a href="../">Data Structures Information Model</a></li>
+    <li><a href="./">Representation Package</a></li>
+  </ul>
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">Release-1.1.0</button>
+  <div class="version-menu">
+    <a class="version is-current" href="./">Release-1.1.0</a>
+    <a class="version" href="../../../Release-1.0.4/data_structures/representation_package/">Release-1.0.4</a>
+    <a class="version" href="../../../development/data_structures/representation_package/">development</a>
+  </div>
+</div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Representation Package</h1>
+<div class="sect1">
+<h2 id="_overview"><a class="anchor" href="#_overview"></a><a class="link" href="#_overview">Overview</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This package contains classes for a simple hierarchical representation of any data structure, as shown on the lower right side of <a href="#data_structures_package">[data_structures_package]</a>. These classes are compatible with the <a href="https://www.iso.org/standard/40784.html" target="_blank" rel="noopener">ISO 13606-1</a> classes of the same names, and instances can be losslessly generated to and from ISO 13606 instance structures.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_class_descriptions"><a class="anchor" href="#_class_descriptions"></a><a class="link" href="#_class_descriptions">Class Descriptions</a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_item_class"><a class="anchor" href="#_item_class"></a><a class="link" href="#_item_class">ITEM Class</a></h3>
+<div id="_tabs_1" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="_tabs_1_definition" class="tab">
+<p>Definition</p>
+</li>
+<li id="_tabs_1_effective" class="tab">
+<p>Effective</p>
+</li>
+<li id="_tabs_1_bmm" class="tab">
+<p>BMM</p>
+</li>
+<li id="_tabs_1_uml" class="tab">
+<p>UML</p>
+</li>
+</ul>
+</div>
+<div id="_tabs_1_definition--panel" class="tabpanel" aria-labelledby="_tabs_1_definition">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong><em>ITEM (abstract)</em></strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>The abstract parent of <code>CLUSTER</code> and <code>ELEMENT</code> representation classes.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="../../common/archetyped_package/#_locatable_class" class="xref page">LOCATABLE</a></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="_tabs_1_effective--panel" class="tabpanel" aria-labelledby="_tabs_1_effective">
+<table class="tableblock frame-none grid-rows stretch">
+<colgroup>
+<col style="width: 40%;">
+<col style="width: 60%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-center valign-top" colspan="2"><strong><em>ITEM (abstract)</em></strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>The abstract parent of <code>CLUSTER</code> and <code>ELEMENT</code> representation classes.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock">Inherits: <a href="../../../../BASE/Release-1.2.0/foundation_types/overview/#_any_class" class="xref page">Any</a>, <a href="../../common/archetyped_package/#_pathable_class" class="xref page">PATHABLE</a>, <a href="../../common/archetyped_package/#_locatable_class" class="xref page">LOCATABLE</a></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><strong>Attributes</strong></p></th>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>name</strong>: <code><a href="../../data_types/text_package/#_dv_text_class" class="xref page">DV_TEXT</a></code> [1..1]</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Runtime name of this fragment, used to build runtime paths. This is the term provided via a clinical application or batch process to name this EHR construct: its retention in the EHR faithfully preserves the original label by which this entry was known to end users.<br>
+<em>Inherited from <a href="../../common/archetyped_package/#_locatable_class" class="xref page">LOCATABLE</a></em></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>archetype_node_id</strong>: <code><a href="../../../../BASE/Release-1.2.0/foundation_types/primitive_types/#_string_class" class="xref page">String</a></code> [1..1]</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Design-time archetype identifier of this node taken from its generating archetype; used to build archetype paths. Always in the form of an at-code, e.g.  <code>at0005</code>. This value enables a 'standardised' name for this node to be generated, by referring to the generating archetype local terminology.</p>
+</div>
+<div class="paragraph">
+<p>At an archetype root point, the value of this attribute is always the stringified form of the <code><em>archetype_id</em></code> found in the <code><em>archetype_details</em></code> object.<br>
+<em>Inherited from <a href="../../common/archetyped_package/#_locatable_class" class="xref page">LOCATABLE</a></em></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>uid</strong>: <code><a href="../../../../BASE/Release-1.2.0/base_types/identification_package/#_uid_based_id_class" class="xref page">UID_BASED_ID</a></code> [0..1]</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Optional globally unique object identifier for root points of archetyped structures.<br>
+<em>Inherited from <a href="../../common/archetyped_package/#_locatable_class" class="xref page">LOCATABLE</a></em></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>links</strong>: <code><a href="../../../../BASE/Release-1.2.0/foundation_types/structure_types/#_list_class" class="xref page">List</a>&lt;<a href="../../common/archetyped_package/#_link_class" class="xref page">LINK</a>&gt;</code> [0..1]</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Links to other archetyped structures (data whose root object inherits from <code>ARCHETYPED</code>, such as <code>ENTRY</code>, <code>SECTION</code> and so on). Links may be to structures in other compositions.<br>
+<em>Inherited from <a href="../../common/archetyped_package/#_locatable_class" class="xref page">LOCATABLE</a></em></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>archetype_details</strong>: <code><a href="../../common/archetyped_package/#_archetyped_class" class="xref page">ARCHETYPED</a></code> [0..1]</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Details of archetyping used on this node.<br>
+<em>Inherited from <a href="../../common/archetyped_package/#_locatable_class" class="xref page">LOCATABLE</a></em></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>feeder_audit</strong>: <code><a href="../../common/archetyped_package/#_feeder_audit_class" class="xref page">FEEDER_AUDIT</a></code> [0..1]</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Audit trail from non-openEHR system of original commit of information forming the content of this node, or from a conversion gateway which has synthesised this node.<br>
+<em>Inherited from <a href="../../common/archetyped_package/#_locatable_class" class="xref page">LOCATABLE</a></em></p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><strong>Functions</strong></p></th>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>(abstract)</em> <strong>is_equal</strong> (<br>
+other: <code><a href="../../../../BASE/Release-1.2.0/foundation_types/overview/#_any_class" class="xref page">Any</a>[1]</code><br>
+): <code><a href="../../../../BASE/Release-1.2.0/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a></code> [1..1]</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Value equality: return True if <code>this</code> and <code><em>other</em></code> are attached to objects considered to be equal in value.<br>
+<em>Inherited from <a href="../../../../BASE/Release-1.2.0/foundation_types/overview/#_any_class" class="xref page">Any</a></em></p>
+</div>
+<div class="hdlist">
+<div class="title">Parameters<br></div>
+<table>
+<tr>
+<td class="hdlist1">
+<code><em>other</em></code>
+</td>
+<td class="hdlist2">
+<p>Other object for comparison.</p>
+</td>
+</tr>
+</table>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>equal</strong> <em>alias</em> "=", "==" (<br>
+other: <code><a href="../../../../BASE/Release-1.2.0/foundation_types/overview/#_any_class" class="xref page">Any</a>[1]</code><br>
+): <code><a href="../../../../BASE/Release-1.2.0/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a></code> [1..1]</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Reference equality for reference types, value equality for value types.<br>
+<em>Inherited from <a href="../../../../BASE/Release-1.2.0/foundation_types/overview/#_any_class" class="xref page">Any</a></em></p>
+</div>
+<div class="hdlist">
+<div class="title">Parameters<br></div>
+<table>
+<tr>
+<td class="hdlist1">
+<code><em>other</em></code>
+</td>
+<td class="hdlist2">
+<p>Other object for comparison.</p>
+</td>
+</tr>
+</table>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>instance_of</strong> (<br>
+a_type: <code><a href="../../../../BASE/Release-1.2.0/foundation_types/primitive_types/#_string_class" class="xref page">String</a>[1]</code><br>
+): <code><a href="../../../../BASE/Release-1.2.0/foundation_types/overview/#_any_class" class="xref page">Any</a></code> [1..1]</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Create new instance of a type.<br>
+<em>Inherited from <a href="../../../../BASE/Release-1.2.0/foundation_types/overview/#_any_class" class="xref page">Any</a></em></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>type_of</strong> (<br>
+an_object: <code><a href="../../../../BASE/Release-1.2.0/foundation_types/overview/#_any_class" class="xref page">Any</a>[1]</code><br>
+): <code><a href="../../../../BASE/Release-1.2.0/foundation_types/primitive_types/#_string_class" class="xref page">String</a></code> [1..1]</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Type name of an object as a string. May include generic parameters, as in <code>"Interval&lt;Time&gt;"</code>.<br>
+<em>Inherited from <a href="../../../../BASE/Release-1.2.0/foundation_types/overview/#_any_class" class="xref page">Any</a></em></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>not_equal</strong> <em>alias</em> "!=", "≠" (<br>
+other: <code><a href="../../../../BASE/Release-1.2.0/foundation_types/primitive_types/#_ordered_class" class="xref page">Ordered</a>[1]</code><br>
+): <code><a href="../../../../BASE/Release-1.2.0/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a></code> [1..1]</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>True if current object not equal to <code><em>other</em></code>. Returns not <code><em>equal</em>()</code>.<br>
+<em>Inherited from <a href="../../../../BASE/Release-1.2.0/foundation_types/overview/#_any_class" class="xref page">Any</a></em></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>parent</strong> (): <code><a href="../../common/archetyped_package/#_pathable_class" class="xref page">PATHABLE</a></code> [1..1]</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Parent of this node in a compositional hierarchy.<br>
+<em>Inherited from <a href="../../common/archetyped_package/#_pathable_class" class="xref page">PATHABLE</a></em></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>item_at_path</strong> (<br>
+a_path: <code><a href="../../../../BASE/Release-1.2.0/foundation_types/primitive_types/#_string_class" class="xref page">String</a>[1]</code><br>
+): <code><a href="../../../../BASE/Release-1.2.0/foundation_types/overview/#_any_class" class="xref page">Any</a></code><br>
+<br>
+<em>Pre</em>: <code>path_unique (a_path)</code> [1..1]</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>The item at a path (relative to this item); only valid for unique paths, i.e. paths that resolve to a single item.<br>
+<em>Inherited from <a href="../../common/archetyped_package/#_pathable_class" class="xref page">PATHABLE</a></em></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>items_at_path</strong> (<br>
+a_path: <code><a href="../../../../BASE/Release-1.2.0/foundation_types/primitive_types/#_string_class" class="xref page">String</a>[1]</code><br>
+): <code><a href="../../../../BASE/Release-1.2.0/foundation_types/structure_types/#_list_class" class="xref page">List</a>&lt;<a href="../../../../BASE/Release-1.2.0/foundation_types/overview/#_any_class" class="xref page">Any</a>&gt;</code> [0..1]</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>List of items corresponding to a non-unique path.<br>
+<em>Inherited from <a href="../../common/archetyped_package/#_pathable_class" class="xref page">PATHABLE</a></em></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>path_exists</strong> (<br>
+a_path: <code><a href="../../../../BASE/Release-1.2.0/foundation_types/primitive_types/#_string_class" class="xref page">String</a>[1]</code><br>
+): <code><a href="../../../../BASE/Release-1.2.0/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a></code><br>
+<br>
+<em>Pre</em>: <code>not a_path.is_empty</code> [1..1]</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>True if the path exists in the data with respect to the current item.<br>
+<em>Inherited from <a href="../../common/archetyped_package/#_pathable_class" class="xref page">PATHABLE</a></em></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>path_unique</strong> (<br>
+a_path: <code><a href="../../../../BASE/Release-1.2.0/foundation_types/primitive_types/#_string_class" class="xref page">String</a>[1]</code><br>
+): <code><a href="../../../../BASE/Release-1.2.0/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a></code><br>
+<br>
+<em>Pre</em>: <code>path_exists (a_path)</code> [1..1]</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>True if the path corresponds to a single item in the data.<br>
+<em>Inherited from <a href="../../common/archetyped_package/#_pathable_class" class="xref page">PATHABLE</a></em></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>path_of_item</strong> (<br>
+a_loc: <code><a href="../../common/archetyped_package/#_pathable_class" class="xref page">PATHABLE</a>[1]</code><br>
+): <code><a href="../../../../BASE/Release-1.2.0/foundation_types/primitive_types/#_string_class" class="xref page">String</a></code> [1..1]</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>The path to an item relative to the root of this archetyped structure.<br>
+<em>Inherited from <a href="../../common/archetyped_package/#_pathable_class" class="xref page">PATHABLE</a></em></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>concept</strong> (): <code><a href="../../data_types/text_package/#_dv_text_class" class="xref page">DV_TEXT</a></code> [1..1]</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Clinical concept of the archetype as a whole (= derived from the archetype_node_id' of the root node)<br>
+<em>Inherited from <a href="../../common/archetyped_package/#_locatable_class" class="xref page">LOCATABLE</a></em></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_archetype_root</strong> (): <code><a href="../../../../BASE/Release-1.2.0/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a></code> [1..1]</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>True if this node is the root of an archetyped structure.<br>
+<em>Inherited from <a href="../../common/archetyped_package/#_locatable_class" class="xref page">LOCATABLE</a></em></p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><strong>Invariants</strong></p></th>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Links_valid</em>: <code>links /= Void implies not links.is_empty</code><br>
+<em>Inherited from <a href="../../common/archetyped_package/#_locatable_class" class="xref page">LOCATABLE</a></em></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Archetyped_valid</em>: <code>is_archetype_root xor archetype_details = Void</code><br>
+<em>Inherited from <a href="../../common/archetyped_package/#_locatable_class" class="xref page">LOCATABLE</a></em></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Archetype_node_id_valid</em>: <code>not archetype_node_id.is_empty</code><br>
+<em>Inherited from <a href="../../common/archetyped_package/#_locatable_class" class="xref page">LOCATABLE</a></em></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="_tabs_1_bmm--panel" class="tabpanel" aria-labelledby="_tabs_1_bmm">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+    "name": "ITEM",
+    "documentation": "The abstract parent of `CLUSTER` and `ELEMENT` representation classes. ",
+    "is_abstract": true,
+    "ancestors": [
+        "LOCATABLE"
+    ]
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="_tabs_1_uml--panel" class="tabpanel" aria-labelledby="_tabs_1_uml">
+<div class="imageblock">
+<div class="content">
+<img src="../../_images/uml/classes/item.svg" alt="item">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_cluster_class"><a class="anchor" href="#_cluster_class"></a><a class="link" href="#_cluster_class">CLUSTER Class</a></h3>
+<div id="_tabs_2" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="_tabs_2_definition" class="tab">
+<p>Definition</p>
+</li>
+<li id="_tabs_2_effective" class="tab">
+<p>Effective</p>
+</li>
+<li id="_tabs_2_bmm" class="tab">
+<p>BMM</p>
+</li>
+<li id="_tabs_2_uml" class="tab">
+<p>UML</p>
+</li>
+</ul>
+</div>
+<div id="_tabs_2_definition--panel" class="tabpanel" aria-labelledby="_tabs_2_definition">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>CLUSTER</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>The grouping variant of <code>ITEM</code>, which may contain further instances of <code>ITEM</code>, in an ordered list.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="#_item_class">ITEM</a></code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>items</strong>: <code><a href="../../../../BASE/Release-1.2.0/foundation_types/structure_types/#_list_class" class="xref page">List</a>&lt;<a href="#_item_class">ITEM</a>&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Ordered list of items - <code>CLUSTER</code> or <code>ELEMENT</code> objects - under this <code>CLUSTER</code>.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="_tabs_2_effective--panel" class="tabpanel" aria-labelledby="_tabs_2_effective">
+<table class="tableblock frame-none grid-rows stretch">
+<colgroup>
+<col style="width: 40%;">
+<col style="width: 60%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-center valign-top" colspan="2"><strong>CLUSTER</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>The grouping variant of <code>ITEM</code>, which may contain further instances of <code>ITEM</code>, in an ordered list.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock">Inherits: <a href="../../../../BASE/Release-1.2.0/foundation_types/overview/#_any_class" class="xref page">Any</a>, <a href="../../common/archetyped_package/#_pathable_class" class="xref page">PATHABLE</a>, <a href="../../common/archetyped_package/#_locatable_class" class="xref page">LOCATABLE</a>, <a href="#_item_class">ITEM</a></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><strong>Attributes</strong></p></th>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>name</strong>: <code><a href="../../data_types/text_package/#_dv_text_class" class="xref page">DV_TEXT</a></code> [1..1]</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Runtime name of this fragment, used to build runtime paths. This is the term provided via a clinical application or batch process to name this EHR construct: its retention in the EHR faithfully preserves the original label by which this entry was known to end users.<br>
+<em>Inherited from <a href="../../common/archetyped_package/#_locatable_class" class="xref page">LOCATABLE</a></em></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>archetype_node_id</strong>: <code><a href="../../../../BASE/Release-1.2.0/foundation_types/primitive_types/#_string_class" class="xref page">String</a></code> [1..1]</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Design-time archetype identifier of this node taken from its generating archetype; used to build archetype paths. Always in the form of an at-code, e.g.  <code>at0005</code>. This value enables a 'standardised' name for this node to be generated, by referring to the generating archetype local terminology.</p>
+</div>
+<div class="paragraph">
+<p>At an archetype root point, the value of this attribute is always the stringified form of the <code><em>archetype_id</em></code> found in the <code><em>archetype_details</em></code> object.<br>
+<em>Inherited from <a href="../../common/archetyped_package/#_locatable_class" class="xref page">LOCATABLE</a></em></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>uid</strong>: <code><a href="../../../../BASE/Release-1.2.0/base_types/identification_package/#_uid_based_id_class" class="xref page">UID_BASED_ID</a></code> [0..1]</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Optional globally unique object identifier for root points of archetyped structures.<br>
+<em>Inherited from <a href="../../common/archetyped_package/#_locatable_class" class="xref page">LOCATABLE</a></em></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>links</strong>: <code><a href="../../../../BASE/Release-1.2.0/foundation_types/structure_types/#_list_class" class="xref page">List</a>&lt;<a href="../../common/archetyped_package/#_link_class" class="xref page">LINK</a>&gt;</code> [0..1]</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Links to other archetyped structures (data whose root object inherits from <code>ARCHETYPED</code>, such as <code>ENTRY</code>, <code>SECTION</code> and so on). Links may be to structures in other compositions.<br>
+<em>Inherited from <a href="../../common/archetyped_package/#_locatable_class" class="xref page">LOCATABLE</a></em></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>archetype_details</strong>: <code><a href="../../common/archetyped_package/#_archetyped_class" class="xref page">ARCHETYPED</a></code> [0..1]</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Details of archetyping used on this node.<br>
+<em>Inherited from <a href="../../common/archetyped_package/#_locatable_class" class="xref page">LOCATABLE</a></em></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>feeder_audit</strong>: <code><a href="../../common/archetyped_package/#_feeder_audit_class" class="xref page">FEEDER_AUDIT</a></code> [0..1]</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Audit trail from non-openEHR system of original commit of information forming the content of this node, or from a conversion gateway which has synthesised this node.<br>
+<em>Inherited from <a href="../../common/archetyped_package/#_locatable_class" class="xref page">LOCATABLE</a></em></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>items</strong>: <code><a href="../../../../BASE/Release-1.2.0/foundation_types/structure_types/#_list_class" class="xref page">List</a>&lt;<a href="#_item_class">ITEM</a>&gt;</code> [1..1]</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Ordered list of items - <code>CLUSTER</code> or <code>ELEMENT</code> objects - under this <code>CLUSTER</code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><strong>Functions</strong></p></th>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>(abstract)</em> <strong>is_equal</strong> (<br>
+other: <code><a href="../../../../BASE/Release-1.2.0/foundation_types/overview/#_any_class" class="xref page">Any</a>[1]</code><br>
+): <code><a href="../../../../BASE/Release-1.2.0/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a></code> [1..1]</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Value equality: return True if <code>this</code> and <code><em>other</em></code> are attached to objects considered to be equal in value.<br>
+<em>Inherited from <a href="../../../../BASE/Release-1.2.0/foundation_types/overview/#_any_class" class="xref page">Any</a></em></p>
+</div>
+<div class="hdlist">
+<div class="title">Parameters<br></div>
+<table>
+<tr>
+<td class="hdlist1">
+<code><em>other</em></code>
+</td>
+<td class="hdlist2">
+<p>Other object for comparison.</p>
+</td>
+</tr>
+</table>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>equal</strong> <em>alias</em> "=", "==" (<br>
+other: <code><a href="../../../../BASE/Release-1.2.0/foundation_types/overview/#_any_class" class="xref page">Any</a>[1]</code><br>
+): <code><a href="../../../../BASE/Release-1.2.0/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a></code> [1..1]</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Reference equality for reference types, value equality for value types.<br>
+<em>Inherited from <a href="../../../../BASE/Release-1.2.0/foundation_types/overview/#_any_class" class="xref page">Any</a></em></p>
+</div>
+<div class="hdlist">
+<div class="title">Parameters<br></div>
+<table>
+<tr>
+<td class="hdlist1">
+<code><em>other</em></code>
+</td>
+<td class="hdlist2">
+<p>Other object for comparison.</p>
+</td>
+</tr>
+</table>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>instance_of</strong> (<br>
+a_type: <code><a href="../../../../BASE/Release-1.2.0/foundation_types/primitive_types/#_string_class" class="xref page">String</a>[1]</code><br>
+): <code><a href="../../../../BASE/Release-1.2.0/foundation_types/overview/#_any_class" class="xref page">Any</a></code> [1..1]</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Create new instance of a type.<br>
+<em>Inherited from <a href="../../../../BASE/Release-1.2.0/foundation_types/overview/#_any_class" class="xref page">Any</a></em></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>type_of</strong> (<br>
+an_object: <code><a href="../../../../BASE/Release-1.2.0/foundation_types/overview/#_any_class" class="xref page">Any</a>[1]</code><br>
+): <code><a href="../../../../BASE/Release-1.2.0/foundation_types/primitive_types/#_string_class" class="xref page">String</a></code> [1..1]</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Type name of an object as a string. May include generic parameters, as in <code>"Interval&lt;Time&gt;"</code>.<br>
+<em>Inherited from <a href="../../../../BASE/Release-1.2.0/foundation_types/overview/#_any_class" class="xref page">Any</a></em></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>not_equal</strong> <em>alias</em> "!=", "≠" (<br>
+other: <code><a href="../../../../BASE/Release-1.2.0/foundation_types/primitive_types/#_ordered_class" class="xref page">Ordered</a>[1]</code><br>
+): <code><a href="../../../../BASE/Release-1.2.0/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a></code> [1..1]</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>True if current object not equal to <code><em>other</em></code>. Returns not <code><em>equal</em>()</code>.<br>
+<em>Inherited from <a href="../../../../BASE/Release-1.2.0/foundation_types/overview/#_any_class" class="xref page">Any</a></em></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>parent</strong> (): <code><a href="../../common/archetyped_package/#_pathable_class" class="xref page">PATHABLE</a></code> [1..1]</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Parent of this node in a compositional hierarchy.<br>
+<em>Inherited from <a href="../../common/archetyped_package/#_pathable_class" class="xref page">PATHABLE</a></em></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>item_at_path</strong> (<br>
+a_path: <code><a href="../../../../BASE/Release-1.2.0/foundation_types/primitive_types/#_string_class" class="xref page">String</a>[1]</code><br>
+): <code><a href="../../../../BASE/Release-1.2.0/foundation_types/overview/#_any_class" class="xref page">Any</a></code><br>
+<br>
+<em>Pre</em>: <code>path_unique (a_path)</code> [1..1]</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>The item at a path (relative to this item); only valid for unique paths, i.e. paths that resolve to a single item.<br>
+<em>Inherited from <a href="../../common/archetyped_package/#_pathable_class" class="xref page">PATHABLE</a></em></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>items_at_path</strong> (<br>
+a_path: <code><a href="../../../../BASE/Release-1.2.0/foundation_types/primitive_types/#_string_class" class="xref page">String</a>[1]</code><br>
+): <code><a href="../../../../BASE/Release-1.2.0/foundation_types/structure_types/#_list_class" class="xref page">List</a>&lt;<a href="../../../../BASE/Release-1.2.0/foundation_types/overview/#_any_class" class="xref page">Any</a>&gt;</code> [0..1]</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>List of items corresponding to a non-unique path.<br>
+<em>Inherited from <a href="../../common/archetyped_package/#_pathable_class" class="xref page">PATHABLE</a></em></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>path_exists</strong> (<br>
+a_path: <code><a href="../../../../BASE/Release-1.2.0/foundation_types/primitive_types/#_string_class" class="xref page">String</a>[1]</code><br>
+): <code><a href="../../../../BASE/Release-1.2.0/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a></code><br>
+<br>
+<em>Pre</em>: <code>not a_path.is_empty</code> [1..1]</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>True if the path exists in the data with respect to the current item.<br>
+<em>Inherited from <a href="../../common/archetyped_package/#_pathable_class" class="xref page">PATHABLE</a></em></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>path_unique</strong> (<br>
+a_path: <code><a href="../../../../BASE/Release-1.2.0/foundation_types/primitive_types/#_string_class" class="xref page">String</a>[1]</code><br>
+): <code><a href="../../../../BASE/Release-1.2.0/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a></code><br>
+<br>
+<em>Pre</em>: <code>path_exists (a_path)</code> [1..1]</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>True if the path corresponds to a single item in the data.<br>
+<em>Inherited from <a href="../../common/archetyped_package/#_pathable_class" class="xref page">PATHABLE</a></em></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>path_of_item</strong> (<br>
+a_loc: <code><a href="../../common/archetyped_package/#_pathable_class" class="xref page">PATHABLE</a>[1]</code><br>
+): <code><a href="../../../../BASE/Release-1.2.0/foundation_types/primitive_types/#_string_class" class="xref page">String</a></code> [1..1]</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>The path to an item relative to the root of this archetyped structure.<br>
+<em>Inherited from <a href="../../common/archetyped_package/#_pathable_class" class="xref page">PATHABLE</a></em></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>concept</strong> (): <code><a href="../../data_types/text_package/#_dv_text_class" class="xref page">DV_TEXT</a></code> [1..1]</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Clinical concept of the archetype as a whole (= derived from the archetype_node_id' of the root node)<br>
+<em>Inherited from <a href="../../common/archetyped_package/#_locatable_class" class="xref page">LOCATABLE</a></em></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_archetype_root</strong> (): <code><a href="../../../../BASE/Release-1.2.0/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a></code> [1..1]</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>True if this node is the root of an archetyped structure.<br>
+<em>Inherited from <a href="../../common/archetyped_package/#_locatable_class" class="xref page">LOCATABLE</a></em></p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><strong>Invariants</strong></p></th>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Links_valid</em>: <code>links /= Void implies not links.is_empty</code><br>
+<em>Inherited from <a href="../../common/archetyped_package/#_locatable_class" class="xref page">LOCATABLE</a></em></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Archetyped_valid</em>: <code>is_archetype_root xor archetype_details = Void</code><br>
+<em>Inherited from <a href="../../common/archetyped_package/#_locatable_class" class="xref page">LOCATABLE</a></em></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Archetype_node_id_valid</em>: <code>not archetype_node_id.is_empty</code><br>
+<em>Inherited from <a href="../../common/archetyped_package/#_locatable_class" class="xref page">LOCATABLE</a></em></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="_tabs_2_bmm--panel" class="tabpanel" aria-labelledby="_tabs_2_bmm">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+    "name": "CLUSTER",
+    "documentation": "The grouping variant of `ITEM`, which may contain further instances of `ITEM`, in an ordered list. ",
+    "ancestors": [
+        "ITEM"
+    ],
+    "properties": {
+        "items": {
+            "_type": "P_BMM_CONTAINER_PROPERTY",
+            "name": "items",
+            "documentation": "Ordered list of items - `CLUSTER` or `ELEMENT` objects - under this `CLUSTER`. ",
+            "is_mandatory": true,
+            "type_def": {
+                "container_type": "List",
+                "type": "ITEM"
+            },
+            "cardinality": {
+                "lower": 1,
+                "upper_unbounded": true
+            }
+        }
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="_tabs_2_uml--panel" class="tabpanel" aria-labelledby="_tabs_2_uml">
+<div class="imageblock">
+<div class="content">
+<img src="../../_images/uml/classes/cluster.svg" alt="cluster">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_element_class"><a class="anchor" href="#_element_class"></a><a class="link" href="#_element_class">ELEMENT Class</a></h3>
+<div id="_tabs_3" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="_tabs_3_definition" class="tab">
+<p>Definition</p>
+</li>
+<li id="_tabs_3_effective" class="tab">
+<p>Effective</p>
+</li>
+<li id="_tabs_3_bmm" class="tab">
+<p>BMM</p>
+</li>
+<li id="_tabs_3_uml" class="tab">
+<p>UML</p>
+</li>
+</ul>
+</div>
+<div id="_tabs_3_definition--panel" class="tabpanel" aria-labelledby="_tabs_3_definition">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>ELEMENT</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>The leaf variant of <code>ITEM</code>, to which a <code>DATA_VALUE</code> instance is attached.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="#_item_class">ITEM</a></code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>null_flavour</strong>: <code><a href="../../data_types/text_package/#_dv_coded_text_class" class="xref page">DV_CODED_TEXT</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Flavour of null value, e.g. <code>253&#124;unknown&#124;</code>, <code>271&#124;no information&#124;</code>, <code>272&#124;masked&#124;</code>, and <code>273&#124;not applicable&#124;</code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>value</strong>: <code><a href="../../data_types/basic_package/#_data_value_class" class="xref page">DATA_VALUE</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Property representing leaf value object of <code>ELEMENT</code>. In real data, any concrete subtype of <code>DATA_VALUE</code> can be used.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>0..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>null_reason</strong>: <code><a href="../../data_types/text_package/#_dv_text_class" class="xref page">DV_TEXT</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Optional specific reason for null value; if set, <code><em>null_flavour</em></code> must be set. Null reason may apply only to a minority of clinical data, commonly needed in reporting contexts.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Functions</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_null</strong> (): <code><a href="../../../../BASE/Release-1.2.0/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a></code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>True if value logically not known, e.g. if indeterminate, not asked etc.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Invariants</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Inv_is_null_valid</em>: <code>is_null() = (value = Void)</code></p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Inv_null_flavour_indicated</em>: <code>is_null() xor null_flavour = Void</code></p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Inv_null_flavour_valid</em>: <code>is_null implies terminology (Terminology_id_openehr).has_code_for_group_id (Group_id_null_flavour, null_flavour.defining_code)</code></p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Inv_null_reason_valid</em>: <code>null_reason /= Void implies is_null()</code></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="_tabs_3_effective--panel" class="tabpanel" aria-labelledby="_tabs_3_effective">
+<table class="tableblock frame-none grid-rows stretch">
+<colgroup>
+<col style="width: 40%;">
+<col style="width: 60%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-center valign-top" colspan="2"><strong>ELEMENT</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>The leaf variant of <code>ITEM</code>, to which a <code>DATA_VALUE</code> instance is attached.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock">Inherits: <a href="../../../../BASE/Release-1.2.0/foundation_types/overview/#_any_class" class="xref page">Any</a>, <a href="../../common/archetyped_package/#_pathable_class" class="xref page">PATHABLE</a>, <a href="../../common/archetyped_package/#_locatable_class" class="xref page">LOCATABLE</a>, <a href="#_item_class">ITEM</a></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><strong>Attributes</strong></p></th>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>name</strong>: <code><a href="../../data_types/text_package/#_dv_text_class" class="xref page">DV_TEXT</a></code> [1..1]</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Runtime name of this fragment, used to build runtime paths. This is the term provided via a clinical application or batch process to name this EHR construct: its retention in the EHR faithfully preserves the original label by which this entry was known to end users.<br>
+<em>Inherited from <a href="../../common/archetyped_package/#_locatable_class" class="xref page">LOCATABLE</a></em></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>archetype_node_id</strong>: <code><a href="../../../../BASE/Release-1.2.0/foundation_types/primitive_types/#_string_class" class="xref page">String</a></code> [1..1]</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Design-time archetype identifier of this node taken from its generating archetype; used to build archetype paths. Always in the form of an at-code, e.g.  <code>at0005</code>. This value enables a 'standardised' name for this node to be generated, by referring to the generating archetype local terminology.</p>
+</div>
+<div class="paragraph">
+<p>At an archetype root point, the value of this attribute is always the stringified form of the <code><em>archetype_id</em></code> found in the <code><em>archetype_details</em></code> object.<br>
+<em>Inherited from <a href="../../common/archetyped_package/#_locatable_class" class="xref page">LOCATABLE</a></em></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>uid</strong>: <code><a href="../../../../BASE/Release-1.2.0/base_types/identification_package/#_uid_based_id_class" class="xref page">UID_BASED_ID</a></code> [0..1]</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Optional globally unique object identifier for root points of archetyped structures.<br>
+<em>Inherited from <a href="../../common/archetyped_package/#_locatable_class" class="xref page">LOCATABLE</a></em></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>links</strong>: <code><a href="../../../../BASE/Release-1.2.0/foundation_types/structure_types/#_list_class" class="xref page">List</a>&lt;<a href="../../common/archetyped_package/#_link_class" class="xref page">LINK</a>&gt;</code> [0..1]</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Links to other archetyped structures (data whose root object inherits from <code>ARCHETYPED</code>, such as <code>ENTRY</code>, <code>SECTION</code> and so on). Links may be to structures in other compositions.<br>
+<em>Inherited from <a href="../../common/archetyped_package/#_locatable_class" class="xref page">LOCATABLE</a></em></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>archetype_details</strong>: <code><a href="../../common/archetyped_package/#_archetyped_class" class="xref page">ARCHETYPED</a></code> [0..1]</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Details of archetyping used on this node.<br>
+<em>Inherited from <a href="../../common/archetyped_package/#_locatable_class" class="xref page">LOCATABLE</a></em></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>feeder_audit</strong>: <code><a href="../../common/archetyped_package/#_feeder_audit_class" class="xref page">FEEDER_AUDIT</a></code> [0..1]</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Audit trail from non-openEHR system of original commit of information forming the content of this node, or from a conversion gateway which has synthesised this node.<br>
+<em>Inherited from <a href="../../common/archetyped_package/#_locatable_class" class="xref page">LOCATABLE</a></em></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>null_flavour</strong>: <code><a href="../../data_types/text_package/#_dv_coded_text_class" class="xref page">DV_CODED_TEXT</a></code> [0..1]</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Flavour of null value, e.g. <code>253&#124;unknown&#124;</code>, <code>271&#124;no information&#124;</code>, <code>272&#124;masked&#124;</code>, and <code>273&#124;not applicable&#124;</code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>value</strong>: <code><a href="../../data_types/basic_package/#_data_value_class" class="xref page">DATA_VALUE</a></code> [0..1]</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Property representing leaf value object of <code>ELEMENT</code>. In real data, any concrete subtype of <code>DATA_VALUE</code> can be used.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>null_reason</strong>: <code><a href="../../data_types/text_package/#_dv_text_class" class="xref page">DV_TEXT</a></code> [0..1]</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Optional specific reason for null value; if set, <code><em>null_flavour</em></code> must be set. Null reason may apply only to a minority of clinical data, commonly needed in reporting contexts.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><strong>Functions</strong></p></th>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>(abstract)</em> <strong>is_equal</strong> (<br>
+other: <code><a href="../../../../BASE/Release-1.2.0/foundation_types/overview/#_any_class" class="xref page">Any</a>[1]</code><br>
+): <code><a href="../../../../BASE/Release-1.2.0/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a></code> [1..1]</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Value equality: return True if <code>this</code> and <code><em>other</em></code> are attached to objects considered to be equal in value.<br>
+<em>Inherited from <a href="../../../../BASE/Release-1.2.0/foundation_types/overview/#_any_class" class="xref page">Any</a></em></p>
+</div>
+<div class="hdlist">
+<div class="title">Parameters<br></div>
+<table>
+<tr>
+<td class="hdlist1">
+<code><em>other</em></code>
+</td>
+<td class="hdlist2">
+<p>Other object for comparison.</p>
+</td>
+</tr>
+</table>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>equal</strong> <em>alias</em> "=", "==" (<br>
+other: <code><a href="../../../../BASE/Release-1.2.0/foundation_types/overview/#_any_class" class="xref page">Any</a>[1]</code><br>
+): <code><a href="../../../../BASE/Release-1.2.0/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a></code> [1..1]</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Reference equality for reference types, value equality for value types.<br>
+<em>Inherited from <a href="../../../../BASE/Release-1.2.0/foundation_types/overview/#_any_class" class="xref page">Any</a></em></p>
+</div>
+<div class="hdlist">
+<div class="title">Parameters<br></div>
+<table>
+<tr>
+<td class="hdlist1">
+<code><em>other</em></code>
+</td>
+<td class="hdlist2">
+<p>Other object for comparison.</p>
+</td>
+</tr>
+</table>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>instance_of</strong> (<br>
+a_type: <code><a href="../../../../BASE/Release-1.2.0/foundation_types/primitive_types/#_string_class" class="xref page">String</a>[1]</code><br>
+): <code><a href="../../../../BASE/Release-1.2.0/foundation_types/overview/#_any_class" class="xref page">Any</a></code> [1..1]</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Create new instance of a type.<br>
+<em>Inherited from <a href="../../../../BASE/Release-1.2.0/foundation_types/overview/#_any_class" class="xref page">Any</a></em></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>type_of</strong> (<br>
+an_object: <code><a href="../../../../BASE/Release-1.2.0/foundation_types/overview/#_any_class" class="xref page">Any</a>[1]</code><br>
+): <code><a href="../../../../BASE/Release-1.2.0/foundation_types/primitive_types/#_string_class" class="xref page">String</a></code> [1..1]</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Type name of an object as a string. May include generic parameters, as in <code>"Interval&lt;Time&gt;"</code>.<br>
+<em>Inherited from <a href="../../../../BASE/Release-1.2.0/foundation_types/overview/#_any_class" class="xref page">Any</a></em></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>not_equal</strong> <em>alias</em> "!=", "≠" (<br>
+other: <code><a href="../../../../BASE/Release-1.2.0/foundation_types/primitive_types/#_ordered_class" class="xref page">Ordered</a>[1]</code><br>
+): <code><a href="../../../../BASE/Release-1.2.0/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a></code> [1..1]</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>True if current object not equal to <code><em>other</em></code>. Returns not <code><em>equal</em>()</code>.<br>
+<em>Inherited from <a href="../../../../BASE/Release-1.2.0/foundation_types/overview/#_any_class" class="xref page">Any</a></em></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>parent</strong> (): <code><a href="../../common/archetyped_package/#_pathable_class" class="xref page">PATHABLE</a></code> [1..1]</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Parent of this node in a compositional hierarchy.<br>
+<em>Inherited from <a href="../../common/archetyped_package/#_pathable_class" class="xref page">PATHABLE</a></em></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>item_at_path</strong> (<br>
+a_path: <code><a href="../../../../BASE/Release-1.2.0/foundation_types/primitive_types/#_string_class" class="xref page">String</a>[1]</code><br>
+): <code><a href="../../../../BASE/Release-1.2.0/foundation_types/overview/#_any_class" class="xref page">Any</a></code><br>
+<br>
+<em>Pre</em>: <code>path_unique (a_path)</code> [1..1]</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>The item at a path (relative to this item); only valid for unique paths, i.e. paths that resolve to a single item.<br>
+<em>Inherited from <a href="../../common/archetyped_package/#_pathable_class" class="xref page">PATHABLE</a></em></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>items_at_path</strong> (<br>
+a_path: <code><a href="../../../../BASE/Release-1.2.0/foundation_types/primitive_types/#_string_class" class="xref page">String</a>[1]</code><br>
+): <code><a href="../../../../BASE/Release-1.2.0/foundation_types/structure_types/#_list_class" class="xref page">List</a>&lt;<a href="../../../../BASE/Release-1.2.0/foundation_types/overview/#_any_class" class="xref page">Any</a>&gt;</code> [0..1]</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>List of items corresponding to a non-unique path.<br>
+<em>Inherited from <a href="../../common/archetyped_package/#_pathable_class" class="xref page">PATHABLE</a></em></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>path_exists</strong> (<br>
+a_path: <code><a href="../../../../BASE/Release-1.2.0/foundation_types/primitive_types/#_string_class" class="xref page">String</a>[1]</code><br>
+): <code><a href="../../../../BASE/Release-1.2.0/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a></code><br>
+<br>
+<em>Pre</em>: <code>not a_path.is_empty</code> [1..1]</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>True if the path exists in the data with respect to the current item.<br>
+<em>Inherited from <a href="../../common/archetyped_package/#_pathable_class" class="xref page">PATHABLE</a></em></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>path_unique</strong> (<br>
+a_path: <code><a href="../../../../BASE/Release-1.2.0/foundation_types/primitive_types/#_string_class" class="xref page">String</a>[1]</code><br>
+): <code><a href="../../../../BASE/Release-1.2.0/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a></code><br>
+<br>
+<em>Pre</em>: <code>path_exists (a_path)</code> [1..1]</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>True if the path corresponds to a single item in the data.<br>
+<em>Inherited from <a href="../../common/archetyped_package/#_pathable_class" class="xref page">PATHABLE</a></em></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>path_of_item</strong> (<br>
+a_loc: <code><a href="../../common/archetyped_package/#_pathable_class" class="xref page">PATHABLE</a>[1]</code><br>
+): <code><a href="../../../../BASE/Release-1.2.0/foundation_types/primitive_types/#_string_class" class="xref page">String</a></code> [1..1]</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>The path to an item relative to the root of this archetyped structure.<br>
+<em>Inherited from <a href="../../common/archetyped_package/#_pathable_class" class="xref page">PATHABLE</a></em></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>concept</strong> (): <code><a href="../../data_types/text_package/#_dv_text_class" class="xref page">DV_TEXT</a></code> [1..1]</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Clinical concept of the archetype as a whole (= derived from the archetype_node_id' of the root node)<br>
+<em>Inherited from <a href="../../common/archetyped_package/#_locatable_class" class="xref page">LOCATABLE</a></em></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_archetype_root</strong> (): <code><a href="../../../../BASE/Release-1.2.0/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a></code> [1..1]</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>True if this node is the root of an archetyped structure.<br>
+<em>Inherited from <a href="../../common/archetyped_package/#_locatable_class" class="xref page">LOCATABLE</a></em></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_null</strong> (): <code><a href="../../../../BASE/Release-1.2.0/foundation_types/primitive_types/#_boolean_class" class="xref page">Boolean</a></code> [1..1]</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>True if value logically not known, e.g. if indeterminate, not asked etc.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><strong>Invariants</strong></p></th>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Links_valid</em>: <code>links /= Void implies not links.is_empty</code><br>
+<em>Inherited from <a href="../../common/archetyped_package/#_locatable_class" class="xref page">LOCATABLE</a></em></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Archetyped_valid</em>: <code>is_archetype_root xor archetype_details = Void</code><br>
+<em>Inherited from <a href="../../common/archetyped_package/#_locatable_class" class="xref page">LOCATABLE</a></em></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Archetype_node_id_valid</em>: <code>not archetype_node_id.is_empty</code><br>
+<em>Inherited from <a href="../../common/archetyped_package/#_locatable_class" class="xref page">LOCATABLE</a></em></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Inv_is_null_valid</em>: <code>is_null() = (value = Void)</code></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Inv_null_flavour_indicated</em>: <code>is_null() xor null_flavour = Void</code></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Inv_null_flavour_valid</em>: <code>is_null implies terminology (Terminology_id_openehr).has_code_for_group_id (Group_id_null_flavour, null_flavour.defining_code)</code></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p><em>Inv_null_reason_valid</em>: <code>null_reason /= Void implies is_null()</code></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="_tabs_3_bmm--panel" class="tabpanel" aria-labelledby="_tabs_3_bmm">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+    "name": "ELEMENT",
+    "documentation": "The leaf variant of `ITEM`, to which a `DATA_VALUE` instance is attached. ",
+    "ancestors": [
+        "ITEM"
+    ],
+    "properties": {
+        "null_flavour": {
+            "_type": "P_BMM_SINGLE_PROPERTY",
+            "name": "null_flavour",
+            "documentation": "Flavour of null value, e.g. `253|unknown|`, `271|no information|`, `272|masked|`, and `273|not applicable|`.",
+            "type": "DV_CODED_TEXT"
+        },
+        "value": {
+            "_type": "P_BMM_SINGLE_PROPERTY",
+            "name": "value",
+            "documentation": "Property representing leaf value object of `ELEMENT`. In real data, any concrete subtype of `DATA_VALUE` can be used.",
+            "type": "DATA_VALUE"
+        },
+        "null_reason": {
+            "_type": "P_BMM_SINGLE_PROPERTY",
+            "name": "null_reason",
+            "documentation": "Optional specific reason for null value; if set, `_null_flavour_` must be set. Null reason may apply only to a minority of clinical data, commonly needed in reporting contexts.",
+            "type": "DV_TEXT"
+        }
+    },
+    "functions": {
+        "is_null": {
+            "name": "is_null",
+            "documentation": "True if value logically not known, e.g. if indeterminate, not asked etc. ",
+            "result": {
+                "_type": "P_BMM_SIMPLE_TYPE",
+                "type": "Boolean"
+            }
+        }
+    },
+    "invariants": {
+        "Inv_is_null_valid": "is_null() = (value = Void)",
+        "Inv_null_flavour_indicated": "is_null() xor null_flavour = Void",
+        "Inv_null_flavour_valid": "is_null implies terminology (Terminology_id_openehr).has_code_for_group_id (Group_id_null_flavour, null_flavour.defining_code)",
+        "Inv_null_reason_valid": "null_reason /= Void implies is_null()"
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="_tabs_3_uml--panel" class="tabpanel" aria-labelledby="_tabs_3_uml">
+<div class="imageblock">
+<div class="content">
+<img src="../../_images/uml/classes/element.svg" alt="element">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="../item_structure_package/">Item Structure Package</a></span>
+  <span class="next"><a href="../history_package/">History Package</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>
+    Copyright: © 2003+
+    <a href="https://www.openehr.org"
+        alt="is an independent, non-profit foundation, facilitating the sharing of health
+           records by consumers and clinicians via open specifications, clinical models
+           and open platform implementations.">The openEHR Foundation</a>
+  </p>
+
+  <p>
+    License:
+    <img src="../../../../ui/img/cc-by-nd-88x31.png"
+        alt="Creative Commons Attribution-NoDerivs 3.0 Unported."
+        style="vertical-align:middle;margin:0 0.25rem 0 0;">
+    <a href="https://creativecommons.org/licenses/by-nd/3.0/">
+      Creative Commons Attribution-NoDerivs 3.0 Unported.
+    </a>
+  </p>
+
+  <p>
+    <strong>Links: <strong>
+    <a href="https://www.openehr.org/terms-of-use" class="mr-1">Terms of use</a> |
+    <a href="https://www.openehr.org/privacy-policy" class="mx-1">Privacy policy</a> |
+    <a href="https://www.openehr.org/privacy-policy" class="mx-1">Logos &amp; Trademarks</a> |
+    <a href="https://www.openehr.org/contact-us" class="mx-1">Contact</a>
+  </p>
+</footer>
+
+<script id="site-script" src="../../../../ui/js/site.js" data-ui-root-path="../../../../ui"></script>
+<script defer src="../../../../ui/js/vendor/highlight.js"></script>
+<script src="../../../../ui/js/vendor/lunr.js"></script>
+<script src="../../../../ui/js/search-ui.js" id="search-ui-script" data-site-root-path="../../../.." data-snippet-length="80" data-stylesheet="../../../../ui/css/search.css"></script>
+<script async src="../../../../search-index.js"></script>
+<script src="../../../../ui/js/medium-zoom.min.js"></script>
+<script src="../../../../ui/js/zoom.js"></script>
+<script async src="../../../../ui/js/tabs.js"></script>
+  </body>
+</html>

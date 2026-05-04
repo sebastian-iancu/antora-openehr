@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+    <title>GDL2 Object Model :: openEHR Specifications (Local Build)</title>
+    <link rel="canonical" href="https://sebastian-iancu.github.io/antora-openehr/CDS/development/GDL2/model/">
+    <link rel="prev" href="../language/">
+    <link rel="next" href="../syntax/">
+    <meta name="description" content="openEHR Guideline Definition Language v2 (GDL2) specification">
+    <meta name="keywords" content="decision support, GDL, GDL2, archetype">
+    <meta name="generator" content="Antora 3.1.14">
+    <link rel="stylesheet" href="../../../../ui/css/site.css">
+    <link rel="stylesheet" href="../../../../ui/css/antora-openehr.css">
+    <link rel="stylesheet" href="../../../../ui/css/openehr.css">
+    <link rel="stylesheet" href="../../../../ui/css/tabs.css">
+    <link rel="stylesheet" href="../../../../ui/css/extra.css">
+<link rel="icon" href="../../../../ui/img/favicon.ico" type="image/x-icon">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://sebastian-iancu.github.io/antora-openehr">openEHR Specifications (Local Build)</a>
+
+      <div class="navbar-item search hide-for-print">
+        <div id="search-field" class="field has-filter">
+          <input id="search-input" type="text" placeholder="Search the docs">
+          <label class="filter checkbox">
+            <input type="checkbox" data-facet-filter="component:CDS"> Clinical Decision Support only
+          </label>
+        </div>
+      </div>
+
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">Specifications</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://specifications.openehr.org/" target="_blank">
+              openEHR specification
+            </a>
+            <a class="navbar-item" href="https://specifications.openehr.org/releases/UML/development/index.html" target="_blank">
+              openEHR portal
+            </a>
+            <a class="navbar-item" href="https://ckm.openehr.org/ckm/" target="_blank">
+              openEHR CKM
+            </a>
+          </div>
+        </div>
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">Community</a>
+          <div class="navbar-dropdown is-right">
+            <a class="navbar-item" href="https://openehr.atlassian.net/secure/Dashboard.jspa?selectPageId=10190" target="_blank">
+              Issue trackers
+            </a>
+            <a class="navbar-item" href="https://discourse.openehr.org/" target="_blank">
+              Discourse Forum
+            </a>
+            <a class="navbar-item" href="https://specifications.openehr.org/wiki/display/spec/Specifications+Home" target="_blank">
+              Wiki
+            </a>
+            <a class="navbar-item" href="https://github.com/openEHR" target="_blank">
+              GitHub
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="CDS" data-version="development">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="../../">Clinical Decision Support</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../">Overview</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../GDL/">Guideline Definition Language (GDL)</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../GDL/overview/">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <span class="nav-text"><a href="/CDS/development/GDL/design/" class="xref page">Design</a></span>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <span class="nav-text"><a href="/CDS/development/GDL/implementation/" class="xref page">Implementation</a></span>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../GDL/appendix/">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../">Guideline Definition Language v2 (GDL2)</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../overview/">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../requirements/">Requirements</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../language/">GDL2 Semantics</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="./">GDL2 Object Model</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../syntax/">Syntax Specification</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../appendix/">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Clinical Decision Support</span>
+    <span class="version">development</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <div class="title"><a href="../../../../AM/Release-2.3.0/">Archetype Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../AM/Release-2.3.0/">Release-2.3.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../AM/Release-2.2.0/">Release-2.2.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../AM/Release-1.4.0/">Release-1.4.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../AM/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../BASE/Release-1.2.0/">Base Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../BASE/Release-1.2.0/">Release-1.2.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../BASE/Release-1.1.0/">Release-1.1.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../BASE/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <div class="title"><a href="../../">Clinical Decision Support</a></div>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../../">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../CNF/development/">Conformance Specifications</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../CNF/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../LANG/Release-1.0.0/">Generic Languages</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../LANG/Release-1.0.0/">Release-1.0.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../LANG/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../TERM/Release-3.0.0/">openEHR Terminology</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../TERM/Release-3.0.0/">Release-3.0.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../TERM/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../PROC/development/">Process Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../PROC/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../QUERY/Release-1.0.1/">Query Languages</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../QUERY/Release-1.0.1/">Release-1.0.1</a>
+        </li>
+        <li class="version">
+          <a href="../../../../QUERY/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../RM/Release-1.1.0/">Reference Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../RM/Release-1.1.0/">Release-1.1.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../RM/Release-1.0.4/">Release-1.0.4</a>
+        </li>
+        <li class="version">
+          <a href="../../../../RM/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../ITS-REST/development/">REST API specifications</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../ITS-REST/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../SM/development/">Service Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../SM/development/">development</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../../BASE/Release-1.2.0/" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../../">Clinical Decision Support</a></li>
+    <li><a href="../">Guideline Definition Language v2 (GDL2)</a></li>
+    <li><a href="./">GDL2 Object Model</a></li>
+  </ul>
+</nav>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">GDL2 Object Model</h1>
+<div class="sect1">
+<h2 id="_package_structure"><a class="anchor" href="#_package_structure"></a><a class="link" href="#_package_structure">Package Structure</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The Guideline Object Model, the object model of GDL2 consists of three packages, the <code>guideline</code> package, <code>expression</code> package and the <code>terminology</code> package, each described in detail through the following sections.</p>
+</div>
+<div id="cds_packages" class="imageblock text-center text-center">
+<div class="content">
+<img src="../../_images/uml/CDS-cds-packages.svg" alt="CDS cds packages">
+</div>
+<div class="title">Figure 1. <code>cds</code> Package</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_guideline_package"><a class="anchor" href="#_guideline_package"></a><a class="link" href="#_guideline_package">Guideline Package</a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_overview"><a class="anchor" href="#_overview"></a><a class="link" href="#_overview">Overview</a></h3>
+<div class="paragraph">
+<p>The following UML diagram shows the <code>guideline</code> and <code>terminology</code> packages.</p>
+</div>
+<div id="guideline" class="imageblock text-center text-center">
+<div class="content">
+<img src="../../_images/uml/CDS-cds.guideline.svg" alt="CDS cds.guideline">
+</div>
+<div class="title">Figure 2. <code>cds.guideline</code> Package</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_class_definitions"><a class="anchor" href="#_class_definitions"></a><a class="link" href="#_class_definitions">Class Definitions</a></h3>
+<div class="paragraph">
+<p>Unresolved include directive in modules/GDL2/pages/model.adoc - include::ROOT:partial$classes/guideline.adoc[]
+Unresolved include directive in modules/GDL2/pages/model.adoc - include::ROOT:partial$classes/guideline_definition.adoc[]
+Unresolved include directive in modules/GDL2/pages/model.adoc - include::ROOT:partial$classes/rule.adoc[]
+Unresolved include directive in modules/GDL2/pages/model.adoc - include::ROOT:partial$classes/data_binding.adoc[]
+Unresolved include directive in modules/GDL2/pages/model.adoc - include::ROOT:partial$classes/element.adoc[]
+Unresolved include directive in modules/GDL2/pages/model.adoc - include::ROOT:partial$classes/output_template.adoc[]</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_expressions_package"><a class="anchor" href="#_expressions_package"></a><a class="link" href="#_expressions_package">Expressions Package</a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_overview_2"><a class="anchor" href="#_overview_2"></a><a class="link" href="#_overview_2">Overview</a></h3>
+<div class="paragraph">
+<p>The <code>expression</code> package is illustrated below.</p>
+</div>
+<div id="expression" class="imageblock text-center text-center">
+<div class="content">
+<img src="../../_images/uml/CDS-cds.expression.svg" alt="CDS cds.expression">
+</div>
+<div class="title">Figure 3. <code>cds.expression</code> Package</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_class_definitions_2"><a class="anchor" href="#_class_definitions_2"></a><a class="link" href="#_class_definitions_2">Class Definitions</a></h3>
+<div class="paragraph">
+<p>Unresolved include directive in modules/GDL2/pages/model.adoc - include::ROOT:partial$classes/expression_item.adoc[]
+Unresolved include directive in modules/GDL2/pages/model.adoc - include::ROOT:partial$classes/operator.adoc[]
+Unresolved include directive in modules/GDL2/pages/model.adoc - include::ROOT:partial$classes/unary_operator.adoc[]
+Unresolved include directive in modules/GDL2/pages/model.adoc - include::ROOT:partial$classes/binary_operator.adoc[]
+Unresolved include directive in modules/GDL2/pages/model.adoc - include::ROOT:partial$classes/operator_kind.adoc[]</p>
+</div>
+<div class="paragraph">
+<p>Unresolved include directive in modules/GDL2/pages/model.adoc - include::ROOT:partial$classes/function_call.adoc[]
+Unresolved include directive in modules/GDL2/pages/model.adoc - include::ROOT:partial$classes/function_kind.adoc[]</p>
+</div>
+<div class="paragraph">
+<p>Unresolved include directive in modules/GDL2/pages/model.adoc - include::ROOT:partial$classes/constant.adoc[]
+Unresolved include directive in modules/GDL2/pages/model.adoc - include::ROOT:partial$classes/string_constant.adoc[]
+Unresolved include directive in modules/GDL2/pages/model.adoc - include::ROOT:partial$classes/integer_constant.adoc[]
+Unresolved include directive in modules/GDL2/pages/model.adoc - include::ROOT:partial$classes/boolean_constant.adoc[]
+Unresolved include directive in modules/GDL2/pages/model.adoc - include::ROOT:partial$classes/date_time_constant.adoc[]
+Unresolved include directive in modules/GDL2/pages/model.adoc - include::ROOT:partial$classes/code_phrase_constant.adoc[]
+Unresolved include directive in modules/GDL2/pages/model.adoc - include::ROOT:partial$classes/coded_text_constant.adoc[]
+Unresolved include directive in modules/GDL2/pages/model.adoc - include::ROOT:partial$classes/ordinal_constant.adoc[]
+Unresolved include directive in modules/GDL2/pages/model.adoc - include::ROOT:partial$classes/quantity_constant.adoc[]</p>
+</div>
+<div class="paragraph">
+<p>Unresolved include directive in modules/GDL2/pages/model.adoc - include::ROOT:partial$classes/variable.adoc[]</p>
+</div>
+<div class="paragraph">
+<p>Unresolved include directive in modules/GDL2/pages/model.adoc - include::ROOT:partial$classes/statement.adoc[]
+Unresolved include directive in modules/GDL2/pages/model.adoc - include::ROOT:partial$classes/assignment.adoc[]
+Unresolved include directive in modules/GDL2/pages/model.adoc - include::ROOT:partial$classes/assertion.adoc[]</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_terminology_package"><a class="anchor" href="#_terminology_package"></a><a class="link" href="#_terminology_package">Terminology Package</a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_overview_3"><a class="anchor" href="#_overview_3"></a><a class="link" href="#_overview_3">Overview</a></h3>
+<div class="paragraph">
+<p>The <code>terminology</code> package is illustrated earlier. The <code>TERMINOLOGY</code> and <code>TERM</code> classes are slightly simplified versions of the <code>ARCHETYPE_TERMINOLOGY</code> and <code>ARCHETYPE_TERM</code> classes from the <a href="https://specifications.openehr.org/releases/AM/latest/AOM2.html" target="_blank" rel="noopener">openEHR AOM2 specification</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_class_definitions_3"><a class="anchor" href="#_class_definitions_3"></a><a class="link" href="#_class_definitions_3">Class Definitions</a></h3>
+<div class="paragraph">
+<p>Unresolved include directive in modules/GDL2/pages/model.adoc - include::ROOT:partial$classes/terminology.adoc[]
+Unresolved include directive in modules/GDL2/pages/model.adoc - include::ROOT:partial$classes/term.adoc[]
+Unresolved include directive in modules/GDL2/pages/model.adoc - include::ROOT:partial$classes/term_binding.adoc[]</p>
+</div>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="../language/">GDL2 Semantics</a></span>
+  <span class="next"><a href="../syntax/">Syntax Specification</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>
+    Copyright: © 2003+
+    <a href="https://www.openehr.org"
+        alt="is an independent, non-profit foundation, facilitating the sharing of health
+           records by consumers and clinicians via open specifications, clinical models
+           and open platform implementations.">The openEHR Foundation</a>
+  </p>
+
+  <p>
+    License:
+    <img src="../../../../ui/img/cc-by-nd-88x31.png"
+        alt="Creative Commons Attribution-NoDerivs 3.0 Unported."
+        style="vertical-align:middle;margin:0 0.25rem 0 0;">
+    <a href="https://creativecommons.org/licenses/by-nd/3.0/">
+      Creative Commons Attribution-NoDerivs 3.0 Unported.
+    </a>
+  </p>
+
+  <p>
+    <strong>Links: <strong>
+    <a href="https://www.openehr.org/terms-of-use" class="mr-1">Terms of use</a> |
+    <a href="https://www.openehr.org/privacy-policy" class="mx-1">Privacy policy</a> |
+    <a href="https://www.openehr.org/privacy-policy" class="mx-1">Logos &amp; Trademarks</a> |
+    <a href="https://www.openehr.org/contact-us" class="mx-1">Contact</a>
+  </p>
+</footer>
+
+<script id="site-script" src="../../../../ui/js/site.js" data-ui-root-path="../../../../ui"></script>
+<script defer src="../../../../ui/js/vendor/highlight.js"></script>
+<script src="../../../../ui/js/vendor/lunr.js"></script>
+<script src="../../../../ui/js/search-ui.js" id="search-ui-script" data-site-root-path="../../../.." data-snippet-length="80" data-stylesheet="../../../../ui/css/search.css"></script>
+<script async src="../../../../search-index.js"></script>
+<script src="../../../../ui/js/medium-zoom.min.js"></script>
+<script src="../../../../ui/js/zoom.js"></script>
+<script async src="../../../../ui/js/tabs.js"></script>
+  </body>
+</html>

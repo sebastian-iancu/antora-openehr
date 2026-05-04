@@ -1,0 +1,1640 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+    <title>Test Suite: DEFINITION Service / I_DEFINITION_ADL2 and I_DEFINITION_ADL14 Interfaces :: openEHR Specifications (Local Build)</title>
+    <link rel="canonical" href="https://sebastian-iancu.github.io/antora-openehr/CNF/development/platform_test_schedule/func_tc_definition_adl/">
+    <link rel="prev" href="../overview/">
+    <link rel="next" href="../func_tc_definition_query/">
+    <meta name="description" content="openEHR Platform Conformance Test Schedule">
+    <meta name="keywords" content="conformance, test">
+    <meta name="generator" content="Antora 3.1.14">
+    <link rel="stylesheet" href="../../../../ui/css/site.css">
+    <link rel="stylesheet" href="../../../../ui/css/antora-openehr.css">
+    <link rel="stylesheet" href="../../../../ui/css/openehr.css">
+    <link rel="stylesheet" href="../../../../ui/css/tabs.css">
+    <link rel="stylesheet" href="../../../../ui/css/extra.css">
+<link rel="icon" href="../../../../ui/img/favicon.ico" type="image/x-icon">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://sebastian-iancu.github.io/antora-openehr">openEHR Specifications (Local Build)</a>
+
+      <div class="navbar-item search hide-for-print">
+        <div id="search-field" class="field has-filter">
+          <input id="search-input" type="text" placeholder="Search the docs">
+          <label class="filter checkbox">
+            <input type="checkbox" data-facet-filter="component:CNF"> Conformance Specifications only
+          </label>
+        </div>
+      </div>
+
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">Specifications</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://specifications.openehr.org/" target="_blank">
+              openEHR specification
+            </a>
+            <a class="navbar-item" href="https://specifications.openehr.org/releases/UML/development/index.html" target="_blank">
+              openEHR portal
+            </a>
+            <a class="navbar-item" href="https://ckm.openehr.org/ckm/" target="_blank">
+              openEHR CKM
+            </a>
+          </div>
+        </div>
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">Community</a>
+          <div class="navbar-dropdown is-right">
+            <a class="navbar-item" href="https://openehr.atlassian.net/secure/Dashboard.jspa?selectPageId=10190" target="_blank">
+              Issue trackers
+            </a>
+            <a class="navbar-item" href="https://discourse.openehr.org/" target="_blank">
+              Discourse Forum
+            </a>
+            <a class="navbar-item" href="https://specifications.openehr.org/wiki/display/spec/Specifications+Home" target="_blank">
+              Wiki
+            </a>
+            <a class="navbar-item" href="https://github.com/openEHR" target="_blank">
+              GitHub
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="CNF" data-version="development">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="../../">Conformance Specifications</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../">Overview</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../guide/">openEHR Conformance Guide</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../guide/glossary/">Glossary of Terms and Acronyms</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../guide/overview/">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../guide/framework/">Conformance Framework</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../guide/assessment/">Conformance Assessment</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../guide/appendix/">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../">openEHR Platform Conformance Test Schedule</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../glossary/">Glossary of Terms and Acronyms</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../overview/">Overview</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="./">Test Suite: DEFINITION Service / I_DEFINITION_ADL2 and I_DEFINITION_ADL14 Interfaces</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../func_tc_definition_query/">Test Suite: DEFINITION Service / I_DEFINITION_QUERY Interface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../func_tc_ehr/">Test Suite: EHR_SERVICE</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../func_tc_ehr_composition/">Test Suite: EHR_SERVICE / I_COMPOSITION Interface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../func_tc_ehr_contribution/">Test Suite: EHR_SERVICE / I_CONTRIBUTION Interface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../func_tc_ehr_directory/">Test Suite: EHR_SERVICE / I_DIRECTORY Interface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../func_tc_demographic/">Test Suite: DEMOGRAPHIC_SERVICE</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../func_tc_querying/">Test Suite: QUERY_SERVICE</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../func_tc_admin/">Test Suite: ADMIN_SERVICE</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../func_tc_messaging/">Test Suite: MESSAGE_SERVICE</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../content_tc_composition/">Data Validation Conformance</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../content_tc_entry/">Content Tc Entry</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../content_tc_data_types-basic/">Content Tc Data Types-Basic</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../appendix/">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../profiles/">openEHR Platform Profiles</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../profiles/overview/">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../profiles/profiles/">Default Profiles</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../profiles/appendix/">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../certificate/">openEHR Conformance Certificate</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../certificate/overview/">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../certificate/certificate/">Conformance Certificate</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../certificate/appendix/">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Conformance Specifications</span>
+    <span class="version">development</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <div class="title"><a href="../../../../AM/Release-2.3.0/">Archetype Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../AM/Release-2.3.0/">Release-2.3.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../AM/Release-2.2.0/">Release-2.2.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../AM/Release-1.4.0/">Release-1.4.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../AM/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../BASE/Release-1.2.0/">Base Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../BASE/Release-1.2.0/">Release-1.2.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../BASE/Release-1.1.0/">Release-1.1.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../BASE/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../CDS/development/">Clinical Decision Support</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../CDS/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <div class="title"><a href="../../">Conformance Specifications</a></div>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../../">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../LANG/Release-1.0.0/">Generic Languages</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../LANG/Release-1.0.0/">Release-1.0.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../LANG/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../TERM/Release-3.0.0/">openEHR Terminology</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../TERM/Release-3.0.0/">Release-3.0.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../TERM/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../PROC/development/">Process Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../PROC/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../QUERY/Release-1.0.1/">Query Languages</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../QUERY/Release-1.0.1/">Release-1.0.1</a>
+        </li>
+        <li class="version">
+          <a href="../../../../QUERY/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../RM/Release-1.1.0/">Reference Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../RM/Release-1.1.0/">Release-1.1.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../RM/Release-1.0.4/">Release-1.0.4</a>
+        </li>
+        <li class="version">
+          <a href="../../../../RM/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../ITS-REST/development/">REST API specifications</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../ITS-REST/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../SM/development/">Service Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../SM/development/">development</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../../BASE/Release-1.2.0/" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../../">Conformance Specifications</a></li>
+    <li><a href="../">openEHR Platform Conformance Test Schedule</a></li>
+    <li><a href="./">Test Suite: DEFINITION Service / I_DEFINITION_ADL2 and I_DEFINITION_ADL14 Interfaces</a></li>
+  </ul>
+</nav>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Test Suite: DEFINITION Service / I_DEFINITION_ADL2 and I_DEFINITION_ADL14 Interfaces</h1>
+<div class="sect1">
+<h2 id="_normative_reference"><a class="anchor" href="#_normative_reference"></a><a class="link" href="#_normative_reference">Normative Reference</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Items under this validation suite conceptually use these abstract interfaces defined in the <a href="https://specifications.openehr.org/releases/SM/latest/openehr_platform.html#_definition_package" target="_blank" rel="noopener">openEHR Platform Service Model</a>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://specifications.openehr.org/releases/SM/latest/openehr_platform.html#_i_definition_adl2_interface" target="_blank" rel="noopener">I_DEFINITION_ADL2</a>;</p>
+</li>
+<li>
+<p><a href="https://specifications.openehr.org/releases/SM/latest/openehr_platform.html#_i_definition_adl14_interface" target="_blank" rel="noopener">I_DEFINITION_ADL14</a>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>These are concretely realised in implementation technology specfic APIs, such as the <a href="https://specifications.openehr.org/releases/ITS-REST/development/definitions.html" target="_blank" rel="noopener">Definitions REST API</a>.</p>
+</div>
+<div class="paragraph">
+<p>This test suite uses artefacts defined by the following specifications:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://specifications.openehr.org/releases/AM/latest/ADL1.4.html" target="_blank" rel="noopener">ADL 1.4</a></p>
+</li>
+<li>
+<p><a href="https://specifications.openehr.org/releases/AM/latest/AOM1.4.html" target="_blank" rel="noopener">AOM 1.4</a></p>
+</li>
+<li>
+<p><a href="https://specifications.openehr.org/releases/AM/latest/ADL2.html" target="_blank" rel="noopener">ADL 2</a></p>
+</li>
+<li>
+<p><a href="https://specifications.openehr.org/releases/AM/latest/AOM2.html" target="_blank" rel="noopener">AOM 2</a></p>
+</li>
+<li>
+<p><a href="https://specifications.openehr.org/releases/AM/latest/Identification.html" target="_blank" rel="noopener">Archetype Identification</a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>TODO: add ref to dependency diagram in SM/Platform service model.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_test_environment"><a class="anchor" href="#_test_environment"></a><a class="link" href="#_test_environment">Test Environment</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The server under test should support:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>OPTs 1.4 or 2, but OPT 1.4 if more frequent since modeling tools supporting this were around for a long time. Could also support ADL, 1.4 or 2;</p>
+</li>
+<li>
+<p>validation of OPTs and archetypes uploaded to it, or even provide a service to do so before uploading (useful while developing);</p>
+</li>
+<li>
+<p>different versions of the same OPTs and archetypes.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>The following should be taken into account when testing any given product:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The server under test should support the full cycle of OPT management, including: validation, loading, versioning, retrieving, delete or deactivation (data for this OPT is loaded but no new data should be accepted for it). For the delete, the internal behavior should be defined: 1. if data was committed referencing an OPT, can it be physically deleted? or should be logically deleted? 2. if there is no
+data, can the OPT be deleted physically? Logical delete might work as the deactivation mentioned above.</p>
+</li>
+<li>
+<p>The test cases are the same for OPT 1.4/2, but tests should be written separately and different datasets should be created for 1.4 and 2.</p>
+</li>
+<li>
+<p>Different implementations might use specific formats for the template IDs, when testing each server, the template IDs should be adapted to prevent failures for wrong format on the template ID. This is due to openEHR not yet defining a format for the template IDs in the specifications.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_func_conf_def_adl_component"><a class="anchor" href="#_func_conf_def_adl_component"></a><a class="link" href="#_func_conf_def_adl_component">OPT 1.4/2 Test cases</a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_service_model_operation_i_definition_adl14_validate_opt"><a class="anchor" href="#_service_model_operation_i_definition_adl14_validate_opt"></a><a class="link" href="#_service_model_operation_i_definition_adl14_validate_opt">Service Model operation: I_DEFINITION_ADL14.validate_opt()</a></h3>
+<div class="paragraph">
+<p>Service Model reference: <a href="https://specifications.openehr.org/releases/SM/latest/openehr_platform.html#_i_definition_adl14_interface" target="_blank" rel="noopener"><code>I_DEFINITION_ADL14.<em>validate_opt()</em></code></a></p>
+</div>
+<div class="sect3">
+<h4 id="_test_data_sets"><a class="anchor" href="#_test_data_sets"></a><a class="link" href="#_test_data_sets">Test Data Sets</a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p>minimal valid OPT (each containing each entry type);</p>
+</li>
+<li>
+<p>maximal valid OPT (all types in the RM);</p>
+</li>
+<li>
+<p>invalid OPT (empty file);</p>
+</li>
+<li>
+<p>invalid OPT (empty <code>template_id</code>);</p>
+</li>
+<li>
+<p>invalid OPT (removed mandatory elements);</p>
+</li>
+<li>
+<p>invalid OPT (added multiple elements that had an upper bound of 1)</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_test_case_i_definition_adl14_validate_opt_valid_opt"><a class="anchor" href="#_test_case_i_definition_adl14_validate_opt_valid_opt"></a><a class="link" href="#_test_case_i_definition_adl14_validate_opt_valid_opt">Test Case I_DEFINITION_ADL14.validate_opt-valid_opt</a></h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 80%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Description</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Validate valid OPTs</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Pre-conditions</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>The server should be empty (no EHRs, no commits, no OPTs).</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Post-conditions</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>None (validation should not change the state of the system).</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Flow</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>For each valid OPT in the data set, invoke the OPT validation service</p>
+</li>
+<li>
+<p>The result should be positive and the server should return should be related to &#8220;OPT is valid&#8221;.</p>
+</li>
+</ol>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Test runners</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a href="https://specifications.openehr.org/releases/CNF/latest/tests/platform/robot/I_DEFINITION_ADL14/validate_opt/I_DEFINITION_ADL14.validate_opt-valid_opt.robot" target="_blank" rel="noopener">REST API / Robot</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+some servers might not have a way to just validate the OPT, and validation might be part of the OPT upload functionality. In that case, the validation should upload and validate the OPT, and in the cases of valid OPTs, the OPT should be deleted afterwards, so the system state doesn’t change. For invalid OPTs, the upload should fail.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_test_case_i_definition_adl14_validate_opt_invalid_opt"><a class="anchor" href="#_test_case_i_definition_adl14_validate_opt_invalid_opt"></a><a class="link" href="#_test_case_i_definition_adl14_validate_opt_invalid_opt">Test Case I_DEFINITION_ADL14.validate_opt-invalid_opt</a></h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 80%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Description</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Validate invalid OPTs</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Pre-conditions</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>The server should be empty (no EHRs, no commits, no OPTs).</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Post-conditions</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>None (validation should not change the state of the system).</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Flow</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>For each invalid OPT in the data set, invoke the OPT validation service</p>
+</li>
+<li>
+<p>The result should be negative related to the &#8220;OPT is invalid&#8221;, would be useful if the server also returns where the problems are in the OPT</p>
+</li>
+</ol>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Test runners</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a href="https://specifications.openehr.org/releases/CNF/latest/tests/platform/robot/I_DEFINITION_ADL14/validate_opt/I_DEFINITION_ADL14.validate_opt-invalid_opt.robot" target="_blank" rel="noopener">REST API / Robot</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p><strong>Implementation note:</strong> when a step says &#8220;for each X, invoke service Y&#8221;, means that the test should run completely for each X, that is, the pre-conditions and post-conditions apply to the run for X. So if we have:</p>
+</div>
+<div class="paragraph">
+<p>Test set: a, b, c</p>
+</div>
+<div class="paragraph">
+<p>Test case:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>ensure pre-conditions</p>
+</li>
+<li>
+<p>verify post-conditions</p>
+</li>
+<li>
+<p>flow</p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>for each X in data set, run service Y</p>
+</li>
+<li>
+<p>verify result</p>
+</li>
+</ol>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The run should be:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>ensure pre-conditions</p>
+</li>
+<li>
+<p>invoke Y(a)</p>
+</li>
+<li>
+<p>verify result</p>
+</li>
+<li>
+<p>verify post-conditions</p>
+</li>
+<li>
+<p>ensure pre-conditions</p>
+</li>
+<li>
+<p>invoke Y(b)</p>
+</li>
+<li>
+<p>verify result</p>
+</li>
+<li>
+<p>verify post-conditions</p>
+</li>
+<li>
+<p>ensure pre-conditions</p>
+</li>
+<li>
+<p>invoke Y(c)</p>
+</li>
+<li>
+<p>verify result</p>
+</li>
+<li>
+<p>verify post-conditions</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_service_model_operation_i_definition_adl14_upload_opt"><a class="anchor" href="#_service_model_operation_i_definition_adl14_upload_opt"></a><a class="link" href="#_service_model_operation_i_definition_adl14_upload_opt">Service Model operation: I_DEFINITION_ADL14.upload_opt()</a></h3>
+<div class="paragraph">
+<p>Service Model reference: <a href="https://specifications.openehr.org/releases/SM/latest/openehr_platform.html#_i_definition_adl14_interface" target="_blank" rel="noopener"><code>I_DEFINITION_ADL14.<em>upload_opt()</em></code></a></p>
+</div>
+<div class="sect3">
+<h4 id="_data_set"><a class="anchor" href="#_data_set"></a><a class="link" href="#_data_set">Data set</a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p>minimal valid OPT (each with one type of entry, cover all entries)</p>
+</li>
+<li>
+<p>minimal valid OPT, two versions</p>
+</li>
+<li>
+<p>maximal valid OPT (all types in the RM)</p>
+</li>
+<li>
+<p>invalid OPT (empty file)</p>
+</li>
+<li>
+<p>invalid OPT (empty <code>template_id</code>)</p>
+</li>
+<li>
+<p>invalid OPT (removed mandatory elements)</p>
+</li>
+<li>
+<p>invalid OPT (added multiple elements that had an upper bound of 1)</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_test_case_i_definition_adl14_upload_opt_valid_opt"><a class="anchor" href="#_test_case_i_definition_adl14_upload_opt_valid_opt"></a><a class="link" href="#_test_case_i_definition_adl14_upload_opt_valid_opt">Test Case I_DEFINITION_ADL14.upload_opt-valid_opt</a></h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 80%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Description</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>upload valid OPTs</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Pre-conditions</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>No OPTs should be loaded on the system.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Post-conditions</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>A new OPT with the given <code>template_id</code> is loaded into the server.</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>NOTE: the server should be able to retrieve the template by `template_id` or retrieve if an OPT exists or not by `template_id`.</pre>
+</div>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Flow</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>For each valid OPT in the data set, invoke the OPT upload service</p>
+</li>
+<li>
+<p>The result should be positive, the server accepted the OPT and it is stored as it was uploaded</p>
+</li>
+</ol>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Test runners</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a href="https://specifications.openehr.org/releases/CNF/latest/tests/platform/robot/I_DEFINITION_ADL14/upload_opt/I_DEFINITION_ADL14.upload_opt-valid_opt.robot" target="_blank" rel="noopener">REST API / Robot</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_test_case_i_definition_adl14_upload_opt_invalid_opt"><a class="anchor" href="#_test_case_i_definition_adl14_upload_opt_invalid_opt"></a><a class="link" href="#_test_case_i_definition_adl14_upload_opt_invalid_opt">Test Case I_DEFINITION_ADL14.upload_opt-invalid_opt</a></h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 80%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Description</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>upload invalid OPTs</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Pre-conditions</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>No OPTs should be loaded on the system.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Post-conditions</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>No OPTs should be loaded on the system.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Flow</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>For each invalid OPT in the data set, invoke the OPT upload service</p>
+</li>
+<li>
+<p>The result should be negative, the server rejected the OPT because it was invalid, and would be useful if the result contains where the errors are in the uploaded OPT.</p>
+</li>
+</ol>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Test runners</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a href="https://specifications.openehr.org/releases/CNF/latest/tests/platform/robot/I_DEFINITION_ADL14/upload_opt/I_DEFINITION_ADL14.upload_opt-invalid_opt.robot" target="_blank" rel="noopener">REST API / Robot</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_test_case_i_definition_adl14_upload_opt_valid_opt_twice_conflict"><a class="anchor" href="#_test_case_i_definition_adl14_upload_opt_valid_opt_twice_conflict"></a><a class="link" href="#_test_case_i_definition_adl14_upload_opt_valid_opt_twice_conflict">Test Case I_DEFINITION_ADL14.upload_opt-valid_opt_twice_conflict</a></h4>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+since there is no formal versioning mechanism for templates 1.4 (OPT 2 might use the archetype id format for the template id that also includes a version number, but this is not widely used), the OPT upload service needs to handle a version parameter, for instance this is the solution on the <a href="https://specifications.openehr.org/releases/ITS-REST/development/definitions.html#definitions-adl-1.4-template" target="_blank" rel="noopener">openEHR REST API</a>. If the version information is not available when uploading OPTs, then uploading an OPT with the same <code>template_id</code> twice will make the second upload fail (conflict).
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>An alternative solution for the version parameter is to add the version number to the other_details of the OPT, or directly into the <code>template_id</code>.</p>
+</div>
+<div class="paragraph">
+<p>See: <a href="https://specifications.openehr.org/jira/browse/SPECBASE-30" target="_blank" rel="noopener">SPECBASE-30</a> and <a href="https://specifications.openehr.org/jira/browse/SPECITS-42" target="_blank" rel="noopener">SPECITS-42</a>.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 80%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Description</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Upload valid OPT twice with conflict</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Pre-conditions</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>No OPTs should be loaded on the system.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Post-conditions</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>A new OPT with the given <code>template_id</code> is loaded into the server, and there will be only one OPT loaded.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+the server should be able to retrieve the template by <code>template_id</code>, or retrieve if an OPT exists or not by <code>template_id</code>.
+</td>
+</tr>
+</table>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Flow</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>For each valid OPT in the data set, invoke the OPT upload service</p>
+</li>
+<li>
+<p>The result should be positive (the server accepted the OPT)</p>
+</li>
+<li>
+<p>Invoke the upload service with the same OPT as in 1.</p>
+</li>
+<li>
+<p>The result should be negative (the server rejected the OPT)</p>
+</li>
+</ol>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Test runners</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a href="https://specifications.openehr.org/releases/CNF/latest/tests/platform/robot/I_DEFINITION_ADL14/upload_opt/I_DEFINITION_ADL14.upload_opt-valid_opt_twice_conflict.robot" target="_blank" rel="noopener">REST API / Robot</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_test_case_i_definition_adl14_upload_opt_valid_opt_twice_no_conflict"><a class="anchor" href="#_test_case_i_definition_adl14_upload_opt_valid_opt_twice_no_conflict"></a><a class="link" href="#_test_case_i_definition_adl14_upload_opt_valid_opt_twice_no_conflict">Test Case I_DEFINITION_ADL14.upload_opt-valid_opt_twice_no_conflict</a></h4>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+considering the note on the previous flow, for this flow the version parameter is provided, and both service invocations contain a different version value.
+</td>
+</tr>
+</table>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 80%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Description</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>upload valid OPT twice with conflict</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Pre-conditions</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>No OPTs should be loaded on the system.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Post-conditions</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Two new OPTs with the given <code>template_id</code> and different versions are loaded into the server.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+the server should be able to retrieve the templates by <code>template_id</code> and version, or retrieve if an OPT exists or not by <code>template_id</code> and version. Given only the <code>template_id</code>, the server will return just the latest version.
+</td>
+</tr>
+</table>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Flow</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>For each valid OPT in the data set, invoke the OPT upload service, including the version parameter = 1</p>
+</li>
+<li>
+<p>The result should be positive (the server accepted the OPT)</p>
+</li>
+<li>
+<p>Invoke the upload service with the same OPT as in 1., including the version parameter = 2</p>
+</li>
+<li>
+<p>The result should be positive (the server accepted the OPT)</p>
+</li>
+</ol>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Test runners</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a href="https://specifications.openehr.org/releases/CNF/latest/tests/platform/robot/I_DEFINITION_ADL14/upload_opt/I_DEFINITION_ADL14.upload_opt-valid_opt_twice_no_conflict.robot" target="_blank" rel="noopener">REST API / Robot</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_service_model_operation_i_definition_adl14_get_opt"><a class="anchor" href="#_service_model_operation_i_definition_adl14_get_opt"></a><a class="link" href="#_service_model_operation_i_definition_adl14_get_opt">Service Model operation: I_DEFINITION_ADL14.get_opt()</a></h3>
+<div class="paragraph">
+<p>Service Model reference: <a href="https://specifications.openehr.org/releases/SM/latest/openehr_platform.html#_i_definition_adl14_interface" target="_blank" rel="noopener"><code>I_DEFINITION_ADL14.<em>get_opt()</em></code></a></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+the flows of this test case will include flows from the Upload OPT test case, in order to have something to retrieve.
+</td>
+</tr>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_data_sets"><a class="anchor" href="#_data_sets"></a><a class="link" href="#_data_sets">Data sets</a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p>minimal valid OPT (covering all entry types)</p>
+</li>
+<li>
+<p>minimal valid OPT, two versions</p>
+</li>
+<li>
+<p>maximal valid OPT (all types in the RM)</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_test_case_i_definition_adl14_get_opt_retrieve_single"><a class="anchor" href="#_test_case_i_definition_adl14_get_opt_retrieve_single"></a><a class="link" href="#_test_case_i_definition_adl14_get_opt_retrieve_single">Test Case I_DEFINITION_ADL14.get_opt-retrieve_single</a></h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 80%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Description</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Retrieve a single OPT</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Pre-conditions</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>All valid OPTs should be loaded into the system, only the single versioned ones.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Post-conditions</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>None (retrieve should not change the state of the system).</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Flow</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Invoke the retrieve OPT service with existing <code>template_ids</code></p>
+</li>
+<li>
+<p>For each <code>template_id</code>, the correct OPT will be returned</p>
+<div class="literalblock">
+<div class="content">
+<pre>NOTE: to check point 2, the retrieved OPT should be exactly the same as the uploaded one.</pre>
+</div>
+</div>
+</li>
+</ol>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Test runners</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a href="https://specifications.openehr.org/releases/CNF/latest/tests/platform/robot/I_DEFINITION_ADL14/get_opt/I_DEFINITION_ADL14.get_opt-retrieve_single.robot" target="_blank" rel="noopener">REST API / Robot</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_test_case_i_definition_adl14_get_opt_retrieve_fail"><a class="anchor" href="#_test_case_i_definition_adl14_get_opt_retrieve_fail"></a><a class="link" href="#_test_case_i_definition_adl14_get_opt_retrieve_fail">Test Case I_DEFINITION_ADL14.get_opt-retrieve_fail</a></h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 80%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Description</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Empty server OPT retrieve fail test</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Pre-conditions</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>No OPTs should be loaded on the system.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Post-conditions</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>None</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Flow</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Invoke the retrieve OPT service with a random <code>template_id</code></p>
+</li>
+<li>
+<p>The service should return an error related to the non existence of the requested OPT</p>
+</li>
+</ol>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Test runners</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a href="https://specifications.openehr.org/releases/CNF/latest/tests/platform/robot/I_DEFINITION_ADL14/get_opt/I_DEFINITION_ADL14.get_opt-retrieve_fail.robot" target="_blank" rel="noopener">REST API / Robot</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_test_case_i_definition_adl14_get_opt_retrieve_latest_version"><a class="anchor" href="#_test_case_i_definition_adl14_get_opt_retrieve_latest_version"></a><a class="link" href="#_test_case_i_definition_adl14_get_opt_retrieve_latest_version">Test Case I_DEFINITION_ADL14.get_opt-retrieve_latest_version</a></h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 80%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Description</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>retrieve last version of versioned OPT</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Pre-conditions</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>OPTs with more than one version should be loaded.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Post-conditions</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>None</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Flow</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Invoke the retrieve OPT service with existing <code>template_ids</code></p>
+</li>
+<li>
+<p>For each <code>template_id</code>, the correct OPT will be returned, and will be the last version</p>
+<div class="literalblock">
+<div class="content">
+<pre>NOTE: to be sure the last version was returned, a small modification to the OPT could be done.</pre>
+</div>
+</div>
+</li>
+</ol>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Test runners</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a href="https://specifications.openehr.org/releases/CNF/latest/tests/platform/robot/I_DEFINITION_ADL14/get_opt/I_DEFINITION_ADL14.get_opt-retrieve_latest_version.robot" target="_blank" rel="noopener">REST API / Robot</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_test_case_i_definition_adl14_get_opt_retrieve_specific_version"><a class="anchor" href="#_test_case_i_definition_adl14_get_opt_retrieve_specific_version"></a><a class="link" href="#_test_case_i_definition_adl14_get_opt_retrieve_specific_version">Test Case I_DEFINITION_ADL14.get_opt-retrieve_specific_version</a></h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 80%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Description</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>retrieve a specific version (not last) of versioned OPT</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Pre-conditions</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>OPTs with more than one version should be loaded.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Post-conditions</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>None</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Flow</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Invoke the retrieve OPT service with existing <code>template_ids</code> and a version parameter value that is not the last</p>
+</li>
+<li>
+<p>For each <code>template_id</code>, the correct OPT will be returned, and will be the requested version</p>
+<div class="literalblock">
+<div class="content">
+<pre>NOTE: to be sure the last version was returned, a small modification to the OPT could be done.</pre>
+</div>
+</div>
+</li>
+</ol>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Test runners</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a href="https://specifications.openehr.org/releases/CNF/latest/tests/platform/robot/I_DEFINITION_ADL14/get_opt/I_DEFINITION_ADL14.get_opt-retrieve_specific_version.robot" target="_blank" rel="noopener">REST API / Robot</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_service_model_operation_i_definition_adl14_get_opts"><a class="anchor" href="#_service_model_operation_i_definition_adl14_get_opts"></a><a class="link" href="#_service_model_operation_i_definition_adl14_get_opts">Service Model operation: I_DEFINITION_ADL14.get_opts()</a></h3>
+<div class="paragraph">
+<p>Service Model reference: <a href="https://specifications.openehr.org/releases/SM/latest/openehr_platform.html#_i_definition_adl14_interface" target="_blank" rel="noopener"><code>I_DEFINITION_ADL14.<em>get_opts()</em></code></a></p>
+</div>
+<div class="sect3">
+<h4 id="_data_sets_2"><a class="anchor" href="#_data_sets_2"></a><a class="link" href="#_data_sets_2">Data sets</a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p>minimal valid OPT (covering each type of entry);</p>
+</li>
+<li>
+<p>minimal valid OPT, two versions;</p>
+</li>
+<li>
+<p>maximal valid OPT (all types in the RM).</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_test_case_i_definition_adl14_get_opts_retrieve_all"><a class="anchor" href="#_test_case_i_definition_adl14_get_opts_retrieve_all"></a><a class="link" href="#_test_case_i_definition_adl14_get_opts_retrieve_all">Test Case I_DEFINITION_ADL14.get_opts-retrieve_all</a></h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 80%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Description</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>retrieve all loaded OPTs</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Pre-conditions</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>All valid OPTs should be loaded.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Post-conditions</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>None</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Flow</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Invoke the retrieve OPTs service</p>
+</li>
+<li>
+<p>All the loaded OPTs should be returned, if there are versions of any OPTs, only the last version is retrieved</p>
+</li>
+</ol>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Test runners</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a href="https://specifications.openehr.org/releases/CNF/latest/tests/platform/robot/I_DEFINITION_ADL14/get_opts/I_DEFINITION_ADL14.get_opts-retrieve_all.robot" target="_blank" rel="noopener">REST API / Robot</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_test_case_i_definition_adl14_get_opts_retrieve_all_no_opts"><a class="anchor" href="#_test_case_i_definition_adl14_get_opts_retrieve_all_no_opts"></a><a class="link" href="#_test_case_i_definition_adl14_get_opts_retrieve_all_no_opts">Test Case I_DEFINITION_ADL14.get_opts-retrieve_all_no_opts</a></h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 80%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Description</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>retrieve all loaded OPTs when none is loaded</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Pre-conditions</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>No OPTs should be loaded on the system.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Post-conditions</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>None</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Flow</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Invoke the retrieve OPTs service</p>
+</li>
+<li>
+<p>The service should return an empty set and should not fail.</p>
+</li>
+</ol>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Test runners</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a href="https://specifications.openehr.org/releases/CNF/latest/tests/platform/robot/I_DEFINITION_ADL14/get_opts/I_DEFINITION_ADL14.get_opts-retrieve_all_no_opts.robot" target="_blank" rel="noopener">REST API / Robot</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_service_model_operation_i_definition_adl14_delete_opt"><a class="anchor" href="#_service_model_operation_i_definition_adl14_delete_opt"></a><a class="link" href="#_service_model_operation_i_definition_adl14_delete_opt">Service Model operation: I_DEFINITION_ADL14.delete_opt()</a></h3>
+<div class="paragraph">
+<p>Service Model reference: <a href="https://specifications.openehr.org/releases/SM/latest/openehr_platform.html#_i_definition_adl14_interface" target="_blank" rel="noopener"><code>I_DEFINITION_ADL14.<em>delete_opt()</em></code></a></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+the OPT delete can only happen if there is no associated data with the OPT, or if there exists a newer revision (minor version of the same OPT) in the server under test. For all these tests, there is not data committed to the server, so the delete can happen.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Implementation recommendations: the delete could be logical, so the OPT exists in the server but is not available, and there could be a service to retrieve deleted OPTs. Those can be undeleted or physically deleted (this can’t be undone), and only users with admin permissions should be able to physically delete OPTs.</p>
+</div>
+<div class="sect3">
+<h4 id="_data_sets_3"><a class="anchor" href="#_data_sets_3"></a><a class="link" href="#_data_sets_3">Data sets</a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p>minimal valid OPT</p>
+</li>
+<li>
+<p>minimal valid OPT, two versions</p>
+</li>
+<li>
+<p>maximal valid OPT (all types in the RM)</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_test_case_i_definition_adl14_delete_opt_delete_existing"><a class="anchor" href="#_test_case_i_definition_adl14_delete_opt_delete_existing"></a><a class="link" href="#_test_case_i_definition_adl14_delete_opt_delete_existing">Test Case I_DEFINITION_ADL14.delete_opt-delete_existing</a></h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 80%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Description</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>delete existing OPTs</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Pre-conditions</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>All valid OPTs should be loaded into the system.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Post-conditions</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>None</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Flow</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>For each existing <code>template_id</code>, invoke the delete OPT service</p>
+</li>
+<li>
+<p>Verify the OPT is not longer available via the retrieve OPTs service</p>
+<div class="literalblock">
+<div class="content">
+<pre>NOTE: for step 1, exclude versioned OPT, the result should be the same: the OPT is not available.</pre>
+</div>
+</div>
+</li>
+</ol>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Test runners</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a href="https://specifications.openehr.org/releases/CNF/latest/tests/platform/robot/I_DEFINITION_ADL14/delete_opt/I_DEFINITION_ADL14.delete_opt-delete_existing.robot" target="_blank" rel="noopener">REST API / Robot</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_test_case_i_definition_adl14_delete_opt_delete_latest_version"><a class="anchor" href="#_test_case_i_definition_adl14_delete_opt_delete_latest_version"></a><a class="link" href="#_test_case_i_definition_adl14_delete_opt_delete_latest_version">Test Case I_DEFINITION_ADL14.delete_opt-delete_latest_version</a></h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 80%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Description</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>delete last version of a versioned OPT</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Pre-conditions</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>No OPTs should be loaded on the system.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Post-conditions</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>None</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Flow</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Include flow: upload valid OPTs</p>
+</li>
+<li>
+<p>Invoke the delete OPT service for all existing <code>template_ids</code></p>
+</li>
+<li>
+<p>Include flow: retrieve all loaded OPTs when none is loaded</p>
+<div class="literalblock">
+<div class="content">
+<pre>NOTE: for step 1, include only versioned OPT.</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>NOTE: for versioned OPTs, when no version parameter is present when invoking the delete OPT service, all the versions of the OPT will be deleted.</pre>
+</div>
+</div>
+</li>
+</ol>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Test runners</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a href="https://specifications.openehr.org/releases/CNF/latest/tests/platform/robot/I_DEFINITION_ADL14/delete_opt/I_DEFINITION_ADL14.delete_opt-delete_latest_version.robot" target="_blank" rel="noopener">REST API / Robot</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_test_case_i_definition_adl14_delete_opt_delete_specific_version"><a class="anchor" href="#_test_case_i_definition_adl14_delete_opt_delete_specific_version"></a><a class="link" href="#_test_case_i_definition_adl14_delete_opt_delete_specific_version">Test Case I_DEFINITION_ADL14.delete_opt-delete_specific_version</a></h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 80%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Description</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>delete specific version of a versioned OPT</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Pre-conditions</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>No OPTs should be loaded on the system.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Post-conditions</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>None</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Flow</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Include flow: upload valid OPTs</p>
+</li>
+<li>
+<p>Invoke the delete OPT service for an existing <code>template_id</code> and version of the OPT, version should not be the last</p>
+</li>
+<li>
+<p>Include flow: retrieve all loaded OPTs</p>
+</li>
+<li>
+<p>The OPT set retrieved on step 3 should contain the deleted OPT, since the latest version was not deleted</p>
+</li>
+<li>
+<p>Include flow: delete existing OPTs</p>
+<div class="literalblock">
+<div class="content">
+<pre>NOTE: for step 1, include only versioned OPT.</pre>
+</div>
+</div>
+</li>
+</ol>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Test runners</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a href="https://specifications.openehr.org/releases/CNF/latest/tests/platform/robot/I_DEFINITION_ADL14/delete_opt/I_DEFINITION_ADL14.delete_opt-delete_specific_version.robot" target="_blank" rel="noopener">REST API / Robot</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_test_case_i_definition_adl14_delete_opt_delete_non_existing"><a class="anchor" href="#_test_case_i_definition_adl14_delete_opt_delete_non_existing"></a><a class="link" href="#_test_case_i_definition_adl14_delete_opt_delete_non_existing">Test Case I_DEFINITION_ADL14.delete_opt-delete_non_existing</a></h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 80%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Description</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>delete a non existing OPT</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Pre-conditions</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>No OPTs should be loaded on the system.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Post-conditions</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>None</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Flow</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Include flow: upload valid OPTs</p>
+</li>
+<li>
+<p>Invoke the delete OPT service with a non existing <code>template_id</code></p>
+</li>
+<li>
+<p>The server will return an error related to the OPT not existing in the server</p>
+</li>
+<li>
+<p>Include flow: delete existing OPTs</p>
+</li>
+</ol>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Test runners</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a href="https://specifications.openehr.org/releases/CNF/latest/tests/platform/robot/I_DEFINITION_ADL14/delete_opt/I_DEFINITION_ADL14.delete_opt-delete_non_existing.robot" target="_blank" rel="noopener">REST API / Robot</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="../overview/">Overview</a></span>
+  <span class="next"><a href="../func_tc_definition_query/">Test Suite: DEFINITION Service / I_DEFINITION_QUERY Interface</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>
+    Copyright: © 2003+
+    <a href="https://www.openehr.org"
+        alt="is an independent, non-profit foundation, facilitating the sharing of health
+           records by consumers and clinicians via open specifications, clinical models
+           and open platform implementations.">The openEHR Foundation</a>
+  </p>
+
+  <p>
+    License:
+    <img src="../../../../ui/img/cc-by-nd-88x31.png"
+        alt="Creative Commons Attribution-NoDerivs 3.0 Unported."
+        style="vertical-align:middle;margin:0 0.25rem 0 0;">
+    <a href="https://creativecommons.org/licenses/by-nd/3.0/">
+      Creative Commons Attribution-NoDerivs 3.0 Unported.
+    </a>
+  </p>
+
+  <p>
+    <strong>Links: <strong>
+    <a href="https://www.openehr.org/terms-of-use" class="mr-1">Terms of use</a> |
+    <a href="https://www.openehr.org/privacy-policy" class="mx-1">Privacy policy</a> |
+    <a href="https://www.openehr.org/privacy-policy" class="mx-1">Logos &amp; Trademarks</a> |
+    <a href="https://www.openehr.org/contact-us" class="mx-1">Contact</a>
+  </p>
+</footer>
+
+<script id="site-script" src="../../../../ui/js/site.js" data-ui-root-path="../../../../ui"></script>
+<script defer src="../../../../ui/js/vendor/highlight.js"></script>
+<script src="../../../../ui/js/vendor/lunr.js"></script>
+<script src="../../../../ui/js/search-ui.js" id="search-ui-script" data-site-root-path="../../../.." data-snippet-length="80" data-stylesheet="../../../../ui/css/search.css"></script>
+<script async src="../../../../search-index.js"></script>
+<script src="../../../../ui/js/medium-zoom.min.js"></script>
+<script src="../../../../ui/js/zoom.js"></script>
+<script async src="../../../../ui/js/tabs.js"></script>
+  </body>
+</html>

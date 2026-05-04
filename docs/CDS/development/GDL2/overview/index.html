@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+    <title>Overview :: openEHR Specifications (Local Build)</title>
+    <link rel="canonical" href="https://sebastian-iancu.github.io/antora-openehr/CDS/development/GDL2/overview/">
+    <link rel="prev" href="../">
+    <link rel="next" href="../requirements/">
+    <meta name="description" content="openEHR Guideline Definition Language v2 (GDL2) specification">
+    <meta name="keywords" content="decision support, GDL, GDL2, archetype">
+    <meta name="generator" content="Antora 3.1.14">
+    <link rel="stylesheet" href="../../../../ui/css/site.css">
+    <link rel="stylesheet" href="../../../../ui/css/antora-openehr.css">
+    <link rel="stylesheet" href="../../../../ui/css/openehr.css">
+    <link rel="stylesheet" href="../../../../ui/css/tabs.css">
+    <link rel="stylesheet" href="../../../../ui/css/extra.css">
+<link rel="icon" href="../../../../ui/img/favicon.ico" type="image/x-icon">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://sebastian-iancu.github.io/antora-openehr">openEHR Specifications (Local Build)</a>
+
+      <div class="navbar-item search hide-for-print">
+        <div id="search-field" class="field has-filter">
+          <input id="search-input" type="text" placeholder="Search the docs">
+          <label class="filter checkbox">
+            <input type="checkbox" data-facet-filter="component:CDS"> Clinical Decision Support only
+          </label>
+        </div>
+      </div>
+
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">Specifications</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://specifications.openehr.org/" target="_blank">
+              openEHR specification
+            </a>
+            <a class="navbar-item" href="https://specifications.openehr.org/releases/UML/development/index.html" target="_blank">
+              openEHR portal
+            </a>
+            <a class="navbar-item" href="https://ckm.openehr.org/ckm/" target="_blank">
+              openEHR CKM
+            </a>
+          </div>
+        </div>
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">Community</a>
+          <div class="navbar-dropdown is-right">
+            <a class="navbar-item" href="https://openehr.atlassian.net/secure/Dashboard.jspa?selectPageId=10190" target="_blank">
+              Issue trackers
+            </a>
+            <a class="navbar-item" href="https://discourse.openehr.org/" target="_blank">
+              Discourse Forum
+            </a>
+            <a class="navbar-item" href="https://specifications.openehr.org/wiki/display/spec/Specifications+Home" target="_blank">
+              Wiki
+            </a>
+            <a class="navbar-item" href="https://github.com/openEHR" target="_blank">
+              GitHub
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="CDS" data-version="development">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="../../">Clinical Decision Support</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../">Overview</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../GDL/">Guideline Definition Language (GDL)</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../GDL/overview/">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <span class="nav-text"><a href="/CDS/development/GDL/design/" class="xref page">Design</a></span>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <span class="nav-text"><a href="/CDS/development/GDL/implementation/" class="xref page">Implementation</a></span>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../GDL/appendix/">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../">Guideline Definition Language v2 (GDL2)</a>
+<ul class="nav-list">
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="./">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../requirements/">Requirements</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../language/">GDL2 Semantics</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../model/">GDL2 Object Model</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../syntax/">Syntax Specification</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../appendix/">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Clinical Decision Support</span>
+    <span class="version">development</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <div class="title"><a href="../../../../AM/Release-2.3.0/">Archetype Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../AM/Release-2.3.0/">Release-2.3.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../AM/Release-2.2.0/">Release-2.2.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../AM/Release-1.4.0/">Release-1.4.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../AM/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../BASE/Release-1.2.0/">Base Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../BASE/Release-1.2.0/">Release-1.2.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../BASE/Release-1.1.0/">Release-1.1.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../BASE/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <div class="title"><a href="../../">Clinical Decision Support</a></div>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../../">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../CNF/development/">Conformance Specifications</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../CNF/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../LANG/Release-1.0.0/">Generic Languages</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../LANG/Release-1.0.0/">Release-1.0.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../LANG/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../TERM/Release-3.0.0/">openEHR Terminology</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../TERM/Release-3.0.0/">Release-3.0.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../TERM/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../PROC/development/">Process Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../PROC/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../QUERY/Release-1.0.1/">Query Languages</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../QUERY/Release-1.0.1/">Release-1.0.1</a>
+        </li>
+        <li class="version">
+          <a href="../../../../QUERY/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../RM/Release-1.1.0/">Reference Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../RM/Release-1.1.0/">Release-1.1.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../RM/Release-1.0.4/">Release-1.0.4</a>
+        </li>
+        <li class="version">
+          <a href="../../../../RM/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../ITS-REST/development/">REST API specifications</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../ITS-REST/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../SM/development/">Service Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../SM/development/">development</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../../BASE/Release-1.2.0/" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../../">Clinical Decision Support</a></li>
+    <li><a href="../">Guideline Definition Language v2 (GDL2)</a></li>
+    <li><a href="./">Overview</a></li>
+  </ul>
+</nav>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Overview</h1>
+<div class="sect1">
+<h2 id="_background"><a class="anchor" href="#_background"></a><a class="link" href="#_background">Background</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Expressing and sharing computerized clinical decision support (CDS) content across languages and technical platforms has been an evasive goal for a long time. Lack of commonly shared clinical information models and flexible support for various terminology resources have been identified as two main challenges for sharing decision logic across sites. The openEHR information architecture, coupled with external terminology provides a well-defined, open platform on which to base a computable guideline facility.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_scope"><a class="anchor" href="#_scope"></a><a class="link" href="#_scope">Scope</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The scope of GDL is to express clinical logic as production rules. Discrete GDL rules, each containing 'when-then' statements, can be combined together as building blocks to support single decision making and more complex, chained decision making processes. The GDL rules can be used to drive at-point-of-care decision support applications as well as retrospective populational analytics.</p>
+</div>
+<div class="paragraph">
+<p>The use cases of GDL2 include, but are not limited to:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Prompts, alerts &amp; reminders;</p>
+</li>
+<li>
+<p>Interactive single-screen decision support applications;</p>
+</li>
+<li>
+<p>Detailed order-sets and care process support;</p>
+</li>
+<li>
+<p>Algorithm-based calculators;</p>
+</li>
+<li>
+<p>Generate and update personalized care plans as part of more complex care process support;</p>
+</li>
+<li>
+<p>Retrospective treatment compliance check, and outcome measures.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_an_example"><a class="anchor" href="#_an_example"></a><a class="link" href="#_an_example">An Example</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The following is a simple GDL example that allows us to calculate CHA2DS2-VASc Score, a clinical tool for stroke risk stratification in atrial fibrillation.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+GDL Guidelines are expressed in either the <a href="https://specifications.openehr.org/releases/LANG/latest/odin.html" target="_blank" rel="noopener">openEHR ODIN</a> or JSON formats, such that a GDL source is a serialised instance of the GDL2 Object Model, described below in <a href="#_gdl2_object_model">[_gdl2_object_model]</a>. The example here uses ODIN.
+</td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-odin" data-lang="odin">&lt;
+    gdl_version = &lt;"2.0"&gt;
+    id = &lt;"CHA2DS2-VASc.v1"&gt;
+    concept = &lt;"gt0001"&gt;
+    original_language = &lt;[ISO_639-1::en]&gt;
+    description = &lt;
+        details = &lt;
+            ["en"] = &lt;
+                copyright = &lt;"Cambio Healthcare Systems"&gt;
+                keywords = &lt;"Atrial Fibrillation", "Stroke", "CHA2DS2-VASc"&gt;
+                misuse = &lt;"Do not use in patients with no diagnosis of atrial fibrillation."&gt;
+                purpose = &lt;"Calculates stroke risk for patients with atrial fibrillation, possibly better than the CHADS2 score."&gt;
+                use = &lt;"Calculates stroke risk for patients with atrial fibrillation, possibly better than the CHADS2 score."&gt;
+            &gt;
+        &gt;
+        lifecycle_state = &lt;"in_review"&gt;
+        original_author = &lt;
+            ["date"] = &lt;"2016-12-16"&gt;
+            ["email"] = &lt;"rong.chen@cambio.se"&gt;
+            ["name"] = &lt;"Rong Chen"&gt;
+            ["organisation"] = &lt;"Cambio Healthcare Systems"&gt;
+        &gt;
+        other_contributors = &lt;"Carlos Valladares"&gt;
+    &gt;
+    definition = &lt;
+        pre_conditions = &lt;...&gt;
+        data_bindings = &lt;
+             ["gt0006"] = &lt;...&gt;
+             ["gt0007"] = &lt;...&gt;
+             ...
+        &gt;
+        rules = &lt;
+             ["gt0024"] = &lt;...&gt;
+             ["gt0025"] = &lt;...&gt;
+             ...
+        &gt;
+    &gt;
+    terminology = &lt;
+        term_definitions = &lt;
+            ["en"] = &lt;
+                ["gt123"] = &lt;
+                    text = &lt;"some text"&gt;
+                    description = "some description"&gt;
+                &gt;
+            &gt;
+        &gt;
+        term_bindings = &lt;
+            ["ICD10"] = &lt;
+                ["gt123"] = &lt;http://who.int/icd10/id/xxxx&gt;
+            &gt;
+        &gt;
+    &gt;
+&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The meta-data in the GDL header is based on the <a href="https://specifications.openehr.org/releases/BASE/latest/resource.html" target="_blank" rel="noopener">openEHR Resource model</a>. The following GDL source illustrates the current version of the guideline, the supported natural languages, to which it has been translated, authorship information, lifecycle state, keywords and the purpose, use and misuse of the guideline. The other top-level sections are respectively <code>definition</code> and <code>terminology</code>.</p>
+</div>
+<div class="paragraph">
+<p>The following block illustrates the <code>data_bindings</code> sub-section within the <code>definition</code> section, which binds data elements from a source data-set, defined in terms of an archetype, optionally within a specific template, to variables used by GDL rules. Variables are identified using 'gt-codes', e.g. 'gt0123'.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-odin" data-lang="odin">definition = &lt;
+    data_bindings = &lt;
+        ["gt0006"] = &lt;
+            model_id = &lt;"openEHR-EHR-EVALUATION.problem-diagnosis.v1"&gt;
+            type = &lt;"INPUT"&gt;
+            elements = &lt;
+                ["gt0107"] = &lt;
+                    path = &lt;"/data[at0001]/items[at0002.1]"&gt;
+                &gt;
+            &gt;
+        &gt;
+    &gt;
+&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Within the <code>definition</code> section, it is possible to define a set of logical pre-conditions that have to be met before the rules inside the guideline can be executed. In GDL2, the pre-conditions are formed from the <code>pre_conditions</code> sub-section (guideline-wide), and <code>predicates</code> defined in each of the subordinate <code>data_bindings</code> items, as in the CHA2DS2-VASc score calculation shown below:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-odin" data-lang="odin">definition = &lt;
+    pre_conditions = &lt;"$gt0107|index diagnosis| != null"&gt;
+    data_bindings = &lt;
+        [1] = &lt;
+            model_id = &lt;"openEHR-EHR-EVALUATION.problem-diagnosis.v1"&gt;
+            type = &lt;"INPUT"&gt;
+            elements = &lt;
+                ["gt0107"] = &lt;
+                    path = &lt;"/data[at0001]/items[at0002.1]"&gt;
+                &gt;
+            &gt;
+            predicates = &lt;"/data[at0001]/items[at0002.1] is_a local::gt0105|Atrial fibrillation|"&gt;
+            template_id = &lt;"diagnosis_chadvas_icd10"&gt;
+        &gt;
+    &gt;
+&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In this case, the pre-conditions consist of the statements:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>-- there is a diagnosis in the data set
+$gt0107|index diagnosis| != null
+
+-- the diagnosis is gt0105, Atrial Fibrillation.
+/data[at0001]/items[at0002.1] is_a local::gt0105|Atrial fibrillation|</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Accordingly, the guideline will not be executed unless the patient has been diagnosed with atrial fibrillation.</p>
+</div>
+<div class="paragraph">
+<p>The <code>rules</code> section makes use of locally defined variables to express the clinical logic. Each rule has a name codified by a locally defined gt-code, with which its natural language-dependent name and description are indexed in the <code>term_definitions</code> section. A priority can be assigned to ensure execution order of the rules. Higher priorities are executed earlier. This example illustrates rules that inspect different diagnoses relevant to CHA2DS2-VASc score and set the values of the <code>DV_ORDINALs</code> inside a CHA2DS2-VASc score archetype. The rule <code>gt0026</code> ("Calculate total score") sums the values and sets the total score in CHA2DS2-VASc score archetype.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-odin" data-lang="odin">definition = &lt;
+    rules = &lt;
+        ["gt0018"] = &lt;
+            when = &lt;"$gt0108 != null"&gt;
+            then = &lt;"$gt0014 = 1|local::at0031|Present|"&gt;
+            priority = <i class="conum" data-value="11"></i><b>(11)</b>
+        &gt;
+        ["gt0019"] = &lt;
+            when = &lt;"$gt0109 != null"&gt;
+            then = &lt;"$gt0010 = 1|local::at0034|Present|"&gt;
+            priority = <i class="conum" data-value="9"></i><b>(9)</b>
+        &gt;
+        ["gt0026"] = &lt;
+            then = &lt;"$gt0016.magnitude = gt0009.value + $gt0010.value + $gt0011.value + $gt0015.value + $gt0012.value + $gt0013.value + $gt0014.value"&gt;
+            priority = <i class="conum" data-value="1"></i><b>(1)</b>
+        &gt;
+    &gt;
+&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Finally we have the <code>terminology</code> section of the guideline, where all the terms are bound to user interface labels and description of the terms in supported natural languages.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-odin" data-lang="odin">terminology = &lt;
+    term_definitions = &lt;
+        ["en"] = &lt;
+            ["gt0003"] = &lt;
+                text = &lt;"Diagnosis"&gt;
+            &gt;
+            ["gt0014"] = &lt;
+                text = &lt;"Hypertension"&gt;
+            &gt;
+            ["gt0102"] = &lt;
+                text = &lt;"Diabetes"&gt;
+            &gt;
+            ["gt0105"] = &lt;
+                text = &lt;"Atrial fibrillation"&gt;
+            &gt;
+            ["gt0018"] = &lt;
+                text = &lt;"Set hypertension"&gt;
+            &gt;
+            ["gt0019"] = &lt;
+                text = &lt;"Set diabetes"&gt;
+            &gt;
+            ["gt0026"] = &lt;
+                text = &lt;"Calculate total score"&gt;
+            &gt;
+        &gt;
+    &gt;
+&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In addition, locally defined terms may be bound to concepts or refsets defined by external reference terminologies in <code>term_bindings</code>. In this sample, the diagnosis of atrial fibrillation is bound to a specific code in ICD10.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-odin" data-lang="odin">terminology = &lt;
+    term_bindings = &lt;
+        ["ICD10"] = &lt;
+            ["gt0105"] = &lt;"ICD10::I48"&gt;
+        &gt;
+    &gt;
+&gt;</code></pre>
+</div>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="../">Guideline Definition Language v2 (GDL2)</a></span>
+  <span class="next"><a href="../requirements/">Requirements</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>
+    Copyright: © 2003+
+    <a href="https://www.openehr.org"
+        alt="is an independent, non-profit foundation, facilitating the sharing of health
+           records by consumers and clinicians via open specifications, clinical models
+           and open platform implementations.">The openEHR Foundation</a>
+  </p>
+
+  <p>
+    License:
+    <img src="../../../../ui/img/cc-by-nd-88x31.png"
+        alt="Creative Commons Attribution-NoDerivs 3.0 Unported."
+        style="vertical-align:middle;margin:0 0.25rem 0 0;">
+    <a href="https://creativecommons.org/licenses/by-nd/3.0/">
+      Creative Commons Attribution-NoDerivs 3.0 Unported.
+    </a>
+  </p>
+
+  <p>
+    <strong>Links: <strong>
+    <a href="https://www.openehr.org/terms-of-use" class="mr-1">Terms of use</a> |
+    <a href="https://www.openehr.org/privacy-policy" class="mx-1">Privacy policy</a> |
+    <a href="https://www.openehr.org/privacy-policy" class="mx-1">Logos &amp; Trademarks</a> |
+    <a href="https://www.openehr.org/contact-us" class="mx-1">Contact</a>
+  </p>
+</footer>
+
+<script id="site-script" src="../../../../ui/js/site.js" data-ui-root-path="../../../../ui"></script>
+<script defer src="../../../../ui/js/vendor/highlight.js"></script>
+<script src="../../../../ui/js/vendor/lunr.js"></script>
+<script src="../../../../ui/js/search-ui.js" id="search-ui-script" data-site-root-path="../../../.." data-snippet-length="80" data-stylesheet="../../../../ui/css/search.css"></script>
+<script async src="../../../../search-index.js"></script>
+<script src="../../../../ui/js/medium-zoom.min.js"></script>
+<script src="../../../../ui/js/zoom.js"></script>
+<script async src="../../../../ui/js/tabs.js"></script>
+  </body>
+</html>

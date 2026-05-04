@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+    <title>Elements :: openEHR Specifications (Local Build)</title>
+    <link rel="canonical" href="https://sebastian-iancu.github.io/antora-openehr/PROC/development/tp_vml/elements/">
+    <link rel="prev" href="../overview/">
+    <link rel="next" href="../patterns/">
+    <meta name="description" content="openEHR Task Planning Visual Modelling Language">
+    <meta name="keywords" content="task planning, visual language, workflow, care pathway, guideline, order set">
+    <meta name="generator" content="Antora 3.1.14">
+    <link rel="stylesheet" href="../../../../ui/css/site.css">
+    <link rel="stylesheet" href="../../../../ui/css/antora-openehr.css">
+    <link rel="stylesheet" href="../../../../ui/css/openehr.css">
+    <link rel="stylesheet" href="../../../../ui/css/tabs.css">
+    <link rel="stylesheet" href="../../../../ui/css/extra.css">
+<link rel="icon" href="../../../../ui/img/favicon.ico" type="image/x-icon">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://sebastian-iancu.github.io/antora-openehr">openEHR Specifications (Local Build)</a>
+
+      <div class="navbar-item search hide-for-print">
+        <div id="search-field" class="field has-filter">
+          <input id="search-input" type="text" placeholder="Search the docs">
+          <label class="filter checkbox">
+            <input type="checkbox" data-facet-filter="component:PROC"> Process Model only
+          </label>
+        </div>
+      </div>
+
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">Specifications</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://specifications.openehr.org/" target="_blank">
+              openEHR specification
+            </a>
+            <a class="navbar-item" href="https://specifications.openehr.org/releases/UML/development/index.html" target="_blank">
+              openEHR portal
+            </a>
+            <a class="navbar-item" href="https://ckm.openehr.org/ckm/" target="_blank">
+              openEHR CKM
+            </a>
+          </div>
+        </div>
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">Community</a>
+          <div class="navbar-dropdown is-right">
+            <a class="navbar-item" href="https://openehr.atlassian.net/secure/Dashboard.jspa?selectPageId=10190" target="_blank">
+              Issue trackers
+            </a>
+            <a class="navbar-item" href="https://discourse.openehr.org/" target="_blank">
+              Discourse Forum
+            </a>
+            <a class="navbar-item" href="https://specifications.openehr.org/wiki/display/spec/Specifications+Home" target="_blank">
+              Wiki
+            </a>
+            <a class="navbar-item" href="https://github.com/openEHR" target="_blank">
+              GitHub
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="PROC" data-version="development">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="../../">Process Model</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../">Overview</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../overview/">CDS, Guidelines and Planning Overview</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../overview/introduction/">Introduction</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../overview/needs/">Needs</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../overview/artefacts/">Care Process Artefacts and their Formalisation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../overview/deployment_paradigm/">Deployment Paradigm</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../overview/conceptual_architecture/">Conceptual Architecture</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../overview/deployment_architectures/">Architectural Use-cases</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../overview/appendix/">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../task_planning/">Task Planning (TP) Specification</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../task_planning/background/">Background</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../task_planning/requirements/">Technical Requirements</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../task_planning/design/">Design Principles</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../task_planning/model_overview/">Task Planning Model Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../task_planning/1-definition_overview/">Definition Model</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../task_planning/global_semantics/">Global Semantics</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../task_planning/execution_model_overview/">Execution</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../task_planning/model_materialised/">Materialised Model</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../task_planning/model_history/">Plan Execution History</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../task_planning/service_model/">Transactional Service Model</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../task_planning/ehr_semantics/">Relationship with other openEHR EHR Artefacts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../task_planning/appendix/">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../decision_language/">Decision Language specification</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../decision_language/overview/">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../decision_language/dlm_syntax/">DLM Syntax</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../decision_language/dlm_model/">DLM Model</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../decision_language/dl_module/">EL Modules</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../decision_language/terminology/">Terminology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../decision_language/data_context/">Data Bindings</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../decision_language/computing_context/">Computing Bindings</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../decision_language/appendix/">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../">Task Planning Visual Modelling Language (TP-VML)</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../overview/">Overview</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="./">Elements</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../patterns/">Patterns</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../appendix/">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../process_examples/">openEHR CDS, Guidelines and Planning Examples</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../process_examples/overview/">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../process_examples/teamwork/">Teamwork</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../process_examples/order_management/">Order Management</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../process_examples/chemo/">Multi-drug Chemotherapy</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../process_examples/antenatal/">Antenatal Care</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../process_examples/cancer_prescribing/">Breast Cancer Decision Protocol</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../process_examples/Covid19_severity/">Covid19 Severity Classification</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../process_examples/cha2ds_vasc/">CHA2DS2-VASc</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../process_examples/qrisk/">qRisk3-2017</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../process_examples/news2/">National Early Warning Score (NEWS) 2</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../process_examples/common_DLMs/">Common Decision Logic Modules</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../process_examples/appendix/">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Process Model</span>
+    <span class="version">development</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <div class="title"><a href="../../../../AM/Release-2.3.0/">Archetype Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../AM/Release-2.3.0/">Release-2.3.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../AM/Release-2.2.0/">Release-2.2.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../AM/Release-1.4.0/">Release-1.4.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../AM/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../BASE/Release-1.2.0/">Base Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../BASE/Release-1.2.0/">Release-1.2.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../BASE/Release-1.1.0/">Release-1.1.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../BASE/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../CDS/development/">Clinical Decision Support</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../CDS/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../CNF/development/">Conformance Specifications</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../CNF/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../LANG/Release-1.0.0/">Generic Languages</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../LANG/Release-1.0.0/">Release-1.0.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../LANG/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../TERM/Release-3.0.0/">openEHR Terminology</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../TERM/Release-3.0.0/">Release-3.0.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../TERM/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <div class="title"><a href="../../">Process Model</a></div>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../../">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../QUERY/Release-1.0.1/">Query Languages</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../QUERY/Release-1.0.1/">Release-1.0.1</a>
+        </li>
+        <li class="version">
+          <a href="../../../../QUERY/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../RM/Release-1.1.0/">Reference Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../RM/Release-1.1.0/">Release-1.1.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../RM/Release-1.0.4/">Release-1.0.4</a>
+        </li>
+        <li class="version">
+          <a href="../../../../RM/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../ITS-REST/development/">REST API specifications</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../ITS-REST/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../SM/development/">Service Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../SM/development/">development</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../../BASE/Release-1.2.0/" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../../">Process Model</a></li>
+    <li><a href="../">Task Planning Visual Modelling Language (TP-VML)</a></li>
+    <li><a href="./">Elements</a></li>
+  </ul>
+</nav>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Elements</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>The elements of TP-VML are based directly on the openEHR Task Planning formal specification, and can be used to construct exectuable Plans.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_composites"><a class="anchor" href="#_composites"></a><a class="link" href="#_composites">Composites</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The TP-VML elements in this section are composite structures that contain primitive elements.</p>
+</div>
+<div class="sect2">
+<h3 id="_plans"><a class="anchor" href="#_plans"></a><a class="link" href="#_plans">Plans</a></h3>
+<div class="paragraph">
+<p>TP-VML icons for <code>WORK_PLAN</code> and <code>TASK_PLAN</code> are used (<a href="https://specifications.openehr.org/releases/PROC/latest/task_planning.html#_plan_structure" target="_blank" rel="noopener">TP plan structure</a>), enabling some of the relevant meta-data to be visualised.</p>
+</div>
+<div id="tp_vml_plans" class="imageblock text-center text-center">
+<div class="content">
+<img src="../_images/diagrams/TP-VML-plans.svg" alt="TP VML plans">
+</div>
+<div class="title">Figure 1. Plans</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_task_groups"><a class="anchor" href="#_task_groups"></a><a class="link" href="#_task_groups">Task Groups</a></h3>
+<div class="paragraph">
+<p>Task Group icons and their conditional structure derivatives use two visual elements to indicate the extent of the (<a href="https://specifications.openehr.org/releases/PROC/latest/task_planning.html#_task_group_structure" target="_blank" rel="noopener">container structure</a>) they represent from the TP model.</p>
+</div>
+<div class="paragraph">
+<p>Since Tasks and other Task Groups within any Task Group are included by ordered containment (i.e. 'list' semantics) rather than chaining, contained items are shown connected with dashed arrows, indicating the implied ordered.</p>
+</div>
+<div id="tp_vml_task_groups" class="imageblock text-center text-center">
+<div class="content">
+<img src="../_images/diagrams/TP-VML-task_groups.svg" alt="TP VML task groups">
+</div>
+<div class="title">Figure 2. Task groups</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_conditional_structures"><a class="anchor" href="#_conditional_structures"></a><a class="link" href="#_conditional_structures">Conditional Structures</a></h3>
+<div class="paragraph">
+<p><a href="https://specifications.openehr.org/releases/PROC/latest/tp_vml.html#_conditional_structures_2">TP conditional structures</a> follow the same structural logic as Task Groups, with the addition of various specific meta-data as per the specificaion.</p>
+</div>
+<div id="tp_vml_conditionals_condition" class="imageblock text-center text-center">
+<div class="content">
+<img src="../_images/diagrams/TP-VML-conditionals_condition.svg" alt="TP VML conditionals condition">
+</div>
+<div class="title">Figure 3. Conditional structures - CONDITION_GROUP</div>
+</div>
+<div id="tp_vml_conditionals_decision" class="imageblock text-center text-center">
+<div class="content">
+<img src="../_images/diagrams/TP-VML-conditionals_decision.svg" alt="TP VML conditionals decision">
+</div>
+<div class="title">Figure 4. Conditional structures - DECISION_GROUP</div>
+</div>
+<div id="tp_vml_conditionals_event" class="imageblock text-center text-center">
+<div class="content">
+<img src="../_images/diagrams/TP-VML-conditionals_event.svg" alt="TP VML conditionals event">
+</div>
+<div class="title">Figure 5. Conditional structures - EVENT_GROUP</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_primitives"><a class="anchor" href="#_primitives"></a><a class="link" href="#_primitives">Primitives</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The TP-VML elements in this section are atomic primitives that are used within various levels of containment structure, including Task Groups, the various kinds of conditional structure, Task Plans and Work Plans.</p>
+</div>
+<div class="sect2">
+<h3 id="_tasks"><a class="anchor" href="#_tasks"></a><a class="link" href="#_tasks">Tasks</a></h3>
+<div class="paragraph">
+<p>TP-VML Tasks correspond to formal types of the form <code>TASK&lt;T&gt;</code> (<a href="https://specifications.openehr.org/releases/PROC/latest/task_planning.html#_definition_model" target="_blank" rel="noopener">TP main model</a>; <a href="https://specifications.openehr.org/releases/PROC/latest/task_planning.html#_task_actions" target="_blank" rel="noopener">TP Task Action types</a>), whose concrete forms are: <code>PERFORMABLE_TASK&lt;DEFINED_ACTION&gt;</code>, <code>PERFORMABLE_TASK&lt;SUB_PLAN&gt;</code>, <code>DISPATCHABLE_TASK&lt;HAND_OFF&gt;</code>, <code>DISPATCHABLE_TASK&lt;SYSTEM_REQUEST&gt;</code>, <code>DISPATCHABLE_TASK&lt;EXTERNAL_REQUEST&gt;</code>.</p>
+</div>
+<div class="paragraph">
+<p>Performable Tasks may have one or more associated <code><em>capture_datasets</em></code>. Dispatchable Tasks may have an associated callback wait state (<code>CALLBACK_WAIT</code>).</p>
+</div>
+<div id="tp_vml_tasks" class="imageblock text-center text-center">
+<div class="content">
+<img src="../_images/diagrams/TP-VML-tasks.svg" alt="TP VML tasks">
+</div>
+<div class="title">Figure 6. Tasks</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_task_repeats"><a class="anchor" href="#_task_repeats"></a><a class="link" href="#_task_repeats">Task Repeats</a></h3>
+<div class="paragraph">
+<p>A Task, or more usually a Task Group may have a repeat specification (<code>TASK_REPEAT</code>) associted with it (<a href="https://specifications.openehr.org/releases/PROC/latest/task_planning.html#_repetition" target="_blank" rel="noopener">TP Repetitions</a>). Various forms are possible. This is diagrammed as follows.</p>
+</div>
+<div id="tp_vml_task_repeat" class="imageblock text-center text-center">
+<div class="content">
+<img src="../_images/diagrams/TP-VML-task_repeat.svg" alt="TP VML task repeat">
+</div>
+<div class="title">Figure 7. Task (group) repeat</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_events"><a class="anchor" href="#_events"></a><a class="link" href="#_events">Events</a></h3>
+<div class="paragraph">
+<p>TP-VML Events are defined in the <a href="https://specifications.openehr.org/releases/PROC/latest/tp_vml.html#_events">Events section in the TP specification</a> and can be visually represented in three forms:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><em>full form</em>: with icon and named attributes from the TP model;</p>
+</li>
+<li>
+<p><em>short form</em>: with icon and implicit attributes from the TP model;</p>
+</li>
+<li>
+<p><em>informal</em>: via an icon, with no further specification of details.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Events are specified as triggers for the wait states <code>TASK_WAIT</code>, <code>TIMER_WAIT</code> and <code>CALLBACK_WAIT</code>.</p>
+</div>
+<div id="tp_vml_events" class="imageblock text-center text-center">
+<div class="content">
+<img src="../_images/diagrams/TP-VML-events.svg" alt="TP VML events">
+</div>
+<div class="title">Figure 8. Events</div>
+</div>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="../overview/">Overview</a></span>
+  <span class="next"><a href="../patterns/">Patterns</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>
+    Copyright: © 2003+
+    <a href="https://www.openehr.org"
+        alt="is an independent, non-profit foundation, facilitating the sharing of health
+           records by consumers and clinicians via open specifications, clinical models
+           and open platform implementations.">The openEHR Foundation</a>
+  </p>
+
+  <p>
+    License:
+    <img src="../../../../ui/img/cc-by-nd-88x31.png"
+        alt="Creative Commons Attribution-NoDerivs 3.0 Unported."
+        style="vertical-align:middle;margin:0 0.25rem 0 0;">
+    <a href="https://creativecommons.org/licenses/by-nd/3.0/">
+      Creative Commons Attribution-NoDerivs 3.0 Unported.
+    </a>
+  </p>
+
+  <p>
+    <strong>Links: <strong>
+    <a href="https://www.openehr.org/terms-of-use" class="mr-1">Terms of use</a> |
+    <a href="https://www.openehr.org/privacy-policy" class="mx-1">Privacy policy</a> |
+    <a href="https://www.openehr.org/privacy-policy" class="mx-1">Logos &amp; Trademarks</a> |
+    <a href="https://www.openehr.org/contact-us" class="mx-1">Contact</a>
+  </p>
+</footer>
+
+<script id="site-script" src="../../../../ui/js/site.js" data-ui-root-path="../../../../ui"></script>
+<script defer src="../../../../ui/js/vendor/highlight.js"></script>
+<script src="../../../../ui/js/vendor/lunr.js"></script>
+<script src="../../../../ui/js/search-ui.js" id="search-ui-script" data-site-root-path="../../../.." data-snippet-length="80" data-stylesheet="../../../../ui/css/search.css"></script>
+<script async src="../../../../search-index.js"></script>
+<script src="../../../../ui/js/medium-zoom.min.js"></script>
+<script src="../../../../ui/js/zoom.js"></script>
+<script async src="../../../../ui/js/tabs.js"></script>
+  </body>
+</html>

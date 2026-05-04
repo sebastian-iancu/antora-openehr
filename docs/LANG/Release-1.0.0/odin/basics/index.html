@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+    <title>Basics :: openEHR Specifications (Local Build)</title>
+    <link rel="canonical" href="https://sebastian-iancu.github.io/antora-openehr/LANG/Release-1.0.0/odin/basics/">
+    <link rel="prev" href="../overview/">
+    <link rel="next" href="../odin_artefacts/">
+    <meta name="description" content="Object Data Instance Notation (ODIN) specification">
+    <meta name="keywords" content="data, notation, JSON, syntax">
+    <meta name="generator" content="Antora 3.1.14">
+    <link rel="stylesheet" href="../../../../ui/css/site.css">
+    <link rel="stylesheet" href="../../../../ui/css/antora-openehr.css">
+    <link rel="stylesheet" href="../../../../ui/css/openehr.css">
+    <link rel="stylesheet" href="../../../../ui/css/tabs.css">
+    <link rel="stylesheet" href="../../../../ui/css/extra.css">
+<link rel="icon" href="../../../../ui/img/favicon.ico" type="image/x-icon">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://sebastian-iancu.github.io/antora-openehr">openEHR Specifications (Local Build)</a>
+
+      <div class="navbar-item search hide-for-print">
+        <div id="search-field" class="field has-filter">
+          <input id="search-input" type="text" placeholder="Search the docs">
+          <label class="filter checkbox">
+            <input type="checkbox" data-facet-filter="component:LANG"> Generic Languages only
+          </label>
+        </div>
+      </div>
+
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">Specifications</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://specifications.openehr.org/" target="_blank">
+              openEHR specification
+            </a>
+            <a class="navbar-item" href="https://specifications.openehr.org/releases/UML/development/index.html" target="_blank">
+              openEHR portal
+            </a>
+            <a class="navbar-item" href="https://ckm.openehr.org/ckm/" target="_blank">
+              openEHR CKM
+            </a>
+          </div>
+        </div>
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">Community</a>
+          <div class="navbar-dropdown is-right">
+            <a class="navbar-item" href="https://openehr.atlassian.net/secure/Dashboard.jspa?selectPageId=10190" target="_blank">
+              Issue trackers
+            </a>
+            <a class="navbar-item" href="https://discourse.openehr.org/" target="_blank">
+              Discourse Forum
+            </a>
+            <a class="navbar-item" href="https://specifications.openehr.org/wiki/display/spec/Specifications+Home" target="_blank">
+              Wiki
+            </a>
+            <a class="navbar-item" href="https://github.com/openEHR" target="_blank">
+              GitHub
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="LANG" data-version="Release-1.0.0">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="../../">Generic Languages</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../">Overview</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../">Object Data Instance Notation (ODIN)</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../overview/">Overview</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="./">Basics</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../odin_artefacts/">ODIN Artefacts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../content/">Content</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../references/">References</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../leaf_data/">Leaf Data</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../path_syntax/">Path Syntax</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../plug_in_syntaxes/">Plug-in Syntaxes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../other_syntaxes/">Relationship with other Syntaxes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../syntax_spec/">Syntax Specification</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../appendix/">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../bmm/">Basic Meta-Model (BMM)</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../bmm/overview/">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../bmm/model_access/">Model Access Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../bmm/core-model/">Model Structure</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../bmm/core-types/">Types</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../bmm/core-classes/">Classes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../bmm/core-features/">Class Features</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../bmm/core-values/">Literal Values</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../bmm/expressions/">Expressions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../bmm/functional/">Functional Elements</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../bmm/statements/">Statements</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../bmm/model_semantics/">Model Semantics</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../bmm/extensions/">BMM Extensions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../bmm/appendix/">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../bmm_persistence/">BMM Persistence Model and Syntax</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../bmm_persistence/overview/">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../bmm_persistence/model/">Persistence Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../bmm_persistence/syntax/">BMM Persistence Syntax</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../bmm_persistence/appendix/">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../expression_language/">Expression Language (EL)</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../expression_language/overview/">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../expression_language/el_basics/">EL Basics</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../expression_language/el_terminal_entities/">Terminal Entities</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../expression_language/el_expressions/">Complex Expressions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../expression_language/appendix/">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Generic Languages</span>
+    <span class="version">Release-1.0.0</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <div class="title"><a href="../../../../AM/Release-2.3.0/">Archetype Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../AM/Release-2.3.0/">Release-2.3.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../AM/Release-2.2.0/">Release-2.2.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../AM/Release-1.4.0/">Release-1.4.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../AM/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../BASE/Release-1.2.0/">Base Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../BASE/Release-1.2.0/">Release-1.2.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../BASE/Release-1.1.0/">Release-1.1.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../BASE/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../CDS/development/">Clinical Decision Support</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../CDS/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../CNF/development/">Conformance Specifications</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../CNF/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <div class="title"><a href="../../">Generic Languages</a></div>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../../">Release-1.0.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../TERM/Release-3.0.0/">openEHR Terminology</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../TERM/Release-3.0.0/">Release-3.0.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../TERM/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../PROC/development/">Process Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../PROC/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../QUERY/Release-1.0.1/">Query Languages</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../QUERY/Release-1.0.1/">Release-1.0.1</a>
+        </li>
+        <li class="version">
+          <a href="../../../../QUERY/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../RM/Release-1.1.0/">Reference Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../RM/Release-1.1.0/">Release-1.1.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../RM/Release-1.0.4/">Release-1.0.4</a>
+        </li>
+        <li class="version">
+          <a href="../../../../RM/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../ITS-REST/development/">REST API specifications</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../ITS-REST/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../SM/development/">Service Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../SM/development/">development</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../../BASE/Release-1.2.0/" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../../">Generic Languages</a></li>
+    <li><a href="../">Object Data Instance Notation (ODIN)</a></li>
+    <li><a href="./">Basics</a></li>
+  </ul>
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">Release-1.0.0</button>
+  <div class="version-menu">
+    <a class="version is-current" href="./">Release-1.0.0</a>
+    <a class="version" href="../../../development/odin/basics/">development</a>
+  </div>
+</div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Basics</h1>
+<div class="sect1">
+<h2 id="_file_encoding"><a class="anchor" href="#_file_encoding"></a><a class="link" href="#_file_encoding">File Encoding</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>ODIN files are intended to be capable of accommodating characters from any language, and may be used for multiple languages at once, e.g. as translation files for software. Accordingly, the assumed encoding for an ODIN file is UTF-8 unicode.</p>
+</div>
+<div class="paragraph">
+<p>ODIN files encoded in latin 1 (ISO-8859-1) or another variant of ISO-8859 - both containing accented characters with unicode codes outside the ASCII 0-127 range - may work perfectly well, for various reasons:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>the contain nothing but ASCII, i.e. unicode code-points 0 - 127; this will be the case in English-language authored archetypes containing no foreign words;</p>
+</li>
+<li>
+<p>some layer of the operating system is smart enough to do an on-the-fly conversion of characters above 127 into UTF-8, even if the archetype tool being used is designed for pure UTF-8 only;</p>
+</li>
+<li>
+<p>a tool using the ODIN file might support UTF-8 and ISO-8859 variants.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>For situations where binary UTF-8 cannot be supported, ASCII encoding of unicode characters above code-point 127 should only be done using the system supported by many programming languages today, namely <code>\u</code> escaped UTF-16. In this system, unicode codepoints are mapped to either:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>\uHHHH</code> - 4 hex digits which will be the same (possibly 0-filled on the left) as the unicode code-point number expressed in hexadecimal; this applies to unicode codepoints in the range <code>U+0000</code> - <code>U+FFFF</code> (the 'base multi-lingual plane', BMP);</p>
+</li>
+<li>
+<p><code>\uHHHHHHHH</code> - 8 hex digits to encode unicode code-points in the range U+10000 through <code>U+10FFFF</code> (non-BMP planes); the algorithm is described in <a href="https://tools.ietf.org/html/rfc2781">IETF RFC 2781</a>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>It is not expected that the above approach will be commonly needed, and it may not be needed at all; it is preferable to find ways to ensure that native UTF-8 can be supported, since this reduces the burden for ODIN parser and tool implementers. The above guidance is therefore provided only to ensure a standard approach is used for ASCII-encoded unicode, if it becomes unavoidable.</p>
+</div>
+<div class="paragraph">
+<p>Thus, while the only officially designated encoding for ODIN and its constituent syntaxes is UTF-8, real software systems may be more tolerant. This document therefore specifies that any tool designed to process ODIN files need only support UTF-8; supporting other encodings is an optional extra. This could change in the future, if required by the ODIN user community.</p>
+</div>
+<div class="paragraph">
+<p>URIs, which have their own data type in ODIN, are handled in a specific way: all characters outside the 'unreserved set' defined by <a href="https://tools.ietf.org/html/rfc3986">IETF RFC 3986</a> are 'percent-encoded'. The unreserved set is:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-antlr-java" data-lang="antlr-java">unreserved : ALPHA | DIGIT | '-' | '.' | '_' | '~' ;
+
+ALPHA : [a-zA-Z] ;
+DIGIT : [0-9] ;</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_special_character_sequences"><a class="anchor" href="#_special_character_sequences"></a><a class="link" href="#_special_character_sequences">Special Character Sequences</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>In string and character data values, characters not in the lower ASCII (0-127) range should normally be UTF-8 encoded, but with the option of using the following quoted forms customary in software development:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>\r</code> - carriage return</p>
+</li>
+<li>
+<p><code>\n</code> - linefeed</p>
+</li>
+<li>
+<p><code>\t</code> - tab</p>
+</li>
+<li>
+<p><code>\\</code> - backslash</p>
+</li>
+<li>
+<p><code>\"</code> - literal double quote within a String terminal value</p>
+</li>
+<li>
+<p><code>\'</code> - literal single quote within a Character terminal value</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Any other character combination starting with a backslash is illegal; to get the effect of a literal backslash, the <code>\\</code> sequence should always be used.</p>
+</div>
+<div class="paragraph">
+<p>Typically in a normal string, including multi-line paragraphs as used in ODIN, only <code>\\</code> and <code>\"</code> are likely to be necessary, since all of the others can be accommodated in their literal forms; the same goes for single characters - only <code>\\</code> and <code>\'</code> are likely to commonly occur. However, some authors may prefer to use <code>\n</code> and <code>\t</code> to make intended formatting clearer, or to allow for text editors that do not react properly to such characters. Parsers should therefore support the above list.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_keywords"><a class="anchor" href="#_keywords"></a><a class="link" href="#_keywords">Keywords</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>ODIN has no keywords of its own: all identifiers are assumed to come from an information model.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_reserved_characters"><a class="anchor" href="#_reserved_characters"></a><a class="link" href="#_reserved_characters">Reserved Characters</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>In ODIN, a small number of characters are reserved and have the following meanings:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>&lt;</code>: open an object block;</p>
+</li>
+<li>
+<p><code>&gt;</code>: close an object block;</p>
+</li>
+<li>
+<p><code>=</code>: indicate attribute value = object block;</p>
+</li>
+<li>
+<p><code>(</code>, <code>)</code>: type name or plug-in syntax type delimiters;</p>
+</li>
+<li>
+<p><code>&lt;#</code>: open an object block expressed in a plug-in syntax;</p>
+</li>
+<li>
+<p><code>#&gt;</code>: close an object block expressed in a plug-in syntax.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Within &lt;&gt; delimiters, various characters are used as follows to indicate primitive values:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>"</code>: double quote characters are used to delimit string values;</p>
+</li>
+<li>
+<p><code>'</code>: single quote characters are used to delimit single character values;</p>
+</li>
+<li>
+<p><code>|</code>: bar characters are used to delimit intervals;</p>
+</li>
+<li>
+<p><code>[]</code>: brackets are used to delimit coded terms.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_comments"><a class="anchor" href="#_comments"></a><a class="link" href="#_comments">Comments</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>In an ODIN text, comments are indicated by the characters "--". Multi-line comments are achieved using the "--" leader on each line where the comment continues.</p>
+</div>
+<div class="paragraph">
+<p>In this document, ODIN comments are shown in brown.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_information_model_identifiers"><a class="anchor" href="#_information_model_identifiers"></a><a class="link" href="#_information_model_identifiers">Information Model Identifiers</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Two types of identifiers from information models are used in ODIN: type names and attribute names. A <strong>type name</strong> is any identifier with an initial upper case letter, followed by any combination of letters, digits and underscores. A <strong>generic type name</strong> (including nested forms) additionally may include commas and angle brackets, and must be syntactically correct as per the UML. An <strong>attribute name</strong> is any identifier with an initial lower case letter, followed by any combination of letters, digits and underscores. Any convention that obeys this rule is allowed.</p>
+</div>
+<div class="paragraph">
+<p>At least two well-known conventions that are ubiquitous in information models obey the above rule. One of these is the following convention:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>type names are in all uppercase, e.g. <code>PERSON</code> , except for 'built-in' types, such as primitive types (` Integer` , <code>String</code> , <code>Boolean</code> , <code>Real</code> , <code>Double</code> ) and assumed container types (<code>List&lt;T&gt;</code> , <code>Set&lt;T&gt;</code> , <code>Hash&lt;T, U&gt;</code> ), which are in mixed case, in order to provide easy differentiation of built-in types from constructed types defined in the reference model. Built-in types are the same types assumed by UML, OCL, IDL and other similar object-oriented formalisms.</p>
+</li>
+<li>
+<p>attribute names are shown in all lowercase, e.g. <code>home_address</code> .</p>
+</li>
+<li>
+<p>in both type names and attribute names, underscores are used to represent word breaks. This convention is used to maximise the readability of this document.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The other common style is the programmer&#8217;s mixed-case or "camel case" convention exemplified by <code>Person</code> and <code>homeAddress</code> , as long as they obey the rule above. The convention chosen for any particular ODIN document should be based on the convention used in the underlying information model. Identifiers are shown in green in this document.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_semi_colons"><a class="anchor" href="#_semi_colons"></a><a class="link" href="#_semi_colons">Semi-colons</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Semi-colons can be used to separate ODIN blocks, for example when it is preferable to include multiple attribute/value pairs on one line. Semi-colons make no semantic difference at all, and are included only as a matter of taste. The following examples are equivalent:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-odin" data-lang="odin">term = &lt;text = &lt;"plan"&gt;; description = &lt;"The clinician's advice"&gt;&gt;
+term = &lt;text = &lt;"plan"&gt; description = &lt;"The clinician's advice"&gt;&gt;
+
+term = &lt;
+    text = &lt;"plan"&gt;
+    description = &lt;"The clinician's advice"&gt;
+&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Semi-colons are completely optional in ODIN.</p>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="../overview/">Overview</a></span>
+  <span class="next"><a href="../odin_artefacts/">ODIN Artefacts</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>
+    Copyright: © 2003+
+    <a href="https://www.openehr.org"
+        alt="is an independent, non-profit foundation, facilitating the sharing of health
+           records by consumers and clinicians via open specifications, clinical models
+           and open platform implementations.">The openEHR Foundation</a>
+  </p>
+
+  <p>
+    License:
+    <img src="../../../../ui/img/cc-by-nd-88x31.png"
+        alt="Creative Commons Attribution-NoDerivs 3.0 Unported."
+        style="vertical-align:middle;margin:0 0.25rem 0 0;">
+    <a href="https://creativecommons.org/licenses/by-nd/3.0/">
+      Creative Commons Attribution-NoDerivs 3.0 Unported.
+    </a>
+  </p>
+
+  <p>
+    <strong>Links: <strong>
+    <a href="https://www.openehr.org/terms-of-use" class="mr-1">Terms of use</a> |
+    <a href="https://www.openehr.org/privacy-policy" class="mx-1">Privacy policy</a> |
+    <a href="https://www.openehr.org/privacy-policy" class="mx-1">Logos &amp; Trademarks</a> |
+    <a href="https://www.openehr.org/contact-us" class="mx-1">Contact</a>
+  </p>
+</footer>
+
+<script id="site-script" src="../../../../ui/js/site.js" data-ui-root-path="../../../../ui"></script>
+<script defer src="../../../../ui/js/vendor/highlight.js"></script>
+<script src="../../../../ui/js/vendor/lunr.js"></script>
+<script src="../../../../ui/js/search-ui.js" id="search-ui-script" data-site-root-path="../../../.." data-snippet-length="80" data-stylesheet="../../../../ui/css/search.css"></script>
+<script async src="../../../../search-index.js"></script>
+<script src="../../../../ui/js/medium-zoom.min.js"></script>
+<script src="../../../../ui/js/zoom.js"></script>
+<script async src="../../../../ui/js/tabs.js"></script>
+  </body>
+</html>

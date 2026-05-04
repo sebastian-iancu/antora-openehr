@@ -1,0 +1,2214 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+    <title>Definition Model :: openEHR Specifications (Local Build)</title>
+    <link rel="canonical" href="https://sebastian-iancu.github.io/antora-openehr/PROC/development/task_planning/1-definition_overview/">
+    <link rel="prev" href="../model_overview/">
+    <link rel="next" href="../global_semantics/">
+    <meta name="description" content="openEHR Task Planning specification">
+    <meta name="keywords" content="workflow, task, planning, EHR, EMR, reference model, openehr">
+    <meta name="generator" content="Antora 3.1.14">
+    <link rel="stylesheet" href="../../../../ui/css/site.css">
+    <link rel="stylesheet" href="../../../../ui/css/antora-openehr.css">
+    <link rel="stylesheet" href="../../../../ui/css/openehr.css">
+    <link rel="stylesheet" href="../../../../ui/css/tabs.css">
+    <link rel="stylesheet" href="../../../../ui/css/extra.css">
+<link rel="icon" href="../../../../ui/img/favicon.ico" type="image/x-icon">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://sebastian-iancu.github.io/antora-openehr">openEHR Specifications (Local Build)</a>
+
+      <div class="navbar-item search hide-for-print">
+        <div id="search-field" class="field has-filter">
+          <input id="search-input" type="text" placeholder="Search the docs">
+          <label class="filter checkbox">
+            <input type="checkbox" data-facet-filter="component:PROC"> Process Model only
+          </label>
+        </div>
+      </div>
+
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">Specifications</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://specifications.openehr.org/" target="_blank">
+              openEHR specification
+            </a>
+            <a class="navbar-item" href="https://specifications.openehr.org/releases/UML/development/index.html" target="_blank">
+              openEHR portal
+            </a>
+            <a class="navbar-item" href="https://ckm.openehr.org/ckm/" target="_blank">
+              openEHR CKM
+            </a>
+          </div>
+        </div>
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">Community</a>
+          <div class="navbar-dropdown is-right">
+            <a class="navbar-item" href="https://openehr.atlassian.net/secure/Dashboard.jspa?selectPageId=10190" target="_blank">
+              Issue trackers
+            </a>
+            <a class="navbar-item" href="https://discourse.openehr.org/" target="_blank">
+              Discourse Forum
+            </a>
+            <a class="navbar-item" href="https://specifications.openehr.org/wiki/display/spec/Specifications+Home" target="_blank">
+              Wiki
+            </a>
+            <a class="navbar-item" href="https://github.com/openEHR" target="_blank">
+              GitHub
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="PROC" data-version="development">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="../../">Process Model</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../">Overview</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../overview/">CDS, Guidelines and Planning Overview</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../overview/introduction/">Introduction</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../overview/needs/">Needs</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../overview/artefacts/">Care Process Artefacts and their Formalisation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../overview/deployment_paradigm/">Deployment Paradigm</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../overview/conceptual_architecture/">Conceptual Architecture</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../overview/deployment_architectures/">Architectural Use-cases</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../overview/appendix/">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../">Task Planning (TP) Specification</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../background/">Background</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../requirements/">Technical Requirements</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../design/">Design Principles</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../model_overview/">Task Planning Model Overview</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="./">Definition Model</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../global_semantics/">Global Semantics</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../execution_model_overview/">Execution</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../model_materialised/">Materialised Model</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../model_history/">Plan Execution History</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../service_model/">Transactional Service Model</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../ehr_semantics/">Relationship with other openEHR EHR Artefacts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../appendix/">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../decision_language/">Decision Language specification</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../decision_language/overview/">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../decision_language/dlm_syntax/">DLM Syntax</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../decision_language/dlm_model/">DLM Model</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../decision_language/dl_module/">EL Modules</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../decision_language/terminology/">Terminology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../decision_language/data_context/">Data Bindings</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../decision_language/computing_context/">Computing Bindings</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../decision_language/appendix/">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../tp_vml/">Task Planning Visual Modelling Language (TP-VML)</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../tp_vml/overview/">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../tp_vml/elements/">Elements</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../tp_vml/patterns/">Patterns</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../tp_vml/appendix/">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../process_examples/">openEHR CDS, Guidelines and Planning Examples</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../process_examples/overview/">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../process_examples/teamwork/">Teamwork</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../process_examples/order_management/">Order Management</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../process_examples/chemo/">Multi-drug Chemotherapy</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../process_examples/antenatal/">Antenatal Care</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../process_examples/cancer_prescribing/">Breast Cancer Decision Protocol</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../process_examples/Covid19_severity/">Covid19 Severity Classification</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../process_examples/cha2ds_vasc/">CHA2DS2-VASc</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../process_examples/qrisk/">qRisk3-2017</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../process_examples/news2/">National Early Warning Score (NEWS) 2</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../process_examples/common_DLMs/">Common Decision Logic Modules</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../process_examples/appendix/">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Process Model</span>
+    <span class="version">development</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <div class="title"><a href="../../../../AM/Release-2.3.0/">Archetype Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../AM/Release-2.3.0/">Release-2.3.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../AM/Release-2.2.0/">Release-2.2.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../AM/Release-1.4.0/">Release-1.4.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../AM/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../BASE/Release-1.2.0/">Base Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../BASE/Release-1.2.0/">Release-1.2.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../BASE/Release-1.1.0/">Release-1.1.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../BASE/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../CDS/development/">Clinical Decision Support</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../CDS/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../CNF/development/">Conformance Specifications</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../CNF/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../LANG/Release-1.0.0/">Generic Languages</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../LANG/Release-1.0.0/">Release-1.0.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../LANG/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../TERM/Release-3.0.0/">openEHR Terminology</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../TERM/Release-3.0.0/">Release-3.0.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../TERM/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <div class="title"><a href="../../">Process Model</a></div>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../../">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../QUERY/Release-1.0.1/">Query Languages</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../QUERY/Release-1.0.1/">Release-1.0.1</a>
+        </li>
+        <li class="version">
+          <a href="../../../../QUERY/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../RM/Release-1.1.0/">Reference Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../RM/Release-1.1.0/">Release-1.1.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../RM/Release-1.0.4/">Release-1.0.4</a>
+        </li>
+        <li class="version">
+          <a href="../../../../RM/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../ITS-REST/development/">REST API specifications</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../ITS-REST/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../SM/development/">Service Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../SM/development/">development</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../../BASE/Release-1.2.0/" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../../">Process Model</a></li>
+    <li><a href="../">Task Planning (TP) Specification</a></li>
+    <li><a href="./">Definition Model</a></li>
+  </ul>
+</nav>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Definition Model</h1>
+<div class="sect1">
+<h2 id="_overview"><a class="anchor" href="#_overview"></a><a class="link" href="#_overview">Overview</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This section describes the formal model of Work Plan and Task Plan, which is presented in UML form, as well as in TP-VML definition instance form. The following figure shows the main classes in the <code>proc.task_planning.definition</code> package.</p>
+</div>
+<div id="proc_definition_structure" class="imageblock text-center text-center">
+<div class="content">
+<img src="../../_images/uml/PROC-task_planning.definition-structure.svg" alt="PROC task planning.definition structure">
+</div>
+<div class="title">Figure 1. <code>proc.task_planning.definition</code> model overview</div>
+</div>
+<div class="paragraph">
+<p>The remaining classes are shown in various specialised views below.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_plan_structure"><a class="anchor" href="#_plan_structure"></a><a class="link" href="#_plan_structure">Plan Structure</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The top-level structure for defining plans is a <code>WORK_PLAN</code>, which includes one or more related <code>TASK_PLANs</code> making up a logical goal-oriented plan. Within a Work Plan, two distinct lists of Task Plans are maintained:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code><em>plans</em></code>: references all Task Plans;</p>
+</li>
+<li>
+<p><code><em>top_level_plans</em></code>: 'entry point' Task Plans that will be <em>unconditionally active at Work Plan activation</em> (often limited to only one).</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Non-top-level plans are those used as sub-plans within the hierarchy of a top-level Plan. A typical Work Plan / Task Plan structure is shown below in TP-VML form.</p>
+</div>
+<div id="work_task_plans" class="imageblock text-center text-center">
+<div class="content">
+<img src="../_images/diagrams/work_task_plans.svg" alt="work task plans" width="50%">
+</div>
+<div class="title">Figure 2. Work Plan top level structure</div>
+</div>
+<div class="paragraph">
+<p><code>WORK_PLAN</code> has a number of attributes relating to formal Plan representation, as follows:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code><em>context</em></code>: a data context for the Plan as a whole, which enables external variables (such as patient data items) to be tracked and updated;</p>
+</li>
+<li>
+<p><code><em>calendar</em></code>: a global calendar containing entries that relate to this Work Plan, e.g. appointments, holidays etc;</p>
+</li>
+<li>
+<p><code><em>timeline</em></code>: the global timeline for the Plan (and hence the subject) into which planned Tasks are fixed, with times specified as offsets from the zero point;</p>
+</li>
+<li>
+<p><code><em>event_wait_states</em></code>: a reference list of all Event wait instances defined in the Plan;</p>
+</li>
+<li>
+<p><code><em>order_list</em></code>: a table of references to orders being tracked in the Plan (described in <a href="#_order_tracking">Order Tracking</a> below).</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Additionally, there are the following meta-data attributes:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code><em>indications</em></code>: record clinical indications (including codes for diagnoses) for which the Work Plan can be / should be used;</p>
+</li>
+<li>
+<p><code><em>classification</em></code>: record one or more classifications of the Work Plan as a whole, e.g. business category, administrative category etc. The most common structure is likely to be a logical list (i.e. <code>ITEM_TREE</code> instance of linear list form), such that the <code><em>archetype_node_id</em></code> attribute (inherited from <code>LOCATABLE</code>) acts as the name of the category (e.g. 'org unit'), and an <code>ELEMENT</code> containing a <code>DV_TEXT</code> providing the actual category value (e.g. 'inventory management').</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Both <code>WORK_PLAN</code> and <code>TASK_PLAN</code> are descendants of <code>CONTENT_ITEM</code>, which makes them a type of content that may occur in an openEHR <code>COMPOSITION</code>. Compositions used for this purpose have their <code><em>category</em></code> attribute set to the openEHR coded term <code>|Work Plan|</code>. This enables Work Plans to be committed to the openEHR EHR.</p>
+</div>
+<div class="paragraph">
+<p>Plan internal structure is specified by the <code><em>definition</em></code> attribute of a <code>TASK_PLAN</code> is a <code>TASK_GROUP</code>, which has as its <code><em>members</em></code> any number of <code>PLAN_ITEMs</code>, which resolve either to more <code>TASK_GROUPs</code> (and some specialisations described below), or <code>TASK</code> entities.</p>
+</div>
+<div class="sect2">
+<h3 id="_the_plan_calendar"><a class="anchor" href="#_the_plan_calendar"></a><a class="link" href="#_the_plan_calendar">The Plan Calendar</a></h3>
+<div class="paragraph">
+<p>The Work Plan <code><em>calendar</em></code> consists of Plan-related entries fixed in time, as per the usual notion of a person&#8217;s or organisational calendar. These will normally be a small subset of entries from a/the work management calendar of the organisation in whose IT system the Work Plans are used. A Plan calendar event can be used as the basis for a wait state (<code>TASK_WAIT.<em>events</em></code>) for Tasks in the Plan, either to indicate that something should be done on the date/time of the calendar event, or with a certain delay. Calendar events may include organisational events, national holidays and patient appointments. Wait states of the form '2 weeks after Easter Sunday' and '24 week ante-natal review (10 Feb 2019)' can therefore be defined in a Plan.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_plan_items"><a class="anchor" href="#_plan_items"></a><a class="link" href="#_plan_items">Plan Items</a></h3>
+<div class="paragraph">
+<p>The <code>PLAN_ITEM</code> class is the parent of all fine-grained elements of a Task Plan, which are either <code>TASKs</code> or <code>TASK_GROUPs</code>. It has a mandatory <code><em>description</em></code> attribute, which represents a natural language specification of the work of the Task.</p>
+</div>
+<div class="sect3">
+<h4 id="_wait_states"><a class="anchor" href="#_wait_states"></a><a class="link" href="#_wait_states">Wait States</a></h4>
+<div class="paragraph">
+<p><code>PLAN_ITEM</code> also has two optional attributes that control the timing behaviour of Task Plan elements: <code><em>wait_spec</em></code> and <code><em>repeat_spec</em></code>. The first enables a wait state (described above under <a href="#_time_and_wait_states">[_time_and_wait_states]</a>) to be applied to a Task or Group, which is triggered by time-related Events (clock time, reaching a point in a calendar) or other kinds of Events (external notifications etc). This allows the timing of a Task to be specified.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_repetition"><a class="anchor" href="#_repetition"></a><a class="link" href="#_repetition">Repetition</a></h4>
+<div class="paragraph">
+<p>The second attribute, <code><em>repeat_spec</em></code> of type <code>TASK_REPEAT</code> enables a Task or Group to be marked as repeating. This is not intended to replace the use of individual Task instances over time, such as repeated medication administrations, but rather to be used to indicate if larger sections (i.e. Task Groups) of planned Tasks are repeatable. Where repeats are specified, they will be unrolled into literal copies in the materialised expression of the Plan.</p>
+</div>
+<div class="paragraph">
+<p>Repeat behaviour is specified in terms of the attributes <code><em>repeats</em></code>, <code><em>terminate_condition</em></code> and <code><em>period</em></code>. The first indicates the minimum and maximum number of repeats that may occur. Repetition occurs until the minimum number of repeats (i.e. <code><em>repeats.lower</em></code>) is reached. Following that, if <code><em>terminate_condition</em></code> is set, it is evaluated <em>prior</em> to each further potential iteration. Repetition will cease when <code><em>terminate_condition</em></code> becomes True or else when <code><em>repeats.upper</em></code> is reached (assuming no plan abandonment or other exceptions).</p>
+</div>
+<div class="paragraph">
+<p>The optional <code><em>period</em></code> attribute defines the period of repetition. If the latter is not defined, each repetition commences according to the application of Task availability rules already defined on the individual Tasks and/or Groups; this will typically lead to each repeat executing as soon as the preceding one has completed. If set, the <code><em>period</em></code> will have the effect of spacing iterations out over time. Its value should be greater than the duration of a single iteration, since at execution time, a new iteration can only begin after completion of the previous one.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_other_attributes"><a class="anchor" href="#_other_attributes"></a><a class="link" href="#_other_attributes">Other Attributes</a></h4>
+<div class="paragraph">
+<p>Two archetypable structure attributes are defined on <code>PLAN_ITEM</code>. The first, <code><em>classification</em></code>, is designed to allow any Task Group or Task to be tagged with one or more classifications, and has the same structural definition at <code>WORK_PLAN.<em>classification</em></code>.</p>
+</div>
+<div class="paragraph">
+<p>The second, <code>other_details</code> is provided to support extensions, in the same manner as elsewhere in openEHR information models.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_lifecycle_state"><a class="anchor" href="#_lifecycle_state"></a><a class="link" href="#_lifecycle_state">Lifecycle State</a></h3>
+<div class="paragraph">
+<p>At execution time, every Plan Item (i.e. Task and Group) notionally has a <em>lifecycle state</em>, represented by a state machine, containing states and transitions reflecting possible actions by the performer. The lifecycle state of a Task is set by the TP engine and affected directly by performer actions and other logic, while the lifecycle state of a Group is aggregated from the state values of its member Tasks and Groups.</p>
+</div>
+<div class="paragraph">
+<p>The lifecycle state does not appear directly as a data attribute on the <code>PLAN_ITEM</code> or <code>TASK</code> classes since it is a runtime variable for a Task. Accordingly, it appears in the materialised model, <a href="#Materialised Model">described below</a>. It is however useful to decribe the lifecycle state here, since it represents a key part of Task Plan semantics, and influences whether Tasks (and thus Groups) fail or complete, and potentially whether the Plan continues in execution.</p>
+</div>
+<div class="paragraph">
+<p>The state machine is shown below.</p>
+</div>
+<div id="task_state_machine" class="imageblock text-center text-center">
+<div class="content">
+<img src="../../_images/uml/PROC-TaskStateMachine.svg" alt="PROC TaskStateMachine" width="80%">
+</div>
+<div class="title">Figure 3. Task lifecycle state machine</div>
+</div>
+<div class="paragraph">
+<p>The state machine is designed to represent both stateless and stateful views of the actual execution state of a Task in the real world. The standard pathway is <code>available</code> &#8658; <code>completed</code> or <code>abandoned</code> or <code>cancelled</code>, which enables a user to indicate the outcome of executing a Task, without having to report interim states during execution in the real world. The pathway through the state <code>underway</code> allows longer-running Tasks to be represented as being worked on. The <code>suspended</code> state is used to represent long-running Tasks that have been put on hold, i.e. are not currently being actively worked on, but are still considered to be underway.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Task lifecycle only accounts for the states of a Task itself; states of an order (e.g. prescription, lab request) with which the Task may be associated will be visible in the documentation for those objects, e.g. openEHR <code>ACTION</code> or other Entry objects.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The lifecycle states are described by the <code>TASK_LIFECYCLE</code> enumeration below.</p>
+</div>
+<div class="paragraph">
+<p>Unresolved include directive in modules/task_planning/partials/2-definition_plan.adoc - include::ROOT:partial$classes/task_lifecycle.adoc[]</p>
+</div>
+<div class="sect3">
+<h4 id="_task_availability"><a class="anchor" href="#_task_availability"></a><a class="link" href="#_task_availability">Task Availability</a></h4>
+<div class="paragraph">
+<p>Each Task in a new Plan execution starts in the <code>initial</code> state. Following the design principle <a href="#Allocation">described earlier</a>, the execution engine executing a Task Plan can determine the <em>availability</em> i.e., when the transition <code>planned</code> &#8658; <code>available</code> may occur for any Task as follows:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><em>control-flow</em>: preceding Tasks / Groups within the owning Task Group are in the <code>completed</code> or <code>cancelled</code> state;</p>
+</li>
+<li>
+<p><em>wait state</em>: any Task or Group wait state has been exited due to the arrival of the relevant events (including time-related);</p>
+</li>
+<li>
+<p><em>subject preconditions</em>: subject preconditions attached to the current Task Action are satisfied.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>A Task is considered <code>available</code> according to this logic even if performer and/or resources have not been allocated. Availability in this sense is the equivalent of the 'enabled' state of a task within a Workflow Net, described in <span class="citation"><a href="#bibliography_entry_Hofstede_van_der_Aalst2009">[1]</a></span>, section 2.3.2.</p>
+</div>
+<div class="paragraph">
+<p>The workflow application may provide an override capability so that a Task can be performed before it is determined to be available. This would enable a user to perform the Task anyway, forcing the lifecycle transition <code><em>override</em></code> from <code>planned</code> to <code>available</code>. A corresponding <code>TASK_EVENT_RECORD</code> is created recording the use of the override.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_aggregate_process_state"><a class="anchor" href="#_aggregate_process_state"></a><a class="link" href="#_aggregate_process_state">Aggregate Process State</a></h4>
+<div class="paragraph">
+<p>The effective state of a Task Group, Task Plan and Work Plan can be inferred from the lifecycle states of the Tasks, according to logic described in <a href="#Aggregate Lifecycle State">[Aggregate Lifecycle State]</a>. This includes availability of Task Groups containing parallel paths with associated OR logic, i.e. the equivalent of the OR-join in YAWL (<span class="citation"><a href="#bibliography_entry_Hofstede_van_der_Aalst2009">[1]</a></span>, section 3.2).</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_references_to_clinical_quality_artefacts"><a class="anchor" href="#_references_to_clinical_quality_artefacts"></a><a class="link" href="#_references_to_clinical_quality_artefacts">References to Clinical Quality Artefacts</a></h3>
+<div class="paragraph">
+<p>The classes <code>WORK_PLAN</code> and <code>TASK_PLAN</code> may contain various references to externally defined clinical quality artefacts that they are based on or relate to, as follows:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>In <code>WORK_PLAN</code>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code><em>care_pathway</em></code>: a reference to a published care pathway from which this Work Plan was derived, if any;</p>
+</li>
+<li>
+<p><code><em>care_plan</em></code>: a machine reference to an underpinning Care Plan from elsewhere in the EHR, if any exists;</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>In <code>TASK_PLAN</code>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code><em>guideline</em></code>: reference to a published guideline (used by <code>WORK_PLAN.<em>care_pathway</em></code>, if set) from which this particular Task Plan was derived, if any;</p>
+</li>
+<li>
+<p><code><em>best_practice_ref</em></code>: reference to an institutional document that defines the best practice on which this Task Plan is based, if any;</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>In <code>PLAN_ITEM</code>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code><em>guideline_step</em></code>: reference to a step within the <code><em>guideline</em></code> referenced by the current Task Plan or the <code><em>care_pathway</em></code> of the Work Plan, which is the basis of this Plan Item, i.e. single Task or Task Group.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>In addition, where a Task Plan is driven by an order set, two attributes are provided to record the details:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>In <code>TASK_PLAN</code>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code><em>order_set_type</em></code>: the identifier of a type of Order Set which this Task Plan uses, if any;</p>
+</li>
+<li>
+<p><code><em>order_set_id</em></code>: the identifier of a specific Order Set which this Task Plan uses, if any.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Lastly, the <code><em>workflow_id</em></code> attribute defined in <code>ENTRY</code> may be set within <code>INSTRUCTION</code> and <code>ACTION</code> to refer to the Order Set instance used in this Task Plan, if set.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_class_definitions"><a class="anchor" href="#_class_definitions"></a><a class="link" href="#_class_definitions">Class Definitions</a></h3>
+<div class="paragraph">
+<p>Unresolved include directive in modules/task_planning/partials/2-definition_plan.adoc - include::ROOT:partial$classes/work_plan.adoc[]</p>
+</div>
+<div class="paragraph">
+<p>Unresolved include directive in modules/task_planning/partials/2-definition_plan.adoc - include::ROOT:partial$classes/plan_calendar.adoc[]</p>
+</div>
+<div class="paragraph">
+<p>Unresolved include directive in modules/task_planning/partials/2-definition_plan.adoc - include::ROOT:partial$classes/plan_timeline.adoc[]</p>
+</div>
+<div class="paragraph">
+<p>Unresolved include directive in modules/task_planning/partials/2-definition_plan.adoc - include::ROOT:partial$classes/calendar_entry.adoc[]</p>
+</div>
+<div class="paragraph">
+<p>Unresolved include directive in modules/task_planning/partials/2-definition_plan.adoc - include::ROOT:partial$classes/task_plan.adoc[]</p>
+</div>
+<div class="paragraph">
+<p>Unresolved include directive in modules/task_planning/partials/2-definition_plan.adoc - include::ROOT:partial$classes/task_participation.adoc[]</p>
+</div>
+<div class="paragraph">
+<p>Unresolved include directive in modules/task_planning/partials/2-definition_plan.adoc - include::ROOT:partial$classes/plan_item.adoc[]</p>
+</div>
+<div class="paragraph">
+<p>Unresolved include directive in modules/task_planning/partials/2-definition_plan.adoc - include::ROOT:partial$classes/task_repeat.adoc[]</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_task_group_structure"><a class="anchor" href="#_task_group_structure"></a><a class="link" href="#_task_group_structure">Task Group Structure</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The set of Tasks in a Task Plan is represented within a containment structure created using instances of the <code>TASK_GROUP</code> class, which has three key attributes. Execution of a Group is primarily controlled by the <code><em>execution_type</em></code> and <code><em>concurrency_mode</em></code> attributes, which respectively indicate sequential or parallel processing, and for the latter case, various modes of <code>and</code> and <code>or</code> parallel processing logic (described in the next section), common to workflow formalisms. For more exotic situations, the <code><em>execution_rules</em></code> attribute can be used.</p>
+</div>
+<div class="paragraph">
+<p><code>TASK_GROUP</code> also has a <code><em>training_level</em></code> attribute which enables different visibility of Sub-Plans to users with different experience levels. This is described more fully <a href="#_training_level">below</a>.</p>
+</div>
+<div class="paragraph">
+<p>The Task Group construct enables two important ways to relate Tasks together:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>as a <em>module</em> of work consisting of a series of Tasks, achieved by a Task Group with <code><em>execution_type</em> = sequential</code>;</p>
+</li>
+<li>
+<p>as a set of possible or mandatory <em>concurrent threads of work</em>, achieved by a Task Group with <code><em>execution_type</em> = parallel</code>.</p>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="_sequential_task_groups"><a class="anchor" href="#_sequential_task_groups"></a><a class="link" href="#_sequential_task_groups">Sequential Task Groups</a></h3>
+<div class="paragraph">
+<p>A sequential Task Group corresponds to a single thread of processing at execution time, in which each of the Tasks becomes available to the worker (i.e. Task Plan&#8217;s <code><em>principal_performer</em></code>) <em>in order</em>, and according to the specific conditions associated with each Task. The following illustrates a sequential Task Group in TP-VML. Note that although there is visually an end-group icon (right hand end), there is no separate class or instance in the model - both the start-group and end-group icons visually represent the <code>TASK_GROUP</code> as a logical container.</p>
+</div>
+<div id="task_group_sequential" class="imageblock text-center text-center">
+<div class="content">
+<img src="../_images/diagrams/task_group_sequential.svg" alt="task group sequential" width="45%">
+</div>
+<div class="title">Figure 4. Sequential Task Group</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_parallel_task_groups_and_concurrency"><a class="anchor" href="#_parallel_task_groups_and_concurrency"></a><a class="link" href="#_parallel_task_groups_and_concurrency">Parallel Task Groups and Concurrency</a></h3>
+<div class="paragraph">
+<p>The parallel Task Group represents a different degree of complexity, since it enables concurrent threads of work at execution time. In terms of YAWL and Petri net workflow theory, a parallel Task Group corresponds to paired <em>split</em> and <em>join</em> points. The following illustrates a parallel Task Group in TP-VML. The multi-point shape of the exit and entry elements is intended to convey the idea of multiple possible branches (the limitation of 3 points is purely visual, semantically, any number of branches is supported).</p>
+</div>
+<div id="task_group_parallel" class="imageblock text-center text-center">
+<div class="content">
+<img src="../_images/diagrams/task_group_parallel.svg" alt="task group parallel" width="25%">
+</div>
+<div class="title">Figure 5. Parallel Task Group</div>
+</div>
+<div class="paragraph">
+<p>The first difference between a parallel Group and a sequential one is that when a parallel Group is arrived at in the control flow, once any wait state is satisfied, the first Task in <em>all of the outgoing branches</em> is made <code>available</code>. Subsequent execution behaviour depends on the type of split and join logic (i.e. AND, OR, XOR, or other) which is represented by the attribute <code>TASK_GROUP.<em>concurrency_mode</em></code>, whose possible values indicate to the execution engine three things:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>how many branches may be commenced;</p>
+</li>
+<li>
+<p>how commencing a branches affects other branches;</p>
+</li>
+<li>
+<p>under what conditions to consider the group has completed.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Here, the notion of 'completion' corresponds to the <code>completed</code> state in the Task lifecycle state machine described earlier, inferred from the completion states of the items in the branches. The detail of how Task Group lifecycle state is aggregated from contained items is described in detail in <a href="#Aggregate Lifecycle State">[Aggregate Lifecycle State]</a>. Here we describe only the logic determining the <code>completed</code> state, for the sake of simplicity.</p>
+</div>
+<div class="paragraph">
+<p>The AND case is the simplest, since there is no conditional processing - all paths must be followed. An AND Group essentially represents work that should be performed, but for which the ordering is more relaxed than for a strict sequential Group.</p>
+</div>
+<div class="paragraph">
+<p>The XOR case represents a 1/N choice, and is understood in this specification as representing the <em>intent</em> that only one path can sensibly be followed, usually because the branches are mutually exclusive alternatives in reality. Consequently, in execution, an XOR Group is processed such that as soon as one branch is chosen by a performer transitioning a Task from the <code>available</code> state, <em>the first Task in all remaining branches is transitioned to</em> <code>cancelled</code>, effectively cancelling the non-chosen branches. In this case completion is also trivial to determine.</p>
+</div>
+<div class="paragraph">
+<p>However the OR case is more complicated. A minimal interpretation of 'OR' logic is that as soon as one branch in the Group completes, the Group is considered <code>completed</code>, and no more Tasks from other branches are available to perform. A maximal interpretation is that Group completion is achieved only when every path commenced completes. The model represents these two cases explicitly, via the values <code>or_first_completed</code> and <code>or_all_started</code> respectively of <code>TASK_GROUP.<em>concurrency_mode</em></code>.</p>
+</div>
+<div class="paragraph">
+<p>The following table summarises the semantics of the four concurrency modes.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 10%;">
+<col style="width: 10%;">
+<col style="width: 30%;">
+<col style="width: 30%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Concurrency mode</th>
+<th class="tableblock halign-left valign-top">TP-VML</th>
+<th class="tableblock halign-left valign-top">Logic</th>
+<th class="tableblock halign-left valign-top">Split<br>
+                                     behaviour</th>
+<th class="tableblock halign-left valign-top">Join<br>
+                                                behaviour</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>and_all_paths</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div id="task_group_parallel_and" class="imageblock">
+<div class="content">
+<img src="../_images/diagrams/task_group_parallel_and.svg" alt="task group parallel and">
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AND</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">All branches are followed.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Group completes when all branches complete.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>xor_one_path</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div id="task_group_parallel_xor" class="imageblock">
+<div class="content">
+<img src="../_images/diagrams/task_group_parallel_xor.svg" alt="task group parallel xor">
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">XOR</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Only one branch can be started; once a branch is commenced, the first Task in remaining branches is transitioned to <code>cancelled</code>.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Group completes when the started branch completes; equivalent to a sequential Group, once a branch is chosen.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>or_all_started</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div id="task_group_parallel_or_all" class="imageblock">
+<div class="content">
+<img src="../_images/diagrams/task_group_parallel_or_all.svg" alt="task group parallel or all">
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">partial AND</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">One or more branches may be commence.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The Group is complete when all branches commenced have completed; equivalent to an AND consisting of all commenced branches.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>or_first_completed</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div id="task_group_parallel_or_first" class="imageblock">
+<div class="content">
+<img src="../_images/diagrams/task_group_parallel_or_first.svg" alt="task group parallel or first">
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">OR</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">One or more branches may be commenced.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The Group is complete when one branch completes.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>The parallel / concurrent semantics attached to the Task Group do not indicate anything about decisional processing, i.e. the conditions that might be used to choose outgoing paths from the split point represented by a Task Group in the XOR and OR logic cases. Consequently, the choice of path(s) to follow in the parallel case is determined <em>by the performer, not the system</em>. In order to specify conditions on paths, the conditional subtypes <a href="#_decision_structures">described below</a> are used.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_hierarchical_nesting"><a class="anchor" href="#_hierarchical_nesting"></a><a class="link" href="#_hierarchical_nesting">Hierarchical Nesting</a></h3>
+<div class="paragraph">
+<p>Task Groups of sequential and parallel types may be mixed in a hierarchical fashion. One structure is such that the overall work of a Task Plan is defined as a sequential Group in which some members are a parallel Group, as shown below.</p>
+</div>
+<div id="task_grouping" class="imageblock text-center text-center">
+<div class="content">
+<img src="../_images/diagrams/task_grouping.svg" alt="task grouping" width="75%">
+</div>
+<div class="title">Figure 6. Nested Task grouping - sequential structure</div>
+</div>
+<div class="paragraph">
+<p>Similarly, the outermost Group may be parallel, with the work being defined as sections of sequential work situated within a parallel Task Group, as shown below.</p>
+</div>
+<div id="task_grouping2" class="imageblock text-center text-center">
+<div class="content">
+<img src="../_images/diagrams/task_grouping2.svg" alt="task grouping2" width="75%">
+</div>
+<div class="title">Figure 7. Nested Task grouping - parallel chains</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_generic_execution_time_semantics"><a class="anchor" href="#_generic_execution_time_semantics"></a><a class="link" href="#_generic_execution_time_semantics">Generic Execution-time Semantics</a></h3>
+<div class="paragraph">
+<p>The combination of the Task Group / Task hierachical pattern, which implicitly defines the graph structure of the 'normal flow' of a Task Plan, and the generic control attributes defined on <code>TASK</code> and its descendant types enable a significant amount of execution-time Plan processing to be implemented independently of any specific Task semantics.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_well_formedness"><a class="anchor" href="#_well_formedness"></a><a class="link" href="#_well_formedness">Well-formedness</a></h3>
+<div class="paragraph">
+<p>A significant consequence of the Task Group construct in the TP model is that each Task Group forms a sub-network within its container, where a <em>network</em> is understood in the graph theory sense of a directed graph with a start <code>s</code> and terminal node <code>t</code>, containing paths from <code>s</code> to <code>t</code> n which all member elements are found. This holds for descendant types of <code>TASK_GROUP</code>, including the <a href="#_decision_structures">Decision Structures</a> described below. This is a more limited form of connectivity than allowed in YAWL or BPMN, which do not require matched split and join points.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_training_level"><a class="anchor" href="#_training_level"></a><a class="link" href="#_training_level">Training Level</a></h3>
+<div class="paragraph">
+<p>One challenge with creating Task Plan definitions is the level of detail to use, with respect to the variable level of skill of different performers. For a senior nurse, a briefer version of the Plan would be preferable with actions such as 'set up IV with catheter' being a single atom, whereas a trainee may need to see a more detailed set of sub-tasks.</p>
+</div>
+<div class="paragraph">
+<p>To enable a single Plan to be used in both ways, the concept of 'training level' is included in the model, on the <code>TASK_GROUP</code> class. This enables any Group of Tasks to be marked as having a specific training level, where a higher number corresponds to less experience. At execution time, the training level of the allocated performer can be obtained, and then used in comparison to the training level indicated on each Group (including the top-level Group of the whole Plan). If the user training level is higher, then the Group may be shown only as a single step (using its <code><em>description</em></code>, inherited from <code>PLAN_ITEM</code>); otherwise it may be shown as the set of sub-steps. This provides a simple way for the same Plan to be presented in different forms matching different performer experience levels.</p>
+</div>
+<div class="paragraph">
+<p>The default value of <code><em>training_level</em></code> is 0.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_class_definitions_2"><a class="anchor" href="#_class_definitions_2"></a><a class="link" href="#_class_definitions_2">Class Definitions</a></h3>
+<div class="paragraph">
+<p>Unresolved include directive in modules/task_planning/partials/3-definition_task_plan.adoc - include::ROOT:partial$classes/task_group.adoc[]</p>
+</div>
+<div class="paragraph">
+<p>Unresolved include directive in modules/task_planning/partials/3-definition_task_plan.adoc - include::ROOT:partial$classes/execution_type.adoc[]</p>
+</div>
+<div class="paragraph">
+<p>Unresolved include directive in modules/task_planning/partials/3-definition_task_plan.adoc - include::ROOT:partial$classes/concurrency_mode.adoc[]</p>
+</div>
+<div class="paragraph">
+<p>Unresolved include directive in modules/task_planning/partials/3-definition_task_plan.adoc - include::ROOT:partial$classes/execution_rule.adoc[]</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_general_task_semantics"><a class="anchor" href="#_general_task_semantics"></a><a class="link" href="#_general_task_semantics">General Task Semantics</a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_dispatchable_and_performable_tasks"><a class="anchor" href="#_dispatchable_and_performable_tasks"></a><a class="link" href="#_dispatchable_and_performable_tasks">Dispatchable and Performable Tasks</a></h3>
+<div class="paragraph">
+<p>Tasks are represented by the <code>TASK</code> class whose two concrete sub-types distinguish the two basic flavours of Task, namely <em>dispatchable</em> and <em>performable</em>. <code>TASK</code> is a generic (i.e. templated) class, whose generic parameter is constrained to the type <code>TASK_ACTION</code>, the latter of whose subtypes defined the particular kinds of Tasks available.</p>
+</div>
+<div class="paragraph">
+<p>The <code>DISPATCHABLE_TASK&lt;T&gt;</code> class has two attributes to do with managing context change and callback. The <code><em>wait</em></code> flag indicates whether the current Task waits (i.e. blocks) while the dispatched work is performed, or whether it continues on asynchronously. The first constitutes a context switch, the second a context fork. The <code><em>callback</em></code> attribute attaches a special kind of Event wait state that is triggered on receipt of a callback. How callbacks function in detail is <a href="#_callbacks">described below</a>.</p>
+</div>
+<div class="paragraph">
+<p>There are some key differences between the two kinds of Task as shown in the following table.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 14.2857%;">
+<col style="width: 42.8571%;">
+<col style="width: 42.8572%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Task Type</th>
+<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Lifecycle state</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Performable</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Task performed by the current performer.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Advanced by actions of performer (real world actor)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Dispatchable</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A Task whose work is dispatched for execution to another performer or system.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>wait</em> = <code>True</code>: Advanced by receipt of callback notification<br>
+                                                                                                <em>wait</em> = <code>False</code>: Automatically advanced to <code>completed</code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_class_definitions_3"><a class="anchor" href="#_class_definitions_3"></a><a class="link" href="#_class_definitions_3">Class Definitions</a></h3>
+<div class="paragraph">
+<p>Unresolved include directive in modules/task_planning/partials/4-definition_task_semantics.adoc - include::ROOT:partial$classes/task.adoc[]</p>
+</div>
+<div class="paragraph">
+<p>Unresolved include directive in modules/task_planning/partials/4-definition_task_semantics.adoc - include::ROOT:partial$classes/dispatchable_task.adoc[]</p>
+</div>
+<div class="paragraph">
+<p>Unresolved include directive in modules/task_planning/partials/4-definition_task_semantics.adoc - include::ROOT:partial$classes/performable_task.adoc[]</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_task_actions"><a class="anchor" href="#_task_actions"></a><a class="link" href="#_task_actions">Task Actions</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The specific definition of the work of Tasks is provided by <code>TASK.<em>action</em></code>, of type <code>TASK_ACTION</code> and its subtypes. Two abstract sub-types <code>DISPATCHABLE_ACTION</code> and <code>PERFORMABLE_ACTION</code> distinguish the <em>dispatchable</em> and <em>performable</em> flavours of Task Action, corresponding to the two <code>TASK</code> subtypes. The following UML diagram shows <code>TASK_ACTION</code> and its subtypes in detail.</p>
+</div>
+<div id="rm_definition_actions" class="imageblock text-center text-center">
+<div class="content">
+<img src="../../_images/uml/PROC-task_planning.definition-actions.svg" alt="PROC task planning.definition actions">
+</div>
+<div class="title">Figure 8. <code>proc.task_planning.definition</code> model - Task Actions</div>
+</div>
+<div class="paragraph">
+<p><code>TASK_ACTION</code> includes two attributes that apply to all subtypes. The first is <code><em>subject_preconditions</em></code>, which enables subject-related preconditions to be expressed, i.e. conditions referencing variables relating to the subject such as vital signs. These preconditions can be understood as conditions for safe processing, and should either be satisfied before proceeding, or else overridden by a competent performer who understands the implications.</p>
+</div>
+<div class="paragraph">
+<p>A subject precondition is formally represented as a <code>BOOLEAN_CONTEXT_EXPRESSION</code>, whose <code><em>expression</em></code> value is a string in <a href="https://specifications.openehr.org/releases/LANG/latest/EL.html" target="_blank" rel="noopener">openEHR Expression Language</a> syntax.</p>
+</div>
+<div class="paragraph">
+<p>Pre-conditions are evaluated at the point at which the Task to which they are attached becomes available during execution. If any pre-condition evaluates to False, the Task is in theory unable to be performed. A clinical professional may override at execution time, since it may always be the case that particular circumstances obviate the need for a particular pre-condition that normally applies.</p>
+</div>
+<div class="paragraph">
+<p>The second generally applicable attribute is <code><em>costing_data</em></code>, since cost information may clearly be relevant to any Plan item. Costing is dealt with in detail below.</p>
+</div>
+<div class="paragraph">
+<p>Performable Actions have two attributes. The <code><em>other_participations</em></code> and <code><em>resources</em></code> attributes allow other performers and passive resources to be defined for an Action. Both are subject to an allocation process at execution time, similar to that of the <code><em>principal_performer</em></code>.</p>
+</div>
+<div class="paragraph">
+<p>The subtypes of <code>TASK_ACTION</code> consist of the following:</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 14.2857%;">
+<col style="width: 14.2857%;">
+<col style="width: 71.4286%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">TP-VML</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DEFINED_ACTION</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div id="task_defined_task" class="imageblock">
+<div class="content">
+<img src="../_images/diagrams/task-defined_task.svg" alt="task defined task">
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">An inline-defined Task to be performed by the principal performer of the Group (see below for details);</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>SUB_PLAN</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div id="task_sub_plan" class="imageblock">
+<div class="content">
+<img src="../_images/diagrams/task-sub_plan.svg" alt="task sub plan">
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A kind of Task that stands for another Task Plan (identified by the inherited <code>LINKED_PLAN.<em>target</em></code> attribute) to be performed by the current performer - usually a fine-grained set of steps designed to achieve the result of this Task.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>SYSTEM_REQUEST</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div id="task_system_request" class="imageblock">
+<div class="content">
+<img src="../_images/diagrams/task-system_request.svg" alt="task system request">
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A kind of Task that consists of a request to a computational system, such as a data retrieval or procedure call, on behalf of the current performer;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>HAND_OFF</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div id="task_hand_off" class="imageblock">
+<div class="content">
+<img src="../_images/diagrams/task-hand_off.svg" alt="task hand off">
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A kind of Task that hands off to another Task Plan in the same Work Plan, having a different performer (identified via the <code><em>target</em></code> attribute inherited from <code>LINKED_PLAN</code>);</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>EXTERNAL_REQUEST</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div id="task_external_request" class="imageblock">
+<div class="content">
+<img src="../_images/diagrams/task-external_request.svg" alt="task external request">
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A Task type that consists of a request to an external organisational entity that is outside the current Work Plan and its execution environment, on behalf of the current performer;</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>The following sections provide more detail on some of these model features.</p>
+</div>
+<div class="sect2">
+<h3 id="_performable_actions"><a class="anchor" href="#_performable_actions"></a><a class="link" href="#_performable_actions">Performable Actions</a></h3>
+<div class="sect3">
+<h4 id="_sub_plans_and_re_use"><a class="anchor" href="#_sub_plans_and_re_use"></a><a class="link" href="#_sub_plans_and_re_use">Sub-plans and Re-use</a></h4>
+<div class="paragraph">
+<p>As described above, multiple Task Plans may be used to define a single logical plan of work. This occurs for two main reasons:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><em>re-use</em>: Task Plans that can be used on their own, e.g. 'set up IV drip', are combined within a larger plan;</p>
+</li>
+<li>
+<p><em>level of granularity</em>: a Task Plan can contain Tasks that can be represented as finer-grained Task Plans, which may potentially be used or passed over depending on the level of experience, known here as <em>training level</em> of the performer.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The following instance diagram illustrates.</p>
+</div>
+<div id="task_linking" class="imageblock text-center text-center">
+<div class="content">
+<img src="../_images/diagrams/task_linking.svg" alt="task linking">
+</div>
+<div class="title">Figure 9. Task Plan linking</div>
+</div>
+<div class="paragraph">
+<p>This shows a Plan for dialysis with a single performer, 'dialysis nurse', and several sub-plans, each referred to by an instance of the <code>SUB_PLAN</code> class. Since a Sub-plan is a kind of Task, it has a <em>description</em> and could be performed and signed off as if it were a normal inline <code>DEFINED_ACTION</code> by an experienced performer (training level high), or it might be entered into by a performer such as a trainee nurse. The <code>TASK_GROUP.<em>training_level</em></code> attribute can be used to set the experience level of sub-plans if required; implementing this behaviour at execution time would rely in the Plan execution engine using this setting.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_inline_defined_actions"><a class="anchor" href="#_inline_defined_actions"></a><a class="link" href="#_inline_defined_actions">Inline Defined Actions</a></h4>
+<div class="paragraph">
+<p>Tasks whose definitions are stated within a Task Plan are modelled using the <code>DEFINED_ACTION</code> type. A detailed specification of the work to be done in a Defined Action  may be stated via optional atttribute <code><em>prototype</em></code> of type <code>ENTRY</code>, which enables the details of a Task to be specified in terms of a descendant of the <code>ENTRY</code> class. This is typically an <code>ACTION</code> instance but could be an <code>OBSERVATION</code>, <code>ADMIN_ENTRY</code> or other descendant. The following view of the UML illustrates.</p>
+</div>
+<div id="proc_task_planning_definition_defined_task" class="imageblock text-center text-center">
+<div class="content">
+<img src="../../_images/uml/PROC-task_planning.definition-defined_task.svg" alt="PROC task planning.definition defined task" width="50%">
+</div>
+<div class="title">Figure 10. proc.task_planning.definition - Definition Task</div>
+</div>
+<div class="paragraph">
+<p>The attribute is called 'prototype' because the target Entry instance is understood as a partially populated, prototype 'planning time' partial copy of an Entry that will be created when the Task is actually performed. For example, a Task Plan for administering medication at 8 hourly intervals over a number of days could consist of a number of <code>DEFINED_ACTIONs</code>, each having a protoype of an <code>ACTION</code> instance based on the <code>openEHR-EHR-ACTION.medication.v1</code> archetype or a templated version thereof. Each such instance would contain the structured description of the medication administration and time, and when the administration was actually performed, an <code>ACTION</code> instance would be created from the prototype, modified to reflect any divergence from the planned form of the Task, and committed to the EHR in the normal way.</p>
+</div>
+<div class="paragraph">
+<p>The following illustrates Task definitions using prototypes.</p>
+</div>
+<div id="task_definition" class="imageblock text-center text-center">
+<div class="content">
+<img src="../_images/diagrams/task_definition.svg" alt="task definition" width="55%">
+</div>
+<div class="title">Figure 11. Task definition</div>
+</div>
+<div class="paragraph">
+<p>Assuming that the Task Plan is archetyped in the same way as Entries and other elements of the EHR, this scheme supports various modes of design-time specification. The <code><em>prototype</em></code> attribute in a <code>TASK_PLAN</code> archetype will usually be represented by an archetype slot or external reference, which specifies identifiers of permitted archetypes (or templates) of the target type, i.e. <code>ACTION</code> or other Entry. This can be used in various ways, as follows:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://specifications.openehr.org/releases/AM/latest/ADL2.html#_external_references">external reference</a>: specifies a fixed archetype identifier which will be substituted in the templated form of the Task Plan. This has the effect of creating <code>ACTION</code> or other prototype instances in the <code>TASK_PLAN</code> structure;</p>
+</li>
+<li>
+<p><a href="https://specifications.openehr.org/releases/AM/latest/ADL2.html#_archetype_slots">archetype slot</a>: specified using a slot constraint that is satisfied by one or more archetypes that may be specified by a template, or left open until runtime.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>In the latter case, the slot may be filled in the Task Plan template with an <code>ACTION</code> or other Entry archetype, allowing the Tasks to be fully specified inline as in the external reference case. Alternatively, it may be left unresolved, which would allow the workflow application to choose the exact Task definition archetype at runtime.</p>
+</div>
+<div class="paragraph">
+<p>One reason to allow a Task to contain a <code><em>prototype</em></code> reference that remains unresolved until runtime is if the Task represents the act of making an observation, for example, taking a blood pressure. In such cases, no prototype at all may be needed, and the Task <code><em>description</em></code> attribute (inherited from <code>PLAN_ITEM</code>) may be sufficient information for the performer. On the other hand, a prototype <code>OBSERVATION</code> could be specified in the <code>TASK_PLAN</code> template, which defines a particular form of the observation, e.g. a blood pressure which only records mean arterial pressure and cuff size.</p>
+</div>
+<div class="paragraph">
+<p>To allow further flexibility, The multiplicity of the <code><em>prototype</em></code> attribute is unlimited, to allow for the possibility of one Task being prototyped by more than one Entry instance, e.g. an <code>ACTION</code> and an <code>OBSERVATION</code>, two <code>ADMIN_ENTRY</code> instances and so on.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_dispatchable_actions"><a class="anchor" href="#_dispatchable_actions"></a><a class="link" href="#_dispatchable_actions">Dispatchable Actions</a></h3>
+<div class="paragraph">
+<p>The type <code>DISPATCHABLE_ACTION</code> is the abstract parent of various Action subtypes that represent work requested to be done by some other agent, i.e. external to the current Task Plan. The three sub-types correspond to 3 different types of other performer, i.e.:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>HAND_OFF</code>: another principle performer in the same Work Plan;</p>
+</li>
+<li>
+<p><code>EXTERNAL_REQUEST</code>: a performer outside the current Work Plan computational environment.</p>
+</li>
+<li>
+<p><code>SYSTEM_REQUEST</code>: a computation to be performed by a system call;</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The general execution scheme for such Actions is as follows:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><em>dispatch</em> the work request to a target actor or service;</p>
+</li>
+<li>
+<p><em>block or continue</em>, according to the <code><em>wait</em></code> flag, which determines switch or fork behaviour; and</p>
+</li>
+<li>
+<p>process any <em>callback notification</em>, specified via the <code><em>callback</em></code> attribute.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The following sub-sections described the various subtypes of <code>DISPATCHABLE_ACTION</code>, while callbacks are described in detail further down.</p>
+</div>
+<div class="sect3">
+<h4 id="_hand_offs_and_coordinated_teamwork"><a class="anchor" href="#_hand_offs_and_coordinated_teamwork"></a><a class="link" href="#_hand_offs_and_coordinated_teamwork">Hand-offs and Coordinated Teamwork</a></h4>
+<div class="paragraph">
+<p>Work Plans may be designed to contain multiple Task Plans, each corresponding to a team worker. In the execution of such a Work Plan, the performer of any Task Plan may at some point need to hand off to another performer, i.e. one of the other Task Plans in the same Work Plan. As described above, the original worker may wait or continue, and in both cases, receipt of a callback notification from the other Task Plan may cause a change in the execution path of the first Plan.</p>
+</div>
+<div class="paragraph">
+<p>The following illustrates, using the example of an acute stroke management care process.</p>
+</div>
+<div id="task_coordination" class="imageblock text-center text-center">
+<div class="content">
+<img src="../_images/diagrams/task_coordination.svg" alt="task coordination">
+</div>
+<div class="title">Figure 12. Task coordination</div>
+</div>
+<div class="paragraph">
+<p>In this Work Plan, three Task Plans are used to perform (parts of) the clinical work coordinated for managing an acute stroke, as per a Care Pathway. There are two Hand-offs, the first synchronous (<code><em>wait</em></code> = <code>True</code>; callback wait resumes at the next Task) and the second an asynchronous fork (<code><em>wait</em></code> = <code>False</code>).</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_external_request"><a class="anchor" href="#_external_request"></a><a class="link" href="#_external_request">External Request</a></h4>
+<div class="paragraph">
+<p>The Task sub-type <code>EXTERNAL_REQUEST</code> represents a request by the current performer to an external entity completely outside of the current Work Plan computational context, to request some work on behalf of the performer. This is typically an organisation of which routine requests can be made (e.g. pathology laboratory). The request has to be defined generically, in terms of an organisation identifier, a request identifier (i.e. a name or type of job) and a list of other details, represented by the standard archetypable <code>ITEM_STRUCTURE</code>.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_system_request"><a class="anchor" href="#_system_request"></a><a class="link" href="#_system_request">System Request</a></h4>
+<div class="paragraph">
+<p>The Task sub-type <code>SYSTEM_REQUEST</code> represents a request to a <em>system</em> with a computational interface on behalf of the performer, such as a logging facility or a decision support system. The request is defined in terms of a <code>SYSTEM_CALL</code> instance.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_class_definitions_4"><a class="anchor" href="#_class_definitions_4"></a><a class="link" href="#_class_definitions_4">Class Definitions</a></h3>
+<div class="paragraph">
+<p>Unresolved include directive in modules/task_planning/partials/5-definition_task_actions.adoc - include::ROOT:partial$classes/task_action.adoc[]</p>
+</div>
+<div class="paragraph">
+<p>Unresolved include directive in modules/task_planning/partials/5-definition_task_actions.adoc - include::ROOT:partial$classes/subject_precondition.adoc[]</p>
+</div>
+<div class="paragraph">
+<p>Unresolved include directive in modules/task_planning/partials/5-definition_task_actions.adoc - include::ROOT:partial$classes/performable_action.adoc[]</p>
+</div>
+<div class="paragraph">
+<p>Unresolved include directive in modules/task_planning/partials/5-definition_task_actions.adoc - include::ROOT:partial$classes/resource_participation.adoc[]</p>
+</div>
+<div class="paragraph">
+<p>Unresolved include directive in modules/task_planning/partials/5-definition_task_actions.adoc - include::ROOT:partial$classes/defined_action.adoc[]</p>
+</div>
+<div class="paragraph">
+<p>Unresolved include directive in modules/task_planning/partials/5-definition_task_actions.adoc - include::ROOT:partial$classes/sub_plan.adoc[]</p>
+</div>
+<div class="paragraph">
+<p>Unresolved include directive in modules/task_planning/partials/5-definition_task_actions.adoc - include::ROOT:partial$classes/dispatchable_action.adoc[]</p>
+</div>
+<div class="paragraph">
+<p>Unresolved include directive in modules/task_planning/partials/5-definition_task_actions.adoc - include::ROOT:partial$classes/hand_off.adoc[]</p>
+</div>
+<div class="paragraph">
+<p>Unresolved include directive in modules/task_planning/partials/5-definition_task_actions.adoc - include::ROOT:partial$classes/external_request.adoc[]</p>
+</div>
+<div class="paragraph">
+<p>Unresolved include directive in modules/task_planning/partials/5-definition_task_actions.adoc - include::ROOT:partial$classes/system_request.adoc[]</p>
+</div>
+<div class="paragraph">
+<p>Unresolved include directive in modules/task_planning/partials/5-definition_task_actions.adoc - include::ROOT:partial$classes/linked_plan.adoc[]</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_data_sets_and_application_interaction"><a class="anchor" href="#_data_sets_and_application_interaction"></a><a class="link" href="#_data_sets_and_application_interaction">Data-sets and Application Interaction</a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_overview_2"><a class="anchor" href="#_overview_2"></a><a class="link" href="#_overview_2">Overview</a></h3>
+<div class="paragraph">
+<p>In order for performers to execute Task Groups and individual Tasks within a Plan, specific data must often be reviewed to enable the performer to proceed. This is generally the case for Tasks that involve administering drugs to a patient, where the dose depends on one or more variables relating to the patient state, such as ECG data, INR, heart rate etc.</p>
+</div>
+<div class="paragraph">
+<p>To achieve this, the Task Planning model formalises the relationship between a 'data set' and a Task that may use it. A 'data-set' in openEHR is a template, normally displayed as a form within an application. In the Task Planning context, a data set may also be a sub-section of a template or form, specified by a path, to allow more than one Task to be used to construct each section of a form. The following UML diagram shows the data-set related classes in detail.</p>
+</div>
+<div id="proc_definition_dataset" class="imageblock text-center text-center">
+<div class="content">
+<img src="../../_images/uml/PROC-task_planning.definition-dataset.svg" alt="PROC task planning.definition dataset">
+</div>
+<div class="title">Figure 13. proc.task_planning.definition model overview</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_display_and_capture_data_sets"><a class="anchor" href="#_display_and_capture_data_sets"></a><a class="link" href="#_display_and_capture_data_sets">Display and Capture Data-sets</a></h3>
+<div class="paragraph">
+<p>Two variants of data-set are defined, as follows:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><em>data display</em>: a <code>REVIEW_DATASET_SPEC</code> represents a template or part thereof that is to be displayed in order for the Task performer to do the work of the Task;</p>
+</li>
+<li>
+<p><em>data capture</em>: a <code>CAPTURE_DATASET_SPEC</code> represents a template or part thereof that is to be populated by the work of the Task.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Either a template or form identifier (or both) maybe be used to specify a data-set. The <code><em>populating_call</em></code> attribute may be used to define a system call that will pre-populate either kind of data-set. The <code><em>form_section_path</em></code> attribute is populated if a data-set section (i.e. part of a form) needs to be specified.</p>
+</div>
+<div class="paragraph">
+<p>A review data-set may be specified on any Plan Item (i.e. Task Group or Task, of any kind) via the attribute <code>PLAN_ITEM.<em>review_dataset</em></code>, in order to signal to the runtime system to request the display of data at the start of that part of the Plan.</p>
+</div>
+<div class="paragraph">
+<p>A capture data-set may be specified for a <code>PERFORMABLE_TASK</code> only (since the work of the Task in this case is what achieves the desired data capture), via the <code><em>capture_dataset</em></code> attribute.</p>
+</div>
+<div class="paragraph">
+<p>For reference, any review data-set may have any number of capture data-sets used to capture the data associated with it, via the <code>REVIEW_DATASET_SPEC.<em>capture_datasets</em></code> attribute. This enables the relationship between potentially numerous (typically small) forms/dialogs used to obtain data from users and the commonly larger forms used to display such data.</p>
+</div>
+<div class="paragraph">
+<p>Both kinds of data sets described here may be the same as or related to templates and/or forms used in the generation of Task EHR data, mentioned in <code>PERFORMABLE_ACTION.<em>prototype</em></code>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_progressive_data_capture"><a class="anchor" href="#_progressive_data_capture"></a><a class="link" href="#_progressive_data_capture">Progressive Data Capture</a></h3>
+<div class="paragraph">
+<p>Where Tasks involve data entry as part of the work, the data capture may occur over more than one Task, to be committed at some final Task when the data-set is deemed complete by the user. To support such progressive data capture, the notion of a <em>commit group</em> is used. This is an identifier for a logical data-set that might be entered in one or more forms over a number of Tasks. It is formally represented by the optional <code><em>commit_group</em></code> attribute in <code>CAPTURE_DATASET_SPEC</code>, of type <code>DATASET_COMMIT_GROUP</code>. To represent a progressively entered data-set, an instance of this type is used on each Task contributing to the data-set (need not be contiguous), with all but the final instance having the Boolean attribute <code><em>completion_step</em></code> set to False. The final Task in the series is marked by setting this flag True, at which point the execution engine may perform a standard commit action. The following diagram illustrates a typical instance of this structure.</p>
+</div>
+<div id="progressive_data_capture" class="imageblock text-center text-center">
+<div class="content">
+<img src="../_images/diagrams/progressive_data_capture.svg" alt="progressive data capture">
+</div>
+<div class="title">Figure 14. Progressive data capture structure</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_class_definitions_5"><a class="anchor" href="#_class_definitions_5"></a><a class="link" href="#_class_definitions_5">Class Definitions</a></h3>
+<div class="paragraph">
+<p>Unresolved include directive in modules/task_planning/partials/6-definition_data_sets.adoc - include::ROOT:partial$classes/dataset_spec.adoc[]</p>
+</div>
+<div class="paragraph">
+<p>Unresolved include directive in modules/task_planning/partials/6-definition_data_sets.adoc - include::ROOT:partial$classes/capture_dataset_spec.adoc[]</p>
+</div>
+<div class="paragraph">
+<p>Unresolved include directive in modules/task_planning/partials/6-definition_data_sets.adoc - include::ROOT:partial$classes/review_dataset_spec.adoc[]</p>
+</div>
+<div class="paragraph">
+<p>Unresolved include directive in modules/task_planning/partials/6-definition_data_sets.adoc - include::ROOT:partial$classes/dataset_commit_group.adoc[]</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_decision_structures"><a class="anchor" href="#_decision_structures"></a><a class="link" href="#_decision_structures">Decision Structures</a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_overview_3"><a class="anchor" href="#_overview_3"></a><a class="link" href="#_overview_3">Overview</a></h3>
+<div class="paragraph">
+<p>Most Task Plans include decision structures, in which one of multiple branches may be taken depending on specific conditions. There are four varieties of such structure, which are defined as specific descendants of the <code>TASK_GROUP</code> class, as shown in the following UML model.</p>
+</div>
+<div id="proc_task_planning_definition_decision" class="imageblock text-center text-center">
+<div class="content">
+<img src="../../_images/uml/PROC-task_planning.definition-decision.svg" alt="PROC task planning.definition decision">
+</div>
+<div class="title">Figure 15. proc.task_planning.choice package - decision structures</div>
+</div>
+<div class="paragraph">
+<p>The <code>CHOICE_GROUP</code> class defines the essential semantics for all conditional structure types, which is that they conform to a parallel (<code><em>execution_type</em></code> is constrained to <code>parallel</code>), XOR-logic (i.e. single path) concurrency model, as indicated by the class invariants. In traditional workflow processing, any instance of a <code>CHOICE_GROUP</code> is thus logically an XOR gate.</p>
+</div>
+<div class="paragraph">
+<p>The specific sub-types are based on the design principles <a href="#_conditional_structures">described earlier</a>, which distinguished both different conditional structural types, and three different levels of system support, i.e. 'automated', 'decision support' and 'ad hoc'. The combination of structural types and levels of system/user interaction levels is realised in terms of variations on the <code>CHOICE_GROUP</code> and <code>CHOICE_BRANCH</code> classes shown above, which define a generic notion of a decision point from which multiple branches emanate. The variations in system support manifest as follows.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><em>fully automated</em>: three kinds of fully defined decision structures, namely the <code>CONDITION_XX</code>, <code>DECISION_XX</code> and <code>EVENT_XX</code> classes shown in the UML diagram;</p>
+</li>
+<li>
+<p><em>decision support</em>: where instances of the above structures should be considered recommendations only, the <code><em>override_type</em></code> attribute defined on <code>CHOICE_GROUP</code> may be used on any <code>XX_GROUP</code> to indicate that user override is allowed;</p>
+</li>
+<li>
+<p><em>ad hoc</em>: a dedicated variation <code>ADHOC_GROUP</code> and <code>ADHOC_BRANCH</code> are used to represent multiple branches where no criteria are defined in the Plan definition, but are instead provided by an execution-time user.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>In the override and adhoc cases, a justification may be provided at execution-time for having overridden or made a particular adhoc choice. This is represented in the materialised model, and therefore does not appear in the definition model.</p>
+</div>
+<div class="paragraph">
+<p>The three fully defined decision patterns are described below.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_condition_group_ifelseifelse_chain"><a class="anchor" href="#_condition_group_ifelseifelse_chain"></a><a class="link" href="#_condition_group_ifelseifelse_chain">Condition Group (if/elseif/else chain)</a></h3>
+<div class="paragraph">
+<p>The first is a structure in which a set of Task Groups are treated as separate branches from a common point in the Plan. Each branch is entered conditionally according to the Boolean expression included on the branch. The classes <code>CONDITION_GROUP</code> and <code>CONDITION_BRANCH</code> provide this structure, which is  equivalent to an if/then/else structure in a programming language. A final 'else' branch may be defined using a <code>CONDITION_BRANCH</code> with an expression representing the <code>True</code> value. At execution time, the branches are evaluated in order, in the manner of an if/then/else structure.</p>
+</div>
+<div class="paragraph">
+<p>The following diagram shows a typical condition structure.</p>
+</div>
+<div id="condition_structure" class="imageblock text-center text-center">
+<div class="content">
+<img src="../_images/diagrams/condition_structure.svg" alt="condition structure">
+</div>
+<div class="title">Figure 16. Condition structure</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_decision_group_case"><a class="anchor" href="#_decision_group_case"></a><a class="link" href="#_decision_group_case">Decision Group (case)</a></h3>
+<div class="paragraph">
+<p>The second pattern corresponds to a decision point in a workflow at which some expression is evaluated, and each outgoing branch corresponds to a sub-set of the expression&#8217;s value range (<code><em>value_constraint</em></code> attribute). The classes <code>DECISION_GROUP</code> and <code>DECISION_BRANCH</code> provide this structure, which is  equivalent to a switch statement in a programming language. The branch sub-ranges should ideally be individually mutually exclusive, and collectively they should cover the entire value range of the expression. As with the Condition Group, the branches are processed in the order stated in the definition, which allows overlapping value constraints on successive branches. A catch-all 'else' branch may be represented as a <code>DECISION_BRANCH</code> with an open <code><em>value_constraint</em></code> (i.e. matching all values).</p>
+</div>
+<div class="paragraph">
+<p>The following diagram shows a typical decision structure.</p>
+</div>
+<div id="decision_structure" class="imageblock text-center text-center">
+<div class="content">
+<img src="../_images/diagrams/decision_structure.svg" alt="decision structure">
+</div>
+<div class="title">Figure 17. Decision structure</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_event_group"><a class="anchor" href="#_event_group"></a><a class="link" href="#_event_group">Event Group</a></h3>
+<div class="paragraph">
+<p>The final structure is a wait state at which multiple branches correspond to the receipt of different events. Taken together, the events constitute a set of logical alternatives at the relevant point in the Plan. This structure is modelled using the classes <code>EVENT_GROUP</code> and <code>EVENT_BRANCH</code>, and is equivalent to a when / then / else  rules structure in a rule-based programming environment.</p>
+</div>
+<div id="event_structure" class="imageblock text-center text-center">
+<div class="content">
+<img src="../_images/diagrams/event_structure.svg" alt="event structure">
+</div>
+<div class="title">Figure 18. Event structure</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_class_definitions_6"><a class="anchor" href="#_class_definitions_6"></a><a class="link" href="#_class_definitions_6">Class Definitions</a></h3>
+<div class="paragraph">
+<p>Unresolved include directive in modules/task_planning/partials/7-definition_conditional.adoc - include::ROOT:partial$classes/choice_group.adoc[]</p>
+</div>
+<div class="paragraph">
+<p>Unresolved include directive in modules/task_planning/partials/7-definition_conditional.adoc - include::ROOT:partial$classes/override_type.adoc[]</p>
+</div>
+<div class="paragraph">
+<p>Unresolved include directive in modules/task_planning/partials/7-definition_conditional.adoc - include::ROOT:partial$classes/choice_branch.adoc[]</p>
+</div>
+<div class="paragraph">
+<p>Unresolved include directive in modules/task_planning/partials/7-definition_conditional.adoc - include::ROOT:partial$classes/condition_group.adoc[]</p>
+</div>
+<div class="paragraph">
+<p>Unresolved include directive in modules/task_planning/partials/7-definition_conditional.adoc - include::ROOT:partial$classes/condition_branch.adoc[]</p>
+</div>
+<div class="paragraph">
+<p>Unresolved include directive in modules/task_planning/partials/7-definition_conditional.adoc - include::ROOT:partial$classes/decision_group.adoc[]</p>
+</div>
+<div class="paragraph">
+<p>Unresolved include directive in modules/task_planning/partials/7-definition_conditional.adoc - include::ROOT:partial$classes/decision_branch.adoc[]</p>
+</div>
+<div class="paragraph">
+<p>Unresolved include directive in modules/task_planning/partials/7-definition_conditional.adoc - include::ROOT:partial$classes/adhoc_group.adoc[]</p>
+</div>
+<div class="paragraph">
+<p>Unresolved include directive in modules/task_planning/partials/7-definition_conditional.adoc - include::ROOT:partial$classes/adhoc_branch.adoc[]</p>
+</div>
+<div class="paragraph">
+<p>Unresolved include directive in modules/task_planning/partials/7-definition_conditional.adoc - include::ROOT:partial$classes/event_group.adoc[]</p>
+</div>
+<div class="paragraph">
+<p>Unresolved include directive in modules/task_planning/partials/7-definition_conditional.adoc - include::ROOT:partial$classes/event_branch.adoc[]</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_order_tracking"><a class="anchor" href="#_order_tracking"></a><a class="link" href="#_order_tracking">Order Tracking</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>A small number of features in the model are designed to support the tracking of orders from a Work Plan. The following UML view shows the relevant classes and properties.</p>
+</div>
+<div id="proc_definition_order_tracking" class="imageblock text-center text-center">
+<div class="content">
+<img src="../../_images/uml/PROC-task_planning.definition-order_tracking.svg" alt="PROC task planning.definition order tracking">
+</div>
+<div class="title">Figure 19. Order tracking</div>
+</div>
+<div class="paragraph">
+<p>The facilities consist of the following:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>the <code>ORDER_REF</code> class, representing an 'order reference';</p>
+</li>
+<li>
+<p><code>WORK_PLAN.<em>order_list</em></code> is a table of Order Refs being tracked by the current Plan;</p>
+</li>
+<li>
+<p><code>TASK.<em>order_tags</em></code> allows any Task to reference one or more <code>ORDER_REF</code> instances in the Work Plan <code><em>order_list</em></code>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>These features enable the creation and/or tracking of orders in an EHR system, according to various scenarios described below. Orders as described here are usually represented as openEHR Instructions and Actions committed to an openEHR EHR (within Compositions), but may in fact be any object(s) that can be referred to by a <code>LOCATABLE_REF</code>(which contains a URI). The following sub-sections assume openEHR Instructions and Actions for simplicity of explanation.</p>
+</div>
+<div class="paragraph">
+<p>Two key attributes are used to connect Tasks in a Work Plan to Instructions in the EHR. The first is the <code>ORDER_REF.<em>order_ref</em></code> attribute, which represents a reference to the Instruction in the EHR. Subsequent Actions that are committed for a given Instruction contain references to the Instruction, which can be matched to the <code><em>order_ref</em></code> value.</p>
+</div>
+<div class="paragraph">
+<p>The second attribute is <code>ORDER_REF.<em>order_tag</em></code>, used to logically identify an order tracking reference (i.e. an <code>ORDER_REF</code>) within a Work Plan. Any <code>TASK</code> that wants to refer to one or more orders records these same references in its <code>TASK.<em>order_tags</em></code> attribute. An order tag may take any String value not containing white space characters. The recommended approach is to use strings meaningful and unique within the Plan context, such that every order is distinguished, including distinct instances. For example, the value <code>"hypertension_medication"</code> may be sufficient within one Plan to identify and track an order for such medication, but if the Plan potentially may track two or more such medications, more unique values will be required, e.g. <code>"beta_blocker_medication"</code>, <code>"ACE_inhibitor_medication"</code> etc. Similarly, orders for different types of insulin (typical for diabetics) would need to be distinguished.</p>
+</div>
+<div class="paragraph">
+<p>Multiple order tags may be used in a <code>TASK</code> for the case where a single Task causes creation of multiple orders, or a single Task waits on events (Action commits) from multiple orders.</p>
+</div>
+<div class="paragraph">
+<p>For Plans in which repetition occurs (<code>PLAN_ITEM.<em>repeat_spec</em></code>), order tags may be constructed using the format <code>"xxxx@n"</code>, e.g. <code>"doxorubicin@1"</code>, <code>"doxorubicin_admin@2"</code> to refer to the orders for Doxorubicin in two distinct cycles of chemtherapy mentioned in the same Work Plan.</p>
+</div>
+<div class="sect2">
+<h3 id="_tracking_an_existing_order"><a class="anchor" href="#_tracking_an_existing_order"></a><a class="link" href="#_tracking_an_existing_order">Tracking an Existing Order</a></h3>
+<div class="paragraph">
+<p>In this scenario, at Work Plan design time, an order <em>already exists</em> in the form of an Instruction committed to a patient EHR. This might be a standing order, e.g. for insulin. The Plan might be used to track patient or healthcare professional administrations of such a medication.</p>
+</div>
+<div class="paragraph">
+<p>Since it is possible to construct a <code>LOCATABLE_REF</code> to the <code>INSTRUCTION</code> (and indeed, to a contained <code>ACTIVITY</code>), it may be referenced from a Work Plan using an <code>ORDER_REF</code> instance, via the <code><em>order_ref</em></code> property. The corresponding Instruction archetype identifier may also be recorded, enabling direct lookup by the TP engine, for use within the Plan modelling environment. The <code><em>order_tag</em></code> field will be set to a value that refers to the order in a sufficiently precise way as to be unique within the Work Plan.</p>
+</div>
+<div class="paragraph">
+<p>This scheme allows Tasks to be defined within the Plan that have a Task Wait (<code>PLAN_ITEM.<em>wait_spec</em></code>) that wait on an event (e.g. <code>SYSTEM_NOTIFICATION</code> or <code>MANUAL_NOTIFICATION</code>) that is generated due to a subsequent commit to the EHR of <code>ACTIONs</code> for the original order (e.g. drug administration events, cancellation or suspension of medication by the doctor etc).</p>
+</div>
+<div class="paragraph tbd">
+<p>TBD: could also use Dispatchable Task approach as per below, to wait on an existing order.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_creating_and_tracking_an_order"><a class="anchor" href="#_creating_and_tracking_an_order"></a><a class="link" href="#_creating_and_tracking_an_order">Creating and Tracking an Order</a></h3>
+<div class="paragraph">
+<p>In this scenario, the Work Plan is the creator of the order(s) of interest. At Work Plan <em>design time</em>, there is no order (i.e. <code>INSTRUCTION</code>) in the EHR (this will only occur at Plan execution time), so  <code>ORDER_REF.<em>order_ref</em></code> cannot initially be populated. An <code>ORDER_REF</code> can nevertheless be created for the order at Plan design time, with the <code><em>order_tag</em></code> being used to refer to the order from within the Work Plan. A typical Plan structure in this case might contain the following, for each order:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>a <code>PERFORMABLE_TASK&lt;DEFINED_ACTION&gt;</code> with associated <code><em>capture_dataset</em></code>, representing the entry of routine data and creation of the order, resulting in a commit to the EHR system of a Composition containing an Instruction for the order;</p>
+</li>
+<li>
+<p>a subsequent <code>DISPATCHABLE_TASK&lt;SYSTEM_REQUEST&gt;</code> (or <code>DISPATCHABLE_TASK&lt;EXTERNAL_REQUEST&gt;</code>) that causes the appropriate API call or message to be generated and sent to the filler of the order (e.g. pharmacy, laboratory etc); this Task may include a callback wait state (<code>DISPATCHABLE_TASK.<em>callback</em></code>) so that it blocks and waits for a result within a certain time-frame.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Both the Performable and Dispatchable Tasks use <code>TASK.<em>order_tags</em></code> to logically refer to the same order. Any number of pairs of Performable and Dispatchable Tasks may be defined to create and react to different orders being processed within the same Work Plan.</p>
+</div>
+<div class="paragraph">
+<p>A concrete callback event can be arranged to occur when an <code>ACTION</code> for the order of interest is committed to the EHR. This relies on the population of the relevant Work Plan <code>CONTEXT_REF.<em>order_ref</em></code> attribute within the TP engine execution environment, at the moment the order is created in the EHR system. This then allows commits of <code>ACTIONs</code> for that order (among others, generally) to be matched with the Dispatchable Task(s) waiting on them. The callback processing for the Dispatchable Task follows the <code>order tracking</code> callback model described in <a href="#_callback_processing_for_blocking_tasks">Callback Processing for Blocking Tasks</a> below.</p>
+</div>
+<div class="paragraph">
+<p>The Dispatchable Task might be located in a repeating section of the Plan, if the intention is to await multiple Actions for the same Instruction.</p>
+</div>
+<div class="paragraph">
+<p>An example of a Work Plan representing this scenario is available in the <a href="https://specifications.openehr.org/releases/PROC/latest/process_examples.html#_order_coordination" target="_blank" rel="noopener">Task Planning Examples</a> document.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_class_definitions_7"><a class="anchor" href="#_class_definitions_7"></a><a class="link" href="#_class_definitions_7">Class Definitions</a></h3>
+<div class="paragraph">
+<p>Unresolved include directive in modules/task_planning/partials/8-definition_order_tracking.adoc - include::ROOT:partial$classes/order_ref.adoc[]</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_events"><a class="anchor" href="#_events"></a><a class="link" href="#_events">Events</a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_overview_4"><a class="anchor" href="#_overview_4"></a><a class="link" href="#_overview_4">Overview</a></h3>
+<div class="paragraph">
+<p>Work plans interact with events in the external world, as well being driven by time. In this model, moments in time are modelled in terms of Events that represent the <em>reaching</em> of certain points in time or an entry in a calendar, as time passes. Consequently, specifying a time for a Task to be performed and waiting for certain Events before it can be performed are both specified in terms of 'events'. The relevant part of the model, shown below, consists of various types of Events, and additionally, various types of <em>wait states</em> that may be used to intercept them.</p>
+</div>
+<div id="proc_task_planning_definition_event" class="imageblock text-center text-center">
+<div class="content">
+<img src="../../_images/uml/PROC-task_planning.definition-event.svg" alt="PROC task planning.definition event">
+</div>
+<div class="title">Figure 20. proc.task_planning model - Events</div>
+</div>
+<div class="paragraph">
+<p>Two general classes of Events are distinguished:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><em>deterministic</em>: Events guaranteed to occur at a knowable point in time (shown on the lower left in light pink);</p>
+</li>
+<li>
+<p><em>non-deterministic</em>: Events that might never occur (shown on the lower right in magenta).</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>For non-deterministic events, a timeout handler is generally needed.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_event_types"><a class="anchor" href="#_event_types"></a><a class="link" href="#_event_types">Event Types</a></h3>
+<div class="paragraph">
+<p>The various Event types are described below, with their TP-VML representations.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 14.2857%;">
+<col style="width: 28.5714%;">
+<col style="width: 57.1429%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">TP-VML</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="3"><p class="tableblock"><strong>Deterministic Events</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>TIMER_EVENT</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div id="event_timer" class="imageblock">
+<div class="content">
+<img src="../_images/diagrams/event_timer.svg" alt="event timer">
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Event generated by the expiry of a Timer that was launched at some earlier time; if attached to a Task wait state, the timer is launched at the moment execution reaches the Task.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>TIMELINE_MOMENT</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div id="event_timeline_moment" class="imageblock">
+<div class="content">
+<img src="../_images/diagrams/event_timeline_moment.svg" alt="event timeline moment">
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Event generated by system clock reaching a fixed time-point on the Work Plan timeline, specified by an offset from the Work Plan origin (overridable) plus an optional fixed time in the day. The latter enables fixed points in time such as a particular hour of day or customary time such as 'afternoon' to be specified. A combination of the two such as <code>P2D</code>, <code>13:30:00</code> can thus be used to state a time like '13:30 on day 2 of the plan'.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>CALENDAR_EVENT</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div id="event_calendar_event" class="imageblock">
+<div class="content">
+<img src="../_images/diagrams/event_calendar_event.svg" alt="event calendar event">
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Event generated by system clock reaching an event in the global Plan calendar, which is specified in absolute time, independent of the Work Plan timeline. The value of the <code><em>time</em></code> attribute is obtained from the calendar.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="3"><p class="tableblock"><strong>Non-deterministic Events</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>TASK_TRANSITION</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div id="event_task_transition" class="imageblock">
+<div class="content">
+<img src="../_images/diagrams/event_task_transition.svg" alt="event task transition">
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Event generated by the lifecycle transition of another Task, such as transition to <code>cancelled</code> or <code>done</code>.<br>
+ NOTE: not needed for transition of the preceding Task to a terminal state, since in this case, execution automatically proceeds to the current Task.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>STATE_TRIGGER</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div id="event_state_trigger" class="imageblock">
+<div class="content">
+<img src="../_images/diagrams/event_state_trigger.svg" alt="event state trigger">
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">An event generated by a change in a tracked variable, or a Boolean expression based on tracked variables, e.g. a value reaching a threshold.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>MANUAL_NOTIFICATION</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div id="event_manual_notification" class="imageblock">
+<div class="content">
+<img src="../_images/diagrams/event_manual_notification.svg" alt="event manual notification">
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">An event that is manually notified to the Plan execution engine by a user.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>SYSTEM_NOTIFICATION</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div id="event_system_notification" class="imageblock">
+<div class="content">
+<img src="../_images/diagrams/event_system_notification.svg" alt="event system notification">
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">An event that is notified to the Plan execution engine by a system.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="3"><p class="tableblock"><strong>Non-deterministic Events (system)</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>CALLBACK_NOTIFICATION</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div id="event_callback" class="imageblock">
+<div class="content">
+<img src="../_images/diagrams/event_callback.svg" alt="event callback">
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A callback notification connected to a dispatch for a Dispatchable Task (Hand-off, External Request, System Request).</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Instances of all of these types on their own only identify the type and source of an event - a wait state is required to catch an event. There are three types of wait state used in a TP definition: Task Wait, Timer Wait and Callback Wait. These are described below.</p>
+</div>
+<div class="paragraph">
+<p>The following Event types require further explanation.</p>
+</div>
+<div class="sect3">
+<h4 id="_timeline_moment"><a class="anchor" href="#_timeline_moment"></a><a class="link" href="#_timeline_moment">TIMELINE_MOMENT</a></h4>
+<div class="paragraph">
+<p>The <code>TIMELINE_MOMENT</code> event type represents an event generated by the system when a point in time on the execution clock is reached. The time point is specified by two attributes, <code><em>timeline_offset</em></code> and <code><em>fixed_time</em></code>, with the time origin (default: Work Plan activation) being optionally specified by <code><em>timeline_origin</em></code>. At least one of the first two attributes must be set.</p>
+</div>
+<div class="paragraph">
+<p>If <code><em>fixed_time</em></code> is set using an instance of <code>CLOCK_TIME</code>, it refers to the first moment at which the time occurs during the day, <em>after any offset has elapsed</em>. The following diagram shows how this works for two instances of <code>TIMELINE_MOMENT</code>, both having a <code><em>fixed_time</em></code> of <code>07:30</code> and a <code><em>timeline_offset</em></code> of <code>P1d</code> (one day), when the timeline origin is different (i.e. the Work Plan was started at different times).</p>
+</div>
+<div id="timeline_moment_semantics" class="imageblock text-center text-center">
+<div class="content">
+<img src="../_images/diagrams/timeline_moment_semantics.svg" alt="timeline moment semantics">
+</div>
+<div class="title">Figure 21. <code>TIMELINE_MOMENT</code> semantics</div>
+</div>
+<div class="paragraph">
+<p>The <code><em>fixed_time</em></code> attribute may also be set using an instance of <code>CUSTOMARY_TIME</code>, to allow the time to be specified using coded terms like <code>morning</code>, <code>afternoon</code>, <code>evening</code> and so on. Such terms are assumed to define time ranges such as <code>07:00:00 - 11:30:00</code> etc, which are typically culturally specific, and/or specific to hospital or other institutional norms. Consequently, such terms have to be resolved to computable intervals by some means (e.g. a locale service API call), left up to the TP execution system. Where such an interval is used to define a time, the event is generated at the earliest time of the interval (e.g. <code>07:00:00</code> for 'morning')</p>
+</div>
+<div class="paragraph">
+<p>If <code><em>fixed_time</em></code> is not set, it refers to the first moment in time directly after the offset, if any, has elapsed (i.e. a Void <code><em>fixed_time</em></code> is intepreted as "don&#8217;t care"). If <code><em>timeline_offset</em></code> is not set, <code><em>fixed_time</em></code> is resolved to the first occurrence of the specified time directly from the time origin.</p>
+</div>
+<div class="paragraph">
+<p>A <code>TIMELINE_MOMENT</code> with neithre of <code><em>timeline_offset</em></code> or <code><em>fixed_time</em></code> set is not considered meaningful, since it is equivalent to no <code>TIMELINE_MOMENT</code> event at all.</p>
+</div>
+<div class="paragraph">
+<p>The timeline origin defaults to the moment of Work Plan activiation, but may be overridden via the <code><em>timeline_origin</em></code> attribute to be the moment of activation of the current Task Plan, or the entry into a repeating section (a Task Group or Task with <code><em>repeat_spec</em></code> set).</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_general_facilities"><a class="anchor" href="#_general_facilities"></a><a class="link" href="#_general_facilities">General Facilities</a></h3>
+<div class="sect3">
+<h4 id="_event_wait_state"><a class="anchor" href="#_event_wait_state"></a><a class="link" href="#_event_wait_state">Event Wait State</a></h4>
+<div class="paragraph">
+<p>The class <code>EVENT_WAIT&lt;T&gt;</code> defines a generic model of a general-purpose event wait state that may be specialised for particular purposes. Its attributes are as follows:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code><em>success_action</em></code> of type <code>EVENT_ACTION</code>, which defines possible actions to occur on receipt of an event;</p>
+</li>
+<li>
+<p><code><em>timeout</em></code> of type <code>TIMER_WAIT</code>, whose <code><em>success_action</em></code> defines possible actions when no event is received.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The <code>EVENT_ACTION</code> type defines a number of things the system can do on a triggering event:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>make a system call, if the <code><em>system_call</em></code> attribute is set, e.g. to cause a notification to be sent or write to a system logger;</p>
+</li>
+<li>
+<p>displaying a message to the user, specified in the <code><em>message</em></code> attribute;</p>
+</li>
+<li>
+<p>optionally indicate a specific lifecycle state for the Plan Item (a Task or Task Group) receiving the event, specified by <code><em>receiver_thread_next_state</em></code>;</p>
+</li>
+<li>
+<p>optionally indicate where execution should resume in the plan, for example at an earlier Task, via the <code><em>resume_action</em></code> attribute, whose value is an instance of <code>RESUME_ACTION</code>, defining the <code><em>resume_type</em></code> and <code><em>resume_location</em></code> attributes.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_timers"><a class="anchor" href="#_timers"></a><a class="link" href="#_timers">Timers</a></h4>
+<div class="paragraph">
+<p>A generic timer can be specified using <code>TIMER_WAIT</code>, a specialisation of <code>EVENT_WAIT&lt;TIMER_EVENT&gt;</code> based on the Event type <code>TIMER_EVENT</code>. This provides a way to specify a Timer (the <code>TIMER_EVENT</code>) and listen for it (the <code>TIMER_WAIT</code>).  A <code>TIMER_WAIT</code> creates a separate Event wait state that listens for a Timer event launched some duration after Task activation, and may result in specific actions, specified via the inherited <code>EVENT_WAIT.<em>success_action</em></code> attribute.</p>
+</div>
+<div class="paragraph">
+<p>The timer represented by a <code>TIMER_EVENT</code> is started when the wait state to which it is attached is reached in the execution.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_reminder"><a class="anchor" href="#_reminder"></a><a class="link" href="#_reminder">Reminder</a></h4>
+<div class="paragraph">
+<p>A reminder can be specified using <code>REMINDER</code>, a specialisation of <code>EVENT_WAIT&lt;PLAN_EVENT&gt;</code>. Conceptually, a reminder is a wait state that is activated if a secondary event (represented by the <code><em>event</em></code> attribute inherited from <code>EVENT_WAIT&lt;T&gt;</code>) occurs in the absence of waited-on primary event(s), i.e. expected lifecycle transitions of the owning Task. Usually the secondary event is a <code>TIMER_EVENT</code>, but it could be anything else. If any of the primary events occurs, the reminder is cancelled.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_task_wait_state"><a class="anchor" href="#_task_wait_state"></a><a class="link" href="#_task_wait_state">Task Wait State</a></h3>
+<div class="paragraph">
+<p>The principal way to wait for events is via the <code>TASK_WAIT</code> attachable to any <code>PLAN_ITEM</code> via the <code><em>wait_spec</em></code> attribute. The <code>TASK_WAIT</code> class represents a wait state that defines when a Task should enter the <code>available</code> state from the <code>planned</code> state in terms of descendant types of <code>PLAN_EVENT</code> (i.e. all Events described above other than <code>CALLBACK_NOTIFICATION</code>). Its <code><em>events</em></code> attribute enables multiple Events to be used as triggers, with an assumed logical OR relation among them. This enables the specification of triggers such as 'at 8pm on day 1, OR when oxygen saturation drops below 90% (whichever comes first)'. The optional <code><em>event_relation</em></code> attribute allows the Task to be specified as commencing <code>before</code>, <code>with</code> or <code>after</code> the trigger event (such as a meal).</p>
+</div>
+<div class="paragraph">
+<p>The following figure illustrates typical uses of <code>TASK_WAIT</code>.</p>
+</div>
+<div id="task_wait_state" class="imageblock text-center text-center">
+<div class="content">
+<img src="../_images/diagrams/task_wait_state.svg" alt="task wait state">
+</div>
+<div class="title">Figure 22. Task wait state</div>
+</div>
+<div class="sect3">
+<h4 id="_time_outs"><a class="anchor" href="#_time_outs"></a><a class="link" href="#_time_outs">Time-outs</a></h4>
+<div class="paragraph">
+<p>A timeout can be set on a Task Wait state by setting <code>TASK_WAIT.<em>timeout</em></code> with a <code>TIMER_WAIT</code> instance, which is activated when the Task Wait state is reached in the execution. This is useful in cases where Event receipt is not certain. The <code>TIMER_WAIT</code> generates a timer event if no other event is received; conversely, receipt of any other event cancels the timeout timer. The <code>TIMER_EVENT</code> attached to <code>TIMER_WAIT.<em>event</em></code> indicates the duration of the timer. The <code><em>success_action</em></code> of the <code>TIMER_WAIT</code> indicates actions to execute if the timer fires. The following Plan fragment illustrates.</p>
+</div>
+<div id="timing_patterns_1" class="imageblock text-center text-center">
+<div class="content">
+<img src="../_images/diagrams/uc_task_timing_1.svg" alt="uc task timing 1">
+</div>
+<div class="title">Figure 23. Timing patterns</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_reminder_2"><a class="anchor" href="#_reminder_2"></a><a class="link" href="#_reminder_2">Reminder</a></h4>
+<div class="paragraph">
+<p>When an event specified in <code>TASK_WAIT.<em>events</em></code> fires, it puts the Task into the <code>available</code> lifecycle state. In typical real world situations, the performer may not realise, or may be busy on something else. To enable the performer to be reminded, the <code>PLAN_ITEM.<em>reminders</em></code> attribute may be used to specify one or more <code>REMINDER</code> wait states. Each of these will have a <code>TIMER_EVENT</code> (or other event) as its firing <code><em>event</em></code>.</p>
+</div>
+<div class="paragraph tbd">
+<p>TBD: what about transition to <code>underway</code>?</p>
+</div>
+<div class="paragraph">
+<p>If a Reminder is activated, it will generate a notification, specified via the inherited <code><em>success_action</em></code> attribute. If still no activity occurs for some time, additional reminders may fire (due to Timer events with longer times), and generate new notifications. As soon as the performer progresses the Task to a new state, any reminder for which such a transition is cancelling, will be cancelled. An example is illustrated below.</p>
+</div>
+<div id="task_wait_state_reminder" class="imageblock text-center text-center">
+<div class="content">
+<img src="../_images/diagrams/task_wait_state_reminder.svg" alt="task wait state reminder">
+</div>
+<div class="title">Figure 24. Task wait state with reminder</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_lifecycle_transition_override"><a class="anchor" href="#_lifecycle_transition_override"></a><a class="link" href="#_lifecycle_transition_override">Lifecycle Transition Override</a></h4>
+<div class="paragraph">
+<p>In some cases, it may be necessary to progress a Task to a state other than <code>available</code>. This may be achieved by specifying <code>TASK_WAIT.<em>next_state</em></code>.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_callbacks"><a class="anchor" href="#_callbacks"></a><a class="link" href="#_callbacks">Callbacks</a></h3>
+<div class="paragraph">
+<p>A callback is the mechanism to state what happens when control returns to a Dispatchable Task (such as a Hand-off or External Request) from its target. It is defined in the model by <code>CALLBACK_WAIT</code>, a specialisation of <code>EVENT_WAIT&lt;CALLBACK_NOTIFICATION&gt;</code>, which represents a wait state to receive notifications of Dispatch completion, as well as timeout if no response is received. The callback event is formally represented by the <code>CALLBACK_NOTIFICATION</code> class. These classes are shown in the following view of the UML model.</p>
+</div>
+<div id="proc_definition_callback_wait" class="imageblock text-center text-center">
+<div class="content">
+<img src="../../_images/uml/PROC-task_planning.definition-callback_wait.svg" alt="PROC task planning.definition callback wait">
+</div>
+<div class="title">Figure 25. Callback Wait</div>
+</div>
+<div class="paragraph">
+<p>In order to define the processing on receipt of a callback event, <code>CALLBACK_WAIT</code> adds two attributes to <code>EVENT_WAIT&lt;T&gt;</code>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code><em>fail_action</em></code>: enables a different <code>EVENT_ACTION</code> to be specified on receipt of a callback with a 'fail' status;</p>
+</li>
+<li>
+<p><code><em>custom_actions</em></code>: enables a custom set of <code>EVENT_ACTIONs</code> to be specified, in the form of a Hash table, with a specific Event Action for each key; the keys are assumed to represent specific return statuses of the remote Task.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>A Callback Wait thus has three standard Event responders: <code><em>success_action</em></code>, <code><em>fail_action</em></code> and <code><em>timeout</em></code>, and additionally any number of custom responders definable via <code><em>custom_actions</em></code>, described below.</p>
+</div>
+<div class="paragraph">
+<p>Task lifecycle state processing for a Dispatchable Task occurs both at the point of dispatch and return and/or timeout. The general model is as follows:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>the Task starts in the <code>planned</code> state, as for any Task in a Plan;</p>
+</li>
+<li>
+<p>when the execution point reaches the Task, and any Task Wait state has been exited, the Task becomes <code>available</code> (refer above to <a href="#_task_availability">Task Availability</a>);</p>
+</li>
+<li>
+<p>the Task dispatch operation is performed either automatically, or in the case of an External Request, manually;</p>
+</li>
+<li>
+<p>if <code>DISPATCHABLE_TASK.<em>wait</em></code> is <code>False</code>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>the Task transitions to the <code>completed</code> state.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>if <code>DISPATCHABLE_TASK.<em>wait</em></code> is <code>True</code>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>the Task enters the <code>underway</code> state until a callback (or timeout) occurs, at which point the next state will depend on the details of the callback (see below);</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="sect3">
+<h4 id="_callback_processing_for_blocking_tasks"><a class="anchor" href="#_callback_processing_for_blocking_tasks"></a><a class="link" href="#_callback_processing_for_blocking_tasks">Callback Processing for Blocking Tasks</a></h4>
+<div class="paragraph">
+<p>For a <code>DISPATCHABLE_TASK</code> that blocks and waits in the <code>underway</code> state, there are three callback processing models:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>standard</code>: generic <code>success | fail | timeout</code> model;</p>
+</li>
+<li>
+<p><code>order tracking</code>: used if <code>DISPATCHABLE_TASK.<em>order_tags</em></code> is set;</p>
+</li>
+<li>
+<p><code>custom</code>: used if <code>DISPATCHABLE_TASK.<em>callback.custom_actions</em></code> is set.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Each model corresponds to a different set of possible callback statuses returned by the TP engine with the callback notification to represent the state of the remote Task execution. In the <code>standard</code> model it is a generic <code>success | fail | timeout</code> approach. Under the <code>order tracking</code> model (<a href="#_order_tracking">Order Tracking</a>, above), the return statuses are states from the <a href="https://specifications.openehr.org/releases/RM/latest/ehr.html#_the_standard_instruction_state_machine_ism">openEHR Instruction State Machine</a>. Under the <code>custom</code> model, they are specific to the context.</p>
+</div>
+<div class="paragraph">
+<p>Under each model, the next lifecycle state of the Dispatchable Task is determined by the callback status in a specific way. For each possible status under each model, a specific callback handler may be set, defined in terms of the <code>CALLBACK</code> properties <code><em>success_action</em></code>, <code><em>fail_action</em></code>, <code><em>timeout.success_action</em></code>. Any of these (see class <code>EVENT_ACTION</code>) if set may override the default next state, and also may generate a system call and/or a message for the performer.</p>
+</div>
+<div class="paragraph tbd">
+<p>TBD: It would be reasonable to design an implementation with a default message of the form <code>"Task $task_name[id=$task_id] completed with $state"</code>, and a global flag <code><em>default_messages_on</em></code> to obviate the need to always set basic messages in <code>EVENT_ACTION</code>.</p>
+</div>
+<div class="paragraph">
+<p>In special cases, it may also cause execution to resume in another place (see <a href="#_resume_semantics">[_resume_semantics]</a>).</p>
+</div>
+<div class="paragraph">
+<p>A common approach to timeout processing applies to all models. If no callback occurs, and <code>CALLBACK.<em>timeout.success_action</em></code> is set, its timer will be used to generate the timeout, and also to determine the next state, message etc. If it is not set, the Work Plan global timeout will be triggered to unblock the Task and transition it to the <code>abandoned</code> state.</p>
+</div>
+<div class="paragraph tbd">
+<p>TBD: need to define Plan level timeout.</p>
+</div>
+<div class="paragraph">
+<p>The following table describes the details of callback processing under the various models.</p>
+</div>
+<table class="tableblock frame-all grid-all stripes-none stretch">
+<colgroup>
+<col style="width: 15.3846%;">
+<col style="width: 15.3846%;">
+<col style="width: 23.0769%;">
+<col style="width: 23.0769%;">
+<col style="width: 23.077%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Callback<br>
+ model</th>
+<th class="tableblock halign-left valign-top">Callback<br>
+              statuses</th>
+<th class="tableblock halign-left valign-top">Dispatchable Task<br>
+                        settings</th>
+<th class="tableblock halign-left valign-top">Response processing</th>
+<th class="tableblock halign-left valign-top">Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top" rowspan="2"><div class="content"><div class="paragraph">
+<p><strong>Standard</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top" rowspan="2"><p class="tableblock"><em>success</em><br>
+ | <em>fail</em><br>
+ | <em>timeout</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no callback handlers</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p><em>success</em> &#8594; <code>completed</code><br></p>
+</li>
+<li>
+<p><em>fail</em> &#8594; <code>abandoned</code><br></p>
+</li>
+<li>
+<p><em>timeout</em> &#8594; <code>abandoned</code></p>
+</li>
+</ul>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">callback handlers (<code><em>success_action</em></code>, <code><em>fail_action</em></code>, <code><em>timeout.success_action</em></code>)</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>As specified in <code>EVENT_ACTION.</code><br>
+ <code><em>receiver_thread_next_state</em></code>,<br>
+ or else as above.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Use to e.g. convert <em>fail</em> to <code>cancelled</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" rowspan="2"><div class="content"><div class="paragraph">
+<p><strong>Order<br>
+ tracking</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top" rowspan="2"><p class="tableblock">Action ISM state<br>
+ | <em>timeout</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">no callback handlers<br>
+ (except optionally <code><em>timeout.success_action</em></code>)</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p><code>planned</code> &#8594; <code>underway</code><br></p>
+</li>
+<li>
+<p><code>cancelled</code> &#8594; <code>cancelled</code><br></p>
+</li>
+<li>
+<p><code>postponed</code> &#8594; <code>suspended</code><br></p>
+</li>
+<li>
+<p><code>scheduled</code> &#8594; <code>underway</code><br></p>
+</li>
+<li>
+<p><code>active</code> &#8594; <code>underway</code><br></p>
+</li>
+<li>
+<p><code>suspended</code> &#8594; <code>suspended</code><br></p>
+</li>
+<li>
+<p><code>completed</code> &#8594; <code>completed</code><br></p>
+</li>
+<li>
+<p><em>timeout</em> &#8594; <code>abandoned</code></p>
+</li>
+</ul>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">May catch multiple callbacks via use of <code>underway</code> target state.<br>
+<br>
+ Only target states reachable from <code>underway</code> can be used.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">callback handlers (<code><em>custom_actions</em></code>, <code><em>timeout.success_action</em></code>)</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>As specified in <code><em>custom_actions[n].<br>
+ receiver_thread_next_state</em></code>,<br>
+ or else as above</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Custom</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Custom statuses<br>
+ | <em>timeout</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">callback handlers (<code><em>custom_actions</em></code>, <code><em>timeout.success_action</em></code>)</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p><code>xxx</code> &#8594; <code>underway</code><br></p>
+</li>
+<li>
+<p><code>yyy</code> &#8594; <code>cancelled</code><br></p>
+</li>
+<li>
+<p><code>zzz</code> &#8594; <code>suspended</code><br></p>
+</li>
+<li>
+<p>etc</p>
+</li>
+<li>
+<p><em>timeout</em> &#8594; <code>abandoned</code></p>
+</li>
+</ul>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">May catch multiple callbacks via use of <code>underway</code> target state.<br>
+<br>
+ Only target states reachable from <code>underway</code> can be used.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>The following diagram shows the TP-VML definition for a dispatchable Task with a standard callback.</p>
+</div>
+<div id="timing_callback_pattern_1" class="imageblock text-center text-center">
+<div class="content">
+<img src="../_images/diagrams/uc_task_callback_1.svg" alt="uc task callback 1">
+</div>
+<div class="title">Figure 26. Standard callback example</div>
+</div>
+<div class="paragraph">
+<p>The following TP-VML definition illustrates a custom callback.</p>
+</div>
+<div id="timing_callback_pattern_2" class="imageblock text-center text-center">
+<div class="content">
+<img src="../_images/diagrams/uc_task_callback_2.svg" alt="uc task callback 2">
+</div>
+<div class="title">Figure 27. Custom callback example</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_callback_processing_for_non_blocking_tasks"><a class="anchor" href="#_callback_processing_for_non_blocking_tasks"></a><a class="link" href="#_callback_processing_for_non_blocking_tasks">Callback Processing for Non-blocking Tasks</a></h4>
+<div class="paragraph">
+<p>In the case of a context fork, the source Task has performed its work as soon as the dispatch has occurred, and its state is set to <code>completed</code>. The next Task(s) become <code>available</code> in the normal way, and processing continues. At some later point in time, a callback notification may be received from the remote Task, or else a timeout. These will be processed similarly to the above, with the exception that the next state processing, <em>if explicit next states are set</em>, is  <em>with respect to the Task Group enclosing the current point of execution</em>, which may be the top-level Group of the Task Plan. This allows the possibility of the callback processing to cause the local execution pathway to stop with abandonment or cancellation. The default next-state processing is 'no change', i.e. the current execution path doesn&#8217;t care what happens to the remote thread. However, if <code>EVENT_ACTION.<em>receiver_thread_next_state</em></code> is set from the return status of the remote Task, the execution of the Task Group containing the source Task may be ended (<code>cancel</code>) or the whole Plan abandoned (<code>abandon</code>). Such a transition might even be set on <code>success</code>, which provides a way to model 'first one wins' logic.</p>
+</div>
+<div class="paragraph">
+<p>The following illustrates a non-blocking callback in TP-VML.</p>
+</div>
+<div id="dispatchable_no_wait_callback" class="imageblock text-center text-center">
+<div class="content">
+<img src="../_images/diagrams/dispatchable_no_wait_callback.svg" alt="dispatchable no wait callback">
+</div>
+<div class="title">Figure 28. Non-blocking callback example</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_callback_with_custom_resume_behaviour"><a class="anchor" href="#_callback_with_custom_resume_behaviour"></a><a class="link" href="#_callback_with_custom_resume_behaviour">Callback with Custom Resume Behaviour</a></h4>
+<div class="paragraph">
+<p>The attribute <code>EVENT_ACTION.<em>resume_action</em></code> of type <code>RESUME_ACTION</code>, and its attribute <code><em>resume_location</em></code> enable custom post-callback behaviour to be stated. The default is to process the <code>EVENT_ACTION</code> (e.g. post a message, make a system call etc), and then to complete the current Task and progress to the next in the normal way. A custom resume action alows a different resumption location to be specified, as defined by the enumeration <code>RESUME_TYPE</code>. This kind of resumption is described below in the section on <a href="#_resume_semantics">[_resume_semantics]</a>.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_manually_notified_pseudo_callback"><a class="anchor" href="#_manually_notified_pseudo_callback"></a><a class="link" href="#_manually_notified_pseudo_callback">Manually-notified Pseudo-callback</a></h4>
+<div class="paragraph">
+<p>A callback at execution time is achieved via notification within the TP system. However, in some cases, the effect of a callback is required where the means of notification is the subject (i.e. the patient, in a clinical system) being sent to another department or room, and the current performer&#8217;s execution blocking for that subject until he/she returns. This effect can be achieved by the task pattern shown below, consisting of a Hand-off followed by a normal Task that waits on a Manual notification event. This pattern is not a true callback.</p>
+</div>
+<div id="manual_callback" class="imageblock text-center text-center">
+<div class="content">
+<img src="../_images/diagrams/manual_callback.svg" alt="manual callback">
+</div>
+<div class="title">Figure 29. Pattern to achieve effect of 'manual callback'</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_class_definitions_8"><a class="anchor" href="#_class_definitions_8"></a><a class="link" href="#_class_definitions_8">Class Definitions</a></h3>
+<div class="paragraph">
+<p>Unresolved include directive in modules/task_planning/partials/9-definition_events.adoc - include::ROOT:partial$classes/task_wait.adoc[]</p>
+</div>
+<div class="paragraph">
+<p>Unresolved include directive in modules/task_planning/partials/9-definition_events.adoc - include::ROOT:partial$classes/event_wait.adoc[]
+Unresolved include directive in modules/task_planning/partials/9-definition_events.adoc - include::ROOT:partial$classes/timer_wait.adoc[]
+Unresolved include directive in modules/task_planning/partials/9-definition_events.adoc - include::ROOT:partial$classes/reminder.adoc[]
+Unresolved include directive in modules/task_planning/partials/9-definition_events.adoc - include::ROOT:partial$classes/callback_wait.adoc[]
+Unresolved include directive in modules/task_planning/partials/9-definition_events.adoc - include::ROOT:partial$classes/event_action.adoc[]
+Unresolved include directive in modules/task_planning/partials/9-definition_events.adoc - include::ROOT:partial$classes/resume_action.adoc[]</p>
+</div>
+<div class="paragraph">
+<p>Unresolved include directive in modules/task_planning/partials/9-definition_events.adoc - include::ROOT:partial$classes/event.adoc[]
+Unresolved include directive in modules/task_planning/partials/9-definition_events.adoc - include::ROOT:partial$classes/plan_event.adoc[]</p>
+</div>
+<div class="paragraph">
+<p>Unresolved include directive in modules/task_planning/partials/9-definition_events.adoc - include::ROOT:partial$classes/timer_event.adoc[]
+Unresolved include directive in modules/task_planning/partials/9-definition_events.adoc - include::ROOT:partial$classes/calendar_event.adoc[]
+Unresolved include directive in modules/task_planning/partials/9-definition_events.adoc - include::ROOT:partial$classes/timeline_moment.adoc[]</p>
+</div>
+<div class="paragraph">
+<p>Unresolved include directive in modules/task_planning/partials/9-definition_events.adoc - include::ROOT:partial$classes/task_transition.adoc[]
+Unresolved include directive in modules/task_planning/partials/9-definition_events.adoc - include::ROOT:partial$classes/manual_notification.adoc[]
+Unresolved include directive in modules/task_planning/partials/9-definition_events.adoc - include::ROOT:partial$classes/system_notification.adoc[]
+Unresolved include directive in modules/task_planning/partials/9-definition_events.adoc - include::ROOT:partial$classes/state_trigger.adoc[]</p>
+</div>
+<div class="paragraph">
+<p>Unresolved include directive in modules/task_planning/partials/9-definition_events.adoc - include::ROOT:partial$classes/callback_notification.adoc[]</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_cost_tracking"><a class="anchor" href="#_cost_tracking"></a><a class="link" href="#_cost_tracking">Cost Tracking</a></h2>
+<div class="sectionbody">
+<div class="paragraph tbd">
+<p>TBD: describe cost tracking.</p>
+</div>
+<div class="sect2">
+<h3 id="_class_definitions_9"><a class="anchor" href="#_class_definitions_9"></a><a class="link" href="#_class_definitions_9">Class Definitions</a></h3>
+<div class="paragraph">
+<p>Unresolved include directive in modules/task_planning/partials/10-definition_cost.adoc - include::ROOT:partial$classes/task_costing.adoc[]</p>
+</div>
+</div>
+</div>
+</div>
+<div class="ulist">
+<div class="title">References</div>
+<ul>
+<li>
+<p><a id="bibliography_entry_Hofstede_van_der_Aalst2009"></a>[1] A. H. M. T. Hofstede, W. M. P. van der Aalst, M. Adams, and N. Russell, Modern Business Process Automation: YAWL and its Support Environment. Springer-Verlag, 2010. doi: 10.1007/978-3-642-03121-2.
+</p>
+</li>
+</ul>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="../model_overview/">Task Planning Model Overview</a></span>
+  <span class="next"><a href="../global_semantics/">Global Semantics</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>
+    Copyright: © 2003+
+    <a href="https://www.openehr.org"
+        alt="is an independent, non-profit foundation, facilitating the sharing of health
+           records by consumers and clinicians via open specifications, clinical models
+           and open platform implementations.">The openEHR Foundation</a>
+  </p>
+
+  <p>
+    License:
+    <img src="../../../../ui/img/cc-by-nd-88x31.png"
+        alt="Creative Commons Attribution-NoDerivs 3.0 Unported."
+        style="vertical-align:middle;margin:0 0.25rem 0 0;">
+    <a href="https://creativecommons.org/licenses/by-nd/3.0/">
+      Creative Commons Attribution-NoDerivs 3.0 Unported.
+    </a>
+  </p>
+
+  <p>
+    <strong>Links: <strong>
+    <a href="https://www.openehr.org/terms-of-use" class="mr-1">Terms of use</a> |
+    <a href="https://www.openehr.org/privacy-policy" class="mx-1">Privacy policy</a> |
+    <a href="https://www.openehr.org/privacy-policy" class="mx-1">Logos &amp; Trademarks</a> |
+    <a href="https://www.openehr.org/contact-us" class="mx-1">Contact</a>
+  </p>
+</footer>
+
+<script id="site-script" src="../../../../ui/js/site.js" data-ui-root-path="../../../../ui"></script>
+<script defer src="../../../../ui/js/vendor/highlight.js"></script>
+<script src="../../../../ui/js/vendor/lunr.js"></script>
+<script src="../../../../ui/js/search-ui.js" id="search-ui-script" data-site-root-path="../../../.." data-snippet-length="80" data-stylesheet="../../../../ui/css/search.css"></script>
+<script async src="../../../../search-index.js"></script>
+<script src="../../../../ui/js/medium-zoom.min.js"></script>
+<script src="../../../../ui/js/zoom.js"></script>
+<script async src="../../../../ui/js/tabs.js"></script>
+  </body>
+</html>

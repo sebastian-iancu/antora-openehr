@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+    <title>Common Decision Logic Modules :: openEHR Specifications (Local Build)</title>
+    <link rel="canonical" href="https://sebastian-iancu.github.io/antora-openehr/PROC/development/process_examples/common_DLMs/">
+    <link rel="prev" href="../news2/">
+    <link rel="next" href="../appendix/">
+    <meta name="description" content="Examples of openEHR CDS, Guideline and Planning artefacts.">
+    <meta name="keywords" content="process, task planning, CDS, CPG, decision logic, examples, workflow">
+    <meta name="generator" content="Antora 3.1.14">
+    <link rel="stylesheet" href="../../../../ui/css/site.css">
+    <link rel="stylesheet" href="../../../../ui/css/antora-openehr.css">
+    <link rel="stylesheet" href="../../../../ui/css/openehr.css">
+    <link rel="stylesheet" href="../../../../ui/css/tabs.css">
+    <link rel="stylesheet" href="../../../../ui/css/extra.css">
+<link rel="icon" href="../../../../ui/img/favicon.ico" type="image/x-icon">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://sebastian-iancu.github.io/antora-openehr">openEHR Specifications (Local Build)</a>
+
+      <div class="navbar-item search hide-for-print">
+        <div id="search-field" class="field has-filter">
+          <input id="search-input" type="text" placeholder="Search the docs">
+          <label class="filter checkbox">
+            <input type="checkbox" data-facet-filter="component:PROC"> Process Model only
+          </label>
+        </div>
+      </div>
+
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">Specifications</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://specifications.openehr.org/" target="_blank">
+              openEHR specification
+            </a>
+            <a class="navbar-item" href="https://specifications.openehr.org/releases/UML/development/index.html" target="_blank">
+              openEHR portal
+            </a>
+            <a class="navbar-item" href="https://ckm.openehr.org/ckm/" target="_blank">
+              openEHR CKM
+            </a>
+          </div>
+        </div>
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">Community</a>
+          <div class="navbar-dropdown is-right">
+            <a class="navbar-item" href="https://openehr.atlassian.net/secure/Dashboard.jspa?selectPageId=10190" target="_blank">
+              Issue trackers
+            </a>
+            <a class="navbar-item" href="https://discourse.openehr.org/" target="_blank">
+              Discourse Forum
+            </a>
+            <a class="navbar-item" href="https://specifications.openehr.org/wiki/display/spec/Specifications+Home" target="_blank">
+              Wiki
+            </a>
+            <a class="navbar-item" href="https://github.com/openEHR" target="_blank">
+              GitHub
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="PROC" data-version="development">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="../../">Process Model</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../">Overview</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../overview/">CDS, Guidelines and Planning Overview</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../overview/introduction/">Introduction</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../overview/needs/">Needs</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../overview/artefacts/">Care Process Artefacts and their Formalisation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../overview/deployment_paradigm/">Deployment Paradigm</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../overview/conceptual_architecture/">Conceptual Architecture</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../overview/deployment_architectures/">Architectural Use-cases</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../overview/appendix/">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../task_planning/">Task Planning (TP) Specification</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../task_planning/background/">Background</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../task_planning/requirements/">Technical Requirements</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../task_planning/design/">Design Principles</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../task_planning/model_overview/">Task Planning Model Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../task_planning/1-definition_overview/">Definition Model</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../task_planning/global_semantics/">Global Semantics</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../task_planning/execution_model_overview/">Execution</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../task_planning/model_materialised/">Materialised Model</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../task_planning/model_history/">Plan Execution History</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../task_planning/service_model/">Transactional Service Model</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../task_planning/ehr_semantics/">Relationship with other openEHR EHR Artefacts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../task_planning/appendix/">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../decision_language/">Decision Language specification</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../decision_language/overview/">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../decision_language/dlm_syntax/">DLM Syntax</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../decision_language/dlm_model/">DLM Model</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../decision_language/dl_module/">EL Modules</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../decision_language/terminology/">Terminology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../decision_language/data_context/">Data Bindings</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../decision_language/computing_context/">Computing Bindings</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../decision_language/appendix/">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../tp_vml/">Task Planning Visual Modelling Language (TP-VML)</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../tp_vml/overview/">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../tp_vml/elements/">Elements</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../tp_vml/patterns/">Patterns</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../tp_vml/appendix/">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../">openEHR CDS, Guidelines and Planning Examples</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../overview/">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../teamwork/">Teamwork</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../order_management/">Order Management</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../chemo/">Multi-drug Chemotherapy</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../antenatal/">Antenatal Care</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../cancer_prescribing/">Breast Cancer Decision Protocol</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../Covid19_severity/">Covid19 Severity Classification</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../cha2ds_vasc/">CHA2DS2-VASc</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../qrisk/">qRisk3-2017</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../news2/">National Early Warning Score (NEWS) 2</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="./">Common Decision Logic Modules</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../appendix/">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Process Model</span>
+    <span class="version">development</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <div class="title"><a href="../../../../AM/Release-2.3.0/">Archetype Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../AM/Release-2.3.0/">Release-2.3.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../AM/Release-2.2.0/">Release-2.2.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../AM/Release-1.4.0/">Release-1.4.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../AM/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../BASE/Release-1.2.0/">Base Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../BASE/Release-1.2.0/">Release-1.2.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../BASE/Release-1.1.0/">Release-1.1.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../BASE/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../CDS/development/">Clinical Decision Support</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../CDS/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../CNF/development/">Conformance Specifications</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../CNF/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../LANG/Release-1.0.0/">Generic Languages</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../LANG/Release-1.0.0/">Release-1.0.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../LANG/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../TERM/Release-3.0.0/">openEHR Terminology</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../TERM/Release-3.0.0/">Release-3.0.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../TERM/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <div class="title"><a href="../../">Process Model</a></div>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../../">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../QUERY/Release-1.0.1/">Query Languages</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../QUERY/Release-1.0.1/">Release-1.0.1</a>
+        </li>
+        <li class="version">
+          <a href="../../../../QUERY/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../RM/Release-1.1.0/">Reference Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../RM/Release-1.1.0/">Release-1.1.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../RM/Release-1.0.4/">Release-1.0.4</a>
+        </li>
+        <li class="version">
+          <a href="../../../../RM/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../ITS-REST/development/">REST API specifications</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../ITS-REST/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../SM/development/">Service Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../SM/development/">development</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../../BASE/Release-1.2.0/" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../../">Process Model</a></li>
+    <li><a href="../">openEHR CDS, Guidelines and Planning Examples</a></li>
+    <li><a href="./">Common Decision Logic Modules</a></li>
+  </ul>
+</nav>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Common Decision Logic Modules</h1>
+<div class="sect1">
+<h2 id="_basic_demographics"><a class="anchor" href="#_basic_demographics"></a><a class="link" href="#_basic_demographics">BASIC: Demographics</a></h2>
+<div class="sectionbody">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-ts" data-lang="ts">dlm BASIC.v0.5.0
+
+definitions -- Descriptive
+
+    language = {
+        original_language: [ISO_639-1::en]
+    }
+    ;
+
+    description = {
+        lifecycle_state: "unmanaged",
+        original_author: {
+            name:           "Thomas Beale",
+            email:          "thomas.beale@openEHR.org",
+            organisation:   "openEHR Foundation &lt;http://www.openEHR.org&gt;",
+            date:           "2021-01-10"
+        },
+        details: {
+            "en" : {
+                language: [ISO_639-1::en],
+                purpose: "To access common demographic state."
+            }
+        }
+    }
+    ;
+
+input -- Administrative
+
+    date_of_birth: Date
+        ;
+
+    |
+    | sex: #male | #female | #indeterminate
+    |
+    sex: Terminology_code «sexes»,
+        ;
+
+    |
+    | race
+    |
+    race: Terminology_code «races»,
+        ;
+
+    |
+    | Ethnicity:
+    |   #white_or_not_stated
+    |   #indian
+    |   #pakistani
+    |   #bangladeshi
+    |   #other_asian
+    |   #black_caribbean
+    |   #black_african
+    |   #other_ethnic_group
+    |
+    ethnicity: Terminology_code «ethnicities»,
+        ;
+
+rules -- Main
+
+    |
+    | age in years
+    |
+    age_in_years: Integer
+        Result := (current_date - date_of_birth).as_years
+        ;
+
+definitions -- Terminology
+
+    terminology = {
+        term_definitions: {
+            "en" : {
+                "date_of_birth" : {
+                    text: "Date of birth"
+                },
+                "age" : {
+                    text: "Age"
+                },
+                "age_in_years" : {
+                    text: "Age in years"
+                },
+                "sex" : {
+                    text: "Sex"
+                },
+                "male" : {
+                    text: "Male sex"
+                },
+                "female" : {
+                    text: "Female sex"
+                },
+            },
+        },
+        value_sets: {
+            "sexes" : {
+                id: "sexes",
+                members: ["male", "female", "indeterminate"]
+            },
+            "ethnicities" : {
+                id: "ethnicities",
+                members: ["white",
+                    "indian", "pakistani", "bangladeshi",
+                    "other_asian", "black_caribbean",
+                    "black_african", "other_ethnic_group"
+                ]
+            },
+            "races" : {
+                id: "races",
+                members: ["caucasian", "asian", "black", "other"]
+            }
+        }
+    }</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_bsa_body_surface_area"><a class="anchor" href="#_bsa_body_surface_area"></a><a class="link" href="#_bsa_body_surface_area">BSA: Body Surface Area</a></h2>
+<div class="sectionbody">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-ts" data-lang="ts">dlm Body_surface_area.v0.5.0
+
+definitions -- Descriptive
+
+    language = {
+        original_language: [ISO_639-1::en]
+    }
+    ;
+
+    description = {
+        lifecycle_state: "unmanaged",
+        original_author: {
+            name:           "Thomas Beale",
+            email:          "thomas.beale@openEHR.org",
+            organisation:   "openEHR Foundation &lt;http://www.openEHR.org&gt;",
+            date:           "2021-01-10"
+        },
+        details: {
+            "en" : {
+                language: [ISO_639-1::en],
+                purpose:  "Body surface area.",
+                use:      "Used to calculate dosage e.g. for chemotherapy and other systemic medications."
+            }
+        }
+    }
+    ;
+
+input -- State
+
+    |
+    | Weight as recorded in local system
+    |
+    weight: Quantity
+        currency = 30d
+        ;
+
+    |
+    | Height as recorded in local system
+    |
+    height: Quantity
+        currency = 5y
+        ;
+
+rules -- Main
+
+    |
+    | Weight in kg
+    |
+    weight_in_kg: Real
+        Result := choice of
+            =====================================================
+            weight.units = "kg":    weight.magnitude,
+            -----------------------------------------------------
+            weight.units = "lb":    weight.magnitude / 2.2,
+            -----------------------------------------------------
+            *:                      {Quantity_converter}.
+                                    convert_value (weight.value,
+                                        from: weight.units,
+                                        to: "kg",
+                                        UCUM.#mass)
+            =====================================================
+        ;
+
+    |
+    | Height in cm
+    |
+    height_in_cm: Real
+        Result := choice of
+            ====================================================
+            height.units = "cm":    height.magnitude,
+            ----------------------------------------------------
+            height.units = "m":     height.magnitude * 100,
+            ----------------------------------------------------
+            *:                      {Quantity_converter}.
+                                    convert_value (height.value,
+                                        from: height.units,
+                                        to: "cm",
+                                        UCUM.#length)
+            =====================================================
+        ;
+
+rules -- Output
+
+    |
+    | Body surface area
+    |
+    BSA: Real
+        Result := {math}.sqrt (weight_in_kg * height_in_cm / 3600)
+        ;
+
+definitions -- Terminology
+
+    terminology = {
+        term_definitions: {
+            "en" : {
+                "bsa" : {
+                    text: "Body surface area"
+                },
+                "weight" : {
+                    text: "Body weight, in whatever units are in local use"
+                },
+                "height" : {
+                    text: "Body height, in whatever units are in local use"
+                },
+                "weight_in_kg" : {
+                    text: "Body weight in kg"
+                },
+                "height_in_cm" : {
+                    text: "Body height in cm"
+                }
+            }
+        }
+    }
+    ;</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_bmi_body_mass_index"><a class="anchor" href="#_bmi_body_mass_index"></a><a class="link" href="#_bmi_body_mass_index">BMI: Body Mass Index</a></h2>
+<div class="sectionbody">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-ts" data-lang="ts">dlm Body_mass_index.v0.5.0
+
+definitions -- Descriptive
+
+    language = {
+        original_language: [ISO_639-1::en]
+    }
+    ;
+
+    description = {
+        lifecycle_state: "unmanaged",
+        original_author: {
+            name:           "Thomas Beale",
+            email:          "thomas.beale@openEHR.org",
+            organisation:   "openEHR Foundation &lt;http://www.openEHR.org&gt;",
+            date:           "2021-01-10"
+        },
+        details: {
+            "en" : {
+                language: [ISO_639-1::en],
+                purpose:  "Body mass index.",
+                use:      "Used as a rough surrogate for determining whether a
+                          person has in the normal weight range for their height."
+            }
+        }
+    }
+    ;
+
+input -- State
+
+    |
+    | Weight as recorded in local system
+    |
+    weight: Quantity
+        currency = 30d
+        ;
+
+    |
+    | Height as recorded in local system
+    |
+    height: Quantity
+        currency = 5y
+        ;
+
+rules -- Main
+
+    |
+    | Weight in kg, converted as necessary from subject weight
+    |
+    weight_in_kg: Real
+        Result := choice of
+            ====================================================
+            weight.units = "kg":    weight.magnitude,
+            ----------------------------------------------------
+            weight.units = "lb":    weight.magnitude / 2.2,
+            ----------------------------------------------------
+            *:                      {Quantity_converter}.
+                                    convert_value (weight.value,
+                                        from: weight.units,
+                                        to: "kg",
+                                        UCUM.#mass)
+            ====================================================
+        ;
+
+    |
+    | Height in m, converted as necessary from subject height
+    |
+    height_in_m: Real
+        Result := choice of
+            =====================================================
+            height.units = "m":     height.magnitude,
+            -----------------------------------------------------
+            height.units = "cm":    height.magnitude / 100,
+            -----------------------------------------------------
+            *:                      {Quantity_converter}.
+                                    convert_value (height.value,
+                                        from: height.units,
+                                        to: "m",
+                                        UCUM.#length)
+            =====================================================
+        ;
+
+rules -- Output
+
+    |
+    | Body mass index
+    |
+    BMI: Real
+        Result := weight_in_kg / height_in_m ^ 2
+        ;
+
+definitions -- Terminology
+
+    terminology = {
+        term_definitions: {
+            "en" : {
+                "bmi" : {
+                    text: "Body mass index"
+                },
+                "weight" : {
+                    text: "Body weight, in whatever units are in local use"
+                },
+                "height" : {
+                    text: "Body height, in whatever units are in local use"
+                },
+                "weight_in_kg" : {
+                    text: "Body weight in kg"
+                },
+                "height_in_m" : {
+                    text: "Body height in m"
+                }
+            }
+        }
+    }
+    ;</code></pre>
+</div>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="../news2/">National Early Warning Score (NEWS) 2</a></span>
+  <span class="next"><a href="../appendix/">Appendix</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>
+    Copyright: © 2003+
+    <a href="https://www.openehr.org"
+        alt="is an independent, non-profit foundation, facilitating the sharing of health
+           records by consumers and clinicians via open specifications, clinical models
+           and open platform implementations.">The openEHR Foundation</a>
+  </p>
+
+  <p>
+    License:
+    <img src="../../../../ui/img/cc-by-nd-88x31.png"
+        alt="Creative Commons Attribution-NoDerivs 3.0 Unported."
+        style="vertical-align:middle;margin:0 0.25rem 0 0;">
+    <a href="https://creativecommons.org/licenses/by-nd/3.0/">
+      Creative Commons Attribution-NoDerivs 3.0 Unported.
+    </a>
+  </p>
+
+  <p>
+    <strong>Links: <strong>
+    <a href="https://www.openehr.org/terms-of-use" class="mr-1">Terms of use</a> |
+    <a href="https://www.openehr.org/privacy-policy" class="mx-1">Privacy policy</a> |
+    <a href="https://www.openehr.org/privacy-policy" class="mx-1">Logos &amp; Trademarks</a> |
+    <a href="https://www.openehr.org/contact-us" class="mx-1">Contact</a>
+  </p>
+</footer>
+
+<script id="site-script" src="../../../../ui/js/site.js" data-ui-root-path="../../../../ui"></script>
+<script defer src="../../../../ui/js/vendor/highlight.js"></script>
+<script src="../../../../ui/js/vendor/lunr.js"></script>
+<script src="../../../../ui/js/search-ui.js" id="search-ui-script" data-site-root-path="../../../.." data-snippet-length="80" data-stylesheet="../../../../ui/css/search.css"></script>
+<script async src="../../../../search-index.js"></script>
+<script src="../../../../ui/js/medium-zoom.min.js"></script>
+<script src="../../../../ui/js/zoom.js"></script>
+<script async src="../../../../ui/js/tabs.js"></script>
+  </body>
+</html>

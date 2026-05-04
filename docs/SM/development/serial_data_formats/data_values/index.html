@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+    <title>Data Values :: openEHR Specifications (Local Build)</title>
+    <link rel="canonical" href="https://sebastian-iancu.github.io/antora-openehr/SM/development/serial_data_formats/data_values/">
+    <link rel="prev" href="../overview/">
+    <link rel="next" href="../syntax/">
+    <meta name="description" content="openEHR Serial Data Formats">
+    <meta name="keywords" content="SDF, serialization, openEHR">
+    <meta name="generator" content="Antora 3.1.14">
+    <link rel="stylesheet" href="../../../../ui/css/site.css">
+    <link rel="stylesheet" href="../../../../ui/css/antora-openehr.css">
+    <link rel="stylesheet" href="../../../../ui/css/openehr.css">
+    <link rel="stylesheet" href="../../../../ui/css/tabs.css">
+    <link rel="stylesheet" href="../../../../ui/css/extra.css">
+<link rel="icon" href="../../../../ui/img/favicon.ico" type="image/x-icon">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://sebastian-iancu.github.io/antora-openehr">openEHR Specifications (Local Build)</a>
+
+      <div class="navbar-item search hide-for-print">
+        <div id="search-field" class="field has-filter">
+          <input id="search-input" type="text" placeholder="Search the docs">
+          <label class="filter checkbox">
+            <input type="checkbox" data-facet-filter="component:SM"> Service Model only
+          </label>
+        </div>
+      </div>
+
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">Specifications</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://specifications.openehr.org/" target="_blank">
+              openEHR specification
+            </a>
+            <a class="navbar-item" href="https://specifications.openehr.org/releases/UML/development/index.html" target="_blank">
+              openEHR portal
+            </a>
+            <a class="navbar-item" href="https://ckm.openehr.org/ckm/" target="_blank">
+              openEHR CKM
+            </a>
+          </div>
+        </div>
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">Community</a>
+          <div class="navbar-dropdown is-right">
+            <a class="navbar-item" href="https://openehr.atlassian.net/secure/Dashboard.jspa?selectPageId=10190" target="_blank">
+              Issue trackers
+            </a>
+            <a class="navbar-item" href="https://discourse.openehr.org/" target="_blank">
+              Discourse Forum
+            </a>
+            <a class="navbar-item" href="https://specifications.openehr.org/wiki/display/spec/Specifications+Home" target="_blank">
+              Wiki
+            </a>
+            <a class="navbar-item" href="https://github.com/openEHR" target="_blank">
+              GitHub
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="SM" data-version="development">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="../../">Service Model</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../">Overview</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../openehr_platform/">openEHR Platform Service Model</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../openehr_platform/overview/">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../openehr_platform/common_package/">Common Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../openehr_platform/definition_package/">Definition Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../openehr_platform/ehr_service/">EHR Service</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../openehr_platform/demographic_service/">Demographic Service</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../openehr_platform/ehr_index_service/">EHR Index Service</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../openehr_platform/query_service/">Query Service</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../openehr_platform/message_service/">Message Service</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../openehr_platform/subject_proxy_service/">Subject Proxy Service (SPS)</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../openehr_platform/terminology_service/">Terminology Service</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../openehr_platform/admin_service/">Admin Service</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../openehr_platform/appendix/">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../simplified_im_b/">openEHR Simplified Information Model 'B'</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../simplified_im_b/overview/">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../simplified_im_b/sim_base/">Sim Base</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../simplified_im_b/sim_data_types/">SIM-B Data types Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../simplified_im_b/sim_structures/">SIM-B Structures</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../simplified_im_b/app_context/">App Context</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../simplified_im_b/transformation_rules/">Transformation Rules</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../simplified_im_b/appendix/">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../">openEHR Serial Data Formats (SDF)</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../overview/">Overview</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="./">Data Values</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../syntax/">Syntax Specification</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../appendix/">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Service Model</span>
+    <span class="version">development</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <div class="title"><a href="../../../../AM/Release-2.3.0/">Archetype Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../AM/Release-2.3.0/">Release-2.3.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../AM/Release-2.2.0/">Release-2.2.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../AM/Release-1.4.0/">Release-1.4.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../AM/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../BASE/Release-1.2.0/">Base Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../BASE/Release-1.2.0/">Release-1.2.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../BASE/Release-1.1.0/">Release-1.1.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../BASE/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../CDS/development/">Clinical Decision Support</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../CDS/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../CNF/development/">Conformance Specifications</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../CNF/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../LANG/Release-1.0.0/">Generic Languages</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../LANG/Release-1.0.0/">Release-1.0.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../LANG/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../TERM/Release-3.0.0/">openEHR Terminology</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../TERM/Release-3.0.0/">Release-3.0.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../TERM/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../PROC/development/">Process Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../PROC/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../QUERY/Release-1.0.1/">Query Languages</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../QUERY/Release-1.0.1/">Release-1.0.1</a>
+        </li>
+        <li class="version">
+          <a href="../../../../QUERY/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../RM/Release-1.1.0/">Reference Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../RM/Release-1.1.0/">Release-1.1.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../RM/Release-1.0.4/">Release-1.0.4</a>
+        </li>
+        <li class="version">
+          <a href="../../../../RM/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../ITS-REST/development/">REST API specifications</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../ITS-REST/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <div class="title"><a href="../../">Service Model</a></div>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../../">development</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../../BASE/Release-1.2.0/" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../../">Service Model</a></li>
+    <li><a href="../">openEHR Serial Data Formats (SDF)</a></li>
+    <li><a href="./">Data Values</a></li>
+  </ul>
+</nav>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Data Values</h1>
+<div class="sect1">
+<h2 id="_json_primitives"><a class="anchor" href="#_json_primitives"></a><a class="link" href="#_json_primitives">JSON Primitives</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The following JSON primitive types are a subset of the openEHR Foundation Types, and are represented in SDF in their native JSON form.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 33.3333%;">
+<col style="width: 50.0001%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Formal type</th>
+<th class="tableblock halign-left valign-top">Definition</th>
+<th class="tableblock halign-left valign-top">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Boolean</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>"true" | "false"</code></p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Integer</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#JSON Syntax Elements">JSON integer</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">5<br>
+ 124000<br></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Real</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#JSON Syntax Elements">JSON number</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">5.0<br>
+ 6.023e23<br></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#JSON Syntax Elements">JSON string</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"mild anaemia"<br>
+ "a line of text\n"</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_openehr_primitives_represented_as_json_string"><a class="anchor" href="#_openehr_primitives_represented_as_json_string"></a><a class="link" href="#_openehr_primitives_represented_as_json_string">openEHR Primitives Represented as JSON String</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The following are openEHR primitive types represented as JSON Strings which may be parsed to instantiate the appropriate data type.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 12.5%;">
+<col style="width: 50%;">
+<col style="width: 37.5%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Formal type</th>
+<th class="tableblock halign-left valign-top">Definition</th>
+<th class="tableblock halign-left valign-top">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Character</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#JSON Syntax Elements">JSON character</a></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre>"k"
+"\t"</pre>
+</div>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Iso8601_date</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank" rel="noopener">ISO 8601 date string</a>, including partial forms; see <a href="https://specifications.openehr.org/releases/BASE/latest/foundation_types.html#_time_definitions_class" target="_blank" rel="noopener"><code>TIME_DEFINITIONS.<em>valid_iso8601_date</em>()</code></a>.</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre>"2020-04-01"
+"2020-04"
+"2020"</pre>
+</div>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Iso8601_time</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank" rel="noopener">ISO 8601 time string</a>, including partial forms; see <a href="https://specifications.openehr.org/releases/BASE/latest/foundation_types.html#_time_definitions_class" target="_blank" rel="noopener"><code>TIME_DEFINITIONS.<em>valid_iso8601_time</em>()</code></a>.</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre>"13:45:00"
+"13:45"
+"13"
+"13:45:00.722+03:00"
+"13:45+03:00"</pre>
+</div>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Iso8601_date_time</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank" rel="noopener">ISO 8601 date/time string</a>, including partial forms; see <a href="https://specifications.openehr.org/releases/BASE/latest/foundation_types.html#_time_definitions_class" target="_blank" rel="noopener"><code>TIME_DEFINITIONS.<em>valid_iso8601_date_time</em>()</code></a>.</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre>"P2Y4M10D"
+"P1DT3H"
+"PT2h5m0s"</pre>
+</div>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Iso8601_duration</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank" rel="noopener">ISO 8601 duration string</a>; see <a href="https://specifications.openehr.org/releases/BASE/latest/foundation_types.html#_time_definitions_class" target="_blank" rel="noopener"><code>TIME_DEFINITIONS.<em>valid_iso8601_duration</em>()</code></a>.</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre>"P2Y4M10D"
+"P1DT3H"
+"PT2h5m0s"</pre>
+</div>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Uri</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://tools.ietf.org/html/rfc3986" target="_blank" rel="noopener">RFC 3986 string</a></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre>"https://www.openEHR.org"
+"http://snomed.info"</pre>
+</div>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Terminology_code</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">openEHR ODIN <a href="https://specifications.openehr.org/releases/LANG/latest/odin.html#_syntax_specification" target="_blank" rel="noopener">TERM_CODE_REF</a>, defined as <code>"[&lt;terminology_id&gt;::&lt;code&gt;]" | "[&lt;terminology_id&gt;(&lt;version_id&gt;)::&lt;code&gt;]"</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre>"[icd10AM::F60.1]"
+"[snomed_ct(2020_06_01)::3415004]"</pre>
+</div>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Terminology_term</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">openEHR ODIN <a href="https://specifications.openehr.org/releases/LANG/latest/odin.html#_syntax_specification" target="_blank" rel="noopener">XXXX</a>, defined as <code>"[&lt;terminology_id&gt;::&lt;code&gt;|&lt;text&gt;|]" | "[&lt;terminology_id&gt;(&lt;version_id&gt;)::&lt;code&gt;|&lt;text&gt;|]"</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre>"[icd10AM::F60.1|Schizoid personality disorder|]"
+"[snomed_ct(2020_06_01)::3415004|cyanosis|]"</pre>
+</div>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph tbd">
+<p>TBD: S.I.: there is no support for version_id in Terminology_code / Terminology_term, or value in Terminology_term.</p>
+</div>
+<div class="sect2">
+<h3 id="_ehrscape_variants"><a class="anchor" href="#_ehrscape_variants"></a><a class="link" href="#_ehrscape_variants">EhrScape Variants</a></h3>
+<div class="paragraph">
+<p>EhrScape variants exist for the following types.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 80%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Formal type</th>
+<th class="tableblock halign-left valign-top">EhrScape Format</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Terminology_code</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+    "|code": "238",
+    "|terminology": "openehr"
+}</code></pre>
+</div>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Terminology_term</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+    "|code": "238",
+    "|value": "other care",
+    "|terminology": "openehr"
+}</code></pre>
+</div>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_openehr_intervals_represented_as_json_string"><a class="anchor" href="#_openehr_intervals_represented_as_json_string"></a><a class="link" href="#_openehr_intervals_represented_as_json_string">openEHR Intervals Represented as JSON String</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Data instances of type <code>Interval&lt;T: Ordered&gt;</code>, where the concrete descendants of <code>Ordered</code> are shown in the <a href="https://specifications.openehr.org/releases/BASE/latest/foundation_types.html#_openehr_leaf_types" target="_blank" rel="noopener">openEHR Foundation Types</a> are represented in SDF templates as JSON Strings containing <a href="https://specifications.openehr.org/releases/LANG/latest/odin.html#_intervals_of_ordered_primitive_types" target="_blank" rel="noopener">openEHR ODIN intervals</a>, for example <code>"|08:02 .. 09:10|"</code>.</p>
+</div>
+<div class="paragraph">
+<p>The interval syntax is summarised as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>    |N .. M|        -- the two-sided range N &gt;= x &lt;= M;
+    |&gt; N .. M|      -- the two-sided range N &gt; x &lt;= M;
+    |N .. &lt;M|       -- the two-sided range N &lt;= x &lt;M;
+    |&gt; N .. &lt;M|     -- the two-sided range N &gt; x &lt;M;
+    |&lt; N|           -- the one-sided range x &lt; N;
+    |&gt; N|           -- the one-sided range x &gt; N;
+    |&gt;= N|          -- the one-sided range x &gt;= N;
+    |&lt;= N|          -- the one-sided range x &lt;= N;
+    |N +/-M|        -- interval of N ±M;
+    |N±M|           -- interval of N ±M.</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples of this syntax include:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>    |0 .. 5|              -- integer interval
+    |0.0 .. 1000.0|       -- real interval
+    |0.0 .. &lt;1000.0|      -- real interval 0.0 &lt;= x &lt; 1000.0
+    |08:02 .. 09:10|      -- interval of time
+    |&gt;= 1939-02-01|       -- open-ended interval of dates
+    |5.0 ±0.5|            -- 4.5 ±5.5
+    |5.0 +/-0.5|          -- 4.5 ±5.5
+    |&gt;= 0|                -- &gt;= 0</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_lists_of_primitive_type_and_intervals"><a class="anchor" href="#_lists_of_primitive_type_and_intervals"></a><a class="link" href="#_lists_of_primitive_type_and_intervals">Lists of Primitive Type and Intervals</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Lists are represented in the standard JSON manner, with the elements represented as described above. The following shows various examples.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>    ["cyan", "magenta", "yellow", "black"]
+    [1, 1, 2, 3, 5]
+    ["[icd10AM::F60.1]", "[icd10AM::F64.2]"]</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_openehr_reference_model_data_value_types"><a class="anchor" href="#_openehr_reference_model_data_value_types"></a><a class="link" href="#_openehr_reference_model_data_value_types">openeHR Reference Model DATA_VALUE Types</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>All openEHR RM <code>DATA_VALUE</code> types can be represented in SDF form. Many have the same representation as the Foundation types on which they are based and are assumed to be instantiated to the correct RM type by virtue of parsing within a model-available context. These are shown in the following table.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 66.6667%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Formal type</th>
+<th class="tableblock halign-left valign-top">Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DV_BOOLEAN</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">See <code>Boolean</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>CODE_PHRASE</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">See <code>Terminology_code</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DV_TEXT</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">See <code>String</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DV_CODED_TEXT</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">See <code>Terminology_term</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DV_COUNT</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">See <code>Integer</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DV_DATE</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">See <code>Iso8601_date</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DV_DATE_TIME</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">See <code>Iso8601_date_time</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DV_TIME</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">See <code>Iso8601_time</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DV_DURATION</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">See <code>Iso8601_duration</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DV_EHR_URI</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">See <code>Uri</code></p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>The <code>DATA_VALUE</code> types that have specific SDF syntax forms are shown in the following table.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 40%;">
+<col style="width: 40%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Formal type</th>
+<th class="tableblock halign-left valign-top">Definition</th>
+<th class="tableblock halign-left valign-top">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DV_ORDINAL</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>"&lt;ordinal_value&gt;|&lt;terminology_code&gt;"</code> |<br>
+ <code>"&lt;ordinal_value&gt;|&lt;terminology_term&gt;"</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>"1|[snomed_ct::313267000|Stroke|]"</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DV_SCALE</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>"&lt;scale_value&gt;|&lt;terminology_code&gt;"</code> |<br>
+ <code>"&lt;scale_value&gt;|&lt;terminology_term&gt;"</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>"1.5|[snomed_ct::127840596|minor difficulty|]"</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DV_QUANTITY</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>"&lt;value&gt;,&lt;unit&gt;"</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>"78.500,kg"</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DV_PROPORTION</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>"&lt;numerator&gt;/&lt;denominator&gt;;&lt;proportion_kind&gt;"</code> where is <code>&lt;proportion_kind&gt;</code> is <code>RATIO | UNITARY | PERCENT | FRACTION | INTEGER_FRACTION</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>"25.3/100;PERCENT"</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DV_MULTIMEDIA</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Standard JSON structure with compressed items internally</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+    "integrityCheckAlgorithm": "[openehr_integrity_check_algorithms::SHA-1]",
+    "mediaType": "IANA_media-types::text/plain",
+    "compressionAlgorithm": "[openehr_compression_algorithms::other]",
+    "uri": "file://test.ethercis.com/dir/file.jpg"
+}</code></pre>
+</div>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DV_PARSABLE</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CHECK</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CHECK</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DV_IDENTIFIER</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Standard JSON</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+    "id": "id1",
+    "issuer": "issuer1",
+    "assigner": "assigner1",
+    "type": "PERSON"
+}</code></pre>
+</div>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DV_INTERVAL&lt;T:DV_ORDERED&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CHECK</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CHECK</p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect2">
+<h3 id="_ehrscape_variants_2"><a class="anchor" href="#_ehrscape_variants_2"></a><a class="link" href="#_ehrscape_variants_2">EhrScape Variants</a></h3>
+<div class="paragraph">
+<p>EhrScape variants exist for the following <code>DV_</code> types.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 80%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Formal type</th>
+<th class="tableblock halign-left valign-top">EhrScape Format</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DV_PARSABLE</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+    "|value": "Hello world!",
+    "|formalism": "text/plain"
+}</code></pre>
+</div>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DV_MULTIMEDIA</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+    "|integrityCheckAlgorithm": "[openehr_integrity_check_algorithms::SHA-1]",
+    "|mediaType": "IANA_media-types::text/plain",
+    "|compressionAlgorithm": "[openehr_compression_algorithms::other]",
+    "|uri": "file://test.ethercis.com/dir/file.jpg"
+}</code></pre>
+</div>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DV_IDENTIFIER</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+    "|id": "id1",
+    "|issuer": "issuer1",
+    "|assigner": "assigner1",
+    "|type": "PERSON"
+}</code></pre>
+</div>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="../overview/">Overview</a></span>
+  <span class="next"><a href="../syntax/">Syntax Specification</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>
+    Copyright: © 2003+
+    <a href="https://www.openehr.org"
+        alt="is an independent, non-profit foundation, facilitating the sharing of health
+           records by consumers and clinicians via open specifications, clinical models
+           and open platform implementations.">The openEHR Foundation</a>
+  </p>
+
+  <p>
+    License:
+    <img src="../../../../ui/img/cc-by-nd-88x31.png"
+        alt="Creative Commons Attribution-NoDerivs 3.0 Unported."
+        style="vertical-align:middle;margin:0 0.25rem 0 0;">
+    <a href="https://creativecommons.org/licenses/by-nd/3.0/">
+      Creative Commons Attribution-NoDerivs 3.0 Unported.
+    </a>
+  </p>
+
+  <p>
+    <strong>Links: <strong>
+    <a href="https://www.openehr.org/terms-of-use" class="mr-1">Terms of use</a> |
+    <a href="https://www.openehr.org/privacy-policy" class="mx-1">Privacy policy</a> |
+    <a href="https://www.openehr.org/privacy-policy" class="mx-1">Logos &amp; Trademarks</a> |
+    <a href="https://www.openehr.org/contact-us" class="mx-1">Contact</a>
+  </p>
+</footer>
+
+<script id="site-script" src="../../../../ui/js/site.js" data-ui-root-path="../../../../ui"></script>
+<script defer src="../../../../ui/js/vendor/highlight.js"></script>
+<script src="../../../../ui/js/vendor/lunr.js"></script>
+<script src="../../../../ui/js/search-ui.js" id="search-ui-script" data-site-root-path="../../../.." data-snippet-length="80" data-stylesheet="../../../../ui/css/search.css"></script>
+<script async src="../../../../search-index.js"></script>
+<script src="../../../../ui/js/medium-zoom.min.js"></script>
+<script src="../../../../ui/js/zoom.js"></script>
+<script async src="../../../../ui/js/tabs.js"></script>
+  </body>
+</html>

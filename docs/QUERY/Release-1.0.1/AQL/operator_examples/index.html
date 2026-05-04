@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+    <title>AQL Operator Syntax Examples :: openEHR Specifications (Local Build)</title>
+    <link rel="canonical" href="https://sebastian-iancu.github.io/antora-openehr/QUERY/Release-1.0.1/AQL/operator_examples/">
+    <link rel="prev" href="../result_structure/">
+    <link rel="next" href="../writing_AQL/">
+    <meta name="description" content="openEHR Archetype Query Language (AQL)">
+    <meta name="keywords" content="query, AQL, archetype, Xpath, openehr">
+    <meta name="generator" content="Antora 3.1.14">
+    <link rel="stylesheet" href="../../../../ui/css/site.css">
+    <link rel="stylesheet" href="../../../../ui/css/antora-openehr.css">
+    <link rel="stylesheet" href="../../../../ui/css/openehr.css">
+    <link rel="stylesheet" href="../../../../ui/css/tabs.css">
+    <link rel="stylesheet" href="../../../../ui/css/extra.css">
+<link rel="icon" href="../../../../ui/img/favicon.ico" type="image/x-icon">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://sebastian-iancu.github.io/antora-openehr">openEHR Specifications (Local Build)</a>
+
+      <div class="navbar-item search hide-for-print">
+        <div id="search-field" class="field has-filter">
+          <input id="search-input" type="text" placeholder="Search the docs">
+          <label class="filter checkbox">
+            <input type="checkbox" data-facet-filter="component:QUERY"> Query Languages only
+          </label>
+        </div>
+      </div>
+
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">Specifications</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://specifications.openehr.org/" target="_blank">
+              openEHR specification
+            </a>
+            <a class="navbar-item" href="https://specifications.openehr.org/releases/UML/development/index.html" target="_blank">
+              openEHR portal
+            </a>
+            <a class="navbar-item" href="https://ckm.openehr.org/ckm/" target="_blank">
+              openEHR CKM
+            </a>
+          </div>
+        </div>
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">Community</a>
+          <div class="navbar-dropdown is-right">
+            <a class="navbar-item" href="https://openehr.atlassian.net/secure/Dashboard.jspa?selectPageId=10190" target="_blank">
+              Issue trackers
+            </a>
+            <a class="navbar-item" href="https://discourse.openehr.org/" target="_blank">
+              Discourse Forum
+            </a>
+            <a class="navbar-item" href="https://specifications.openehr.org/wiki/display/spec/Specifications+Home" target="_blank">
+              Wiki
+            </a>
+            <a class="navbar-item" href="https://github.com/openEHR" target="_blank">
+              GitHub
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="QUERY" data-version="Release-1.0.1">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="../../">Query Languages</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../">Overview</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../">Archetype Query Language</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../overview/">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../syntax/">AQL Syntax Description</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../result_structure/">Result structure</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="./">AQL Operator Syntax Examples</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing_AQL/">How to write an AQL query statement manually</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../grammar/">AQL Syntax Specification</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../appendix/">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Query Languages</span>
+    <span class="version">Release-1.0.1</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <div class="title"><a href="../../../../AM/Release-2.3.0/">Archetype Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../AM/Release-2.3.0/">Release-2.3.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../AM/Release-2.2.0/">Release-2.2.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../AM/Release-1.4.0/">Release-1.4.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../AM/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../BASE/Release-1.2.0/">Base Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../BASE/Release-1.2.0/">Release-1.2.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../BASE/Release-1.1.0/">Release-1.1.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../BASE/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../CDS/development/">Clinical Decision Support</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../CDS/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../CNF/development/">Conformance Specifications</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../CNF/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../LANG/Release-1.0.0/">Generic Languages</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../LANG/Release-1.0.0/">Release-1.0.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../LANG/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../TERM/Release-3.0.0/">openEHR Terminology</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../TERM/Release-3.0.0/">Release-3.0.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../TERM/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../PROC/development/">Process Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../PROC/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <div class="title"><a href="../../">Query Languages</a></div>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../../">Release-1.0.1</a>
+        </li>
+        <li class="version">
+          <a href="../../../development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../RM/Release-1.1.0/">Reference Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../RM/Release-1.1.0/">Release-1.1.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../RM/Release-1.0.4/">Release-1.0.4</a>
+        </li>
+        <li class="version">
+          <a href="../../../../RM/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../ITS-REST/development/">REST API specifications</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../ITS-REST/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../SM/development/">Service Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../SM/development/">development</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../../BASE/Release-1.2.0/" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../../">Query Languages</a></li>
+    <li><a href="../">Archetype Query Language</a></li>
+    <li><a href="./">AQL Operator Syntax Examples</a></li>
+  </ul>
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">Release-1.0.1</button>
+  <div class="version-menu">
+    <a class="version is-current" href="./">Release-1.0.1</a>
+    <a class="version is-missing" href="../../../development/">development</a>
+  </div>
+</div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">AQL Operator Syntax Examples</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>The following sub-sections illustrate various AQL operators with examples.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_adl_matches_operator"><a class="anchor" href="#_adl_matches_operator"></a><a class="link" href="#_adl_matches_operator">ADL matches operator</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The following examples show how the ADL <code>matches</code> operator may be used within AQL statements.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+the ADL expressions on the right-hand side of the <code>matches</code> operator are in ADL 1.4 format.
+</td>
+</tr>
+</table>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 80%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"><strong>Clinical Scenario 1</strong></th>
+<th class="tableblock halign-left valign-top">Blood glucose &gt; 11 mmol/L or blood glucose &gt;= 200 mg/dL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>EHR path</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>o/data[at0001]/events[at0002 and name/value='Any event']/data[at0003]/items[at0013.1]</code></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>AQL Fragment</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-sql" data-lang="sql">ehr_path/value
+    matches {
+        C_DV_QUANTITY&lt;
+            list = &lt;
+               ["1"] = &lt;
+                   units = &lt;"mmol/L"&gt;
+                   magnitude = &lt;|&gt;=11|&gt;
+               &gt;
+               ["2"] = &lt;
+                   units=&lt;"mg/dL"&gt;
+                   magnitude=&lt;|&gt;=200|&gt;
+               &gt;
+            &gt;
+        &gt;
+    }</code></pre>
+</div>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 80%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"><strong>Clinical Scenario 2</strong></th>
+<th class="tableblock halign-left valign-top">Blood glucose level is between 5-6 mmol/L or between 90-110 mg/dL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>EHR path</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>o/data[at0001]/events[at0002 and name/value='Any event']/data[at0003]/items[at0013.1]</code></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>AQL Fragment</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-sql" data-lang="sql">ehr_path/value
+    matches {
+        C_DV_QUANTITY&lt;
+            list = &lt;
+                ["1"] = &lt;
+                    units = &lt;"mmol/L"&gt;
+                    magnitude = &lt;|5.0..6.0|&gt;
+                &gt;
+                ["2"] = &lt;
+                    units = &lt;"mg/dL"&gt;
+                    magnitude = &lt;|90..110|&gt;
+                &gt;
+            &gt;
+        &gt;
+    }</code></pre>
+</div>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 80%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"><strong>Clinical Scenario 3</strong></th>
+<th class="tableblock halign-left valign-top">HbA1c &gt; 7.0%</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>EHR path</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>o/data[at0001]/events[at0002 and name/value='Any event']/data[at0003]/items[at0013.1]</code></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>AQL Fragment</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-sql" data-lang="sql">ehr_path/value matches {
+    DV_PROPORTION matches {
+        numerator matches {|&gt;7.0|}
+        denominator matches {|100.0|}
+    }
+}</code></pre>
+</div>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 80%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"><strong>Clinical Scenario 4</strong></th>
+<th class="tableblock halign-left valign-top">Total cholesterol &gt;= 5.0 mmol/L or LDL-C &gt;= 3.0 mmol/L</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Total cholesterol EHR path</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>o/data[at0001]/events[at0002 and name/value='Any event']/data[at0003]/items[at0013.1]</code></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>LDL-C EHR path</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><code>o/data[at0001]/events[at0002 and name/value='Any event']/data[at0003]/items[at0011.1 and<br>
+                                  name/value='Fractions']/items[at0013.4 and name/value='LDL-Cholesterol']</code></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>AQL Fragment</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-sql" data-lang="sql">Total cholesterol EHR path/value matches {
+    DV_QUANTITY matches {
+        units matches {"mmol/L"}
+        magnitude matches {|&gt;=5.0|}
+    }
+}
+
+OR
+
+LDL-C EHR path/value matches {
+    DV_QUANTITY matches {
+        units matches {"mmol/L"}
+        magnitude matches {|&gt;=3.0|}
+    }
+}</code></pre>
+</div>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_arithmetic_operators"><a class="anchor" href="#_arithmetic_operators"></a><a class="link" href="#_arithmetic_operators">Arithmetic operators</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The following example shows how arithmetic operators may be used within AQL statements.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 80%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"><strong>Clinical Scenario 1</strong></th>
+<th class="tableblock halign-left valign-top">For each recorded administration of ampicillin check for problem diagnosis of skin rash that is within 2 days of the administration date</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>AQL Fragment</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-sql" data-lang="sql">SELECT e/ehr_id
+FROM EHR e CONTAINS (COMPOSITION c1
+   CONTAINS ACTION a [openEHR-EHR-ACTION.medication.v1]
+      CONTAINS ITEM_TREE it [openEHR-EHR-ITEM_TREE.medication.v1]) AND
+      CONTAINS (COMPOSITION c2 CONTAINS EVALUATION eval [openEHR-EHR-EVALUATION.problem-diagnosis.v1])
+WHERE
+   it/description[openEHR-EHR-ITEM_TREE.medication.v1]/items[at0001]/value matches {"SNOMED::31087008"} AND
+   eval/data[at0001]/items[at0002.1]/value/value/defining_code matches {
+      CODE_PHRASE matches {[SNOMED::294506009, 21626009]}
+   } AND
+   eval/data[at0001]/items[at0010]/value - it/description[openEHR-EHR-ITEM_TREE.medication.v1]/items[at0018]/items[at0019]/value
+   matches {
+      DV_DURATION matches {
+         value matches{&lt;=P2d}
+      }
+   }</code></pre>
+</div>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_nest_query_and_not_in"><a class="anchor" href="#_nest_query_and_not_in"></a><a class="link" href="#_nest_query_and_not_in">Nest Query and 'Not in'</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The following example shows the use of a nested query and the <code>not-in</code> operator.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 80%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"><strong>Clinical Scenario 1</strong></th>
+<th class="tableblock halign-left valign-top">All patients who have not been discharged</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>AQL Fragment</strong></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-sql" data-lang="sql">SELECT e/ehr_id
+FROM
+   EHR e CONTAINS
+      ADMIN_ENTRY ae1 [openEHR-EHR-ADMIN_ENTRY.admission.v1]
+WHERE
+   ae1/encounter_id/value not in (
+      SELECT ae2/encounter_id/value
+      FROM
+         EHR e CONTAINS
+            ADMIN_ENTRY ae2 [openEHR-EHR-ADMIN_ENTRY.discharge.v1]
+   )</code></pre>
+</div>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="../result_structure/">Result structure</a></span>
+  <span class="next"><a href="../writing_AQL/">How to write an AQL query statement manually</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>
+    Copyright: © 2003+
+    <a href="https://www.openehr.org"
+        alt="is an independent, non-profit foundation, facilitating the sharing of health
+           records by consumers and clinicians via open specifications, clinical models
+           and open platform implementations.">The openEHR Foundation</a>
+  </p>
+
+  <p>
+    License:
+    <img src="../../../../ui/img/cc-by-nd-88x31.png"
+        alt="Creative Commons Attribution-NoDerivs 3.0 Unported."
+        style="vertical-align:middle;margin:0 0.25rem 0 0;">
+    <a href="https://creativecommons.org/licenses/by-nd/3.0/">
+      Creative Commons Attribution-NoDerivs 3.0 Unported.
+    </a>
+  </p>
+
+  <p>
+    <strong>Links: <strong>
+    <a href="https://www.openehr.org/terms-of-use" class="mr-1">Terms of use</a> |
+    <a href="https://www.openehr.org/privacy-policy" class="mx-1">Privacy policy</a> |
+    <a href="https://www.openehr.org/privacy-policy" class="mx-1">Logos &amp; Trademarks</a> |
+    <a href="https://www.openehr.org/contact-us" class="mx-1">Contact</a>
+  </p>
+</footer>
+
+<script id="site-script" src="../../../../ui/js/site.js" data-ui-root-path="../../../../ui"></script>
+<script defer src="../../../../ui/js/vendor/highlight.js"></script>
+<script src="../../../../ui/js/vendor/lunr.js"></script>
+<script src="../../../../ui/js/search-ui.js" id="search-ui-script" data-site-root-path="../../../.." data-snippet-length="80" data-stylesheet="../../../../ui/css/search.css"></script>
+<script async src="../../../../search-index.js"></script>
+<script src="../../../../ui/js/medium-zoom.min.js"></script>
+<script src="../../../../ui/js/zoom.js"></script>
+<script async src="../../../../ui/js/tabs.js"></script>
+  </body>
+</html>

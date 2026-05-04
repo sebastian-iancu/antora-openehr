@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+    <title>Introduction :: openEHR Specifications (Local Build)</title>
+    <link rel="canonical" href="https://sebastian-iancu.github.io/antora-openehr/PROC/development/overview/introduction/">
+    <link rel="prev" href="../">
+    <link rel="next" href="../needs/">
+    <meta name="description" content="Overview of openEHR CDS, Guidelines and Planning specifications.">
+    <meta name="keywords" content="process, guidelines, GDL, planning, CDS, workflow, CPG">
+    <meta name="generator" content="Antora 3.1.14">
+    <link rel="stylesheet" href="../../../../ui/css/site.css">
+    <link rel="stylesheet" href="../../../../ui/css/antora-openehr.css">
+    <link rel="stylesheet" href="../../../../ui/css/openehr.css">
+    <link rel="stylesheet" href="../../../../ui/css/tabs.css">
+    <link rel="stylesheet" href="../../../../ui/css/extra.css">
+<link rel="icon" href="../../../../ui/img/favicon.ico" type="image/x-icon">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://sebastian-iancu.github.io/antora-openehr">openEHR Specifications (Local Build)</a>
+
+      <div class="navbar-item search hide-for-print">
+        <div id="search-field" class="field has-filter">
+          <input id="search-input" type="text" placeholder="Search the docs">
+          <label class="filter checkbox">
+            <input type="checkbox" data-facet-filter="component:PROC"> Process Model only
+          </label>
+        </div>
+      </div>
+
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">Specifications</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://specifications.openehr.org/" target="_blank">
+              openEHR specification
+            </a>
+            <a class="navbar-item" href="https://specifications.openehr.org/releases/UML/development/index.html" target="_blank">
+              openEHR portal
+            </a>
+            <a class="navbar-item" href="https://ckm.openehr.org/ckm/" target="_blank">
+              openEHR CKM
+            </a>
+          </div>
+        </div>
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">Community</a>
+          <div class="navbar-dropdown is-right">
+            <a class="navbar-item" href="https://openehr.atlassian.net/secure/Dashboard.jspa?selectPageId=10190" target="_blank">
+              Issue trackers
+            </a>
+            <a class="navbar-item" href="https://discourse.openehr.org/" target="_blank">
+              Discourse Forum
+            </a>
+            <a class="navbar-item" href="https://specifications.openehr.org/wiki/display/spec/Specifications+Home" target="_blank">
+              Wiki
+            </a>
+            <a class="navbar-item" href="https://github.com/openEHR" target="_blank">
+              GitHub
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="PROC" data-version="development">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="../../">Process Model</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../">Overview</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../">CDS, Guidelines and Planning Overview</a>
+<ul class="nav-list">
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="./">Introduction</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../needs/">Needs</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../artefacts/">Care Process Artefacts and their Formalisation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../deployment_paradigm/">Deployment Paradigm</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../conceptual_architecture/">Conceptual Architecture</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../deployment_architectures/">Architectural Use-cases</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../appendix/">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../task_planning/">Task Planning (TP) Specification</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../task_planning/background/">Background</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../task_planning/requirements/">Technical Requirements</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../task_planning/design/">Design Principles</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../task_planning/model_overview/">Task Planning Model Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../task_planning/1-definition_overview/">Definition Model</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../task_planning/global_semantics/">Global Semantics</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../task_planning/execution_model_overview/">Execution</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../task_planning/model_materialised/">Materialised Model</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../task_planning/model_history/">Plan Execution History</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../task_planning/service_model/">Transactional Service Model</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../task_planning/ehr_semantics/">Relationship with other openEHR EHR Artefacts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../task_planning/appendix/">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../decision_language/">Decision Language specification</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../decision_language/overview/">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../decision_language/dlm_syntax/">DLM Syntax</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../decision_language/dlm_model/">DLM Model</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../decision_language/dl_module/">EL Modules</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../decision_language/terminology/">Terminology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../decision_language/data_context/">Data Bindings</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../decision_language/computing_context/">Computing Bindings</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../decision_language/appendix/">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../tp_vml/">Task Planning Visual Modelling Language (TP-VML)</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../tp_vml/overview/">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../tp_vml/elements/">Elements</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../tp_vml/patterns/">Patterns</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../tp_vml/appendix/">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../process_examples/">openEHR CDS, Guidelines and Planning Examples</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../process_examples/overview/">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../process_examples/teamwork/">Teamwork</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../process_examples/order_management/">Order Management</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../process_examples/chemo/">Multi-drug Chemotherapy</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../process_examples/antenatal/">Antenatal Care</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../process_examples/cancer_prescribing/">Breast Cancer Decision Protocol</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../process_examples/Covid19_severity/">Covid19 Severity Classification</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../process_examples/cha2ds_vasc/">CHA2DS2-VASc</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../process_examples/qrisk/">qRisk3-2017</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../process_examples/news2/">National Early Warning Score (NEWS) 2</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../process_examples/common_DLMs/">Common Decision Logic Modules</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../process_examples/appendix/">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Process Model</span>
+    <span class="version">development</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <div class="title"><a href="../../../../AM/Release-2.3.0/">Archetype Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../AM/Release-2.3.0/">Release-2.3.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../AM/Release-2.2.0/">Release-2.2.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../AM/Release-1.4.0/">Release-1.4.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../AM/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../BASE/Release-1.2.0/">Base Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../BASE/Release-1.2.0/">Release-1.2.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../BASE/Release-1.1.0/">Release-1.1.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../BASE/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../CDS/development/">Clinical Decision Support</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../CDS/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../CNF/development/">Conformance Specifications</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../CNF/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../LANG/Release-1.0.0/">Generic Languages</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../LANG/Release-1.0.0/">Release-1.0.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../LANG/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../TERM/Release-3.0.0/">openEHR Terminology</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../TERM/Release-3.0.0/">Release-3.0.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../TERM/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <div class="title"><a href="../../">Process Model</a></div>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../../">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../QUERY/Release-1.0.1/">Query Languages</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../QUERY/Release-1.0.1/">Release-1.0.1</a>
+        </li>
+        <li class="version">
+          <a href="../../../../QUERY/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../RM/Release-1.1.0/">Reference Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../RM/Release-1.1.0/">Release-1.1.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../RM/Release-1.0.4/">Release-1.0.4</a>
+        </li>
+        <li class="version">
+          <a href="../../../../RM/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../ITS-REST/development/">REST API specifications</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../ITS-REST/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../SM/development/">Service Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../SM/development/">development</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../../BASE/Release-1.2.0/" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../../">Process Model</a></li>
+    <li><a href="../">CDS, Guidelines and Planning Overview</a></li>
+    <li><a href="./">Introduction</a></li>
+  </ul>
+</nav>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Introduction</h1>
+<div class="sect1">
+<h2 id="_openehr_process_and_planning_specifications"><a class="anchor" href="#_openehr_process_and_planning_specifications"></a><a class="link" href="#_openehr_process_and_planning_specifications">openEHR Process and Planning Specifications</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>openEHR provides specifications for various models and languages to address the area of process and guideline-driven healthcare. These are as follows:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>A <em>plan</em> definition formalism: the <a href="https://specifications.openehr.org/releases/PROC/latest/task_planning.html" target="_blank" rel="noopener">openEHR Task Planning specification (TP)</a>;</p>
+</li>
+<li>
+<p>A <em>guideline and rule</em> language: the <a href="https://specifications.openehr.org/releases/PROC/latest/decision_language.html" target="_blank" rel="noopener">openEHR Decision Language specification (DL)</a>;</p>
+</li>
+<li>
+<p>An <em>expression language</em>, which forms the basis for writing expressions and rules, defined by the <a href="https://specifications.openehr.org/releases/LANG/latest/EL.html" target="_blank" rel="noopener">openEHR Expression Language (EL)</a>;</p>
+</li>
+<li>
+<p>A <em>subject proxy service</em>, which forms the bridge between Plans and Guidelines as consumers of subject data, and data sources: the <a href="https://specifications.openehr.org/releases/SM/latest/openehr_platform.html#_subject_proxy_service" target="_blank" rel="noopener">openEHR Subject Proxy Service</a>.</p>
+</li>
+<li>
+<p>An underlying <em>meta-model</em> formalising information models, expression language and decision constructs, defined by the <a href="https://specifications.openehr.org/releases/LANG/latest/bmm.html" target="_blank" rel="noopener">openEHR Basic Meta-Model</a>;</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Together these enable the authoring of care pathways, guidelines, executable care plans and in-application active forms. There is also an existing guideline language, <a href="https://specifications.openehr.org/releases/CDS/latest/GDL2.html" target="_blank" rel="noopener">Guideline Definition Language 2 (GDL2)</a>, which defines an earlier self-standing guideline format, on which some self-standing guidelines solutions are built. In some circumstances, such systems may be equivalently implemented in the future using TP/DL/EL instead of GDL2.</p>
+</div>
+<div class="paragraph">
+<p>Many of the formal semantics of the DLM formalism come from experience with existing GDL2 deployments.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_prior_art"><a class="anchor" href="#_prior_art"></a><a class="link" href="#_prior_art">Prior Art</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The openEHR Task Planning specification is conceptually close to the YAWL language (Yet Another Workflow Language) <span class="citation"><a href="#bibliography_entry_Hofstede_van_der_Aalst2009">[1]</a></span>, as well as to the OMG <a href="http://www.bpmn.org/" target="_blank" rel="noopener">BPMN</a> and <a href="https://www.omg.org/spec/CMMN/1.0/" target="_blank" rel="noopener">CMMN</a> standards, which support different flavours of workflow. Many ideas were adopted and/or adapted from YAWL, of which the only deficiencies are: being agnostic on rule language and data persistence (both of central importance in healthcare IT), and no longer being actively maintained. The BPMN and CMMN standards have a weaker theoretical foundation, and were not originally conceived as being business analysis rather than executable formalisms; they also have only limited worker definition and allocation semantics, are weak on data persistence and have a rules expression formalism (<a href="https://www.omg.org/spec/DMN/" target="_blank" rel="noopener">DMN</a>) that is relatively under-developed or tested in healthcare.</p>
+</div>
+<div class="paragraph">
+<p>openEHR GDL2 and the more recent Decision Language may be compared to other languages developed in the health arena for expressing medical logic and rules, including <a href="https://www.hl7.org/special/Committees/arden/index.cfm" target="_blank" rel="noopener">HL7 Arden Syntax</a>, Guideline Interchange Format <span class="citation"><a href="#bibliography_entry_GLIF">[2]</a></span>, ProForma <span class="citation"><a href="#bibliography_entry_SuttonFox2003">[3]</a></span>, as well as Decision Languages such as <a href="https://www.hl7.org/implement/standards/product_brief.cfm?product_id=5" target="_blank" rel="noopener">HL7 Gello</a> and <a href="https://www.omg.org/spec/DMN/" target="_blank" rel="noopener">OMG DMN</a>, and the HL7 <a href="https://cql.hl7.org" target="_blank" rel="noopener">Clinical Quality Language (CQL)</a>. These languages were not directly used, for various reasons including:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>they do not support a clear distinction of <a href="#_subject_proxy_service">ontic versus epistemic subject variables</a>;</p>
+</li>
+<li>
+<p>lack of an integrated plan / workflow formalism (all except DMN);</p>
+</li>
+<li>
+<p>some are too procedural rather then declarative (Arden, GLIF);</p>
+</li>
+<li>
+<p>current versions of some of these languages have been made specific to the HL7v3 RIM, a particular (and now obsolete) model of health information designed for message representation (GLIF 3.x, GELLO);</p>
+</li>
+<li>
+<p>none of them support an integrated representation of the 'semantic stack' of process representation, decision logic, proxy data and data access;</p>
+</li>
+<li>
+<p>the maintenance and support is unclear and/or limited.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Nevertheless, the design approach of Arden provided useful inspiration for the formalism described here, and indeed the Subject Proxy approach used in openEHR may be understood as a solution to the so-called 'curly braces problem' of Arden <span class="citation"><a href="#bibliography_entry_Samwald_arden_2012">[4]</a></span>, i.e. the need to be able to bind rule logic to real-world variables. The ProForma language and underlying scientific analysis also has much to recommend it, and has been used as an important theoretical input to the specifications developed for openEHR. The <a href="https://cql.hl7.org" target="_blank" rel="noopener">HL7 CQL standard</a>, although lacking a workflow language, provided useful insights including on temporal logic operators (originally described in <span class="citation"><a href="#bibliography_entry_Allen_1984">[5]</a></span>), data binding and general expression language design.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_relationship_to_standards"><a class="anchor" href="#_relationship_to_standards"></a><a class="link" href="#_relationship_to_standards">Relationship to Standards</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The following table indicates the approximate correspondences between the openEHR process specifications and various published standards.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 22.2222%;">
+<col style="width: 22.2222%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">openEHR Formalism</th>
+<th class="tableblock halign-left valign-top">HL7 standard</th>
+<th class="tableblock halign-left valign-top">OMG standard</th>
+<th class="tableblock halign-left valign-top">Other</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://specifications.openehr.org/releases/PROC/latest/task_planning.html" target="_blank" rel="noopener">Task Planning (TP)</a></p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://www.bpmn.org/" target="_blank" rel="noopener">BPMN</a>, <a href="https://www.omg.org/spec/CMMN/1.0/" target="_blank" rel="noopener">CMMN</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://yawlfoundation.org/" target="_blank" rel="noopener">YAWL</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://specifications.openehr.org/releases/PROC/latest/decision_language.html" target="_blank" rel="noopener">Decision Language (DL)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://cql.hl7.org" target="_blank" rel="noopener">CQL</a>, FHIRpath?</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://www.omg.org/spec/DMN/" target="_blank" rel="noopener">DMN</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://www.hl7.org/special/Committees/arden/index.cfm" target="_blank" rel="noopener">Arden</a>, <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC212780/" target="_blank" rel="noopener">ProForma</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://specifications.openehr.org/releases/LANG/latest/EL.html" target="_blank" rel="noopener">Expression Language (EL)</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://cql.hl7.org" target="_blank" rel="noopener">CQL</a> ELM</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://www.omg.org/spec/DMN/" target="_blank" rel="noopener">DMN</a> FEEL</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">(numerous)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://specifications.openehr.org/releases/SM/latest/openehr_platform.html#_subject_proxy_service" target="_blank" rel="noopener">Subject Proxy Service (SPS)</a></p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">(SDMN)</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>The OMG group of standards are starting (as of 2020) to find use in the healthcare arena under the banner <a href="http://bpm-plus.org/" target="_blank" rel="noopener">BPM+</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_theoretical_references"><a class="anchor" href="#_theoretical_references"></a><a class="link" href="#_theoretical_references">Theoretical References</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Numerous publications have appeared over the last 30 years on process automation, decision support and related subjects, including within healthcare. A small number of seminal publications have been particularly valuable in the development of the openEHR Process-related specifications, including <span class="citation"><a href="#bibliography_entry_Rector_at_al_interfaces_2001">[6]</a></span> and <span class="citation"><a href="#bibliography_entry_Hofstede_van_der_Aalst2009">[1]</a></span>.</p>
+</div>
+<div class="paragraph">
+<p>The first of these presented an often-cited diagram capturing the existence and challenges of representation between the various elements needed in computable guideline technology, shown below.</p>
+</div>
+<div id="rector_model_interfaces" class="imageblock text-center text-center">
+<div class="content">
+<img src="../_images/diagrams/Rector_model_interfaces.svg" alt="Rector model interfaces">
+</div>
+<div class="title">Figure 1. Interfaces, models and corresponding repositories cite:[Rector_at_al_interfaces_2001]</div>
+</div>
+<div class="paragraph">
+<p>The authors enumerated many challenges directly relevant to the specifications described here, including the following:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>the need for a coherent, symbolic means of referring to real-world entities from guidelines to patient data sources (originally: Need  for  inferential  abstractions; Ambiguity  of operational  meaning);</p>
+</li>
+<li>
+<p>the need to abstract away differing concrete representations of subject data e.g. 'blood pressure' in back-end systems (originally: Differences  in  encapsulation  and  form  of  expression);</p>
+</li>
+<li>
+<p>the need to be able to convert quantitative data values to ranges, e.g. blood pressure of 190/110 to 'elevated blood pressure';</p>
+</li>
+<li>
+<p>computation of a subject value from underlying values via a formula, e.g. BMI from patient height and weight;</p>
+</li>
+<li>
+<p>temporal predicates, e.g. 'rising blood pressure', 'being on steroids for 3 months' etc.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>This paper presaged the notion of the 'vritual medical record', which itself may be seen as a precursor for the Subject Proxy concept used here.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_references"><a class="anchor" href="#_references"></a><a class="link" href="#_references">References</a></h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><a id="bibliography_entry_Hofstede_van_der_Aalst2009"></a>[1] A. H. M. T. Hofstede, W. M. P. van der Aalst, M. Adams, and N. Russell, Modern Business Process Automation: YAWL and its Support Environment. Springer-Verlag, 2010. doi: 10.1007/978-3-642-03121-2.
+</p>
+</li>
+<li>
+<p><a id="bibliography_entry_GLIF"></a>[2] L. Ohno-Machado et al., “The GuideLine Interchange Format - A Model for Representing Guidelines,” J Am Med Inform Assoc, pp. 357–372, Jul. 1998.
+</p>
+</li>
+<li>
+<p><a id="bibliography_entry_SuttonFox2003"></a>[3] D. R. Sutton and J. Fox, “The syntax and semantics of the PROforma guideline modeling language.,” J Am Med Inform Assoc., vol. 10(5), pp. 433–443, 2003, doi: 10.1197/jamia.M1264.
+</p>
+</li>
+<li>
+<p><a id="bibliography_entry_Samwald_arden_2012"></a>[4] M. Samwald, K. Fehre, J. de Bruin, and K.-P. Adlassnig, “The Arden Syntax standard for clinical decision support: Experiences and directions.,” Journal of Biomedical Informatics, vol. 45, pp. 711–718, Aug. 2012, [Online]. Available: <a href="https://www.sciencedirect.com/science/article/pii/S1532046412000226" class="bare">https://www.sciencedirect.com/science/article/pii/S1532046412000226</a>
+</p>
+</li>
+<li>
+<p><a id="bibliography_entry_Allen_1984"></a>[5] J. Allen, “Towards a general theory of actions and time,” Artificial Intelligence, vol. 23, no. 2, pp. 123–154, 1984.
+</p>
+</li>
+<li>
+<p><a id="bibliography_entry_Rector_at_al_interfaces_2001"></a>[6] A. Rector, P. Johnson, S. Tu, C. Wroe, and J. Rogers, “Interface of Inference Models with Concept and Medical Record Models,” Jan. 2001, pp. 314–323. doi: 10.1007/3-540-48229-6_43.
+</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="../">CDS, Guidelines and Planning Overview</a></span>
+  <span class="next"><a href="../needs/">Needs</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>
+    Copyright: © 2003+
+    <a href="https://www.openehr.org"
+        alt="is an independent, non-profit foundation, facilitating the sharing of health
+           records by consumers and clinicians via open specifications, clinical models
+           and open platform implementations.">The openEHR Foundation</a>
+  </p>
+
+  <p>
+    License:
+    <img src="../../../../ui/img/cc-by-nd-88x31.png"
+        alt="Creative Commons Attribution-NoDerivs 3.0 Unported."
+        style="vertical-align:middle;margin:0 0.25rem 0 0;">
+    <a href="https://creativecommons.org/licenses/by-nd/3.0/">
+      Creative Commons Attribution-NoDerivs 3.0 Unported.
+    </a>
+  </p>
+
+  <p>
+    <strong>Links: <strong>
+    <a href="https://www.openehr.org/terms-of-use" class="mr-1">Terms of use</a> |
+    <a href="https://www.openehr.org/privacy-policy" class="mx-1">Privacy policy</a> |
+    <a href="https://www.openehr.org/privacy-policy" class="mx-1">Logos &amp; Trademarks</a> |
+    <a href="https://www.openehr.org/contact-us" class="mx-1">Contact</a>
+  </p>
+</footer>
+
+<script id="site-script" src="../../../../ui/js/site.js" data-ui-root-path="../../../../ui"></script>
+<script defer src="../../../../ui/js/vendor/highlight.js"></script>
+<script src="../../../../ui/js/vendor/lunr.js"></script>
+<script src="../../../../ui/js/search-ui.js" id="search-ui-script" data-site-root-path="../../../.." data-snippet-length="80" data-stylesheet="../../../../ui/css/search.css"></script>
+<script async src="../../../../search-index.js"></script>
+<script src="../../../../ui/js/medium-zoom.min.js"></script>
+<script src="../../../../ui/js/zoom.js"></script>
+<script async src="../../../../ui/js/tabs.js"></script>
+  </body>
+</html>

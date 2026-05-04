@@ -1,0 +1,1073 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+    <title>Design Rationale :: openEHR Specifications (Local Build)</title>
+    <link rel="canonical" href="https://sebastian-iancu.github.io/antora-openehr/ITS-REST/development/simplified_formats/design_rationale/">
+    <link rel="prev" href="../overview/">
+    <link rel="next" href="../basic_concepts/">
+    <meta name="description" content="Simplified Formats (flat, structured) for openEHR Data">
+    <meta name="keywords" content="JSON, REST, web template, simplified data, flat, structured, simplified formats, SDT, simSDT, structSDT">
+    <meta name="generator" content="Antora 3.1.14">
+    <link rel="stylesheet" href="../../../../ui/css/site.css">
+    <link rel="stylesheet" href="../../../../ui/css/antora-openehr.css">
+    <link rel="stylesheet" href="../../../../ui/css/openehr.css">
+    <link rel="stylesheet" href="../../../../ui/css/tabs.css">
+    <link rel="stylesheet" href="../../../../ui/css/extra.css">
+<link rel="icon" href="../../../../ui/img/favicon.ico" type="image/x-icon">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://sebastian-iancu.github.io/antora-openehr">openEHR Specifications (Local Build)</a>
+
+      <div class="navbar-item search hide-for-print">
+        <div id="search-field" class="field has-filter">
+          <input id="search-input" type="text" placeholder="Search the docs">
+          <label class="filter checkbox">
+            <input type="checkbox" data-facet-filter="component:ITS-REST"> REST API specifications only
+          </label>
+        </div>
+      </div>
+
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">Specifications</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://specifications.openehr.org/" target="_blank">
+              openEHR specification
+            </a>
+            <a class="navbar-item" href="https://specifications.openehr.org/releases/UML/development/index.html" target="_blank">
+              openEHR portal
+            </a>
+            <a class="navbar-item" href="https://ckm.openehr.org/ckm/" target="_blank">
+              openEHR CKM
+            </a>
+          </div>
+        </div>
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">Community</a>
+          <div class="navbar-dropdown is-right">
+            <a class="navbar-item" href="https://openehr.atlassian.net/secure/Dashboard.jspa?selectPageId=10190" target="_blank">
+              Issue trackers
+            </a>
+            <a class="navbar-item" href="https://discourse.openehr.org/" target="_blank">
+              Discourse Forum
+            </a>
+            <a class="navbar-item" href="https://specifications.openehr.org/wiki/display/spec/Specifications+Home" target="_blank">
+              Wiki
+            </a>
+            <a class="navbar-item" href="https://github.com/openEHR" target="_blank">
+              GitHub
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="ITS-REST" data-version="development">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="../../">REST API specifications</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../">Overview</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../">Simplified Formats for openEHR Data</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../overview/">Overview</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="./">Design Rationale</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../basic_concepts/">Basic Concepts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../rm_mapping/">RM Mappings</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../context_information/">Context Information</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../appendix/">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../smart_app_launch/">SMART on openEHR (SMART)</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../smart_app_launch/overview/">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../smart_app_launch/registration/">Application Registration</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../smart_app_launch/service_discovery/">Service Discovery</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../smart_app_launch/application_types/">Application Types</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../smart_app_launch/authentication/">Authentication</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../smart_app_launch/authorization/">Authorization</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../smart_app_launch/scopes/">Scopes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../smart_app_launch/experimental_features/">Experimental features</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../smart_app_launch/appendix/">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../simplified_data_template/">Simplified Data Template (SDT)</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../simplified_data_template/appendix/">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">REST API specifications</span>
+    <span class="version">development</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <div class="title"><a href="../../../../AM/Release-2.3.0/">Archetype Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../AM/Release-2.3.0/">Release-2.3.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../AM/Release-2.2.0/">Release-2.2.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../AM/Release-1.4.0/">Release-1.4.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../AM/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../BASE/Release-1.2.0/">Base Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../BASE/Release-1.2.0/">Release-1.2.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../BASE/Release-1.1.0/">Release-1.1.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../BASE/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../CDS/development/">Clinical Decision Support</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../CDS/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../CNF/development/">Conformance Specifications</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../CNF/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../LANG/Release-1.0.0/">Generic Languages</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../LANG/Release-1.0.0/">Release-1.0.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../LANG/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../TERM/Release-3.0.0/">openEHR Terminology</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../TERM/Release-3.0.0/">Release-3.0.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../TERM/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../PROC/development/">Process Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../PROC/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../QUERY/Release-1.0.1/">Query Languages</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../QUERY/Release-1.0.1/">Release-1.0.1</a>
+        </li>
+        <li class="version">
+          <a href="../../../../QUERY/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../RM/Release-1.1.0/">Reference Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../RM/Release-1.1.0/">Release-1.1.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../RM/Release-1.0.4/">Release-1.0.4</a>
+        </li>
+        <li class="version">
+          <a href="../../../../RM/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <div class="title"><a href="../../">REST API specifications</a></div>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../../">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../SM/development/">Service Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../SM/development/">development</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../../BASE/Release-1.2.0/" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../../">REST API specifications</a></li>
+    <li><a href="../">Simplified Formats for openEHR Data</a></li>
+    <li><a href="./">Design Rationale</a></li>
+  </ul>
+</nav>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Design Rationale</h1>
+<div class="sect1">
+<h2 id="_background"><a class="anchor" href="#_background"></a><a class="link" href="#_background">Background</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The information models of openEHR are structured in multiple layers, with the primary distinction being between an information model layer (the 'Reference Model' or RM), and domain-level models expressed in archetypes and templates, that latter of which expresses particular data sets. Each such data set is defined in terms of an <a href="https://specifications.openehr.org/releases/AM/latest/OPT2.html" target="_blank" rel="noopener">openEHR Operational Template (OPT)</a>, derived from a source template, and ultimately particular archetypes, which are themselves constraint models based on the RM, i.e. the 'canonical model'.</p>
+</div>
+<div class="paragraph">
+<p>The openEHR RM and supporting models (BASE component) are designed with two computational goals in mind:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><strong>Self-standing data instances</strong>: Healthcare data instances are fully defined and self-standing when shared with a data partner that does not use openEHR. All necessary context, structure, and semantics are embedded within the data itself.</p>
+</li>
+<li>
+<p><strong>Regular, predictable software behaviour</strong>: Software that implements the model works in regular, expected ways across all use cases. For example, the structure of the openEHR <code>OBSERVATION</code>, <code>HISTORY</code>, and <code>EVENT</code> classes will generically represent any observation, from a single weight measurement to 100,000 samples of complex vital signs data.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>The model is accordingly rigorous and comprehensive, ensuring that:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>All clinical contexts are properly captured</p>
+</li>
+<li>
+<p>Data can be queried consistently</p>
+</li>
+<li>
+<p>Information models remain stable over time</p>
+</li>
+<li>
+<p>Systems can validate data against formal definitions</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_canonical_format"><a class="anchor" href="#_canonical_format"></a><a class="link" href="#_canonical_format">Canonical Format</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>In the context of openEHR serialization, <strong>"canonical"</strong> means any fully expressed instance data in which:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>the containment structure follows that of the RM;</p>
+</li>
+<li>
+<p>all RM mandatory fields are present;</p>
+</li>
+<li>
+<p>all attributes are named as per the RM, and</p>
+</li>
+<li>
+<p>all cardinalities respect the RM.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The default serialised data representations for openEHR content are canonical XML, based on the <a href="https://specifications.openehr.org/releases/ITS-XML/development" target="_blank" rel="noopener">openEHR RM XSDs</a>, canonical JSON, described by the <a href="https://specifications.openehr.org/releases/ITS-JSON/development" target="_blank" rel="noopener">openEHR JSON schemas</a>, and potentially any other canonical serial format based on the underlying Reference Model (e.g. YAML).</p>
+</div>
+<div class="paragraph">
+<p>The canonical formats are routinely used by all openEHR implementations implementing the <a href="https://specifications.openehr.org/releases/ITS-REST/development/ehr.html" target="_blank" rel="noopener">openEHR REST API specification</a>, and in other ways (e.g., for database dump/load implementation, ETL operations, system integration, etc.).</p>
+</div>
+<div class="sect2">
+<h3 id="_canonical_json_example"><a class="anchor" href="#_canonical_json_example"></a><a class="link" href="#_canonical_json_example">Canonical JSON Example</a></h3>
+<div class="paragraph">
+<p>The following example shows a simple body temperature observation in canonical openEHR JSON format:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+  "_type": "COMPOSITION",
+  "name": {
+    "_type": "DV_TEXT",
+    "value": "Blood_Pressure_Demo.v0"
+  },
+  "archetype_details": {
+    "archetype_id": {
+      "value": "openEHR-EHR-COMPOSITION.encounter.v1"
+    },
+    "template_id": {
+      "value": "Blood_Pressure_Demo.v0"
+    },
+    "rm_version": "1.0.4"
+  },
+  "language": {
+    "_type": "CODE_PHRASE",
+    "terminology_id": {
+      "_type": "TERMINOLOGY_ID",
+      "value": "ISO_639-1"
+    },
+    "code_string": "en"
+  },
+  "territory": {
+    "_type": "CODE_PHRASE",
+    "terminology_id": {
+      "_type": "TERMINOLOGY_ID",
+      "value": "ISO_3166-1"
+    },
+    "code_string": "DE"
+  },
+  "category": {
+    "_type": "DV_CODED_TEXT",
+    "value": "event",
+    "defining_code": {
+      "_type": "CODE_PHRASE",
+      "terminology_id": {
+        "_type": "TERMINOLOGY_ID",
+        "value": "openehr"
+      },
+      "code_string": "433"
+    }
+  },
+  "composer": {
+    "_type": "PARTY_IDENTIFIED",
+    "name": "Max Mustermann"
+  },
+  "context": {
+    "_type": "EVENT_CONTEXT",
+    "start_time": {
+      "_type": "DV_DATE_TIME",
+      "value": "2022-02-03T04:05:06"
+    },
+    "end_time": {
+      "_type": "DV_DATE_TIME",
+      "value": "2022-02-03T04:25:41"
+    },
+    "setting": {
+      "_type": "DV_CODED_TEXT",
+      "value": "home",
+      "defining_code": {
+        "_type": "CODE_PHRASE",
+        "terminology_id": {
+          "_type": "TERMINOLOGY_ID",
+          "value": "openehr"
+        },
+        "code_string": "225"
+      }
+    }
+  },
+  "content": [ {
+    "_type": "OBSERVATION",
+    "name": {
+      "_type": "DV_TEXT",
+      "value": "Blood pressure"
+    },
+    "archetype_details": {
+      "archetype_id": {
+        "value": "openEHR-EHR-OBSERVATION.blood_pressure.v2"
+      },
+      "rm_version": "1.0.4"
+    },
+    "language": {
+      "_type": "CODE_PHRASE",
+      "terminology_id": {
+        "_type": "TERMINOLOGY_ID",
+        "value": "ISO_639-1"
+      },
+      "code_string": "en"
+    },
+    "encoding": {
+      "_type": "CODE_PHRASE",
+      "terminology_id": {
+        "_type": "TERMINOLOGY_ID",
+        "value": "IANA_character-sets"
+      },
+      "code_string": "UTF-8"
+    },
+    "subject": {
+      "_type": "PARTY_SELF"
+    },
+    "protocol": {
+      "_type": "ITEM_TREE",
+      "name": {
+        "_type": "DV_TEXT",
+        "value": "Tree"
+      },
+      "items": [ {
+        "_type": "ELEMENT",
+        "name": {
+          "_type": "DV_TEXT",
+          "value": "Method"
+        },
+        "value": {
+          "_type": "DV_CODED_TEXT",
+          "value": "Auscultation",
+          "defining_code": {
+            "_type": "CODE_PHRASE",
+            "terminology_id": {
+              "_type": "TERMINOLOGY_ID",
+              "value": "local"
+            },
+            "code_string": "at1036"
+          }
+        },
+        "archetype_node_id": "at1035"
+      } ],
+      "archetype_node_id": "at0011"
+    },
+    "data": {
+      "name": {
+        "_type": "DV_TEXT",
+        "value": "History"
+      },
+      "origin": {
+        "_type": "DV_DATE_TIME",
+        "value": "2022-02-03T04:05:06"
+      },
+      "events": [ {
+        "_type": "POINT_EVENT",
+        "name": {
+          "_type": "DV_TEXT",
+          "value": "Any event"
+        },
+        "time": {
+          "_type": "DV_DATE_TIME",
+          "value": "2022-02-03T04:05:06"
+        },
+        "state": {
+          "_type": "ITEM_TREE",
+          "name": {
+            "_type": "DV_TEXT",
+            "value": "state structure"
+          },
+          "items": [ {
+            "_type": "ELEMENT",
+            "name": {
+              "_type": "DV_TEXT",
+              "value": "Position"
+            },
+            "value": {
+              "_type": "DV_CODED_TEXT",
+              "value": "Standing",
+              "defining_code": {
+                "_type": "CODE_PHRASE",
+                "terminology_id": {
+                  "_type": "TERMINOLOGY_ID",
+                  "value": "local"
+                },
+                "code_string": "at1000"
+              }
+            },
+            "archetype_node_id": "at0008"
+          } ],
+          "archetype_node_id": "at0007"
+        },
+        "data": {
+          "_type": "ITEM_TREE",
+          "name": {
+            "_type": "DV_TEXT",
+            "value": "blood pressure"
+          },
+          "items": [ {
+            "_type": "ELEMENT",
+            "name": {
+              "_type": "DV_TEXT",
+              "value": "Systolic"
+            },
+            "value": {
+              "_type": "DV_QUANTITY",
+              "units": "mm[Hg]",
+              "magnitude": 154.0
+            },
+            "archetype_node_id": "at0004"
+          }, {
+            "_type": "ELEMENT",
+            "name": {
+              "_type": "DV_TEXT",
+              "value": "Diastolic"
+            },
+            "value": {
+              "_type": "DV_QUANTITY",
+              "units": "mm[Hg]",
+              "magnitude": 98.0
+            },
+            "archetype_node_id": "at0005"
+          }, {
+            "_type": "ELEMENT",
+            "name": {
+              "_type": "DV_TEXT",
+              "value": "Clinical interpretation"
+            },
+            "value": {
+              "_type": "DV_TEXT",
+              "value": "Stage 2 Hypertension: Blood pressure is significantly elevated with systolic pressure of 154 mmHg and diastolic pressure of 98 mmHg, indicating stage 2 hypertension according to current guidelines."
+            },
+            "archetype_node_id": "at1059"
+          } ],
+          "archetype_node_id": "at0003"
+        },
+        "archetype_node_id": "at0006"
+      }, {
+        "_type": "POINT_EVENT",
+        "name": {
+          "_type": "DV_TEXT",
+          "value": "Any event"
+        },
+        "time": {
+          "_type": "DV_DATE_TIME",
+          "value": "2022-02-03T04:25:41"
+        },
+        "state": {
+          "_type": "ITEM_TREE",
+          "name": {
+            "_type": "DV_TEXT",
+            "value": "state structure"
+          },
+          "items": [ {
+            "_type": "ELEMENT",
+            "name": {
+              "_type": "DV_TEXT",
+              "value": "Position"
+            },
+            "value": {
+              "_type": "DV_CODED_TEXT",
+              "value": "Standing",
+              "defining_code": {
+                "_type": "CODE_PHRASE",
+                "terminology_id": {
+                  "_type": "TERMINOLOGY_ID",
+                  "value": "local"
+                },
+                "code_string": "at1000"
+              }
+            },
+            "archetype_node_id": "at0008"
+          } ],
+          "archetype_node_id": "at0007"
+        },
+        "data": {
+          "_type": "ITEM_TREE",
+          "name": {
+            "_type": "DV_TEXT",
+            "value": "blood pressure"
+          },
+          "items": [ {
+            "_type": "ELEMENT",
+            "name": {
+              "_type": "DV_TEXT",
+              "value": "Systolic"
+            },
+            "value": {
+              "_type": "DV_QUANTITY",
+              "units": "mm[Hg]",
+              "magnitude": 144.0
+            },
+            "archetype_node_id": "at0004"
+          }, {
+            "_type": "ELEMENT",
+            "name": {
+              "_type": "DV_TEXT",
+              "value": "Diastolic"
+            },
+            "value": {
+              "_type": "DV_QUANTITY",
+              "units": "mm[Hg]",
+              "magnitude": 80.0
+            },
+            "archetype_node_id": "at0005"
+          }, {
+            "_type": "ELEMENT",
+            "name": {
+              "_type": "DV_TEXT",
+              "value": "Clinical interpretation"
+            },
+            "value": {
+              "_type": "DV_TEXT",
+              "value": "Stage 2 Hypertension: Blood pressure remains elevated with systolic pressure of 144 mmHg. Diastolic pressure has improved to 80 mmHg, but systolic pressure still indicates stage 2 hypertension."
+            },
+            "archetype_node_id": "at1059"
+          } ],
+          "archetype_node_id": "at0003"
+        },
+        "archetype_node_id": "at0006"
+      } ],
+      "archetype_node_id": "at0001"
+    },
+    "archetype_node_id": "openEHR-EHR-OBSERVATION.blood_pressure.v2"
+  } ],
+  "archetype_node_id": "openEHR-EHR-COMPOSITION.encounter.v1",
+  "uid": {
+    "_type": "OBJECT_VERSION_ID",
+    "value": "8073f453-8095-44e6-8077-798609b32a2f::local.ehrbase.org::1"
+  }
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_the_challenge"><a class="anchor" href="#_the_challenge"></a><a class="link" href="#_the_challenge">The Challenge</a></h3>
+<div class="paragraph">
+<p>While canonical formats ensure data integrity and semantic interoperability, they present significant challenges:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><em>Steep learning curve</em>: Developers must understand the full openEHR Reference Model hierarchy, including classes like <code>HISTORY</code>, <code>ITEM_TREE</code>, <code>EVENT_CONTEXT</code>, etc.</p>
+</li>
+<li>
+<p><em>Verbose structures</em>: Even simple data requires extensive JSON/XML structure with many nested objects and mandatory fields.</p>
+</li>
+<li>
+<p><em>Type specifications</em>: Every object requires <code>_type</code> declarations, which adds to verbosity.</p>
+</li>
+<li>
+<p><em>Boilerplate repetition</em>: Many fields (like <code>name</code>, <code>language</code>, <code>encoding</code>) must be repeated throughout the structure even when they don&#8217;t vary.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>These challenges are particularly acute for developers working on:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><em>Form-based applications</em>: Where templates define a fixed structure</p>
+</li>
+<li>
+<p><em>Limited use cases</em>: Applications targeting specific clinical scenarios (vital signs, lab results, medication lists)</p>
+</li>
+<li>
+<p><em>Integration projects</em>: Where external systems need to submit data to openEHR repositories</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The starting point for defining a developer-friendly format is to recognise that the great majority of applications are typically targeted to one or a few specific data sets (e.g. vital signs monitoring, diabetic care management, pregnancy care plans). These applications don&#8217;t need the full generality of the canonical format for every transaction.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_historical_formats"><a class="anchor" href="#_historical_formats"></a><a class="link" href="#_historical_formats">Historical Formats</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Creating canonical data instances is not always straightforward, and various alternatives have been used in the past to simplify the job of content creation and committal for application developers. Template-specificity provides a route to simplification: each openEHR template can be used to define one or more reasonably simple commit formats.</p>
+</div>
+<div class="paragraph">
+<p>The <a href="#tds">Template Data Schema (TDS)</a> format was originally devised by Ocean Health Systems as an XSD-based format. An XSLT script transformed <code>.oet</code> template source files and archetypes into a single XML Schema (XSD) for any given template. The transformation flattened various RM structures to make them simpler to understand and also converted archetype node codes (at-codes of Object nodes) to XSD tag names, e.g. 'serum_sodium'. This enabled developers to easily identify the XML Element for each data item they needed to populate to create a TDS instance document, known as a Template Data Document (TDD).</p>
+</div>
+<div class="paragraph">
+<p>The <a href="#ecisflat">ECISFLAT</a> format was developed for the EtherCIS project as a JSON-based alternative. It uses AQL-style paths based on natural language-independent codes (like <code>at0001</code>) and, apart from simplification of <code>DV_XXX</code> and <code>PARTY_PROXY</code> types, largely retains the openEHR RM structure.</p>
+</div>
+<div class="paragraph">
+<p>The <a href="#better-web-template">Web Template (WT)</a> serialisation format was developed by Better (formerly Marand). It represents a more radical simplification of the openEHR RM and BASE models, using programmer-friendly, natural language-based paths. The serialisation format was originally based on the TDS, with a concrete expression in JSON and using paths, rather than sparse XML.</p>
+</div>
+<div class="paragraph">
+<p>EHRbase adopted and extended WT serialisation as <a href="#ehrbase-sdt">Simplified Data Template (SDT)</a> format.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_simplified_json_formats"><a class="anchor" href="#_simplified_json_formats"></a><a class="link" href="#_simplified_json_formats">Simplified JSON Formats</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>These Simplified Formats represent a more radical simplification of the openEHR RM and BASE models, using programmer-friendly, natural language-based paths. The approach was originally based on TDS concepts but with:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Concrete expression in JSON</p>
+</li>
+<li>
+<p>Human-readable path elements (e.g., <code>body_temperature</code>, <code>serum_sodium</code>)</p>
+</li>
+<li>
+<p>Two variants: <strong>Flat</strong> and <strong>Structured</strong></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Key innovations:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Node IDs generated from human-readable names in any language</p>
+</li>
+<li>
+<p>Separation of context data (<code>ctx/</code> prefix)</p>
+</li>
+<li>
+<p>Elimination of intermediate RM structures (<code>ITEM_TREE</code>, <code>HISTORY</code>, etc.)</p>
+</li>
+<li>
+<p>Direct element-to-value mapping</p>
+</li>
+<li>
+<p>Optional RM attributes with an underscore prefix</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Advantages:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Highly readable, language-agnostic paths</p>
+</li>
+<li>
+<p>Minimal learning curve for developers</p>
+</li>
+<li>
+<p>Suitable for form-based applications</p>
+</li>
+<li>
+<p>Both flat and hierarchical representations are available</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The format with its two variants is the basis for the current specification.</p>
+</div>
+<div class="sect2">
+<h3 id="_flat_format"><a class="anchor" href="#_flat_format"></a><a class="link" href="#_flat_format">Flat format</a></h3>
+<div class="paragraph">
+<p>The Flat format represents data in a flattened key-value structure where paths are used as keys, making it particularly suitable for form-based data entry and simple data structures.
+All nested objects are flattened into a single level using path separators.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+  "blood_pressure_demo.v0/category|value": "event",
+  "blood_pressure_demo.v0/category|code": "433",
+  "blood_pressure_demo.v0/category|terminology": "openehr",
+  "blood_pressure_demo.v0/context/start_time": "2022-02-03T04:05:06",
+  "blood_pressure_demo.v0/context/setting|terminology": "openehr",
+  "blood_pressure_demo.v0/context/setting|code": "225",
+  "blood_pressure_demo.v0/context/setting|value": "home",
+  "blood_pressure_demo.v0/context/_end_time": "2022-02-03T04:25:41",
+  "blood_pressure_demo.v0/blood_pressure/any_event:0/systolic|unit": "mm[Hg]",
+  "blood_pressure_demo.v0/blood_pressure/any_event:0/systolic|magnitude": 154.0,
+  "blood_pressure_demo.v0/blood_pressure/any_event:0/diastolic|unit": "mm[Hg]",
+  "blood_pressure_demo.v0/blood_pressure/any_event:0/diastolic|magnitude": 98.0,
+  "blood_pressure_demo.v0/blood_pressure/any_event:0/clinical_interpretation": "Stage 2 Hypertension: Blood pressure is significantly elevated with systolic pressure of 154 mmHg and diastolic pressure of 98 mmHg, indicating stage 2 hypertension according to current guidelines.",
+  "blood_pressure_demo.v0/blood_pressure/any_event:0/position|terminology": "local",
+  "blood_pressure_demo.v0/blood_pressure/any_event:0/position|value": "Standing",
+  "blood_pressure_demo.v0/blood_pressure/any_event:0/position|code": "at1000",
+  "blood_pressure_demo.v0/blood_pressure/any_event:0/time": "2022-02-03T04:05:06",
+  "blood_pressure_demo.v0/blood_pressure/any_event:1/systolic|unit": "mm[Hg]",
+  "blood_pressure_demo.v0/blood_pressure/any_event:1/systolic|magnitude": 144.0,
+  "blood_pressure_demo.v0/blood_pressure/any_event:1/diastolic|magnitude": 80.0,
+  "blood_pressure_demo.v0/blood_pressure/any_event:1/diastolic|unit": "mm[Hg]",
+  "blood_pressure_demo.v0/blood_pressure/any_event:1/clinical_interpretation": "Stage 2 Hypertension: Blood pressure remains elevated with systolic pressure of 144 mmHg. Diastolic pressure has improved to 80 mmHg, but systolic pressure still indicates stage 2 hypertension.",
+  "blood_pressure_demo.v0/blood_pressure/any_event:1/position|code": "at1000",
+  "blood_pressure_demo.v0/blood_pressure/any_event:1/position|terminology": "local",
+  "blood_pressure_demo.v0/blood_pressure/any_event:1/position|value": "Standing",
+  "blood_pressure_demo.v0/blood_pressure/any_event:1/time": "2022-02-03T04:25:41",
+  "blood_pressure_demo.v0/blood_pressure/method|code": "at1036",
+  "blood_pressure_demo.v0/blood_pressure/method|value": "Auscultation",
+  "blood_pressure_demo.v0/blood_pressure/method|terminology": "local",
+  "blood_pressure_demo.v0/blood_pressure/language|code": "en",
+  "blood_pressure_demo.v0/blood_pressure/language|terminology": "ISO_639-1",
+  "blood_pressure_demo.v0/blood_pressure/encoding|terminology": "IANA_character-sets",
+  "blood_pressure_demo.v0/blood_pressure/encoding|code": "UTF-8",
+  "blood_pressure_demo.v0/language|terminology": "ISO_639-1",
+  "blood_pressure_demo.v0/language|code": "en",
+  "blood_pressure_demo.v0/territory|terminology": "ISO_3166-1",
+  "blood_pressure_demo.v0/territory|code": "DE",
+  "blood_pressure_demo.v0/composer|name": "Max Mustermann",
+  "blood_pressure_demo.v0/_uid": "8073f453-8095-44e6-8077-798609b32a2f::local.ehrbase.org::1"
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_structured_format"><a class="anchor" href="#_structured_format"></a><a class="link" href="#_structured_format">Structured format</a></h3>
+<div class="paragraph">
+<p>Another variant for this simplification is the Structured format, with the difference that data is represented in JSON structures based on paths from the associated Web Template, rather than flattening them as a key-value list.
+An example is shown below.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+  "blood_pressure_demo.v0": {
+    "category": [ {
+      "|value": "event",
+      "|code": "433",
+      "|terminology": "openehr"
+    } ],
+    "context": [ {
+      "start_time": [ "2022-02-03T04:05:06" ],
+      "setting": [ {
+        "|terminology": "openehr",
+        "|code": "225",
+        "|value": "home"
+      } ],
+      "_end_time": [ "2022-02-03T04:25:41" ]
+    } ],
+    "blood_pressure": [ {
+      "any_event": [ {
+        "systolic": [ {
+          "|unit": "mm[Hg]",
+          "|magnitude": 154.0
+        } ],
+        "diastolic": [ {
+          "|unit": "mm[Hg]",
+          "|magnitude": 98.0
+        } ],
+        "clinical_interpretation": [ "Stage 2 Hypertension: Blood pressure is significantly elevated with systolic pressure of 154 mmHg and diastolic pressure of 98 mmHg, indicating stage 2 hypertension according to current guidelines." ],
+        "position": [ {
+          "|terminology": "local",
+          "|value": "Standing",
+          "|code": "at1000"
+        } ],
+        "time": [ "2022-02-03T04:05:06" ]
+      }, {
+        "systolic": [ {
+          "|unit": "mm[Hg]",
+          "|magnitude": 144.0
+        } ],
+        "diastolic": [ {
+          "|magnitude": 80.0,
+          "|unit": "mm[Hg]"
+        } ],
+        "clinical_interpretation": [ "Stage 2 Hypertension: Blood pressure remains elevated with systolic pressure of 144 mmHg. Diastolic pressure has improved to 80 mmHg, but systolic pressure still indicates stage 2 hypertension." ],
+        "position": [ {
+          "|code": "at1000",
+          "|terminology": "local",
+          "|value": "Standing"
+        } ],
+        "time": [ "2022-02-03T04:25:41" ]
+      } ],
+      "method": [ {
+        "|code": "at1036",
+        "|value": "Auscultation",
+        "|terminology": "local"
+      } ],
+      "language": [ {
+        "|code": "en",
+        "|terminology": "ISO_639-1"
+      } ],
+      "encoding": [ {
+        "|terminology": "IANA_character-sets",
+        "|code": "UTF-8"
+      } ]
+    } ],
+    "language": [ {
+      "|terminology": "ISO_639-1",
+      "|code": "en"
+    } ],
+    "territory": [ {
+      "|terminology": "ISO_3166-1",
+      "|code": "DE"
+    } ],
+    "composer": [ {
+      "|name": "Max Mustermann"
+    } ],
+    "_uid": [ "8073f453-8095-44e6-8077-798609b32a2f::local.ehrbase.org::1" ]
+  }
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_requirements"><a class="anchor" href="#_requirements"></a><a class="link" href="#_requirements">Requirements</a></h3>
+<div class="paragraph">
+<p>To make any simplified format viable, the following requirements must be met:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><strong>Abstraction capability</strong>: The format makes it possible to abstract away rigorous structural complexity of the canonical model where appropriate, mainly by making the data less self-standing and relying more on a schema (the template).</p>
+</li>
+<li>
+<p><strong>Machine generability</strong>: The format definition for any given commit data can be completely and routinely machine-generated from its canonical definition (i.e. from an openEHR Operational Template).</p>
+</li>
+<li>
+<p><strong>Bidirectional conversion</strong>: Data instances of the simplified format can be routinely machine-converted to canonical format at execution time, and vice versa, but requires information from the underlying Operational Template.</p>
+</li>
+<li>
+<p><strong>Template specificity</strong>: Field identifiers and structure are derived from and validated against a specific operational template.</p>
+</li>
+<li>
+<p><strong>Preservation of semantics</strong>: Despite simplification, all clinical semantics from the original archetype and template constraints are preserved.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>These requirements ensure that the simplified format serves as a practical interface layer while maintaining the full rigour of openEHR at the persistence and interoperability layers.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Developers using the simplified formats in example-based use cases do not need to understand the detailed conversion algorithms. Platforms based on openEHR typically provide services that generate example instances from templates and handle conversion transparently. The conversion details are primarily relevant for developers creating and maintaining openEHR platforms or dealing with complex integration scenarios.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="../overview/">Overview</a></span>
+  <span class="next"><a href="../basic_concepts/">Basic Concepts</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>
+    Copyright: © 2003+
+    <a href="https://www.openehr.org"
+        alt="is an independent, non-profit foundation, facilitating the sharing of health
+           records by consumers and clinicians via open specifications, clinical models
+           and open platform implementations.">The openEHR Foundation</a>
+  </p>
+
+  <p>
+    License:
+    <img src="../../../../ui/img/cc-by-nd-88x31.png"
+        alt="Creative Commons Attribution-NoDerivs 3.0 Unported."
+        style="vertical-align:middle;margin:0 0.25rem 0 0;">
+    <a href="https://creativecommons.org/licenses/by-nd/3.0/">
+      Creative Commons Attribution-NoDerivs 3.0 Unported.
+    </a>
+  </p>
+
+  <p>
+    <strong>Links: <strong>
+    <a href="https://www.openehr.org/terms-of-use" class="mr-1">Terms of use</a> |
+    <a href="https://www.openehr.org/privacy-policy" class="mx-1">Privacy policy</a> |
+    <a href="https://www.openehr.org/privacy-policy" class="mx-1">Logos &amp; Trademarks</a> |
+    <a href="https://www.openehr.org/contact-us" class="mx-1">Contact</a>
+  </p>
+</footer>
+
+<script id="site-script" src="../../../../ui/js/site.js" data-ui-root-path="../../../../ui"></script>
+<script defer src="../../../../ui/js/vendor/highlight.js"></script>
+<script src="../../../../ui/js/vendor/lunr.js"></script>
+<script src="../../../../ui/js/search-ui.js" id="search-ui-script" data-site-root-path="../../../.." data-snippet-length="80" data-stylesheet="../../../../ui/css/search.css"></script>
+<script async src="../../../../search-index.js"></script>
+<script src="../../../../ui/js/medium-zoom.min.js"></script>
+<script src="../../../../ui/js/zoom.js"></script>
+<script async src="../../../../ui/js/tabs.js"></script>
+  </body>
+</html>

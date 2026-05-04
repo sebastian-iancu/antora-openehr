@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+    <title>Subject Proxy Service (SPS) :: openEHR Specifications (Local Build)</title>
+    <link rel="canonical" href="https://sebastian-iancu.github.io/antora-openehr/SM/development/openehr_platform/subject_proxy_service/">
+    <link rel="prev" href="../message_service/">
+    <link rel="next" href="../terminology_service/">
+    <meta name="description" content="openEHR Platform Abstract Service Model">
+    <meta name="keywords" content="openehr, service, API">
+    <meta name="generator" content="Antora 3.1.14">
+    <link rel="stylesheet" href="../../../../ui/css/site.css">
+    <link rel="stylesheet" href="../../../../ui/css/antora-openehr.css">
+    <link rel="stylesheet" href="../../../../ui/css/openehr.css">
+    <link rel="stylesheet" href="../../../../ui/css/tabs.css">
+    <link rel="stylesheet" href="../../../../ui/css/extra.css">
+<link rel="icon" href="../../../../ui/img/favicon.ico" type="image/x-icon">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://sebastian-iancu.github.io/antora-openehr">openEHR Specifications (Local Build)</a>
+
+      <div class="navbar-item search hide-for-print">
+        <div id="search-field" class="field has-filter">
+          <input id="search-input" type="text" placeholder="Search the docs">
+          <label class="filter checkbox">
+            <input type="checkbox" data-facet-filter="component:SM"> Service Model only
+          </label>
+        </div>
+      </div>
+
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">Specifications</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://specifications.openehr.org/" target="_blank">
+              openEHR specification
+            </a>
+            <a class="navbar-item" href="https://specifications.openehr.org/releases/UML/development/index.html" target="_blank">
+              openEHR portal
+            </a>
+            <a class="navbar-item" href="https://ckm.openehr.org/ckm/" target="_blank">
+              openEHR CKM
+            </a>
+          </div>
+        </div>
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">Community</a>
+          <div class="navbar-dropdown is-right">
+            <a class="navbar-item" href="https://openehr.atlassian.net/secure/Dashboard.jspa?selectPageId=10190" target="_blank">
+              Issue trackers
+            </a>
+            <a class="navbar-item" href="https://discourse.openehr.org/" target="_blank">
+              Discourse Forum
+            </a>
+            <a class="navbar-item" href="https://specifications.openehr.org/wiki/display/spec/Specifications+Home" target="_blank">
+              Wiki
+            </a>
+            <a class="navbar-item" href="https://github.com/openEHR" target="_blank">
+              GitHub
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="SM" data-version="development">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="../../">Service Model</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../">Overview</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../">openEHR Platform Service Model</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../overview/">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../common_package/">Common Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../definition_package/">Definition Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../ehr_service/">EHR Service</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../demographic_service/">Demographic Service</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../ehr_index_service/">EHR Index Service</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../query_service/">Query Service</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../message_service/">Message Service</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="./">Subject Proxy Service (SPS)</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../terminology_service/">Terminology Service</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../admin_service/">Admin Service</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../appendix/">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../simplified_im_b/">openEHR Simplified Information Model 'B'</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../simplified_im_b/overview/">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../simplified_im_b/sim_base/">Sim Base</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../simplified_im_b/sim_data_types/">SIM-B Data types Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../simplified_im_b/sim_structures/">SIM-B Structures</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../simplified_im_b/app_context/">App Context</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../simplified_im_b/transformation_rules/">Transformation Rules</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../simplified_im_b/appendix/">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../serial_data_formats/">openEHR Serial Data Formats (SDF)</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../serial_data_formats/overview/">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../serial_data_formats/data_values/">Data Values</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../serial_data_formats/syntax/">Syntax Specification</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../serial_data_formats/appendix/">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Service Model</span>
+    <span class="version">development</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <div class="title"><a href="../../../../AM/Release-2.3.0/">Archetype Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../AM/Release-2.3.0/">Release-2.3.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../AM/Release-2.2.0/">Release-2.2.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../AM/Release-1.4.0/">Release-1.4.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../AM/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../BASE/Release-1.2.0/">Base Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../BASE/Release-1.2.0/">Release-1.2.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../BASE/Release-1.1.0/">Release-1.1.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../BASE/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../CDS/development/">Clinical Decision Support</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../CDS/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../CNF/development/">Conformance Specifications</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../CNF/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../LANG/Release-1.0.0/">Generic Languages</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../LANG/Release-1.0.0/">Release-1.0.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../LANG/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../TERM/Release-3.0.0/">openEHR Terminology</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../TERM/Release-3.0.0/">Release-3.0.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../TERM/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../PROC/development/">Process Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../PROC/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../QUERY/Release-1.0.1/">Query Languages</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../QUERY/Release-1.0.1/">Release-1.0.1</a>
+        </li>
+        <li class="version">
+          <a href="../../../../QUERY/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../RM/Release-1.1.0/">Reference Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../RM/Release-1.1.0/">Release-1.1.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../RM/Release-1.0.4/">Release-1.0.4</a>
+        </li>
+        <li class="version">
+          <a href="../../../../RM/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../ITS-REST/development/">REST API specifications</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../ITS-REST/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <div class="title"><a href="../../">Service Model</a></div>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../../">development</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../../BASE/Release-1.2.0/" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../../">Service Model</a></li>
+    <li><a href="../">openEHR Platform Service Model</a></li>
+    <li><a href="./">Subject Proxy Service (SPS)</a></li>
+  </ul>
+</nav>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Subject Proxy Service (SPS)</h1>
+<div class="sect1">
+<h2 id="_overview"><a class="anchor" href="#_overview"></a><a class="link" href="#_overview">Overview</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The Subject Proxy Service (SPS) allows symbolic variables characterising the real world state of a <em>subject</em> which is often a subject of care (i.e a patient) but may be some other entity, to be retrieved and tracked over time. Such variables are useful for many kinds of application, since they provide a standard means of obtaining information that concretely reside in different kinds of back-end systems or  devices, or may be requested from live users. The SPS avoids the calling application having to know about the particular standard, representational model, query language or API of the data source for any given variable. Consequently there is no need to even assume that an openEHR back-end system is the source of any given variable.</p>
+</div>
+<div class="paragraph">
+<p>The following diagram shows conceptually the population of subject proxy variables from back-end systems, via the various intermediate layers of the Subject Proxy Service.</p>
+</div>
+<div id="spo_conceptual" class="imageblock text-center text-center">
+<div class="content">
+<img src="../_images/diagrams/spo_conceptual.svg" alt="spo conceptual">
+</div>
+<div class="title">Figure 1. Typical Subject Proxy situation</div>
+</div>
+<div class="paragraph">
+<p>Subject variables may be conveniently used by any application and are relied upon by openEHR Task Plans and Decision Logic Modules, for which the conceptual purpose and typical use are described in the <a href="https://specifications.openehr.org/releases/PROC/latest/overview.html#_subject_proxy_service" target="_blank" rel="noopener">openEHR Process and Planning Overview</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_subject_variable_naming"><a class="anchor" href="#_subject_variable_naming"></a><a class="link" href="#_subject_variable_naming">Subject Variable Naming</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The Subject Proxy Service enables the registration of <em>subject variables</em> by various means. Each subject variable is identified within the service by a <em>canonical name</em> (<code>SUBJECT_VARIABLE.<em>canonical_name</em></code>, in the model below), which is the name used for it in calls mentioning variables by name.</p>
+</div>
+<div class="paragraph">
+<p>The canonical name is formed from <code>SUBJECT_VARIABLE.<em>name</em></code>, prefixed by <code><em>namespace</em></code> if it is set, and are unique within the service, regardless of which subjects or applications may use them at any given time. The <code><em>name</em></code> attribute is an intelligible natural language names that accurately indicate its meaning, such as <code>"date_of_birth"</code>, <code>"is_type1_diabetic"</code> and so on, but may be any name that is legal within the relevant source contexts and valid within this service. Some variable names such as <code>"date_of_birth"</code> are regarded as having a globally agreed definition (e.g. the date recorded as date of birth against the subject in administration systems), while other variables such as <code><em>has_heart_failure</em></code> may have a definitions specific to particular guidelines, such as CHA<sub>2</sub>DS<sub>2</sub>-VASc, a guideline for atrial fibrillation (AF) diagnosis etc. The use of namespaces in the latter cases would have the effect of defining variables such as <code>cha2ds2vasc::has_heart_failure</code> and <code>af_diagnosis::has_heart_failure</code> (where <code>"cha2ds2vasc"</code> and <code>"af_diagnosis"</code> are namespace values), each of which may have a semantically different retrieval definition (for example including or excluding heart murmur).</p>
+</div>
+<div class="paragraph">
+<p>If <code><em>namespace</em></code> is not set, the variable is understood to be in the 'global' namespace, and to have the same meaning for all users. There is nothing to stop a variable existing in both the global namespace and one or more specific namespaces, for example <code>date_of_birth</code> (standard administrative concept) and <code>tribal::date_of_birth</code> (a specific 'date of birth' concept used for ethnic or religious reasons).</p>
+</div>
+<div class="paragraph">
+<p>To be valid within the service, canonical names may not contain whitespace or any unprintable character, but there are no other restrictions (e.g. of case, or first character being a letter etc).</p>
+</div>
+<div class="paragraph">
+<p>An <em>application data set</em>, which is a convenience collection of variables registered by / for an application may however use data set-local aliases, for example <code>"dob"</code> for the canonical name <code>"date_of_birth"</code>. This allows the names used locally within client computation contexts for the same variable registered in the SPS may differ. It is recommended that this flexibility be used sparingly in order to limit confusion within the overall system design environment.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_service_interface"><a class="anchor" href="#_service_interface"></a><a class="link" href="#_service_interface">Service Interface</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The SPS supports the following abstract kinds of operations (with variants):</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><em>Register a subject</em>: create a new subject in the service, with which which variables can be associated;</p>
+</li>
+<li>
+<p><em>Add subject variable</em>: add a subject variable definition to an existing subject;</p>
+</li>
+<li>
+<p><em>Register application data set</em>: register a set of subject variables for a particular application;</p>
+</li>
+<li>
+<p><em>Register binding</em>: add a binding for an 'environment', which is usually a concrete computing context containing multiple back-end systems from which subject variables can be populated;</p>
+</li>
+<li>
+<p><em>Add binding data frame</em>: add a data retrieval frame to an environment binding - this provides a data access method for that environment.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The <code>platform.interface.subject_proxy</code> package shown below defines the service interface and related information structures for the <code>SUBJECT_PROXY</code> service in the openEHR platform architecture.</p>
+</div>
+<div id="platform_interface_subject_proxy" class="imageblock text-center text-center">
+<div class="content">
+<img src="../../_images/uml/SM-platform.interface.subject_proxy.svg" alt="SM platform.interface.subject proxy">
+</div>
+<div class="title">Figure 2. <code>sm.platform.interface.subject_proxy</code> package</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_data_structures"><a class="anchor" href="#_data_structures"></a><a class="link" href="#_data_structures">Data Structures</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The data entities used by the SPS are conceptually as follows:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><em>Subject proxy</em>: a container for all variables and data sets for a single subject;</p>
+</li>
+<li>
+<p><em>Subject variable</em>: a proxy for a single subject variable, including sample history over time;</p>
+</li>
+<li>
+<p><em>Subject data set</em>: a proxy for a particular set of variables in use by some application;</p>
+</li>
+<li>
+<p><em>Sample</em>: a sample represents a time-stamped result of a request to obtain a value via its binding, and either contains a value, or an 'unavailable' flag and reason;</p>
+</li>
+<li>
+<p><em>Variable value</em>: a variable value is the value of some variable as it was at a moment in time, and may take various forms.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The formal class definitions are shown in the following UML.</p>
+</div>
+<div id="platform_interface_subject_proxy_structure" class="imageblock text-center text-center">
+<div class="content">
+<img src="../../_images/uml/SM-platform.interface.subject_proxy-structure.svg" alt="SM platform.interface.subject proxy structure">
+</div>
+<div class="title">Figure 3. Subject Proxy structures</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_samples"><a class="anchor" href="#_samples"></a><a class="link" href="#_samples">Samples</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The <code>SAMPLE</code> class provides a generic wrapper for any retrieved back-end data, stamping it with a <code><em>retrieve_time</em></code> and a <code><em>is_unavailable</em></code> flag in case no data could be obtained. The optional <code><em>effective_time</em></code> represents the clinically relevant time of the sample, which is comparable to <code><em>currency</em></code> in order to determine the freshness of the data. The descendant <code>DATA_FRAME_SAMPLE</code> specialises the payload to full data frame results, which may be large query results, complex data objects etc, or indeed, single values.</p>
+</div>
+<div class="paragraph">
+<p>The following UML shows the Sample hierarchy.</p>
+</div>
+<div id="platform_interface_subject_proxy_sample" class="imageblock text-center text-center">
+<div class="content">
+<img src="../../_images/uml/SM-platform.interface.subject_proxy-sample.svg" alt="SM platform.interface.subject proxy sample">
+</div>
+<div class="title">Figure 4. Subject Proxy structures</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_bindings"><a class="anchor" href="#_bindings"></a><a class="link" href="#_bindings">Bindings</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>A binding (represented by <code>ENV_BINDING</code>) is understood as a set of retrieval methods (e.g. API invocations, queries) each defined by a <em>data frame</em> (represented by <code>DATA_FRAME</code>), for a particular execution environment, and <em>independent of any particular subject</em>. A binding may be loaded in the service via the call <code><em>register_binding()</em></code>. Each data frame has a primary and optionally a fallback method which can be executed to obtain the data, as well as a retrieval result, in the native format of the API used to access the source system, e.g. openEHR AQL Result_set, a particular FHIR profiled resource, an HL7v2 message, XDS document and so on. The interface <code>I_DATA_BINDING</code> provides a (partially specified) internal API for retrieving a result from a particular data frame.</p>
+</div>
+<div class="paragraph">
+<p>The retrieved data frame results are of type <code>DATA_FRAME_SAMPLE</code>, representing a single 'sample' of some kind of retrieval result from a back-end system or interoperability gateway. The descendant types provide a few common forms.</p>
+</div>
+<div class="paragraph">
+<p>The following UML diagram shows the classes and an internal interface relating to bindings.</p>
+</div>
+<div id="platform_interface_subject_proxy_binding" class="imageblock text-center text-center">
+<div class="content">
+<img src="../../_images/uml/SM-platform.interface.subject_proxy-binding.svg" alt="SM platform.interface.subject proxy binding">
+</div>
+<div class="title">Figure 5. Subject Proxy binding</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_persistence"><a class="anchor" href="#_persistence"></a><a class="link" href="#_persistence">Persistence</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>It is assumed that the configuration contents (i.e. not data frame or variable results) of the SPS are persisted for the life of the system i.e. until the point of any system level re-initialisation actions. The SPS includes a <code><em>reset()</em></code> operation that enables all content to be dumped, returning the service to its virgin state.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_usage"><a class="anchor" href="#_usage"></a><a class="link" href="#_usage">Usage</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The usage of the service follows the general pattern:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>at system startup, register a binding for an environment, consisting of concrete methods for retrieving and converting data from back-end systems to its variable form;</p>
+</li>
+<li>
+<p>during normal operation, register a subject, typically a patient, but may be any other tracked entity, including devices, sites;</p>
+</li>
+<li>
+<p>add variable definitions to a subject.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The calling sequence to achieve this is of the logical form:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-kotlin" data-lang="kotlin">//
+// populated in caller
+//
+sps: I_SUBJECT_PROXY_SERVICE;
+var1, var2, var3: SUBJECT_VARIABLE;
+env_binding1: ENV_BINDING;
+
+//
+// calls to Subject Proxy Service
+//
+sps.register_binding (env_binding1);
+
+sps.register_subject ("1394850", "individual");
+sps.add_subject_variable ("1394850", var1);
+sps.add_subject_variable ("1394850", var2);
+sps.add_subject_variable ("1394850", var3);</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The first call registers a <em>binding</em> for a specific environment. See below for how bindings are defined. The next call creates the subject in the service, while the subsequent <code><em>add_subject_variable</em></code> calls are used to build up the proxy variable set for the subject.</p>
+</div>
+<div class="paragraph">
+<p>This calling sequence suits system initialisation when specific subject proxy variables are created for global use for specific subjects. Typical variables in a healthcare IT environment include <code><em>date_of_birth</em></code> and <code><em>sex</em></code>.</p>
+</div>
+<div class="paragraph">
+<p>However many variables are defined by particular applications, including guidelines and planning applications. Accordingly, the service provides a way to register an <em>application data set</em>, i.e. a collection of subject variables, for a subject. In this case, the calling sequence will be of the following form.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-kotlin" data-lang="kotlin">//
+// populated in caller
+//
+sps: I_SUBJECT_PROXY_SERVICE;
+ds1, ds2: SUBJECT_APP_DATA_SET;
+env_binding1: ENV_BINDING;
+
+//
+// calls to Subject Proxy Service
+//
+sps.register_binding (env_binding1);
+
+sps.register_subject ("1394850", "individual");
+sps.register_application_data_set (ds1);
+sps.register_application_data_set (ds2);</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In this sequence, the subject variables are established via calls to <code><em>register_application_data_set</em></code>, each of which will cause the addition or modification of subject variables not already defined for the subject. When use of an application or subject ceases, the relevant data sets can be removed easily via the various <code><em>remove_xx</em></code> calls.</p>
+</div>
+<div class="paragraph">
+<p>The following example illustrates a typical run-time situation for the use of the Subject Proxy Service.</p>
+</div>
+<div id="spo_context" class="imageblock text-center text-center">
+<div class="content">
+<img src="../_images/diagrams/spo_context.svg" alt="spo context">
+</div>
+<div class="title">Figure 6. Typical Subject Proxy situation</div>
+</div>
+<div class="sect2">
+<h3 id="_specifying_a_data_set"><a class="anchor" href="#_specifying_a_data_set"></a><a class="link" href="#_specifying_a_data_set">Specifying a Data-set</a></h3>
+<div class="paragraph">
+<p>A data set specification would be provided through a REST API as a text specification, e.g. in JSON or YAML. Such a specification might be derived from an <a href="https://specifications.openehr.org/releases/PROC/latest/decision_language.html" target="_blank" rel="noopener">openEHR Decision Language Modules</a>, or some other source. An example is shown below.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-yaml" data-lang="yaml">data_set: !!SUBJECT_DATA_SET
+    name: antenatal_1.v1.0.3
+    creating_app_id: task_planning
+    variables:
+        - name: date_of_birth
+          type_name: Date
+
+        - name: systolic_bp
+          type_name: Quantity
+          currency: PT2m
+
+        - name: diastolic_bp
+          type_name: Quantity
+          currency: PT2m
+
+        - name: is_type1_diabetic
+          type_name: Boolean</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_specifying_a_binding"><a class="anchor" href="#_specifying_a_binding"></a><a class="link" href="#_specifying_a_binding">Specifying a Binding</a></h3>
+<div class="paragraph">
+<p>The following shows a partial YAML representation of an <code>ENV_BINDING</code> for a particular deployment environment.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-yaml" data-lang="yaml">binding: !!ENV_BINDING
+    data_frames:
+        - frame_id: OracleMPI::basic_demographics
+          model_type: OracleMPI
+          primary_method: !!API_CALL
+              system_id: pas3.nhs.org.uk
+              call_name: REST_get
+              parameters:
+                  - xxxx: abc
+                  - yyyy: def
+
+        - frame_id: openEHR::vital_signs
+          model_type: openEHR-EHR
+          primary_method: !!QUERY_CALL
+              system_id: ehr1.nhs.org.uk
+              call_name: aql_query
+              query_text: xxxx
+
+        - frame_id: OracleMPI::basic_demographics
+          model_type: HL7-FHIR_DSTU4_UK
+          primary_method: !!API_CALL
+              system_id: ehr1.nhs.org.uk
+              call_name: fhir_get
+              query_text: xxxx</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_class_descriptions"><a class="anchor" href="#_class_descriptions"></a><a class="link" href="#_class_descriptions">Class Descriptions</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Unresolved include directive in modules/openehr_platform/pages/subject_proxy_service.adoc - include::ROOT:partial$classes/i_subject_proxy_service.adoc[]</p>
+</div>
+<div class="paragraph">
+<p>Unresolved include directive in modules/openehr_platform/pages/subject_proxy_service.adoc - include::ROOT:partial$classes/subject_proxy.adoc[]
+Unresolved include directive in modules/openehr_platform/pages/subject_proxy_service.adoc - include::ROOT:partial$classes/subject_variable.adoc[]</p>
+</div>
+<div class="paragraph">
+<p>Unresolved include directive in modules/openehr_platform/pages/subject_proxy_service.adoc - include::ROOT:partial$classes/subject_data_set.adoc[]
+Unresolved include directive in modules/openehr_platform/pages/subject_proxy_service.adoc - include::ROOT:partial$classes/data_set_result.adoc[]</p>
+</div>
+<div class="paragraph">
+<p>Unresolved include directive in modules/openehr_platform/pages/subject_proxy_service.adoc - include::ROOT:partial$classes/sample.adoc[]
+Unresolved include directive in modules/openehr_platform/pages/subject_proxy_service.adoc - include::ROOT:partial$classes/data_frame_sample.adoc[]
+Unresolved include directive in modules/openehr_platform/pages/subject_proxy_service.adoc - include::ROOT:partial$classes/openehr_sample.adoc[]
+Unresolved include directive in modules/openehr_platform/pages/subject_proxy_service.adoc - include::ROOT:partial$classes/hl7v2_sample.adoc[]
+Unresolved include directive in modules/openehr_platform/pages/subject_proxy_service.adoc - include::ROOT:partial$classes/hl7_fhir_sample.adoc[]
+Unresolved include directive in modules/openehr_platform/pages/subject_proxy_service.adoc - include::ROOT:partial$classes/variable_sample.adoc[]</p>
+</div>
+<div class="paragraph">
+<p>Unresolved include directive in modules/openehr_platform/pages/subject_proxy_service.adoc - include::ROOT:partial$classes/variable_value.adoc[]
+Unresolved include directive in modules/openehr_platform/pages/subject_proxy_service.adoc - include::ROOT:partial$classes/variable_value_single.adoc[]
+Unresolved include directive in modules/openehr_platform/pages/subject_proxy_service.adoc - include::ROOT:partial$classes/variable_value_list.adoc[]
+Unresolved include directive in modules/openehr_platform/pages/subject_proxy_service.adoc - include::ROOT:partial$classes/variable_value_time_series.adoc[]</p>
+</div>
+<div class="paragraph">
+<p>Unresolved include directive in modules/openehr_platform/pages/subject_proxy_service.adoc - include::ROOT:partial$classes/i_data_binding.adoc[]
+Unresolved include directive in modules/openehr_platform/pages/subject_proxy_service.adoc - include::ROOT:partial$classes/env_binding.adoc[]
+Unresolved include directive in modules/openehr_platform/pages/subject_proxy_service.adoc - include::ROOT:partial$classes/data_frame.adoc[]</p>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="../message_service/">Message Service</a></span>
+  <span class="next"><a href="../terminology_service/">Terminology Service</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>
+    Copyright: © 2003+
+    <a href="https://www.openehr.org"
+        alt="is an independent, non-profit foundation, facilitating the sharing of health
+           records by consumers and clinicians via open specifications, clinical models
+           and open platform implementations.">The openEHR Foundation</a>
+  </p>
+
+  <p>
+    License:
+    <img src="../../../../ui/img/cc-by-nd-88x31.png"
+        alt="Creative Commons Attribution-NoDerivs 3.0 Unported."
+        style="vertical-align:middle;margin:0 0.25rem 0 0;">
+    <a href="https://creativecommons.org/licenses/by-nd/3.0/">
+      Creative Commons Attribution-NoDerivs 3.0 Unported.
+    </a>
+  </p>
+
+  <p>
+    <strong>Links: <strong>
+    <a href="https://www.openehr.org/terms-of-use" class="mr-1">Terms of use</a> |
+    <a href="https://www.openehr.org/privacy-policy" class="mx-1">Privacy policy</a> |
+    <a href="https://www.openehr.org/privacy-policy" class="mx-1">Logos &amp; Trademarks</a> |
+    <a href="https://www.openehr.org/contact-us" class="mx-1">Contact</a>
+  </p>
+</footer>
+
+<script id="site-script" src="../../../../ui/js/site.js" data-ui-root-path="../../../../ui"></script>
+<script defer src="../../../../ui/js/vendor/highlight.js"></script>
+<script src="../../../../ui/js/vendor/lunr.js"></script>
+<script src="../../../../ui/js/search-ui.js" id="search-ui-script" data-site-root-path="../../../.." data-snippet-length="80" data-stylesheet="../../../../ui/css/search.css"></script>
+<script async src="../../../../search-index.js"></script>
+<script src="../../../../ui/js/medium-zoom.min.js"></script>
+<script src="../../../../ui/js/zoom.js"></script>
+<script async src="../../../../ui/js/tabs.js"></script>
+  </body>
+</html>

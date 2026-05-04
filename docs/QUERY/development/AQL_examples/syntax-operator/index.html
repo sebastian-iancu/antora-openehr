@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+    <title>Untitled :: openEHR Specifications (Local Build)</title>
+    <link rel="canonical" href="https://sebastian-iancu.github.io/antora-openehr/QUERY/development/AQL_examples/syntax-operator/">
+    <link rel="prev" href="../overview/">
+    <link rel="next" href="../single_subject/">
+    <meta name="description" content="openEHR Archetype Query Language (AQL) examples.">
+    <meta name="keywords" content="query, AQL, example, openehr">
+    <meta name="generator" content="Antora 3.1.14">
+    <link rel="stylesheet" href="../../../../ui/css/site.css">
+    <link rel="stylesheet" href="../../../../ui/css/antora-openehr.css">
+    <link rel="stylesheet" href="../../../../ui/css/openehr.css">
+    <link rel="stylesheet" href="../../../../ui/css/tabs.css">
+    <link rel="stylesheet" href="../../../../ui/css/extra.css">
+<link rel="icon" href="../../../../ui/img/favicon.ico" type="image/x-icon">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://sebastian-iancu.github.io/antora-openehr">openEHR Specifications (Local Build)</a>
+
+      <div class="navbar-item search hide-for-print">
+        <div id="search-field" class="field has-filter">
+          <input id="search-input" type="text" placeholder="Search the docs">
+          <label class="filter checkbox">
+            <input type="checkbox" data-facet-filter="component:QUERY"> Query Languages only
+          </label>
+        </div>
+      </div>
+
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">Specifications</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://specifications.openehr.org/" target="_blank">
+              openEHR specification
+            </a>
+            <a class="navbar-item" href="https://specifications.openehr.org/releases/UML/development/index.html" target="_blank">
+              openEHR portal
+            </a>
+            <a class="navbar-item" href="https://ckm.openehr.org/ckm/" target="_blank">
+              openEHR CKM
+            </a>
+          </div>
+        </div>
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">Community</a>
+          <div class="navbar-dropdown is-right">
+            <a class="navbar-item" href="https://openehr.atlassian.net/secure/Dashboard.jspa?selectPageId=10190" target="_blank">
+              Issue trackers
+            </a>
+            <a class="navbar-item" href="https://discourse.openehr.org/" target="_blank">
+              Discourse Forum
+            </a>
+            <a class="navbar-item" href="https://specifications.openehr.org/wiki/display/spec/Specifications+Home" target="_blank">
+              Wiki
+            </a>
+            <a class="navbar-item" href="https://github.com/openEHR" target="_blank">
+              GitHub
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="QUERY" data-version="development">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="../../">Query Languages</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../">Overview</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../AQL/">Archetype Query Language (AQL)</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AQL/overview/">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AQL/syntax/">AQL Syntax Description</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AQL/result_structure/">Result structure</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AQL/writing_AQL/">Writing AQL manually</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AQL/grammar/">AQL Syntax Specification</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AQL/appendix/">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../">Archetype Query Language Examples</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../overview/">Overview</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="./">Syntax-Operator</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../single_subject/">Single-Subject AQL Examples</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../population/">Population AQL Examples</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../appendix/">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Query Languages</span>
+    <span class="version">development</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <div class="title"><a href="../../../../AM/latest/">Archetype Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../AM/latest/">Release-2.3.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../AM/Release-2.2.0/">Release-2.2.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../AM/Release-1.4.0/">Release-1.4.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../AM/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../BASE/latest/">Base Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../BASE/latest/">Release-1.2.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../BASE/Release-1.1.0/">Release-1.1.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../BASE/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../CDS/latest/">Clinical Decision Support</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../CDS/latest/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../CNF/latest/">Conformance Specifications</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../CNF/latest/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../LANG/latest/">Generic Languages</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../LANG/latest/">Release-1.0.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../LANG/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../TERM/latest/">openEHR Terminology</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../TERM/latest/">Release-3.0.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../TERM/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../PROC/latest/">Process Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../PROC/latest/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <div class="title"><a href="../../../latest/">Query Languages</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../latest/">Release-1.0.1</a>
+        </li>
+        <li class="version is-current">
+          <a href="../../">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../RM/latest/">Reference Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../RM/latest/">Release-1.1.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../RM/Release-1.0.4/">Release-1.0.4</a>
+        </li>
+        <li class="version">
+          <a href="../../../../RM/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../ITS-REST/latest/">REST API specifications</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../ITS-REST/latest/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../SM/latest/">Service Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../SM/latest/">development</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../../BASE/latest/" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../../">Query Languages</a></li>
+    <li><a href="../">Archetype Query Language Examples</a></li>
+    <li><a href="./">Syntax-Operator</a></li>
+  </ul>
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">development</button>
+  <div class="version-menu">
+    <a class="version is-missing" href="../../../latest/">Release-1.0.1</a>
+    <a class="version is-current" href="./">development</a>
+  </div>
+</div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<div class="sect1">
+<h2 id="_operator_syntax_examples"><a class="anchor" href="#_operator_syntax_examples"></a><a class="link" href="#_operator_syntax_examples">Operator Syntax Examples</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The following sub-sections illustrate various AQL operators with examples.</p>
+</div>
+<div class="sect2">
+<h3 id="_matches"><a class="anchor" href="#_matches"></a><a class="link" href="#_matches">matches</a></h3>
+<div class="paragraph">
+<p>The following examples show how the ADL <code>matches</code> operator may be used within AQL statements.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+the ADL expressions on the right-hand side of the <code>matches</code> operator are in ADL 1.4 format.
+</td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="title">Scenario: <strong>Get all blood glucose values and their corresponding subject ids, where blood glucose &gt; 11 mmol/L or blood glucose &gt;= 200 mg/dL</strong></div>
+<div class="content">
+<pre class="highlight"><code class="language-sql" data-lang="sql">SELECT
+    e/ehr_status/subject/external_ref/id/value,
+    o/data[at0001]/events[at0002 and name/value='Any event']/data[at0003]/items[at0013.1]/value
+FROM EHR e CONTAINS COMPOSITION c
+    CONTAINS OBSERVATION o [openEHR-EHR-OBSERVATION.laboratory-glucose.v1]
+WHERE
+    o/data[at0001]/events[at0002 and name/value='Any event']/data[at0003]/items[at0013.1]/value matches {
+        C_DV_QUANTITY&lt;
+            list = &lt;
+               ["1"] = &lt;
+                   units = &lt;"mmol/L"&gt;
+                   magnitude = &lt;|&gt;=11|&gt;
+               &gt;
+               ["2"] = &lt;
+                   units=&lt;"mg/dL"&gt;
+                   magnitude=&lt;|&gt;=200|&gt;
+               &gt;
+            &gt;
+        &gt;
+    }</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-sql" data-lang="sql">SELECT
+    e/ehr_status/subject/external_ref/id/value as subjectId,
+    a/items[at0001]/value as analyteName,
+    a/items[at0001]/value as analyteResult
+FROM EHR e
+    CONTAINS COMPOSITION c
+        CONTAINS OBSERVATION o[openEHR-EHR-OBSERVATION.laboratory_test_result.v1]
+            CONTAINS CLUSTER a[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1]
+WHERE
+    (a/items[at0001]/value/defining_code/code_string matches {'14743-9','2345-7'} AND a/items[at0001]/value/defining_code/terminology_id = 'LOINC')
+    AND
+    ((a/items[at0024]/value/magnitude &gt; 11 AND a/items[at0024]/value/units matches {'mmol/L'})
+        OR (a/items[at0024]/value/magnitude &gt;= 200 AND a/items[at0024]/value/units matches {'mg/dL'}))</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Scenario: <strong>Get all blood glucose values and their corresponding ehr ids, where blood glucose level is between 5-6 mmol/L or between 90-110 mg/dL</strong></div>
+<div class="content">
+<pre class="highlight"><code class="language-sql" data-lang="sql">SELECT
+    e/ehr_id,
+    o/data[at0001]/events[at0002 and name/value='Any event']/data[at0003]/items[at0013.1]/value
+EHR e CONTAINS COMPOSITION c
+    CONTAINS OBSERVATION o [openEHR-EHR-OBSERVATION.laboratory-glucose.v1]
+WHERE
+    o/data[at0001]/events[at0002 and name/value='Any event']/data[at0003]/items[at0013.1]/value matches {
+        C_DV_QUANTITY&lt;
+            list = &lt;
+                ["1"] = &lt;
+                    units = &lt;"mmol/L"&gt;
+                    magnitude = &lt;|5.0..6.0|&gt;
+                &gt;
+                ["2"] = &lt;
+                    units = &lt;"mg/dL"&gt;
+                    magnitude = &lt;|90..110|&gt;
+                &gt;
+            &gt;
+        &gt;
+    }</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Alternative</div>
+<div class="content">
+<pre class="highlight"><code class="language-sql" data-lang="sql">SELECT
+    e/ehr_id/value as ehrId,
+    a/items[at0001]/value as analyteName,
+    a/items[at0001]/value as analyteResult
+FROM EHR e
+    CONTAINS COMPOSITION c
+        CONTAINS OBSERVATION o[openEHR-EHR-OBSERVATION.laboratory_test_result.v1]
+            CONTAINS CLUSTER a[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1]
+WHERE
+    (a/items[at0001]/value/defining_code/code_string matches {'14743-9','2345-7'} AND a/items[at0001]/value/defining_code/terminology_id = 'LOINC')
+    AND
+    ((a/items[at0024]/value/magnitude &gt;= 5 AND a/items[at0024]/value/magnitude &lt;=6 AND a/items[at0024]/value/units matches {'mmol/L'})
+        OR (a/items[at0024]/value/magnitude &gt;= 90 AND a/items[at0024]/value/magnitude &gt;= 110 AND a/items[at0024]/value/units matches {'mg/dL'}))</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Scenario: <strong>HbA1c &gt; 7.0%</strong></div>
+<div class="content">
+<pre class="highlight"><code class="language-sql" data-lang="sql">SELECT
+    e/ehr_id,
+    o/data[at0001]/events[at0002 and name/value='Any event']/data[at0003]/items[at0013.1]/value
+EHR e CONTAINS COMPOSITION c
+    CONTAINS OBSERVATION o [openEHR-EHR-OBSERVATION.laboratory-glucose.v1]
+WHERE
+    o/data[at0001]/events[at0002 and name/value='Any event']/data[at0003]/items[at0013.1]/value matches {
+        DV_PROPORTION matches {
+            numerator matches {|&gt;7.0|}
+            denominator matches {|100.0|}
+        }
+    }</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Alternative</div>
+<div class="content">
+<pre class="highlight"><code class="language-sql" data-lang="sql">SELECT
+    e/ehr_id/value as ehrId,
+    p/data[at0001]/events[at0002]/data[at0003]/items[at0006]/value as spo2Numerator
+FROM EHR e
+    CONTAINS COMPOSITION c
+        CONTAINS OBSERVATION p[openEHR-EHR-OBSERVATION.pulse_oximetry.v1]
+WHERE
+    p/data[at0001]/events[at0002]/data[at0003]/items[at0006]/value/numerator &lt;= 96</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Scenario: <strong>Total cholesterol &gt;= 5.0 mmol/L or LDL-C &gt;= 3.0 mmol/L</strong></div>
+<div class="content">
+<pre class="highlight"><code class="language-sql" data-lang="sql">SELECT
+    e/ehr_id,
+    o/data[at0001]/events[at0002]/data[at0003]/items[at0013.1] AS TotalC,
+    o/data[at0001]/events[at0002]/data[at0003]/items[at0011.1, 'Fractions']/items[at0013.4, 'LDL-Cholesterol'] AS LDLC
+EHR e CONTAINS COMPOSITION c
+    CONTAINS OBSERVATION o [openEHR-EHR-OBSERVATION.laboratory-hba1c.v1]
+WHERE
+    o/data[at0001]/events[at0002, 'Any event']/data[at0003]/items[at0013.1]/value matches {
+        DV_QUANTITY matches {
+            units matches {"mmol/L"}
+            magnitude matches {|&gt;=5.0|}
+        }
+    }
+    OR
+    o/data[at0001]/events[at0002]/data[at0003]/items[at0011.1, 'Fractions']/items[at0013.4, 'LDL-Cholesterol']/value matches {
+        DV_QUANTITY matches {
+            units matches {"mmol/L"}
+            magnitude matches {|&gt;=3.0|}
+        }
+    }</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_arithmetic_operators"><a class="anchor" href="#_arithmetic_operators"></a><a class="link" href="#_arithmetic_operators">Arithmetic operators</a></h3>
+<div class="paragraph">
+<p>The following example shows how arithmetic operators may be used within AQL statements.</p>
+</div>
+<div class="listingblock">
+<div class="title">Scenario: <strong>For each recorded administration of ampicillin check for problem diagnosis of skin rash that is within 2 days of the administration date</strong></div>
+<div class="content">
+<pre class="highlight"><code class="language-sql" data-lang="sql">SELECT e/ehr_id
+FROM EHR e CONTAINS (COMPOSITION c1
+   CONTAINS ACTION a [openEHR-EHR-ACTION.medication.v1]
+      CONTAINS ITEM_TREE it [openEHR-EHR-ITEM_TREE.medication.v1]) AND
+      CONTAINS (COMPOSITION c2 CONTAINS EVALUATION eval [openEHR-EHR-EVALUATION.problem-diagnosis.v1])
+WHERE
+   it/description[openEHR-EHR-ITEM_TREE.medication.v1]/items[at0001]/value matches {"SNOMED::31087008"} AND
+   eval/data[at0001]/items[at0002.1]/value/value/defining_code matches {
+      CODE_PHRASE matches {[SNOMED::294506009, 21626009]}
+   } AND
+   eval/data[at0001]/items[at0010]/value - it/description[openEHR-EHR-ITEM_TREE.medication.v1]/items[at0018]/items[at0019]/value matches {
+      DV_DURATION matches {
+         value matches{&lt;=P2d}
+      }
+   }</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_nest_query_and_not_in"><a class="anchor" href="#_nest_query_and_not_in"></a><a class="link" href="#_nest_query_and_not_in">Nest Query and 'Not in'</a></h3>
+<div class="paragraph">
+<p>The following example shows the use of a nested query and the <code>not-in</code> operator.</p>
+</div>
+<div class="listingblock">
+<div class="title">Scenario: <strong>All patients who have not been discharged</strong></div>
+<div class="content">
+<pre class="highlight"><code class="language-sql" data-lang="sql">SELECT e/ehr_id
+FROM
+   EHR e CONTAINS
+      ADMIN_ENTRY ae1 [openEHR-EHR-ADMIN_ENTRY.admission.v1]
+WHERE
+   ae1/encounter_id/value not in (
+      SELECT ae2/encounter_id/value
+      FROM
+         EHR e CONTAINS
+            ADMIN_ENTRY ae2 [openEHR-EHR-ADMIN_ENTRY.discharge.v1]
+   )</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_function_syntax_examples"><a class="anchor" href="#_function_syntax_examples"></a><a class="link" href="#_function_syntax_examples">Function Syntax Examples</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The following sub-sections illustrate various AQL functions with examples.</p>
+</div>
+<div class="sect2">
+<h3 id="_aggregate_functions"><a class="anchor" href="#_aggregate_functions"></a><a class="link" href="#_aggregate_functions">Aggregate functions</a></h3>
+<div class="listingblock">
+<div class="title"><strong>Example 1:</strong> The <code>COUNT()</code> and <code>MIN()</code> functions are used to return the number of discharge letters and the date of their oldest event:</div>
+<div class="content">
+<pre>SELECT
+   count(*) AS counter, min(c/context/start_time) as firstTime
+FROM
+   EHR [ehr_id/value=$ehrUid]
+      CONTAINS COMPOSITION c[openEHR-EHR-COMPOSITION.administrative_encounter.v1]
+         CONTAINS ADMIN_ENTRY [openEHR-EHR-ADMIN_ENTRY.admission.v1]</pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title"><strong>Example 2:</strong> The <code>COUNT()</code> function is used to return a counter of all distinct test analyte names for a given EHR:</div>
+<div class="content">
+<pre>SELECT
+    COUNT(DISTINCT a/items[at0001]/value) AS counter
+FROM
+    EHR [ehr_id/value=$ehrUid]
+    CONTAINS COMPOSITION c
+        CONTAINS OBSERVATION [openEHR-EHR-OBSERVATION.laboratory_test_result.v1]
+            CONTAINS CLUSTER a[openEHR-EHR-CLUSTER.laboratory_test_analyte.v1]</pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title"><strong>Example 3:</strong> Using <code>MIN()</code>, <code>MAX()</code> and <code>AVG()</code> functions to determine edge and mean values for systolic blood pressure:</div>
+<div class="content">
+<pre>SELECT
+    MAX(o/data[at0001]/events[at0006]/data[at0003]/items[at0004]/value/magnitude) AS maxValue,
+    MIN(o/data[at0001]/events[at0006]/data[at0003]/items[at0004]/value/magnitude) AS minValue,
+    AVG(o/data[at0001]/events[at0006]/data[at0003]/items[at0004]/value/magnitude) AS meanValue
+FROM
+    EHR e CONTAINS COMPOSITION c[openEHR-EHR-COMPOSITION.encounter.v1]
+        CONTAINS OBSERVATION o[openEHR-EHR-OBSERVATION.blood_pressure.v1]</pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_terminology"><a class="anchor" href="#_terminology"></a><a class="link" href="#_terminology">TERMINOLOGY</a></h3>
+<div class="paragraph">
+<p>The following are examples of the use of <code>TERMINOLOGY</code> function related to FHIR terminology operations.</p>
+</div>
+<div class="listingblock">
+<div class="title"><strong>Example 1</strong>: Expand a value set</div>
+<div class="content">
+<pre>WHERE
+    e/value/defining_code/code_string matches TERMINOLOGY('expand', 'hl7.org/fhir/r4', 'url=http://snomed.info/sct?fhir_vs=isa/50697003')</pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title"><strong>Example 2</strong>: Validate a code in a value set</div>
+<div class="content">
+<pre>WHERE
+    TERMINOLOGY('validate', 'hl7.org/fhir/r4', 'system=http://snomed.info/sct&amp;code=122298005&amp;url=http://snomed.info/sct?fhir_vs&amp;display=Astrovirus RNA assay') = true</pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title"><strong>Example 3</strong>: Look-up a code</div>
+<div class="content">
+<pre>WHERE
+    e/value/defining_code/code_string matches TERMINOLOGY('lookup', 'hl7.org/fhir/r4', 'system=http://loinc.org&amp;code=1963-8')</pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title"><strong>Example 4</strong>: Map a code</div>
+<div class="content">
+<pre>WHERE
+    e/value/defining_code/code_string matches TERMINOLOGY('map', 'hl7.org/fhir/r4', 'system=http://hl7.org/fhir/composition-status&amp;code=preliminary&amp;source=http://hl7.org/fhir/ValueSet/composition-status&amp;target=http://hl7.org/fhir/ValueSet/v3-ActStatus')</pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title"><strong>Example 5</strong>: Subsumption testing</div>
+<div class="content">
+<pre>WHERE
+    TERMINOLOGY('subsumes', 'hl7.org/fhir/r4', CONCAT('system=http://snomed.info/sct&amp;codeA=235856003&amp;codeB=', e/value/defining_code/code_string)) = true</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="../overview/">Overview</a></span>
+  <span class="next"><a href="../single_subject/">Single-Subject AQL Examples</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>
+    Copyright: © 2003+
+    <a href="https://www.openehr.org"
+        alt="is an independent, non-profit foundation, facilitating the sharing of health
+           records by consumers and clinicians via open specifications, clinical models
+           and open platform implementations.">The openEHR Foundation</a>
+  </p>
+
+  <p>
+    License:
+    <img src="../../../../ui/img/cc-by-nd-88x31.png"
+        alt="Creative Commons Attribution-NoDerivs 3.0 Unported."
+        style="vertical-align:middle;margin:0 0.25rem 0 0;">
+    <a href="https://creativecommons.org/licenses/by-nd/3.0/">
+      Creative Commons Attribution-NoDerivs 3.0 Unported.
+    </a>
+  </p>
+
+  <p>
+    <strong>Links: <strong>
+    <a href="https://www.openehr.org/terms-of-use" class="mr-1">Terms of use</a> |
+    <a href="https://www.openehr.org/privacy-policy" class="mx-1">Privacy policy</a> |
+    <a href="https://www.openehr.org/privacy-policy" class="mx-1">Logos &amp; Trademarks</a> |
+    <a href="https://www.openehr.org/contact-us" class="mx-1">Contact</a>
+  </p>
+</footer>
+
+<script id="site-script" src="../../../../ui/js/site.js" data-ui-root-path="../../../../ui"></script>
+<script defer src="../../../../ui/js/vendor/highlight.js"></script>
+<script src="../../../../ui/js/vendor/lunr.js"></script>
+<script src="../../../../ui/js/search-ui.js" id="search-ui-script" data-site-root-path="../../../.." data-snippet-length="80" data-stylesheet="../../../../ui/css/search.css"></script>
+<script async src="../../../../search-index.js"></script>
+<script src="../../../../ui/js/medium-zoom.min.js"></script>
+<script src="../../../../ui/js/zoom.js"></script>
+<script async src="../../../../ui/js/tabs.js"></script>
+  </body>
+</html>

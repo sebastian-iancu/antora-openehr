@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="../../ui/css/antora-openehr.css">
     <link rel="stylesheet" href="../../ui/css/openehr.css">
     <link rel="stylesheet" href="../../ui/css/tabs.css">
+    <link rel="stylesheet" href="../../ui/css/extra.css">
 <link rel="icon" href="../../ui/img/favicon.ico" type="image/x-icon">
   </head>
   <body class="article">
@@ -142,6 +143,9 @@
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="architecture_overview/implementation/">Implementation Technology Specifications</a>
   </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="architecture_overview/appendix/">Appendix</a>
+  </li>
 </ul>
   </li>
 </ul>
@@ -176,6 +180,9 @@
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="foundation_types/type_cross_ref/">Type Cross-Reference</a>
   </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="foundation_types/appendix/">Appendix</a>
+  </li>
 </ul>
   </li>
 </ul>
@@ -198,6 +205,9 @@
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="base_types/identification_package/">Identification Package</a>
   </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="base_types/appendix/">Appendix</a>
+  </li>
 </ul>
   </li>
 </ul>
@@ -210,6 +220,9 @@
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="resource/resource_package/">Resource Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="resource/appendix/">Appendix</a>
   </li>
 </ul>
   </li>
@@ -234,6 +247,9 @@
           <a href="../../AM/Release-2.2.0/">Release-2.2.0</a>
         </li>
         <li class="version">
+          <a href="../../AM/Release-1.4.0/">Release-1.4.0</a>
+        </li>
+        <li class="version">
           <a href="../../AM/development/">development</a>
         </li>
       </ul>
@@ -253,6 +269,63 @@
       </ul>
     </li>
     <li class="component">
+      <div class="title"><a href="../../CDS/latest/">Clinical Decision Support</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../CDS/latest/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../CNF/latest/">Conformance Specifications</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../CNF/latest/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../LANG/latest/">Generic Languages</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../LANG/latest/">Release-1.0.0</a>
+        </li>
+        <li class="version">
+          <a href="../../LANG/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../TERM/latest/">openEHR Terminology</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../TERM/latest/">Release-3.0.0</a>
+        </li>
+        <li class="version">
+          <a href="../../TERM/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../PROC/latest/">Process Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../PROC/latest/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../QUERY/latest/">Query Languages</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../QUERY/latest/">Release-1.0.1</a>
+        </li>
+        <li class="version">
+          <a href="../../QUERY/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
       <div class="title"><a href="../../RM/latest/">Reference Model</a></div>
       <ul class="versions">
         <li class="version is-latest">
@@ -263,6 +336,22 @@
         </li>
         <li class="version">
           <a href="../../RM/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../ITS-REST/latest/">REST API specifications</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../ITS-REST/latest/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../SM/latest/">Service Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../SM/latest/">development</a>
         </li>
       </ul>
     </li>
@@ -298,8 +387,17 @@
 <h1 class="page">Base Model</h1>
 <div id="preamble">
 <div class="sectionbody">
+<div class="paragraph spec-meta-line">
+<p>Status: <span class="spec-status spec-status-stable">STABLE</span>  Release: <span class="release-tag">development</span></p>
+</div>
 <div class="paragraph">
-<p>openEHR Base Model Component</p>
+<p>Foundation of the openEHR specification stack. Covers the global Architecture Overview, primitive and structured types, identifiers and object references, and the Resource model for authored translatable documents.</p>
+</div>
+<div class="imageblock block-diagram">
+<div class="content">
+<img src="_images/openehr_block_diagram.svg" alt="openEHR Base Model block diagram">
+</div>
+<div class="title">Figure 1. Specification Component Overview</div>
 </div>
 </div>
 </div>
@@ -309,16 +407,16 @@
 <div class="ulist">
 <ul>
 <li>
-<p><a href="architecture_overview/" class="xref page">Architecture Overview</a></p>
+<p><a href="architecture_overview/" class="xref page">Architecture Overview</a> <span class="spec-status spec-status-stable">STABLE</span> — Global description of openEHR design principles and architecture&#8201;&#8212;&#8201;Design principles, component relationships, and rationale of the openEHR platform</p>
 </li>
 <li>
-<p><a href="foundation_types/" class="xref page">Foundation Types</a></p>
+<p><a href="foundation_types/" class="xref page">Foundation Types</a> <span class="spec-status spec-status-stable">STABLE</span> — Values, Structures, Interval, Date/times&#8201;&#8212;&#8201;Primitive types: Boolean, numeric, text, date/time, Interval, and generic containers</p>
 </li>
 <li>
-<p><a href="base_types/" class="xref page">Base Types</a></p>
+<p><a href="base_types/" class="xref page">Base Types</a> <span class="spec-status spec-status-stable">STABLE</span> — Definitions, Identifiers&#8201;&#8212;&#8201;Identifiers, object references, and version IDs shared across the openEHR platform</p>
 </li>
 <li>
-<p><a href="resource/" class="xref page">Resource Model</a></p>
+<p><a href="resource/" class="xref page">Resource Model</a> <span class="spec-status spec-status-stable">STABLE</span> — Authoring resources and translations&#8201;&#8212;&#8201;Model for authored, translatable documents with revision history and language support</p>
 </li>
 </ul>
 </div>
@@ -360,7 +458,7 @@
 </footer>
 
 <script id="site-script" src="../../ui/js/site.js" data-ui-root-path="../../ui"></script>
-<script async src="../../ui/js/vendor/highlight.js"></script>
+<script defer src="../../ui/js/vendor/highlight.js"></script>
 <script src="../../ui/js/vendor/lunr.js"></script>
 <script src="../../ui/js/search-ui.js" id="search-ui-script" data-site-root-path="../.." data-snippet-length="80" data-stylesheet="../../ui/css/search.css"></script>
 <script async src="../../search-index.js"></script>

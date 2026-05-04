@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+    <title>EL Modules :: openEHR Specifications (Local Build)</title>
+    <link rel="canonical" href="https://sebastian-iancu.github.io/antora-openehr/PROC/latest/decision_language/dl_module/">
+    <link rel="prev" href="../dlm_model/">
+    <link rel="next" href="../terminology/">
+    <meta name="description" content="openEHR Decision Language specification">
+    <meta name="keywords" content="expressions, rules, guidelines">
+    <meta name="generator" content="Antora 3.1.14">
+    <link rel="stylesheet" href="../../../../ui/css/site.css">
+    <link rel="stylesheet" href="../../../../ui/css/antora-openehr.css">
+    <link rel="stylesheet" href="../../../../ui/css/openehr.css">
+    <link rel="stylesheet" href="../../../../ui/css/tabs.css">
+    <link rel="stylesheet" href="../../../../ui/css/extra.css">
+<link rel="icon" href="../../../../ui/img/favicon.ico" type="image/x-icon">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://sebastian-iancu.github.io/antora-openehr">openEHR Specifications (Local Build)</a>
+
+      <div class="navbar-item search hide-for-print">
+        <div id="search-field" class="field has-filter">
+          <input id="search-input" type="text" placeholder="Search the docs">
+          <label class="filter checkbox">
+            <input type="checkbox" data-facet-filter="component:PROC"> Process Model only
+          </label>
+        </div>
+      </div>
+
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">Specifications</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://specifications.openehr.org/" target="_blank">
+              openEHR specification
+            </a>
+            <a class="navbar-item" href="https://specifications.openehr.org/releases/UML/development/index.html" target="_blank">
+              openEHR portal
+            </a>
+            <a class="navbar-item" href="https://ckm.openehr.org/ckm/" target="_blank">
+              openEHR CKM
+            </a>
+          </div>
+        </div>
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">Community</a>
+          <div class="navbar-dropdown is-right">
+            <a class="navbar-item" href="https://openehr.atlassian.net/secure/Dashboard.jspa?selectPageId=10190" target="_blank">
+              Issue trackers
+            </a>
+            <a class="navbar-item" href="https://discourse.openehr.org/" target="_blank">
+              Discourse Forum
+            </a>
+            <a class="navbar-item" href="https://specifications.openehr.org/wiki/display/spec/Specifications+Home" target="_blank">
+              Wiki
+            </a>
+            <a class="navbar-item" href="https://github.com/openEHR" target="_blank">
+              GitHub
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="PROC" data-version="development">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="../../">Process Model</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../">Overview</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../overview/">CDS, Guidelines and Planning Overview</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../overview/introduction/">Introduction</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../overview/needs/">Needs</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../overview/artefacts/">Care Process Artefacts and their Formalisation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../overview/deployment_paradigm/">Deployment Paradigm</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../overview/conceptual_architecture/">Conceptual Architecture</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../overview/deployment_architectures/">Architectural Use-cases</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../overview/appendix/">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../task_planning/">Task Planning (TP) Specification</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../task_planning/background/">Background</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../task_planning/requirements/">Technical Requirements</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../task_planning/design/">Design Principles</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../task_planning/model_overview/">Task Planning Model Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../task_planning/1-definition_overview/">Definition Model</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../task_planning/global_semantics/">Global Semantics</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../task_planning/execution_model_overview/">Execution</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../task_planning/model_materialised/">Materialised Model</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../task_planning/model_history/">Plan Execution History</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../task_planning/service_model/">Transactional Service Model</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../task_planning/ehr_semantics/">Relationship with other openEHR EHR Artefacts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../task_planning/appendix/">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../">Decision Language specification</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../overview/">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../dlm_syntax/">DLM Syntax</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../dlm_model/">DLM Model</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="./">EL Modules</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../terminology/">Terminology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../data_context/">Data Bindings</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../computing_context/">Computing Bindings</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../appendix/">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../tp_vml/">Task Planning Visual Modelling Language (TP-VML)</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../tp_vml/overview/">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../tp_vml/elements/">Elements</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../tp_vml/patterns/">Patterns</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../tp_vml/appendix/">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../process_examples/">openEHR CDS, Guidelines and Planning Examples</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../process_examples/overview/">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../process_examples/teamwork/">Teamwork</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../process_examples/order_management/">Order Management</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../process_examples/chemo/">Multi-drug Chemotherapy</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../process_examples/antenatal/">Antenatal Care</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../process_examples/cancer_prescribing/">Breast Cancer Decision Protocol</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../process_examples/Covid19_severity/">Covid19 Severity Classification</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../process_examples/cha2ds_vasc/">CHA2DS2-VASc</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../process_examples/qrisk/">qRisk3-2017</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../process_examples/news2/">National Early Warning Score (NEWS) 2</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../process_examples/common_DLMs/">Common Decision Logic Modules</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../process_examples/appendix/">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Process Model</span>
+    <span class="version">development</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <div class="title"><a href="../../../../AM/latest/">Archetype Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../AM/latest/">Release-2.3.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../AM/Release-2.2.0/">Release-2.2.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../AM/Release-1.4.0/">Release-1.4.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../AM/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../BASE/latest/">Base Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../BASE/latest/">Release-1.2.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../BASE/Release-1.1.0/">Release-1.1.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../BASE/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../CDS/latest/">Clinical Decision Support</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../CDS/latest/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../CNF/latest/">Conformance Specifications</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../CNF/latest/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../LANG/latest/">Generic Languages</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../LANG/latest/">Release-1.0.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../LANG/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../TERM/latest/">openEHR Terminology</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../TERM/latest/">Release-3.0.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../TERM/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <div class="title"><a href="../../">Process Model</a></div>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../../">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../QUERY/latest/">Query Languages</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../QUERY/latest/">Release-1.0.1</a>
+        </li>
+        <li class="version">
+          <a href="../../../../QUERY/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../RM/latest/">Reference Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../RM/latest/">Release-1.1.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../RM/Release-1.0.4/">Release-1.0.4</a>
+        </li>
+        <li class="version">
+          <a href="../../../../RM/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../ITS-REST/latest/">REST API specifications</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../ITS-REST/latest/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../SM/latest/">Service Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../SM/latest/">development</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../../BASE/latest/" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../../">Process Model</a></li>
+    <li><a href="../">Decision Language specification</a></li>
+    <li><a href="./">EL Modules</a></li>
+  </ul>
+</nav>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">EL Modules</h1>
+<div class="sect1">
+<h2 id="_overview"><a class="anchor" href="#_overview"></a><a class="link" href="#_overview">Overview</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The Expression Language may be used to write a self-standing, uniquely identified <em>EL Module</em> that in addition to EL statements, contains data context definitions, terminology and other meta-data, in a structure similar to an <a href="https://specifications.openehr.org/releases/AM/latest/ADL2.html#_adl_archetype_definition_language">openEHR archetype</a>. An EL Module constitutes a sufficient input to a parser / generator to build a complete computational representation as an instance of the Expression Language Object Model (ELOM).</p>
+</div>
+<div class="paragraph">
+<p>EL Modules may be related in two ways. One is via the <code>import</code> keyword. This is primarily used to re-use existing definitions, including symbolic constants, routine declarations and so on, thus enabling a new EL Module to contain just the specific functionality for which it is authored.</p>
+</div>
+<div class="paragraph">
+<p>An EL Module may also be a specialisation of another, i.e. list it as a parent. This allows direct inheritance of definitions from the parent into the namespace of the module.</p>
+</div>
+<div class="paragraph">
+<p>The core sections of a Module are expressed in the sections described above, i.e. <code>reference</code>, <code>data_context</code>, <code>preconditions</code> and <code>definition</code>. The data context declarations may be thought of parameter lists of input and output variables from the external world (e.g. measured from a patient) for the <code>definition</code> section, which contains the main logic.</p>
+</div>
+<div class="paragraph">
+<p>The symbols used in statements are <em>names</em> in the fashion of any typical programming language, but are also considered <em>codes</em> to which linguistic definitions can be attached for use in the UI and other human-consumable renderings (e.g. documents). This is done in a <code>terminology</code> section of an EL Module, in the same way as for the <a href="https://specifications.openehr.org/releases/AM/latest/index">openEHR archetype formalism</a>. For example, the symbol <code>$heart_rate</code> of type <code>Integer</code> may have the linguistic definitions "heart rate" (English) and "frequência cardíaca" (Portuguese).</p>
+</div>
+<div class="paragraph">
+<p>Mappings between external variables and external entities are described by <em>bindings</em> in a <code>data_bindings</code> section. For example, the expression <code>$heart_rate &gt; 50</code> is an assertion about values found in some data - i.e. <code>$heart_rate</code> is an external variable that may be mapped to an entity representing an actual heart rate measurement. Each data binding states where a variable&#8217;s value is obtained from (e.g. some larger data entity such as a document or message, or via an API call). This provides clear semantics for statements in the expression text that mention such variables.</p>
+</div>
+<div class="paragraph">
+<p>In addition to these computable sections, various meta-data sections are added, including the <code>description</code> and <code>language</code> sections defined by the <a href="https://specifications.openehr.org/releases/BASE/latest/resource.html">openEHR Resource specification</a>, and an identification line at the top. As with archetypes, the sections other than <code>use_model</code>, <code>reference</code>, <code>data_context</code>, and <code>definition</code> are expressed in <a href="https://specifications.openehr.org/releases/LANG/latest/odin.html">openEHR ODIN syntax</a>.</p>
+</div>
+<div class="paragraph">
+<p>The structure of a self-standing EL Module is thus as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>&lt;EL Module identifier&gt;
+
+import
+    &lt;EL Module identifier&gt; as &lt;alias&gt;
+    &lt;EL Module identifier&gt;
+    ...
+
+language
+    original_language = &lt;...&gt;
+    translations = &lt;...&gt;
+
+description
+    &lt;descriptive meta-data&gt;
+
+use_model
+    &lt;model ids&gt;
+
+reference
+    &lt;constant definitions&gt;
+
+data_context
+    &lt;declarations&gt;
+
+preconditions
+    &lt;expressions&gt;
+
+definition
+    &lt;statements&gt;
+
+terminology
+    &lt;symbol_definitions&gt;
+
+data_bindings
+    &lt;symbol bindings&gt;
+
+computing_bindings
+    &lt;method bindings&gt;</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>An example of an EL Module representing the common clinical health measure 'BMI' (body mass index) is shown below.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-adl" data-lang="adl">openEHR-ELOM.bmi.v1
+
+language
+    original_language = &lt;[ISO_639-1::en]&gt;
+    translations = &lt;
+        ["pt"] = &lt;...&gt;
+    &gt;
+
+description
+    lifecycle_state = &lt;"unmanaged"&gt;
+    original_author = &lt;...&gt;
+    details = &lt;
+    ["pt"] = &lt;
+        language = &lt;[ISO_639-1::pt]&gt;
+            purpose = &lt;"Cálculo do peso do corpo"&gt;
+            use = &lt;"..."&gt;
+        &gt;
+    &gt;
+
+use_model
+    org.openehr.rm
+
+data_context
+    in $body_weight, $height: Real
+    out $bmi: Real
+
+definition
+    $bmi := $body_weight / $height ^ 2
+
+terminology
+    symbol_definitions = &lt;
+        ["en"] = &lt;
+            ["body_weight"] = &lt;
+                text = &lt;"body weight"&gt;
+                description = &lt;"weight of subject body"&gt;
+            &gt;
+            ["height"] = &lt;...&gt;
+            ["bmi"] = &lt;
+                text = &lt;"body mass index"&gt;
+                description = &lt;"body mass index"&gt;
+            &gt;
+        &gt;
+        ["pt"] = &lt;
+            ["body_weight"] = &lt;
+                text = &lt;"peso do corpo"&gt;
+                description = &lt;"peso do corpo do sujeito"&gt;
+            &gt;
+            ["height"] = &lt;...&gt;
+            ["bmi"] = &lt;
+                text = &lt;"índice de massa corporal"&gt;
+                description = &lt;"índice de massa corporal"&gt;
+            &gt;
+        &gt;
+    &gt;
+
+data_bindings
+    content_bindings = &lt;
+        ["openEHR-EHR-OBSERVATION.body_measurements.v1"] = &lt;
+            ["body_weight"] = &lt;
+                target = &lt;"/data/events[id3]/data/items[id5]/value/magnitude"&gt;
+                direction = &lt;"in"&gt;
+            &gt;
+            ["height"] = &lt;
+                target = &lt;"/data/events[id3]/data/items[id6]/value/magnitude"&gt;
+                direction = &lt;"in"&gt;
+            &gt;
+        &gt;
+        ["openEHR-EHR-OBSERVATION.body_mass_index.v1"] = &lt;
+            ["body_mass_index"] = &lt;
+                target = &lt;"/data/events[id3]/data/items[id5]/value/magnitude"&gt;
+                direction = &lt;"out"&gt;
+            &gt;
+        &gt;
+    &gt;</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_module_identification"><a class="anchor" href="#_module_identification"></a><a class="link" href="#_module_identification">Module Identification</a></h2>
+<div class="sectionbody">
+<div class="paragraph tbd">
+<p>TBD: xxxx</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_module_import"><a class="anchor" href="#_module_import"></a><a class="link" href="#_module_import">Module Import</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Other EL Modules can be used by an EL Module, using the <code>import</code> keyword, optionally using an alias to establish a namespace.</p>
+</div>
+<div class="paragraph tbd">
+<p>TBD: really needed to have explicit import? Since a Module parser could easily find instances of qualified refs and just look for the other modules in the system.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_module_specialisation"><a class="anchor" href="#_module_specialisation"></a><a class="link" href="#_module_specialisation">Module Specialisation</a></h2>
+<div class="sectionbody">
+<div class="paragraph tbd">
+<p>TBD:</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_modules_as_domain_function_definitions"><a class="anchor" href="#_modules_as_domain_function_definitions"></a><a class="link" href="#_modules_as_domain_function_definitions">Modules as Domain Function Definitions</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Ignoring the meta-data, terminology and bindings, an EL Module consists of the following parts.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>openEHR-ELOM.bmi.v1
+
+description
+    &lt;documentation&gt;
+
+data_context
+    in $body_weight, $height: Real
+    out $bmi: Real
+
+definition
+    $bmi := $body_weight / $height ^ 2</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The above is semantically equivalent to a function in a typical programming language, such as the following:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">    /*
+     * &lt;documentation&gt;
+     */
+    Real bmi (Real body_weight, Real height) {
+        return body_weight / height ^ 2;
+    }</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_example_breast_cancer_treatment"><a class="anchor" href="#_example_breast_cancer_treatment"></a><a class="link" href="#_example_breast_cancer_treatment">Example: Breast Cancer Treatment</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The following example is an EL Module representing a breast cancer treatment therapy selection guideline. It contains several external input variable, including <code>$cancer_diagnosis</code>, <code>$has_metastasis</code> etc which are assumed to be bound to either data context elements or query results.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-adl" data-lang="adl">openEHR-ELOM.breast_cancer_treatment.v1
+
+language
+    original_language = &lt;[ISO_639-1::en]&gt;
+
+description
+    lifecycle_state = &lt;"unmanaged"&gt;
+    original_author = &lt;...&gt;
+
+use_model
+    org.openehr.rm
+
+data_context
+    in $cancer_diagnosis: Terminology_term
+    in $has_metastasis, $er_positive, $pr_positive, $her2_positive: Boolean
+    in $ki67: Real
+    in $tnm_t, $tnm_n, $tnm_g: String
+    in $has_dx_transmural_mi: Boolean
+    in $ejection_fraction: Real
+    in $hs_dx_hf_stage_2_4: Boolean
+    out $recommendation: String
+
+preconditions
+    $cancer_diagnosis = [ICD_10::C50|Breast cancer|]
+
+definition
+    tumor_molecular_subtype (is_er_positive, is_pr_positive, is_her2_positive: Boolean; ki67_level: Real): Terminology_term
+    {
+        if is_er_positive and not is_her2_positive and ki67_level &lt; 0.20 then
+            return [1111|luminal A|]
+
+        -- Luminal B (HER2 negative)
+        elseif is_er_positive and not is_her2_positive and ki67_level &gt;= 0.20 then
+            return [2222|Luminal B (HER2 negative)|]
+
+        -- Luminal B (HER2 positive)
+        elseif is_er_positive and is_her2_positive then
+            return [3333|Luminal B (HER2 positive)|]
+
+        -- HER2
+        elseif not is_er_positive and not is_pr_positive and is_her2_positive then
+            return [4444|HER2|]
+
+        -- Triple negative
+        elseif not is_er_positive and not is_pr_positive and not is_her2_positive then
+            return [55555|Triple negative|]
+    }
+
+    if $has_metastasis then
+        -- Luminal A
+        if tumor_molecular_subtype ($er_positive, $pr_positive, $her2_positive, $ki67) = [1111|luminal A|] then
+
+        -- Luminal B (HER2 negative)
+        elseif tumor_molecular_subtype ($er_positive, $pr_positive, $her2_positive, $ki67) = [2222|Luminal B (HER2 negative)|] then
+
+        -- Luminal B (HER2 positive)
+        elseif tumor_molecular_subtype ($er_positive, $pr_positive, $her2_positive, $ki67) = [3333|Luminal B (HER2 positive)|] then
+
+        -- HER2 type
+        elseif tumor_molecular_subtype ($er_positive, $pr_positive, $her2_positive, $ki67) = [4444|HER2|] then
+
+        -- Triple negative
+        elseif tumor_molecular_subtype ($er_positive, $pr_positive, $her2_positive, $ki67) = [55555|Triple negative|] then
+
+
+        end
+    else
+        -- Luminal A
+        if tumor_molecular_subtype ($er_positive, $pr_positive, $her2_positive, $ki67) = [1111|luminal A|] then
+            if tnm_major_number ($tnm_t) &lt; 3 and tnm_major_number ($tnm_n) &lt; 2 and tnm_major_number ($tnm_g) &lt; 3 then
+                $recommendation := No_intervention_message
+            else
+                -- consider contraindications to anthracyclines
+                if $has_dx_transmural_mi or $ejection_fraction &lt; 0.4 or $hs_dx_hf_stage_2_4 then
+                    $recommendation := Recommend_cmf_message
+                else
+                    if $has_critical_cardio_pathology or $age &gt; 75 then
+                        $recommendation := Recommend_apirubicin_cycloPosphamide_message
+                    else
+                        $recommendation := Recommend_ac_message
+                    end
+                end
+            end
+
+        -- Luminal B (HER2 negative)
+        elseif tumor_molecular_subtype ($er_positive, $pr_positive, $her2_positive, $ki67) = [2222|Luminal B (HER2 negative)|] then
+            if $tnm_t = "1a" and tnm_major_number ($tnm_n) = 0 then
+
+            else
+
+            end
+
+        -- Luminal B (HER2 positive)
+        elseif tumor_molecular_subtype ($er_positive, $pr_positive, $her2_positive, $ki67) = [3333|Luminal B (HER2 positive)|] then
+            if $tnm_t = "1a" and tnm_major_number ($tnm_n) = 0 then
+
+            elseif $tnm_t matches {"T1b", "T1c"} and tnm_major_number ($tnm_n) = 0 then
+
+            elseif tnm_major_number ($tnm_t) matches {|2..4|} and tnm_major_number ($tnm_n) &gt; 0 then
+
+            else
+
+            end
+
+
+        -- HER2 type
+        elseif tumor_molecular_subtype ($er_positive, $pr_positive, $her2_positive, $ki67) = [4444|HER2|] then
+            if $tnm_t = "1a" and tnm_major_number ($tnm_n) = 0 then
+
+            elseif $tnm_t matches {"T1b", "T1c"} and tnm_major_number ($tnm_n) = 0 then
+
+            elseif tnm_major_number ($tnm_t) matches {|2..4|} and tnm_major_number ($tnm_n) &gt; 0 then
+
+            else
+
+            end
+
+        -- Triple negative
+        elseif tumor_molecular_subtype ($er_positive, $pr_positive, $her2_positive, $ki67) = [55555|Triple negative|] then
+
+
+        end
+
+        user_alert ($recommendation)
+    end
+
+terminology
+    symbol_definitions = &lt;
+        ["en"] = &lt;
+            ["er_positive"] = &lt;
+                text = &lt;"Oestrogen receptor positive"&gt;
+                description = &lt;"Oestrogen receptor positive"&gt;
+            &gt;
+        &gt;
+    &gt;
+
+data_bindings
+    content_bindings = &lt;
+        ["openEHR-EHR-OBSERVATION.cancer_investigation.v1"] = &lt;
+            ["er_positive"] = &lt;
+                target = &lt;"/data/events[id3]/data/items[id5]/value/magnitude"&gt;
+                direction = &lt;"in"&gt;
+            &gt;
+        &gt;
+    query_bindings = &lt;
+        ["https://oncology.health.org/cdr/"] = &lt;
+            ["has_dx_transmural_mi"] = &lt;
+                query_id = &lt;"dx_transmural_mi"&gt;,
+                parameters = &lt;
+                    ["$type"] = &lt;"'xxx'"&gt;
+                &gt;
+            &gt;
+        &gt;
+    &gt;</code></pre>
+</div>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="../dlm_model/">DLM Model</a></span>
+  <span class="next"><a href="../terminology/">Terminology</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>
+    Copyright: © 2003+
+    <a href="https://www.openehr.org"
+        alt="is an independent, non-profit foundation, facilitating the sharing of health
+           records by consumers and clinicians via open specifications, clinical models
+           and open platform implementations.">The openEHR Foundation</a>
+  </p>
+
+  <p>
+    License:
+    <img src="../../../../ui/img/cc-by-nd-88x31.png"
+        alt="Creative Commons Attribution-NoDerivs 3.0 Unported."
+        style="vertical-align:middle;margin:0 0.25rem 0 0;">
+    <a href="https://creativecommons.org/licenses/by-nd/3.0/">
+      Creative Commons Attribution-NoDerivs 3.0 Unported.
+    </a>
+  </p>
+
+  <p>
+    <strong>Links: <strong>
+    <a href="https://www.openehr.org/terms-of-use" class="mr-1">Terms of use</a> |
+    <a href="https://www.openehr.org/privacy-policy" class="mx-1">Privacy policy</a> |
+    <a href="https://www.openehr.org/privacy-policy" class="mx-1">Logos &amp; Trademarks</a> |
+    <a href="https://www.openehr.org/contact-us" class="mx-1">Contact</a>
+  </p>
+</footer>
+
+<script id="site-script" src="../../../../ui/js/site.js" data-ui-root-path="../../../../ui"></script>
+<script defer src="../../../../ui/js/vendor/highlight.js"></script>
+<script src="../../../../ui/js/vendor/lunr.js"></script>
+<script src="../../../../ui/js/search-ui.js" id="search-ui-script" data-site-root-path="../../../.." data-snippet-length="80" data-stylesheet="../../../../ui/css/search.css"></script>
+<script async src="../../../../search-index.js"></script>
+<script src="../../../../ui/js/medium-zoom.min.js"></script>
+<script src="../../../../ui/js/zoom.js"></script>
+<script async src="../../../../ui/js/tabs.js"></script>
+  </body>
+</html>

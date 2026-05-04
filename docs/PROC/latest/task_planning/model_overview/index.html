@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+    <title>Task Planning Model Overview :: openEHR Specifications (Local Build)</title>
+    <link rel="canonical" href="https://sebastian-iancu.github.io/antora-openehr/PROC/latest/task_planning/model_overview/">
+    <link rel="prev" href="../design/">
+    <link rel="next" href="../1-definition_overview/">
+    <meta name="description" content="openEHR Task Planning specification">
+    <meta name="keywords" content="workflow, task, planning, EHR, EMR, reference model, openehr">
+    <meta name="generator" content="Antora 3.1.14">
+    <link rel="stylesheet" href="../../../../ui/css/site.css">
+    <link rel="stylesheet" href="../../../../ui/css/antora-openehr.css">
+    <link rel="stylesheet" href="../../../../ui/css/openehr.css">
+    <link rel="stylesheet" href="../../../../ui/css/tabs.css">
+    <link rel="stylesheet" href="../../../../ui/css/extra.css">
+<link rel="icon" href="../../../../ui/img/favicon.ico" type="image/x-icon">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://sebastian-iancu.github.io/antora-openehr">openEHR Specifications (Local Build)</a>
+
+      <div class="navbar-item search hide-for-print">
+        <div id="search-field" class="field has-filter">
+          <input id="search-input" type="text" placeholder="Search the docs">
+          <label class="filter checkbox">
+            <input type="checkbox" data-facet-filter="component:PROC"> Process Model only
+          </label>
+        </div>
+      </div>
+
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">Specifications</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://specifications.openehr.org/" target="_blank">
+              openEHR specification
+            </a>
+            <a class="navbar-item" href="https://specifications.openehr.org/releases/UML/development/index.html" target="_blank">
+              openEHR portal
+            </a>
+            <a class="navbar-item" href="https://ckm.openehr.org/ckm/" target="_blank">
+              openEHR CKM
+            </a>
+          </div>
+        </div>
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">Community</a>
+          <div class="navbar-dropdown is-right">
+            <a class="navbar-item" href="https://openehr.atlassian.net/secure/Dashboard.jspa?selectPageId=10190" target="_blank">
+              Issue trackers
+            </a>
+            <a class="navbar-item" href="https://discourse.openehr.org/" target="_blank">
+              Discourse Forum
+            </a>
+            <a class="navbar-item" href="https://specifications.openehr.org/wiki/display/spec/Specifications+Home" target="_blank">
+              Wiki
+            </a>
+            <a class="navbar-item" href="https://github.com/openEHR" target="_blank">
+              GitHub
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="PROC" data-version="development">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="../../">Process Model</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../">Overview</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../overview/">CDS, Guidelines and Planning Overview</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../overview/introduction/">Introduction</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../overview/needs/">Needs</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../overview/artefacts/">Care Process Artefacts and their Formalisation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../overview/deployment_paradigm/">Deployment Paradigm</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../overview/conceptual_architecture/">Conceptual Architecture</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../overview/deployment_architectures/">Architectural Use-cases</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../overview/appendix/">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../">Task Planning (TP) Specification</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../background/">Background</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../requirements/">Technical Requirements</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../design/">Design Principles</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="./">Task Planning Model Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../1-definition_overview/">Definition Model</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../global_semantics/">Global Semantics</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../execution_model_overview/">Execution</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../model_materialised/">Materialised Model</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../model_history/">Plan Execution History</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../service_model/">Transactional Service Model</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../ehr_semantics/">Relationship with other openEHR EHR Artefacts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../appendix/">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../decision_language/">Decision Language specification</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../decision_language/overview/">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../decision_language/dlm_syntax/">DLM Syntax</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../decision_language/dlm_model/">DLM Model</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../decision_language/dl_module/">EL Modules</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../decision_language/terminology/">Terminology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../decision_language/data_context/">Data Bindings</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../decision_language/computing_context/">Computing Bindings</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../decision_language/appendix/">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../tp_vml/">Task Planning Visual Modelling Language (TP-VML)</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../tp_vml/overview/">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../tp_vml/elements/">Elements</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../tp_vml/patterns/">Patterns</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../tp_vml/appendix/">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../process_examples/">openEHR CDS, Guidelines and Planning Examples</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../process_examples/overview/">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../process_examples/teamwork/">Teamwork</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../process_examples/order_management/">Order Management</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../process_examples/chemo/">Multi-drug Chemotherapy</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../process_examples/antenatal/">Antenatal Care</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../process_examples/cancer_prescribing/">Breast Cancer Decision Protocol</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../process_examples/Covid19_severity/">Covid19 Severity Classification</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../process_examples/cha2ds_vasc/">CHA2DS2-VASc</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../process_examples/qrisk/">qRisk3-2017</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../process_examples/news2/">National Early Warning Score (NEWS) 2</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../process_examples/common_DLMs/">Common Decision Logic Modules</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../process_examples/appendix/">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Process Model</span>
+    <span class="version">development</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <div class="title"><a href="../../../../AM/latest/">Archetype Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../AM/latest/">Release-2.3.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../AM/Release-2.2.0/">Release-2.2.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../AM/Release-1.4.0/">Release-1.4.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../AM/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../BASE/latest/">Base Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../BASE/latest/">Release-1.2.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../BASE/Release-1.1.0/">Release-1.1.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../BASE/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../CDS/latest/">Clinical Decision Support</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../CDS/latest/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../CNF/latest/">Conformance Specifications</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../CNF/latest/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../LANG/latest/">Generic Languages</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../LANG/latest/">Release-1.0.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../LANG/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../TERM/latest/">openEHR Terminology</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../TERM/latest/">Release-3.0.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../TERM/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <div class="title"><a href="../../">Process Model</a></div>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../../">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../QUERY/latest/">Query Languages</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../QUERY/latest/">Release-1.0.1</a>
+        </li>
+        <li class="version">
+          <a href="../../../../QUERY/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../RM/latest/">Reference Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../RM/latest/">Release-1.1.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../RM/Release-1.0.4/">Release-1.0.4</a>
+        </li>
+        <li class="version">
+          <a href="../../../../RM/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../ITS-REST/latest/">REST API specifications</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../ITS-REST/latest/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../SM/latest/">Service Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../SM/latest/">development</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../../BASE/latest/" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../../">Process Model</a></li>
+    <li><a href="../">Task Planning (TP) Specification</a></li>
+    <li><a href="./">Task Planning Model Overview</a></li>
+  </ul>
+</nav>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Task Planning Model Overview</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>This section and the following one describe the Task Planning model in technical detail. Most of the emphasis is on the 'definition' level of expression, with most details of the 'materialised' and 'runtime' expressions left to implementers. Throughout these sections, a version of the <a href="https://specifications.openehr.org/releases/PROC/latest/tp_vml.html" target="_blank" rel="noopener">Task Planning Visual Modelling Language (TP-VML)</a> is used to illustrate instance structures. This visual language is designed to be formally aligned to the semantics of the model.</p>
+</div>
+<div class="paragraph">
+<p>The following UML diagram shows the <code>rm.task_planning</code> package in overview form, showing the constituent packages, <code>definition</code>, <code>materialised</code>, and <code>history</code>. The first of these packages contains the class model for the <em>definition model</em> expression of a Work Plan, i.e. the workflow structure intentionally designed to achive a goal.</p>
+</div>
+<div class="paragraph">
+<p>The <code>materialised</code> package contains the class model of the materialised form of the definition, which is created prior to its use in execution. The materialised model is presented in outline only, as a way of indicating some of the general features of the materialised form, and is not intended to be normative. (At some point in the future, a skeleton materialised model may be declared normative, based on implementation experience).</p>
+</div>
+<div class="paragraph">
+<p>The <code>history</code> package contains the model of audit events that have occurred to each Task Plan in a Work Plan during execution.</p>
+</div>
+<div id="proc_task_planning_overview" class="imageblock text-center text-center">
+<div class="content">
+<img src="../../_images/uml/PROC-task_planning-overview.svg" alt="PROC task planning overview">
+</div>
+<div class="title">Figure 1. <code>proc.task_planning</code> package overview</div>
+</div>
+<div class="paragraph">
+<p>The following instance diagram illustrates the relationships among these models for one Task Plan. On the left is a Task Plan definition, consisting of a Task Group and various Defined Actions. Each of these Tasks may have a prototype Entry attached, which represents the intended data of an Action, Observation or other Entry that the Task defines.</p>
+</div>
+<div class="paragraph">
+<p>In the centre is a materialised Task Plan, which is an execution-time structure used to maintain state for an executing Plan. This structure allows the representation of all state to do with Plan execution, including instances of variables, timing information and so on. The materialised structure is not owned by the definition structure, but rather is created at run time, and points back to its definition via various references. The right hand side of the diagram shows a part of the materialised structure that is currently instantiated within a user-application session.</p>
+</div>
+<div class="paragraph">
+<p>At the lower right is a Task Plan Execution History, which is a record of all events that were made during the execution of the original Task Plan.</p>
+</div>
+<div id="task_planning_overview" class="imageblock text-center text-center">
+<div class="content">
+<img src="../_images/diagrams/task_planning_overview.svg" alt="task planning overview" width="65%">
+</div>
+<div class="title">Figure 2. Task planning overview</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_identification_and_referencing"><a class="anchor" href="#_identification_and_referencing"></a><a class="link" href="#_identification_and_referencing">Identification and Referencing</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>With a Task Plan, various elements need to be referenceable at runtime. Tasks and Task Groups are identified via the <code><em>uid</em></code> attribute inherited from <code>LOCATABLE</code> via <code>PLAN_ITEM</code>, and which is populated with a Guid. References to a Task or Task Group are thus achieved with <code>UID_BASED_ID</code> instances carrying a Guid.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_plan_data_context"><a class="anchor" href="#_plan_data_context"></a><a class="link" href="#_plan_data_context">Plan Data Context</a></h2>
+<div class="sectionbody">
+<div class="paragraph tbd">
+<p>TBD: this section needs to be upgraded to latest EL and BMM model. The type <code>EXPR_TYPE_DEF</code> will be replaced by a BMM equivalent.</p>
+</div>
+<div class="paragraph">
+<p>A Task Plan may contain logical <em>symbolic values</em> of various kinds, including <em>constants</em>, <em>variable references</em> and <em>expressions</em>, which are used in within the Plan structure. These are globally collated and tracked at runtime at the Work Plan level, i.e. in common to all Task Plans. Each context value has a symbolic name (<code>CONTEXT_VALUE.<em>name</em></code>), a type from within the openEHR type system (<code>EXPR_TYPE_DEF</code>).
+The following UML diagram illustrates.</p>
+</div>
+<div id="proc_task_planning_context" class="imageblock text-center text-center">
+<div class="content">
+<img src="../../_images/uml/PROC-task_planning.definition-context.svg" alt="PROC task planning.definition context">
+</div>
+<div class="title">Figure 3. Task planning - context values</div>
+</div>
+<div class="paragraph">
+<p>An instance of <code>PLAN_DATA_CONTEXT</code> represents the full set of tracked variables and expressions used in a Work Plan, which are either  atomic <em>variables</em> or <em>constants</em>, or else <em>expressions</em> that reference such variables, respectively represented by the classes <code>CONTEXT_VARIABLE&lt;T&gt;</code>, <code>CONTEXT_CONSTANT&lt;T&gt;</code> and <code>CONTEXT_EXPRESSION&lt;T&gt;</code>. These classes and the abstract parent are generic, with the parameter being the formal type of variable or expression.</p>
+</div>
+<div class="paragraph">
+<p>Context variables are typically related to subject state, such as patient vital signs, key demographic characteristics and so on, or the clinical care process, such as the 'time since stroke event', while expressions are used to represent logical expressions such as <code>$bp_systolic - $bp_diastolic</code>, where <code>$bp_systolic</code> and <code>$bp_diastolic</code> are defined as single variables. The syntax of expressions is defined by the <a href="https://specifications.openehr.org/releases/LANG/latest/EL.html">openEHR Expression language</a>.</p>
+</div>
+<div class="paragraph">
+<p>Two types of context variable are distinguished: external and local, represented by <code>EXTERNAL_VARIABLE&lt;t&gt;</code> and <code>LOCAL_VARIABLE&lt;T&gt;</code>. The former represent values of entities outside the task planning environment, and are written to via a <code><em>populating_request</em></code> which uses some method (such as EHR querying, API calls) to obtain the relevant external value. They are accordingly not writable from within the Work Plan.</p>
+</div>
+<div class="paragraph">
+<p>There are two types of external variables - 'event' and 'state', which distinguish the update basis. An Event variable is 'watched' by some technical means, and its value is updated whenever it changes. The <code>CONTINUOUS_EVENT_VARIABLE</code> specialised type can be used for managing updates of continuous valued variables (i.e. real values) such that changes below a certain threshold, say 2% do not register.</p>
+</div>
+<div class="paragraph">
+<p>Local variables are internal to the Work Plan, and can be read and written to by expressions used within Tasks in the Plan.</p>
+</div>
+<div class="sect2">
+<h3 id="_class_descriptions"><a class="anchor" href="#_class_descriptions"></a><a class="link" href="#_class_descriptions">Class Descriptions</a></h3>
+<div class="paragraph">
+<p>Unresolved include directive in modules/task_planning/pages/model_overview.adoc - include::ROOT:partial$classes/plan_data_context.adoc[]</p>
+</div>
+<div class="paragraph">
+<p>Unresolved include directive in modules/task_planning/pages/model_overview.adoc - include::ROOT:partial$classes/context_value.adoc[]</p>
+</div>
+<div class="paragraph">
+<p>Unresolved include directive in modules/task_planning/pages/model_overview.adoc - include::ROOT:partial$classes/context_constant.adoc[]</p>
+</div>
+<div class="paragraph">
+<p>Unresolved include directive in modules/task_planning/pages/model_overview.adoc - include::ROOT:partial$classes/context_variable.adoc[]</p>
+</div>
+<div class="paragraph">
+<p>Unresolved include directive in modules/task_planning/pages/model_overview.adoc - include::ROOT:partial$classes/external_variable.adoc[]</p>
+</div>
+<div class="paragraph">
+<p>Unresolved include directive in modules/task_planning/pages/model_overview.adoc - include::ROOT:partial$classes/local_variable.adoc[]</p>
+</div>
+<div class="paragraph">
+<p>Unresolved include directive in modules/task_planning/pages/model_overview.adoc - include::ROOT:partial$classes/event_variable.adoc[]</p>
+</div>
+<div class="paragraph">
+<p>Unresolved include directive in modules/task_planning/pages/model_overview.adoc - include::ROOT:partial$classes/continuous_event_variable.adoc[]</p>
+</div>
+<div class="paragraph">
+<p>Unresolved include directive in modules/task_planning/pages/model_overview.adoc - include::ROOT:partial$classes/state_variable.adoc[]</p>
+</div>
+<div class="paragraph">
+<p>Unresolved include directive in modules/task_planning/pages/model_overview.adoc - include::ROOT:partial$classes/context_expression.adoc[]</p>
+</div>
+<div class="paragraph">
+<p>Unresolved include directive in modules/task_planning/pages/model_overview.adoc - include::ROOT:partial$classes/boolean_context_expression.adoc[]</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_system_calls"><a class="anchor" href="#_system_calls"></a><a class="link" href="#_system_calls">System Calls</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The <code>SYSTEM_CALL</code> class and its descendants provide a way to represent a call to any service or interface available within the computing environment. The class attributes are designed to carry sufficient meta-data such that a call invocation module or plug-in in the Task Planning execution environment can convert the call to a concrete form (e.g. a REST or RPC call) and then execute it.</p>
+</div>
+<div class="sect2">
+<h3 id="_generic_api_calls"><a class="anchor" href="#_generic_api_calls"></a><a class="link" href="#_generic_api_calls">Generic API calls</a></h3>
+<div class="paragraph">
+<p>The representation of a generic API call is via the <code>API_CALL</code> class, while the <code>QUERY_CALL</code> class provides a way to represent a call to a query service.</p>
+</div>
+<div class="paragraph">
+<p>For generic API calls, the assumed model of calling is as follows: when the call is invoked, all required parameters are passed; these are obtained from two sources:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><em>context values</em>: context values, Work Plan built-in variables (see below);</p>
+</li>
+<li>
+<p><em>fixed parameters</em>: parameters whose value is fixed from the point of view of the Plan definition.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The first is specified via the <code><em>parameter_map</em></code> attribute, which defines the mapping between the external call parameter names and the names of variables that will be used to populate them at invocation. For example, assume there is an API call in a clinical decision support service with the following signature, which is to be used in a Task Plan:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-ts" data-lang="ts">    cds_calc_risk (
+        riskType:    String;
+        sex:         CodedText;
+        dateOfBirth: Iso8601Date;
+        isSmoker:    Boolean;
+    ): Real</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code><em>parameter_map</em></code> attribute of the <code>SYSTEM_CALL</code> instance will contain the following, where the left hand item in each case is the name of a Work Plan context value (i.e. variable, expression or constant):</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">    {
+        "parameter_map": [
+            {"context_name": "subject_sex",        "name": "sex"},
+            {"context_name": "subject_dob",        "name": "dateOfBirth"},
+            {"context_name": "tobacco_use_status", "name": "isSmoker"}
+        ]
+    }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This tells the Task Plan execution system to inject the current value of the context variable <code>subject_sex</code> into the location where the <code>sex</code> parameter is expected and so on.</p>
+</div>
+<div class="paragraph tbd">
+<p>TBD: we may need to allow functions, so that data type/structure conversions can be managed.</p>
+</div>
+<div class="paragraph">
+<p>The second type of parameter is a fixed value, which enables the System call to represent the external call in a preferred way. An example of this is a general API call such as <code>cds_check (type: String, other_args, &#8230;&#8203;)</code> might be used from within the Task Plan with the first argument fixed in each case, to form specific invocations, e.g. <code>cds_check ("hypertension risk", other_args, &#8230;&#8203;)</code>, <code>cds_check ("diabetes type 2 risk", other_args, &#8230;&#8203;)</code> etc. Fixed parameters are represented in the <code><em>bound_parameters</em></code> attribute of a <code>SYSTEM_CALL</code> instance.</p>
+</div>
+<div class="paragraph">
+<p>The total set of parameters for any System call is provided by the combination of the contents of the <code><em>parameter_map</em></code> and <code><em>bound_parameters</em></code> attributes, where either may be empty.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_query_calls"><a class="anchor" href="#_query_calls"></a><a class="link" href="#_query_calls">Query Calls</a></h3>
+<div class="paragraph">
+<p>The above provides for API calls whose signature definition may be more or less anything. For the case of query invocation, some simplifying assumptions can be made, and in the interests of clarity, the <code>QUERY_CALL</code> class is defined for this purpose. A <code>QUERY_CALL</code> instance represents a query invocation which is assumed to take the  form of either an ad hoc query or a stored query, with substitutable parameters. accordingly, the external API calls are therefore assumed to take one of the two forms:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-typescript" data-lang="typescript">    // ad hoc query call
+    execute_ad_hoc_query (
+        query_text: String;
+        parameters: Hash&lt;String, String&gt;;
+    ): Result
+
+    // stored query call
+    execute_stored_query (
+        query_id: String;
+        parameters: Hash&lt;String, String&gt;;
+    ): Result</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In the first case, a query string is supplied; in the second, the registered identifier of a stored query is supplied. In both cases, the substitutable parameters are supplied though the <code>args</code> attribute, which is a keyed list of <code>String</code> values that can be substituted into the replaceable parameters found in the query.</p>
+</div>
+<div class="paragraph">
+<p>In order to represent an invocation of either of these calls, the <code><em>parameter_map</em></code> attribute is used to represent the map between the names of <em>the substitutable parameters in the query</em> and variables from the Work Plan context. Since these are often likely to be the same (almost certainly the case for ad hoc queries), mappings are only required for substitutable variables whose names differ in the query and in the Plan context variable set.</p>
+</div>
+<div class="paragraph">
+<p>The <code><em>bound_parameters</em></code> may be used in a similar fashion, to represent fixed-value substitutable parameters.</p>
+</div>
+<div class="paragraph">
+<p>As a consequence of this scheme, the total set of replaceable query parameters is specified by the combination of the <code><em>parameter_map</em></code>, the <code><em>bound_parameters</em></code> and the context variables. In many cases, only the latter may be used.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_class_descriptions_2"><a class="anchor" href="#_class_descriptions_2"></a><a class="link" href="#_class_descriptions_2">Class Descriptions</a></h3>
+<div class="paragraph">
+<p>Unresolved include directive in modules/task_planning/pages/model_overview.adoc - include::ROOT:partial$classes/system_call.adoc[]</p>
+</div>
+<div class="paragraph">
+<p>Unresolved include directive in modules/task_planning/pages/model_overview.adoc - include::ROOT:partial$classes/parameter_def.adoc[]</p>
+</div>
+<div class="paragraph">
+<p>Unresolved include directive in modules/task_planning/pages/model_overview.adoc - include::ROOT:partial$classes/parameter_mapping.adoc[]</p>
+</div>
+<div class="paragraph">
+<p>Unresolved include directive in modules/task_planning/pages/model_overview.adoc - include::ROOT:partial$classes/api_call.adoc[]</p>
+</div>
+<div class="paragraph">
+<p>Unresolved include directive in modules/task_planning/pages/model_overview.adoc - include::ROOT:partial$classes/query_call.adoc[]</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_variable_referencing"><a class="anchor" href="#_variable_referencing"></a><a class="link" href="#_variable_referencing">Variable Referencing</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Within the expressions and System calls used in Task definitions, various variables may be used. These include the context variables described above and built-in variables defined for any Work Plan context, enabling the current Plan, current Task etc to be referred to, for example in a System call. The 'camel-case' and 'snake-case' variants of a variable name are treated as equivalents, i.e. <code>$var_name</code> and <code>$varName</code> refer to the same thing. Among the context variables, some standard defaults are recommended in order to maximise reusability of Task Plan definitions.</p>
+</div>
+<div class="paragraph">
+<p>Within expressions, defined variables are referenced using the '$' syntax, i.e. <code>$var_name</code> or <code>$varName</code>. Within System calls there are two places where variable references may appear:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>within the <code><em>parameters</em></code> list, to indicate the mapping of a call parameter to a variable defined in the Work Plan context;</p>
+</li>
+<li>
+<p>as lexical inline replaceable parameters within a call parameter that represents an ad hoc query string or similar.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>For the first case, the '$' name form is used. In the second case, variables usually appear within query strings in a lexical form that depends on the particular kind of query syntax, i.e. forms such as:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>$var_name</code> - openEHR AQL;</p>
+</li>
+<li>
+<p><code>@varName</code> - SQL Server, Oracle, PostGres 9 or later;</p>
+</li>
+<li>
+<p><code>$[varName]</code> - some SQL implementations.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph tbd">
+<p>TBD: do we need another property to record the type of query syntax, e.g. <code>'aql'</code>, <code>'oracle-sql'</code>, or variable syntax, since it is not a SQL standard?</p>
+</div>
+<div class="paragraph">
+<p>The following table describes the variables available within a typical Work Plan.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 16.6666%;">
+<col style="width: 16.6666%;">
+<col style="width: 50.0002%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Status</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="4"><p class="tableblock"><em>Work plan-defined variables</em></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>$work_plan_id</code> / <code>$workPlanId</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Standard</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Variable referring to current <code>WORK_PLAN.<em>uid</em></code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>$task_plan_id</code> / <code>$taskPlanId</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Standard</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Variable referring to current <code>TASK_PLAN.<em>uid</em></code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>$task_group_id</code> / <code>$taskGroupId</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Standard</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Variable referring to current <code>TASK_GROUP.<em>uid</em></code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>$task_id</code> / <code>$taskId</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Standard</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Variable referring to current <code>TASK.<em>uid</em></code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>$subject_id</code> / <code>$subjectId</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Standard</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Variable referring to current <code>WORK_PLAN.<em>subject.external_ref.id.value</em></code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="4"><p class="tableblock"><em>Context variables and expressions</em></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>$var_name</code> / <code>$varName</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Any</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Standard</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Any variable or expression, e.g. <code>$heart_rate</code>;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>$ehr_id</code> / <code>$ehrId</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Preferred</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Variable referring to EHR id of EHR of the subject of the Task Plan</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>$bp_systolic</code> / <code>$bpSystolic</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Real</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Preferred</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Variable referring to subject current systolic arterial blood pressure</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>$bp_diastolic</code> / <code>$bpDiastolic</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Real</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Preferred</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Variable referring to subject current diastolic arterial blood pressure</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>$heart_rate</code> / <code>$heartRate</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Real</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Preferred</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Variable referring to subject current heart rate</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_specifying_time"><a class="anchor" href="#_specifying_time"></a><a class="link" href="#_specifying_time">Specifying Time</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Generic classes for specifying time formally and in customary form such as 'afternoon' are provided for use in the main model. These are shown bottom right of the above UML diagram: <code>TIME_SPECIFIER</code> and descendants.</p>
+</div>
+<div class="sect2">
+<h3 id="_class_descriptions_3"><a class="anchor" href="#_class_descriptions_3"></a><a class="link" href="#_class_descriptions_3">Class Descriptions</a></h3>
+<div class="paragraph">
+<p>Unresolved include directive in modules/task_planning/pages/model_overview.adoc - include::ROOT:partial$classes/time_specifier.adoc[]
+Unresolved include directive in modules/task_planning/pages/model_overview.adoc - include::ROOT:partial$classes/clock_time.adoc[]
+Unresolved include directive in modules/task_planning/pages/model_overview.adoc - include::ROOT:partial$classes/customary_time.adoc[]</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_enumerated_types"><a class="anchor" href="#_enumerated_types"></a><a class="link" href="#_enumerated_types">Enumerated Types</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Various enumerated types are defined in the <code>definitions</code> package, for use by the definition, materialised and runtime models. The <code>TASK_LIFECYCLE</code> enumeration is included in <a href="#_lifecycle_state">[_lifecycle_state]</a>.</p>
+</div>
+<div class="sect2">
+<h3 id="_class_descriptions_4"><a class="anchor" href="#_class_descriptions_4"></a><a class="link" href="#_class_descriptions_4">Class Descriptions</a></h3>
+<div class="paragraph">
+<p>Unresolved include directive in modules/task_planning/pages/model_overview.adoc - include::ROOT:partial$classes/resume_type.adoc[]
+Unresolved include directive in modules/task_planning/pages/model_overview.adoc - include::ROOT:partial$classes/temporal_relation.adoc[]
+Unresolved include directive in modules/task_planning/pages/model_overview.adoc - include::ROOT:partial$classes/execution_type.adoc[]
+Unresolved include directive in modules/task_planning/pages/model_overview.adoc - include::ROOT:partial$classes/plan_time_origin.adoc[]</p>
+</div>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="../design/">Design Principles</a></span>
+  <span class="next"><a href="../1-definition_overview/">Definition Model</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>
+    Copyright: © 2003+
+    <a href="https://www.openehr.org"
+        alt="is an independent, non-profit foundation, facilitating the sharing of health
+           records by consumers and clinicians via open specifications, clinical models
+           and open platform implementations.">The openEHR Foundation</a>
+  </p>
+
+  <p>
+    License:
+    <img src="../../../../ui/img/cc-by-nd-88x31.png"
+        alt="Creative Commons Attribution-NoDerivs 3.0 Unported."
+        style="vertical-align:middle;margin:0 0.25rem 0 0;">
+    <a href="https://creativecommons.org/licenses/by-nd/3.0/">
+      Creative Commons Attribution-NoDerivs 3.0 Unported.
+    </a>
+  </p>
+
+  <p>
+    <strong>Links: <strong>
+    <a href="https://www.openehr.org/terms-of-use" class="mr-1">Terms of use</a> |
+    <a href="https://www.openehr.org/privacy-policy" class="mx-1">Privacy policy</a> |
+    <a href="https://www.openehr.org/privacy-policy" class="mx-1">Logos &amp; Trademarks</a> |
+    <a href="https://www.openehr.org/contact-us" class="mx-1">Contact</a>
+  </p>
+</footer>
+
+<script id="site-script" src="../../../../ui/js/site.js" data-ui-root-path="../../../../ui"></script>
+<script defer src="../../../../ui/js/vendor/highlight.js"></script>
+<script src="../../../../ui/js/vendor/lunr.js"></script>
+<script src="../../../../ui/js/search-ui.js" id="search-ui-script" data-site-root-path="../../../.." data-snippet-length="80" data-stylesheet="../../../../ui/css/search.css"></script>
+<script async src="../../../../search-index.js"></script>
+<script src="../../../../ui/js/medium-zoom.min.js"></script>
+<script src="../../../../ui/js/zoom.js"></script>
+<script async src="../../../../ui/js/tabs.js"></script>
+  </body>
+</html>

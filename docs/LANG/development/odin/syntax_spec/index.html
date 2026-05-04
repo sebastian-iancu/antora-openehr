@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+    <title>Syntax Specification :: openEHR Specifications (Local Build)</title>
+    <link rel="canonical" href="https://sebastian-iancu.github.io/antora-openehr/LANG/latest/odin/syntax_spec/">
+    <link rel="prev" href="../other_syntaxes/">
+    <link rel="next" href="../appendix/">
+    <meta name="description" content="Object Data Instance Notation (ODIN) specification">
+    <meta name="keywords" content="data, notation, JSON, syntax">
+    <meta name="generator" content="Antora 3.1.14">
+    <link rel="stylesheet" href="../../../../ui/css/site.css">
+    <link rel="stylesheet" href="../../../../ui/css/antora-openehr.css">
+    <link rel="stylesheet" href="../../../../ui/css/openehr.css">
+    <link rel="stylesheet" href="../../../../ui/css/tabs.css">
+    <link rel="stylesheet" href="../../../../ui/css/extra.css">
+<link rel="icon" href="../../../../ui/img/favicon.ico" type="image/x-icon">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://sebastian-iancu.github.io/antora-openehr">openEHR Specifications (Local Build)</a>
+
+      <div class="navbar-item search hide-for-print">
+        <div id="search-field" class="field has-filter">
+          <input id="search-input" type="text" placeholder="Search the docs">
+          <label class="filter checkbox">
+            <input type="checkbox" data-facet-filter="component:LANG"> Generic Languages only
+          </label>
+        </div>
+      </div>
+
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">Specifications</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://specifications.openehr.org/" target="_blank">
+              openEHR specification
+            </a>
+            <a class="navbar-item" href="https://specifications.openehr.org/releases/UML/development/index.html" target="_blank">
+              openEHR portal
+            </a>
+            <a class="navbar-item" href="https://ckm.openehr.org/ckm/" target="_blank">
+              openEHR CKM
+            </a>
+          </div>
+        </div>
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">Community</a>
+          <div class="navbar-dropdown is-right">
+            <a class="navbar-item" href="https://openehr.atlassian.net/secure/Dashboard.jspa?selectPageId=10190" target="_blank">
+              Issue trackers
+            </a>
+            <a class="navbar-item" href="https://discourse.openehr.org/" target="_blank">
+              Discourse Forum
+            </a>
+            <a class="navbar-item" href="https://specifications.openehr.org/wiki/display/spec/Specifications+Home" target="_blank">
+              Wiki
+            </a>
+            <a class="navbar-item" href="https://github.com/openEHR" target="_blank">
+              GitHub
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="LANG" data-version="development">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="../../">Generic Languages</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../">Overview</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../">Object Data Instance Notation (ODIN)</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../overview/">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../basics/">Basics</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../odin_artefacts/">ODIN Artefacts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../content/">Content</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../references/">References</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../leaf_data/">Leaf Data</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../path_syntax/">Path Syntax</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../plug_in_syntaxes/">Plug-in Syntaxes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../other_syntaxes/">Relationship with other Syntaxes</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="./">Syntax Specification</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../appendix/">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../bmm/">Basic Meta-Model (BMM)</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../bmm/overview/">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../bmm/packages/">Package Structure</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../bmm/model_access/">Model Access Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../bmm/core-model/">Model Structure</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../bmm/core-types/">Types</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../bmm/core-classes/">Classes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../bmm/core-features/">Class Features</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../bmm/core-values/">Literal Values</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../bmm/expressions/">Expressions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../bmm/functional/">Functional Elements</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../bmm/statements/">Statements</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../bmm/model_semantics/">Model Semantics</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../bmm/extensions/">BMM Extensions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../bmm/appendix/">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../bmm_persistence/">BMM Persistence Model and Syntax</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../bmm_persistence/overview/">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../bmm_persistence/model/">Persistence Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../bmm_persistence/syntax/">BMM Persistence Syntax</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../bmm_persistence/appendix/">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../BEL/">Basic Expression Language (BEL)</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../BEL/overview/">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../BEL/language/">The Basic Expression Language</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../BEL/expression_object_model/">The Basic Expression Object Model</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../BEL/syntax/">Syntax Specification</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../BEL/appendix/">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../EL/">Expression Language (EL)</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../EL/overview/">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../EL/basics/">EL Basics</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../EL/terminal_entities/">Terminal Entities</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../EL/expressions/">Complex Expressions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../EL/decision_tables/">Decision Tables</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../EL/syntax/">Syntax Specification</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../EL/appendix/">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Generic Languages</span>
+    <span class="version">development</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <div class="title"><a href="../../../../AM/latest/">Archetype Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../AM/latest/">Release-2.3.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../AM/Release-2.2.0/">Release-2.2.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../AM/Release-1.4.0/">Release-1.4.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../AM/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../BASE/latest/">Base Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../BASE/latest/">Release-1.2.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../BASE/Release-1.1.0/">Release-1.1.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../BASE/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../CDS/latest/">Clinical Decision Support</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../CDS/latest/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../CNF/latest/">Conformance Specifications</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../CNF/latest/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <div class="title"><a href="../../../latest/">Generic Languages</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../latest/">Release-1.0.0</a>
+        </li>
+        <li class="version is-current">
+          <a href="../../">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../TERM/latest/">openEHR Terminology</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../TERM/latest/">Release-3.0.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../TERM/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../PROC/latest/">Process Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../PROC/latest/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../QUERY/latest/">Query Languages</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../QUERY/latest/">Release-1.0.1</a>
+        </li>
+        <li class="version">
+          <a href="../../../../QUERY/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../RM/latest/">Reference Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../RM/latest/">Release-1.1.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../RM/Release-1.0.4/">Release-1.0.4</a>
+        </li>
+        <li class="version">
+          <a href="../../../../RM/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../ITS-REST/latest/">REST API specifications</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../ITS-REST/latest/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../SM/latest/">Service Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../SM/latest/">development</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../../BASE/latest/" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../../">Generic Languages</a></li>
+    <li><a href="../">Object Data Instance Notation (ODIN)</a></li>
+    <li><a href="./">Syntax Specification</a></li>
+  </ul>
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">development</button>
+  <div class="version-menu">
+    <a class="version" href="../../../latest/odin/syntax_spec/">Release-1.0.0</a>
+    <a class="version is-current" href="./">development</a>
+  </div>
+</div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Syntax Specification</h1>
+<div class="paragraph">
+<p>The grammar and lexical specification for the standard ODIN syntax is shown below in ANTLR4 form.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-antlr-java" data-lang="antlr-java">//
+// description: Antlr4 grammar for Object Data Instance Notation (ODIN)
+// author:      Thomas Beale &lt;thomas.beale@openehr.org&gt;
+// contributors:Pieter Bos &lt;pieter.bos@nedap.com&gt;
+// support:     openEHR Specifications PR tracker &lt;https://openehr.atlassian.net/projects/SPECPR/issues&gt;
+// copyright:   Copyright (c) 2015- openEHR Foundation &lt;http://www.openEHR.org&gt;
+// license:     Apache 2.0 License &lt;http://www.apache.org/licenses/LICENSE-2.0.html&gt;
+//
+
+grammar odin;
+import odin_values;
+
+//
+// -------------------------- Parse Rules --------------------------
+//
+
+odin_text :
+      attr_vals
+    | object_value_block
+	;
+
+attr_vals : ( attr_val ';'? )+ ;
+
+attr_val : odin_object_key '=' object_block ;
+
+odin_object_key : ALPHA_UC_ID | ALPHA_UNDERSCORE_ID | rm_attribute_id ;
+
+object_block :
+      object_value_block
+    | object_reference_block
+    ;
+
+object_value_block : ( '(' rm_type_id ')' )? '&lt;' ( primitive_object | attr_vals? | keyed_object* ) '&gt;' | EMBEDDED_URI;
+
+keyed_object : '[' key_id ']' '=' object_block ;
+
+key_id :
+      string_value
+    | integer_value
+    | date_value
+    | time_value
+    | date_time_value
+    ;
+
+object_reference_block : '&lt;' odin_path_list '&gt;' ;
+
+odin_path_list  : odin_path ( ( ',' odin_path )+ | SYM_LIST_CONTINUE )? ;
+odin_path       : '/' | ADL_PATH ;
+
+rm_type_id      : ALPHA_UC_ID ( '&lt;' rm_type_id ( ',' rm_type_id )* '&gt;' )? ;
+rm_attribute_id : ALPHA_LC_ID ;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The following grammar defines ODIN terminal value syntax, and can be imported by any parser needing the ODIN values.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-antlr-java" data-lang="antlr-java">//
+// grammar defining ODIN terminal value types, including atoms, lists and intervals
+// author:      Pieter Bos &lt;pieter.bos@nedap.com&gt;
+// support:     openEHR Specifications PR tracker &lt;https://openehr.atlassian.net/projects/SPECPR/issues&gt;
+// copyright:   Copyright (c) 2018- openEHR Foundation &lt;http://www.openEHR.org&gt;
+//
+
+grammar odin_values;
+import base_lexer;
+
+//
+// ========================= Parser ============================
+//
+
+primitive_object :
+      primitive_value
+    | primitive_list_value
+    | primitive_interval_value
+    ;
+
+primitive_value :
+      string_value
+    | integer_value
+    | real_value
+    | boolean_value
+    | character_value
+    | term_code_value
+    | date_value
+    | time_value
+    | date_time_value
+    | duration_value
+    ;
+
+primitive_list_value :
+      string_list_value
+    | integer_list_value
+    | real_list_value
+    | boolean_list_value
+    | character_list_value
+    | term_code_list_value
+    | date_list_value
+    | time_list_value
+    | date_time_list_value
+    | duration_list_value
+    ;
+
+primitive_interval_value :
+      integer_interval_value
+    | real_interval_value
+    | date_interval_value
+    | time_interval_value
+    | date_time_interval_value
+    | duration_interval_value
+    ;
+
+string_value : STRING ;
+string_list_value : string_value ( ( ',' string_value )+ | ',' SYM_LIST_CONTINUE ) ;
+
+integer_value : ( '+' | '-' )? INTEGER ;
+integer_list_value : integer_value ( ( ',' integer_value )+ | ',' SYM_LIST_CONTINUE ) ;
+integer_interval_value :
+      '|' SYM_GT? integer_value '..' SYM_LT? integer_value '|'
+    | '|' relop? integer_value '|'
+    | '|' integer_value SYM_PLUS_OR_MINUS integer_value '|'
+    ;
+integer_interval_list_value : integer_interval_value ( ( ',' integer_interval_value )+ | ',' SYM_LIST_CONTINUE ) ;
+
+real_value : ( '+' | '-' )? REAL ;
+real_list_value : real_value ( ( ',' real_value )+ | ',' SYM_LIST_CONTINUE ) ;
+real_interval_value :
+      '|' SYM_GT? real_value '..' SYM_LT? real_value '|'
+    | '|' relop? real_value '|'
+    | '|' real_value SYM_PLUS_OR_MINUS real_value '|'
+    ;
+real_interval_list_value : real_interval_value ( ( ',' real_interval_value )+ | ',' SYM_LIST_CONTINUE ) ;
+
+boolean_value : SYM_TRUE | SYM_FALSE ;
+boolean_list_value : boolean_value ( ( ',' boolean_value )+ | ',' SYM_LIST_CONTINUE ) ;
+
+character_value : CHARACTER ;
+character_list_value : character_value ( ( ',' character_value )+ | ',' SYM_LIST_CONTINUE ) ;
+
+date_value : ISO8601_DATE ;
+date_list_value : date_value ( ( ',' date_value )+ | ',' SYM_LIST_CONTINUE ) ;
+date_interval_value :
+      '|' SYM_GT? date_value '..' SYM_LT? date_value '|'
+    | '|' relop? date_value '|'
+    | '|' date_value SYM_PLUS_OR_MINUS duration_value '|'
+    ;
+date_interval_list_value : date_interval_value ( ( ',' date_interval_value )+ | ',' SYM_LIST_CONTINUE ) ;
+
+time_value : ISO8601_TIME ;
+time_list_value : time_value ( ( ',' time_value )+ | ',' SYM_LIST_CONTINUE ) ;
+time_interval_value :
+      '|' SYM_GT? time_value '..' SYM_LT? time_value '|'
+    | '|' relop? time_value '|'
+    | '|' time_value SYM_PLUS_OR_MINUS duration_value '|'
+    ;
+time_interval_list_value : time_interval_value ( ( ',' time_interval_value )+ | ',' SYM_LIST_CONTINUE ) ;
+
+date_time_value : ISO8601_DATE_TIME ;
+date_time_list_value : date_time_value ( ( ',' date_time_value )+ | ',' SYM_LIST_CONTINUE ) ;
+date_time_interval_value :
+      '|' SYM_GT? date_time_value '..' SYM_LT? date_time_value '|'
+    | '|' relop? date_time_value '|'
+    | '|' date_time_value SYM_PLUS_OR_MINUS duration_value '|'
+    ;
+date_time_interval_list_value : date_time_interval_value ( ( ',' date_time_interval_value )+ | ',' SYM_LIST_CONTINUE ) ;
+
+duration_value : ISO8601_DURATION ;
+duration_list_value : duration_value ( ( ',' duration_value )+ | ',' SYM_LIST_CONTINUE ) ;
+duration_interval_value :
+      '|' SYM_GT? duration_value '..' SYM_LT? duration_value '|'
+    | '|' relop? duration_value '|'
+    | '|' duration_value SYM_PLUS_OR_MINUS duration_value '|'
+    ;
+duration_interval_list_value : duration_interval_value ( ( ',' duration_interval_value )+ | ',' SYM_LIST_CONTINUE ) ;
+
+term_code_value : TERM_CODE_REF ;
+term_code_list_value : term_code_value ( ( ',' term_code_value )+ | ',' SYM_LIST_CONTINUE ) ;
+
+relop : SYM_GT | SYM_LT | SYM_LE | SYM_GE ;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The following grammar defines lexer patterns of generic lexical tokens.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-antlr-java" data-lang="antlr-java">//
+//  General purpose patterns used in all openEHR parser and lexer tools
+//  author:      Pieter Bos &lt;pieter.bos@nedap.com&gt;
+//  support:     openEHR Specifications PR tracker &lt;https://openehr.atlassian.net/projects/SPECPR/issues&gt;
+//  copyright:   Copyright (c) 2018- openEHR Foundation &lt;http://www.openEHR.org&gt;
+//
+
+lexer grammar base_lexer;
+
+// ---------- whitespace &amp; comments ----------
+
+WS         : [ \t\r]+    -&gt; channel(HIDDEN) ;
+LINE       : '\r'? EOL  -&gt; channel(HIDDEN) ;  // increment line count
+CMT_LINE   : '--' .*? '\r'? EOL  -&gt; skip ;   // (increment line count)
+fragment EOL : '\n' ;
+
+
+// -------------- template overlay cannot be handled in a more simple way because it includes the comment line
+SYM_TEMPLATE_OVERLAY : H_CMT_LINE (WS|LINE)* SYM_TEMPLATE_OVERLAY_ONLY;
+fragment H_CMT_LINE : '--------' '-'*? ('\n'|'\r''\n'|'\r')  ;  // special type of comment for splitting template overlays
+fragment SYM_TEMPLATE_OVERLAY_ONLY     : [Tt][Ee][Mm][Pp][Ll][Aa][Tt][Ee]'_'[Oo][Vv][Ee][Rr][Ll][Aa][Yy] ;
+
+// ---------- path patterns -----------
+
+ADL_PATH : ADL_ABSOLUTE_PATH | ADL_RELATIVE_PATH;
+fragment ADL_ABSOLUTE_PATH : ('/' ADL_PATH_SEGMENT)+;
+fragment ADL_RELATIVE_PATH : ADL_PATH_SEGMENT ('/' ADL_PATH_SEGMENT)+;
+
+fragment ADL_PATH_SEGMENT      : ALPHA_LC_ID ('[' ADL_PATH_ATTRIBUTE ']')?;
+fragment ADL_PATH_ATTRIBUTE    : ID_CODE | STRING | INTEGER | ARCHETYPE_REF | ARCHETYPE_HRID;
+
+
+// ---------- ISO8601-based date/time/duration constraint patterns
+
+DATE_CONSTRAINT_PATTERN      : YEAR_PATTERN '-' MONTH_PATTERN '-' DAY_PATTERN ;
+TIME_CONSTRAINT_PATTERN      : HOUR_PATTERN ':' MINUTE_PATTERN ':' SECOND_PATTERN TZ_PATTERN? ;
+DATE_TIME_CONSTRAINT_PATTERN : DATE_CONSTRAINT_PATTERN 'T' TIME_CONSTRAINT_PATTERN ;
+
+fragment YEAR_PATTERN   : 'yyyy' | 'YYYY' | 'yyy' | 'YYY' ;
+fragment MONTH_PATTERN  : 'mm' | 'MM' | '??' | 'XX' | 'xx' ;
+fragment DAY_PATTERN    : 'dd' | 'DD' | '??' | 'XX' | 'xx'  ;
+fragment HOUR_PATTERN   : 'hh' | 'HH' | '??' | 'XX' | 'xx'  ;
+fragment MINUTE_PATTERN : 'mm' | 'MM' | '??' | 'XX' | 'xx'  ;
+fragment SECOND_PATTERN : 'ss' | 'SS' | '??' | 'XX' | 'xx'  ;
+fragment TZ_PATTERN     : '±' ('hh' | 'HH') (':'? ('mm' | 'MM'))? | 'Z' ;
+
+DURATION_CONSTRAINT_PATTERN  : 'P' [yY]?[mM]?[Ww]?[dD]? ( 'T' [hH]?[mM]?[sS]? )? ;
+
+// ---------- Delimited Regex matcher ------------
+// In ADL, a regexp can only exist between {}.
+// allows for '/' or '^' delimiters
+// logical form - REGEX: '/' ( '\\/' | ~'/' )+ '/' | '^' ( '\\^' | ~'^' )+ '^';
+// The following is used to ensure REGEXes don't get mixed up with paths, which use '/' chars
+
+//a
+// regexp can only exist between {}. It can optionally have an assumed value, by adding ;"value"
+CONTAINED_REGEXP: '{'WS* (SLASH_REGEXP | CARET_REGEXP) WS* (';' WS* STRING)? WS* '}';
+fragment SLASH_REGEXP: '/' SLASH_REGEXP_CHAR+ '/';
+fragment SLASH_REGEXP_CHAR: ~[/\n\r] | ESCAPE_SEQ | '\\/';
+
+fragment CARET_REGEXP: '^' CARET_REGEXP_CHAR+ '^';
+fragment CARET_REGEXP_CHAR: ~[^\n\r] | ESCAPE_SEQ | '\\^';
+
+// ---------- various ADL2 codes -------
+
+ROOT_ID_CODE : 'id1' '.1'* ;
+ID_CODE      : 'id' CODE_STR ;
+AT_CODE      : 'at' CODE_STR ;
+AC_CODE      : 'ac' CODE_STR ;
+fragment CODE_STR : ('0' | [1-9][0-9]*) ( '.' ('0' | [1-9][0-9]* ))* ;
+
+// ---------- ISO8601 Date/Time values ----------
+
+ISO8601_DATE      : YEAR '-' MONTH ( '-' DAY )? | YEAR '-' MONTH '-' UNKNOWN_DT | YEAR '-' UNKNOWN_DT '-' UNKNOWN_DT ;
+ISO8601_TIME      : ( HOUR ':' MINUTE ( ':' SECOND ( SECOND_DEC_SEP DIGIT+ )?)? | HOUR ':' MINUTE ':' UNKNOWN_DT | HOUR ':' UNKNOWN_DT ':' UNKNOWN_DT ) TIMEZONE? ;
+ISO8601_DATE_TIME : ( YEAR '-' MONTH '-' DAY 'T' HOUR (':' MINUTE (':' SECOND ( SECOND_DEC_SEP DIGIT+ )?)?)? | YEAR '-' MONTH '-' DAY 'T' HOUR ':' MINUTE ':' UNKNOWN_DT | YEAR '-' MONTH '-' DAY 'T' HOUR ':' UNKNOWN_DT ':' UNKNOWN_DT ) TIMEZONE? ;
+fragment TIMEZONE : 'Z' | ('+'|'-') HOUR_MIN ;   // hour offset, e.g. `+0930`, or else literal `Z` indicating +0000.
+fragment YEAR     : [0-9][0-9][0-9][0-9] ;		   // Year in ISO8601:2004 is 4 digits with 0-filling as needed
+fragment MONTH    : ( [0][1-9] | [1][0-2] ) ;    // month in year
+fragment DAY      : ( [0][1-9] | [12][0-9] | [3][0-1] ) ;  // day in month
+fragment HOUR     : ( [01]?[0-9] | [2][0-3] ) ;  // hour in 24 hour clock
+fragment MINUTE   : [0-5][0-9] ;                 // minutes
+fragment HOUR_MIN : ( [01]?[0-9] | [2][0-3] ) [0-5][0-9] ;  // hour / minutes quad digit pattern
+fragment SECOND   : [0-5][0-9] ;                 // seconds
+fragment SECOND_DEC_SEP : '.' | ',' ;
+fragment UNKNOWN_DT  : '??' ;                    // any unknown date/time value, except years.
+
+// ISO8601 DURATION PnYnMnWnDTnnHnnMnn.nnnS 
+// here we allow a deviation from the standard to allow weeks to be // mixed in with the rest since this commonly occurs in medicine
+// TODO: the following will incorrectly match just 'P'
+ISO8601_DURATION : '-'?'P' (DIGIT+ [yY])? (DIGIT+ [mM])? (DIGIT+ [wW])? (DIGIT+[dD])? ('T' (DIGIT+[hH])? (DIGIT+[mM])? (DIGIT+ (SECOND_DEC_SEP DIGIT+)?[sS])?)? ;
+
+// ------------------- special word symbols --------------
+SYM_TRUE  : [Tt][Rr][Uu][Ee] ;
+SYM_FALSE : [Ff][Aa][Ll][Ss][Ee] ;
+
+// ---------------------- Identifiers ---------------------
+
+ARCHETYPE_HRID      : ARCHETYPE_HRID_ROOT '.v' ARCHETYPE_VERSION_ID ;
+ARCHETYPE_REF       : ARCHETYPE_HRID_ROOT '.v' INTEGER ( '.' DIGIT+ )* ;
+fragment ARCHETYPE_HRID_ROOT : (NAMESPACE '::')? IDENTIFIER '-' IDENTIFIER '-' IDENTIFIER '.' LABEL ;
+fragment ARCHETYPE_VERSION_ID: DIGIT+ ('.' DIGIT+ ('.' DIGIT+ ( ( '-rc' | '-alpha' | '-beta' ) ( '.' DIGIT+ )? )?)?)? ;
+VERSION_ID          : DIGIT+ '.' DIGIT+ '.' DIGIT+ ( ( '-rc' | '-alpha' | '-beta' ) ( '.' DIGIT+ )? )? ;
+fragment IDENTIFIER : ALPHA_CHAR WORD_CHAR* ;
+
+// --------------------- composed primitive types -------------------
+
+// e.g. [ICD10AM(1998)::F23]; [ISO_639-1::en]
+TERM_CODE_REF : '[' TERM_CODE_CHAR+ ( '(' TERM_CODE_CHAR+ ')' )? '::' TERM_CODE_CHAR+ ']' ;
+fragment TERM_CODE_CHAR: NAME_CHAR | '.';
+
+// --------------------- URIs --------------------
+
+// URI recogniser based on https://tools.ietf.org/html/rfc3986 and
+// http://www.w3.org/Addressing/URL/5_URI_BNF.html
+EMBEDDED_URI: '&lt;' ([ \t\r\n]|CMT_LINE)* URI ([ \t\r\n]|CMT_LINE)* '&gt;';
+
+fragment URI : URI_SCHEME ':' URI_HIER_PART ( '?' URI_QUERY )? ('#' URI_FRAGMENT)? ;
+
+fragment URI_HIER_PART : ( '//' URI_AUTHORITY ) URI_PATH_ABEMPTY
+    | URI_PATH_ABSOLUTE
+    | URI_PATH_ROOTLESS
+    | URI_PATH_EMPTY;
+
+fragment URI_SCHEME : ALPHA_CHAR ( ALPHA_CHAR | DIGIT | '+' | '-' | '.')* ;
+
+fragment URI_AUTHORITY : ( URI_USERINFO '@' )? URI_HOST ( ':' URI_PORT )? ;
+fragment URI_USERINFO: (URI_UNRESERVED | URI_PCT_ENCODED | URI_SUB_DELIMS | ':' )* ;
+fragment URI_HOST : URI_IP_LITERAL | URI_IPV4_ADDRESS | URI_REG_NAME ; //TODO: ipv6
+fragment URI_PORT: DIGIT*;
+
+fragment URI_IP_LITERAL   : '[' URI_IPV6_LITERAL ']'; //TODO, if needed: IPvFuture
+fragment URI_IPV4_ADDRESS : URI_DEC_OCTET '.' URI_DEC_OCTET '.' URI_DEC_OCTET '.' URI_DEC_OCTET ;
+fragment URI_IPV6_LITERAL : HEX_QUAD (':' HEX_QUAD )* ':' ':' HEX_QUAD (':' HEX_QUAD )* ;
+
+fragment URI_DEC_OCTET  : DIGIT | [1-9] DIGIT | '1' DIGIT DIGIT | '2' [0-4] DIGIT | '25' [0-5];
+fragment URI_REG_NAME: (URI_UNRESERVED | URI_PCT_ENCODED | URI_SUB_DELIMS)*;
+fragment HEX_QUAD : HEX_DIGIT HEX_DIGIT HEX_DIGIT HEX_DIGIT ;
+
+fragment URI_PATH_ABEMPTY: ('/' URI_SEGMENT ) *;
+fragment URI_PATH_ABSOLUTE: '/' ( URI_SEGMENT_NZ ( '/' URI_SEGMENT )* )?;
+fragment URI_PATH_NOSCHEME: URI_SEGMENT_NZ_NC ( '/' URI_SEGMENT )*;
+fragment URI_PATH_ROOTLESS: URI_SEGMENT_NZ ( '/' URI_SEGMENT )*;
+fragment URI_PATH_EMPTY: ;
+
+fragment URI_SEGMENT: URI_PCHAR*;
+fragment URI_SEGMENT_NZ: URI_PCHAR+;
+fragment URI_SEGMENT_NZ_NC: ( URI_UNRESERVED | URI_PCT_ENCODED | URI_SUB_DELIMS | '@' )+; //non-zero-length segment without any colon ":"
+
+fragment URI_PCHAR: URI_UNRESERVED | URI_PCT_ENCODED | URI_SUB_DELIMS | ':' | '@';
+
+//fragment URI_PATH   : '/' | ( '/' URI_XPALPHA+ )+ ('/')?;
+fragment URI_QUERY : (URI_PCHAR | '/' | '?')*;
+fragment URI_FRAGMENT  : (URI_PCHAR | '/' | '?')*;
+
+fragment URI_PCT_ENCODED : '%' HEX_DIGIT HEX_DIGIT ;
+
+fragment URI_UNRESERVED: ALPHA_CHAR | DIGIT | '-' | '.' | '_' | '~';
+fragment URI_RESERVED: URI_GEN_DELIMS | URI_SUB_DELIMS;
+fragment URI_GEN_DELIMS: ':' | '/' | '?' | '#' | '[' | ']' | '@'; //TODO: migrate to [/?#...] notation
+fragment URI_SUB_DELIMS: '!' | '$' | '&amp;' | '\'' | '(' | ')'
+                         | '*' | '+' | ',' | ';' | '=';
+
+// According to IETF http://tools.ietf.org/html/rfc1034[RFC 1034] and http://tools.ietf.org/html/rfc1035[RFC 1035],
+// as clarified by http://tools.ietf.org/html/rfc2181[RFC 2181] (section 11)
+fragment NAMESPACE : LABEL ('.' LABEL)* ;
+fragment LABEL : ALPHA_CHAR (NAME_CHAR|URI_PCT_ENCODED)* ;
+
+
+GUID : HEX_DIGIT+ '-' HEX_DIGIT+ '-' HEX_DIGIT+ '-' HEX_DIGIT+ '-' HEX_DIGIT+ ;
+
+ALPHA_UC_ID :   ALPHA_UCHAR WORD_CHAR* ;   // used for type ids
+ALPHA_LC_ID :   ALPHA_LCHAR WORD_CHAR* ;   // used for attribute / method ids
+ALPHA_UNDERSCORE_ID : '_' WORD_CHAR* ;     // usually used for meta-model ids
+
+// --------------------- atomic primitive types -------------------
+
+INTEGER : DIGIT+ E_SUFFIX? ;
+REAL :    DIGIT+ '.' DIGIT+ E_SUFFIX? ;
+fragment E_SUFFIX : [eE][+-]? DIGIT+ ;
+
+STRING : '"' STRING_CHAR*? '"' ;
+fragment STRING_CHAR : ~["\\] | ESCAPE_SEQ | UTF8CHAR ; // strings can be multi-line
+
+CHARACTER : '\'' CHAR '\'' ;
+fragment CHAR : ~['\\\r\n] | ESCAPE_SEQ | UTF8CHAR  ;
+
+fragment ESCAPE_SEQ: '\\' ['"?abfnrtv\\] ;
+
+// ------------------- character fragments ------------------
+
+fragment NAME_CHAR     : WORD_CHAR | '-' ;
+fragment WORD_CHAR     : ALPHANUM_CHAR | '_' ;
+fragment ALPHANUM_CHAR : ALPHA_CHAR | DIGIT ;
+
+fragment ALPHA_CHAR  : [a-zA-Z] ;
+fragment ALPHA_UCHAR : [A-Z] ;
+fragment ALPHA_LCHAR : [a-z] ;
+fragment UTF8CHAR    : '\\u' HEX_DIGIT HEX_DIGIT HEX_DIGIT HEX_DIGIT ;
+
+fragment DIGIT     : [0-9] ;
+fragment HEX_DIGIT : [0-9a-fA-F] ;
+
+// -------------------- common symbols ---------------------
+
+SYM_COMMA: ',' ;
+SYM_SEMI_COLON : ';' ;
+
+SYM_LPAREN   : '(';
+SYM_RPAREN   : ')';
+SYM_LBRACKET : '[';
+SYM_RBRACKET : ']';
+SYM_LCURLY   : '{' ;
+SYM_RCURLY   : '}' ;
+
+// --------- symbols ----------
+SYM_ASSIGNMENT: ':=' | '::=' ;
+
+SYM_NE : '/=' | '!=' | '≠' ;
+SYM_EQ : '=' ;
+SYM_GT : '&gt;' ;
+SYM_LT : '&lt;' ;
+SYM_LE : '&lt;=' | '≤' ;
+SYM_GE : '&gt;=' | '≥' ;
+
+// TODO: remove when [] path predicates supported
+VARIABLE_WITH_PATH: VARIABLE_ID ADL_ABSOLUTE_PATH ;
+
+VARIABLE_ID: '$' ALPHA_LC_ID ;
+
+
+//
+// ========================= Lexer ============================
+//
+
+// -------------------- symbols for lists ------------------------
+SYM_LIST_CONTINUE: '...' ;
+
+// ------------------ symbols for intervals ----------------------
+
+SYM_PLUS : '+' ;
+SYM_MINUS : '-' ;
+SYM_PLUS_OR_MINUS : '+/-' | '±' ;
+SYM_PERCENT : '%' ;
+SYM_CARAT: '^' ;
+
+SYM_IVL_DELIM: '|' ;
+SYM_IVL_SEP  : '..' ;</code></pre>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="../other_syntaxes/">Relationship with other Syntaxes</a></span>
+  <span class="next"><a href="../appendix/">Appendix</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>
+    Copyright: © 2003+
+    <a href="https://www.openehr.org"
+        alt="is an independent, non-profit foundation, facilitating the sharing of health
+           records by consumers and clinicians via open specifications, clinical models
+           and open platform implementations.">The openEHR Foundation</a>
+  </p>
+
+  <p>
+    License:
+    <img src="../../../../ui/img/cc-by-nd-88x31.png"
+        alt="Creative Commons Attribution-NoDerivs 3.0 Unported."
+        style="vertical-align:middle;margin:0 0.25rem 0 0;">
+    <a href="https://creativecommons.org/licenses/by-nd/3.0/">
+      Creative Commons Attribution-NoDerivs 3.0 Unported.
+    </a>
+  </p>
+
+  <p>
+    <strong>Links: <strong>
+    <a href="https://www.openehr.org/terms-of-use" class="mr-1">Terms of use</a> |
+    <a href="https://www.openehr.org/privacy-policy" class="mx-1">Privacy policy</a> |
+    <a href="https://www.openehr.org/privacy-policy" class="mx-1">Logos &amp; Trademarks</a> |
+    <a href="https://www.openehr.org/contact-us" class="mx-1">Contact</a>
+  </p>
+</footer>
+
+<script id="site-script" src="../../../../ui/js/site.js" data-ui-root-path="../../../../ui"></script>
+<script defer src="../../../../ui/js/vendor/highlight.js"></script>
+<script src="../../../../ui/js/vendor/lunr.js"></script>
+<script src="../../../../ui/js/search-ui.js" id="search-ui-script" data-site-root-path="../../../.." data-snippet-length="80" data-stylesheet="../../../../ui/css/search.css"></script>
+<script async src="../../../../search-index.js"></script>
+<script src="../../../../ui/js/medium-zoom.min.js"></script>
+<script src="../../../../ui/js/zoom.js"></script>
+<script async src="../../../../ui/js/tabs.js"></script>
+  </body>
+</html>

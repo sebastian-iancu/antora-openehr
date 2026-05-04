@@ -1,0 +1,2615 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+    <title>Test Suite: EHR_SERVICE / I_COMPOSITION Interface :: openEHR Specifications (Local Build)</title>
+    <link rel="canonical" href="https://sebastian-iancu.github.io/antora-openehr/CNF/latest/platform_test_schedule/func_tc_ehr_composition/">
+    <link rel="prev" href="../func_tc_ehr/">
+    <link rel="next" href="../func_tc_ehr_contribution/">
+    <meta name="description" content="openEHR Platform Conformance Test Schedule">
+    <meta name="keywords" content="conformance, test">
+    <meta name="generator" content="Antora 3.1.14">
+    <link rel="stylesheet" href="../../../../ui/css/site.css">
+    <link rel="stylesheet" href="../../../../ui/css/antora-openehr.css">
+    <link rel="stylesheet" href="../../../../ui/css/openehr.css">
+    <link rel="stylesheet" href="../../../../ui/css/tabs.css">
+    <link rel="stylesheet" href="../../../../ui/css/extra.css">
+<link rel="icon" href="../../../../ui/img/favicon.ico" type="image/x-icon">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://sebastian-iancu.github.io/antora-openehr">openEHR Specifications (Local Build)</a>
+
+      <div class="navbar-item search hide-for-print">
+        <div id="search-field" class="field has-filter">
+          <input id="search-input" type="text" placeholder="Search the docs">
+          <label class="filter checkbox">
+            <input type="checkbox" data-facet-filter="component:CNF"> Conformance Specifications only
+          </label>
+        </div>
+      </div>
+
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">Specifications</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://specifications.openehr.org/" target="_blank">
+              openEHR specification
+            </a>
+            <a class="navbar-item" href="https://specifications.openehr.org/releases/UML/development/index.html" target="_blank">
+              openEHR portal
+            </a>
+            <a class="navbar-item" href="https://ckm.openehr.org/ckm/" target="_blank">
+              openEHR CKM
+            </a>
+          </div>
+        </div>
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">Community</a>
+          <div class="navbar-dropdown is-right">
+            <a class="navbar-item" href="https://openehr.atlassian.net/secure/Dashboard.jspa?selectPageId=10190" target="_blank">
+              Issue trackers
+            </a>
+            <a class="navbar-item" href="https://discourse.openehr.org/" target="_blank">
+              Discourse Forum
+            </a>
+            <a class="navbar-item" href="https://specifications.openehr.org/wiki/display/spec/Specifications+Home" target="_blank">
+              Wiki
+            </a>
+            <a class="navbar-item" href="https://github.com/openEHR" target="_blank">
+              GitHub
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="CNF" data-version="development">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="../../">Conformance Specifications</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../">Overview</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../guide/">openEHR Conformance Guide</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../guide/glossary/">Glossary of Terms and Acronyms</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../guide/overview/">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../guide/framework/">Conformance Framework</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../guide/assessment/">Conformance Assessment</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../guide/appendix/">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../">openEHR Platform Conformance Test Schedule</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../glossary/">Glossary of Terms and Acronyms</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../overview/">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../func_tc_definition_adl/">Test Suite: DEFINITION Service / I_DEFINITION_ADL2 and I_DEFINITION_ADL14 Interfaces</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../func_tc_definition_query/">Test Suite: DEFINITION Service / I_DEFINITION_QUERY Interface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../func_tc_ehr/">Test Suite: EHR_SERVICE</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="./">Test Suite: EHR_SERVICE / I_COMPOSITION Interface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../func_tc_ehr_contribution/">Test Suite: EHR_SERVICE / I_CONTRIBUTION Interface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../func_tc_ehr_directory/">Test Suite: EHR_SERVICE / I_DIRECTORY Interface</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../func_tc_demographic/">Test Suite: DEMOGRAPHIC_SERVICE</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../func_tc_querying/">Test Suite: QUERY_SERVICE</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../func_tc_admin/">Test Suite: ADMIN_SERVICE</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../func_tc_messaging/">Test Suite: MESSAGE_SERVICE</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../content_tc_composition/">Data Validation Conformance</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../content_tc_entry/">Content Tc Entry</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../content_tc_data_types-basic/">Content Tc Data Types-Basic</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../appendix/">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../profiles/">openEHR Platform Profiles</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../profiles/overview/">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../profiles/profiles/">Default Profiles</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../profiles/appendix/">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../certificate/">openEHR Conformance Certificate</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../certificate/overview/">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../certificate/certificate/">Conformance Certificate</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../certificate/appendix/">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Conformance Specifications</span>
+    <span class="version">development</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <div class="title"><a href="../../../../AM/latest/">Archetype Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../AM/latest/">Release-2.3.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../AM/Release-2.2.0/">Release-2.2.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../AM/Release-1.4.0/">Release-1.4.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../AM/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../BASE/latest/">Base Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../BASE/latest/">Release-1.2.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../BASE/Release-1.1.0/">Release-1.1.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../BASE/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../CDS/latest/">Clinical Decision Support</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../CDS/latest/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <div class="title"><a href="../../">Conformance Specifications</a></div>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../../">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../LANG/latest/">Generic Languages</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../LANG/latest/">Release-1.0.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../LANG/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../TERM/latest/">openEHR Terminology</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../TERM/latest/">Release-3.0.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../TERM/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../PROC/latest/">Process Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../PROC/latest/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../QUERY/latest/">Query Languages</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../QUERY/latest/">Release-1.0.1</a>
+        </li>
+        <li class="version">
+          <a href="../../../../QUERY/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../RM/latest/">Reference Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../RM/latest/">Release-1.1.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../RM/Release-1.0.4/">Release-1.0.4</a>
+        </li>
+        <li class="version">
+          <a href="../../../../RM/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../ITS-REST/latest/">REST API specifications</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../ITS-REST/latest/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../SM/latest/">Service Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../SM/latest/">development</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../../BASE/latest/" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../../">Conformance Specifications</a></li>
+    <li><a href="../">openEHR Platform Conformance Test Schedule</a></li>
+    <li><a href="./">Test Suite: EHR_SERVICE / I_COMPOSITION Interface</a></li>
+  </ul>
+</nav>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Test Suite: EHR_SERVICE / I_COMPOSITION Interface</h1>
+<div class="sect1">
+<h2 id="_normative_reference"><a class="anchor" href="#_normative_reference"></a><a class="link" href="#_normative_reference">Normative Reference</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Items in this validation suite conceptually use the following abstract interfaces from the <a href="https://specifications.openehr.org/releases/SM/latest/openehr_platform.html#_ehr_package" target="_blank" rel="noopener">Abstract Platform Service Model, EHR/COMPOSITION component</a>.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>I_EHR_COMPOSITION</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>These are concretely realised in implementation technology specfic APIs, such as the <a href="https://specifications.openehr.org/releases/ITS-REST/development/ehr.html" target="_blank" rel="noopener">EHR REST API</a>.</p>
+</div>
+<div class="paragraph">
+<p>This test suite uses artefacts defined by the following information model specifications:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://specifications.openehr.org/releases/RM/latest/ehr.html" target="_blank" rel="noopener">EHR IM</a></p>
+</li>
+<li>
+<p><a href="https://specifications.openehr.org/releases/RM/latest/common.html" target="_blank" rel="noopener">Common IM</a></p>
+</li>
+<li>
+<p><a href="https://specifications.openehr.org/releases/RM/latest/data_structures.html" target="_blank" rel="noopener">Data Structures IM</a></p>
+</li>
+<li>
+<p><a href="https://specifications.openehr.org/releases/RM/latest/data_types.html" target="_blank" rel="noopener">Data Types IM</a></p>
+</li>
+<li>
+<p><a href="https://specifications.openehr.org/releases/RM/latest/support.html" target="_blank" rel="noopener">Support IM</a></p>
+</li>
+<li>
+<p><a href="https://specifications.openehr.org/releases/RM/latest/common.html#_change_control_package" target="_blank" rel="noopener">Versioning</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_dependencies"><a class="anchor" href="#_dependencies"></a><a class="link" href="#_dependencies">Dependencies</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This test suite depends on other test suites:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#_func_conf_def_adl_component">Functional Conformance: Definitions Component</a>, providing OPTs;</p>
+</li>
+<li>
+<p><a href="#_func_conf_ehr_component">Functional Conformance: EHR Component</a>, providing EHRs.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_test_environment"><a class="anchor" href="#_test_environment"></a><a class="link" href="#_test_environment">Test Environment</a></h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The server under test should support at least OPTs, 1.4 or 2, but OPT 1.4 if more frequent since modeling tools supporting this were around for a long time. Could also support ADL, 1.4 or 2.</p>
+</li>
+<li>
+<p>The server should support at least one of the XML or JSON representations of COMPOSITIONs for committing data, and integrate the corresponding schemas (XML or JSON) to validate data syntactically (before validating against an OPT).</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_test_cases"><a class="anchor" href="#_test_cases"></a><a class="link" href="#_test_cases">Test Cases</a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_service_model_operation_i_ehr_composition_has_composition"><a class="anchor" href="#_service_model_operation_i_ehr_composition_has_composition"></a><a class="link" href="#_service_model_operation_i_ehr_composition_has_composition">Service Model operation: I_EHR_COMPOSITION.has_composition()</a></h3>
+<div class="paragraph">
+<p>Service Model reference: <a href="https://specifications.openehr.org/releases/SM/latest/openehr_platform.html#_i_ehr_composition_interface" target="_blank" rel="noopener"><code>I_EHR_COMPOSITION.<em>has_composition()</em></code></a></p>
+</div>
+<div class="sect3">
+<h4 id="_test_case_i_ehr_composition_has_composition"><a class="anchor" href="#_test_case_i_ehr_composition_has_composition"></a><a class="link" href="#_test_case_i_ehr_composition_has_composition">Test Case I_EHR_COMPOSITION.has_composition</a></h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 80%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Description</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Has existing <code>COMPOSITION</code></p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Pre-conditions</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>An EHR with known <code>ehr_id</code> exists</p>
+</li>
+<li>
+<p>The EHR has a <code>CONTRIBUTION</code></p>
+</li>
+<li>
+<p>The <code>CONTRIBUTION</code> contains a <code>VERSION</code> with known uid.</p>
+</li>
+</ol>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Post-conditions</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>None</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Flow</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Invoke the has <code>COMPOSITION</code> service for the <code>ehr_id</code> and <code>VERSION.uid</code></p>
+</li>
+<li>
+<p>The result must be TRUE</p>
+</li>
+</ol>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Test runners</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a href="https://specifications.openehr.org/releases/CNF/latest/tests/platform/robot/I_EHR_COMPOSITION/has_composition/I_EHR_COMPOSITION.has_composition.robot" target="_blank" rel="noopener">REST API / Robot</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_test_case_i_ehr_composition_has_composition_bad_composition"><a class="anchor" href="#_test_case_i_ehr_composition_has_composition_bad_composition"></a><a class="link" href="#_test_case_i_ehr_composition_has_composition_bad_composition">Test Case I_EHR_COMPOSITION.has_composition-bad_composition</a></h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 80%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Description</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Has <code>COMPOSITION</code>, <code>COMPOSITION</code> doesn’t exist</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Pre-conditions</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>An EHR with known <code>ehr_id</code> exists</p>
+</li>
+<li>
+<p>The EHR has no <code>CONTRIBUTIONs</code></p>
+</li>
+</ol>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Post-conditions</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>None</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Flow</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Invoke the has <code>COMPOSITION</code> service for <code>ehr_id</code>, and a random <code>VERSION.uid</code></p>
+</li>
+<li>
+<p>The result must be FALSE</p>
+</li>
+</ol>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Test runners</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a href="https://specifications.openehr.org/releases/CNF/latest/tests/platform/robot/I_EHR_COMPOSITION/has_composition/I_EHR_COMPOSITION.has_composition-bad_composition.robot" target="_blank" rel="noopener">REST API / Robot</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_test_case_i_ehr_composition_has_composition_bad_ehr"><a class="anchor" href="#_test_case_i_ehr_composition_has_composition_bad_ehr"></a><a class="link" href="#_test_case_i_ehr_composition_has_composition_bad_ehr">Test Case I_EHR_COMPOSITION.has_composition-bad_ehr</a></h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 80%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Description</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Has <code>COMPOSITION</code> on non-existent EHR</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Pre-conditions</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>There are no EHRs on the server</p>
+</li>
+</ol>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Post-conditions</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>None</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Flow</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Invoke the has <code>COMPOSITION</code> service with a random <code>ehr_id</code></p>
+</li>
+<li>
+<p>The service should return an error related to the non existence of the EHR</p>
+</li>
+</ol>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Test runners</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a href="https://specifications.openehr.org/releases/CNF/latest/tests/platform/robot/I_EHR_COMPOSITION/has_composition/I_EHR_COMPOSITION.has_composition-bad_ehr.robot" target="_blank" rel="noopener">REST API / Robot</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_get_composition_latest"><a class="anchor" href="#_get_composition_latest"></a><a class="link" href="#_get_composition_latest">Get COMPOSITION latest</a></h3>
+<div class="paragraph">
+<p><strong>Implementation consideration:</strong></p>
+</div>
+<div class="paragraph">
+<p>When a <code>COMPOSITION</code> is retrieved from a service, it will comply with a specific format. There could be a variant for each test to retrieve the <code>COMPOSITION</code> in any of the supported openEHR formats, and the  syntactic validation of those retrieved formats should be done by using the corresponding schemas (XML, JSON, etc). That would be the minimal validation for conformance testing. Though it would be ideal to have semantic validation of the retrieved <code>COMPOSITIONs</code> to ensure conformance, which is achieved by validating against the corresponding OPT in the testing layer.</p>
+</div>
+<div class="paragraph">
+<p>Service Model reference: <a href="https://specifications.openehr.org/releases/SM/latest/openehr_platform.html#_i_ehr_composition_interface" target="_blank" rel="noopener"><code>I_EHR_COMPOSITION.<em>get_composition_latest()</em></code></a></p>
+</div>
+<div class="sect3">
+<h4 id="_test_case_i_ehr_composition_get_composition_latest"><a class="anchor" href="#_test_case_i_ehr_composition_get_composition_latest"></a><a class="link" href="#_test_case_i_ehr_composition_get_composition_latest">Test Case I_EHR_COMPOSITION.get_composition_latest</a></h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 80%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Description</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Get existing <code>COMPOSITION</code> latest</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Pre-conditions</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>An EHR with known <code>ehr_id</code> exists</p>
+</li>
+<li>
+<p>The EHR has a <code>VERSIONED_COMPOSITION</code> with known uid</p>
+</li>
+<li>
+<p>The <code>VERSIONED_COMPOSITION</code> has two <code>VERSIONs</code></p>
+</li>
+</ol>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Post-conditions</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>None</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Flow</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Invoke the get <code>COMPOSITION</code> latest service for the <code>ehr_id</code> and <code>VERSIONED_COMPOSITION</code> uid</p>
+</li>
+<li>
+<p>The result must return the <code>COMPOSITION</code> contents, and should be the latest version</p>
+</li>
+<li>
+<p>The retrieved format should contain all the exact same data as the format used when committing the <code>COMPOSITION</code> (content check)</p>
+</li>
+</ol>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Test runners</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a href="https://specifications.openehr.org/releases/CNF/latest/tests/platform/robot/I_EHR_COMPOSITION/get_composition_latest/I_EHR_COMPOSITION.get_composition_latest.robot" target="_blank" rel="noopener">REST API / Robot</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_test_case_i_ehr_composition_get_composition_latest_bad_composition"><a class="anchor" href="#_test_case_i_ehr_composition_get_composition_latest_bad_composition"></a><a class="link" href="#_test_case_i_ehr_composition_get_composition_latest_bad_composition">Test Case I_EHR_COMPOSITION.get_composition_latest-bad_composition</a></h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 80%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Description</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Get <code>COMPOSITION</code> latest, <code>COMPOSITION</code> doesn’t exist</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Pre-conditions</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>An EHR with known <code>ehr_id</code> exists and has no <code>CONTRIBUTIONs</code></p>
+</li>
+</ol>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Post-conditions</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>None</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Flow</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Invoke the get <code>COMPOSITION</code> latest service for ehr_uid, and a random <code>VERSIONED_COMPOSITION</code> uid</p>
+</li>
+<li>
+<p>The result must be empty, with an error &#8220;the COMPOSITION uid doesn’t exist in the EHR ehr_uid&#8221;</p>
+</li>
+</ol>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Test runners</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a href="https://specifications.openehr.org/releases/CNF/latest/tests/platform/robot/I_EHR_COMPOSITION/get_composition_latest/I_EHR_COMPOSITION.get_composition_latest-bad_composition.robot" target="_blank" rel="noopener">REST API / Robot</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_test_case_i_ehr_composition_get_composition_latest_bad_ehr"><a class="anchor" href="#_test_case_i_ehr_composition_get_composition_latest_bad_ehr"></a><a class="link" href="#_test_case_i_ehr_composition_get_composition_latest_bad_ehr">Test Case I_EHR_COMPOSITION.get_composition_latest-bad_ehr</a></h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 80%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Description</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Get <code>COMPOSITION</code> latest on non-existent EHR</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Pre-conditions</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>There are no EHRs on the server</p>
+</li>
+</ol>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Post-conditions</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>None</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Flow</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Invoke the get <code>COMPOSITION</code> latest service with a random ehr_id, and a random <code>VERSIONED_COMPOSITION</code> uid</p>
+</li>
+<li>
+<p>The service should return an error related to the non existence of the EHR</p>
+</li>
+</ol>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Test runners</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a href="https://specifications.openehr.org/releases/CNF/latest/tests/platform/robot/I_EHR_COMPOSITION/get_composition_latest/I_EHR_COMPOSITION.get_composition_latest-bad_ehr.robot" target="_blank" rel="noopener">REST API / Robot</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_get_composition_at_time"><a class="anchor" href="#_get_composition_at_time"></a><a class="link" href="#_get_composition_at_time">Get COMPOSITION at time</a></h3>
+<div class="paragraph">
+<p>Service Model reference: <a href="https://specifications.openehr.org/releases/SM/latest/openehr_platform.html#_i_ehr_composition_interface" target="_blank" rel="noopener"><code>I_EHR_COMPOSITION.<em>get_composition_at_time()</em></code></a></p>
+</div>
+<div class="sect3">
+<h4 id="_test_case_i_ehr_composition_get_composition_at_time"><a class="anchor" href="#_test_case_i_ehr_composition_get_composition_at_time"></a><a class="link" href="#_test_case_i_ehr_composition_get_composition_at_time">Test Case I_EHR_COMPOSITION.get_composition_at_time</a></h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 80%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Description</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Get existing <code>COMPOSITION</code> at time</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Pre-conditions</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>An EHR with known <code>ehr_id</code> exists</p>
+</li>
+<li>
+<p>The EHR has one or more <code>VERSIONED_COMPOSITIONs</code> with known uids</p>
+</li>
+</ol>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Post-conditions</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>None</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Flow</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Invoke the get <code>COMPOSITION</code> at time service for the ehr_id, <code>VERSIONED_COMPOSITION.uid</code> and current time</p>
+</li>
+<li>
+<p>The result must return the <code>COMPOSITION</code> contents of the existing <code>COMPOSITION</code> at given time</p>
+</li>
+<li>
+<p>The retrieved format should contain all the exact same data as the format used when committing the <code>COMPOSITION</code> (content check)</p>
+<div class="literalblock">
+<div class="content">
+<pre>NOTE: When requesting a `COMPOSITION` at time using the current time, the last version of the matching composition, if it exists, should be retrieved.</pre>
+</div>
+</div>
+</li>
+</ol>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Test runners</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a href="https://specifications.openehr.org/releases/CNF/latest/tests/platform/robot/I_EHR_COMPOSITION/get_composition_at_time/I_EHR_COMPOSITION.get_composition_at_time.robot" target="_blank" rel="noopener">REST API / Robot</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_test_case_i_ehr_composition_get_composition_at_time_no_time_arg"><a class="anchor" href="#_test_case_i_ehr_composition_get_composition_at_time_no_time_arg"></a><a class="link" href="#_test_case_i_ehr_composition_get_composition_at_time_no_time_arg">Test Case I_EHR_COMPOSITION.get_composition_at_time-no_time_arg</a></h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 80%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Description</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Get existing <code>COMPOSITION</code> at time, without a given time</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Pre-conditions</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>An EHR with known <code>ehr_id</code> exists</p>
+</li>
+<li>
+<p>The EHR has one or more <code>VERSIONED_COMPOSITIONs</code> with known uids</p>
+</li>
+</ol>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Post-conditions</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>None</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Flow</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Invoke the get <code>COMPOSITION</code> at time service for the <code>ehr_id</code>, <code>VERSIONED_COMPOSITION</code> uid and no time</p>
+</li>
+<li>
+<p>The result must return the <code>COMPOSITION</code> contents of the existing <code>COMPOSITION</code>, and should be the latest <code>VERSION</code> of the <code>COMPOSITION</code></p>
+</li>
+<li>
+<p>The retrieved format should contain all the exact same data as the format used when committing the <code>COMPOSITION</code> (content check)</p>
+<div class="literalblock">
+<div class="content">
+<pre>NOTE: Test this using `COMPOSITIONs` with one version and multiple versions, to be sure the retrieved one is the latest; +
+The previous tests for "`get COMPOSITION latest`" could be used to compare results.</pre>
+</div>
+</div>
+</li>
+</ol>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Test runners</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a href="https://specifications.openehr.org/releases/CNF/latest/tests/platform/robot/I_EHR_COMPOSITION/get_composition_at_time/I_EHR_COMPOSITION.get_composition_at_time-no_time_arg.robot" target="_blank" rel="noopener">REST API / Robot</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_test_case_i_ehr_composition_get_composition_at_time_bad_composition"><a class="anchor" href="#_test_case_i_ehr_composition_get_composition_at_time_bad_composition"></a><a class="link" href="#_test_case_i_ehr_composition_get_composition_at_time_bad_composition">Test Case I_EHR_COMPOSITION.get_composition_at_time-bad_composition</a></h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 80%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Description</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Get <code>COMPOSITION</code> at time, <code>COMPOSITION</code> doesn’t exist</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Pre-conditions</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>An EHR with known <code>ehr_id</code> exists and has no <code>CONTRIBUTIONs</code></p>
+</li>
+</ol>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Post-conditions</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>None</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Flow</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Invoke the get <code>COMPOSITION</code> at time service for <code>ehr_uid</code>, and a random <code>VERSIONED_COMPOSITION.uid</code> and current time</p>
+</li>
+<li>
+<p>The result must be empty, with an error related to &#8220;the COMPOSITION uid doesn’t exist in the EHR ehr_uid&#8221;</p>
+</li>
+</ol>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Test runners</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a href="https://specifications.openehr.org/releases/CNF/latest/tests/platform/robot/I_EHR_COMPOSITION/get_composition_at_time/I_EHR_COMPOSITION.get_composition_at_time-bad_composition.robot" target="_blank" rel="noopener">REST API / Robot</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_test_case_i_ehr_composition_get_composition_at_time_bad_ehr"><a class="anchor" href="#_test_case_i_ehr_composition_get_composition_at_time_bad_ehr"></a><a class="link" href="#_test_case_i_ehr_composition_get_composition_at_time_bad_ehr">Test Case I_EHR_COMPOSITION.get_composition_at_time-bad_ehr</a></h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 80%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Description</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Get <code>COMPOSITION</code> at time on non-existent EHR</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Pre-conditions</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>There are no EHRs on the server</p>
+</li>
+</ol>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Post-conditions</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>None</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Flow</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Invoke the get <code>COMPOSITION</code> at time service with a random ehr_id, random <code>VERSIONED_OBJECT.uid</code> and current time</p>
+</li>
+<li>
+<p>The service should return an error indicating non-existence of the EHR</p>
+</li>
+</ol>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Test runners</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a href="https://specifications.openehr.org/releases/CNF/latest/tests/platform/robot/I_EHR_COMPOSITION/get_composition_at_time/I_EHR_COMPOSITION.get_composition_at_time-bad_ehr.robot" target="_blank" rel="noopener">REST API / Robot</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_test_case_i_ehr_composition_get_composition_at_times"><a class="anchor" href="#_test_case_i_ehr_composition_get_composition_at_times"></a><a class="link" href="#_test_case_i_ehr_composition_get_composition_at_times">Test Case I_EHR_COMPOSITION.get_composition_at_times</a></h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 80%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Description</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Get existing <code>COMPOSITION</code> at time, cover different times</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Pre-conditions</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>An EHR with known <code>ehr_id</code> exists</p>
+</li>
+<li>
+<p>The EHR should have one <code>VERSIONED_COMPOSITION</code> with a know uid</p>
+</li>
+<li>
+<p>The <code>VERSIONED_COMPOSITION</code> should have two VERSIONs (the EHR has two <code>CONTRIBUTIONs</code> for the same <code>COMPOSITION</code>)</p>
+</li>
+<li>
+<p><code>CONTRIBUTIONs</code> were done at times t0 and t1 with t0 &lt; t1</p>
+</li>
+</ol>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Post-conditions</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>None</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Flow</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Invoke the get <code>COMPOSITION</code> at time service for the ehr_id, <code>VERSIONED_COMPOSITION</code> uid and a time &lt; t0</p>
+</li>
+<li>
+<p>The result must be negative and return an error related to the <code>COMPOSITION</code> not existing at that time</p>
+</li>
+<li>
+<p>Invoke the get <code>COMPOSITION</code> at time service for the ehr_id, <code>VERSIONED_COMPOSITION</code> uid and a time &gt; t0 and &lt; t1</p>
+</li>
+<li>
+<p>The result must return the <code>COMPOSITION</code> contents of the <code>COMPOSITION</code> committed in t0</p>
+</li>
+<li>
+<p>The retrieved format should contain all the exact same data as the format used when committing the <code>COMPOSITION</code> (content check)</p>
+</li>
+<li>
+<p>Invoke the get <code>COMPOSITION</code> at time service for the ehr_id, <code>VERSIONED_COMPOSITION</code> uid and a time &gt; t1</p>
+</li>
+<li>
+<p>The result must return the <code>COMPOSITION</code> contents of the <code>COMPOSITION</code> committed in t1</p>
+</li>
+<li>
+<p>The retrieved format should contain all the exact same data as the format used when committing the <code>COMPOSITION</code> (content check)</p>
+</li>
+</ol>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Test runners</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a href="https://specifications.openehr.org/releases/CNF/latest/tests/platform/robot/I_EHR_COMPOSITION/get_composition_at_times/I_EHR_COMPOSITION.get_composition_at_times.robot" target="_blank" rel="noopener">REST API / Robot</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_get_composition_at_version"><a class="anchor" href="#_get_composition_at_version"></a><a class="link" href="#_get_composition_at_version">Get COMPOSITION at version</a></h3>
+<div class="paragraph">
+<p>Service Model reference: <a href="https://specifications.openehr.org/releases/SM/latest/openehr_platform.html#_i_ehr_composition_interface" target="_blank" rel="noopener"><code>I_EHR_COMPOSITION.<em>get_composition_version()</em></code></a></p>
+</div>
+<div class="sect3">
+<h4 id="_test_case_i_ehr_composition_get_composition_version"><a class="anchor" href="#_test_case_i_ehr_composition_get_composition_version"></a><a class="link" href="#_test_case_i_ehr_composition_get_composition_version">Test Case I_EHR_COMPOSITION.get_composition_version</a></h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 80%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Description</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Get existing <code>COMPOSITION</code> at version</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Pre-conditions</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>An EHR with known <code>ehr_id</code> exists</p>
+</li>
+<li>
+<p>The EHR has one <code>VERSION</code> with known version id</p>
+</li>
+</ol>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Post-conditions</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>None</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Flow</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Invoke the get <code>COMPOSITION</code> at version service for the ehr_id, <code>VERSION</code> version id</p>
+</li>
+<li>
+<p>The result must return the <code>COMPOSITION</code> contents of the existing <code>VERSION</code></p>
+</li>
+<li>
+<p>The retrieved format should contain all the exact same data as the format used when committing the <code>COMPOSITION</code> (content check)</p>
+</li>
+</ol>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Test runners</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a href="https://specifications.openehr.org/releases/CNF/latest/tests/platform/robot/I_EHR_COMPOSITION/get_composition_version/I_EHR_COMPOSITION.get_composition_version.robot" target="_blank" rel="noopener">REST API / Robot</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_test_case_i_ehr_composition_get_composition_version_bad_version"><a class="anchor" href="#_test_case_i_ehr_composition_get_composition_version_bad_version"></a><a class="link" href="#_test_case_i_ehr_composition_get_composition_version_bad_version">Test Case I_EHR_COMPOSITION.get_composition_version-bad_version</a></h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 80%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Description</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Get <code>COMPOSITION</code> at version, <code>VERSION</code> doesn’t exist</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Pre-conditions</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>An EHR with known <code>ehr_id</code> exists and doesn’t have any commits</p>
+</li>
+</ol>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Post-conditions</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>None</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Flow</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Invoke the get <code>COMPOSITION</code> at version service for the <code>ehr_id</code>, and a random version id</p>
+</li>
+<li>
+<p>The result must be negative and return an error related to the non-existent <code>COMPOSITION</code> with the version id</p>
+</li>
+</ol>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Test runners</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a href="https://specifications.openehr.org/releases/CNF/latest/tests/platform/robot/I_EHR_COMPOSITION/get_composition_version/I_EHR_COMPOSITION.get_composition_version-bad_version.robot" target="_blank" rel="noopener">REST API / Robot</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_test_case_i_ehr_composition_get_composition_version_bad_ehr"><a class="anchor" href="#_test_case_i_ehr_composition_get_composition_version_bad_ehr"></a><a class="link" href="#_test_case_i_ehr_composition_get_composition_version_bad_ehr">Test Case I_EHR_COMPOSITION.get_composition_version-bad_ehr</a></h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 80%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Description</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Get <code>COMPOSITION</code> at version, EHR doesn’t exist</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Pre-conditions</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The system doesn’t have any EHRs</p>
+</li>
+</ol>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Post-conditions</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>None</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Flow</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Invoke the get <code>COMPOSITION</code> at version service a random <code>ehr_id</code> and random version id</p>
+</li>
+<li>
+<p>The result must be negative and return an error related to the non-existent EHR.</p>
+</li>
+</ol>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Test runners</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a href="https://specifications.openehr.org/releases/CNF/latest/tests/platform/robot/I_EHR_COMPOSITION/get_composition_version/I_EHR_COMPOSITION.get_composition_version-bad_ehr.robot" target="_blank" rel="noopener">REST API / Robot</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_test_case_i_ehr_composition_get_composition_versions"><a class="anchor" href="#_test_case_i_ehr_composition_get_composition_versions"></a><a class="link" href="#_test_case_i_ehr_composition_get_composition_versions">Test Case I_EHR_COMPOSITION.get_composition_versions</a></h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 80%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Description</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Get <code>COMPOSITION</code> at version, cover different versions</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Pre-conditions</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>An EHR with known <code>ehr_id</code> exists</p>
+</li>
+<li>
+<p>The EHR should have one <code>VERSIONED_COMPOSITION</code> with a known uid</p>
+</li>
+<li>
+<p>The <code>VERSIONED_COMPOSITION</code> should have two <code>VERSIONs</code> (the EHR has two <code>CONTRIBUTIONs</code> for the same <code>COMPOSITION</code>)</p>
+</li>
+<li>
+<p>Both <code>VERSIONs</code> have ids: v1 and v2</p>
+</li>
+</ol>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Post-conditions</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>None</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Flow</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Invoke the get <code>COMPOSITION</code> at version service, for the <code>ehr_id</code> and <code>VERSION</code> version id v1</p>
+</li>
+<li>
+<p>The result must be positive and retrieve the <code>COMPOSITION</code>, that should match the <code>COMPOSITION</code> created with version id v1. (content check).</p>
+</li>
+<li>
+<p>Invoke the get <code>COMPOSITION</code> at version service, for the <code>ehr_id</code> and <code>VERSION</code> version id v2</p>
+</li>
+<li>
+<p>The result must be positive and retrieve the <code>COMPOSITION</code>, that should match the <code>COMPOSITION</code> created with version id v2 (content check).</p>
+</li>
+</ol>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Test runners</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a href="https://specifications.openehr.org/releases/CNF/latest/tests/platform/robot/I_EHR_COMPOSITION/get_composition_versions/I_EHR_COMPOSITION.get_composition_versions.robot" target="_blank" rel="noopener">REST API / Robot</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_get_versioned_composition"><a class="anchor" href="#_get_versioned_composition"></a><a class="link" href="#_get_versioned_composition">Get VERSIONED COMPOSITION</a></h3>
+<div class="paragraph">
+<p>Service Model reference: <a href="https://specifications.openehr.org/releases/SM/latest/openehr_platform.html#_i_ehr_composition_interface" target="_blank" rel="noopener"><code>I_EHR_COMPOSITION.<em>get_versioned_composition()</em></code></a></p>
+</div>
+<div class="sect3">
+<h4 id="_test_case_i_ehr_composition_get_versioned_composition"><a class="anchor" href="#_test_case_i_ehr_composition_get_versioned_composition"></a><a class="link" href="#_test_case_i_ehr_composition_get_versioned_composition">Test Case I_EHR_COMPOSITION.get_versioned_composition</a></h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 80%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Description</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Get existing <code>VERSIONED_COMPOSITION</code></p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Pre-conditions</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>An EHR with known <code>ehr_id</code> exists</p>
+</li>
+<li>
+<p>The EHR has one <code>VERSIONED_COMPOSITION</code> with known uid</p>
+</li>
+</ol>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Post-conditions</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>None</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Flow</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Invoke the get <code>VERSIONED_COMPOSITION</code> service for the <code>ehr_id</code> and <code>VERSIONED_COMPOSITION</code> uid</p>
+</li>
+<li>
+<p>The result must return a valid <code>VERSIONED_COMPOSITION</code> object, referencing the <code>VERSION</code> it contains</p>
+</li>
+</ol>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Test runners</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a href="https://specifications.openehr.org/releases/CNF/latest/tests/platform/robot/I_EHR_COMPOSITION/get_versioned_composition/I_EHR_COMPOSITION.get_versioned_composition.robot" target="_blank" rel="noopener">REST API / Robot</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+To consider different cases, try with <code>VERSIONED_COMPOSITION</code> that contain just one <code>VERSION</code> or many <code>VERSIONs</code>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+For that, the valid test cases for Create <code>COMPOSITION</code> could be used to comply with the preconditions of this test flow
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_test_case_i_ehr_composition_get_versioned_composition_non_existent"><a class="anchor" href="#_test_case_i_ehr_composition_get_versioned_composition_non_existent"></a><a class="link" href="#_test_case_i_ehr_composition_get_versioned_composition_non_existent">Test Case I_EHR_COMPOSITION.get_versioned_composition-non_existent</a></h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 80%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Description</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Get non-existent <code>VERSIONED_COMPOSITION</code></p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Pre-conditions</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>An EHR with known <code>ehr_id</code> exists</p>
+</li>
+<li>
+<p>The EHR doesn’t have any commits</p>
+</li>
+</ol>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Post-conditions</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>None</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Flow</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Invoke the get <code>VERSIONED_COMPOSITION</code> service for the <code>ehr_id</code> and a random <code>VERSIONED_COMPOSITION</code> uid</p>
+</li>
+<li>
+<p>The result must be negative and return an error related to the non-existence of the <code>VERSIONED_COMPOSITION</code></p>
+</li>
+</ol>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Test runners</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a href="https://specifications.openehr.org/releases/CNF/latest/tests/platform/robot/I_EHR_COMPOSITION/get_versioned_composition/I_EHR_COMPOSITION.get_versioned_composition-non_existent.robot" target="_blank" rel="noopener">REST API / Robot</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_test_case_i_ehr_composition_get_versioned_composition_bad_ehr"><a class="anchor" href="#_test_case_i_ehr_composition_get_versioned_composition_bad_ehr"></a><a class="link" href="#_test_case_i_ehr_composition_get_versioned_composition_bad_ehr">Test Case I_EHR_COMPOSITION.get_versioned_composition-bad_ehr</a></h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 80%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Description</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Get <code>VERSIONED_COMPOSITION</code>, EHR doesn’t exist</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Pre-conditions</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The system doesn’t have any EHRs</p>
+</li>
+</ol>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Post-conditions</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>None</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Flow</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Invoke the get <code>VERSIONED_COMPOSITION</code> service for a random <code>ehr_id</code> and a random <code>VERSIONED_COMPOSITION</code> uid</p>
+</li>
+<li>
+<p>The result must be negative and return an error related to the non-existence of the EHR</p>
+</li>
+</ol>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Test runners</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a href="https://specifications.openehr.org/releases/CNF/latest/tests/platform/robot/I_EHR_COMPOSITION/get_versioned_composition/I_EHR_COMPOSITION.get_versioned_composition-bad_ehr.robot" target="_blank" rel="noopener">REST API / Robot</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_create_composition"><a class="anchor" href="#_create_composition"></a><a class="link" href="#_create_composition">Create COMPOSITION</a></h3>
+<div class="paragraph">
+<p>Service Model reference: <a href="https://specifications.openehr.org/releases/SM/latest/openehr_platform.html#_i_ehr_composition_interface" target="_blank" rel="noopener"><code>I_EHR_COMPOSITION.<em>create_composition()</em></code></a></p>
+</div>
+<div class="sect3">
+<h4 id="_test_case_i_ehr_composition_create_composition_event"><a class="anchor" href="#_test_case_i_ehr_composition_create_composition_event"></a><a class="link" href="#_test_case_i_ehr_composition_create_composition_event">Test Case I_EHR_COMPOSITION.create_composition-event</a></h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 80%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Description</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Create new event <code>COMPOSITION</code></p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Pre-conditions</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The OPT, associated with the event <code>COMPOSITION</code> that will be created, should exist on the server</p>
+</li>
+<li>
+<p>An EHR with known <code>ehr_id</code> should exist</p>
+</li>
+<li>
+<p>The EHR should have no commits</p>
+</li>
+</ol>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Post-conditions</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>A new event <code>COMPOSITION</code> exists in the EHR.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Flow</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Invoke the create <code>COMPOSITION</code> service with a valid event <code>COMPOSITION</code>, compliant with the existing OPT, and with the known <code>ehr_id</code></p>
+</li>
+<li>
+<p>The result should be positive, return information about the new <code>COMPOSITION</code> added to the EHR, and the version number should be 1</p>
+</li>
+</ol>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Test runners</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a href="https://specifications.openehr.org/releases/CNF/latest/tests/platform/robot/I_EHR_COMPOSITION/create_composition/I_EHR_COMPOSITION.create_composition-event.robot" target="_blank" rel="noopener">REST API / Robot</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_test_case_i_ehr_composition_create_composition_persistent"><a class="anchor" href="#_test_case_i_ehr_composition_create_composition_persistent"></a><a class="link" href="#_test_case_i_ehr_composition_create_composition_persistent">Test Case I_EHR_COMPOSITION.create_composition-persistent</a></h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 80%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Description</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Create new persistent <code>COMPOSITION</code></p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Pre-conditions</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The OPT, associated with the persistent <code>COMPOSITION</code> that will be created, should exist on the server</p>
+</li>
+<li>
+<p>An EHR with known <code>ehr_id</code> should exist</p>
+</li>
+<li>
+<p>The EHR should have no commits</p>
+</li>
+</ol>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Post-conditions</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>A new persistent <code>COMPOSITION</code> exists in the EHR.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Flow</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Invoke the create <code>COMPOSITION</code> service with a valid persistent <code>COMPOSITION</code>, compliant with the existing OPT, and the known <code>ehr_id</code></p>
+</li>
+<li>
+<p>The result should be positive, and return information about the new <code>COMPOSITION</code> added to the EHR, and the version number should be 1</p>
+</li>
+</ol>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Test runners</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a href="https://specifications.openehr.org/releases/CNF/latest/tests/platform/robot/I_EHR_COMPOSITION/create_composition/I_EHR_COMPOSITION.create_composition-persistent.robot" target="_blank" rel="noopener">REST API / Robot</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_test_case_i_ehr_composition_create_composition_same_opt_twice"><a class="anchor" href="#_test_case_i_ehr_composition_create_composition_same_opt_twice"></a><a class="link" href="#_test_case_i_ehr_composition_create_composition_same_opt_twice">Test Case I_EHR_COMPOSITION.create_composition-same_opt_twice</a></h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 80%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Description</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Create persistent <code>COMPOSITION</code> for the same OPT twice</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Pre-conditions</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The OPT, associated with the persistent <code>COMPOSITION</code> that will be created, should exist on the server</p>
+</li>
+<li>
+<p>An EHR with known <code>ehr_id</code> should exist</p>
+</li>
+<li>
+<p>The EHR should have no commits</p>
+</li>
+</ol>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Post-conditions</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>A new persistent <code>COMPOSITION</code> exists in the EHR.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Flow</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Invoke the create <code>COMPOSITION</code> service with a valid persistent <code>COMPOSITION</code>, compliant with the existing OPT, and with the known <code>ehr_id</code></p>
+</li>
+<li>
+<p>The result should be positive, and return information about the new <code>COMPOSITION</code> added to the EHR, and the version number should be 1</p>
+</li>
+<li>
+<p>Invoke the create <code>COMPOSITION</code> service with a valid persistent <code>COMPOSITION</code> and the same <code>ehr_id</code> as in 1., the <code>COMPOSITION</code> should comply with the same persistent OPT as the <code>COMPOSITION</code> in 1</p>
+</li>
+<li>
+<p>The result should be negative, returning an error related to trying to create a persistent <code>COMPOSITION</code> for the same persistent OPT that already has a first version</p>
+</li>
+</ol>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Test runners</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a href="https://specifications.openehr.org/releases/CNF/latest/tests/platform/robot/I_EHR_COMPOSITION/create_composition/I_EHR_COMPOSITION.create_composition-same_opt_twice.robot" target="_blank" rel="noopener">REST API / Robot</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Notes:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Current criteria is: only one &#8216;create&#8217; operation is allowed for persistent <code>COMPOSITIONs</code>, the next operations over an existing persistent <code>COMPOSITION</code> should be &#8216;modifications&#8217;.</p>
+</li>
+<li>
+<p>This is under debate in the openEHR SEC since some implementations permit 'persistent' <code>COMPOSIITONS</code> to have more than one instance in the same EHR and some others not. This is due to the lack of information in the openEHR specifications. There is also a discussion to define other types of categories for <code>COMPOSITIONs</code> to allow different behaviors.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><a href="https://discourse.openehr.org/t/specrm-89-support-for-episodic-category/51/3" target="_blank" rel="noopener">Discourse discussion</a></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_test_case_i_ehr_composition_create_composition_invalid_event"><a class="anchor" href="#_test_case_i_ehr_composition_create_composition_invalid_event"></a><a class="link" href="#_test_case_i_ehr_composition_create_composition_invalid_event">Test Case I_EHR_COMPOSITION.create_composition-invalid_event</a></h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 80%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Description</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Create new invalid event <code>COMPOSITION</code></p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Pre-conditions</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The OPT, associated with the event <code>COMPOSITION</code> that will be created, should exist on the server</p>
+</li>
+<li>
+<p>An EHR with known <code>ehr_id</code> should exist</p>
+</li>
+<li>
+<p>The EHR should have no commits</p>
+</li>
+</ol>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Post-conditions</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>None</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Flow</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Invoke the create <code>COMPOSITION</code> service with an invalid event <code>COMPOSITION</code> and the known <code>ehr_id</code></p>
+</li>
+<li>
+<p>The result should be negative, and return information about the errors in the provided <code>COMPOSITION</code></p>
+</li>
+</ol>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Test runners</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a href="https://specifications.openehr.org/releases/CNF/latest/tests/platform/robot/I_EHR_COMPOSITION/create_composition/I_EHR_COMPOSITION.create_composition-invalid_event.robot" target="_blank" rel="noopener">REST API / Robot</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_test_case_i_ehr_composition_create_composition_invalid_persistent"><a class="anchor" href="#_test_case_i_ehr_composition_create_composition_invalid_persistent"></a><a class="link" href="#_test_case_i_ehr_composition_create_composition_invalid_persistent">Test Case I_EHR_COMPOSITION.create_composition-invalid_persistent</a></h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 80%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Description</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Create new invalid persistent <code>COMPOSITION</code></p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Pre-conditions</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The OPT, associated with the persistent <code>COMPOSITION</code> that will be created, should exist on the server</p>
+</li>
+<li>
+<p>An EHR with known <code>ehr_id</code> should exist</p>
+</li>
+<li>
+<p>The EHR should have no commits</p>
+</li>
+</ol>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Post-conditions</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>None</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Flow</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Invoke the create <code>COMPOSITION</code> service with an invalid persistent <code>COMPOSITION</code> and the known <code>ehr_id</code></p>
+</li>
+<li>
+<p>The result should be negative, and return information about the errors in the provided <code>COMPOSITION</code></p>
+</li>
+</ol>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Test runners</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a href="https://specifications.openehr.org/releases/CNF/latest/tests/platform/robot/I_EHR_COMPOSITION/create_composition/I_EHR_COMPOSITION.create_composition-invalid_persistent.robot" target="_blank" rel="noopener">REST API / Robot</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_test_case_i_ehr_composition_create_composition_event_bad_opt"><a class="anchor" href="#_test_case_i_ehr_composition_create_composition_event_bad_opt"></a><a class="link" href="#_test_case_i_ehr_composition_create_composition_event_bad_opt">Test Case I_EHR_COMPOSITION.create_composition-event_bad_opt</a></h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 80%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Description</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Create new event <code>COMPOSITION</code>, referenced OPT doesn’t exist</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Pre-conditions</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The OPT, referenced by the <code>COMPOSITION</code> to commit, doesn’t exist on the server</p>
+</li>
+<li>
+<p>An EHR with known <code>ehr_id</code> should exist</p>
+</li>
+<li>
+<p>The EHR should have no commits</p>
+</li>
+</ol>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Post-conditions</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>None</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Flow</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Invoke the create <code>COMPOSITION</code> service with a valid event <code>COMPOSITION</code> and the known <code>ehr_id</code></p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>The <code>COMPOSITION</code> should reference an OPT that doesn’t exist on the server</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>The result should be negative, and return information about the non-existent OPT</p>
+</li>
+</ol>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Test runners</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a href="https://specifications.openehr.org/releases/CNF/latest/tests/platform/robot/I_EHR_COMPOSITION/create_composition/I_EHR_COMPOSITION.create_composition-event_bad_opt.robot" target="_blank" rel="noopener">REST API / Robot</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_test_case_i_ehr_composition_create_composition_event_bad_ehr"><a class="anchor" href="#_test_case_i_ehr_composition_create_composition_event_bad_ehr"></a><a class="link" href="#_test_case_i_ehr_composition_create_composition_event_bad_ehr">Test Case I_EHR_COMPOSITION.create_composition-event_bad_ehr</a></h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 80%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Description</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Create new event <code>COMPOSITION</code>, EHR doesn’t exist</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Pre-conditions</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The OPT, referenced by the <code>COMPOSITION</code> to commit, exists on the server</p>
+</li>
+<li>
+<p>The server doesn’t have any EHRs</p>
+</li>
+</ol>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Post-conditions</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>None</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Flow</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Invoke the create <code>COMPOSITION</code> service with a valid event <code>COMPOSITION</code> and a random <code>ehr_id</code></p>
+</li>
+<li>
+<p>The result should be negative, and return information about the non-existent EHR</p>
+</li>
+</ol>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Test runners</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a href="https://specifications.openehr.org/releases/CNF/latest/tests/platform/robot/I_EHR_COMPOSITION/create_composition/I_EHR_COMPOSITION.create_composition-event_bad_ehr.robot" target="_blank" rel="noopener">REST API / Robot</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_update_composition"><a class="anchor" href="#_update_composition"></a><a class="link" href="#_update_composition">Update COMPOSITION</a></h3>
+<div class="paragraph">
+<p>The update <code>COMPOSITION</code> service needs the <code>VERSION.preceding_version_uid</code> attribute to be set, so the server knows which existing <code>VERSION</code> of the <code>COMPOSITION</code> will be associated with the newly committed <code>COMPOSITION</code>. The Service Model spec is not clear about where that attribute is defined. By taking into account the Reference Model, the <code>COMPOSITION</code> doesn’t contain that value but the <code>VERSION</code> does. For the <code>COMPOSITION</code> update service the <code>preceding_version_uid</code> should be a parameter or the definition in the SM should mention this.</p>
+</div>
+<div class="paragraph">
+<p>Service Model reference: <a href="https://specifications.openehr.org/releases/SM/latest/openehr_platform.html#_i_ehr_composition_interface" target="_blank" rel="noopener"><code>I_EHR_COMPOSITION.<em>update_composition()</em></code></a></p>
+</div>
+<div class="sect3">
+<h4 id="_test_case_i_ehr_composition_update_composition_event"><a class="anchor" href="#_test_case_i_ehr_composition_update_composition_event"></a><a class="link" href="#_test_case_i_ehr_composition_update_composition_event">Test Case I_EHR_COMPOSITION.update_composition-event</a></h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 80%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Description</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Update an existing event <code>COMPOSITION</code></p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Pre-conditions</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The OPT referenced by the <code>COMPOSITIONs</code> to commit exists on the server</p>
+</li>
+<li>
+<p>An EHR with known <code>ehr_id</code> should exist</p>
+</li>
+<li>
+<p>The EHR should have no commits</p>
+</li>
+</ol>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Post-conditions</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>A new <code>VERSIONED_OBJECT</code> exists on the server</p>
+</li>
+<li>
+<p>The <code>VERSIONED_OBJECT</code> has two <code>VERSIONs</code> of <code>COMPOSITION</code></p>
+</li>
+<li>
+<p>One <code>VERSION.commit_audit.change_type</code> is <code>CREATE</code>, the other one is <code>MODIFY</code></p>
+</li>
+</ol>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Flow</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Invoke the create <code>COMPOSITION</code> service with a valid event <code>COMPOSITION</code> and the existing <code>ehr_id</code></p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>The <code>COMPOSITION</code> reference the existing OPT</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>The result should be positive and a new <code>COMPOSITION</code> should exist in the EHR</p>
+</li>
+<li>
+<p>Invoke the update <code>COMPOSITION</code> service with a valid event <code>COMPOSITION</code> to the existing <code>ehr_id</code> and <code>preceding_version_uid</code> should be the version uid from the <code>COMPOSITION</code> created in 1</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>This <code>COMPOSITION</code> has the same OPT as the <code>COMPOSITION</code> created in 1</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>The result should be positive and a new version of the existing <code>COMPOSITION</code> should exist in the EHR</p>
+</li>
+</ol>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Test runners</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a href="https://specifications.openehr.org/releases/CNF/latest/tests/platform/robot/I_EHR_COMPOSITION/update_composition/I_EHR_COMPOSITION.update_composition-event.robot" target="_blank" rel="noopener">REST API / Robot</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_test_case_i_ehr_composition_update_composition_persistent"><a class="anchor" href="#_test_case_i_ehr_composition_update_composition_persistent"></a><a class="link" href="#_test_case_i_ehr_composition_update_composition_persistent">Test Case I_EHR_COMPOSITION.update_composition-persistent</a></h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 80%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Description</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Update an existing persistent <code>COMPOSITION</code></p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Pre-conditions</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The OPT referenced by the <code>COMPOSITIONs</code> to commit exists on the server</p>
+</li>
+<li>
+<p>An EHR with known <code>ehr_id</code> should exist</p>
+</li>
+<li>
+<p>The EHR should have no commits</p>
+</li>
+</ol>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Post-conditions</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The server should contain one <code>VERSIONED_OBJECT</code></p>
+</li>
+<li>
+<p>The <code>VERSIONED_OBJECT</code> should have two <code>VERSIONs</code> of <code>COMPOSITION</code></p>
+</li>
+<li>
+<p>The <code>COMPOSITIONs</code> should comply with the existing OPT</p>
+</li>
+</ol>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Flow</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Invoke the create <code>COMPOSITION</code> service with a valid persistent <code>COMPOSITION</code> and the existing <code>ehr_id</code></p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>The OPT referenced by this <code>COMPOSITION</code> exists on the server</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>The result should be positive and a new <code>COMPOSITION</code> should exist in the EHR</p>
+</li>
+<li>
+<p>Invoke the update <code>COMPOSITION</code> service with a valid persistent <code>COMPOSITION</code>, to the existing <code>ehr_id</code></p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>that has the same template as the <code>COMPOSITION</code> created in 1.,</p>
+</li>
+<li>
+<p><code>preceding_version_uid</code> should be the <code>VERSION.uid</code> from the <code>COMPOSITION</code> created in 1</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>The result should be positive and a new version of the existing <code>COMPOSITION</code> should exist in the EHR</p>
+</li>
+</ol>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Test runners</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a href="https://specifications.openehr.org/releases/CNF/latest/tests/platform/robot/I_EHR_COMPOSITION/update_composition/I_EHR_COMPOSITION.update_composition-persistent.robot" target="_blank" rel="noopener">REST API / Robot</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_test_case_i_ehr_composition_update_composition_non_existent"><a class="anchor" href="#_test_case_i_ehr_composition_update_composition_non_existent"></a><a class="link" href="#_test_case_i_ehr_composition_update_composition_non_existent">Test Case I_EHR_COMPOSITION.update_composition-non_existent</a></h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 80%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Description</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Update a non-existing <code>COMPOSITION</code></p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Pre-conditions</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The OPT referenced by the <code>COMPOSITIONs</code> to commit exists on the server</p>
+</li>
+<li>
+<p>An EHR with known <code>ehr_id</code> should exist</p>
+</li>
+<li>
+<p>The EHR should have no commits</p>
+</li>
+</ol>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Post-conditions</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>None</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Flow</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Invoke the update <code>COMPOSITION</code> service with a valid event <code>COMPOSITION</code>, the existing <code>ehr_id</code> and                                           <code>preceding_version_uid</code> should be a random value</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>The <code>COMPOSITION</code> should comply with the existing OPT</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>The result should be negative and return an error related to the non-existence of the <code>preceding_version_id</code></p>
+</li>
+</ol>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Test runners</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a href="https://specifications.openehr.org/releases/CNF/latest/tests/platform/robot/I_EHR_COMPOSITION/update_composition/I_EHR_COMPOSITION.update_composition-non_existent.robot" target="_blank" rel="noopener">REST API / Robot</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_test_case_i_ehr_composition_update_composition_wrong_template"><a class="anchor" href="#_test_case_i_ehr_composition_update_composition_wrong_template"></a><a class="link" href="#_test_case_i_ehr_composition_update_composition_wrong_template">Test Case I_EHR_COMPOSITION.update_composition-wrong_template</a></h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 80%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Description</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Update an existing <code>COMPOSITION</code>, referencing a different template</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Pre-conditions</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The OPTs, referenced by the <code>COMPOSITIONs</code> to commit, exist on the server</p>
+</li>
+<li>
+<p>An EHR with known <code>ehr_id</code> should exist</p>
+</li>
+<li>
+<p>The EHR should have no commits</p>
+</li>
+</ol>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Post-conditions</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The server has a new <code>VERSIONED_OBJECT</code></p>
+</li>
+<li>
+<p>The <code>VERSIONED_OBJECT</code> has one version of a <code>COMPOSITION</code></p>
+</li>
+</ol>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Flow</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Invoke the create <code>COMPOSITION</code> service with a valid event <code>COMPOSITION</code> and the existing <code>ehr_id</code></p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>The OPT referenced by this <code>COMPOSITION</code> exists on the server</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>The result should be positive and a new <code>COMPOSITION</code> should exist in the EHR</p>
+</li>
+<li>
+<p>Invoke the update <code>COMPOSITION</code> service with a valid event <code>COMPOSITION</code>, to the existing <code>ehr_id</code> and <code>preceding_version_uid</code> should be the version uid from the <code>COMPOSITION</code> created in 1</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>The <code>COMPOSITION</code> references a different template than the one referenced by the <code>COMPOSITION</code> created in 1.</p>
+</li>
+<li>
+<p>The OPT referenced by this <code>COMPOSITION</code> exists on the server</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>The result should be negative and return an error related to the <code>template_id</code> mismatch</p>
+</li>
+</ol>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Test runners</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a href="https://specifications.openehr.org/releases/CNF/latest/tests/platform/robot/I_EHR_COMPOSITION/update_composition/I_EHR_COMPOSITION.update_composition-wrong_template.robot" target="_blank" rel="noopener">REST API / Robot</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_delete_composition"><a class="anchor" href="#_delete_composition"></a><a class="link" href="#_delete_composition">Delete COMPOSITION</a></h3>
+<div class="paragraph">
+<p>Service Model reference: <a href="https://specifications.openehr.org/releases/SM/latest/openehr_platform.html#_i_ehr_composition_interface" target="_blank" rel="noopener"><code>I_EHR_COMPOSITION.<em>delete_composition()</em></code></a></p>
+</div>
+<div class="sect3">
+<h4 id="_test_case_i_ehr_composition_delete_composition_event"><a class="anchor" href="#_test_case_i_ehr_composition_delete_composition_event"></a><a class="link" href="#_test_case_i_ehr_composition_delete_composition_event">Test Case I_EHR_COMPOSITION.delete_composition-event</a></h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 80%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Description</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Delete event <code>COMPOSITION</code></p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Pre-conditions</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The OPT referenced by the <code>COMPOSITIONs</code> to commit exists on the server</p>
+</li>
+<li>
+<p>An EHR with known <code>ehr_id</code> should exist</p>
+</li>
+<li>
+<p>The EHR should have no commits</p>
+</li>
+</ol>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Post-conditions</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The server has one <code>VERSIONED_OBJECT</code></p>
+</li>
+<li>
+<p>The <code>VERSIONED_OBJECT</code> contains two versions of <code>COMPOSITION</code></p>
+</li>
+<li>
+<p>The second <code>VERSION.lifecycle_state</code> value is the code `openehr::523</p>
+</li>
+</ol>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">deleted</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>`</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Flow</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Invoke the create <code>COMPOSITION</code> service with a valid event <code>COMPOSITION</code> and the existing <code>ehr_id</code></p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>The <code>COMPOSITION</code> complies with the existing OPT</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>The result should be positive and a new <code>COMPOSITION</code> should exist in the EHR</p>
+</li>
+<li>
+<p>Invoke the delete <code>COMPOSITION</code> service with the existing <code>ehr_id</code> and <code>preceding_version_uid</code> should be the version id of the <code>COMPOSITION</code> created in 1</p>
+</li>
+<li>
+<p>The result should be positive, and the <code>COMPOSITION</code> should be deleted</p>
+</li>
+</ol>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Test runners</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a href="https://specifications.openehr.org/releases/CNF/latest/tests/platform/robot/I_EHR_COMPOSITION/delete_composition/I_EHR_COMPOSITION.delete_composition-event.robot" target="_blank" rel="noopener">REST API / Robot</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The common implementation of the <code>delete</code> operation is two create a new <code>VERSION</code> of the <code>COMPOSITION</code> that has <code>VERSION.commit_audit.change_type = openehr::523|deleted|</code>, and <code>VERSION.lifecycle_state = openehr::523|deleted|</code>. So the <code>delete</code> operation is not a physical delete but a logical delete. Some implementations might add the option of a physical deleted. This test case considers the <code>postcondition</code> to be a logical delete, which behaves like an <code>update</code> operation in which a new <code>VERSION</code> of an existing <code>COMPOSITION</code> is created.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_test_case_i_ehr_composition_delete_composition_persistent"><a class="anchor" href="#_test_case_i_ehr_composition_delete_composition_persistent"></a><a class="link" href="#_test_case_i_ehr_composition_delete_composition_persistent">Test Case I_EHR_COMPOSITION.delete_composition-persistent</a></h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 80%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Description</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Delete persistent <code>COMPOSITION</code></p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Pre-conditions</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The OPT referenced by the <code>COMPOSITIONs</code> to commit exists on the server</p>
+</li>
+<li>
+<p>An EHR with known <code>ehr_id</code> should exist</p>
+</li>
+<li>
+<p>The EHR should have no commits</p>
+</li>
+</ol>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Post-conditions</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The server has one <code>VERSIONED_OBJECT</code></p>
+</li>
+<li>
+<p>The <code>VERSIONED_OBJECT</code> contains two versions of <code>COMPOSITION</code></p>
+</li>
+<li>
+<p>The second <code>VERSION.lifecycle_state</code> value is the code `openehr::523</p>
+</li>
+</ol>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">deleted</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>`</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Flow</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Invoke the create <code>COMPOSITION</code> service with a valid persistent <code>COMPOSITION</code> and the existing <code>ehr_id</code></p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>The <code>COMPOSITION</code> complies with the existing OPT</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>The result should be positive and a new <code>COMPOSITION</code> should exist in the EHR</p>
+</li>
+<li>
+<p>Invoke the delete <code>COMPOSITION</code> service with the existing <code>ehr_id</code> and <code>preceding_version_uid</code> should be the version id of the <code>COMPOSITION</code> created in 1</p>
+</li>
+<li>
+<p>The result should be positive, and the <code>COMPOSITION</code> should be deleted</p>
+</li>
+</ol>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Test runners</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a href="https://specifications.openehr.org/releases/CNF/latest/tests/platform/robot/I_EHR_COMPOSITION/delete_composition/I_EHR_COMPOSITION.delete_composition-persistent.robot" target="_blank" rel="noopener">REST API / Robot</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_test_case_i_ehr_composition_delete_composition_non_existent"><a class="anchor" href="#_test_case_i_ehr_composition_delete_composition_non_existent"></a><a class="link" href="#_test_case_i_ehr_composition_delete_composition_non_existent">Test Case I_EHR_COMPOSITION.delete_composition-non_existent</a></h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 80%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Description</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Delete persistent <code>COMPOSITION</code></p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Pre-conditions</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The OPT referenced by the <code>COMPOSITIONs</code> to commit exists on the server</p>
+</li>
+<li>
+<p>An EHR with known <code>ehr_id</code> should exist</p>
+</li>
+<li>
+<p>The EHR should have no commits</p>
+</li>
+</ol>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Post-conditions</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>None</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Flow</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Invoke the delete <code>COMPOSITION</code> service with the existing <code>ehr_id</code> and a random <code>preceding_version_uid</code></p>
+</li>
+<li>
+<p>The result should be negative and return an error related to the non-existent <code>COMPOSITION</code></p>
+</li>
+</ol>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Test runners</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><a href="https://specifications.openehr.org/releases/CNF/latest/tests/platform/robot/I_EHR_COMPOSITION/delete_composition/I_EHR_COMPOSITION.delete_composition-non_existent.robot" target="_blank" rel="noopener">REST API / Robot</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="../func_tc_ehr/">Test Suite: EHR_SERVICE</a></span>
+  <span class="next"><a href="../func_tc_ehr_contribution/">Test Suite: EHR_SERVICE / I_CONTRIBUTION Interface</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>
+    Copyright: © 2003+
+    <a href="https://www.openehr.org"
+        alt="is an independent, non-profit foundation, facilitating the sharing of health
+           records by consumers and clinicians via open specifications, clinical models
+           and open platform implementations.">The openEHR Foundation</a>
+  </p>
+
+  <p>
+    License:
+    <img src="../../../../ui/img/cc-by-nd-88x31.png"
+        alt="Creative Commons Attribution-NoDerivs 3.0 Unported."
+        style="vertical-align:middle;margin:0 0.25rem 0 0;">
+    <a href="https://creativecommons.org/licenses/by-nd/3.0/">
+      Creative Commons Attribution-NoDerivs 3.0 Unported.
+    </a>
+  </p>
+
+  <p>
+    <strong>Links: <strong>
+    <a href="https://www.openehr.org/terms-of-use" class="mr-1">Terms of use</a> |
+    <a href="https://www.openehr.org/privacy-policy" class="mx-1">Privacy policy</a> |
+    <a href="https://www.openehr.org/privacy-policy" class="mx-1">Logos &amp; Trademarks</a> |
+    <a href="https://www.openehr.org/contact-us" class="mx-1">Contact</a>
+  </p>
+</footer>
+
+<script id="site-script" src="../../../../ui/js/site.js" data-ui-root-path="../../../../ui"></script>
+<script defer src="../../../../ui/js/vendor/highlight.js"></script>
+<script src="../../../../ui/js/vendor/lunr.js"></script>
+<script src="../../../../ui/js/search-ui.js" id="search-ui-script" data-site-root-path="../../../.." data-snippet-length="80" data-stylesheet="../../../../ui/css/search.css"></script>
+<script async src="../../../../search-index.js"></script>
+<script src="../../../../ui/js/medium-zoom.min.js"></script>
+<script src="../../../../ui/js/zoom.js"></script>
+<script async src="../../../../ui/js/tabs.js"></script>
+  </body>
+</html>

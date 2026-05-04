@@ -1,0 +1,1211 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+    <title>The Basic Expression Language :: openEHR Specifications (Local Build)</title>
+    <link rel="canonical" href="https://sebastian-iancu.github.io/antora-openehr/LANG/development/BEL/language/">
+    <link rel="prev" href="../overview/">
+    <link rel="next" href="../expression_object_model/">
+    <meta name="description" content="openEHR Basic Expression Language specification">
+    <meta name="keywords" content="openehr, expressions, rules">
+    <meta name="generator" content="Antora 3.1.14">
+    <link rel="stylesheet" href="../../../../ui/css/site.css">
+    <link rel="stylesheet" href="../../../../ui/css/antora-openehr.css">
+    <link rel="stylesheet" href="../../../../ui/css/openehr.css">
+    <link rel="stylesheet" href="../../../../ui/css/tabs.css">
+    <link rel="stylesheet" href="../../../../ui/css/extra.css">
+<link rel="icon" href="../../../../ui/img/favicon.ico" type="image/x-icon">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://sebastian-iancu.github.io/antora-openehr">openEHR Specifications (Local Build)</a>
+
+      <div class="navbar-item search hide-for-print">
+        <div id="search-field" class="field has-filter">
+          <input id="search-input" type="text" placeholder="Search the docs">
+          <label class="filter checkbox">
+            <input type="checkbox" data-facet-filter="component:LANG"> Generic Languages only
+          </label>
+        </div>
+      </div>
+
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">Specifications</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://specifications.openehr.org/" target="_blank">
+              openEHR specification
+            </a>
+            <a class="navbar-item" href="https://specifications.openehr.org/releases/UML/development/index.html" target="_blank">
+              openEHR portal
+            </a>
+            <a class="navbar-item" href="https://ckm.openehr.org/ckm/" target="_blank">
+              openEHR CKM
+            </a>
+          </div>
+        </div>
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">Community</a>
+          <div class="navbar-dropdown is-right">
+            <a class="navbar-item" href="https://openehr.atlassian.net/secure/Dashboard.jspa?selectPageId=10190" target="_blank">
+              Issue trackers
+            </a>
+            <a class="navbar-item" href="https://discourse.openehr.org/" target="_blank">
+              Discourse Forum
+            </a>
+            <a class="navbar-item" href="https://specifications.openehr.org/wiki/display/spec/Specifications+Home" target="_blank">
+              Wiki
+            </a>
+            <a class="navbar-item" href="https://github.com/openEHR" target="_blank">
+              GitHub
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="LANG" data-version="development">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="../../">Generic Languages</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../">Overview</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../odin/">Object Data Instance Notation (ODIN)</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../odin/overview/">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../odin/basics/">Basics</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../odin/odin_artefacts/">ODIN Artefacts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../odin/content/">Content</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../odin/references/">References</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../odin/leaf_data/">Leaf Data</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../odin/path_syntax/">Path Syntax</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../odin/plug_in_syntaxes/">Plug-in Syntaxes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../odin/other_syntaxes/">Relationship with other Syntaxes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../odin/syntax_spec/">Syntax Specification</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../odin/appendix/">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../bmm/">Basic Meta-Model (BMM)</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../bmm/overview/">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../bmm/packages/">Package Structure</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../bmm/model_access/">Model Access Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../bmm/core-model/">Model Structure</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../bmm/core-types/">Types</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../bmm/core-classes/">Classes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../bmm/core-features/">Class Features</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../bmm/core-values/">Literal Values</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../bmm/expressions/">Expressions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../bmm/functional/">Functional Elements</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../bmm/statements/">Statements</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../bmm/model_semantics/">Model Semantics</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../bmm/extensions/">BMM Extensions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../bmm/appendix/">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../bmm_persistence/">BMM Persistence Model and Syntax</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../bmm_persistence/overview/">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../bmm_persistence/model/">Persistence Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../bmm_persistence/syntax/">BMM Persistence Syntax</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../bmm_persistence/appendix/">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../">Basic Expression Language (BEL)</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../overview/">Overview</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="./">The Basic Expression Language</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../expression_object_model/">The Basic Expression Object Model</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../syntax/">Syntax Specification</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../appendix/">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../EL/">Expression Language (EL)</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../EL/overview/">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../EL/basics/">EL Basics</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../EL/terminal_entities/">Terminal Entities</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../EL/expressions/">Complex Expressions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../EL/decision_tables/">Decision Tables</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../EL/syntax/">Syntax Specification</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../EL/appendix/">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Generic Languages</span>
+    <span class="version">development</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <div class="title"><a href="../../../../AM/latest/">Archetype Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../AM/latest/">Release-2.3.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../AM/Release-2.2.0/">Release-2.2.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../AM/Release-1.4.0/">Release-1.4.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../AM/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../BASE/latest/">Base Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../BASE/latest/">Release-1.2.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../BASE/Release-1.1.0/">Release-1.1.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../BASE/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../CDS/latest/">Clinical Decision Support</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../CDS/latest/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../CNF/latest/">Conformance Specifications</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../CNF/latest/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <div class="title"><a href="../../../latest/">Generic Languages</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../latest/">Release-1.0.0</a>
+        </li>
+        <li class="version is-current">
+          <a href="../../">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../TERM/latest/">openEHR Terminology</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../TERM/latest/">Release-3.0.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../TERM/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../PROC/latest/">Process Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../PROC/latest/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../QUERY/latest/">Query Languages</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../QUERY/latest/">Release-1.0.1</a>
+        </li>
+        <li class="version">
+          <a href="../../../../QUERY/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../RM/latest/">Reference Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../RM/latest/">Release-1.1.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../RM/Release-1.0.4/">Release-1.0.4</a>
+        </li>
+        <li class="version">
+          <a href="../../../../RM/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../ITS-REST/latest/">REST API specifications</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../ITS-REST/latest/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../SM/latest/">Service Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../SM/latest/">development</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../../BASE/latest/" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../../">Generic Languages</a></li>
+    <li><a href="../">Basic Expression Language (BEL)</a></li>
+    <li><a href="./">The Basic Expression Language</a></li>
+  </ul>
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">development</button>
+  <div class="version-menu">
+    <a class="version is-missing" href="../../../latest/">Release-1.0.0</a>
+    <a class="version is-current" href="./">development</a>
+  </div>
+</div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">The Basic Expression Language</h1>
+<div class="sect1">
+<h2 id="_overview"><a class="anchor" href="#_overview"></a><a class="link" href="#_overview">Overview</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This section describes the openEHR Basic Expression Language. In the various contexts where openEHR expressions are used, the syntax provides a foundation for concrete  syntaxes supporting specific value-referencing mechanisms, as well as other types of rules, operands etc. The key features of the language are: variable declarations, assignments and expressions. Most of the semantics are in the expression part, which is based on first-order predicate logic with the addition of arithmetic and relational operators to enable the use of numeric elements. Expressions may contain constants, variable references, value references and functions.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_syntax_style"><a class="anchor" href="#_syntax_style"></a><a class="link" href="#_syntax_style">Syntax style</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The syntax style used here is generally so-called 'snake_case' rather than so-called 'CamelCase', in common with other openEHR specifications, but either may be used in real applications.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_typing"><a class="anchor" href="#_typing"></a><a class="link" href="#_typing">Typing</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>BEL is fully typed. The type system is the same as that used in other openEHR components, and supports the same set of basic types as described in the <a href="https://specifications.openehr.org/releases/BASE/latest/foundation_types.html" target="_blank" rel="noopener">openEHR Foundation Types Specification</a>, namely:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>primitive types;</p>
+</li>
+<li>
+<p>container types:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>List&lt;T&gt;</code>, i.e. an ordered list of elements of primitive type T;</p>
+</li>
+<li>
+<p><code>Set&lt;T&gt;</code>, i.e. a set of elements of primitive type T;</p>
+</li>
+<li>
+<p><code>Hash&lt;K:Ordered,V&gt;</code>, i.e. a Hash table or dictionary;</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>an interval type:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Interval&lt;T: Ordered&gt;</code> where T is any ordered primitive type.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_literals"><a class="anchor" href="#_literals"></a><a class="link" href="#_literals">Literals</a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_primitive_types"><a class="anchor" href="#_primitive_types"></a><a class="link" href="#_primitive_types">Primitive Types</a></h3>
+<div class="paragraph">
+<p>The primitive types are shown below, along with typical literal values, which are expressed in the <a href="https://specifications.openehr.org/releases/LANG/latest/odin.html#_primitive_types" target="_blank" rel="noopener">ODIN syntax</a>.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 33.3333%;">
+<col style="width: 50.0001%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Literal value</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Boolean</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>True</code>, <code>False</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Boolean value</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Integer</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>10</code>, <code>-4</code>, <code>1024</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Integer value</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Real</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>10.0</code>, <code>0.345</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Real value</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Date</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>2004-08-12</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ISO8601-format date</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Date_time</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>2004-08-12T12:00:59+0100</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ISO8601-format date/time</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Time</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>12:00:59</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ISO8601-format time</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Duration</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>P39W</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ISO8601-format duration</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>"this is a string"</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Uri</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="https://en.wikipedia.org/wiki/Everest" class="bare">https://en.wikipedia.org/wiki/Everest</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Uri in <a href="#uri_syntax">RFC3986 format</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Terminology_code</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[snomed_ct::389086002]</code><br>
+                         <code>[snomed_ct::389086002|Hypoxia|]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Terminology code reference</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Automatic type promotion from <code>Integer</code> to <code>Real</code> applies to all integer and real values and expressions, in the same fashion as most programming languages.</p>
+</div>
+<div class="paragraph tbd">
+<p>TBD: do we need <code>Integer64</code> and <code>Real64</code>?</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_container_types"><a class="anchor" href="#_container_types"></a><a class="link" href="#_container_types">Container Types</a></h3>
+<div class="paragraph">
+<p>The same container types as defined in the <a href="https://specifications.openehr.org/releases/BASE/latest/foundation_types.html#_structure_types" target="_blank" rel="noopener">Foundation Types specification</a> are supported in BEL, as follows.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 33.3333%;">
+<col style="width: 50.0001%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Literal value</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>List&lt;T&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[val, val, &#8230;&#8203;]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Linear list of items of any primitive type, allowing order and repeated membership'</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Set&lt;T&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>{val, val, &#8230;&#8203;}</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Set of items of any primitive type; no order, unique membership;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Hash&lt;K:Ordered, V&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>&lt;<br>
+                              ["key1"] = &lt;val1&gt;<br>
+                              ["key2"] = &lt;val2&gt;<br>
+                              &#8230;&#8203;<br>
+                              ["keyN"] = &lt;valN&gt;<br>
+                         &gt;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Indexed linear container;<br>
+                                                         concretely, a table of values of any type V, keyed by values of any Ordered descendant K, typically String or Integer</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>The above types each have an assumed interface consisting of functions and procedures that apply to all members of the container, consistent with the semantics of the container. These include the following methods that may be accessed in BEL via the syntactic operators <code>for_all</code> and <code>there_exists</code> described below.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>    for_all (test(v: T): Boolean): Boolean
+            -- True if for every v in container, test (v) is True
+
+    there_exists (test(v: T): Boolean): Boolean
+            -- True if there is any v in container for which test (v) is True</pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_interval_type"><a class="anchor" href="#_interval_type"></a><a class="link" href="#_interval_type">Interval Type</a></h3>
+<div class="paragraph">
+<p>The same <code>Interval</code> type as defined in the <a href="https://specifications.openehr.org/releases/BASE/latest/foundation_types.html#_interval">Foundation Types specification</a> is supported in BEL, as follows. Literal interval values take the same form as in <a href="https://specifications.openehr.org/releases/LANG/latest/odin.html#_intervals_of_ordered_primitive_types">ODIN</a>.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 33.3333%;">
+<col style="width: 50.0001%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Literal value</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Interval&lt;T&gt;</code></p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Interval of any ordered primitive</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>|N..M|</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">the two-sided interval N &gt;= x &lt;= M</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>|&gt;N..M|</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">the two-sided interval N &gt; x &lt;= M</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>|N..&lt;M|</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">the two-sided interval N &gt;= x &lt; M</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>|&lt;N|</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">the one-sided interval x &lt; N</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>|&gt;N|</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">the one-sided interval x &gt; N</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>|&lt;=N|</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">the one-sided interval x &lt;= N</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>|&gt;=N|</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">the one-sided interval x &gt;= N</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>|N +/-M|</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">the two-sided interval of N ±M</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>|N±M|</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">the two-sided interval of N ±M</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Automatic type promotion from <code>Interval&lt;Integer&gt;</code> to <code>Interval&lt;Real&gt;</code> applies to all integer and real values and expressions, in the same fashion as most programming languages.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_statements"><a class="anchor" href="#_statements"></a><a class="link" href="#_statements">Statements</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>A BEL text consists of statements, each of which may be a declaration, an assignment or an assertion.</p>
+</div>
+<div class="sect2">
+<h3 id="_declarations"><a class="anchor" href="#_declarations"></a><a class="link" href="#_declarations">Declarations</a></h3>
+<div class="paragraph">
+<p>Variables are declared with a formal type. Bound variables additionally include an assignment to a path within an assumed data context, which may be understood as performing the binding. Local variable declaratoins may include an assignment to an expression result, in the manner of common programming languages.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>    -- local variable, primitive type
+    $date_of_birth: Date
+
+    -- local variable, container type
+    $heart_rate_history: List&lt;Real&gt;
+
+    -- local variable with assignment
+    $age_in_years: Integer := current_date() - $date_of_birth
+
+    -- a bound variable
+    $weight: Quantity := /data[id3]/events[id4]/data[id2]/items[id5]/value</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Variables are referenced within assignments and expressions using the same syntax, i.e. <code>var_name</code> and <code>$var_name</code>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_constants"><a class="anchor" href="#_constants"></a><a class="link" href="#_constants">Constants</a></h3>
+<div class="paragraph">
+<p>Constants are defined via the use of the equality operator <code>=</code> in a declaration and a literal value, as follows.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>    Mph_to_kmh_factor: Real = 1.6
+    Pounds_to_kg: Real = 0.4536
+    Systolic_normal_range: Interval&lt;Integer&gt; = |105..135|</pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_assignment"><a class="anchor" href="#_assignment"></a><a class="link" href="#_assignment">Assignment</a></h3>
+<div class="paragraph">
+<p>An assignment to a writable variable is expressed using the <code>:=</code> operator. An assignment may be made in a declaration in the same way as in many programming languages. The right hand side of an assignment is any value-returning expression. Typical assignments are illustrated below.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>    $speed_kmh: Real                             -- declaration
+    $speed_mph: Real := 35.0                     -- assignment in a declaration (not a constant)
+
+    $speed_kmh := $speed_mph * Mph_to_kmh_factor  -- assignment</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_bound_variables_evaluation_and_validity"><a class="anchor" href="#_bound_variables_evaluation_and_validity"></a><a class="link" href="#_bound_variables_evaluation_and_validity">Bound Variables, Evaluation and Validity</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Variables that are bound to entities in the data context function differently from local variables, since their availability is predicated on the existence of the relevant entities. For example, the variable <code>$body_weight</code> may be bound to a call that retrieves a patient heart rate from the EHR, via an appropriate API call. There is no guarantee that the value is available, so <code>$body_weight</code> may therefore be undefined in a sense not applicable to local variables. In a programming language, if a variable is not explicitly set, it has either the default value of the type (e.g. <code>0</code> for <code>Integer</code>) or a random value of the correct type. This behaviour is appropriate for local variables, but for bound variables that cannot be evaluated because the external entity does not exist, we want something like an exception to occur.</p>
+</div>
+<div class="paragraph">
+<p>The approach used for BEL is to allow bound variables to be used freely, as for local variables, but if a bound variable cannot be evaluated from the data context, an <code>'undefined value'</code> exception should be generated, indicating which variable could not be evaluated. To impose more control, the predicate <code>exists ()</code> can be used within an expression or assertion to ensure that one or more variables can be populated before proceeding with logic that depends on them, as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>    Check_vs_vars: exists $heart_rate and exists $blood_pressure</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>To assert that a certain part of a larger data structure exists, the following assertion can be used.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>    Smoker_details_recorded: $is_smoker implies exists $smoking_details</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="language-expressions"><a class="anchor" href="#language-expressions"></a><a class="link" href="#language-expressions">Expressions</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Expressions constitute the main part of the Expressions language, and consist of a familiar typed, operator-based syntax common to many programming languages and logics. Formally, an expression is one of the following:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>terminal entities;</p>
+</li>
+<li>
+<p>non-terminal entities;</p>
+<div class="ulist">
+<ul>
+<li>
+<p>operators;</p>
+</li>
+<li>
+<p>functions.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="_terminal_entities"><a class="anchor" href="#_terminal_entities"></a><a class="link" href="#_terminal_entities">Terminal Entities</a></h3>
+<div class="paragraph">
+<p>Terminal entities in BEL are any of the following:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>literals</p>
+</li>
+<li>
+<p>variable</p>
+</li>
+<li>
+<p>variable with sub-path</p>
+</li>
+<li>
+<p>constant</p>
+</li>
+<li>
+<p>function call</p>
+</li>
+<li>
+<p>raw path</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Use of variables, constants and function calls is the same as in common languages, using the following syntax.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>    -- expression containing a variable and function call
+    current_date() - $date_of_birth
+
+    -- expression containing a variable and a constant
+    $speed_mph * Mph_to_kmh_factor</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Variables that are bound to paths may be used to generate a reference to a sub-element, using an Xpath-like approach, as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>    $event: List&lt;Event&gt; := /data[id2]/events[id3]
+
+    Check_field_vals: $event/data[id4]/items[id7]/value/magnitude =
+        $event/data[id4]/items[id5]/value/magnitude - $event/data[id4]/items[id6]/value/magnitude</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In the above, the construction <code>$event/data[id4]/items[id7]/value/magnitude</code> references an element in the data context whose location is given by the path to which $event is bound, i.e. <code>/data[id2]/events[id3]</code>, concatenated with the subordinate path, giving a resulting path of <code>/data[id2]/events[id3]/data[id4]/items[id7]/value/magnitude</code>.</p>
+</div>
+<div class="paragraph">
+<p>Finally, in the current version of BEL, raw paths may be used directly as variables. This is primarily to allow UI expression building tools that work based on the path map of a data context (e.g. an openEHR archetype) to generate expressions directly using paths rather than introducing variables.</p>
+</div>
+<div class="sect3">
+<h4 id="_functions"><a class="anchor" href="#_functions"></a><a class="link" href="#_functions">Functions</a></h4>
+<div class="paragraph">
+<p>Functions are considered leaf entities in the Expression language, and can be of a built-in type or external (user-defined) type. A simple example is:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>    $date_of_birth: Date
+    $age: Duration
+
+    $age := current_date() - $date_of_birth</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This uses the built-in function <code>current_date()</code> to compute a person&#8217;s age in the standard way. The typing is based on the operator <code>-</code> (subtract) in the type <code>Date</code> having the following signature, as defined in the <a href="https://specifications.openehr.org/releases/BASE/latest/foundation_types.html#_iso8601_date_class" target="_blank" rel="noopener">openEHR Foundation Types Specification</a>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>    class Date
+        infix '-' alias subtract (Date): Duration</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The built-in functions are formally defined in the <a href="https://specifications.openehr.org/releases/BASE/latest/base_types.html" target="_blank" rel="noopener">openEHR Base Types Specification</a>. Some common ones are listed below.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 40%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Textual Rendering</th>
+<th class="tableblock halign-left valign-top">Signature</th>
+<th class="tableblock halign-left valign-top">Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top" colspan="4"><p class="tableblock">Degree 0 functions (no arguments)</p></th>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">current_date</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>current_date()</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">:Date</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Current date</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">current_time</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>current_time()</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">:Time</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Current time</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">current_date_time</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>current_date_time()</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">:Date_time</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Curent date time</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">current_time_zone</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>current_time_zone()</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">:Time_zone</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Curent time zone</p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top" colspan="4"><p class="tableblock">Degree N functions (N arguments)</p></th>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">sum</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>sum (x, y, &#8230;&#8203;.)</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&lt;Real, &#8230;&#8203;&gt;: Real</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Equivalent to x + y + &#8230;&#8203;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">mean</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>mean (x, y, &#8230;&#8203;)</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&lt;Real, &#8230;&#8203;&gt;: Real</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The mean (average) value of x, y, &#8230;&#8203;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">max</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>max (x, y, &#8230;&#8203;)</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&lt;Real, &#8230;&#8203;&gt;: Real</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The maximum value among x, y, &#8230;&#8203;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">min</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>min (x, y, &#8230;&#8203;)</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&lt;Real, &#8230;&#8203;&gt;: Real</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The minimum value among x, y, &#8230;&#8203;</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Any other functions that are used need to be mapped by the BEL engine to implementations with matching signatures.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="language-operators"><a class="anchor" href="#language-operators"></a><a class="link" href="#language-operators">Operators</a></h3>
+<div class="paragraph">
+<p>Expressions can include arithmetic, relational and boolean operators, plus the existential and universal quantifiers. The full operator set is shown below, along with textual and symbolic renderings. The latter are just standard Unicode symbols. Expression parsers should ideally support these symbols as operator equivalents in addition to the textual form, since it allows expressions to be expressed in a more compact and less language-independent way.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 16.6666%;">
+<col style="width: 16.6666%;">
+<col style="width: 50.0002%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Identifier</th>
+<th class="tableblock halign-left valign-top">Textual<br>
+               Rendering</th>
+<th class="tableblock halign-left valign-top">Symbolic<br>
+                               Rendering</th>
+<th class="tableblock halign-left valign-top">Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top" colspan="4"><p class="tableblock">Arithmetic Operators - Numeric result; descending precendence order</p></th>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">exp</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">^</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">^</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Expontentiation</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">times</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">*</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">*</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Multiplication</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">divide</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Division</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">mod</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">%</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Modulo (whole number) division</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">plus</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">+</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">+</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Addition</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">minus</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Subtraction</p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top" colspan="4"><p class="tableblock">Relational Operators - Boolean result; equal precedence</p></th>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">eq</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">=</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">=</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Equality relation between numerics</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ne</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">!=</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">≠</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Inequality relation between numerics</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">lt</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&lt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&lt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Less than relation between numerics</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">le</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&lt;=</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">≤</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Less than or equal relation between numerics</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">gt</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Greater than relation between numerics</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ge</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&gt;=</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">≥</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Greater than or equal relation between numerics</p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top" colspan="4"><p class="tableblock">Logical Operators - Boolean result; descending precendence order</p></th>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">not</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">not, ~</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">∼</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Negation, "not p"</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">and</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">and</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">∧</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Logical conjunction, "p and q"</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">or</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">or</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">∨</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Logical disjunction, "p or q"</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">xor</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">xor</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">⊻</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Exclusive or, "only one of p or q"</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">implies</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">implies</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">⇒</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Material implication, "p implies q", or "if p then q"</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Operator semantics that require further explanation are described below.</p>
+</div>
+<div class="sect3">
+<h4 id="_logical_negation"><a class="anchor" href="#_logical_negation"></a><a class="link" href="#_logical_negation">Logical Negation</a></h4>
+<div class="paragraph">
+<p>All Boolean operators take Boolean operands and generate a Boolean result. The <code>not</code> operator can be applied as a prefix operator to all operators returning a Boolean result as well as a parenthesised Boolean expression.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_precedence_and_parentheses"><a class="anchor" href="#_precedence_and_parentheses"></a><a class="link" href="#_precedence_and_parentheses">Precedence and Parentheses</a></h4>
+<div class="paragraph">
+<p>The precendence of operators follows the order shown in the operator tables above. To change precedence, parentheses can be used in the fashion typical of most programming languages, as shown below.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>    $at_risk := $weight &gt; 120 and ($is_smoker or $is_hypertensive)</pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_container_operators"><a class="anchor" href="#_container_operators"></a><a class="link" href="#_container_operators">Container Operators</a></h4>
+<div class="paragraph">
+<p>The two standard quantification operators from predicate logic <code>there exists</code> (∃ operator) and <code>for all</code> (∀ operator) are defined in BEL for the container types found in the <a href="https://specifications.openehr.org/releases/BASE/latest/foundation_types.html" target="_blank" rel="noopener">openEHR Foundation Types</a>.</p>
+</div>
+<div class="paragraph">
+<p>The textual syntax of <code>there exists</code> is as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>    there_exists v : container_var | &lt;Boolean expression mentioning v&gt;</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Here, the <code>|</code> symbol is usually read in English as 'such that'. The symbolic equivalent may also be used:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>    ∃ v : container_var | &lt;Boolean expression mentioning v&gt;</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>for_all</code> operator has similar textual syntax:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>    for_all v : container_var | &lt;Boolean expression mentioning v&gt;</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Here, the <code>|</code> symbol is normally read in English as as 'it holds that'. The symbolic equivalent may also be used:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>    ∀ v : container_var | &lt;Boolean expression mentioning v&gt;</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>For both operators, the <code>:</code> symbol may be replaced by the keyword <code>in</code>.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="../overview/">Overview</a></span>
+  <span class="next"><a href="../expression_object_model/">The Basic Expression Object Model</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>
+    Copyright: © 2003+
+    <a href="https://www.openehr.org"
+        alt="is an independent, non-profit foundation, facilitating the sharing of health
+           records by consumers and clinicians via open specifications, clinical models
+           and open platform implementations.">The openEHR Foundation</a>
+  </p>
+
+  <p>
+    License:
+    <img src="../../../../ui/img/cc-by-nd-88x31.png"
+        alt="Creative Commons Attribution-NoDerivs 3.0 Unported."
+        style="vertical-align:middle;margin:0 0.25rem 0 0;">
+    <a href="https://creativecommons.org/licenses/by-nd/3.0/">
+      Creative Commons Attribution-NoDerivs 3.0 Unported.
+    </a>
+  </p>
+
+  <p>
+    <strong>Links: <strong>
+    <a href="https://www.openehr.org/terms-of-use" class="mr-1">Terms of use</a> |
+    <a href="https://www.openehr.org/privacy-policy" class="mx-1">Privacy policy</a> |
+    <a href="https://www.openehr.org/privacy-policy" class="mx-1">Logos &amp; Trademarks</a> |
+    <a href="https://www.openehr.org/contact-us" class="mx-1">Contact</a>
+  </p>
+</footer>
+
+<script id="site-script" src="../../../../ui/js/site.js" data-ui-root-path="../../../../ui"></script>
+<script defer src="../../../../ui/js/vendor/highlight.js"></script>
+<script src="../../../../ui/js/vendor/lunr.js"></script>
+<script src="../../../../ui/js/search-ui.js" id="search-ui-script" data-site-root-path="../../../.." data-snippet-length="80" data-stylesheet="../../../../ui/css/search.css"></script>
+<script async src="../../../../search-index.js"></script>
+<script src="../../../../ui/js/medium-zoom.min.js"></script>
+<script src="../../../../ui/js/zoom.js"></script>
+<script async src="../../../../ui/js/tabs.js"></script>
+  </body>
+</html>

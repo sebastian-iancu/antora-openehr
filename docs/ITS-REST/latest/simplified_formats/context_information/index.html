@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+    <title>Context Information :: openEHR Specifications (Local Build)</title>
+    <link rel="canonical" href="https://sebastian-iancu.github.io/antora-openehr/ITS-REST/latest/simplified_formats/context_information/">
+    <link rel="prev" href="../rm_mapping/">
+    <link rel="next" href="../appendix/">
+    <meta name="description" content="Simplified Formats (flat, structured) for openEHR Data">
+    <meta name="keywords" content="JSON, REST, web template, simplified data, flat, structured, simplified formats, SDT, simSDT, structSDT">
+    <meta name="generator" content="Antora 3.1.14">
+    <link rel="stylesheet" href="../../../../ui/css/site.css">
+    <link rel="stylesheet" href="../../../../ui/css/antora-openehr.css">
+    <link rel="stylesheet" href="../../../../ui/css/openehr.css">
+    <link rel="stylesheet" href="../../../../ui/css/tabs.css">
+    <link rel="stylesheet" href="../../../../ui/css/extra.css">
+<link rel="icon" href="../../../../ui/img/favicon.ico" type="image/x-icon">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://sebastian-iancu.github.io/antora-openehr">openEHR Specifications (Local Build)</a>
+
+      <div class="navbar-item search hide-for-print">
+        <div id="search-field" class="field has-filter">
+          <input id="search-input" type="text" placeholder="Search the docs">
+          <label class="filter checkbox">
+            <input type="checkbox" data-facet-filter="component:ITS-REST"> REST API specifications only
+          </label>
+        </div>
+      </div>
+
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">Specifications</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://specifications.openehr.org/" target="_blank">
+              openEHR specification
+            </a>
+            <a class="navbar-item" href="https://specifications.openehr.org/releases/UML/development/index.html" target="_blank">
+              openEHR portal
+            </a>
+            <a class="navbar-item" href="https://ckm.openehr.org/ckm/" target="_blank">
+              openEHR CKM
+            </a>
+          </div>
+        </div>
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">Community</a>
+          <div class="navbar-dropdown is-right">
+            <a class="navbar-item" href="https://openehr.atlassian.net/secure/Dashboard.jspa?selectPageId=10190" target="_blank">
+              Issue trackers
+            </a>
+            <a class="navbar-item" href="https://discourse.openehr.org/" target="_blank">
+              Discourse Forum
+            </a>
+            <a class="navbar-item" href="https://specifications.openehr.org/wiki/display/spec/Specifications+Home" target="_blank">
+              Wiki
+            </a>
+            <a class="navbar-item" href="https://github.com/openEHR" target="_blank">
+              GitHub
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="ITS-REST" data-version="development">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="../../">REST API specifications</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../">Overview</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../">Simplified Formats for openEHR Data</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../overview/">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../design_rationale/">Design Rationale</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../basic_concepts/">Basic Concepts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../rm_mapping/">RM Mappings</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="./">Context Information</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../appendix/">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../smart_app_launch/">SMART on openEHR (SMART)</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../smart_app_launch/overview/">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../smart_app_launch/registration/">Application Registration</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../smart_app_launch/service_discovery/">Service Discovery</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../smart_app_launch/application_types/">Application Types</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../smart_app_launch/authentication/">Authentication</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../smart_app_launch/authorization/">Authorization</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../smart_app_launch/scopes/">Scopes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../smart_app_launch/experimental_features/">Experimental features</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../smart_app_launch/appendix/">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../simplified_data_template/">Simplified Data Template (SDT)</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../simplified_data_template/appendix/">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">REST API specifications</span>
+    <span class="version">development</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <div class="title"><a href="../../../../AM/latest/">Archetype Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../AM/latest/">Release-2.3.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../AM/Release-2.2.0/">Release-2.2.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../AM/Release-1.4.0/">Release-1.4.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../AM/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../BASE/latest/">Base Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../BASE/latest/">Release-1.2.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../BASE/Release-1.1.0/">Release-1.1.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../BASE/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../CDS/latest/">Clinical Decision Support</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../CDS/latest/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../CNF/latest/">Conformance Specifications</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../CNF/latest/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../LANG/latest/">Generic Languages</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../LANG/latest/">Release-1.0.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../LANG/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../TERM/latest/">openEHR Terminology</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../TERM/latest/">Release-3.0.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../TERM/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../PROC/latest/">Process Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../PROC/latest/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../QUERY/latest/">Query Languages</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../QUERY/latest/">Release-1.0.1</a>
+        </li>
+        <li class="version">
+          <a href="../../../../QUERY/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../RM/latest/">Reference Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../RM/latest/">Release-1.1.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../RM/Release-1.0.4/">Release-1.0.4</a>
+        </li>
+        <li class="version">
+          <a href="../../../../RM/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <div class="title"><a href="../../">REST API specifications</a></div>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../../">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../SM/latest/">Service Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../SM/latest/">development</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../../BASE/latest/" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../../">REST API specifications</a></li>
+    <li><a href="../">Simplified Formats for openEHR Data</a></li>
+    <li><a href="./">Context Information</a></li>
+  </ul>
+</nav>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Context Information</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>To simplify the input, the flat formate offers the option to set context values which set default values in the rm-tree.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+  "ctx/language": "de",
+  "ctx/territory": "US",
+  "ctx/time": "2021-04-01T12:40:31.418954+02:00",
+  "ctx/composer_name": "Silvia Blake",
+  "ctx/composer_id": "123",
+  "ctx/id_namespace": "HOSPITAL-NS",
+  "ctx/id_scheme": "HOSPITAL-NS",
+  "ctx/work_flow_id|id": "567",
+  "ctx/work_flow_id|id_scheme": "HOSPITAL-NS",
+  "ctx/work_flow_id|namespace": "HOSPITAL-NS",
+  "ctx/work_flow_id|type": "ORGANISATION",
+  "ctx/participation_name:0": "Dr. Marcus Johnson",
+  "ctx/participation_function:0": "requester",
+  "ctx/participation_mode:0": "face-to-face communication",
+  "ctx/participation_id:0": "199",
+  "ctx/participation_identifiers:0": "issuer1::assigner1::id1::PERSON;issuer2::assigner2::id2::PERSON",
+  "ctx/participation_name:1": "Lara Markham",
+  "ctx/participation_function:1": "performer",
+  "ctx/participation_id:1": "198",
+  "ctx/participation_identifiers:1|issuer:0": "issuer3",
+  "ctx/participation_identifiers:1|assigner:0": "assigner3",
+  "ctx/participation_identifiers:1|id:0": "id3",
+  "ctx/participation_identifiers:1|type:0": "PERSON",
+  "ctx/participation_identifiers:1|issuer:1": "issuer4",
+  "ctx/participation_identifiers:1|assigner:1": "assigner4",
+  "ctx/participation_identifiers:1|id:1": "id4",
+  "ctx/participation_identifiers:1|type:1": "PERSON",
+  "ctx/health_care_facility|name": "Hospital",
+  "ctx/health_care_facility|id": "9091"
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_composer"><a class="anchor" href="#_composer"></a><a class="link" href="#_composer">Composer</a></h2>
+<div class="sectionbody">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+  "ctx/composer_name": "Silvia Blake",
+  "ctx/composer_id": "123",
+  "ctx/id_namespace": "HOSPITAL-NS",
+  "ctx/id_scheme": "HOSPITAL-NS"
+}</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+  "ctx/composer_self": true,
+  "ctx/composer_id": "123",
+  "ctx/id_namespace": "HOSPITAL-NS",
+  "ctx/id_scheme": "HOSPITAL-NS"
+}</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>composer_name</code>: sets composer to party identified and sets the name</p>
+</li>
+<li>
+<p><code>composer_self</code>: sets composer to party_self</p>
+</li>
+<li>
+<p><code>composer_id</code>: sets composer <code>external_ref.id.value</code> and sets it to party identified unless composer_self is set to true</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_id_namespace_and_scheme"><a class="anchor" href="#_id_namespace_and_scheme"></a><a class="link" href="#_id_namespace_and_scheme">ID Namespace and Scheme</a></h2>
+<div class="sectionbody">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+  "ctx/composer_id": "123",
+  "ctx/id_namespace": "HOSPITAL-NS",
+  "ctx/id_scheme": "HOSPITAL-NS"
+}</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>id_namespace</code>: default namespace for external references: <code>OBJECT_REF.namespace</code></p>
+</li>
+<li>
+<p><code>id_scheme</code>: default scheme for external references: <code>OBJECT_REF.id.scheme</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_language_and_territory"><a class="anchor" href="#_language_and_territory"></a><a class="link" href="#_language_and_territory">Language and Territory</a></h2>
+<div class="sectionbody">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+  "ctx/language": "de",
+  "ctx/territory": "US"
+}</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>language</code>: set the default language for <code>ENTRY.language</code> &amp;&amp; <code>COMPOSITION.language</code></p>
+</li>
+<li>
+<p><code>territory</code>: set the default territory for <code>COMPOSITION.territory</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_workflow_id"><a class="anchor" href="#_workflow_id"></a><a class="link" href="#_workflow_id">Workflow ID</a></h2>
+<div class="sectionbody">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+  "ctx/work_flow_id|id": "567",
+  "ctx/work_flow_id|id_scheme": "HOSPITAL-NS",
+  "ctx/work_flow_id|namespace": "HOSPITAL-NS",
+  "ctx/work_flow_id|type": "ORGANISATION"
+}</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>set the default for <code>ENTRY.workflow_id</code></p>
+</li>
+<li>
+<p><code>work_flow_id|id_scheme</code> can be left out if <code>ctx/id_scheme</code> is set</p>
+</li>
+<li>
+<p><code>work_flow_id|namespace</code> can be left out if <code>ctx/namespace</code> is set</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_participation"><a class="anchor" href="#_participation"></a><a class="link" href="#_participation">Participation</a></h2>
+<div class="sectionbody">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+  "ctx/participation_name:0": "Dr. Marcus Johnson",
+  "ctx/participation_function:0": "requester",
+  "ctx/participation_mode:0": "face-to-face communication",
+  "ctx/participation_id:0": "199",
+  "ctx/participation_identifiers:0": "issuer1::assigner1::id1::PERSON;issuer2::assigner2::id2::PERSON",
+
+  "ctx/participation_name:1": "Lara Markham",
+  "ctx/participation_function:1": "performer",
+  "ctx/participation_id:1": "198",
+  "ctx/participation_identifiers:1|issuer:0": "issuer3",
+  "ctx/participation_identifiers:1|assigner:0": "assigner3",
+  "ctx/participation_identifiers:1|id:0": "id3",
+  "ctx/participation_identifiers:1|type:0": "PERSON",
+  "ctx/participation_identifiers:1|issuer:1": "issuer4",
+  "ctx/participation_identifiers:1|assigner:1": "assigner4",
+  "ctx/participation_identifiers:1|id:1": "id4",
+  "ctx/participation_identifiers:1|type:1": "PERSON"
+}</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>sets the default for <code>EVENT_CONTEXT.participations</code> and <code>ENTRY.other_participations</code></p>
+</li>
+<li>
+<p><code>participation_identifiers</code> can be set in a compact or non compat form.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_health_care_facility"><a class="anchor" href="#_health_care_facility"></a><a class="link" href="#_health_care_facility">health_care_facility</a></h2>
+<div class="sectionbody">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+  "ctx/health_care_facility|name": "Hospital",
+  "ctx/health_care_facility|id": "9091",
+  "ctx/id_namespace": "HOSPITAL-NS",
+  "ctx/id_scheme": "HOSPITAL-NS"
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>set the default for <code>COMPOSITION.context.health_care_facility</code></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_time"><a class="anchor" href="#_time"></a><a class="link" href="#_time">time</a></h2>
+<div class="sectionbody">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+  "ctx/time": "2021-04-01T12:40:31.418954+02:00"
+}</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>set the default time for <code>ACTION.time</code>, <code>COMPOSITION.context.start_time</code>, <code>OBSERVATION.history.origin</code></p>
+</li>
+<li>
+<p><code>EVENT.time</code> will be set to history.origin (plus offset if set to a minimum in the template)</p>
+</li>
+<li>
+<p><code>ctx/time</code> will be set to <code>now()</code> if not set explicitly</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_end_time"><a class="anchor" href="#_end_time"></a><a class="link" href="#_end_time">end_time</a></h2>
+<div class="sectionbody">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+  "ctx/end_time": "2021-05-01T12:40:31.418954+02:00"
+}</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>set the default time <code>COMPOSITION.context.end_time</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_history_origin"><a class="anchor" href="#_history_origin"></a><a class="link" href="#_history_origin">history_origin</a></h2>
+<div class="sectionbody">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+  "ctx/history_origin": "2021-05-01T12:40:31.418954+02:00"
+}</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>set the default time for <code>OBSERVATION.history.origin</code></p>
+</li>
+<li>
+<p><code>EVENT.time</code> will be set to history.origin (plus offset if set to a minimum in the template)</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_action_time"><a class="anchor" href="#_action_time"></a><a class="link" href="#_action_time">action_time</a></h2>
+<div class="sectionbody">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+  "ctx/action_time": "2021-05-01T12:40:31.418954+02:00"
+}</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>set the default time for <code>ACTION.time</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_activity_timing"><a class="anchor" href="#_activity_timing"></a><a class="link" href="#_activity_timing">activity_timing</a></h2>
+<div class="sectionbody">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+  "ctx/activity_timing": "R4/2022-01-31T10:00:00+01:00/P3M"
+}</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>set the default for <code>ACTIVITY.timing</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_provider"><a class="anchor" href="#_provider"></a><a class="link" href="#_provider">provider</a></h2>
+<div class="sectionbody">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+  "ctx/provider_name": "Silvia Blake",
+  "ctx/provider_id": "123",
+  "ctx/id_namespace": "HOSPITAL-NS",
+  "ctx/id_scheme": "HOSPITAL-NS"
+}</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>set the default <code>PARTY_IDENTIFIED</code> for <code>ENTRY.provider</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_action_ism_transition_current_state"><a class="anchor" href="#_action_ism_transition_current_state"></a><a class="link" href="#_action_ism_transition_current_state">action_ism_transition_current_state</a></h2>
+<div class="sectionbody">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+  "ctx/action_ism_transition_current_state": "completed"
+}</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+  "ctx/action_ism_transition_current_state": "532"
+}</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>set the default for <code>ACTION.ism_transition.current_state</code></p>
+</li>
+<li>
+<p>either value or code is accepted</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_instruction_narrative"><a class="anchor" href="#_instruction_narrative"></a><a class="link" href="#_instruction_narrative">instruction_narrative</a></h2>
+<div class="sectionbody">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+  "ctx/instruction_narrative": "Human readable instruction narrative"
+}</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>set the default for <code>INSTRUCTION.narrative</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_location"><a class="anchor" href="#_location"></a><a class="link" href="#_location">location</a></h2>
+<div class="sectionbody">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+  "ctx/location": "Lab B2"
+}</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>set the default for <code>COMPOSITION.context.location</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_setting"><a class="anchor" href="#_setting"></a><a class="link" href="#_setting">setting</a></h2>
+<div class="sectionbody">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+  "ctx/setting": "other care"
+}</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+  "ctx/setting": "238"
+}</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>set the default for <code>COMPOSITION.context.setting</code></p>
+</li>
+<li>
+<p>either value or code is accepted</p>
+</li>
+<li>
+<p><code>ctx/setting</code> will be set to "other care" if not set explicitly</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_link"><a class="anchor" href="#_link"></a><a class="link" href="#_link">link</a></h2>
+<div class="sectionbody">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+  "ctx/link:0|type": "problem",
+  "ctx/link:0|meaning": "problem related note",
+  "ctx/link:0|target": "ehr://ehr.network/347a5490-55ee-4da9-b91a-9bba710f730e"
+}</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>set the default for <code>LOCATABLE.links</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="../rm_mapping/">RM Mappings</a></span>
+  <span class="next"><a href="../appendix/">Appendix</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>
+    Copyright: © 2003+
+    <a href="https://www.openehr.org"
+        alt="is an independent, non-profit foundation, facilitating the sharing of health
+           records by consumers and clinicians via open specifications, clinical models
+           and open platform implementations.">The openEHR Foundation</a>
+  </p>
+
+  <p>
+    License:
+    <img src="../../../../ui/img/cc-by-nd-88x31.png"
+        alt="Creative Commons Attribution-NoDerivs 3.0 Unported."
+        style="vertical-align:middle;margin:0 0.25rem 0 0;">
+    <a href="https://creativecommons.org/licenses/by-nd/3.0/">
+      Creative Commons Attribution-NoDerivs 3.0 Unported.
+    </a>
+  </p>
+
+  <p>
+    <strong>Links: <strong>
+    <a href="https://www.openehr.org/terms-of-use" class="mr-1">Terms of use</a> |
+    <a href="https://www.openehr.org/privacy-policy" class="mx-1">Privacy policy</a> |
+    <a href="https://www.openehr.org/privacy-policy" class="mx-1">Logos &amp; Trademarks</a> |
+    <a href="https://www.openehr.org/contact-us" class="mx-1">Contact</a>
+  </p>
+</footer>
+
+<script id="site-script" src="../../../../ui/js/site.js" data-ui-root-path="../../../../ui"></script>
+<script defer src="../../../../ui/js/vendor/highlight.js"></script>
+<script src="../../../../ui/js/vendor/lunr.js"></script>
+<script src="../../../../ui/js/search-ui.js" id="search-ui-script" data-site-root-path="../../../.." data-snippet-length="80" data-stylesheet="../../../../ui/css/search.css"></script>
+<script async src="../../../../search-index.js"></script>
+<script src="../../../../ui/js/medium-zoom.min.js"></script>
+<script src="../../../../ui/js/zoom.js"></script>
+<script async src="../../../../ui/js/tabs.js"></script>
+  </body>
+</html>

@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+    <title>Global Semantics :: openEHR Specifications (Local Build)</title>
+    <link rel="canonical" href="https://sebastian-iancu.github.io/antora-openehr/PROC/latest/task_planning/global_semantics/">
+    <link rel="prev" href="../1-definition_overview/">
+    <link rel="next" href="../execution_model_overview/">
+    <meta name="description" content="openEHR Task Planning specification">
+    <meta name="keywords" content="workflow, task, planning, EHR, EMR, reference model, openehr">
+    <meta name="generator" content="Antora 3.1.14">
+    <link rel="stylesheet" href="../../../../ui/css/site.css">
+    <link rel="stylesheet" href="../../../../ui/css/antora-openehr.css">
+    <link rel="stylesheet" href="../../../../ui/css/openehr.css">
+    <link rel="stylesheet" href="../../../../ui/css/tabs.css">
+    <link rel="stylesheet" href="../../../../ui/css/extra.css">
+<link rel="icon" href="../../../../ui/img/favicon.ico" type="image/x-icon">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://sebastian-iancu.github.io/antora-openehr">openEHR Specifications (Local Build)</a>
+
+      <div class="navbar-item search hide-for-print">
+        <div id="search-field" class="field has-filter">
+          <input id="search-input" type="text" placeholder="Search the docs">
+          <label class="filter checkbox">
+            <input type="checkbox" data-facet-filter="component:PROC"> Process Model only
+          </label>
+        </div>
+      </div>
+
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">Specifications</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://specifications.openehr.org/" target="_blank">
+              openEHR specification
+            </a>
+            <a class="navbar-item" href="https://specifications.openehr.org/releases/UML/development/index.html" target="_blank">
+              openEHR portal
+            </a>
+            <a class="navbar-item" href="https://ckm.openehr.org/ckm/" target="_blank">
+              openEHR CKM
+            </a>
+          </div>
+        </div>
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">Community</a>
+          <div class="navbar-dropdown is-right">
+            <a class="navbar-item" href="https://openehr.atlassian.net/secure/Dashboard.jspa?selectPageId=10190" target="_blank">
+              Issue trackers
+            </a>
+            <a class="navbar-item" href="https://discourse.openehr.org/" target="_blank">
+              Discourse Forum
+            </a>
+            <a class="navbar-item" href="https://specifications.openehr.org/wiki/display/spec/Specifications+Home" target="_blank">
+              Wiki
+            </a>
+            <a class="navbar-item" href="https://github.com/openEHR" target="_blank">
+              GitHub
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="PROC" data-version="development">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="../../">Process Model</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../">Overview</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../overview/">CDS, Guidelines and Planning Overview</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../overview/introduction/">Introduction</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../overview/needs/">Needs</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../overview/artefacts/">Care Process Artefacts and their Formalisation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../overview/deployment_paradigm/">Deployment Paradigm</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../overview/conceptual_architecture/">Conceptual Architecture</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../overview/deployment_architectures/">Architectural Use-cases</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../overview/appendix/">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../">Task Planning (TP) Specification</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../background/">Background</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../requirements/">Technical Requirements</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../design/">Design Principles</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../model_overview/">Task Planning Model Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../1-definition_overview/">Definition Model</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="./">Global Semantics</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../execution_model_overview/">Execution</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../model_materialised/">Materialised Model</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../model_history/">Plan Execution History</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../service_model/">Transactional Service Model</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../ehr_semantics/">Relationship with other openEHR EHR Artefacts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../appendix/">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../decision_language/">Decision Language specification</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../decision_language/overview/">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../decision_language/dlm_syntax/">DLM Syntax</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../decision_language/dlm_model/">DLM Model</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../decision_language/dl_module/">EL Modules</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../decision_language/terminology/">Terminology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../decision_language/data_context/">Data Bindings</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../decision_language/computing_context/">Computing Bindings</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../decision_language/appendix/">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../tp_vml/">Task Planning Visual Modelling Language (TP-VML)</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../tp_vml/overview/">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../tp_vml/elements/">Elements</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../tp_vml/patterns/">Patterns</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../tp_vml/appendix/">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../process_examples/">openEHR CDS, Guidelines and Planning Examples</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../process_examples/overview/">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../process_examples/teamwork/">Teamwork</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../process_examples/order_management/">Order Management</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../process_examples/chemo/">Multi-drug Chemotherapy</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../process_examples/antenatal/">Antenatal Care</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../process_examples/cancer_prescribing/">Breast Cancer Decision Protocol</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../process_examples/Covid19_severity/">Covid19 Severity Classification</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../process_examples/cha2ds_vasc/">CHA2DS2-VASc</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../process_examples/qrisk/">qRisk3-2017</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../process_examples/news2/">National Early Warning Score (NEWS) 2</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../process_examples/common_DLMs/">Common Decision Logic Modules</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../process_examples/appendix/">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Process Model</span>
+    <span class="version">development</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <div class="title"><a href="../../../../AM/latest/">Archetype Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../AM/latest/">Release-2.3.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../AM/Release-2.2.0/">Release-2.2.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../AM/Release-1.4.0/">Release-1.4.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../AM/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../BASE/latest/">Base Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../BASE/latest/">Release-1.2.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../BASE/Release-1.1.0/">Release-1.1.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../BASE/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../CDS/latest/">Clinical Decision Support</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../CDS/latest/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../CNF/latest/">Conformance Specifications</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../CNF/latest/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../LANG/latest/">Generic Languages</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../LANG/latest/">Release-1.0.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../LANG/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../TERM/latest/">openEHR Terminology</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../TERM/latest/">Release-3.0.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../TERM/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <div class="title"><a href="../../">Process Model</a></div>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../../">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../QUERY/latest/">Query Languages</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../QUERY/latest/">Release-1.0.1</a>
+        </li>
+        <li class="version">
+          <a href="../../../../QUERY/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../RM/latest/">Reference Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../RM/latest/">Release-1.1.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../RM/Release-1.0.4/">Release-1.0.4</a>
+        </li>
+        <li class="version">
+          <a href="../../../../RM/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../ITS-REST/latest/">REST API specifications</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../ITS-REST/latest/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../SM/latest/">Service Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../SM/latest/">development</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../../BASE/latest/" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../../">Process Model</a></li>
+    <li><a href="../">Task Planning (TP) Specification</a></li>
+    <li><a href="./">Global Semantics</a></li>
+  </ul>
+</nav>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Global Semantics</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>This section describes the global semantics of the model in execution, taking into account all elements described above.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_control_flow"><a class="anchor" href="#_control_flow"></a><a class="link" href="#_control_flow">Control Flow</a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_graph_structure"><a class="anchor" href="#_graph_structure"></a><a class="link" href="#_graph_structure">Graph Structure</a></h3>
+<div class="paragraph">
+<p>The execution graph structure of a Work Plan consists of its top-level Task Plan(s) (<code>WORK_PLAN.<em>top_level_plans</em></code>) and subordinate Task Plans linked from Hand-offs and sub-plans (i.e. <code>DISPATCHABLE_TASK&lt;HAND_OFF&gt;</code> and <code>DISPATCHABLE_TASK&lt;SUB_PLAN&gt;</code>) Task types. Top-level Task Plans are those that do not have prior executable Tasks, and are thus active at activation time. The following illustrates a typical structure.</p>
+</div>
+<div id="wp_tp_hierarchy" class="imageblock text-center text-center">
+<div class="content">
+<img src="../_images/diagrams/wp_tp_hierarchy.svg" alt="wp tp hierarchy" width="55%">
+</div>
+<div class="title">Figure 1. Work Plan control path graph structure</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_general_scheme"><a class="anchor" href="#_general_scheme"></a><a class="link" href="#_general_scheme">General Scheme</a></h3>
+<div class="paragraph">
+<p>When a materialised Work Plan is activated (<a href="#_activation">see below</a>), its top-level Task Plans are active, meaning that their initial Task(s) are in the <code>available</code> lifecycle state, as <a href="#_task_lifecycle">described above</a>.</p>
+</div>
+<div class="paragraph">
+<p>In a Task Plan, the <em>execution path</em> follows the chain of Tasks defined in the <code><em>definition</em></code> of the Plan, which is a <code>TASK_GROUP</code>. It descends into and exits any other <code>TASK_GROUPs</code> encountered within the Plan as Tasks are executed and completed or cancelled by their workers. A Task becomes <code>available</code> based on a combination of completion (or skipping) of previous Tasks and other conditions, according to the Task lifecycle logic <a href="#_task_lifecycle_2">described above</a>.</p>
+</div>
+<div class="paragraph">
+<p>The currently <code>available</code> Task in a Task Plan corresponds to the <em>current execution point</em> of the Plan. For parallel execution Task Groups, more than one Task can be available simultaneously, meaning there is more than one thread of execution. As Tasks complete, and timing and other events occur, making new Tasks available, each thread of execution advances through the Task Plan graph.</p>
+</div>
+<div class="paragraph">
+<p>On the way, the execution path is modified by conditional nodes and also by Dispatchable Tasks, as follows.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_conditional_nodes"><a class="anchor" href="#_conditional_nodes"></a><a class="link" href="#_conditional_nodes">Conditional Nodes</a></h3>
+<div class="paragraph">
+<p>The various kinds of conditional nodes represent different ways of controlling execution of a Task Plan.</p>
+</div>
+<div class="paragraph">
+<p>A <code>CONDITION_GROUP / CONDITION_BRANCH</code> structure is processed in the same way as an if-then/elseif-then/else statement in a programming language, i.e. in-order processing, with the first matching path followed. In the temporal Plan execution environment, the processing proceeds instantaneously, i.e. there is no wait state involved.</p>
+</div>
+<div class="paragraph">
+<p>A <code>DECISION_GROUP / DECISION_BRANCH</code> structure is processed like a case (aka switch) statement in a programming language, i.e. evaluate the <code>DECISION_GROUP.<em>test</em></code>, find the first branch whose <code><em>value_constraint</em></code> (a value range) contains the value, and follow it. This is also instantaneously processed.</p>
+</div>
+<div class="paragraph">
+<p>The other two types of Choice Group are blocking.</p>
+</div>
+<div class="paragraph">
+<p>An <code>ADHOC_GROUP / ADHOC_BRANCH</code> structure is processed using an implicit wait state, since it requires user input. It will thus block until input is supplied. The inherited <code>CHOICE_GROUP.<em>timeout</em></code> attribute can be used to defined actions if no user input supplied. When this is not defined, a global timeout is triggered, breaking the wait state.</p>
+</div>
+<div class="paragraph">
+<p>Finally the <code>EVENT_GROUP / EVENT_BRANCH</code> structure is blocking due to <code>TASK_WAIT</code> states set on each branch. It is processed by waiting for one of the events on the branches to occur, or else for the <code><em>timeout</em></code> on the group to fire. As for the Ad hoc case, a timeout may be set in order to force processing if none of the specified events occurs, and if not set, a global timeout will break the wait state if nothing else happens.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_task_dispatching"><a class="anchor" href="#_task_dispatching"></a><a class="link" href="#_task_dispatching">Task Dispatching</a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_hand_offs"><a class="anchor" href="#_hand_offs"></a><a class="link" href="#_hand_offs">Hand-offs</a></h3>
+<div class="paragraph tbd">
+<p>TBD:</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_external_requests"><a class="anchor" href="#_external_requests"></a><a class="link" href="#_external_requests">External Requests</a></h3>
+<div class="paragraph tbd">
+<p>TBD:</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_system_requests"><a class="anchor" href="#_system_requests"></a><a class="link" href="#_system_requests">System Requests</a></h3>
+<div class="paragraph tbd">
+<p>TBD:</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_resume_semantics"><a class="anchor" href="#_resume_semantics"></a><a class="link" href="#_resume_semantics">Resume Semantics</a></h3>
+<div class="paragraph">
+<p>The <code><em>resume_type</em></code> and <code><em>resume_location</em></code> attributes of the <code>RESUME_ACTION</code> class constitute the possibility of an uncontrolled jump or 'goto' within the Task execution structure. If allowed without limitation, it is likely to lead to undecidable situations in Plan execution, and unreliable execution histories. For example, if the execution history shows that some Task Y was performed, then it would normally be assumed that the preceding Task X had also been performed (even if cancelled), and by extension that any wait state such as an Event Branch had been satisifed by the relevant event being received. If however, a jump to Task Y from some Task A on a completely separate path were allowed, no such inference can be made, without appropriate processing rules regarding such jumps.</p>
+</div>
+<div class="paragraph">
+<p>To create workable rules, the notion of the <em>execution path</em> described above has to be used, i.e. the path traversed so far throught the Group / Task graph to the current point. Because the graph has no cycles, a <em>most recent common location</em> for the execution path actually taken and the designated resume location can always be found. This location may be somewhere back in the current path, including at the start (no real common point), or the current Task (resume location is ahead, not behind).</p>
+</div>
+<div class="paragraph">
+<p>Making the execution valid according to the Plan while allowing an arbitrary resumption point requires finding a <em>valid path</em> from the most recent common location to the resume location. This can be done if the intermediate steps from the most recent common point and the resume point can be shown to be traversable. There are three situations that can occur at each node along this path:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>normal Tasks with no <code><em>wait_spec</em></code> (i.e. planned or event-based timing): these may be automatically cancelled, meaning 'not done, not needed';</p>
+</li>
+<li>
+<p>normal Tasks with a <code><em>wait_spec</em></code>: these can be traversed if the relevant time-related or other events are known to have already been received;</p>
+</li>
+<li>
+<p>conditional Group structures: these can be traversed if the relevant conditions and/or events are known to be true, or to have already been received, respectively.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Whether the intermediate logical conditions or event wait states (including timeline events) up to the resume location are satisfiable can in general only be known at execution time. This means that at design time, no general rule can be used to limit the choice of a resume location. However, the intermediate wait states and conditions can be determined easily enough and shown in a tool to the designer, enabling at least a guess as to viability.</p>
+</div>
+<div class="paragraph">
+<p>What actually happens at execution time depends on where the resume location is, as follows:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>forward resume</strong>: the resume location is ahead of the current point on the execution path; getting there just requires the above algorithm of cancellation with condition and event checks;</p>
+</li>
+<li>
+<p><strong>alternate path</strong>: the resume location is on an alternate branch with respect to the current execution path; this may be treated as for the forward resume case;</p>
+</li>
+<li>
+<p><strong>current path</strong>: the resume location is earlier on the current path.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The last possibility implies the need to <em>retry</em> Tasks already performed, which must be in either the <code>cancelled</code> or <code>completed</code> state. Assuming that the intention of the resume location is to perform (again) the Task or Group at that location, the latter must be put back into the <code>available</code> state. This is enabled by the special transitions <code><em>retry</em></code> from <code>cancelled</code> to <code>available</code> and <code><em>redo</em></code> from or <code>completed</code> to <code>available</code>.</p>
+</div>
+<div class="paragraph">
+<p>This doesn&#8217;t address what should happen at execution time when conditions or wait states at intermediate nodes from the most recent common point to the resume point cannot be met. The simplest approach is that they are manually overridden, as may already be done in normal path processing. This has the effect that such overrides are  at least recorded in the execution history.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_aggregate_lifecycle_state"><a class="anchor" href="#_aggregate_lifecycle_state"></a><a class="link" href="#_aggregate_lifecycle_state">Aggregate Lifecycle State</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>During a Work Plan execution, the lifecycle state described above on each Task is recursively aggregated up to owning Task Groups (including Choice Groups, described below in <a href="#Decision Structures">[Decision Structures]</a>), to the top Task Group (i.e. <code>TASK_PLAN.<em>definition</em></code>). Consequently, the aggregate lifecycle state of a Task Plan as a whole is just the lifecycle state of its <code><em>definition</em></code>.</p>
+</div>
+<div class="sect2">
+<h3 id="_sequential_groups"><a class="anchor" href="#_sequential_groups"></a><a class="link" href="#_sequential_groups">Sequential Groups</a></h3>
+<div class="paragraph">
+<p>The following algorithm is used to compute the runtime lifecycle state of a Task Group for which <code><em>execution_type</em></code> is <code>sequential</code> from the set of states of its members.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">//
+// Aggregate lifecycle state algorithm.
+// Infer the state of a collection whose members' states are in source_states.
+// The order of if/else evaluation determines the correct result.
+//
+Task_lifecycle aggregate_state (Set&lt;Task_lifecycle&gt; source_states) {
+
+    if (source_states.contains(Abandoned))
+        return Abandoned;
+    else if (source_states.contains(Available))
+        return Available;
+    else if (source_states.contains(Planned))
+        return Planned;
+    else if (source_states.contains(Suspended))
+        return Suspended;
+    else if (source_states.contains(Underway))
+        return Underway;
+    else if (source_states.contains(Completed))
+        return Completed;
+    else if (source_states.contains(Cancelled))
+        return Cancelled;
+    else
+        return Initial;
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Consequences of the above algorithm include:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>a Task Group at runtime is in a terminal state only if all recursively contained Tasks and/or other Task Groups are in terminal states;</p>
+</li>
+<li>
+<p>completing a Task Group will ripple back up the Task Group hierarchy to a point where the completing Group is not the last remaining uncompleted Task or Group in the parent;</p>
+</li>
+<li>
+<p>if the <code>abandoned</code> state is entered for a Task, the effect is to cause the current run of the enclosing Task Plan to be <code>abandoned</code>.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_parallel_groups"><a class="anchor" href="#_parallel_groups"></a><a class="link" href="#_parallel_groups">Parallel Groups</a></h3>
+<div class="paragraph">
+<p>If <code>TASK_GROUP.<em>execution_type</em></code> is <code>parallel</code>, then the value of <code><em>concurrency_mode</em></code> will also affect computation of Task Group lifecycle state, since in some modes, some Tasks will be ignored. The following table indicates the computation for Task Group state at any time during and after execution of its branches. Note that all decision structures, i.e. <code>CHOICE_GROUPs</code>, are equivalent to <code>xor_one_path</code> Task Groups, and are thus solved by the second entry in the table below.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 23.0769%;">
+<col style="width: 15.3846%;">
+<col style="width: 61.5385%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Concurrency mode</th>
+<th class="tableblock halign-left valign-top">TP-VML</th>
+<th class="tableblock halign-left valign-top">Lifecycle state rule</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>and_all_paths</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div id="lifecycle_and" class="imageblock">
+<div class="content">
+<img src="../_images/diagrams/task_group_parallel_and.svg" alt="task group parallel and">
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Apply the algorithm to each branch; re-apply the algorithm using all branch results as the input set.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>xor_one_path</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div id="lifecycle_xor" class="imageblock">
+<div class="content">
+<img src="../_images/diagrams/task_group_parallel_xor.svg" alt="task group parallel xor">
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Apply the algorithm to the chosen branch.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>or_all_started</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div id="lifecycle_or_all" class="imageblock">
+<div class="content">
+<img src="../_images/diagrams/task_group_parallel_or_all.svg" alt="task group parallel or all">
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Apply the algorithm to each commenced branch; re-apply the algorithm using these branch results as the input set.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>or_first_completed</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div id="lifecycle_or_first" class="imageblock">
+<div class="content">
+<img src="../_images/diagrams/task_group_parallel_or_first.svg" alt="task group parallel or first">
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Apply the algorithm to each commenced branch; apply the OR-join algorithm below to this set.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">//
+// OR-join algorithm: apply to Aggregate lifcycle algorithm results
+// obtained from all commenced branches.
+//
+Task_lifecycle or_join_state (Set&lt;Task_lifecycle&gt; branch_states) {
+
+    if (branch_states.contains(Abandoned))
+        return Abandoned;
+    else if (branch_states.contains(Completed))
+        return Completed;
+    else if (branch_states.contains(Underway))
+        return Underway;
+    else if (branch_states.contains(Suspended))
+        return Suspended;
+    else if (branch_states.contains(Available))
+        return Available;
+    else if (branch_states.contains(Planned))
+        return Planned;
+    else if (branch_states.contains(Cancelled))
+        return Cancelled;
+    else
+        return Initial;
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The logic of the OR-join algorithm is to treat <em>any</em> finishing branch (<code>abandoned</code> or <code>completed</code>) as finishing the group, and otherwise to report the progress of the most advanced branch (i.e. <code>underway</code>, then <code>suspended</code> etc) as the progress of the Group.</p>
+</div>
+<div class="paragraph">
+<p>If the Task Group has more complex execution rules (<code>TASK_GROUP.<em>execution_rules</em></code>), then its lifecycle state will also be affected according to these rules.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_work_plan"><a class="anchor" href="#_work_plan"></a><a class="link" href="#_work_plan">Work Plan</a></h3>
+<div class="paragraph">
+<p>The lifecycle state of a Work Plan is determined from the states of its top-level Task Plans in the same way as for a parallel AND Task Group, i.e. by re-applying the algorithm to all the Task Plans.</p>
+</div>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="../1-definition_overview/">Definition Model</a></span>
+  <span class="next"><a href="../execution_model_overview/">Execution</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>
+    Copyright: © 2003+
+    <a href="https://www.openehr.org"
+        alt="is an independent, non-profit foundation, facilitating the sharing of health
+           records by consumers and clinicians via open specifications, clinical models
+           and open platform implementations.">The openEHR Foundation</a>
+  </p>
+
+  <p>
+    License:
+    <img src="../../../../ui/img/cc-by-nd-88x31.png"
+        alt="Creative Commons Attribution-NoDerivs 3.0 Unported."
+        style="vertical-align:middle;margin:0 0.25rem 0 0;">
+    <a href="https://creativecommons.org/licenses/by-nd/3.0/">
+      Creative Commons Attribution-NoDerivs 3.0 Unported.
+    </a>
+  </p>
+
+  <p>
+    <strong>Links: <strong>
+    <a href="https://www.openehr.org/terms-of-use" class="mr-1">Terms of use</a> |
+    <a href="https://www.openehr.org/privacy-policy" class="mx-1">Privacy policy</a> |
+    <a href="https://www.openehr.org/privacy-policy" class="mx-1">Logos &amp; Trademarks</a> |
+    <a href="https://www.openehr.org/contact-us" class="mx-1">Contact</a>
+  </p>
+</footer>
+
+<script id="site-script" src="../../../../ui/js/site.js" data-ui-root-path="../../../../ui"></script>
+<script defer src="../../../../ui/js/vendor/highlight.js"></script>
+<script src="../../../../ui/js/vendor/lunr.js"></script>
+<script src="../../../../ui/js/search-ui.js" id="search-ui-script" data-site-root-path="../../../.." data-snippet-length="80" data-stylesheet="../../../../ui/css/search.css"></script>
+<script async src="../../../../search-index.js"></script>
+<script src="../../../../ui/js/medium-zoom.min.js"></script>
+<script src="../../../../ui/js/zoom.js"></script>
+<script async src="../../../../ui/js/tabs.js"></script>
+  </body>
+</html>

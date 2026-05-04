@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+    <title>AQL Syntax Specification :: openEHR Specifications (Local Build)</title>
+    <link rel="canonical" href="https://sebastian-iancu.github.io/antora-openehr/QUERY/latest/AQL/grammar/">
+    <link rel="prev" href="../writing_AQL/">
+    <link rel="next" href="../appendix/">
+    <meta name="description" content="openEHR Archetype Query Language (AQL)">
+    <meta name="keywords" content="query, AQL, archetype, Xpath, openehr">
+    <meta name="generator" content="Antora 3.1.14">
+    <link rel="stylesheet" href="../../../../ui/css/site.css">
+    <link rel="stylesheet" href="../../../../ui/css/antora-openehr.css">
+    <link rel="stylesheet" href="../../../../ui/css/openehr.css">
+    <link rel="stylesheet" href="../../../../ui/css/tabs.css">
+    <link rel="stylesheet" href="../../../../ui/css/extra.css">
+<link rel="icon" href="../../../../ui/img/favicon.ico" type="image/x-icon">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://sebastian-iancu.github.io/antora-openehr">openEHR Specifications (Local Build)</a>
+
+      <div class="navbar-item search hide-for-print">
+        <div id="search-field" class="field has-filter">
+          <input id="search-input" type="text" placeholder="Search the docs">
+          <label class="filter checkbox">
+            <input type="checkbox" data-facet-filter="component:QUERY"> Query Languages only
+          </label>
+        </div>
+      </div>
+
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">Specifications</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://specifications.openehr.org/" target="_blank">
+              openEHR specification
+            </a>
+            <a class="navbar-item" href="https://specifications.openehr.org/releases/UML/development/index.html" target="_blank">
+              openEHR portal
+            </a>
+            <a class="navbar-item" href="https://ckm.openehr.org/ckm/" target="_blank">
+              openEHR CKM
+            </a>
+          </div>
+        </div>
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">Community</a>
+          <div class="navbar-dropdown is-right">
+            <a class="navbar-item" href="https://openehr.atlassian.net/secure/Dashboard.jspa?selectPageId=10190" target="_blank">
+              Issue trackers
+            </a>
+            <a class="navbar-item" href="https://discourse.openehr.org/" target="_blank">
+              Discourse Forum
+            </a>
+            <a class="navbar-item" href="https://specifications.openehr.org/wiki/display/spec/Specifications+Home" target="_blank">
+              Wiki
+            </a>
+            <a class="navbar-item" href="https://github.com/openEHR" target="_blank">
+              GitHub
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="QUERY" data-version="development">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="../../">Query Languages</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../">Overview</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../">Archetype Query Language (AQL)</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../overview/">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../syntax/">AQL Syntax Description</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../result_structure/">Result structure</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../writing_AQL/">Writing AQL manually</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="./">AQL Syntax Specification</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../appendix/">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../AQL_examples/">Archetype Query Language Examples</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AQL_examples/overview/">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AQL_examples/syntax-operator/">Syntax-Operator</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AQL_examples/single_subject/">Single-Subject AQL Examples</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AQL_examples/population/">Population AQL Examples</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../AQL_examples/appendix/">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Query Languages</span>
+    <span class="version">development</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <div class="title"><a href="../../../../AM/latest/">Archetype Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../AM/latest/">Release-2.3.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../AM/Release-2.2.0/">Release-2.2.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../AM/Release-1.4.0/">Release-1.4.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../AM/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../BASE/latest/">Base Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../BASE/latest/">Release-1.2.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../BASE/Release-1.1.0/">Release-1.1.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../BASE/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../CDS/latest/">Clinical Decision Support</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../CDS/latest/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../CNF/latest/">Conformance Specifications</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../CNF/latest/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../LANG/latest/">Generic Languages</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../LANG/latest/">Release-1.0.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../LANG/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../TERM/latest/">openEHR Terminology</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../TERM/latest/">Release-3.0.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../TERM/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../PROC/latest/">Process Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../PROC/latest/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <div class="title"><a href="../../../latest/">Query Languages</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../latest/">Release-1.0.1</a>
+        </li>
+        <li class="version is-current">
+          <a href="../../">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../RM/latest/">Reference Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../RM/latest/">Release-1.1.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../RM/Release-1.0.4/">Release-1.0.4</a>
+        </li>
+        <li class="version">
+          <a href="../../../../RM/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../ITS-REST/latest/">REST API specifications</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../ITS-REST/latest/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../SM/latest/">Service Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../SM/latest/">development</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../../BASE/latest/" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../../">Query Languages</a></li>
+    <li><a href="../">Archetype Query Language (AQL)</a></li>
+    <li><a href="./">AQL Syntax Specification</a></li>
+  </ul>
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">development</button>
+  <div class="version-menu">
+    <a class="version" href="../../../latest/AQL/grammar/">Release-1.0.1</a>
+    <a class="version is-current" href="./">development</a>
+  </div>
+</div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">AQL Syntax Specification</h1>
+<div class="paragraph">
+<p>The following ANTLR4 grammar expresses the AQL syntax.</p>
+</div>
+<div class="listingblock">
+<div class="title">Parser grammar</div>
+<div class="content">
+<pre class="highlight"><code class="language-antlr-java" data-lang="antlr-java">//
+//  description:  ANTLR4 parser grammar for Archetype Query Language (AQL)
+//  authors:      Sebastian Iancu, Code24, Netherlands
+//                Teun van Hemert, Nedap, Netherlands
+//                Thomas Beale, Ars Semantica UK, openEHR Foundation Management Board
+//  contributors: This version of the grammar is a complete rewrite of previously published antlr3 grammar,
+//                based on current AQL specifications in combination with grammars of AQL implementations.
+//                The openEHR Foundation would like to recognise the following people for their contributions:
+//                  - Chunlan Ma &amp; Heath Frankel, Ocean Health Systems, Australia
+//                  - Bostjan Lah, Better, Slovenia
+//                  - Christian Chevalley, EHRBase, Germany
+//                  - Michael Böckers, Nedap, Netherlands
+//  support:      openEHR Specifications PR tracker &lt;https://specifications.openehr.org/releases/QUERY/open_issues&gt;
+//  copyright:    Copyright (c) 2021- openEHR Foundation
+//  license:      Creative Commons CC-BY-SA &lt;https://creativecommons.org/licenses/by-sa/3.0/&gt;
+//
+
+parser grammar AqlParser;
+
+options { tokenVocab=AqlLexer; }
+
+selectQuery
+    : selectClause fromClause whereClause? orderByClause? limitClause? SYM_DOUBLE_DASH? EOF
+    ;
+
+selectClause
+    : SELECT DISTINCT? top? selectExpr (SYM_COMMA selectExpr)*
+    ;
+
+fromClause
+    : FROM fromExpr
+    ;
+
+whereClause
+    : WHERE whereExpr
+    ;
+
+orderByClause
+    : ORDER BY orderByExpr (SYM_COMMA orderByExpr)*
+    ;
+
+limitClause
+    : LIMIT limit=INTEGER (OFFSET offset=INTEGER) ?
+    ;
+
+selectExpr
+    : columnExpr (AS aliasName=IDENTIFIER)?
+    ;
+
+fromExpr
+    : containsExpr
+    ;
+
+whereExpr
+    : identifiedExpr
+    | NOT whereExpr
+    | whereExpr AND whereExpr
+    | whereExpr OR whereExpr
+    | SYM_LEFT_PAREN whereExpr SYM_RIGHT_PAREN
+    ;
+
+orderByExpr
+    : identifiedPath order=(DESCENDING|DESC|ASCENDING|ASC)?
+    ;
+
+columnExpr
+    : identifiedPath
+    | primitive
+    | aggregateFunctionCall
+    | functionCall
+    ;
+
+containsExpr
+    : classExprOperand (NOT? CONTAINS containsExpr)?
+    | containsExpr AND containsExpr
+    | containsExpr OR containsExpr
+    | SYM_LEFT_PAREN containsExpr SYM_RIGHT_PAREN
+    ;
+
+identifiedExpr
+    : EXISTS identifiedPath
+    | identifiedPath COMPARISON_OPERATOR terminal
+    | functionCall COMPARISON_OPERATOR terminal
+    | identifiedPath LIKE likeOperand
+    | identifiedPath MATCHES matchesOperand
+    | SYM_LEFT_PAREN identifiedExpr SYM_RIGHT_PAREN
+    ;
+
+classExprOperand
+    : IDENTIFIER variable=IDENTIFIER? pathPredicate?                                       #classExpression
+    | VERSION variable=IDENTIFIER? (SYM_LEFT_BRACKET versionPredicate SYM_RIGHT_BRACKET)?  #versionClassExpr
+    ;
+
+terminal
+    : primitive
+    | PARAMETER
+    | identifiedPath
+    | functionCall
+    ;
+
+identifiedPath
+    : IDENTIFIER pathPredicate? (SYM_SLASH objectPath)?
+    ;
+
+pathPredicate
+    : SYM_LEFT_BRACKET (standardPredicate | archetypePredicate | nodePredicate) SYM_RIGHT_BRACKET
+    ;
+
+standardPredicate
+    : objectPath COMPARISON_OPERATOR pathPredicateOperand
+    ;
+
+archetypePredicate
+    : ARCHETYPE_HRID
+    | PARAMETER
+    ;
+
+nodePredicate
+    : (ID_CODE | AT_CODE) (SYM_COMMA (STRING | PARAMETER | TERM_CODE | AT_CODE | ID_CODE))?
+    | ARCHETYPE_HRID (SYM_COMMA (STRING | PARAMETER | TERM_CODE | AT_CODE | ID_CODE))?
+    | PARAMETER
+    | objectPath COMPARISON_OPERATOR pathPredicateOperand
+    | objectPath MATCHES CONTAINED_REGEX
+    | nodePredicate AND nodePredicate
+    | nodePredicate OR nodePredicate
+    ;
+
+versionPredicate
+    : LATEST_VERSION
+    | ALL_VERSIONS
+    | standardPredicate
+    ;
+
+pathPredicateOperand
+    : primitive
+    | objectPath
+    | PARAMETER
+    | ID_CODE
+    | AT_CODE
+    ;
+
+objectPath
+    : pathPart (SYM_SLASH pathPart)*
+    ;
+pathPart
+    : IDENTIFIER pathPredicate?
+    ;
+
+likeOperand
+    : STRING
+    | PARAMETER
+    ;
+matchesOperand
+    : SYM_LEFT_CURLY valueListItem (SYM_COMMA valueListItem)* SYM_RIGHT_CURLY
+    | terminologyFunction
+    | SYM_LEFT_CURLY URI SYM_RIGHT_CURLY
+    ;
+
+valueListItem
+    : primitive
+    | PARAMETER
+    | terminologyFunction
+    ;
+
+primitive
+    : STRING
+    | numericPrimitive
+    | DATE | TIME | DATETIME
+    | BOOLEAN
+    | NULL
+    ;
+
+numericPrimitive
+    : INTEGER
+    | REAL
+    | SCI_INTEGER
+    | SCI_REAL
+    | SYM_MINUS numericPrimitive
+    ;
+
+functionCall
+    : terminologyFunction
+    | name=(STRING_FUNCTION_ID | NUMERIC_FUNCTION_ID | DATE_TIME_FUNCTION_ID | IDENTIFIER) SYM_LEFT_PAREN (terminal (SYM_COMMA terminal)*)? SYM_RIGHT_PAREN
+    ;
+
+aggregateFunctionCall
+    : name=COUNT SYM_LEFT_PAREN (DISTINCT? identifiedPath | SYM_ASTERISK) SYM_RIGHT_PAREN
+    | name=(MIN | MAX | SUM | AVG) SYM_LEFT_PAREN identifiedPath SYM_RIGHT_PAREN
+    ;
+
+terminologyFunction
+    : TERMINOLOGY SYM_LEFT_PAREN STRING SYM_COMMA STRING SYM_COMMA STRING SYM_RIGHT_PAREN
+    ;
+
+// (deprecated)
+top
+    : TOP INTEGER direction=(FORWARD|BACKWARD)?
+    ;</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Lexer grammar</div>
+<div class="content">
+<pre class="highlight"><code class="language-antlr-java" data-lang="antlr-java">//
+//  description:  ANTLR4 lexer grammar for Archetype Query Language (AQL)
+//  authors:      Sebastian Iancu, Code24, Netherlands
+//                Teun van Hemert, Nedap, Netherlands
+//                Thomas Beale, Ars Semantica UK, openEHR Foundation Management Board
+//  contributors: This version of the grammar is a complete rewrite of previously published antlr3 grammar,
+//                based on current AQL specifications in combination with grammars of AQL implementations.
+//                The openEHR Foundation would like to recognise the following people for their contributions:
+//                  - Chunlan Ma &amp; Heath Frankel, Ocean Health Systems, Australia
+//                  - Bostjan Lah, Better, Slovenia
+//                  - Christian Chevalley, EHRBase, Germany
+//                  - Michael Böckers, Nedap, Netherlands
+//  support:      openEHR Specifications PR tracker &lt;https://specifications.openehr.org/releases/QUERY/open_issues&gt;
+//  copyright:    Copyright (c) 2021- openEHR Foundation
+//  license:      Creative Commons CC-BY-SA &lt;https://creativecommons.org/licenses/by-sa/3.0/&gt;
+//
+
+lexer grammar AqlLexer;
+
+channels {
+    COMMENT_CHANNEL
+}
+
+// SKIP
+WS: [ \t\r\n]+ -&gt; skip;
+UNICODE_BOM: (
+    '\uEFBBBF' // UTF-8 BOM
+    | '\uFEFF' // UTF16_BOM
+    | '\u0000FEFF' // UTF32_BOM
+    ) -&gt; skip;
+COMMENT: (
+    SYM_DOUBLE_DASH ' ' ~[\r\n]* ('\r'? '\n' | EOF)
+    | SYM_DOUBLE_DASH ('\r'? '\n' | EOF)
+    ) -&gt; channel(COMMENT_CHANNEL);
+
+// Keywords
+// Common Keywords
+SELECT: S E L E C T ;
+AS: A S ;
+FROM: F R O M ;
+WHERE: W H E R E ;
+ORDER: O R D E R ;
+BY: B Y ;
+DESC: D E S C ;
+DESCENDING: D E S C E N D I N G ;
+ASC: A S C ;
+ASCENDING: A S C E N D I N G ;
+LIMIT: L I M I T ;
+OFFSET: O F F S E T ;
+// other keywords
+DISTINCT: D I S T I N C T ;
+VERSION : V E R S I O N ;
+LATEST_VERSION : L A T E S T '_' V E R S I O N ;
+ALL_VERSIONS : A L L '_' V E R S I O N S ;
+NULL: N U L L ;
+
+// deprecated
+TOP: T O P ;
+FORWARD: F O R W A R D ;
+BACKWARD: B A C K W A R D ;
+
+// Operators
+// Containment operator
+CONTAINS : C O N T A I N S ;
+// Logical operators
+AND : A N D ;
+OR : O R ;
+NOT : N O T ;
+EXISTS: E X I S T S ;
+// Comparison operators
+COMPARISON_OPERATOR: SYM_EQ | SYM_NE | SYM_GT | SYM_GE | SYM_LT | SYM_LE ;
+LIKE: L I K E ;
+MATCHES: M A T C H E S ;
+
+// functions
+STRING_FUNCTION_ID: LENGTH | CONTAINS | POSITION | SUBSTRING | CONCAT_WS | CONCAT ;
+NUMERIC_FUNCTION_ID: ABS | MOD | CEIL | FLOOR | ROUND ;
+DATE_TIME_FUNCTION_ID: NOW | CURRENT_DATE_TIME | CURRENT_DATE | CURRENT_TIMEZONE | CURRENT_TIME ;
+// string functions
+LENGTH: L E N G T H ;
+POSITION: P O S I T I O N ;
+SUBSTRING: S U B S T R I N G ;
+CONCAT: C O N C A T ;
+CONCAT_WS: C O N C A T '_' W S ;
+// numeric functions
+ABS: A B S ;
+MOD: M O D ;
+CEIL: C E I L ;
+FLOOR: F L O O R ;
+ROUND: R O U N D ;
+// date and time functions
+CURRENT_DATE: C U R R E N T '_' D A T E ;
+CURRENT_TIME: C U R R E N T '_' T I M E ;
+CURRENT_DATE_TIME: C U R R E N T '_' D A T E '_' T I M E ;
+NOW: N O W ;
+CURRENT_TIMEZONE: C U R R E N T '_' T I M E Z O N E ;
+// aggregate function
+COUNT: C O U N T ;
+MIN: M I N ;
+MAX: M A X ;
+SUM: S U M ;
+AVG: A V G ;
+// other functions
+TERMINOLOGY: T E R M I N O L O G Y ;
+
+// other, identifiers
+PARAMETER: '$' IDENTIFIER_CHAR;
+
+
+
+
+//
+//  ======================= Lexical rules ========================
+//  The followings are copies of https://github.com/openEHR/adl-antlr/blob/master/src/main/antlr/adl2/base_lexer.g4 rules, with some modifications required by AQL
+//
+
+// ---------- various ADL2 codes -------
+
+ID_CODE      : 'id' CODE_STR ;
+AT_CODE      : 'at' CODE_STR ;
+fragment CODE_STR : ('0' | [1-9][0-9]*)+ ( '.' ('0' | [1-9][0-9]* ))* ;
+
+// ---------- Delimited Regex matcher ------------
+
+CONTAINED_REGEX: '{'WS* SLASH_REGEX WS* (';' WS* STRING)? WS* '}';
+fragment SLASH_REGEX: '/' SLASH_REGEX_CHAR+ '/';
+fragment SLASH_REGEX_CHAR: ~[/\n\r] | ESCAPE_SEQ | '\\/';
+
+// ---------- ISO8601 Date/Time values ----------
+
+fragment ISO8601_DATE
+    : YEAR MONTH DAY
+    | YEAR '-' MONTH '-' DAY
+    ;
+fragment ISO8601_TIME
+    : HOUR MINUTE SECOND ('.' MICROSECOND)? TIMEZONE?
+    | HOUR ':' MINUTE ':' SECOND ('.' MICROSECOND)? TIMEZONE?
+    ;
+fragment ISO8601_DATE_TIME
+    : YEAR MONTH DAY ('T' HOUR MINUTE SECOND ('.' MICROSECOND)? TIMEZONE?)?
+    | YEAR '-' MONTH '-' DAY ('T' HOUR ':' MINUTE ':' SECOND ('.' MICROSECOND)? TIMEZONE?)?
+    ;
+fragment MICROSECOND: [0-9][0-9][0-9] ;
+
+fragment TIMEZONE: 'Z' | [+-] HOUR ( ':'? MINUTE )? ;  // hour offset, e.g. `+09:30`, or else literal `Z` indicating +0000.
+fragment YEAR: [0-9][0-9][0-9][0-9] ; // Year in ISO8601:2004 is 4 digits with 0-filling as needed
+fragment MONTH: ( [0][1-9] | [1][0-2] ) ;  // month in year
+fragment DAY: ( [0][1-9] | [12][0-9] | [3][0-1] ) ; // day in month
+fragment HOUR: ( [01][0-9] | [2][0-3] ) ; // hour in 24 hour clock
+fragment MINUTE: [0-5][0-9] ; // minutes
+fragment SECOND: [0-5][0-9] ; // seconds
+
+// ------------------- special word symbols --------------
+
+fragment SYM_TRUE: T R U E ;
+fragment SYM_FALSE: F A L S E ;
+
+// ---------------------- Identifiers ---------------------
+
+ARCHETYPE_HRID      : ARCHETYPE_HRID_ROOT '.v' VERSION_ID ;
+fragment ARCHETYPE_HRID_ROOT : (NAMESPACE '::')? IDENTIFIER_CHAR '-' IDENTIFIER_CHAR '-' IDENTIFIER_CHAR '.' ARCHETYPE_CONCEPT_ID ;
+fragment VERSION_ID          : DIGIT+ ('.' DIGIT+)* ( ( '-rc' | '-alpha' ) ( '.' DIGIT+ )? )? ;
+IDENTIFIER: IDENTIFIER_CHAR;
+fragment IDENTIFIER_CHAR : ALPHA_CHAR WORD_CHAR* ;
+fragment ARCHETYPE_CONCEPT_ID : ALPHA_CHAR NAME_CHAR* ;
+
+// --------------------- composed primitive types -------------------
+// coded term shortcut e.g. 'ICD10AM(1998)::F23', 'ISO_639-1::en' or 'snomed_ct(3.1)::3415004|cyanosis|'
+TERM_CODE : TERM_CODE_CHAR+ ( '(' TERM_CODE_CHAR+ ')' )? '::' TERM_CODE_CHAR+ ('|' ~[|[\]]+ '|')?;
+fragment TERM_CODE_CHAR: NAME_CHAR | '.';
+
+// URIs - simple recogniser based on https://tools.ietf.org/html/rfc3986 and
+// http://www.w3.org/Addressing/URL/5_URI_BNF.html
+URI : URI_SCHEME ':' URI_HIER_PART ( '?' URI_QUERY )? ('#' URI_FRAGMENT)? ;
+
+fragment URI_HIER_PART : ( '//' URI_AUTHORITY ) URI_PATH_ABEMPTY
+    | URI_PATH_ABSOLUTE
+    | URI_PATH_ROOTLESS
+    | URI_PATH_EMPTY;
+
+fragment URI_SCHEME : ALPHA_CHAR ( ALPHA_CHAR | DIGIT | '+' | '-' | '.')* ;
+
+fragment URI_AUTHORITY : ( URI_USERINFO '@' )? URI_HOST ( ':' URI_PORT )? ;
+fragment URI_USERINFO: (URI_UNRESERVED | URI_PCT_ENCODED | URI_SUB_DELIMS | ':' )* ;
+fragment URI_HOST : URI_IP_LITERAL | URI_IPV4_ADDRESS | URI_REG_NAME ; //TODO: ipv6
+fragment URI_PORT: DIGIT*;
+
+fragment URI_IP_LITERAL   : '[' URI_IPV6_LITERAL ']'; //TODO, if needed: IPvFuture
+fragment URI_IPV4_ADDRESS : URI_DEC_OCTET '.' URI_DEC_OCTET '.' URI_DEC_OCTET '.' URI_DEC_OCTET ;
+fragment URI_IPV6_LITERAL : HEX_QUAD (':' HEX_QUAD )* '::' HEX_QUAD (':' HEX_QUAD )* ;
+
+fragment URI_DEC_OCTET  : DIGIT | [1-9] DIGIT | '1' DIGIT DIGIT | '2' [0-4] DIGIT | '25' [0-5];
+fragment URI_REG_NAME: (URI_UNRESERVED | URI_PCT_ENCODED | URI_SUB_DELIMS)*;
+fragment HEX_QUAD : HEX_DIGIT HEX_DIGIT HEX_DIGIT HEX_DIGIT ;
+
+fragment URI_PATH_ABEMPTY: ('/' URI_SEGMENT ) *;
+fragment URI_PATH_ABSOLUTE: '/' ( URI_SEGMENT_NZ ( '/' URI_SEGMENT )* )?;
+fragment URI_PATH_NOSCHEME: URI_SEGMENT_NZ_NC ( '/' URI_SEGMENT )*;
+fragment URI_PATH_ROOTLESS: URI_SEGMENT_NZ ( '/' URI_SEGMENT )*;
+fragment URI_PATH_EMPTY: ;
+
+fragment URI_SEGMENT: URI_PCHAR*;
+fragment URI_SEGMENT_NZ: URI_PCHAR+;
+fragment URI_SEGMENT_NZ_NC: ( URI_UNRESERVED | URI_PCT_ENCODED | URI_SUB_DELIMS | '@' )+; //non-zero-length segment without any colon ":"
+
+fragment URI_PCHAR: URI_UNRESERVED | URI_PCT_ENCODED | URI_SUB_DELIMS | ':' | '@';
+
+//fragment URI_PATH   : '/' | ( '/' URI_XPALPHA+ )+ ('/')?;
+fragment URI_QUERY : (URI_PCHAR | '/' | '?')*;
+fragment URI_FRAGMENT  : (URI_PCHAR | '/' | '?')*;
+
+fragment URI_PCT_ENCODED : '%' HEX_DIGIT HEX_DIGIT ;
+
+fragment URI_UNRESERVED: ALPHA_CHAR | DIGIT | '-' | '.' | '_' | '~';
+fragment URI_RESERVED: URI_GEN_DELIMS | URI_SUB_DELIMS;
+fragment URI_GEN_DELIMS: ':' | '/' | '?' | '#' | '[' | ']' | '@'; //TODO: migrate to [/?#...] notation
+fragment URI_SUB_DELIMS: '!' | '$' | '&amp;' | '\'' | '(' | ')'
+                         | '*' | '+' | ',' | ';' | '=';
+
+// According to IETF http://tools.ietf.org/html/rfc1034[RFC 1034] and http://tools.ietf.org/html/rfc1035[RFC 1035],
+// as clarified by http://tools.ietf.org/html/rfc2181[RFC 2181] (section 11)
+fragment NAMESPACE: LABEL ('.' LABEL)* ;
+fragment LABEL: ALPHA_CHAR (NAME_CHAR|URI_PCT_ENCODED)* ;
+
+// --------------------- atomic primitive types -------------------
+
+BOOLEAN: SYM_TRUE | SYM_FALSE ;
+
+INTEGER: DIGIT+;
+REAL: DIGIT* '.' DIGIT+;
+SCI_INTEGER: INTEGER E_SUFFIX;
+SCI_REAL: REAL E_SUFFIX;
+fragment E_SUFFIX: E [-+]? DIGIT+ ;
+
+DATE
+    : SYM_SINGLE_QUOTE ISO8601_DATE SYM_SINGLE_QUOTE
+    | SYM_DOUBLE_QUOTE ISO8601_DATE SYM_DOUBLE_QUOTE
+    ;
+
+TIME
+    : SYM_SINGLE_QUOTE ISO8601_TIME SYM_SINGLE_QUOTE
+    | SYM_DOUBLE_QUOTE ISO8601_TIME SYM_DOUBLE_QUOTE
+    ;
+
+DATETIME
+    : SYM_SINGLE_QUOTE ISO8601_DATE_TIME SYM_SINGLE_QUOTE
+    | SYM_DOUBLE_QUOTE ISO8601_DATE_TIME SYM_DOUBLE_QUOTE
+    ;
+
+STRING
+    : SYM_SINGLE_QUOTE ( ESCAPE_SEQ | UTF8CHAR | OCTAL_ESC | ~('\\'|'\'') )* SYM_SINGLE_QUOTE
+    | SYM_DOUBLE_QUOTE ( ESCAPE_SEQ | UTF8CHAR | OCTAL_ESC | ~('\\'|'"') )* SYM_DOUBLE_QUOTE
+    ;
+
+fragment ESCAPE_SEQ: '\\' ['"?abfnrtv\\] ;
+
+// ------------------- character fragments ------------------
+
+fragment NAME_CHAR: WORD_CHAR | '-' ;
+fragment WORD_CHAR: ALPHANUM_CHAR | '_' ;
+fragment ALPHANUM_CHAR: ALPHA_CHAR | DIGIT ;
+
+fragment ALPHA_CHAR: [a-zA-Z];
+fragment UTF8CHAR: '\\u' HEX_DIGIT HEX_DIGIT HEX_DIGIT HEX_DIGIT ;
+
+fragment DIGIT: [0-9];
+fragment HEX_DIGIT: [0-9a-fA-F];
+
+fragment OCTAL_ESC: '\\' [0-3] OCTAL_DIGIT OCTAL_DIGIT | '\\' OCTAL_DIGIT OCTAL_DIGIT | '\\' OCTAL_DIGIT;
+fragment OCTAL_DIGIT: [0-7];
+
+// ---------- symbols ----------
+
+SYM_SEMICOLON: ';' ;
+SYM_LT: '&lt;' ;
+SYM_GT: '&gt;' ;
+SYM_LE: '&lt;=' ;
+SYM_GE: '&gt;=' ;
+SYM_NE: '!=' ;
+SYM_EQ: '=' ;
+SYM_LEFT_PAREN: '(' ;
+SYM_RIGHT_PAREN: ')' ;
+SYM_COMMA: ',';
+
+SYM_SLASH: '/';
+SYM_ASTERISK: '*';
+SYM_PLUS: '+';
+SYM_MINUS: '-';
+
+SYM_LEFT_BRACKET: '[';
+SYM_RIGHT_BRACKET: ']';
+SYM_LEFT_CURLY: '{';
+SYM_RIGHT_CURLY: '}';
+SYM_DOUBLE_DASH: '--';
+
+fragment SYM_SINGLE_QUOTE: '\'';
+fragment SYM_DOUBLE_QUOTE: '"';
+
+// ------------------- Fragment letters ---------------------
+fragment A: [aA];
+fragment B: [bB];
+fragment C: [cC];
+fragment D: [dD];
+fragment E: [eE];
+fragment F: [fF];
+fragment G: [gG];
+fragment H: [hH];
+fragment I: [iI];
+fragment J: [jJ];
+fragment K: [kK];
+fragment L: [lL];
+fragment M: [mM];
+fragment N: [nN];
+fragment O: [oO];
+fragment P: [pP];
+fragment Q: [qQ];
+fragment R: [rR];
+fragment S: [sS];
+fragment T: [tT];
+fragment U: [uU];
+fragment V: [vV];
+fragment W: [wW];
+fragment X: [xX];
+fragment Y: [yY];
+fragment Z: [zZ];</code></pre>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="../writing_AQL/">Writing AQL manually</a></span>
+  <span class="next"><a href="../appendix/">Appendix</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>
+    Copyright: © 2003+
+    <a href="https://www.openehr.org"
+        alt="is an independent, non-profit foundation, facilitating the sharing of health
+           records by consumers and clinicians via open specifications, clinical models
+           and open platform implementations.">The openEHR Foundation</a>
+  </p>
+
+  <p>
+    License:
+    <img src="../../../../ui/img/cc-by-nd-88x31.png"
+        alt="Creative Commons Attribution-NoDerivs 3.0 Unported."
+        style="vertical-align:middle;margin:0 0.25rem 0 0;">
+    <a href="https://creativecommons.org/licenses/by-nd/3.0/">
+      Creative Commons Attribution-NoDerivs 3.0 Unported.
+    </a>
+  </p>
+
+  <p>
+    <strong>Links: <strong>
+    <a href="https://www.openehr.org/terms-of-use" class="mr-1">Terms of use</a> |
+    <a href="https://www.openehr.org/privacy-policy" class="mx-1">Privacy policy</a> |
+    <a href="https://www.openehr.org/privacy-policy" class="mx-1">Logos &amp; Trademarks</a> |
+    <a href="https://www.openehr.org/contact-us" class="mx-1">Contact</a>
+  </p>
+</footer>
+
+<script id="site-script" src="../../../../ui/js/site.js" data-ui-root-path="../../../../ui"></script>
+<script defer src="../../../../ui/js/vendor/highlight.js"></script>
+<script src="../../../../ui/js/vendor/lunr.js"></script>
+<script src="../../../../ui/js/search-ui.js" id="search-ui-script" data-site-root-path="../../../.." data-snippet-length="80" data-stylesheet="../../../../ui/css/search.css"></script>
+<script async src="../../../../search-index.js"></script>
+<script src="../../../../ui/js/medium-zoom.min.js"></script>
+<script src="../../../../ui/js/zoom.js"></script>
+<script async src="../../../../ui/js/tabs.js"></script>
+  </body>
+</html>

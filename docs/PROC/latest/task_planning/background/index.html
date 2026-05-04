@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+    <title>Background :: openEHR Specifications (Local Build)</title>
+    <link rel="canonical" href="https://sebastian-iancu.github.io/antora-openehr/PROC/latest/task_planning/background/">
+    <link rel="prev" href="../">
+    <link rel="next" href="../requirements/">
+    <meta name="description" content="openEHR Task Planning specification">
+    <meta name="keywords" content="workflow, task, planning, EHR, EMR, reference model, openehr">
+    <meta name="generator" content="Antora 3.1.14">
+    <link rel="stylesheet" href="../../../../ui/css/site.css">
+    <link rel="stylesheet" href="../../../../ui/css/antora-openehr.css">
+    <link rel="stylesheet" href="../../../../ui/css/openehr.css">
+    <link rel="stylesheet" href="../../../../ui/css/tabs.css">
+    <link rel="stylesheet" href="../../../../ui/css/extra.css">
+<link rel="icon" href="../../../../ui/img/favicon.ico" type="image/x-icon">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://sebastian-iancu.github.io/antora-openehr">openEHR Specifications (Local Build)</a>
+
+      <div class="navbar-item search hide-for-print">
+        <div id="search-field" class="field has-filter">
+          <input id="search-input" type="text" placeholder="Search the docs">
+          <label class="filter checkbox">
+            <input type="checkbox" data-facet-filter="component:PROC"> Process Model only
+          </label>
+        </div>
+      </div>
+
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">Specifications</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://specifications.openehr.org/" target="_blank">
+              openEHR specification
+            </a>
+            <a class="navbar-item" href="https://specifications.openehr.org/releases/UML/development/index.html" target="_blank">
+              openEHR portal
+            </a>
+            <a class="navbar-item" href="https://ckm.openehr.org/ckm/" target="_blank">
+              openEHR CKM
+            </a>
+          </div>
+        </div>
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">Community</a>
+          <div class="navbar-dropdown is-right">
+            <a class="navbar-item" href="https://openehr.atlassian.net/secure/Dashboard.jspa?selectPageId=10190" target="_blank">
+              Issue trackers
+            </a>
+            <a class="navbar-item" href="https://discourse.openehr.org/" target="_blank">
+              Discourse Forum
+            </a>
+            <a class="navbar-item" href="https://specifications.openehr.org/wiki/display/spec/Specifications+Home" target="_blank">
+              Wiki
+            </a>
+            <a class="navbar-item" href="https://github.com/openEHR" target="_blank">
+              GitHub
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="PROC" data-version="development">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="../../">Process Model</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../">Overview</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../overview/">CDS, Guidelines and Planning Overview</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../overview/introduction/">Introduction</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../overview/needs/">Needs</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../overview/artefacts/">Care Process Artefacts and their Formalisation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../overview/deployment_paradigm/">Deployment Paradigm</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../overview/conceptual_architecture/">Conceptual Architecture</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../overview/deployment_architectures/">Architectural Use-cases</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../overview/appendix/">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../">Task Planning (TP) Specification</a>
+<ul class="nav-list">
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="./">Background</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../requirements/">Technical Requirements</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../design/">Design Principles</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../model_overview/">Task Planning Model Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../1-definition_overview/">Definition Model</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../global_semantics/">Global Semantics</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../execution_model_overview/">Execution</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../model_materialised/">Materialised Model</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../model_history/">Plan Execution History</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../service_model/">Transactional Service Model</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../ehr_semantics/">Relationship with other openEHR EHR Artefacts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../appendix/">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../decision_language/">Decision Language specification</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../decision_language/overview/">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../decision_language/dlm_syntax/">DLM Syntax</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../decision_language/dlm_model/">DLM Model</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../decision_language/dl_module/">EL Modules</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../decision_language/terminology/">Terminology</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../decision_language/data_context/">Data Bindings</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../decision_language/computing_context/">Computing Bindings</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../decision_language/appendix/">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../tp_vml/">Task Planning Visual Modelling Language (TP-VML)</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../tp_vml/overview/">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../tp_vml/elements/">Elements</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../tp_vml/patterns/">Patterns</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../tp_vml/appendix/">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../process_examples/">openEHR CDS, Guidelines and Planning Examples</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../process_examples/overview/">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../process_examples/teamwork/">Teamwork</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../process_examples/order_management/">Order Management</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../process_examples/chemo/">Multi-drug Chemotherapy</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../process_examples/antenatal/">Antenatal Care</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../process_examples/cancer_prescribing/">Breast Cancer Decision Protocol</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../process_examples/Covid19_severity/">Covid19 Severity Classification</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../process_examples/cha2ds_vasc/">CHA2DS2-VASc</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../process_examples/qrisk/">qRisk3-2017</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../process_examples/news2/">National Early Warning Score (NEWS) 2</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../process_examples/common_DLMs/">Common Decision Logic Modules</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../process_examples/appendix/">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Process Model</span>
+    <span class="version">development</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <div class="title"><a href="../../../../AM/latest/">Archetype Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../AM/latest/">Release-2.3.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../AM/Release-2.2.0/">Release-2.2.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../AM/Release-1.4.0/">Release-1.4.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../AM/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../BASE/latest/">Base Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../BASE/latest/">Release-1.2.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../BASE/Release-1.1.0/">Release-1.1.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../BASE/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../CDS/latest/">Clinical Decision Support</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../CDS/latest/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../CNF/latest/">Conformance Specifications</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../CNF/latest/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../LANG/latest/">Generic Languages</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../LANG/latest/">Release-1.0.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../LANG/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../TERM/latest/">openEHR Terminology</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../TERM/latest/">Release-3.0.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../TERM/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <div class="title"><a href="../../">Process Model</a></div>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../../">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../QUERY/latest/">Query Languages</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../QUERY/latest/">Release-1.0.1</a>
+        </li>
+        <li class="version">
+          <a href="../../../../QUERY/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../RM/latest/">Reference Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../RM/latest/">Release-1.1.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../RM/Release-1.0.4/">Release-1.0.4</a>
+        </li>
+        <li class="version">
+          <a href="../../../../RM/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../ITS-REST/latest/">REST API specifications</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../ITS-REST/latest/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../SM/latest/">Service Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../SM/latest/">development</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../../BASE/latest/" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../../">Process Model</a></li>
+    <li><a href="../">Task Planning (TP) Specification</a></li>
+    <li><a href="./">Background</a></li>
+  </ul>
+</nav>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Background</h1>
+<div class="sect1">
+<h2 id="_scope"><a class="anchor" href="#_scope"></a><a class="link" href="#_scope">Scope</a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_representation_of_care_management_artefacts"><a class="anchor" href="#_representation_of_care_management_artefacts"></a><a class="link" href="#_representation_of_care_management_artefacts">Representation of Care Management Artefacts</a></h3>
+<div class="paragraph">
+<p>This specification defines a model of structured plans that when executed in an engine, provide notifications to workers relating to tasks. Plans are not standalone, and require decision logic as well as access to subject data in order to execute.</p>
+</div>
+<div class="paragraph">
+<p>Task Plans, along with related decision logic, can be used to represent a number of artefacts used in healthcare including:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><em>care pathways</em> - complex condition-specific, outcome-oriented;</p>
+</li>
+<li>
+<p><em>guidelines</em> - condition-specific, activity-oriented;</p>
+</li>
+<li>
+<p><em>order set</em> administration plans - condition-specific;</p>
+</li>
+<li>
+<p><em>patient plans</em> - subject-specific; either derived from published care pathways and guidelines, or created locally within an institution.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>They may be referred to by <em>care plans</em>, which provide a patient-level description of intended care and monitoring for a condition.</p>
+</div>
+<div class="paragraph">
+<p>The <a href="https://specifications.openehr.org/releases/PROC/latest/overview.html" target="_blank" rel="noopener">openEHR Process and Planning Overview</a> provides a comprehensive overview of these artefacts, Task Planning and its related specifications.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_limitations_of_the_openehr_standard_entry_model"><a class="anchor" href="#_limitations_of_the_openehr_standard_entry_model"></a><a class="link" href="#_limitations_of_the_openehr_standard_entry_model">Limitations of the openEHR standard Entry Model</a></h3>
+<div class="paragraph">
+<p>Task Planning addresses the inability of the openEHR EHR architecture to directly represent fine-grained tasks. The Entry model described in the <a href="https://specifications.openehr.org/releases/RM/latest/ehr.html" target="_blank" rel="noopener">openEHR EHR IM</a> defines a way to record clinical statements representing real observations, decisions, orders and performed actions in the EHR. In this scheme, Instructions represent orders for Actions to be performed, such as 'administer 3 times a day, for 7 days, with meals'. Such orders are consumed by human actors and mentally converted to individual tasks (21 administrations), with Actions and Observations recording what was done after the fact.</p>
+</div>
+<div class="paragraph">
+<p>There is however a common need to concretely represent the plan of Actions and Observations <em>ahead of time</em>, as a set of individual tasks that can be displayed, verified, performed (or not) and signed off by workers. A set of planned tasks need not all relate to a single order, or indeed any order. The general picture is that a task plan corresponds to any self-standing healthcare job to be done.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_what_task_planning_does_not_do"><a class="anchor" href="#_what_task_planning_does_not_do"></a><a class="link" href="#_what_task_planning_does_not_do">What Task Planning Does Not Do</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Some common capabilities related to clinical care management are not directly addressed by this specification, as described in the following sub-sections.</p>
+</div>
+<div class="sect2">
+<h3 id="_task_lists_todo_lists"><a class="anchor" href="#_task_lists_todo_lists"></a><a class="link" href="#_task_lists_todo_lists">Task Lists (TODO Lists)</a></h3>
+<div class="paragraph">
+<p>The specification is based around the concept of a <em>work plan</em>, which is designed to achieve a goal, and at execution time is applied to a <em>subject</em>, i.e. human or other subject of care. The plan notion is thus goal- and subject-centric.</p>
+</div>
+<div class="paragraph">
+<p>A related concept is that of the <em>task list</em> (aka 'TODO list'), which is a logical list of tasks for a worker to perform. The task list is worker-centric, not subject-centric, and as such, task lists must be <em>derived</em> from concurrently executing work plans. Conceptually this is done by processing all extant task plans for some organisational unit (say a hospital department) and allocating particular tasks to particular actors. Allocation may happen in a just-in-time fashion, and may be modified (e.g. due to unforeseen unavailability of workers), such that a task list is essentially a dynamic personal calendar view for the short term (typically days or weeks) whereas task plans may correspond to any length of time, from a few minutes to years.</p>
+</div>
+<div class="paragraph">
+<p>This specification does not cover the model of worker task lists or extracted calendar views, although it provides some guidance on how to generate task lists for workers.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_appointment_booking_and_management"><a class="anchor" href="#_appointment_booking_and_management"></a><a class="link" href="#_appointment_booking_and_management">Appointment Booking and Management</a></h3>
+<div class="paragraph">
+<p>The planning paradigm envisaged by this specification does not try to directly address the problem of concretely creating and managing bookings for appointments, which, while conceptually simple, in real life unavoidably entails the complexity of ad hoc communication, cancellations, rebooking and so on. Instead it assumes that the existing systems designed to help perform this mostly administrative work will manage to get patients to intended appointments.</p>
+</div>
+<div class="paragraph">
+<p>However, since the timing of visits is usually clinically determined, it would be reasonable for a task within a plan to <em>request an appointment</em> be created for a visit at some nominal time for some purpose, e.g. week 22 ante-natal review, in next 8 days. Another part of the same plan may have a wait state whose trigger event is the patient turning up for the nominated purpose. However, all of the administrative activity that occurs in order to ensure the patient appears is assumed to be external to the task planning system.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_clinical_decision_support_cds"><a class="anchor" href="#_clinical_decision_support_cds"></a><a class="link" href="#_clinical_decision_support_cds">Clinical Decision Support (CDS)</a></h3>
+<div class="paragraph">
+<p>While this specification covers the computable representation of decisions in a work plan, it is not intended to replace CDS systems that perform complex pure decision analysis, typically via access to specialist knowledge bases. Instead, it is assumed that the plans running in the task planning system will make requests of various CDS systems to provide specific answers, e.g. to check medications interactions for a proposed prescription, or propose a type of treatment for a hypertensive patient.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_relationship_to_existing_workflow_formalisms"><a class="anchor" href="#_relationship_to_existing_workflow_formalisms"></a><a class="link" href="#_relationship_to_existing_workflow_formalisms">Relationship to Existing Workflow Formalisms</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This specification describes a model of planning that includes support for work distribution across multiple performers, nested plans, conditional branching, timing and various other facilities. Many of these are conceptually close to the features found in standard workflow languages such as <a href="http://yawlfoundation.org/" target="_blank" rel="noopener">YAWL (Yet another Workflow Language)</a> <span class="citation"><a href="#bibliography_entry_Hofstede_van_der_Aalst2009">[1]</a></span> and <a href="http://www.bpmn.org/" target="_blank" rel="noopener">OMG BPMN (Business Process Modelling Notation)</a>, as well as emerging case-based standards such as <a href="https://www.omg.org/spec/CMMN/1.0/" target="_blank" rel="noopener">OMG CMMN (Case Management Modelling Notation)</a> and <a href="https://www.omg.org/spec/DMN/" target="_blank" rel="noopener">OMG DMN (Decision Model and Notation)</a>. Of these, YAWL is the most comprehensive in its design and the most useful source of concepts for the current specification.</p>
+</div>
+<div class="paragraph">
+<p>While the model described here takes ideas from these languages, there are some key differences as well. The primary conceptual difference is that the subject (i.e. 'case') here is assumed to be a) an intentional agent (generally a human patient) that makes choices, and b) an active biological organism, which reacts to drugs and other interventions. In other words, an entity that cannot be considered a passive object (such as a package or blood sample), as is the case for most logistic workflows, for which languages such as BPMN are designed. (Note that even the patient can be a passive object in some circumstances, such as radiology.) Other departures include the use of a declarative rather than prescriptive means of defining the plan graph structure, and the formalisation of all elements of a plan and its execution.</p>
+</div>
+<div class="paragraph">
+<p>The main consequence of this is that the design of a task plan is not taken to be a highly deterministic description whose exceptions are generally knowable in advance as they would be for a logistic system whose subjects are passive objects. Instead, tasks and groups of tightly-coupled tasks are specified in a more self-standing way, using preconditions rather than logical join and split operators.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_references"><a class="anchor" href="#_references"></a><a class="link" href="#_references">References</a></h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><a id="bibliography_entry_Hofstede_van_der_Aalst2009"></a>[1] A. H. M. T. Hofstede, W. M. P. van der Aalst, M. Adams, and N. Russell, Modern Business Process Automation: YAWL and its Support Environment. Springer-Verlag, 2010. doi: 10.1007/978-3-642-03121-2.
+</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="../">Task Planning (TP) Specification</a></span>
+  <span class="next"><a href="../requirements/">Technical Requirements</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>
+    Copyright: © 2003+
+    <a href="https://www.openehr.org"
+        alt="is an independent, non-profit foundation, facilitating the sharing of health
+           records by consumers and clinicians via open specifications, clinical models
+           and open platform implementations.">The openEHR Foundation</a>
+  </p>
+
+  <p>
+    License:
+    <img src="../../../../ui/img/cc-by-nd-88x31.png"
+        alt="Creative Commons Attribution-NoDerivs 3.0 Unported."
+        style="vertical-align:middle;margin:0 0.25rem 0 0;">
+    <a href="https://creativecommons.org/licenses/by-nd/3.0/">
+      Creative Commons Attribution-NoDerivs 3.0 Unported.
+    </a>
+  </p>
+
+  <p>
+    <strong>Links: <strong>
+    <a href="https://www.openehr.org/terms-of-use" class="mr-1">Terms of use</a> |
+    <a href="https://www.openehr.org/privacy-policy" class="mx-1">Privacy policy</a> |
+    <a href="https://www.openehr.org/privacy-policy" class="mx-1">Logos &amp; Trademarks</a> |
+    <a href="https://www.openehr.org/contact-us" class="mx-1">Contact</a>
+  </p>
+</footer>
+
+<script id="site-script" src="../../../../ui/js/site.js" data-ui-root-path="../../../../ui"></script>
+<script defer src="../../../../ui/js/vendor/highlight.js"></script>
+<script src="../../../../ui/js/vendor/lunr.js"></script>
+<script src="../../../../ui/js/search-ui.js" id="search-ui-script" data-site-root-path="../../../.." data-snippet-length="80" data-stylesheet="../../../../ui/css/search.css"></script>
+<script async src="../../../../search-index.js"></script>
+<script src="../../../../ui/js/medium-zoom.min.js"></script>
+<script src="../../../../ui/js/zoom.js"></script>
+<script async src="../../../../ui/js/tabs.js"></script>
+  </body>
+</html>

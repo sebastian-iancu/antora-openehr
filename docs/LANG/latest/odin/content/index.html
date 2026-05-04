@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+    <title>Content :: openEHR Specifications (Local Build)</title>
+    <link rel="canonical" href="https://sebastian-iancu.github.io/antora-openehr/LANG/latest/odin/content/">
+    <link rel="prev" href="../odin_artefacts/">
+    <link rel="next" href="../references/">
+    <meta name="description" content="Object Data Instance Notation (ODIN) specification">
+    <meta name="keywords" content="data, notation, JSON, syntax">
+    <meta name="generator" content="Antora 3.1.14">
+    <link rel="stylesheet" href="../../../../ui/css/site.css">
+    <link rel="stylesheet" href="../../../../ui/css/antora-openehr.css">
+    <link rel="stylesheet" href="../../../../ui/css/openehr.css">
+    <link rel="stylesheet" href="../../../../ui/css/tabs.css">
+    <link rel="stylesheet" href="../../../../ui/css/extra.css">
+<link rel="icon" href="../../../../ui/img/favicon.ico" type="image/x-icon">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://sebastian-iancu.github.io/antora-openehr">openEHR Specifications (Local Build)</a>
+
+      <div class="navbar-item search hide-for-print">
+        <div id="search-field" class="field has-filter">
+          <input id="search-input" type="text" placeholder="Search the docs">
+          <label class="filter checkbox">
+            <input type="checkbox" data-facet-filter="component:LANG"> Generic Languages only
+          </label>
+        </div>
+      </div>
+
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">Specifications</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://specifications.openehr.org/" target="_blank">
+              openEHR specification
+            </a>
+            <a class="navbar-item" href="https://specifications.openehr.org/releases/UML/development/index.html" target="_blank">
+              openEHR portal
+            </a>
+            <a class="navbar-item" href="https://ckm.openehr.org/ckm/" target="_blank">
+              openEHR CKM
+            </a>
+          </div>
+        </div>
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">Community</a>
+          <div class="navbar-dropdown is-right">
+            <a class="navbar-item" href="https://openehr.atlassian.net/secure/Dashboard.jspa?selectPageId=10190" target="_blank">
+              Issue trackers
+            </a>
+            <a class="navbar-item" href="https://discourse.openehr.org/" target="_blank">
+              Discourse Forum
+            </a>
+            <a class="navbar-item" href="https://specifications.openehr.org/wiki/display/spec/Specifications+Home" target="_blank">
+              Wiki
+            </a>
+            <a class="navbar-item" href="https://github.com/openEHR" target="_blank">
+              GitHub
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="LANG" data-version="Release-1.0.0">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="../../">Generic Languages</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../">Overview</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../">Object Data Instance Notation (ODIN)</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../overview/">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../basics/">Basics</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../odin_artefacts/">ODIN Artefacts</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="./">Content</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../references/">References</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../leaf_data/">Leaf Data</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../path_syntax/">Path Syntax</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../plug_in_syntaxes/">Plug-in Syntaxes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../other_syntaxes/">Relationship with other Syntaxes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../syntax_spec/">Syntax Specification</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../appendix/">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../bmm/">Basic Meta-Model (BMM)</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../bmm/overview/">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../bmm/model_access/">Model Access Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../bmm/core-model/">Model Structure</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../bmm/core-types/">Types</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../bmm/core-classes/">Classes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../bmm/core-features/">Class Features</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../bmm/core-values/">Literal Values</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../bmm/expressions/">Expressions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../bmm/functional/">Functional Elements</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../bmm/statements/">Statements</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../bmm/model_semantics/">Model Semantics</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../bmm/extensions/">BMM Extensions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../bmm/appendix/">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../bmm_persistence/">BMM Persistence Model and Syntax</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../bmm_persistence/overview/">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../bmm_persistence/model/">Persistence Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../bmm_persistence/syntax/">BMM Persistence Syntax</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../bmm_persistence/appendix/">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../expression_language/">Expression Language (EL)</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../expression_language/overview/">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../expression_language/el_basics/">EL Basics</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../expression_language/el_terminal_entities/">Terminal Entities</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../expression_language/el_expressions/">Complex Expressions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../expression_language/appendix/">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Generic Languages</span>
+    <span class="version">Release-1.0.0</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <div class="title"><a href="../../../../AM/latest/">Archetype Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../AM/latest/">Release-2.3.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../AM/Release-2.2.0/">Release-2.2.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../AM/Release-1.4.0/">Release-1.4.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../AM/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../BASE/latest/">Base Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../BASE/latest/">Release-1.2.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../BASE/Release-1.1.0/">Release-1.1.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../BASE/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../CDS/latest/">Clinical Decision Support</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../CDS/latest/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../CNF/latest/">Conformance Specifications</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../CNF/latest/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <div class="title"><a href="../../">Generic Languages</a></div>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../../">Release-1.0.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../TERM/latest/">openEHR Terminology</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../TERM/latest/">Release-3.0.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../TERM/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../PROC/latest/">Process Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../PROC/latest/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../QUERY/latest/">Query Languages</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../QUERY/latest/">Release-1.0.1</a>
+        </li>
+        <li class="version">
+          <a href="../../../../QUERY/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../RM/latest/">Reference Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../RM/latest/">Release-1.1.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../RM/Release-1.0.4/">Release-1.0.4</a>
+        </li>
+        <li class="version">
+          <a href="../../../../RM/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../ITS-REST/latest/">REST API specifications</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../ITS-REST/latest/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../SM/latest/">Service Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../SM/latest/">development</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../../BASE/latest/" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../../">Generic Languages</a></li>
+    <li><a href="../">Object Data Instance Notation (ODIN)</a></li>
+    <li><a href="./">Content</a></li>
+  </ul>
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">Release-1.0.0</button>
+  <div class="version-menu">
+    <a class="version is-current" href="./">Release-1.0.0</a>
+    <a class="version" href="../../../development/odin/content/">development</a>
+  </div>
+</div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Content</h1>
+<div class="sect1">
+<h2 id="_general_structure"><a class="anchor" href="#_general_structure"></a><a class="link" href="#_general_structure">General Structure</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Within any kind of ODIN object instance (i.e. implied, anonymous or identified), the structure is a hierarchy of attribute names and object values. In its simplest form, an ODIN object consists of repetitions of the following pattern:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-antlr-java" data-lang="antlr-java">object = attribute_name '=' '&lt;' value '&gt;' ;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Each attribute name is the name of an attribute in an implied or actual object or relational model. Each "value" is either a literal value of a primitive type (see section <a href="#Primitive Types">[Primitive Types]</a>) or a further nesting of attribute names and values, terminating in leaf nodes of primitive type values. Where sibling attribute nodes occur, the attribute identifiers must be unique, just as in a standard object or relational model.</p>
+</div>
+<div class="paragraph">
+<p>The following shows a typical structure.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-odin" data-lang="odin">attr_1 = &lt;
+    attr_2 = &lt;
+        attr_3 = &lt;leaf_value&gt;
+        attr_4 = &lt;leaf_value&gt;
+    &gt;
+    attr_5 = &lt;
+        attr_3 = &lt;
+            attr_6 = &lt;leaf_value&gt;
+        &gt;
+        attr_7 = &lt;leaf_value&gt;
+    &gt;
+&gt;
+attr_8 = &lt;...&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In the above structure, each "&lt;&gt;" encloses an instance of some type. The hierarchical structure corresponds to the part-of relationship between objects, otherwise known as composition and <em>aggregation</em> relationships in object-oriented formalisms such as UML (the difference between the two is usually described as being "sub-objects related by aggregation can have independent lifetimes, whereas sub-objects related by composition have co-termimal lifetimes and are always destroyed with the parent"; ODIN does not differentiate between the two, since it is the business of a model, not the data, to express such semantics). Associations between instances in ODIN are also representable by references, and are described in the section <a href="#Associations and Shared Objects">[Associations and Shared Objects]</a>.</p>
+</div>
+<div class="paragraph">
+<p>Validity rules for object-structuring of ODIN are as follows:</p>
+</div>
+<div class="paragraph rule">
+<p>VDATU: attribute name uniqueness: sibling attributes occurring within an object node must be uniquely named with respect to each other, in the same way as in class definitions in an information model.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_paths"><a class="anchor" href="#_paths"></a><a class="link" href="#_paths">Paths</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>For any ODIN structure, a set of paths can be extracted that correspond to the tree structure of the data. The complete set of paths for the above example is as follows.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-odin" data-lang="odin">    /attr_1
+    /attr_1/attr_2
+    /attr_1/attr_2/attr_3           -- path to a leaf value
+    /attr_1/attr_2/attr_4           -- path to a leaf value
+    /attr_1/attr_5
+    /attr_1/attr_5/attr_3
+    /attr_1/attr_5/attr_3/attr_6    -- path to a leaf value
+    /attr_1/attr_5/attr_7           -- path to a leaf value
+    /attr_8</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The path syntax used with ODIN maps trivially to W3C Xpath and Xquery paths, and is described in section <a href="#Path Syntax">[Path Syntax]</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_void_objects"><a class="anchor" href="#_void_objects"></a><a class="link" href="#_void_objects">Void Objects</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>A void object, i.e. an object attribute that has no value is allowed in an ODIN text, but ignored by parsers. It is legal to output void objects, but not recommended. A void object looks as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-odin" data-lang="odin">    address = &lt;...&gt;    -- person's address</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_container_objects"><a class="anchor" href="#_container_objects"></a><a class="link" href="#_container_objects">Container Objects</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The syntax described so far allows an instance of an arbitrarily large object to be expressed, but does not support attributes of container types such as lists, sets and hash tables, i.e. items whose type in an underlying reference model is something like <code>attr:List&lt;Type&gt;</code> , <code>attr:Set&lt;Type&gt;</code> or <code>attr: Hash&lt;KeyType, ValueType&gt;</code> . There are two ways instance data of such container objects can be expressed in ODIN. The first applies to leaf values and is to use a list style literal value for , where the "list nature" of the data is expressed within the manifest value itself, as in the following examples.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-odin" data-lang="odin">fruits = &lt;"pear", "cumquat", "peach"&gt;
+some_primes = &lt;1, 2, 3, 5&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>See <a href="#Lists of Built-in Types">[Lists of Built-in Types]</a> for the complete description of list leaf types.</p>
+</div>
+<div class="paragraph">
+<p>However for containers holding non-primitive values, including more container objects, a different syntax is needed. Consider by way of example that an instance of the container <code>List&lt;Person&gt;</code> could in theory be expressed as follows.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-odin" data-lang="odin">-- WARNING: THIS IS NOT VALID ODIN
+
+people = &lt;
+    &lt;name = &lt;...&gt; date_of_birth = &lt;...&gt; sex = &lt;...&gt; interests = &lt;...&gt; &gt;
+    &lt;name = &lt;...&gt; date_of_birth = &lt;...&gt; sex = &lt;...&gt; interests = &lt;...&gt; &gt;
+    -- etc
+&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Here, 'anonymous' blocks of data are repeated inside the outer block. However, this makes the data hard to read, and does not provide an easy way of constructing paths to the contained items. A better syntax becomes more obvious when we consider that members of container objects in their computable form are nearly always accessed by a method such as <code>member(i)</code> , <code>item[i]</code> or just plain <code>[i]</code> , in the case of array access in the C-based languages.</p>
+</div>
+<div class="paragraph">
+<p>ODIN opts for the array-style syntax, known in ODIN as container member keys. No attribute name is explicitly given; any primitive comparable value is allowed as the key, rather than just integers used in C-style array access. Further, if integers are used, it is not assumed that they dictate ordinal indexing, i.e. it is possible to use a series of keys <code>[2]</code> , <code>[4]</code> , <code>[8]</code> etc. The following example shows one version of the above container in valid ODIN:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-odin" data-lang="odin">people = &lt;
+    [1] = &lt;name = &lt;...&gt; birth_date = &lt;...&gt; interests = &lt;...&gt; &gt;
+    [2] = &lt;name = &lt;...&gt; birth_date = &lt;...&gt; interests = &lt;...&gt; &gt;
+    [3] = &lt;name = &lt;...&gt; birth_date = &lt;...&gt; interests = &lt;...&gt; &gt;
+&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Strings and dates may also be used. Keys are coloured blue in the this specification in order to distinguish the run-time status of key values from the design-time status of class and attribute names. The following example shows the use of string values as keys for the contained items.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-odin" data-lang="odin">people = &lt;
+    ["akmal:1975-04-22"] = &lt;name = &lt;...&gt; birth_date = &lt;...&gt; interests = &lt;...&gt; &gt;
+    ["akmal:1962-02-11"] = &lt;name = &lt;...&gt; birth_date = &lt;...&gt; interests = &lt;...&gt; &gt;
+    ["gianni:1978-11-30"] = &lt;name = &lt;...&gt; birth_date = &lt;...&gt; interests = &lt;...&gt; &gt;
+&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The syntax for primitive values used as keys follows exactly the same syntax described below for data of primitive types. It is convenient in some cases to construct key values from one or more of the values of the contained items, in the same way as relational database keys are constructed from sufficient field values to guarantee uniqueness. However, they need not be - they may be independent of the contained data, as in the case of hash tables, where the keys are part of the hash table structure, or equally, they may simply be integer index values, as in the 'locations' attribute in the 'school_schedule' structure shown below.</p>
+</div>
+<div class="paragraph">
+<p>Container structures can appear anywhere in an overall instance structure, allowing complex data such as the following to be expressed in a readable way.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-odin" data-lang="odin">school_schedule = &lt;
+    lesson_times = &lt;08:30:00, 09:30:00, 10:30:00, ...&gt;
+
+    locations = &lt;
+        [1] = &lt;"under the big plane tree"&gt;
+        [2] = &lt;"under the north arch"&gt;
+        [3] = &lt;"in a garden"&gt;
+    &gt;
+
+    subjects = &lt;
+        ["philosophy:plato"] = &lt; -- note construction of key
+            name = &lt;"philosophy"&gt;
+            teacher = &lt;"plato"&gt;
+            topics = &lt;"meta-physics", "natural science"&gt;
+            weighting = &lt;76%&gt;
+        &gt;
+        ["philosophy:kant"] = &lt;
+            name = &lt;"philosophy"&gt;
+            teacher = &lt;"kant"&gt;
+            topics = &lt;"meaning and reason", "meta-physics", "ethics"&gt;
+            weighting = &lt;80%&gt;
+        &gt;
+        ["art"] = &lt;
+            name = &lt;"art"&gt;
+            teacher = &lt;"goya"&gt;
+            topics = &lt;"technique", "portraiture", "satire"&gt;
+            weighting = &lt;78%&gt;
+        &gt;
+    &gt;
+&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The example above conforms directly to the object-oriented type specification (given in a pascal-like syntax):</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-idl" data-lang="idl">class SCHEDULE
+    lesson_times: List&lt;Time&gt;
+    locations: List&lt;String&gt;
+    subjects: List&lt;SUBJECT&gt; -- or it could be Hash&lt;SUBJECT&gt;
+end
+
+class SUBJECT
+    name: String
+    teacher: String
+    topics: List&lt;String&gt;
+    weighting: Real
+end</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Other class specifications corresponding to the same data are possible, but will all be isomorphic to the above.</p>
+</div>
+<div class="paragraph">
+<p>How key values relate to a particular object structure depends on the object model being used during the ODIN parsing process. It is possible to write a parser which makes reasonable inferences from an information model whose instances are represented as ODIN text; it is also possible to include explicit typing information in the ODIN itself (see section <a href="#_adding_type_information">Adding Type Information</a> below).</p>
+</div>
+<div class="paragraph">
+<p>The validity rule for objects within a container attribute is as follows:</p>
+</div>
+<div class="paragraph rule">
+<p>VDOBU: object identifier uniqueness: sibling objects occurring within a container attribute must be uniquely identified with respect to each other.</p>
+</div>
+<div class="paragraph">
+<p>Paths through container objects are formed in the same way as paths in other structured data, with the addition of the key, to ensure uniqueness. The key is included syntactically enclosed in brackets, in a similar way to Xpath predicates. Paths through containers in the above example include the following:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-odin" data-lang="odin">/school_schedule/locations[1]                   -- path to "under the big..."
+/school_schedule/subjects["philosophy:kant"]    -- path to "kant"</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_nested_container_objects"><a class="anchor" href="#_nested_container_objects"></a><a class="link" href="#_nested_container_objects">Nested Container Objects</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>In some cases the data of interest are instances of nested container types, such as <code>List&lt;List&lt;Message&gt;&gt;</code> (a list of Message lists) or <code>Hash&lt;List&lt;Integer&gt;, String&gt;</code> (a hash of integer lists keyed by strings). The ODIN syntax for such structures follows directly from the syntax for a single container object. The following example shows an instance of the type <code>List&lt;List&lt;String&gt;&gt;</code> expressed in ODIN syntax.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-odin" data-lang="odin">list_of_string_lists = &lt;
+    [1] = &lt;
+        [1] = &lt;"first string in first list"&gt;
+        [2] = &lt;"second string in first list"&gt;
+    &gt;
+    [2] = &lt;
+        [1] = &lt;"first string in second list"&gt;
+        [2] = &lt;"second string in second list"&gt;
+        [3] = &lt;"third string in second list"&gt;
+    &gt;
+    [3] = &lt;
+        [1] = &lt;"only string in third list"&gt;
+    &gt;
+&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The paths of the above example are as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-odin" data-lang="odin">/list_of_string_lists[1]/[1]
+/list_of_string_lists[1]/[2]
+/list_of_string_lists[2]/[1]
+etc</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_adding_type_information"><a class="anchor" href="#_adding_type_information"></a><a class="link" href="#_adding_type_information">Adding Type Information</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>In many cases, ODIN data is of a simple structure, very regular, and highly repetitive, such as the expression of simple demographic data. In such cases, it is preferable to express as little as possible about the informatoin model on which the data are based, since various software components want to use the data, and use it in different ways. However, there are also cases where the data is highly complex, and more model information is needed to help a parser. Examples include large design databases for aircraft and health records. Data obeying more complex models typically include sub-objects that are of a subtype of the statically declared type in the information model, in other words, dynamically bound types.</p>
+</div>
+<div class="paragraph">
+<p>Where dynamic binding occurs in the data, it must be indicated in an ODIN document. Typing information is added to using a syntactical addition inspired by the <code>(type)</code> casting operator of the C language, whose meaning is approximately: force the type of the result of the following expression to be <code>type</code>. In ODIN typing is therefore done by including the type name in parentheses after the '=' sign, as in the following example.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-odin" data-lang="odin">destinations = &lt;
+    ["seville"] = (TOURIST_DESTINATION) &lt;
+        profile = (DESTINATION_PROFILE) &lt;...&gt;
+        hotels = &lt;
+            ["gran sevilla"] = (HISTORIC_HOTEL) &lt;...&gt;
+            ["sofitel"] = (LUXURY_HOTEL) &lt;...&gt;
+            ["hotel real"] = (PENSION) &lt;...&gt;
+        &gt;
+        attractions = &lt;
+            ["la corrida"] = (SPORT_VENUE) &lt;...&gt;
+            ["Alcázar"] = (HISTORIC_SITE) &lt;...&gt;
+        &gt;
+    &gt;
+&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The path set from the above example is as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-odin" data-lang="odin">/destinations["seville"]/hotels["gran sevilla"]
+/destinations["seville"]/hotels["sofitel"]
+/destinations["seville"]/hotels["hotel real"]
+
+/bookings["seville:0134"]/customer_id
+/bookings["seville:0134"]/period
+/bookings["seville:0134"]/hotel
+
+/hotels["sofitel"]
+/hotels["hotel real"]
+/hotels["gran sevilla"]</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In the above, no type identifiers are included after the <code>hotels</code> and <code>attractions</code> attributes, so it is assumed by the parser that they are of their statically declared type, typically something like <code>List&lt;HOTEL&gt;</code> and <code>List&lt;ATTRACTION&gt;</code> respectively. Nevertheless, complete typing information can be included, as follows.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-odin" data-lang="odin">hotels = (List&lt;HOTEL&gt;) &lt;
+    ["gran sevilla"] = (HISTORIC_HOTEL) &lt;...&gt;
+&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This illustrates the use of generic, i.e. template types, expressed in the standard UML syntax, using angle brackets. Any number of template arguments and any level of nesting is allowed, as in the UML. At first view, there may appear to be a risk of confusion between template type '&lt;&gt;' delimiters and the standard ODIN block delimiters. However the parsing rules are easy to state; essentially the difference is that an ODIN data block is always preceded by an '=' symbol.</p>
+</div>
+<div class="paragraph">
+<p>Type identifiers can also include namespace information, which is necessary when same-named types appear in different packages of a model. Namespaces are included by prepending package names, separated by the '.' character, in the same way as in most programming languages, as in the qualified type names <code>org.openehr.rm.ehr.content.ENTRY</code> and <code>Core.Abstractions.Relationships.Relationship</code>.</p>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="../odin_artefacts/">ODIN Artefacts</a></span>
+  <span class="next"><a href="../references/">References</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>
+    Copyright: © 2003+
+    <a href="https://www.openehr.org"
+        alt="is an independent, non-profit foundation, facilitating the sharing of health
+           records by consumers and clinicians via open specifications, clinical models
+           and open platform implementations.">The openEHR Foundation</a>
+  </p>
+
+  <p>
+    License:
+    <img src="../../../../ui/img/cc-by-nd-88x31.png"
+        alt="Creative Commons Attribution-NoDerivs 3.0 Unported."
+        style="vertical-align:middle;margin:0 0.25rem 0 0;">
+    <a href="https://creativecommons.org/licenses/by-nd/3.0/">
+      Creative Commons Attribution-NoDerivs 3.0 Unported.
+    </a>
+  </p>
+
+  <p>
+    <strong>Links: <strong>
+    <a href="https://www.openehr.org/terms-of-use" class="mr-1">Terms of use</a> |
+    <a href="https://www.openehr.org/privacy-policy" class="mx-1">Privacy policy</a> |
+    <a href="https://www.openehr.org/privacy-policy" class="mx-1">Logos &amp; Trademarks</a> |
+    <a href="https://www.openehr.org/contact-us" class="mx-1">Contact</a>
+  </p>
+</footer>
+
+<script id="site-script" src="../../../../ui/js/site.js" data-ui-root-path="../../../../ui"></script>
+<script defer src="../../../../ui/js/vendor/highlight.js"></script>
+<script src="../../../../ui/js/vendor/lunr.js"></script>
+<script src="../../../../ui/js/search-ui.js" id="search-ui-script" data-site-root-path="../../../.." data-snippet-length="80" data-stylesheet="../../../../ui/css/search.css"></script>
+<script async src="../../../../search-index.js"></script>
+<script src="../../../../ui/js/medium-zoom.min.js"></script>
+<script src="../../../../ui/js/zoom.js"></script>
+<script async src="../../../../ui/js/tabs.js"></script>
+  </body>
+</html>

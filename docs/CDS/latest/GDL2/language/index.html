@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+    <title>GDL2 Semantics :: openEHR Specifications (Local Build)</title>
+    <link rel="canonical" href="https://sebastian-iancu.github.io/antora-openehr/CDS/latest/GDL2/language/">
+    <link rel="prev" href="../requirements/">
+    <link rel="next" href="../model/">
+    <meta name="description" content="openEHR Guideline Definition Language v2 (GDL2) specification">
+    <meta name="keywords" content="decision support, GDL, GDL2, archetype">
+    <meta name="generator" content="Antora 3.1.14">
+    <link rel="stylesheet" href="../../../../ui/css/site.css">
+    <link rel="stylesheet" href="../../../../ui/css/antora-openehr.css">
+    <link rel="stylesheet" href="../../../../ui/css/openehr.css">
+    <link rel="stylesheet" href="../../../../ui/css/tabs.css">
+    <link rel="stylesheet" href="../../../../ui/css/extra.css">
+<link rel="icon" href="../../../../ui/img/favicon.ico" type="image/x-icon">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://sebastian-iancu.github.io/antora-openehr">openEHR Specifications (Local Build)</a>
+
+      <div class="navbar-item search hide-for-print">
+        <div id="search-field" class="field has-filter">
+          <input id="search-input" type="text" placeholder="Search the docs">
+          <label class="filter checkbox">
+            <input type="checkbox" data-facet-filter="component:CDS"> Clinical Decision Support only
+          </label>
+        </div>
+      </div>
+
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">Specifications</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://specifications.openehr.org/" target="_blank">
+              openEHR specification
+            </a>
+            <a class="navbar-item" href="https://specifications.openehr.org/releases/UML/development/index.html" target="_blank">
+              openEHR portal
+            </a>
+            <a class="navbar-item" href="https://ckm.openehr.org/ckm/" target="_blank">
+              openEHR CKM
+            </a>
+          </div>
+        </div>
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">Community</a>
+          <div class="navbar-dropdown is-right">
+            <a class="navbar-item" href="https://openehr.atlassian.net/secure/Dashboard.jspa?selectPageId=10190" target="_blank">
+              Issue trackers
+            </a>
+            <a class="navbar-item" href="https://discourse.openehr.org/" target="_blank">
+              Discourse Forum
+            </a>
+            <a class="navbar-item" href="https://specifications.openehr.org/wiki/display/spec/Specifications+Home" target="_blank">
+              Wiki
+            </a>
+            <a class="navbar-item" href="https://github.com/openEHR" target="_blank">
+              GitHub
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="CDS" data-version="development">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="../../">Clinical Decision Support</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../">Overview</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../GDL/">Guideline Definition Language (GDL)</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../GDL/overview/">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <span class="nav-text"><a href="/CDS/latest/GDL/design/" class="xref page">Design</a></span>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <span class="nav-text"><a href="/CDS/latest/GDL/implementation/" class="xref page">Implementation</a></span>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../GDL/appendix/">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../">Guideline Definition Language v2 (GDL2)</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../overview/">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../requirements/">Requirements</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="./">GDL2 Semantics</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../model/">GDL2 Object Model</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../syntax/">Syntax Specification</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../appendix/">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Clinical Decision Support</span>
+    <span class="version">development</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <div class="title"><a href="../../../../AM/latest/">Archetype Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../AM/latest/">Release-2.3.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../AM/Release-2.2.0/">Release-2.2.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../AM/Release-1.4.0/">Release-1.4.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../AM/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../BASE/latest/">Base Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../BASE/latest/">Release-1.2.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../BASE/Release-1.1.0/">Release-1.1.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../BASE/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <div class="title"><a href="../../">Clinical Decision Support</a></div>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../../">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../CNF/latest/">Conformance Specifications</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../CNF/latest/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../LANG/latest/">Generic Languages</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../LANG/latest/">Release-1.0.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../LANG/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../TERM/latest/">openEHR Terminology</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../TERM/latest/">Release-3.0.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../TERM/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../PROC/latest/">Process Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../PROC/latest/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../QUERY/latest/">Query Languages</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../QUERY/latest/">Release-1.0.1</a>
+        </li>
+        <li class="version">
+          <a href="../../../../QUERY/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../RM/latest/">Reference Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../RM/latest/">Release-1.1.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../RM/Release-1.0.4/">Release-1.0.4</a>
+        </li>
+        <li class="version">
+          <a href="../../../../RM/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../ITS-REST/latest/">REST API specifications</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../ITS-REST/latest/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../SM/latest/">Service Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../SM/latest/">development</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../../BASE/latest/" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../../">Clinical Decision Support</a></li>
+    <li><a href="../">Guideline Definition Language v2 (GDL2)</a></li>
+    <li><a href="./">GDL2 Semantics</a></li>
+  </ul>
+</nav>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">GDL2 Semantics</h1>
+<div class="sect1">
+<h2 id="_rule_structure"><a class="anchor" href="#_rule_structure"></a><a class="link" href="#_rule_structure">Rule Structure</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The following diagram illustrates the structure of a GDL2 guideline. The central rules defining the semantics of the guideline are defined in terms of the formal rule definitions (when/then structures) coupled with 'rule execution filters', consisting of pre-conditions and predicates, that decide which rules are executed. If a rule is executed, its <code>when</code> conditions will be evaluated, and if all satisfied, its <code>then</code> actions performed. The data-bindings and terminology parts of structure define respectively, the mappings of the gt-codes used in the rules to nodes in input or output data sets (archetypes and/or templates); and the definitions of the gt-codes as terms, for human use. Finally, the optional <code>templates</code> provide a way of reporting generated results to downstream consumers. These are described in more detail in the <a href="#_reporting">Reporting</a> section below.</p>
+</div>
+<div id="gdl2_guideline_structure" class="imageblock text-center text-center">
+<div class="content">
+<img src="../_images/diagrams/gdl2_guideline_structure.svg" alt="gdl2 guideline structure">
+</div>
+<div class="title">Figure 1. GDL2 guideline structure</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_execution_model"><a class="anchor" href="#_execution_model"></a><a class="link" href="#_execution_model">Execution Model</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The following diagram illustrates the execution model of a rule in a GDL2 guideline, showing more clearly the relationship between rule execution 'filters' and rule execution.</p>
+</div>
+<div id="gdl2_execution_model" class="imageblock text-center text-center">
+<div class="content">
+<img src="../_images/diagrams/gdl2_execution_model.svg" alt="gdl2 execution model" width="70%">
+</div>
+<div class="title">Figure 2. GDL2 execution model</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_gdl2_language_elements"><a class="anchor" href="#_gdl2_language_elements"></a><a class="link" href="#_gdl2_language_elements">GDL2 Language Elements</a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_syntax"><a class="anchor" href="#_syntax"></a><a class="link" href="#_syntax">Syntax</a></h3>
+<div class="paragraph">
+<p>Because GDL2 guidelines are machine serialisations of the <a href="#GDL2 Object Model">[GDL2 Object Model]</a>, the syntax is mostly a direct consequence of the structure. Currently, either <a href="https://specifications.openehr.org/releases/LANG/latest/odin.html" target="_blank" rel="noopener">openEHR ODIN</a> or <a href="http://json.org" target="_blank" rel="noopener">JSON</a> syntax may be used. The exception is where expressions appear, which is within Assertion and Assignment statements, which as per the model, occur in <code>/pre_conditions</code>, <code>data_bindings[id]/predicates</code>, <code>rules[id]/when</code> statements, <code>rules[id]/then</code> actions, and Guideline <code>default_actions</code>.</p>
+</div>
+<div class="paragraph">
+<p>The following subsections describe the expressions occurring in Assertion and Assignment statements. The former is a kind of statement that asserts the truth of a Boolean expression, while the latter is a programming-style assignment of an expression of any type to a variable of that type.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_pre_conditions"><a class="anchor" href="#_pre_conditions"></a><a class="link" href="#_pre_conditions">Pre-conditions</a></h3>
+<div class="paragraph">
+<p>Pre-conditions (<code>GUIDELINE.<em>pre_conditions</em></code>) are part of the execution filter for the rules in a guideline. Pre-conditions apply to the guideline as a whole, i.e. all constituent rules and usually specify conditions on the type of patient / subject to which the guideline applies. Input data sets not satisfying the pre-conditions will cause a Guideline to be considered by the execution engine as not applying, and execution will pass to other guidelines or terminate.</p>
+</div>
+<div class="paragraph">
+<p>The following shows a pre-condition used in the <code>CHA2DS2VASc_Score_calculation.v1.1.0</code> guideline. This says that the value of the <code>gt0121</code> variable (meaning: Atrial fibrillation), which is mapped to the path <code>/data[at0001]/items[at0035]</code> in the archetype <code>openEHR-EHR-EVALUATION.chadsvas_diagnosis_review.v1</code> is 1, i.e. it is present.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-odin" data-lang="odin">definition = &lt;
+	pre_conditions = &lt;"$gt0121 == 1|local::at0051|Present|"&gt;
+
+    data_bindings = &lt;
+        ["gt0122"] = &lt;
+            model_id = &lt;"openEHR-EHR-EVALUATION.chadsvas_diagnosis_review.v1"&gt;
+            type = &lt;"INPUT"&gt;
+            elements = &lt;
+                ["gt0121"] = &lt;
+                    path = &lt;"/data[at0001]/items[at0035]"&gt;
+                &gt;
+            &gt;
+        &gt;
+
+terminology = &lt;
+    term_definitions = &lt;
+        ["en"] = &lt;
+            ["gt0121"] = &lt;
+                text = &lt;"Atrial fibrillation"&gt;
+                description = &lt;"*"&gt;
+            &gt;
+            ...</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The following pre-condition is from the <code>Coeliac_disease_alert.v2</code> guideline, expressed in JSON. The <code>gt0015</code> code is mapped in a similar way to a data point within a diagnosis review. In this case, it asserts that there is no Coeliac disease diagnosis, which is the logical pre-condition for applying a Coeliac risk analysis guideline (clearly the latter is not useful for subjects already diagnosed as Coeliac).</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">    "pre_conditions": [
+      "$gt0015|Coeliac disease diagnosis| == null"
+    ],</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_rules"><a class="anchor" href="#_rules"></a><a class="link" href="#_rules">Rules</a></h3>
+<div class="paragraph">
+<p>Rules consist of the pattern <code>when Assertion(s) then Statement(s)</code>. The logic of multiple Assertions in the <code>when</code> part is <code>and</code>, i.e. all are needed for the rule to fire.</p>
+</div>
+<div class="paragraph">
+<p>The following example is from the <code>Coeliac_disease_alert.v2</code> guideline, and shows a rule whose <code>when</code> condition is a multi-way <code>or</code> expression of various conditions, and whose <code>then</code> statements consist of:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>assignment to a variable from an output template that corresponds to a CDS hooks 'card' data item;</p>
+</li>
+<li>
+<p>an internal <code>use_template</code> call that tells the execution engine which reporting template to use.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>This kind of rule essentially reports on a Boolean condition that was found to be present in the input data.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">  "gt0007": {
+    "id": "gt0007",
+    "priority": 1,
+    "when": [
+      "$gt0025|Type 1 diabetes| == true ||
+       $gt0029|Irritable bowel syndrome| == true ||
+       $gt0028|(Unexplained) B12, iron or folate deficiency (and relevant medicines)| == true ||
+       $gt0026|Autoimmune thyroid disease (and relevant medicines)| == true"
+    ],
+    "then": [
+      "$gt0009|card.summary| = 'tTG serological testing is recommended'",
+      "use_template ($gt2022)"
+    ]
+  }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Rules may be used to perform calculations, such as the well-known Body Mass Index (BMI). The extract below is from the <code>BMI_Calculation-FHIR.v1</code> guideline. The 3rd item in the <code>then</code> list is an assignment stating that the BMI variable <code>gt0003</code> value should be set to weight (<code>gt0007</code>) / height(<code>gt0005</code>)^2.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">    "rules": {
+      "gt0012": {
+        "id": "gt0012",
+        "priority": 1,
+        "then": [
+          "$gt0003|BMI|.unit = 'kg/m2'",
+          "$gt0003|BMI|.precision = 1",
+          "$gt0003|BMI|.magnitude = $gt0007.magnitude/($gt0005.magnitude/100)^2"
+        ]
+      }
+    }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Rule-set action lists may be of any size, as shown by the following extract, from the <code>QRISK2-2015_risk_calculation.v2</code> guideline.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">  "gt0025": {
+    "id": "gt0025",
+    "priority": 2,
+    "when": [
+      "$gt0026=='female'"
+    ],
+    "then": [
+      "$gt1000|dage|.precision = 15",
+      "$gt1001|age_1|.precision = 15",
+      "$gt1002|age_2|.precision = 15",
+      "$gt1003|bmi|.precision = 15",
+      "$gt1004|bmi_2|.precision = 15",
+      "$gt1005|bmi_1|.precision = 15",
+      "$gt1006|rati|.precision = 15",
+      "$gt1007|sbp|.precision = 15",
+      "$gt1008|town|.precision = 15",
+
+      "$gt1000|dage|.magnitude = $gt0022|age|.magnitude",
+      "$gt1000|dage|.magnitude = $gt1000|dage|.magnitude / 10.0",
+      "$gt1001|age_1|.magnitude = $gt1000|dage|.magnitude ^ 0.5",
+      "$gt1002|age_2|.magnitude = $gt1000|dage|.magnitude",
+      "$gt1003|dbmi|.magnitude = $gt0024.magnitude",
+      "$gt1003|dbmi|.magnitude = $gt1003|dbmi|.magnitude / 10.0",
+      "$gt1004|bmi_2|.magnitude = $gt1003|dbmi|.magnitude ^ (0-2) * log($gt1003|dbmi|.magnitude)",
+      "$gt1005|bmi_1|.magnitude = $gt1003|dbmi|.magnitude ^ (0-2)",
+
+      "$gt1001|age_1|.magnitude = $gt1001|age_1|.magnitude - 2.086397409439087",
+      "$gt1002|age_2|.magnitude = $gt1002|age_2|.magnitude - 4.353054523468018",
+      "$gt1005|bmi_1|.magnitude = $gt1005|bmi_1|.magnitude - 0.152244374155998",
+      "$gt1004|bmi_2|.magnitude = $gt1004|bmi_2|.magnitude - 0.143282383680344",
+      "$gt1006|rati|.magnitude = $gt8005|Cholesterol/HDL ratio|.magnitude - 3.506655454635620",
+      "$gt1007|sbp|.magnitude = $gt0016|Systolic BP|.magnitude - 125.040039062500000",
+      "$gt1008|town|.magnitude = (0-0.416743695735931)",
+
+      "$gt0030|QRISK2 score|.precision = 15",
+      "$gt0030|QRISK2 score|.magnitude = 0",
+
+      "$gt0030.magnitude = $gt0030.magnitude + $gt0004|Smoking category 1|.value * 0.2119377108760385200000000",
+      "$gt0030.magnitude = $gt0030.magnitude + $gt0005|Smoking category 2|.value * 0.6618634379685941500000000",
+      "$gt0030.magnitude = $gt0030.magnitude + $gt0006|Smoking category 3|.value * 0.7570714587132305600000000",
+      "$gt0030.magnitude = $gt0030.magnitude + $gt0007|Smoking category 4|.value * 0.9496298251457036000000000",</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_expression_elements"><a class="anchor" href="#_expression_elements"></a><a class="link" href="#_expression_elements">Expression Elements</a></h3>
+<div class="paragraph">
+<p>Most expression terminal elements shown in the <a href="#Expressions Package">[Expressions Package]</a> below are generated during the process of parsing larger expressions and statements found within guidelines, as per the above examples. Consequently, some properties, such as types of constants and variables are inferred and generated on the fly, rather than being stated literally within a guideline.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_local_variables"><a class="anchor" href="#_local_variables"></a><a class="link" href="#_local_variables">Local Variables</a></h3>
+<div class="paragraph">
+<p>Local variables identified by gt-codes may be defined by including their gt-code definitions in the <code>terminology</code> in the normal way, and then just using them within assertions and assignments. They are tracked in the list <code>GUIDELINE_DEFINITION.internal_variables</code>, which is constructed on the fly during guideline materialisation.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_reporting"><a class="anchor" href="#_reporting"></a><a class="link" href="#_reporting">Reporting</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The actions performed when a GDL2 rule is fired consist of assignments, which result in a value being set in a location of an output data set.</p>
+</div>
+<div class="paragraph">
+<p>The following example shows a rule whose <code>then</code> action list includes the internal call <code>use_template($gt2022)</code>. The code <code>gt2022</code> refers to a reporting 'template', which appears below the rule that mentions it. Within this template, the <code>object</code> field contains a structure whose model is defined by the preceding <code>model_id</code> and <code>template_id</code> attributes. Within the object structure, any output variables from the Guideline may be mentioned using the syntax <code>{}</code>, which means that at execution time, if the rule is fired, the template will be evaluated such that all <code>{}</code> mentions are substituted with their variable values, before final processing of the template (which might for example send it to a specific receiver service or application).</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">    "rules": {
+      "gt0007": {
+        "id": "gt0007",
+        "priority": 1,
+        "when": [...],
+        "then": [
+          "$gt0009|card.summary|='tTG serological testing is recommended'",
+          "use_template($gt2022)"
+        ]
+      }
+
+    "templates": {
+      "gt2022": {
+        "id": "gt2022",
+        "name": "coeliac-disease-alert",
+        "model_id": "generic_model",
+        "template_id": "generic_model",
+        "object": {
+          "cards": [
+            {
+              "summary": "{$gt0009}",
+              "detail": "Found risk factor(s):{$gt0020}",
+              "indicator": "warning",
+              "source": {
+                "label": "National Institute for Health and Care Excellence (NICE). Coeliac disease: recognition, assessment and management. 2015.",
+                "url": "https://www.nice.org.uk/guidance/ng20"
+              }
+            }
+          ]
+        }
+      }
+    },</code></pre>
+</div>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="../requirements/">Requirements</a></span>
+  <span class="next"><a href="../model/">GDL2 Object Model</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>
+    Copyright: © 2003+
+    <a href="https://www.openehr.org"
+        alt="is an independent, non-profit foundation, facilitating the sharing of health
+           records by consumers and clinicians via open specifications, clinical models
+           and open platform implementations.">The openEHR Foundation</a>
+  </p>
+
+  <p>
+    License:
+    <img src="../../../../ui/img/cc-by-nd-88x31.png"
+        alt="Creative Commons Attribution-NoDerivs 3.0 Unported."
+        style="vertical-align:middle;margin:0 0.25rem 0 0;">
+    <a href="https://creativecommons.org/licenses/by-nd/3.0/">
+      Creative Commons Attribution-NoDerivs 3.0 Unported.
+    </a>
+  </p>
+
+  <p>
+    <strong>Links: <strong>
+    <a href="https://www.openehr.org/terms-of-use" class="mr-1">Terms of use</a> |
+    <a href="https://www.openehr.org/privacy-policy" class="mx-1">Privacy policy</a> |
+    <a href="https://www.openehr.org/privacy-policy" class="mx-1">Logos &amp; Trademarks</a> |
+    <a href="https://www.openehr.org/contact-us" class="mx-1">Contact</a>
+  </p>
+</footer>
+
+<script id="site-script" src="../../../../ui/js/site.js" data-ui-root-path="../../../../ui"></script>
+<script defer src="../../../../ui/js/vendor/highlight.js"></script>
+<script src="../../../../ui/js/vendor/lunr.js"></script>
+<script src="../../../../ui/js/search-ui.js" id="search-ui-script" data-site-root-path="../../../.." data-snippet-length="80" data-stylesheet="../../../../ui/css/search.css"></script>
+<script async src="../../../../search-index.js"></script>
+<script src="../../../../ui/js/medium-zoom.min.js"></script>
+<script src="../../../../ui/js/zoom.js"></script>
+<script async src="../../../../ui/js/tabs.js"></script>
+  </body>
+</html>

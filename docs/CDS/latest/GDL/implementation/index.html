@@ -1,0 +1,1170 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+    <title>Implementation :: openEHR Specifications (Local Build)</title>
+    <link rel="canonical" href="https://sebastian-iancu.github.io/antora-openehr/CDS/latest/GDL/implementation/">
+    <meta name="description" content="openEHR Guideline Definition Language (GDL) specification">
+    <meta name="keywords" content="decision support, GDL, archetype">
+    <meta name="generator" content="Antora 3.1.14">
+    <link rel="stylesheet" href="../../../../ui/css/site.css">
+    <link rel="stylesheet" href="../../../../ui/css/antora-openehr.css">
+    <link rel="stylesheet" href="../../../../ui/css/openehr.css">
+    <link rel="stylesheet" href="../../../../ui/css/tabs.css">
+    <link rel="stylesheet" href="../../../../ui/css/extra.css">
+<link rel="icon" href="../../../../ui/img/favicon.ico" type="image/x-icon">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://sebastian-iancu.github.io/antora-openehr">openEHR Specifications (Local Build)</a>
+
+      <div class="navbar-item search hide-for-print">
+        <div id="search-field" class="field has-filter">
+          <input id="search-input" type="text" placeholder="Search the docs">
+          <label class="filter checkbox">
+            <input type="checkbox" data-facet-filter="component:CDS"> Clinical Decision Support only
+          </label>
+        </div>
+      </div>
+
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">Specifications</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://specifications.openehr.org/" target="_blank">
+              openEHR specification
+            </a>
+            <a class="navbar-item" href="https://specifications.openehr.org/releases/UML/development/index.html" target="_blank">
+              openEHR portal
+            </a>
+            <a class="navbar-item" href="https://ckm.openehr.org/ckm/" target="_blank">
+              openEHR CKM
+            </a>
+          </div>
+        </div>
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">Community</a>
+          <div class="navbar-dropdown is-right">
+            <a class="navbar-item" href="https://openehr.atlassian.net/secure/Dashboard.jspa?selectPageId=10190" target="_blank">
+              Issue trackers
+            </a>
+            <a class="navbar-item" href="https://discourse.openehr.org/" target="_blank">
+              Discourse Forum
+            </a>
+            <a class="navbar-item" href="https://specifications.openehr.org/wiki/display/spec/Specifications+Home" target="_blank">
+              Wiki
+            </a>
+            <a class="navbar-item" href="https://github.com/openEHR" target="_blank">
+              GitHub
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="CDS" data-version="development">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="../../">Clinical Decision Support</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../">Overview</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../">Guideline Definition Language (GDL)</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../overview/">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <span class="nav-text"><a href="/CDS/latest/GDL/design/" class="xref page">Design</a></span>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <span class="nav-text"><a href="/CDS/latest/GDL/implementation/" class="xref page">Implementation</a></span>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../appendix/">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../GDL2/">Guideline Definition Language v2 (GDL2)</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../GDL2/overview/">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../GDL2/requirements/">Requirements</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../GDL2/language/">GDL2 Semantics</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../GDL2/model/">GDL2 Object Model</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../GDL2/syntax/">Syntax Specification</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../GDL2/appendix/">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Clinical Decision Support</span>
+    <span class="version">development</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <div class="title"><a href="../../../../AM/latest/">Archetype Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../AM/latest/">Release-2.3.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../AM/Release-2.2.0/">Release-2.2.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../AM/Release-1.4.0/">Release-1.4.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../AM/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../BASE/latest/">Base Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../BASE/latest/">Release-1.2.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../BASE/Release-1.1.0/">Release-1.1.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../BASE/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <div class="title"><a href="../../">Clinical Decision Support</a></div>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../../">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../CNF/latest/">Conformance Specifications</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../CNF/latest/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../LANG/latest/">Generic Languages</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../LANG/latest/">Release-1.0.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../LANG/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../TERM/latest/">openEHR Terminology</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../TERM/latest/">Release-3.0.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../TERM/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../PROC/latest/">Process Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../PROC/latest/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../QUERY/latest/">Query Languages</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../QUERY/latest/">Release-1.0.1</a>
+        </li>
+        <li class="version">
+          <a href="../../../../QUERY/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../RM/latest/">Reference Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../RM/latest/">Release-1.1.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../RM/Release-1.0.4/">Release-1.0.4</a>
+        </li>
+        <li class="version">
+          <a href="../../../../RM/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../ITS-REST/latest/">REST API specifications</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../ITS-REST/latest/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../SM/latest/">Service Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../SM/latest/">development</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../../BASE/latest/" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../../">Clinical Decision Support</a></li>
+    <li><a href="./">Implementation</a></li>
+  </ul>
+</nav>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Implementation</h1>
+<div class="sect1">
+<h2 id="_drools"><a class="anchor" href="#_drools"></a><a class="link" href="#_drools">Drools</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>GDL is technology independent, so it can be implemented using different rule engines. We’ve chosen JBoss Drools, an open source technology, to develop our first implementation of GDL execution engine. Drools allows us to refer directly to our Java objects inside the rules. It provides support for a powerful expression language (MVEL) and has proven robust and efficient enough for our purposes. Our drools module will be able to translate our GDL language into Drools Rule Language (DRL).</p>
+</div>
+<div class="ulist">
+<div class="title">The following list summarizes the considerations for the drools-based implementation:</div>
+<ul>
+<li>
+<p>Each rule in GDL will generate a new rule in DRL</p>
+</li>
+<li>
+<p>Each rule will have as a title the guide id and the GT code (rule "CHADSVAS_Score.v1/gt0028")</p>
+</li>
+<li>
+<p>Priority will be mapped to salience in DRL language</p>
+</li>
+<li>
+<p>All rules will have a no-loop attribute, to disable the execution loops inside one rule</p>
+</li>
+<li>
+<p>Current time variable will have to be defined using the DvDateTime class</p>
+</li>
+<li>
+<p>All elements used inside the expressions will be checked for definition prior to execution</p>
+</li>
+<li>
+<p>Modification of the elements will use the modify method to propagate the changes inside the knowledge base</p>
+</li>
+<li>
+<p>General definition section: Drools does not support declaration of elements outside the rule’s scope. Each one of the elements had to be declared inside each rule.</p>
+</li>
+<li>
+<p>Preconditions: there is no support for this type of conditions. All preconditions will be copied inside each one of the rules.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_gdl_editor"><a class="anchor" href="#_gdl_editor"></a><a class="link" href="#_gdl_editor">GDL Editor</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>An authoring tool for GDL is released as open-source software for the community.  The GDL editor is a multiplatform desktop application and will allow users to create, edit and run GDL files. We implemented in the editor a feature capable of generating forms based on the archetype elements defined in the GDL. These forms can be used to take input from the user and trigger the rules. More information about this tool can be found in the GDL Editor Manual.</p>
+</div>
+<div class="paragraph">
+<p>The home page of GDL Editor on GitHub is <a href="https://github.com/openEHR/gdl-tools" class="bare">https://github.com/openEHR/gdl-tools</a>.</p>
+</div>
+<div class="paragraph">
+<p>The software binary download page is here: <a href="http://sourceforge.net/projects/gdl-editor" class="bare">http://sourceforge.net/projects/gdl-editor</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_appendix_a_grammar"><a class="anchor" href="#_appendix_a_grammar"></a><a class="link" href="#_appendix_a_grammar">Appendix A: Grammar</a></h2>
+<div class="sectionbody">
+<div class="listingblock">
+<div class="content">
+<pre> /**
+ * Expression parser
+ *
+ * @author rong.chen    
+ */
+options
+{
+  JDK_VERSION = "1.5";
+
+  LOOKAHEAD= 1;
+  DEBUG_PARSER = false;
+  DEBUG_TOKEN_MANAGER = false;
+  DEBUG_LOOKAHEAD = false;
+  UNICODE_INPUT = true;
+
+  static = false;
+}
+
+PARSER_BEGIN(ExpressionParser)
+package se.cambio.cds.gdl.parser;
+import java.io.*;
+import java.util.*;
+import se.cambio.cds.gdl.model.expression.*;
+import org.openehr.rm.datatypes.text.CodePhrase;
+import org.openehr.rm.datatypes.quantity.*;
+import org.openehr.rm.datatypes.basic.DataValue;
+
+public class ExpressionParser
+{
+  private static final String CHARSET = "UTF-8";
+
+  /* =========================  public interface ======================== */
+  /* execute the parsing */
+  public List &lt; ExpressionItem &gt; parseBooleanExpressions() throws ParseException
+  {
+    return expressions();
+  }
+
+  public List &lt; ExpressionItem &gt; parseArithmeticExpressions() throws ParseException
+  {
+    return expressions();
+  }
+
+  public ExpressionItem parse() throws ParseException
+  {
+    return expression_item();
+  }
+
+  /* re-initial the parser */
+  public void reInit(File file) throws IOException
+  {
+    ReInit(new FileInputStream(file), CHARSET);
+  }
+
+  /* re-initial the parser */
+  public void reInit(InputStream input) throws IOException
+  {
+    ReInit(new BufferedInputStream(input));
+  }
+
+  public static void main(String args []) throws ParseException
+  {}
+}
+
+PARSER_END(ExpressionParser)
+
+&lt;* &gt;
+SKIP : /* WHITE SPACE */
+{
+  " "
+| "\t"
+| "\n"
+| "\r"
+| "\f"
+}
+
+&lt;* &gt;
+SPECIAL_TOKEN : /* COMMENTS */
+{
+  &lt; SINGLE_LINE_COMMENT : "--" (~[ "\n", "\r" ])* &gt;
+}
+
+&lt;* &gt;
+TOKEN : /* SYMBOLS - common */
+{
+  &lt; SYM_MINUS : "-" &gt;
+| &lt; SYM_PLUS : "+" &gt;
+| &lt; SYM_STAR : "*" &gt;
+| &lt; SYM_SLASH : "/" &gt;
+| &lt; SYM_CARET : "^" &gt;
+| &lt; SYM_DOT : "." &gt;
+| &lt; SYM_SEMICOLON : ";" &gt;
+| &lt; SYM_COMMA : "," &gt;
+| &lt; SYM_TWO_COLONS : "::" &gt;
+| &lt; SYM_COLON : ":" &gt;
+| &lt; SYM_EXCLAMATION : "!" &gt;
+| &lt; SYM_L_PARENTHESIS : "(" &gt;
+| &lt; SYM_R_PARENTHESIS : ")" &gt;
+| &lt; SYM_DOLLAR : "$" &gt;
+| &lt; SYM_QUESTION : "?" &gt;
+| &lt; SYM_L_BRACKET : "[" &gt;
+| &lt; SYM_R_BRACKET : "]" &gt;
+| &lt; SYM_INTERVAL_DELIM : "|" &gt;
+| &lt; SYM_EQ : "==" &gt;
+| &lt; SYM_GE : "&gt;=" &gt;
+| &lt; SYM_LE : "&lt;=" &gt;
+| &lt; SYM_LT : "&lt;" &gt;
+| &lt; SYM_GT : "&gt;" &gt;
+| &lt; SYM_NE : "!=" &gt;
+| &lt; SYM_NOT : "not" &gt;
+| &lt; SYM_AND :
+    "and"
+  | "&amp;&amp;" &gt;
+| &lt; SYM_OR :
+    "or"
+  | "||" &gt;
+| &lt; SYM_FALSE : "false" &gt;
+| &lt; SYM_TRUE : "true" &gt;
+| &lt; SYM_NULL : "null" &gt;
+| &lt; SYM_IS_A : "is_a" &gt;
+| &lt; SYM_IS_NOT_A : "!is_a" &gt;
+| &lt; SYM_FOR_ALL : "for_all" &gt;
+| &lt; SYM_MAX : "max" &gt;
+| &lt; SYM_MIN : "min" &gt;
+| &lt; SYM_CURRENT_DATETIME : "currentDateTime" &gt;
+| &lt; SYM_ASSIGNMENT : "=" &gt;
+| &lt; SYM_MODULO : "\\" &gt;
+| &lt; SYM_DIV : "//" &gt;
+| &lt; SYM_ELLIPSIS : ".." &gt;
+| &lt; SYM_LIST_CONTINUE : "..." &gt;
+}
+
+&lt;* &gt;
+TOKEN :
+{
+  &lt; #V_LOCAL_CODE_CORE : "g" [ "c", "t" ] ([ "0"-"9", "." ])+ [ "0"-"9" ] &gt;
+| &lt; V_LOCAL_CODE : &lt; V_LOCAL_CODE_CORE &gt; &gt;
+| &lt; V_QUANTITY :
+    (
+      &lt; V_REAL &gt;
+    | &lt; V_INTEGER &gt;
+    )
+    "," ([ "a"-"z", "A"-"Z", "µ", "°", "%", "*", "0"-"9", "[", "]", "/" ])+
+        ([ "a"-"z", "A"-"Z", "µ", "°", "%", "*","0"-"9", "[", "]", "/" ])*
+        ([ "a"-"z", "A"-"Z", "µ", "°", "%", "*","0"-"9", "[", "]"])* &gt;
+| &lt; V_PROPORTION :
+    (
+      &lt; V_REAL &gt;
+    | &lt; V_INTEGER &gt;
+    )
+    ","
+    (
+      &lt; V_REAL &gt;
+    | &lt; V_INTEGER &gt;
+    )
+    ","
+    (["0"-"4"]) &gt;
+| &lt; V_INTEGER :
+    (&lt; DIG &gt;)+
+  |
+    "(-" (&lt; DIG &gt;)+ ")"
+  |
+    (&lt; DIG &gt;)
+    {
+      1, 3
+    }
+    (
+      "," (&lt; DIG &gt;)
+      {
+        3
+      }
+    )+ &gt;
+|
+  &lt; V_ISO8601_DURATION: ("-")? "P"((&lt;DIG&gt;)+["y","Y"])?((&lt;DIG&gt;)+["m","M"])?((&lt;DIG&gt;)+["w","W"])?
+  ((&lt;DIG&gt;)+["d","D"])?("T"((&lt;DIG&gt;)+["h","H"])?((&lt;DIG&gt;)+["m","M"])?
+  ((&lt;DIG&gt;)+["s","S"])?)?&gt;
+|
+  &lt; V_ISO8601_DURATION_CONSTRAINT_PATTERN: "P"(["y","Y"])?(["m","M"])?
+  (["w","W"])?(["d","D"])?"T"(["h","H"])?(["m","M"])?(["s","S"])? 
+  |"P"(["y","Y"])?(["m","M"])?(["w","W"])?(["d","D"])?&gt;
+|
+  &lt; V_DATE: (["0"-"9"]){4} "-" ( "0"["1"-"9"] | "1"["0"-"2"] ) "-"
+            ( "0"["1"-"9"] | ["1"-"2"]["0"-"9"]|"3"["0"-"1"] ) &gt;
+|
+  &lt; V_HHMM_TIME: &lt;HOUR_MINUTE&gt; &gt;
+|
+  &lt; V_HHMMSS_TIME: &lt; HOUR_MINUTE&gt; &lt;SECOND&gt; &gt;
+|
+  &lt; V_HHMMSSss_TIME: &lt; HOUR_MINUTE&gt; &lt;SECOND&gt; &lt;MILLI_SECOND&gt; &gt;
+|
+  &lt; V_HHMMSSZ_TIME: &lt; HOUR_MINUTE&gt; &lt;SECOND&gt; &lt;TIME_ZONE&gt; &gt;
+|
+  &lt; V_HHMMSSssZ_TIME: &lt; HOUR_MINUTE&gt; &lt;SECOND&gt; &lt;MILLI_SECOND&gt; &lt;TIME_ZONE&gt; &gt;
+|
+  &lt; V_TIME: &lt;HOUR_MINUTE&gt; &lt;SECOND&gt; &gt;
+|
+  
+  &lt; V_DATE_TIME_MS: &lt;DATE_TIME&gt; &lt;MILLI_SECOND&gt; &gt;
+|
+  &lt; V_DATE_TIME_Z: "("&lt;DATE_TIME&gt; &lt;TIME_ZONE&gt; ")" &gt;
+|
+  &lt; V_DATE_TIME: "("&lt;DATE_TIME&gt; ")" &gt;
+|
+   &lt; V_DATE_TIME_MSZ: &lt;DATE_TIME&gt; &lt;MILLI_SECOND&gt; &lt;TIME_ZONE&gt; &gt;
+|
+   &lt; #DATE_TIME: &lt;V_DATE&gt;"T"&lt;V_TIME&gt;&gt;
+|  &lt; #TIME_ZONE: ["-","+"](["0"-"9"]){2}":"(["0"-"9"]){2} | "Z" &gt;
+|
+  &lt; #SECOND: ":" ["0"-"5"]["0"-"9"] &gt;
+|
+  &lt; #MILLI_SECOND: "."(["0"-"9"]){2, 3} &gt;
+|
+  &lt; #HOUR_MINUTE: ["0"-"9"]["0"-"9"] ":" ["0"-"5"]["0"-"9"] &gt;
+| &lt; V_CODE_PHRASE : "[" (&lt; LET_DIG_DUDSLR &gt;)+ "::" (&lt; LET_DIG_DUDS &gt;)+ "]" &gt;
+| &lt; V_CODE_PHRASE_RAW : (&lt; LET_DIG_DUDSLR &gt;)+ "::" (&lt; LET_DIG_DUDS &gt;)+ &gt;
+| &lt; V_ORDINAL : &lt; V_INTEGER &gt; "|" &lt; V_CODE_PHRASE_RAW &gt; &lt; V_LABEL &gt; &gt;
+| &lt; V_ATTRIBUTE_IDENTIFIER : [ "a"-"z" ] (&lt; LET_DIG_U &gt;)* &gt;
+| &lt; V_LABEL : "|" (~[ "|" ])* "|" &gt;
+| &lt; V_REAL :
+    (&lt; DIG &gt;)+ "./" ~[ ".", "0"-"9" ]
+  | (&lt; DIG &gt;)+ "." (&lt; DIG &gt;)* [ "e", "E" ] ([ "+", "-" ])? (&lt; DIG &gt;)+
+  | (&lt; DIG &gt;)* "." (&lt; DIG &gt;)+
+    (
+      [ "e", "E" ] ([ "+", "-" ])? (&lt; DIG &gt;)+
+    )?
+  | "(-" (&lt; DIG &gt;)* "." (&lt; DIG &gt;)+
+    (
+      [ "e", "E" ] ([ "+", "-" ])? (&lt; DIG &gt;)+
+    )? ")"
+  | (&lt; DIG &gt;)
+    {
+      1, 3
+    }
+    (
+      "_" (&lt; DIG &gt;)
+      {
+        3
+      }
+    )+
+    "./" ~[ ".", "0"-"9" ]
+  | (&lt; DIG &gt;)
+    {
+      1, 3
+    }
+    (
+      "_" (&lt; DIG &gt;)
+      {
+        3
+      }
+    )*
+    "."
+    (
+      (&lt; DIG &gt;)
+      {
+        1, 3
+      }
+      (
+        "_" (&lt; DIG &gt;)
+        {
+          3
+        }
+      )*
+    )?
+    [ "e", "E" ] ([ "+", "-" ])? (&lt; DIG &gt;)
+    {
+      1, 3
+    }
+    (
+      "_" (&lt; DIG &gt;)
+      {
+        3
+      }
+    )*
+  |
+    (
+      (&lt; DIG &gt;)
+      {
+        1, 3
+      }
+      (
+        "_" (&lt; DIG &gt;)
+        {
+          3
+        }
+      )*
+    )?
+    "." (&lt; DIG &gt;)
+    {
+      1, 3
+    }
+    (
+      "_" (&lt; DIG &gt;)
+      {
+        3
+      }
+    )*
+    (
+      [ "e", "E" ] ([ "+", "-" ])? (&lt; DIG &gt;)
+      {
+        1, 3
+      }
+      (
+        "_" (&lt; DIG &gt;)
+        {
+          3
+        }
+      )*
+    )? &gt;
+| &lt; V_STRING :
+    "'"
+    (
+      (
+        "\\\"" (~[ "\'", "\n", "\\" ])*
+      )
+    |
+      (
+        "\\\\" (~[ "\'", "\n", "\\" ])*
+      )
+    |
+      (
+        "\n" ([ "\r", " ", "\t" ])*
+      )
+    | (~[ "\\", "\n", "\'" ])*
+    )*
+    "'" &gt;
+}
+
+&lt;* &gt;
+TOKEN : /* LOCAL TOKENS */
+{
+  &lt; #DIG : [ "0"-"9" ] &gt;
+| &lt; #LET_DIG : [ "a"-"z", "A"-"Z", "0"-"9" ] &gt;
+| &lt; #LET_DIG_DD :
+    &lt; LET_DIG &gt;
+  | "."
+  | "_"
+  | "-" &gt;
+| &lt; #LET_DIG_U :
+    &lt; LET_DIG &gt;
+  | "_" &gt;
+| &lt; #LET_DIG_DU :
+    &lt; LET_DIG_U &gt;
+  | "-" &gt;
+| &lt; #LET_DIG_DUDS :
+    &lt; LET_DIG_DU &gt;
+  | "."
+  | "\\" &gt;
+| &lt; #LET_DIG_DUDSLR :
+    &lt; LET_DIG_DUDS &gt;
+  | "("
+  | ")" &gt;
+| &lt; V_LOCAL_TERM_CODE_REF : "[" &lt; LET_DIG &gt; (&lt; LET_DIG_DD &gt;)* "]" &gt;
+| &lt; #PATH_SEGMENT : &lt; V_ATTRIBUTE_IDENTIFIER &gt; (&lt; V_LOCAL_TERM_CODE_REF &gt;)? &gt;
+| &lt; V_ABSOLUTE_PATH : &lt; SYM_SLASH &gt; &lt; PATH_SEGMENT &gt; (&lt; SYM_SLASH &gt; &lt; PATH_SEGMENT &gt;)* &gt;
+}
+
+List &lt; ExpressionItem &gt; expressions() :
+{
+  List &lt; ExpressionItem &gt; items = new ArrayList &lt; ExpressionItem &gt; ();
+  ExpressionItem item = null;
+}
+{
+  item = expression_item()
+  {
+    items.add(item);
+  }
+  (
+    LOOKAHEAD(2)
+    &lt; SYM_COMMA &gt; item = expression_item()
+    {
+      items.add(item);
+    }
+  )*
+  {
+    return items;
+  }
+}
+
+ExpressionItem expression_item() :
+{
+  ExpressionItem item = null;
+}
+{
+  (
+    LOOKAHEAD(4)
+    item = expression_node()
+  | LOOKAHEAD(4)
+    item = expression_leaf()
+  )
+  {
+    return item;
+  }
+  {
+    return item;
+  }
+}
+
+CodePhrase code_phrase() :
+{
+  Token t;
+  String lang = null;
+  String langTerm = null;
+  String langCode = null;
+}
+{
+  t = &lt; V_CODE_PHRASE &gt;
+  {
+    lang = t.image;
+    int i = lang.indexOf("::");
+    langTerm = lang.substring(1, i);
+    langCode = lang.substring(i + 2, lang.length() - 1);
+  }
+  {
+    return new CodePhrase(langTerm, langCode);
+  }
+}
+
+CodePhrase code_phrase_raw() :
+{
+  Token t;
+  String lang = null;
+  String langTerm = null;
+  String langCode = null;
+}
+{
+  t = &lt; V_CODE_PHRASE_RAW &gt;
+  {
+    lang = t.image;
+    int i = lang.indexOf("::");
+    langTerm = lang.substring(0, i);
+    langCode = lang.substring(i + 2);
+  }
+  {
+    return new CodePhrase(langTerm, langCode);
+  }
+}
+
+/* ----------------------- expressions ----------------------- */
+ExpressionItem expression_node() :
+{
+  ExpressionItem ret = null;
+  ExpressionItem item = null;
+  ExpressionItem item2 = null;
+  OperatorKind op = null;
+  List&lt;AssignmentExpression&gt; assignmentExpressions = null;
+  boolean precedenceOverridden = false; // TODO
+  Token t = null;
+  String attrId = null;
+}
+{
+  (
+    (
+      &lt; SYM_FOR_ALL &gt; item = expression_leaf()
+      {
+        op = OperatorKind.FOR_ALL;
+      }
+    | &lt; SYM_MAX &gt; item = expression_leaf()
+      {
+        op = OperatorKind.MAX;
+      }
+    | &lt; SYM_MIN &gt; item = expression_leaf()
+      {
+        op = OperatorKind.MIN;
+      }
+    )
+    {
+      return new UnaryExpression(item, op);
+  	}
+  |
+    (
+      item = expression_leaf()
+      (
+        &lt; SYM_EQ &gt;
+        {
+          op = OperatorKind.EQUALITY;
+        }
+      | &lt; SYM_NE &gt;
+        {
+          op = OperatorKind.INEQUAL;
+        }
+      | &lt; SYM_LT &gt;
+        {
+          op = OperatorKind.LESS_THAN;
+        }
+      | &lt; SYM_GT &gt;
+        {
+          op = OperatorKind.GREATER_THAN;
+        }
+      | &lt; SYM_LE &gt;
+        {
+          op = OperatorKind.LESS_THAN_OR_EQUAL;
+        }
+      | &lt; SYM_GE &gt;
+        {
+          op = OperatorKind.GREATER_THAN_OR_EQUAL;
+        }
+      | &lt; SYM_PLUS &gt;
+        {
+          op = OperatorKind.ADDITION;
+        }
+      | &lt; SYM_MINUS &gt;
+        {
+          op = OperatorKind.SUBSTRATION;
+        }
+      | &lt; SYM_STAR &gt;
+        {
+          op = OperatorKind.MULTIPLICATION;
+        }
+      | &lt; SYM_SLASH &gt;
+        {
+          op = OperatorKind.DIVISION;
+        }
+      | &lt; SYM_CARET &gt;
+        {
+          op = OperatorKind.EXPONENT;
+        }
+      | &lt; SYM_AND &gt;
+        {
+          op = OperatorKind.AND;
+        }
+      | &lt; SYM_OR &gt;
+        {
+          op = OperatorKind.OR;
+        }
+      | &lt; SYM_IS_A &gt;
+        {
+          op = OperatorKind.IS_A;
+        }
+      | &lt; SYM_IS_NOT_A &gt;
+        {
+          op = OperatorKind.IS_NOT_A;
+        }
+      | LOOKAHEAD(4)
+        &lt; SYM_ASSIGNMENT &gt;
+        {
+          op = OperatorKind.ASSIGNMENT;
+        }
+        item2 = expression_leaf()
+        {
+          return new AssignmentExpression((Variable) item, item2);
+        }
+      | assignmentExpressions = assignmentExpressions()
+        {
+          return new CreateInstanceExpression((Variable) item, assignmentExpressions);
+        }
+      )
+      item2 = expression_leaf()
+      {
+        ret = new BinaryExpression(item, item2, op);
+      }
+    )
+  )
+  {
+    return ret;
+  }
+}
+
+ExpressionItem expression_leaf() :
+{
+  ExpressionItem item = null;
+  Token t = null;
+}
+{
+  (
+    &lt; SYM_L_PARENTHESIS &gt;
+    (
+      LOOKAHEAD(expression_node())
+      item = expression_node()
+    | LOOKAHEAD(variable())
+      item = variable()
+    | LOOKAHEAD(constant_expression())
+      item = constant_expression()
+    )
+    &lt; SYM_R_PARENTHESIS &gt;
+  | item = constant_expression()
+  | item = variable()
+  )
+  {
+    return item;
+  }
+}
+
+AssignmentExpression assignmentExpression() :
+{
+    ExpressionItem item = null;
+    ExpressionItem item2 = null;
+}
+{
+    (
+     item = expression_leaf()
+     &lt; SYM_ASSIGNMENT &gt;
+     item2 = expression_leaf()
+    )
+    {
+        return new AssignmentExpression((Variable) item, item2);
+    }
+}
+
+List &lt; AssignmentExpression &gt; assignmentExpressions() :
+{
+    List &lt; AssignmentExpression &gt; items = new ArrayList &lt; AssignmentExpression &gt; ();
+    AssignmentExpression item = null;
+}
+{
+    (
+     &lt; SYM_L_PARENTHESIS &gt;
+     item = assignmentExpression()
+     {
+     items.add(item);
+     }
+     (
+      LOOKAHEAD(2)
+      &lt; SYM_SEMICOLON &gt; item = assignmentExpression()
+      {
+      items.add(item);
+      }
+     )*
+     &lt; SYM_R_PARENTHESIS &gt;
+    )
+
+    {
+        return items;
+    }
+}
+
+
+ConstantExpression constant_expression() :
+{
+  Token t = null;
+  CodePhrase code = null;
+  String text = null;
+  String units = null;
+  Integer order = null;
+}
+{
+  (
+    t = &lt; V_STRING &gt;
+    {
+      String str = t.image;
+      return new StringConstant(str.substring(1, str.length() - 1));
+    }
+  | t = &lt; V_ORDINAL &gt;
+    {
+      String value = "DV_ORDINAL," + t.image;
+      DvOrdinal ordinal = (DvOrdinal) DataValue.parseValue(value);
+      return new OrdinalConstant(ordinal);
+    }
+  | t = &lt; V_REAL &gt;
+  | t = &lt; V_INTEGER &gt;
+  | t = &lt; V_PROPORTION &gt;
+  | t = &lt;V_DATE&gt;
+  | t = &lt;V_DATE_TIME_Z&gt;
+    {
+      text = t.image;
+      text = text.replace("(","");
+      text = text.replace(")","");
+      return new DateTimeConstant(text);
+     }
+  | t = &lt;V_DATE_TIME&gt;
+    {
+      text = t.image;
+      text = text.replace("(","");
+      text = text.replace(")","");
+      return new DateTimeConstant(text);
+     }
+  | t = &lt;V_TIME&gt;
+  | t = &lt;V_ISO8601_DURATION&gt;
+  | t = &lt; SYM_NULL &gt;
+  | t = &lt; SYM_TRUE &gt;
+  | t = &lt; SYM_FALSE &gt;
+  | LOOKAHEAD(2)
+    code = code_phrase_raw() [ text = label() ]
+    {
+      if (text != null)
+      {
+        return new CodedTextConstant(text, code);
+      }
+      else
+      {
+        return new CodePhraseConstant(code);
+      }
+    }
+  | t = &lt; V_QUANTITY &gt;
+    {
+      text = t.image;
+      text = text.replace("(","");
+      text = text.replace(")","");
+      DvQuantity q = new DvQuantity("m",1,0).parse(text);
+      return new QuantityConstant(q);
+    }
+  )
+  {
+    return new ConstantExpression(t.image);
+  }
+}
+
+Variable variable() :
+{
+  Variable v;
+  Token t;
+  String code = null;
+  String path = null;
+  String label = null;
+  String attribute = null;
+}
+{
+  (
+    &lt; SYM_DOLLAR &gt;
+    (
+      t = &lt; V_LOCAL_CODE &gt;
+    | t = &lt; SYM_CURRENT_DATETIME &gt;
+    )
+    {
+      code = t.image;
+    }
+    [ label = label() ]
+  | t = &lt; V_ABSOLUTE_PATH &gt;
+    {
+      path = t.image;
+    }
+  )
+  [
+    &lt; SYM_DOT &gt; t = &lt; V_ATTRIBUTE_IDENTIFIER &gt;
+    {
+      attribute = t.image;
+    }
+  ]
+  {
+    return new Variable(code, label, path, attribute);
+  }
+}
+
+String label() :
+{
+  Token t;
+  String label = null;
+}
+{
+  t = &lt; V_LABEL &gt;
+  {
+    label = t.image;
+    label = label.substring(1, label.length() - 1);
+    return label;
+  }
+}
+
+double real() :
+{
+  Token t;
+  String value = null;
+}
+{
+  t = &lt; V_REAL &gt;
+  {
+    value = t.image;
+    return Double.parseDouble(value);
+  }
+}
+
+int integer() :
+{
+  Token t;
+  String value = null;
+}
+{
+  t = &lt; V_INTEGER &gt;
+  {
+    value = t.image;
+    return Integer.parseInt(value);
+  }
+}</pre>
+</div>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>
+    Copyright: © 2003+
+    <a href="https://www.openehr.org"
+        alt="is an independent, non-profit foundation, facilitating the sharing of health
+           records by consumers and clinicians via open specifications, clinical models
+           and open platform implementations.">The openEHR Foundation</a>
+  </p>
+
+  <p>
+    License:
+    <img src="../../../../ui/img/cc-by-nd-88x31.png"
+        alt="Creative Commons Attribution-NoDerivs 3.0 Unported."
+        style="vertical-align:middle;margin:0 0.25rem 0 0;">
+    <a href="https://creativecommons.org/licenses/by-nd/3.0/">
+      Creative Commons Attribution-NoDerivs 3.0 Unported.
+    </a>
+  </p>
+
+  <p>
+    <strong>Links: <strong>
+    <a href="https://www.openehr.org/terms-of-use" class="mr-1">Terms of use</a> |
+    <a href="https://www.openehr.org/privacy-policy" class="mx-1">Privacy policy</a> |
+    <a href="https://www.openehr.org/privacy-policy" class="mx-1">Logos &amp; Trademarks</a> |
+    <a href="https://www.openehr.org/contact-us" class="mx-1">Contact</a>
+  </p>
+</footer>
+
+<script id="site-script" src="../../../../ui/js/site.js" data-ui-root-path="../../../../ui"></script>
+<script defer src="../../../../ui/js/vendor/highlight.js"></script>
+<script src="../../../../ui/js/vendor/lunr.js"></script>
+<script src="../../../../ui/js/search-ui.js" id="search-ui-script" data-site-root-path="../../../.." data-snippet-length="80" data-stylesheet="../../../../ui/css/search.css"></script>
+<script async src="../../../../search-index.js"></script>
+<script src="../../../../ui/js/medium-zoom.min.js"></script>
+<script src="../../../../ui/js/zoom.js"></script>
+<script async src="../../../../ui/js/tabs.js"></script>
+  </body>
+</html>

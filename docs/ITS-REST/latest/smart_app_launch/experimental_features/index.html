@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+    <title>Experimental features :: openEHR Specifications (Local Build)</title>
+    <link rel="canonical" href="https://sebastian-iancu.github.io/antora-openehr/ITS-REST/latest/smart_app_launch/experimental_features/">
+    <link rel="prev" href="../scopes/">
+    <link rel="next" href="../appendix/">
+    <meta name="description" content="openEHR SMART App Launch and Service Discovery Framework (SMART)">
+    <meta name="keywords" content="JSON, REST, SMART, OAuth2, OIDC, Authentication, Authorization, Application, App">
+    <meta name="generator" content="Antora 3.1.14">
+    <link rel="stylesheet" href="../../../../ui/css/site.css">
+    <link rel="stylesheet" href="../../../../ui/css/antora-openehr.css">
+    <link rel="stylesheet" href="../../../../ui/css/openehr.css">
+    <link rel="stylesheet" href="../../../../ui/css/tabs.css">
+    <link rel="stylesheet" href="../../../../ui/css/extra.css">
+<link rel="icon" href="../../../../ui/img/favicon.ico" type="image/x-icon">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://sebastian-iancu.github.io/antora-openehr">openEHR Specifications (Local Build)</a>
+
+      <div class="navbar-item search hide-for-print">
+        <div id="search-field" class="field has-filter">
+          <input id="search-input" type="text" placeholder="Search the docs">
+          <label class="filter checkbox">
+            <input type="checkbox" data-facet-filter="component:ITS-REST"> REST API specifications only
+          </label>
+        </div>
+      </div>
+
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">Specifications</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://specifications.openehr.org/" target="_blank">
+              openEHR specification
+            </a>
+            <a class="navbar-item" href="https://specifications.openehr.org/releases/UML/development/index.html" target="_blank">
+              openEHR portal
+            </a>
+            <a class="navbar-item" href="https://ckm.openehr.org/ckm/" target="_blank">
+              openEHR CKM
+            </a>
+          </div>
+        </div>
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">Community</a>
+          <div class="navbar-dropdown is-right">
+            <a class="navbar-item" href="https://openehr.atlassian.net/secure/Dashboard.jspa?selectPageId=10190" target="_blank">
+              Issue trackers
+            </a>
+            <a class="navbar-item" href="https://discourse.openehr.org/" target="_blank">
+              Discourse Forum
+            </a>
+            <a class="navbar-item" href="https://specifications.openehr.org/wiki/display/spec/Specifications+Home" target="_blank">
+              Wiki
+            </a>
+            <a class="navbar-item" href="https://github.com/openEHR" target="_blank">
+              GitHub
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="ITS-REST" data-version="development">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="../../">REST API specifications</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../">Overview</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../simplified_formats/">Simplified Formats for openEHR Data</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../simplified_formats/overview/">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../simplified_formats/design_rationale/">Design Rationale</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../simplified_formats/basic_concepts/">Basic Concepts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../simplified_formats/rm_mapping/">RM Mappings</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../simplified_formats/context_information/">Context Information</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../simplified_formats/appendix/">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../">SMART on openEHR (SMART)</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../overview/">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../registration/">Application Registration</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../service_discovery/">Service Discovery</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../application_types/">Application Types</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../authentication/">Authentication</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../authorization/">Authorization</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../scopes/">Scopes</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="./">Experimental features</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../appendix/">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../simplified_data_template/">Simplified Data Template (SDT)</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../simplified_data_template/appendix/">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">REST API specifications</span>
+    <span class="version">development</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <div class="title"><a href="../../../../AM/latest/">Archetype Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../AM/latest/">Release-2.3.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../AM/Release-2.2.0/">Release-2.2.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../AM/Release-1.4.0/">Release-1.4.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../AM/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../BASE/latest/">Base Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../BASE/latest/">Release-1.2.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../BASE/Release-1.1.0/">Release-1.1.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../BASE/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../CDS/latest/">Clinical Decision Support</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../CDS/latest/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../CNF/latest/">Conformance Specifications</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../CNF/latest/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../LANG/latest/">Generic Languages</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../LANG/latest/">Release-1.0.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../LANG/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../TERM/latest/">openEHR Terminology</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../TERM/latest/">Release-3.0.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../TERM/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../PROC/latest/">Process Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../PROC/latest/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../QUERY/latest/">Query Languages</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../QUERY/latest/">Release-1.0.1</a>
+        </li>
+        <li class="version">
+          <a href="../../../../QUERY/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../RM/latest/">Reference Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../RM/latest/">Release-1.1.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../RM/Release-1.0.4/">Release-1.0.4</a>
+        </li>
+        <li class="version">
+          <a href="../../../../RM/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <div class="title"><a href="../../">REST API specifications</a></div>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../../">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../SM/latest/">Service Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../SM/latest/">development</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../../BASE/latest/" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../../">REST API specifications</a></li>
+    <li><a href="../">SMART on openEHR (SMART)</a></li>
+    <li><a href="./">Experimental features</a></li>
+  </ul>
+</nav>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Experimental features</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>The following concepts and aspects are considered experimental.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Implementers should treat its use as provisional and subject to change in future versions of this specification.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_launch_parameter_as_a_token"><a class="anchor" href="#_launch_parameter_as_a_token"></a><a class="link" href="#_launch_parameter_as_a_token">Launch Parameter as a Token</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>To support efficient and context-rich embedded launches, it is <strong>recommended</strong> that the <code>launch</code> parameter be a <strong>base64-encoded JSON object</strong> containing launch context attributes such as:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>ehrId</code> - The openEHR EHR identifier</p>
+</li>
+<li>
+<p><code>patient</code> - FHIR Patient ID (if available)</p>
+</li>
+<li>
+<p><code>episodeId</code> - Clinical episode ID (optional)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>This allows the <em>Application</em> to initialize its interface with full context and potentially bypass a full authorization cycle if it is already authenticated.
+This significantly improves the user experience, for instance, when switching patients within the same embedded session.</p>
+</div>
+<div class="paragraph">
+<p>Platforms that support this optimization should advertise the following capabilities in their <code>/.well-known/smart-configuration</code> response:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>launch-base64-json</code>: May be used to deliver context (including <code>episodeId</code>) in a base64-encoded JSON format for embedded iFrame launches.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_experimental_episode_context"><a class="anchor" href="#_experimental_episode_context"></a><a class="link" href="#_experimental_episode_context">Experimental: Episode Context</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The <strong>Episode</strong> concept represents a bounded period of care or clinical workflow, such as a hospital admission, treatment course, or referral. It serves as a logical container for grouping related clinical activities, encounters, and observations. This concept is particularly relevant for workflows where context must be maintained across multiple interactions or systems.</p>
+</div>
+<div class="paragraph">
+<p>In the context of SMART on openEHR, Episode selection and usage is considered <strong>experimental</strong>.
+While the openEHR specification outlines the concept of an Episode, formal resource definitions and operational semantics are still evolving.
+As the openEHR specification evolves to formalize Episode as a first-class resource, the following enhancements may be introduced:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Standardized resource representation of an Episode type or new archetype.</p>
+</li>
+<li>
+<p>Extended query support for filtering by Episode.</p>
+</li>
+<li>
+<p>Improved UI/UX support in authorization servers for Episode selection.</p>
+</li>
+<li>
+<p>FHIR mapping for Episode-related concepts.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>This section outlines the current capabilities and usage patterns under evaluation for Episode support.</p>
+</div>
+<div class="sect2">
+<h3 id="_scopes_and_capabilities"><a class="anchor" href="#_scopes_and_capabilities"></a><a class="link" href="#_scopes_and_capabilities">Scopes and Capabilities</a></h3>
+<div class="paragraph">
+<p>To request Episode context during an authorization flow, the following scope may be included in the authorization request:</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 66.6667%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Scope</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>launch/episode</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Requests Episode context at launch time. If launching outside an EHR, prompts the <em>Platform</em> to determine or allow selection of the Episode relevant to the session.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Platforms that support Episode context should advertise the following capabilities in their <code>/.well-known/smart-configuration</code> response:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>context-openehr-episode</code>: Indicates that the <em>Platform</em> supports Episode context selection during launch, requested via <code>launch/episode</code> scope.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_token_response_parameters"><a class="anchor" href="#_token_response_parameters"></a><a class="link" href="#_token_response_parameters">Token Response Parameters</a></h3>
+<div class="paragraph">
+<p>When an authorization request includes <code>launch/episode</code> scope and the Platform is capable of resolving the Episode, the following parameter will be included in the token response:</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 66.6667%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Parameter</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">episodeId</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Identifier of the selected or inferred Episode for the session. This may map to an openEHR EHR_STATUS.episode or a platform-specific abstraction. Its semantics are currently implementation-defined.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>This value is intended to be used by the client Application to filter or group clinical data relevant to the specific Episode of care.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_launch_scenarios"><a class="anchor" href="#_launch_scenarios"></a><a class="link" href="#_launch_scenarios">Launch Scenarios</a></h3>
+<div class="paragraph">
+<p>Standalone Launch:
+When the <code>launch/episode</code> scope is included, the Platform may prompt the user to select an Episode or infer it automatically based on session context (e.g., currently admitted case, recent discharge summary, etc.).</p>
+</div>
+<div class="paragraph">
+<p>Embedded iFrame Launch:
+Episode context may be embedded in a base64-encoded <code>launch</code> parameter provided at runtime. This can improve usability by avoiding a separate Episode selection prompt during intra-portal navigation.</p>
+</div>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="../scopes/">Scopes</a></span>
+  <span class="next"><a href="../appendix/">Appendix</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>
+    Copyright: © 2003+
+    <a href="https://www.openehr.org"
+        alt="is an independent, non-profit foundation, facilitating the sharing of health
+           records by consumers and clinicians via open specifications, clinical models
+           and open platform implementations.">The openEHR Foundation</a>
+  </p>
+
+  <p>
+    License:
+    <img src="../../../../ui/img/cc-by-nd-88x31.png"
+        alt="Creative Commons Attribution-NoDerivs 3.0 Unported."
+        style="vertical-align:middle;margin:0 0.25rem 0 0;">
+    <a href="https://creativecommons.org/licenses/by-nd/3.0/">
+      Creative Commons Attribution-NoDerivs 3.0 Unported.
+    </a>
+  </p>
+
+  <p>
+    <strong>Links: <strong>
+    <a href="https://www.openehr.org/terms-of-use" class="mr-1">Terms of use</a> |
+    <a href="https://www.openehr.org/privacy-policy" class="mx-1">Privacy policy</a> |
+    <a href="https://www.openehr.org/privacy-policy" class="mx-1">Logos &amp; Trademarks</a> |
+    <a href="https://www.openehr.org/contact-us" class="mx-1">Contact</a>
+  </p>
+</footer>
+
+<script id="site-script" src="../../../../ui/js/site.js" data-ui-root-path="../../../../ui"></script>
+<script defer src="../../../../ui/js/vendor/highlight.js"></script>
+<script src="../../../../ui/js/vendor/lunr.js"></script>
+<script src="../../../../ui/js/search-ui.js" id="search-ui-script" data-site-root-path="../../../.." data-snippet-length="80" data-stylesheet="../../../../ui/css/search.css"></script>
+<script async src="../../../../search-index.js"></script>
+<script src="../../../../ui/js/medium-zoom.min.js"></script>
+<script src="../../../../ui/js/zoom.js"></script>
+<script async src="../../../../ui/js/tabs.js"></script>
+  </body>
+</html>

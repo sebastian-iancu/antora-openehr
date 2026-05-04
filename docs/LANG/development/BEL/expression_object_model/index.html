@@ -1,0 +1,2092 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+    <title>The Basic Expression Object Model :: openEHR Specifications (Local Build)</title>
+    <link rel="canonical" href="https://sebastian-iancu.github.io/antora-openehr/LANG/development/BEL/expression_object_model/">
+    <link rel="prev" href="../language/">
+    <link rel="next" href="../syntax/">
+    <meta name="description" content="openEHR Basic Expression Language specification">
+    <meta name="keywords" content="openehr, expressions, rules">
+    <meta name="generator" content="Antora 3.1.14">
+    <link rel="stylesheet" href="../../../../ui/css/site.css">
+    <link rel="stylesheet" href="../../../../ui/css/antora-openehr.css">
+    <link rel="stylesheet" href="../../../../ui/css/openehr.css">
+    <link rel="stylesheet" href="../../../../ui/css/tabs.css">
+    <link rel="stylesheet" href="../../../../ui/css/extra.css">
+<link rel="icon" href="../../../../ui/img/favicon.ico" type="image/x-icon">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://sebastian-iancu.github.io/antora-openehr">openEHR Specifications (Local Build)</a>
+
+      <div class="navbar-item search hide-for-print">
+        <div id="search-field" class="field has-filter">
+          <input id="search-input" type="text" placeholder="Search the docs">
+          <label class="filter checkbox">
+            <input type="checkbox" data-facet-filter="component:LANG"> Generic Languages only
+          </label>
+        </div>
+      </div>
+
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">Specifications</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://specifications.openehr.org/" target="_blank">
+              openEHR specification
+            </a>
+            <a class="navbar-item" href="https://specifications.openehr.org/releases/UML/development/index.html" target="_blank">
+              openEHR portal
+            </a>
+            <a class="navbar-item" href="https://ckm.openehr.org/ckm/" target="_blank">
+              openEHR CKM
+            </a>
+          </div>
+        </div>
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">Community</a>
+          <div class="navbar-dropdown is-right">
+            <a class="navbar-item" href="https://openehr.atlassian.net/secure/Dashboard.jspa?selectPageId=10190" target="_blank">
+              Issue trackers
+            </a>
+            <a class="navbar-item" href="https://discourse.openehr.org/" target="_blank">
+              Discourse Forum
+            </a>
+            <a class="navbar-item" href="https://specifications.openehr.org/wiki/display/spec/Specifications+Home" target="_blank">
+              Wiki
+            </a>
+            <a class="navbar-item" href="https://github.com/openEHR" target="_blank">
+              GitHub
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="LANG" data-version="development">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="../../">Generic Languages</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../">Overview</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../odin/">Object Data Instance Notation (ODIN)</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../odin/overview/">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../odin/basics/">Basics</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../odin/odin_artefacts/">ODIN Artefacts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../odin/content/">Content</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../odin/references/">References</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../odin/leaf_data/">Leaf Data</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../odin/path_syntax/">Path Syntax</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../odin/plug_in_syntaxes/">Plug-in Syntaxes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../odin/other_syntaxes/">Relationship with other Syntaxes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../odin/syntax_spec/">Syntax Specification</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../odin/appendix/">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../bmm/">Basic Meta-Model (BMM)</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../bmm/overview/">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../bmm/packages/">Package Structure</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../bmm/model_access/">Model Access Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../bmm/core-model/">Model Structure</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../bmm/core-types/">Types</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../bmm/core-classes/">Classes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../bmm/core-features/">Class Features</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../bmm/core-values/">Literal Values</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../bmm/expressions/">Expressions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../bmm/functional/">Functional Elements</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../bmm/statements/">Statements</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../bmm/model_semantics/">Model Semantics</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../bmm/extensions/">BMM Extensions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../bmm/appendix/">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../bmm_persistence/">BMM Persistence Model and Syntax</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../bmm_persistence/overview/">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../bmm_persistence/model/">Persistence Package</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../bmm_persistence/syntax/">BMM Persistence Syntax</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../bmm_persistence/appendix/">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../">Basic Expression Language (BEL)</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../overview/">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../language/">The Basic Expression Language</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="./">The Basic Expression Object Model</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../syntax/">Syntax Specification</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../appendix/">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../EL/">Expression Language (EL)</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../EL/overview/">Overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../EL/basics/">EL Basics</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../EL/terminal_entities/">Terminal Entities</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../EL/expressions/">Complex Expressions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../EL/decision_tables/">Decision Tables</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../EL/syntax/">Syntax Specification</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../EL/appendix/">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Generic Languages</span>
+    <span class="version">development</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <div class="title"><a href="../../../../AM/latest/">Archetype Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../AM/latest/">Release-2.3.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../AM/Release-2.2.0/">Release-2.2.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../AM/Release-1.4.0/">Release-1.4.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../AM/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../BASE/latest/">Base Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../BASE/latest/">Release-1.2.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../BASE/Release-1.1.0/">Release-1.1.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../BASE/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../CDS/latest/">Clinical Decision Support</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../CDS/latest/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../CNF/latest/">Conformance Specifications</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../CNF/latest/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <div class="title"><a href="../../../latest/">Generic Languages</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../latest/">Release-1.0.0</a>
+        </li>
+        <li class="version is-current">
+          <a href="../../">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../TERM/latest/">openEHR Terminology</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../TERM/latest/">Release-3.0.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../TERM/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../PROC/latest/">Process Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../PROC/latest/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../QUERY/latest/">Query Languages</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../QUERY/latest/">Release-1.0.1</a>
+        </li>
+        <li class="version">
+          <a href="../../../../QUERY/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../RM/latest/">Reference Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../RM/latest/">Release-1.1.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../../RM/Release-1.0.4/">Release-1.0.4</a>
+        </li>
+        <li class="version">
+          <a href="../../../../RM/development/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../ITS-REST/latest/">REST API specifications</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../ITS-REST/latest/">development</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../../SM/latest/">Service Model</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../../SM/latest/">development</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../../BASE/latest/" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../../">Generic Languages</a></li>
+    <li><a href="../">Basic Expression Language (BEL)</a></li>
+    <li><a href="./">The Basic Expression Object Model</a></li>
+  </ul>
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">development</button>
+  <div class="version-menu">
+    <a class="version is-missing" href="../../../latest/">Release-1.0.0</a>
+    <a class="version is-current" href="./">development</a>
+  </div>
+</div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">The Basic Expression Object Model</h1>
+<div class="sect1">
+<h2 id="_overview"><a class="anchor" href="#_overview"></a><a class="link" href="#_overview">Overview</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The <code>beom</code> package defines the Basic Expression Object Model (BEOM), a model of 'statements' and 'expressions' that can be used in various contexts in openEHR, including inside archetypes and in GDL guidelines. If the Expression Language or other syntax-based artefact is used, the model described here defines the parser output in the form of an expression tree. Other openEHR models designed for a particular purpose may reuse the <code>beom</code> package and further specialise some of its types specifically intended for extension.</p>
+</div>
+<div class="paragraph">
+<p>The BEOM package structure is shown below.</p>
+</div>
+<div id="expression_packages" class="imageblock text-center text-center">
+<div class="content">
+<img src="../../_images/uml/LANG-beom-packages.svg" alt="LANG beom packages">
+</div>
+<div class="title">Figure 1. base.expression Package</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_core_package"><a class="anchor" href="#_core_package"></a><a class="link" href="#_core_package">Core Package</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The main <code>beom</code> packages <code>core</code> and <code>extension</code> are illustrated below.</p>
+</div>
+<div id="expression_package" class="imageblock text-center text-center">
+<div class="content">
+<img src="../../_images/uml/LANG-beom.core.svg" alt="LANG beom.core">
+</div>
+<div class="title">Figure 2. lang.beom.core Package</div>
+</div>
+<div class="paragraph">
+<p>A group of statements to be used together is formally defined as one or more <code>STATEMENTs</code> in a <code>STATEMENT_SET</code>. There are three types of statements corresponding to the classes <code>ASSERTION</code>, <code>VARIABLE_DECLARATION</code> and <code>ASSIGNMENT</code>. Assertions consist of an expression tree structure that evaluates to a <code>Boolean</code> value. The root of the tree is a descendant of the class <code>EXPR_ITEM</code> that represents a Boolean-returning operator or value. An Assertion has an optional tag, enabling it to be named.</p>
+</div>
+<div class="paragraph">
+<p>A <code>VARIABLE_DECLARATION</code> enables a named variable to be declared with a type, which must be one of the descendants of <code>EXPR_DEF_TYPE</code>.</p>
+</div>
+<div class="paragraph">
+<p>The <code>ASSIGNMENT</code> class defines the usual operation of assigning a value (the <code><em>source</em></code> i.e. the notional right-hand side) to a variable, (the <code><em>target</em></code>, i.e. left-hand side). The source of an assignment can be any Expression or an <code>EXTERNAL_QUERY</code>, which are sub-types of <code>EXPR_VALUE</code>.</p>
+</div>
+<div class="sect2">
+<h3 id="_expressions"><a class="anchor" href="#_expressions"></a><a class="link" href="#_expressions">Expressions</a></h3>
+<div class="paragraph">
+<p>Expressions are fully described statement values that may be evaluated internally (as compared to an external query) and are defined by the <code>EXPR_XXX</code> classes. The Expression classes model a typical evaluation tree each of whose nodes is either a leaf or an operator node. The semantics of Expressions are described in the <a href="#language-expressions">Expressions</a> sub-section in the Language section.</p>
+</div>
+<div class="paragraph">
+<p>In this model, function calls are treated as leaf nodes rather than tree nodes, which would be more typical of a functional language meta-model. The leaf node approach used here treats function calls as black boxes requiring an evaluation method, enabling the main expression tree to be evaluated by use of a standard set of operators whose semantics can be safely built in.</p>
+</div>
+<div class="paragraph">
+<p>Operator semantics are defined by the class <code>OPERATOR_DEF</code>, which includes the two attributes <code><em>name</em></code> and <code><em>symbols</em></code> which define the name of the operator and its allowable symbols respectively.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_other_statement_elements"><a class="anchor" href="#_other_statement_elements"></a><a class="link" href="#_other_statement_elements">Other Statement Elements</a></h3>
+<div class="sect3">
+<h4 id="_external_query"><a class="anchor" href="#_external_query"></a><a class="link" href="#_external_query">External Query</a></h4>
+<div class="paragraph">
+<p>An <code>EXTERNAL_QUERY</code> is a type of expression representing a call to an external service which obtains a value for it. This enables information items from the exterior computational environment to be treated as abstract typed values within expressions.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_class_descriptions"><a class="anchor" href="#_class_descriptions"></a><a class="link" href="#_class_descriptions">Class Descriptions</a></h3>
+<div class="paragraph">
+<p>Unresolved include directive in modules/BEL/pages/expression_object_model.adoc - include::ROOT:partial$classes/statement_set.adoc[]
+Unresolved include directive in modules/BEL/pages/expression_object_model.adoc - include::ROOT:partial$classes/statement.adoc[]
+Unresolved include directive in modules/BEL/pages/expression_object_model.adoc - include::ROOT:partial$classes/assertion.adoc[]
+Unresolved include directive in modules/BEL/pages/expression_object_model.adoc - include::ROOT:partial$classes/variable_declaration.adoc[]
+Unresolved include directive in modules/BEL/pages/expression_object_model.adoc - include::ROOT:partial$classes/assignment.adoc[]
+Unresolved include directive in modules/BEL/pages/expression_object_model.adoc - include::ROOT:partial$classes/expr_value.adoc[]</p>
+</div>
+<div class="paragraph">
+<p>Unresolved include directive in modules/BEL/pages/expression_object_model.adoc - include::ROOT:partial$classes/external_query.adoc[]</p>
+</div>
+<div class="paragraph">
+<p>Unresolved include directive in modules/BEL/pages/expression_object_model.adoc - include::ROOT:partial$classes/expression.adoc[]
+Unresolved include directive in modules/BEL/pages/expression_object_model.adoc - include::ROOT:partial$classes/expr_operator.adoc[]
+Unresolved include directive in modules/BEL/pages/expression_object_model.adoc - include::ROOT:partial$classes/expr_unary_operator.adoc[]
+Unresolved include directive in modules/BEL/pages/expression_object_model.adoc - include::ROOT:partial$classes/expr_binary_operator.adoc[]
+Unresolved include directive in modules/BEL/pages/expression_object_model.adoc - include::ROOT:partial$classes/expr_for_all.adoc[]</p>
+</div>
+<div class="paragraph">
+<p>Unresolved include directive in modules/BEL/pages/expression_object_model.adoc - include::ROOT:partial$classes/expr_leaf.adoc[]
+Unresolved include directive in modules/BEL/pages/expression_object_model.adoc - include::ROOT:partial$classes/expr_literal.adoc[]
+Unresolved include directive in modules/BEL/pages/expression_object_model.adoc - include::ROOT:partial$classes/expr_variable_ref.adoc[]
+Unresolved include directive in modules/BEL/pages/expression_object_model.adoc - include::ROOT:partial$classes/expr_function_call.adoc[]</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_operators"><a class="anchor" href="#_operators"></a><a class="link" href="#_operators">Operators</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Operators used in BEL are represented in the <code>OPERATOR_KIND</code> enumeration, which is shown below.</p>
+</div>
+<div id="operators" class="imageblock text-center text-center">
+<div class="content">
+<img src="../../_images/uml/LANG-beom-operators.svg" alt="LANG beom operators">
+</div>
+<div class="title">Figure 3. BEL operators</div>
+</div>
+<div class="sect2">
+<h3 id="_class_descriptions_2"><a class="anchor" href="#_class_descriptions_2"></a><a class="link" href="#_class_descriptions_2">Class Descriptions</a></h3>
+<div class="paragraph">
+<p>Unresolved include directive in modules/BEL/pages/expression_object_model.adoc - include::ROOT:partial$classes/operator_kind.adoc[]</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_typing"><a class="anchor" href="#_typing"></a><a class="link" href="#_typing">Typing</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The <code>beom.types</code> package is shown below.</p>
+</div>
+<div id="expressions_types_package" class="imageblock text-center text-center">
+<div class="content">
+<img src="../../_images/uml/LANG-beom.types.svg" alt="LANG beom.types">
+</div>
+<div class="title">Figure 4. lang.beom.types Package</div>
+</div>
+<div class="paragraph">
+<p>The type system of the Expression formalism is defined via the type <code>EXPR_TYPE_DEF</code> and its descendants. All types have a <code><em>type_name</em></code> and a <code><em>type_anchor</em></code>, which is a variable of the coresponding primtive type from within the openEHR <code>base_types</code> package, i.e. <code>Integer</code>, <code>Real</code>, <code>String</code>, etc. The type anchor can be used for testing assignments within the implementation. A special type <code>TYPE_DEF_OBJECT</code> is included to enable a value reference (descendant of <code>EXPR_VALUE_REF</code>) to refer to a complex object, to which some expression operators can be applied, including equality and existence. The types system is extensible, as described below.</p>
+</div>
+<div class="sect2">
+<h3 id="_class_descriptions_3"><a class="anchor" href="#_class_descriptions_3"></a><a class="link" href="#_class_descriptions_3">Class Descriptions</a></h3>
+<div class="paragraph">
+<p>Unresolved include directive in modules/BEL/pages/expression_object_model.adoc - include::ROOT:partial$classes/expr_type_def.adoc[]
+:leveloffset: +1</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_type_def_boolean_class"><a class="anchor" href="#_type_def_boolean_class"></a><a class="link" href="#_type_def_boolean_class">TYPE_DEF_BOOLEAN Class</a></h3>
+<div id="_tabs_1" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="_tabs_1_definition" class="tab">
+<p>Definition</p>
+</li>
+<li id="_tabs_1_effective" class="tab">
+<p>Effective</p>
+</li>
+<li id="_tabs_1_bmm" class="tab">
+<p>BMM</p>
+</li>
+<li id="_tabs_1_uml" class="tab">
+<p>UML</p>
+</li>
+</ul>
+</div>
+<div id="_tabs_1_definition--panel" class="tabpanel" aria-labelledby="_tabs_1_definition">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>TYPE_DEF_BOOLEAN</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Rules meta-type representing the primitive type Boolean.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="../../../latest/bmm/expressions/#_el_type_def_class" class="xref page">EL_TYPE_DEF</a></code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(redefined)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>type_name</strong>: <code><a href="/classes/String">String</a> `<br>
+`{default&#160;=&#160;"Boolean"}</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(redefined)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>type_anchor</strong>: `<a href="/classes/Boolean">Boolean</a> `</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="_tabs_1_effective--panel" class="tabpanel" aria-labelledby="_tabs_1_effective">
+<table class="tableblock frame-none grid-rows stretch">
+<colgroup>
+<col style="width: 40%;">
+<col style="width: 60%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-center valign-top" colspan="2"><strong>TYPE_DEF_BOOLEAN</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Rules meta-type representing the primitive type Boolean.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock">Inherits: <a href="../../../latest/bmm/expressions/#_el_type_def_class" class="xref page">EL_TYPE_DEF</a></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><strong>Attributes</strong></p></th>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>type_name</strong>: <code><a href="/classes/String">String</a> ` [1..1]<br>
+`{default&#160;=&#160;"Boolean"}</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>type_anchor</strong>: `<a href="/classes/Boolean">Boolean</a> ` [1..1]</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="_tabs_1_bmm--panel" class="tabpanel" aria-labelledby="_tabs_1_bmm">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+    "name": "TYPE_DEF_BOOLEAN",
+    "documentation": "Rules meta-type representing the primitive type Boolean.",
+    "ancestors": [
+        "EL_TYPE_DEF"
+    ],
+    "properties": {
+        "type_name": {
+            "_type": "P_BMM_SINGLE_PROPERTY",
+            "name": "type_name",
+            "is_mandatory": true,
+            "type": "String",
+            "default": "\"Boolean\""
+        },
+        "type_anchor": {
+            "_type": "P_BMM_SINGLE_PROPERTY",
+            "name": "type_anchor",
+            "is_mandatory": true,
+            "type": "Boolean"
+        }
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="_tabs_1_uml--panel" class="tabpanel" aria-labelledby="_tabs_1_uml">
+<div class="imageblock">
+<div class="content">
+<img src="../../_images/uml/classes/type_def_boolean.svg" alt="type def boolean">
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_type_def_integer_class"><a class="anchor" href="#_type_def_integer_class"></a><a class="link" href="#_type_def_integer_class">TYPE_DEF_INTEGER Class</a></h4>
+<div id="_tabs_2" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="_tabs_2_definition" class="tab">
+<p>Definition</p>
+</li>
+<li id="_tabs_2_effective" class="tab">
+<p>Effective</p>
+</li>
+<li id="_tabs_2_bmm" class="tab">
+<p>BMM</p>
+</li>
+<li id="_tabs_2_uml" class="tab">
+<p>UML</p>
+</li>
+</ul>
+</div>
+<div id="_tabs_2_definition--panel" class="tabpanel" aria-labelledby="_tabs_2_definition">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>TYPE_DEF_INTEGER</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Rules meta-type representing the primitive type Integer.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="../../../latest/bmm/expressions/#_el_type_def_class" class="xref page">EL_TYPE_DEF</a></code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(redefined)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>type_name</strong>: <code><a href="/classes/String">String</a> `<br>
+`{default&#160;=&#160;"Integer"}</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(redefined)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>type_anchor</strong>: `<a href="/classes/Integer">Integer</a> `</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="_tabs_2_effective--panel" class="tabpanel" aria-labelledby="_tabs_2_effective">
+<table class="tableblock frame-none grid-rows stretch">
+<colgroup>
+<col style="width: 40%;">
+<col style="width: 60%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-center valign-top" colspan="2"><strong>TYPE_DEF_INTEGER</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Rules meta-type representing the primitive type Integer.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock">Inherits: <a href="../../../latest/bmm/expressions/#_el_type_def_class" class="xref page">EL_TYPE_DEF</a></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><strong>Attributes</strong></p></th>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>type_name</strong>: <code><a href="/classes/String">String</a> ` [1..1]<br>
+`{default&#160;=&#160;"Integer"}</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>type_anchor</strong>: `<a href="/classes/Integer">Integer</a> ` [1..1]</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="_tabs_2_bmm--panel" class="tabpanel" aria-labelledby="_tabs_2_bmm">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+    "name": "TYPE_DEF_INTEGER",
+    "documentation": "Rules meta-type representing the primitive type Integer.",
+    "ancestors": [
+        "EL_TYPE_DEF"
+    ],
+    "properties": {
+        "type_name": {
+            "_type": "P_BMM_SINGLE_PROPERTY",
+            "name": "type_name",
+            "is_mandatory": true,
+            "type": "String",
+            "default": "\"Integer\""
+        },
+        "type_anchor": {
+            "_type": "P_BMM_SINGLE_PROPERTY",
+            "name": "type_anchor",
+            "is_mandatory": true,
+            "type": "Integer"
+        }
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="_tabs_2_uml--panel" class="tabpanel" aria-labelledby="_tabs_2_uml">
+<div class="imageblock">
+<div class="content">
+<img src="../../_images/uml/classes/type_def_integer.svg" alt="type def integer">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_type_def_real_class"><a class="anchor" href="#_type_def_real_class"></a><a class="link" href="#_type_def_real_class">TYPE_DEF_REAL Class</a></h4>
+<div id="_tabs_3" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="_tabs_3_definition" class="tab">
+<p>Definition</p>
+</li>
+<li id="_tabs_3_effective" class="tab">
+<p>Effective</p>
+</li>
+<li id="_tabs_3_bmm" class="tab">
+<p>BMM</p>
+</li>
+<li id="_tabs_3_uml" class="tab">
+<p>UML</p>
+</li>
+</ul>
+</div>
+<div id="_tabs_3_definition--panel" class="tabpanel" aria-labelledby="_tabs_3_definition">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>TYPE_DEF_REAL</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Rules meta-type representing the primitive type Real.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="../../../latest/bmm/expressions/#_el_type_def_class" class="xref page">EL_TYPE_DEF</a></code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(redefined)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>type_name</strong>: <code><a href="/classes/String">String</a> `<br>
+`{default&#160;=&#160;"Real"}</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(redefined)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>type_anchor</strong>: `<a href="/classes/Real">Real</a> `</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="_tabs_3_effective--panel" class="tabpanel" aria-labelledby="_tabs_3_effective">
+<table class="tableblock frame-none grid-rows stretch">
+<colgroup>
+<col style="width: 40%;">
+<col style="width: 60%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-center valign-top" colspan="2"><strong>TYPE_DEF_REAL</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Rules meta-type representing the primitive type Real.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock">Inherits: <a href="../../../latest/bmm/expressions/#_el_type_def_class" class="xref page">EL_TYPE_DEF</a></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><strong>Attributes</strong></p></th>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>type_name</strong>: <code><a href="/classes/String">String</a> ` [1..1]<br>
+`{default&#160;=&#160;"Real"}</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>type_anchor</strong>: `<a href="/classes/Real">Real</a> ` [1..1]</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="_tabs_3_bmm--panel" class="tabpanel" aria-labelledby="_tabs_3_bmm">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+    "name": "TYPE_DEF_REAL",
+    "documentation": "Rules meta-type representing the primitive type Real.",
+    "ancestors": [
+        "EL_TYPE_DEF"
+    ],
+    "properties": {
+        "type_name": {
+            "_type": "P_BMM_SINGLE_PROPERTY",
+            "name": "type_name",
+            "is_mandatory": true,
+            "type": "String",
+            "default": "\"Real\""
+        },
+        "type_anchor": {
+            "_type": "P_BMM_SINGLE_PROPERTY",
+            "name": "type_anchor",
+            "is_mandatory": true,
+            "type": "Real"
+        }
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="_tabs_3_uml--panel" class="tabpanel" aria-labelledby="_tabs_3_uml">
+<div class="imageblock">
+<div class="content">
+<img src="../../_images/uml/classes/type_def_real.svg" alt="type def real">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_type_def_date_class"><a class="anchor" href="#_type_def_date_class"></a><a class="link" href="#_type_def_date_class">TYPE_DEF_DATE Class</a></h4>
+<div id="_tabs_4" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="_tabs_4_definition" class="tab">
+<p>Definition</p>
+</li>
+<li id="_tabs_4_effective" class="tab">
+<p>Effective</p>
+</li>
+<li id="_tabs_4_bmm" class="tab">
+<p>BMM</p>
+</li>
+<li id="_tabs_4_uml" class="tab">
+<p>UML</p>
+</li>
+</ul>
+</div>
+<div id="_tabs_4_definition--panel" class="tabpanel" aria-labelledby="_tabs_4_definition">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>TYPE_DEF_DATE</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Rules meta-type representing the primitive type Date.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="../../../latest/bmm/expressions/#_el_type_def_class" class="xref page">EL_TYPE_DEF</a></code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(redefined)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>type_name</strong>: <code><a href="/classes/String">String</a> `<br>
+`{default&#160;=&#160;"Date"}</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(redefined)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>type_anchor</strong>: `<a href="/classes/Any">Any</a> `</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="_tabs_4_effective--panel" class="tabpanel" aria-labelledby="_tabs_4_effective">
+<table class="tableblock frame-none grid-rows stretch">
+<colgroup>
+<col style="width: 40%;">
+<col style="width: 60%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-center valign-top" colspan="2"><strong>TYPE_DEF_DATE</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Rules meta-type representing the primitive type Date.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock">Inherits: <a href="../../../latest/bmm/expressions/#_el_type_def_class" class="xref page">EL_TYPE_DEF</a></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><strong>Attributes</strong></p></th>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>type_name</strong>: <code><a href="/classes/String">String</a> ` [1..1]<br>
+`{default&#160;=&#160;"Date"}</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>type_anchor</strong>: `<a href="/classes/Any">Any</a> ` [1..1]</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="_tabs_4_bmm--panel" class="tabpanel" aria-labelledby="_tabs_4_bmm">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+    "name": "TYPE_DEF_DATE",
+    "documentation": "Rules meta-type representing the primitive type Date.",
+    "ancestors": [
+        "EL_TYPE_DEF"
+    ],
+    "properties": {
+        "type_name": {
+            "_type": "P_BMM_SINGLE_PROPERTY",
+            "name": "type_name",
+            "is_mandatory": true,
+            "type": "String",
+            "default": "\"Date\""
+        },
+        "type_anchor": {
+            "_type": "P_BMM_SINGLE_PROPERTY",
+            "name": "type_anchor",
+            "is_mandatory": true,
+            "type": "Any"
+        }
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="_tabs_4_uml--panel" class="tabpanel" aria-labelledby="_tabs_4_uml">
+<div class="imageblock">
+<div class="content">
+<img src="../../_images/uml/classes/type_def_date.svg" alt="type def date">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_type_def_date_time_class"><a class="anchor" href="#_type_def_date_time_class"></a><a class="link" href="#_type_def_date_time_class">TYPE_DEF_DATE_TIME Class</a></h4>
+<div id="_tabs_5" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="_tabs_5_definition" class="tab">
+<p>Definition</p>
+</li>
+<li id="_tabs_5_effective" class="tab">
+<p>Effective</p>
+</li>
+<li id="_tabs_5_bmm" class="tab">
+<p>BMM</p>
+</li>
+<li id="_tabs_5_uml" class="tab">
+<p>UML</p>
+</li>
+</ul>
+</div>
+<div id="_tabs_5_definition--panel" class="tabpanel" aria-labelledby="_tabs_5_definition">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>TYPE_DEF_DATE_TIME</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Rules meta-type representing the primitive type Date_time.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="../../../latest/bmm/expressions/#_el_type_def_class" class="xref page">EL_TYPE_DEF</a></code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(redefined)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>type_name</strong>: <code><a href="/classes/String">String</a> `<br>
+`{default&#160;=&#160;"Date_time"}</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(redefined)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>type_anchor</strong>: `<a href="/classes/Any">Any</a> `</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="_tabs_5_effective--panel" class="tabpanel" aria-labelledby="_tabs_5_effective">
+<table class="tableblock frame-none grid-rows stretch">
+<colgroup>
+<col style="width: 40%;">
+<col style="width: 60%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-center valign-top" colspan="2"><strong>TYPE_DEF_DATE_TIME</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Rules meta-type representing the primitive type Date_time.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock">Inherits: <a href="../../../latest/bmm/expressions/#_el_type_def_class" class="xref page">EL_TYPE_DEF</a></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><strong>Attributes</strong></p></th>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>type_name</strong>: <code><a href="/classes/String">String</a> ` [1..1]<br>
+`{default&#160;=&#160;"Date_time"}</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>type_anchor</strong>: `<a href="/classes/Any">Any</a> ` [1..1]</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="_tabs_5_bmm--panel" class="tabpanel" aria-labelledby="_tabs_5_bmm">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+    "name": "TYPE_DEF_DATE_TIME",
+    "documentation": "Rules meta-type representing the primitive type Date_time.",
+    "ancestors": [
+        "EL_TYPE_DEF"
+    ],
+    "properties": {
+        "type_name": {
+            "_type": "P_BMM_SINGLE_PROPERTY",
+            "name": "type_name",
+            "is_mandatory": true,
+            "type": "String",
+            "default": "\"Date_time\""
+        },
+        "type_anchor": {
+            "_type": "P_BMM_SINGLE_PROPERTY",
+            "name": "type_anchor",
+            "is_mandatory": true,
+            "type": "Any"
+        }
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="_tabs_5_uml--panel" class="tabpanel" aria-labelledby="_tabs_5_uml">
+<div class="imageblock">
+<div class="content">
+<img src="../../_images/uml/classes/type_def_date_time.svg" alt="type def date time">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_type_def_time_class"><a class="anchor" href="#_type_def_time_class"></a><a class="link" href="#_type_def_time_class">TYPE_DEF_TIME Class</a></h4>
+<div id="_tabs_6" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="_tabs_6_definition" class="tab">
+<p>Definition</p>
+</li>
+<li id="_tabs_6_effective" class="tab">
+<p>Effective</p>
+</li>
+<li id="_tabs_6_bmm" class="tab">
+<p>BMM</p>
+</li>
+<li id="_tabs_6_uml" class="tab">
+<p>UML</p>
+</li>
+</ul>
+</div>
+<div id="_tabs_6_definition--panel" class="tabpanel" aria-labelledby="_tabs_6_definition">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>TYPE_DEF_TIME</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Rules meta-type representing the primitive type Time.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="../../../latest/bmm/expressions/#_el_type_def_class" class="xref page">EL_TYPE_DEF</a></code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(redefined)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>type_name</strong>: <code><a href="/classes/String">String</a> `<br>
+`{default&#160;=&#160;"Time"}</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(redefined)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>type_anchor</strong>: `<a href="/classes/Any">Any</a> `</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="_tabs_6_effective--panel" class="tabpanel" aria-labelledby="_tabs_6_effective">
+<table class="tableblock frame-none grid-rows stretch">
+<colgroup>
+<col style="width: 40%;">
+<col style="width: 60%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-center valign-top" colspan="2"><strong>TYPE_DEF_TIME</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Rules meta-type representing the primitive type Time.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock">Inherits: <a href="../../../latest/bmm/expressions/#_el_type_def_class" class="xref page">EL_TYPE_DEF</a></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><strong>Attributes</strong></p></th>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>type_name</strong>: <code><a href="/classes/String">String</a> ` [1..1]<br>
+`{default&#160;=&#160;"Time"}</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>type_anchor</strong>: `<a href="/classes/Any">Any</a> ` [1..1]</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="_tabs_6_bmm--panel" class="tabpanel" aria-labelledby="_tabs_6_bmm">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+    "name": "TYPE_DEF_TIME",
+    "documentation": "Rules meta-type representing the primitive type Time.",
+    "ancestors": [
+        "EL_TYPE_DEF"
+    ],
+    "properties": {
+        "type_name": {
+            "_type": "P_BMM_SINGLE_PROPERTY",
+            "name": "type_name",
+            "is_mandatory": true,
+            "type": "String",
+            "default": "\"Time\""
+        },
+        "type_anchor": {
+            "_type": "P_BMM_SINGLE_PROPERTY",
+            "name": "type_anchor",
+            "is_mandatory": true,
+            "type": "Any"
+        }
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="_tabs_6_uml--panel" class="tabpanel" aria-labelledby="_tabs_6_uml">
+<div class="imageblock">
+<div class="content">
+<img src="../../_images/uml/classes/type_def_time.svg" alt="type def time">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_type_def_duration_class"><a class="anchor" href="#_type_def_duration_class"></a><a class="link" href="#_type_def_duration_class">TYPE_DEF_DURATION Class</a></h4>
+<div id="_tabs_7" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="_tabs_7_definition" class="tab">
+<p>Definition</p>
+</li>
+<li id="_tabs_7_effective" class="tab">
+<p>Effective</p>
+</li>
+<li id="_tabs_7_bmm" class="tab">
+<p>BMM</p>
+</li>
+<li id="_tabs_7_uml" class="tab">
+<p>UML</p>
+</li>
+</ul>
+</div>
+<div id="_tabs_7_definition--panel" class="tabpanel" aria-labelledby="_tabs_7_definition">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>TYPE_DEF_DURATION</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Rules meta-type representing the primitive type Duration.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="../../../latest/bmm/expressions/#_el_type_def_class" class="xref page">EL_TYPE_DEF</a></code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(redefined)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>type_name</strong>: <code><a href="/classes/String">String</a> `<br>
+`{default&#160;=&#160;"Duration"}</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(redefined)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>type_anchor</strong>: `<a href="/classes/Any">Any</a> `</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="_tabs_7_effective--panel" class="tabpanel" aria-labelledby="_tabs_7_effective">
+<table class="tableblock frame-none grid-rows stretch">
+<colgroup>
+<col style="width: 40%;">
+<col style="width: 60%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-center valign-top" colspan="2"><strong>TYPE_DEF_DURATION</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Rules meta-type representing the primitive type Duration.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock">Inherits: <a href="../../../latest/bmm/expressions/#_el_type_def_class" class="xref page">EL_TYPE_DEF</a></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><strong>Attributes</strong></p></th>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>type_name</strong>: <code><a href="/classes/String">String</a> ` [1..1]<br>
+`{default&#160;=&#160;"Duration"}</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>type_anchor</strong>: `<a href="/classes/Any">Any</a> ` [1..1]</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="_tabs_7_bmm--panel" class="tabpanel" aria-labelledby="_tabs_7_bmm">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+    "name": "TYPE_DEF_DURATION",
+    "documentation": "Rules meta-type representing the primitive type Duration.",
+    "ancestors": [
+        "EL_TYPE_DEF"
+    ],
+    "properties": {
+        "type_name": {
+            "_type": "P_BMM_SINGLE_PROPERTY",
+            "name": "type_name",
+            "is_mandatory": true,
+            "type": "String",
+            "default": "\"Duration\""
+        },
+        "type_anchor": {
+            "_type": "P_BMM_SINGLE_PROPERTY",
+            "name": "type_anchor",
+            "is_mandatory": true,
+            "type": "Any"
+        }
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="_tabs_7_uml--panel" class="tabpanel" aria-labelledby="_tabs_7_uml">
+<div class="imageblock">
+<div class="content">
+<img src="../../_images/uml/classes/type_def_duration.svg" alt="type def duration">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_type_def_string_class"><a class="anchor" href="#_type_def_string_class"></a><a class="link" href="#_type_def_string_class">TYPE_DEF_STRING Class</a></h4>
+<div id="_tabs_8" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="_tabs_8_definition" class="tab">
+<p>Definition</p>
+</li>
+<li id="_tabs_8_effective" class="tab">
+<p>Effective</p>
+</li>
+<li id="_tabs_8_bmm" class="tab">
+<p>BMM</p>
+</li>
+<li id="_tabs_8_uml" class="tab">
+<p>UML</p>
+</li>
+</ul>
+</div>
+<div id="_tabs_8_definition--panel" class="tabpanel" aria-labelledby="_tabs_8_definition">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>TYPE_DEF_STRING</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Rules meta-type representing the primitive type String.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="../../../latest/bmm/expressions/#_el_type_def_class" class="xref page">EL_TYPE_DEF</a></code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(redefined)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>type_name</strong>: <code><a href="/classes/String">String</a> `<br>
+`{default&#160;=&#160;"String"}</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(redefined)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>type_anchor</strong>: `<a href="/classes/String">String</a> `</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="_tabs_8_effective--panel" class="tabpanel" aria-labelledby="_tabs_8_effective">
+<table class="tableblock frame-none grid-rows stretch">
+<colgroup>
+<col style="width: 40%;">
+<col style="width: 60%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-center valign-top" colspan="2"><strong>TYPE_DEF_STRING</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Rules meta-type representing the primitive type String.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock">Inherits: <a href="../../../latest/bmm/expressions/#_el_type_def_class" class="xref page">EL_TYPE_DEF</a></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><strong>Attributes</strong></p></th>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>type_name</strong>: <code><a href="/classes/String">String</a> ` [1..1]<br>
+`{default&#160;=&#160;"String"}</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>type_anchor</strong>: `<a href="/classes/String">String</a> ` [1..1]</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="_tabs_8_bmm--panel" class="tabpanel" aria-labelledby="_tabs_8_bmm">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+    "name": "TYPE_DEF_STRING",
+    "documentation": "Rules meta-type representing the primitive type String.",
+    "ancestors": [
+        "EL_TYPE_DEF"
+    ],
+    "properties": {
+        "type_name": {
+            "_type": "P_BMM_SINGLE_PROPERTY",
+            "name": "type_name",
+            "is_mandatory": true,
+            "type": "String",
+            "default": "\"String\""
+        },
+        "type_anchor": {
+            "_type": "P_BMM_SINGLE_PROPERTY",
+            "name": "type_anchor",
+            "is_mandatory": true,
+            "type": "String"
+        }
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="_tabs_8_uml--panel" class="tabpanel" aria-labelledby="_tabs_8_uml">
+<div class="imageblock">
+<div class="content">
+<img src="../../_images/uml/classes/type_def_string.svg" alt="type def string">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_type_def_uri_class"><a class="anchor" href="#_type_def_uri_class"></a><a class="link" href="#_type_def_uri_class">TYPE_DEF_URI Class</a></h4>
+<div id="_tabs_9" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="_tabs_9_definition" class="tab">
+<p>Definition</p>
+</li>
+<li id="_tabs_9_effective" class="tab">
+<p>Effective</p>
+</li>
+<li id="_tabs_9_bmm" class="tab">
+<p>BMM</p>
+</li>
+<li id="_tabs_9_uml" class="tab">
+<p>UML</p>
+</li>
+</ul>
+</div>
+<div id="_tabs_9_definition--panel" class="tabpanel" aria-labelledby="_tabs_9_definition">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>TYPE_DEF_URI</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Rules meta-type representing the primitive type Uri.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="../../../latest/bmm/expressions/#_el_type_def_class" class="xref page">EL_TYPE_DEF</a></code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(redefined)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>type_name</strong>: <code><a href="/classes/String">String</a> `<br>
+`{default&#160;=&#160;"Uri"}</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(redefined)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>type_anchor</strong>: `<a href="/classes/Integer">Integer</a> `</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="_tabs_9_effective--panel" class="tabpanel" aria-labelledby="_tabs_9_effective">
+<table class="tableblock frame-none grid-rows stretch">
+<colgroup>
+<col style="width: 40%;">
+<col style="width: 60%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-center valign-top" colspan="2"><strong>TYPE_DEF_URI</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Rules meta-type representing the primitive type Uri.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock">Inherits: <a href="../../../latest/bmm/expressions/#_el_type_def_class" class="xref page">EL_TYPE_DEF</a></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><strong>Attributes</strong></p></th>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>type_name</strong>: <code><a href="/classes/String">String</a> ` [1..1]<br>
+`{default&#160;=&#160;"Uri"}</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>type_anchor</strong>: `<a href="/classes/Integer">Integer</a> ` [1..1]</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="_tabs_9_bmm--panel" class="tabpanel" aria-labelledby="_tabs_9_bmm">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+    "name": "TYPE_DEF_URI",
+    "documentation": "Rules meta-type representing the primitive type Uri.",
+    "ancestors": [
+        "EL_TYPE_DEF"
+    ],
+    "properties": {
+        "type_name": {
+            "_type": "P_BMM_SINGLE_PROPERTY",
+            "name": "type_name",
+            "is_mandatory": true,
+            "type": "String",
+            "default": "\"Uri\""
+        },
+        "type_anchor": {
+            "_type": "P_BMM_SINGLE_PROPERTY",
+            "name": "type_anchor",
+            "is_mandatory": true,
+            "type": "Integer"
+        }
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="_tabs_9_uml--panel" class="tabpanel" aria-labelledby="_tabs_9_uml">
+<div class="imageblock">
+<div class="content">
+<img src="../../_images/uml/classes/type_def_uri.svg" alt="type def uri">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_type_def_terminology_code_class"><a class="anchor" href="#_type_def_terminology_code_class"></a><a class="link" href="#_type_def_terminology_code_class">TYPE_DEF_TERMINOLOGY_CODE Class</a></h4>
+<div id="_tabs_10" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="_tabs_10_definition" class="tab">
+<p>Definition</p>
+</li>
+<li id="_tabs_10_effective" class="tab">
+<p>Effective</p>
+</li>
+<li id="_tabs_10_bmm" class="tab">
+<p>BMM</p>
+</li>
+<li id="_tabs_10_uml" class="tab">
+<p>UML</p>
+</li>
+</ul>
+</div>
+<div id="_tabs_10_definition--panel" class="tabpanel" aria-labelledby="_tabs_10_definition">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>TYPE_DEF_TERMINOLOGY_CODE</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Rules meta-type representing the primitive type Terminology_code.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="../../../latest/bmm/expressions/#_el_type_def_class" class="xref page">EL_TYPE_DEF</a></code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(redefined)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>type_name</strong>: <code><a href="/classes/String">String</a> `<br>
+`{default&#160;=&#160;"Terminology_code"}</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(redefined)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>type_anchor</strong>: `<a href="/classes/Terminology_code">Terminology_code</a> `</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="_tabs_10_effective--panel" class="tabpanel" aria-labelledby="_tabs_10_effective">
+<table class="tableblock frame-none grid-rows stretch">
+<colgroup>
+<col style="width: 40%;">
+<col style="width: 60%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-center valign-top" colspan="2"><strong>TYPE_DEF_TERMINOLOGY_CODE</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Rules meta-type representing the primitive type Terminology_code.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock">Inherits: <a href="../../../latest/bmm/expressions/#_el_type_def_class" class="xref page">EL_TYPE_DEF</a></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><strong>Attributes</strong></p></th>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>type_name</strong>: <code><a href="/classes/String">String</a> ` [1..1]<br>
+`{default&#160;=&#160;"Terminology_code"}</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>type_anchor</strong>: `<a href="/classes/Terminology_code">Terminology_code</a> ` [1..1]</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="_tabs_10_bmm--panel" class="tabpanel" aria-labelledby="_tabs_10_bmm">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+    "name": "TYPE_DEF_TERMINOLOGY_CODE",
+    "documentation": "Rules meta-type representing the primitive type Terminology_code.",
+    "ancestors": [
+        "EL_TYPE_DEF"
+    ],
+    "properties": {
+        "type_name": {
+            "_type": "P_BMM_SINGLE_PROPERTY",
+            "name": "type_name",
+            "is_mandatory": true,
+            "type": "String",
+            "default": "\"Terminology_code\""
+        },
+        "type_anchor": {
+            "_type": "P_BMM_SINGLE_PROPERTY",
+            "name": "type_anchor",
+            "is_mandatory": true,
+            "type": "Terminology_code"
+        }
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="_tabs_10_uml--panel" class="tabpanel" aria-labelledby="_tabs_10_uml">
+<div class="imageblock">
+<div class="content">
+<img src="../../_images/uml/classes/type_def_terminology_code.svg" alt="type def terminology code">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_type_def_object_ref_class"><a class="anchor" href="#_type_def_object_ref_class"></a><a class="link" href="#_type_def_object_ref_class">TYPE_DEF_OBJECT_REF Class</a></h4>
+<div id="_tabs_11" class="openblock tabs is-loading">
+<div class="content">
+<div class="ulist tablist">
+<ul>
+<li id="_tabs_11_definition" class="tab">
+<p>Definition</p>
+</li>
+<li id="_tabs_11_effective" class="tab">
+<p>Effective</p>
+</li>
+<li id="_tabs_11_bmm" class="tab">
+<p>BMM</p>
+</li>
+<li id="_tabs_11_uml" class="tab">
+<p>UML</p>
+</li>
+</ul>
+</div>
+<div id="_tabs_11_definition--panel" class="tabpanel" aria-labelledby="_tabs_11_definition">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Class</strong></p></th>
+<th class="tableblock halign-center valign-top" colspan="2"><p class="tableblock"><strong>TYPE_DEF_OBJECT_REF</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Description</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Rules meta-type representing the type Object_ref, which is assumed to by the type of any non-primitive reference target within a rule.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Inherit</strong></p></th>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><code><a href="../../../latest/bmm/expressions/#_el_type_def_class" class="xref page">EL_TYPE_DEF</a></code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Attributes</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Signature</strong></p></th>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>Meaning</strong></p></th>
+</tr>
+<tr>
+<th class="tableblock halign-center valign-top"><p class="tableblock"><strong>1..1<br>
+(redefined)</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>type_name</strong>: <code><a href="/classes/String">String</a> `<br>
+`{default&#160;=&#160;"Object_ref"}</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="_tabs_11_effective--panel" class="tabpanel" aria-labelledby="_tabs_11_effective">
+<table class="tableblock frame-none grid-rows stretch">
+<colgroup>
+<col style="width: 40%;">
+<col style="width: 60%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-center valign-top" colspan="2"><strong>TYPE_DEF_OBJECT_REF</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2"><div class="content"><div class="paragraph">
+<p>Rules meta-type representing the type Object_ref, which is assumed to by the type of any non-primitive reference target within a rule.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" colspan="2"><p class="tableblock">Inherits: <a href="../../../latest/bmm/expressions/#_el_type_def_class" class="xref page">EL_TYPE_DEF</a></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top" colspan="2"><p class="tableblock"><strong>Attributes</strong></p></th>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>type_name</strong>: <code><a href="/classes/String">String</a> ` [1..1]<br>
+`{default&#160;=&#160;"Object_ref"}</code></p></td>
+<td class="tableblock halign-left valign-top"><div class="content"></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>type_anchor</strong>: `<a href="/classes/Any">Any</a> ` [1..1]</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Attribute of the openEHR primitive type (or Any) corresponding to this type definition meta-type.<br>
+<em>Inherited from <a href="../../../latest/bmm/expressions/#_el_type_def_class" class="xref page">EL_TYPE_DEF</a></em></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="_tabs_11_bmm--panel" class="tabpanel" aria-labelledby="_tabs_11_bmm">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+    "name": "TYPE_DEF_OBJECT_REF",
+    "documentation": "Rules meta-type representing the type Object_ref, which is assumed to by the type of any non-primitive reference target within a rule.",
+    "ancestors": [
+        "EL_TYPE_DEF"
+    ],
+    "properties": {
+        "type_name": {
+            "_type": "P_BMM_SINGLE_PROPERTY",
+            "name": "type_name",
+            "is_mandatory": true,
+            "type": "String",
+            "default": "\"Object_ref\""
+        }
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+<div id="_tabs_11_uml--panel" class="tabpanel" aria-labelledby="_tabs_11_uml">
+<div class="imageblock">
+<div class="content">
+<img src="../../_images/uml/classes/type_def_object_ref.svg" alt="type def object ref">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="../language/">The Basic Expression Language</a></span>
+  <span class="next"><a href="../syntax/">Syntax Specification</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>
+    Copyright: © 2003+
+    <a href="https://www.openehr.org"
+        alt="is an independent, non-profit foundation, facilitating the sharing of health
+           records by consumers and clinicians via open specifications, clinical models
+           and open platform implementations.">The openEHR Foundation</a>
+  </p>
+
+  <p>
+    License:
+    <img src="../../../../ui/img/cc-by-nd-88x31.png"
+        alt="Creative Commons Attribution-NoDerivs 3.0 Unported."
+        style="vertical-align:middle;margin:0 0.25rem 0 0;">
+    <a href="https://creativecommons.org/licenses/by-nd/3.0/">
+      Creative Commons Attribution-NoDerivs 3.0 Unported.
+    </a>
+  </p>
+
+  <p>
+    <strong>Links: <strong>
+    <a href="https://www.openehr.org/terms-of-use" class="mr-1">Terms of use</a> |
+    <a href="https://www.openehr.org/privacy-policy" class="mx-1">Privacy policy</a> |
+    <a href="https://www.openehr.org/privacy-policy" class="mx-1">Logos &amp; Trademarks</a> |
+    <a href="https://www.openehr.org/contact-us" class="mx-1">Contact</a>
+  </p>
+</footer>
+
+<script id="site-script" src="../../../../ui/js/site.js" data-ui-root-path="../../../../ui"></script>
+<script defer src="../../../../ui/js/vendor/highlight.js"></script>
+<script src="../../../../ui/js/vendor/lunr.js"></script>
+<script src="../../../../ui/js/search-ui.js" id="search-ui-script" data-site-root-path="../../../.." data-snippet-length="80" data-stylesheet="../../../../ui/css/search.css"></script>
+<script async src="../../../../search-index.js"></script>
+<script src="../../../../ui/js/medium-zoom.min.js"></script>
+<script src="../../../../ui/js/zoom.js"></script>
+<script async src="../../../../ui/js/tabs.js"></script>
+  </body>
+</html>
